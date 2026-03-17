@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	const isFirefox = false;
+	const isFirefox = true;
 	const isEdgeDesktop = navigator.userAgent.includes('Edg/');
 	const isEdge = navigator.userAgent.includes('Edg/') || navigator.userAgent.includes('EdgA/');
 
@@ -182,12 +182,8 @@
 	function getBrowserType() {
 		if (browserType) return browserType;
 		{
-			if (isEdge) {
-				browserType = 'edge';
-			} else {
-				browserType = 'chrome';
-			}
-			return browserType;
+			browserType = 'firefox';
+			return 'firefox';
 		}
 	}
 

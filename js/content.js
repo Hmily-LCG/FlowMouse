@@ -758,33 +758,7 @@
 
 			if (e.composedPath().some(el => el.hasAttribute && el.hasAttribute('data-gesture-ignore'))) return;
 
-			if (isMacOrLinux) {
-				const now = Date.now();
-				if (recognizer.isActive()) {
-					e.preventDefault();
-					e.stopPropagation();
-					return false;
-				}
-				if (now - lastRightClickTime < doubleClickDelay) {
-					lastRightClickTime = 0; 
-					gestureState.isRightButton = false; 
-					recognizer.reset();
-					if (!SETTINGS.macLinuxHintDismissed) {
-						SETTINGS.macLinuxHintDismissed = true;
-						try { chrome.storage.sync.set({ macLinuxHintDismissed: true }); } catch (e) {}
-					}
-					return; 
-				} else {
-					lastRightClickTime = now;
-					e.preventDefault();
-
-					if (!SETTINGS.macLinuxHintDismissed && !isIframe) {
-						showMacLinuxHint();
-					}
-
-					return false;
-				}
-			} else {
+			{
 				if (gestureState.preventContextMenu || isRemoteGestureActive) {
 					e.preventDefault();
 					e.stopPropagation();
@@ -1007,6 +981,12 @@
 
 			let targetImg = path.find(el => el.tagName === 'IMG');
 
+			if (!targetImg) {
+				const el = document.elementFromPoint(e.clientX, e.clientY);
+				if (el && el.tagName === 'IMG') {
+					targetImg = el;
+				}
+			}
 
 			if (SETTINGS.enableImageDrag && targetImg) {
 				dragContent = targetImg.src || targetImg.currentSrc;
@@ -1202,17 +1182,6 @@
 					safeSendMessage({ action: 'gestureStateUpdate', active: false });
 				}
 
-				if (isEdgeDesktop && !isIframe) {
-					edgeGestureBlurCount++;
-					if (edgeGestureBlurCount >= 2 && !SETTINGS.edgeGestureConflict) {
-						SETTINGS.edgeGestureConflict = true;
-						try {
-							if (chrome.storage && chrome.storage.sync) {
-								chrome.storage.sync.set({ edgeGestureConflict: true });
-							}
-						} catch (e) { }
-					}
-				}
 
 				gestureState.preventContextMenu = false;
 				resetState();
@@ -1328,15 +1297,6 @@
 			const action = getGestureAction(pattern);
 			if (!action || action === 'none') return;
 
-			if (isEdgeDesktop && SETTINGS.edgeGestureConflict) {
-				SETTINGS.edgeGestureConflict = false;
-				edgeGestureBlurCount = 0;
-				try {
-					if (chrome.storage && chrome.storage.sync) {
-						chrome.storage.sync.set({ edgeGestureConflict: false });
-					}
-				} catch (e) { }
-			}
 
 			const config = SETTINGS.enableGestureCustomization
 				? (SETTINGS.mouseGestures?.[pattern] || {})

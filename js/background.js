@@ -244,16 +244,34 @@ async function handleAction(request, sender) {
 
 		case 'saveImage':
 			if (request.url) {
-				requestPermission(['downloads', 'pageCapture'], sender.tab?.windowId ?? null).then(async (granted) => {
+				requestPermission(['downloads'], sender.tab?.windowId ?? null).then(async (granted) => {
 					if (!granted) return;
 
 					if (request.url.startsWith('data:')) {
 						{
-							await chrome.downloads.download({
-								url: request.url,
-								filename: request.filename || null,
-								saveAs: false
-							});
+							try {
+								const response = await fetch(request.url);
+								const blob = await response.blob();
+								const downloadUrl = URL.createObjectURL(blob);
+
+								const filename = request.filename || getFilename(null, blob.type);
+
+								const downloadId = await chrome.downloads.download({
+									url: downloadUrl,
+									filename: filename,
+									saveAs: false
+								});
+
+								const revokeOnComplete = (delta) => {
+									if (delta.id === downloadId && delta.state?.current === 'complete') {
+										URL.revokeObjectURL(downloadUrl);
+										chrome.downloads.onChanged.removeListener(revokeOnComplete);
+									}
+								};
+								chrome.downloads.onChanged.addListener(revokeOnComplete);
+							} catch (e) {
+								console.error('Failed to download data URL:', e);
+							}
 						}
 						return;
 					}
@@ -261,42 +279,16 @@ async function handleAction(request, sender) {
 					const imageUrl = request.url;
 
 					{
-						const sourceTabId = sender.tab?.id ?? null;
-						if (!sourceTabId) {
-							return;
+						let headers = [];
+						if (request.origin) {
+							headers.push({ name: 'Referer', value: request.origin + '/' });
 						}
-
-						const MHTML_MAX_RETRIES = 2;   
-						const MHTML_RETRY_DELAY = 500;  
-						try {
-							let mhtmlBlob;
-							for (let i = 0; i <= MHTML_MAX_RETRIES; i++) {
-								try {
-									mhtmlBlob = await chrome.pageCapture.saveAsMHTML({ tabId: sourceTabId });
-									if (mhtmlBlob) break;
-								} catch (e) {
-									if (i >= MHTML_MAX_RETRIES) throw e; 
-									await new Promise(r => setTimeout(r, MHTML_RETRY_DELAY));
-								}
-							}
-							const mhtmlText = await mhtmlBlob.text();
-
-							const resource = findResourceInMhtml(mhtmlText, imageUrl);
-
-							if (resource && resource.dataUrl) {
-								const filename = getFilename(imageUrl, resource.type);
-								await chrome.downloads.download({
-									url: resource.dataUrl,
-									filename: filename,
-									saveAs: false
-								});
-							} else {
-								notifyDownloadError(sourceTabId);
-							}
-						} catch (e) {
-							console.error('MHTML capture failed:', e);
-							notifyDownloadError(sourceTabId);
-						}
+						await chrome.downloads.download({
+							url: imageUrl,
+							saveAs: false,
+							headers: headers
+						});
+						return;
 					}
 				});
 			}
@@ -433,6 +425,10 @@ async function handleAction(request, sender) {
 			return { success: true };
 
 		case 'newIncognito':
+			{
+				const hasPermission = await requestPermission(['incognito'], sender.tab?.windowId);
+				if (!hasPermission) return { success: true };
+			}
 			await chrome.windows.create({ incognito: true });
 			return { success: true };
 
@@ -494,21 +490,12 @@ async function handleAction(request, sender) {
 		}
 
 		case 'openDownloads':
-			{
-				await chrome.tabs.create({ url: 'chrome://downloads', active: true, windowId: sender.tab.windowId });
-			}
 			return { success: true };
 
 		case 'openHistory':
-			{
-				await chrome.tabs.create({ url: 'chrome://history', active: true, windowId: sender.tab.windowId });
-			}
 			return { success: true };
 
 		case 'openExtensions':
-			{
-				await chrome.tabs.create({ url: 'chrome://extensions', active: true, windowId: sender.tab.windowId });
-			}
 			return { success: true };
 
 		case 'duplicateTab':
@@ -735,12 +722,15 @@ chrome.runtime.onInstalled.addListener((details) => {
 
 		if (details.previousVersion.startsWith('1.2')) {
 			const isMacOrLinux = /Mac|Linux/i.test(navigator.platform);
-			if (isMacOrLinux) {
-				chrome.storage.sync.set({ macLinuxHintDismissed: true });
-			}
 		}
 	}
 
+	{
+		const isMacOrLinux = /Mac|Linux/i.test(navigator.platform);
+		if (isMacOrLinux) {
+			chrome.browserSettings.contextMenuShowEvent.set({ value: "mouseup" }).catch((e) => { });
+		}
+	}
 });
 
 
@@ -761,9 +751,7 @@ function isRestrictedUrl(url) {
 	}
 
 	{
-		if (url.startsWith('https://chrome.google.com/webstore') ||
-			url.startsWith('https://chromewebstore.google.com') ||
-			url.startsWith('https://microsoftedge.microsoft.com/addons')) {
+		if (url.startsWith('https://addons.mozilla.org')) {
 			return true;
 		}
 	}

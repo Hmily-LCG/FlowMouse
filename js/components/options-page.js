@@ -878,13 +878,6 @@ class OptionsPage extends LitElement {
 
 
 	#handleEdgeGestureLink(e) {
-		if (window.i18n.isEdgeDesktop) {
-			const link = e.target.closest('.edge-gesture-link');
-			if (link) {
-				e.preventDefault();
-				chrome.tabs.create({ url: 'edge://settings/appearance/browserBehavior/mouseGestures' });
-			}
-		}
 	}
 
 	#getVersion() {
@@ -1237,7 +1230,7 @@ class OptionsPage extends LitElement {
 		if (action === 'addToBookmarks') {
 			permissions = ['bookmarks'];
 		} else if (action === 'saveImage') {
-			permissions = ['downloads', 'pageCapture'];
+			permissions = ['downloads'];
 		}
 
 		if (!permissions) return;

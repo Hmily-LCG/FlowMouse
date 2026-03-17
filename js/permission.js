@@ -26,19 +26,20 @@
 		iconBookmarks.style.display = 'block';
 		permissions = permissionsParam.split(',');
 	}
-	if (permissionsParam === 'downloads,pageCapture') {
-		const titleText = window.i18n.getMessage('permissionDownloadsPageCaptureTitle');
+	if (permissionsParam === 'downloads') {
+		const titleText = window.i18n.getMessage('permissionDownloadsTitle');
 		titleEl.textContent = titleText;
-		descEl.textContent = window.i18n.getMessage('permissionDownloadsPageCaptureDesc');
+		descEl.textContent = window.i18n.getMessage('permissionDownloadsDesc');
 		iconDownloads.style.display = 'block';
 		permissions = permissionsParam.split(',');
 	}
 	if (permissionsParam === 'incognito') {
 		{
-			const titleText = window.i18n.getMessage('permissionIncognitoTitle');
+			const titleText = window.i18n.getMessage('permissionFirefoxIncognitoTitle');
 			titleEl.textContent = titleText;
-			descEl.textContent = window.i18n.getMessage('permissionIncognitoDesc');
-			grantBtn.textContent = window.i18n.getMessage('openExtensionsSettings');
+			descEl.textContent = window.i18n.getMessage('permissionFirefoxIncognitoDesc');
+			grantBtn.textContent = window.i18n.getMessage('buttonOkay');
+			cancelBtn.style.display = 'none';
 		}
 		iconIncognito.style.display = 'block';
 		isCustomAction = true;
@@ -51,7 +52,6 @@
 		grantBtn.addEventListener('click', async () => {
 			if (isCustomAction && permissionsParam === 'incognito') {
 				{
-					await chrome.tabs.create({ url: 'chrome://extensions/?id=' + chrome.runtime.id });
 					window.close();
 				}
 				return;

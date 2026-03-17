@@ -55,11 +55,7 @@
 		'openCustomUrl': 'actionOpenCustomUrl',
 		'copyUrl': 'actionCopyUrl',
 		'copyTitle': 'actionCopyTitle',
-		...({
-			'openDownloads': 'actionOpenDownloads',
-			'openHistory': 'actionOpenHistory',
-			'openExtensions': 'actionOpenExtensions',
-		}),
+		...({}),
 		'printPage': 'actionPrintPage',
 		'duplicateTab': 'actionDuplicateTab',
 		'toggleMuteTab': 'actionToggleMuteTab',

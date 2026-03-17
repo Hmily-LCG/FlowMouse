@@ -180,6 +180,9 @@ class GestureVisualizer {
 	init() {
 		if (this.container) return true;
 
+		if (document.contentType === 'application/xml') {
+			return false;
+		}
 
 		this.container = this.#createElement('div');
 

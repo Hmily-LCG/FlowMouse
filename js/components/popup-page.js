@@ -527,9 +527,7 @@ class PopupPage extends LitElement {
 		}
 
 		{
-			if (url.startsWith('https://chrome.google.com/webstore') ||
-				url.startsWith('https://chromewebstore.google.com') ||
-				url.startsWith('https://microsoftedge.microsoft.com/addons')) {
+			if (url.startsWith('https://addons.mozilla.org')) {
 				return true;
 			}
 		}

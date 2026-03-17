@@ -264,12 +264,6 @@
 				elements.step2ContinueBtn.style.visibility = 'visible';
 				elements.step2ContinueBtn.style.opacity = '1';
 
-				{
-					if (isMacOrLinux && elements.macLinuxNotice) {
-						elements.macLinuxNotice.style.display = 'block';
-						try { chrome.storage.sync.set({ macLinuxHintDismissed: true }); } catch (e) {}
-					}
-				}
 			}
 			if (elements.discoveryBanner) {
 				elements.discoveryBanner.classList.add('visible');
@@ -316,27 +310,7 @@
 			return false;
 		}
 
-		if (isMacOrLinux) {
-			const now = Date.now();
-
-			if (TutorialState.preventContextMenu) {
-				e.preventDefault();
-				e.stopPropagation();
-				return false;
-			}
-
-			if (now - lastRightClickTime < doubleClickDelay) {
-				lastRightClickTime = 0;
-				recognizer.reset();
-				TutorialState.gestureActive = false;
-				return; 
-			} else {
-				lastRightClickTime = now;
-				e.preventDefault();
-				e.stopPropagation();
-				return false;
-			}
-		} else {
+		{
 			if (TutorialState.preventContextMenu) {
 				e.preventDefault();
 				e.stopPropagation();
@@ -393,22 +367,10 @@
 
 			if (TutorialState.currentStep === 1) {
 				resetStep1();
-				if (window.i18n.isEdgeDesktop) {
-					edgeGestureDetected = true;
-				}
 			}
 		}
 	});
 
-	if (window.i18n.isEdgeDesktop) {
-		window.addEventListener('focus', () => {
-			if (edgeGestureDetected) {
-				edgeGestureDetected = false;
-				TutorialState.stepTransitionCooldown = false;
-				goToStep(3);
-			}
-		});
-	}
 
 	document.addEventListener('pointermove', (e) => {
 		if (!TutorialState.gestureActive) return;

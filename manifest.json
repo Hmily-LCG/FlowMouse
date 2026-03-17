@@ -1,22 +1,21 @@
 {
     "manifest_version": 3,
     "name": "__MSG_extName__",
-    "version": "1.3",
+    "version": "1.3.2",
     "author": "Hmily[LCG] & Coxxs",
     "description": "__MSG_extDescription__",
     "default_locale": "en",
-    "minimum_chrome_version": "109",
     "permissions": [
         "tabs",
         "sessions",
         "storage",
         "contextMenus",
-        "search"
+        "search",
+        "browserSettings"
     ],
     "optional_permissions": [
         "bookmarks",
-        "downloads",
-        "pageCapture"
+        "downloads"
     ],
     "options_ui": {
         "page": "pages/options.html",
@@ -26,7 +25,9 @@
         "<all_urls>"
     ],
     "background": {
-        "service_worker": "js/background.js"
+        "scripts": [
+            "js/background.js"
+        ]
     },
     "content_scripts": [
         {
@@ -66,5 +67,16 @@
                 "<all_urls>"
             ]
         }
-    ]
+    ],
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "flowmouse@52pojie.cn",
+            "strict_min_version": "147.0",
+            "data_collection_permissions": {
+                "required": [
+                    "none"
+                ]
+            }
+        }
+    }
 }
