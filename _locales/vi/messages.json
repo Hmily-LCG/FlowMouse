@@ -107,6 +107,38 @@
 		"message": "Giữ chuột phải và di chuyển chuột để thực hiện cử chỉ dễ dàng",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "Nút Kích Hoạt",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "Chọn các nút chuột có thể kích hoạt cử chỉ",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "Chuột phải",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "Chuột giữa",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "Nút bên (Quay lại)",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "Nút bên (Tiếp theo)",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "Nút phải bút cảm ứng",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "Một số nút kích hoạt (trigger) có thể hoạt động không bình thường tùy thuộc vào phần cứng hoặc cài đặt trình điều khiển của bạn. Ví dụ: Chuột Logitech có thể yêu cầu tắt tính năng 'Cuộn ngang' (Horizontal Scrolling) trong trình điều khiển để sử dụng các nút bên cho cử chỉ.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "Do giới hạn hệ thống, khi cử chỉ nhấp chuột phải được bật, người dùng macOS / Linux cần nhấp đúp chuột phải để mở menu ngữ cảnh.",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "Di chuyển tab hiện tại",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "Tải lại toàn bộ (bỏ qua bộ nhớ cache)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "Đóng trình duyệt",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "Mở tab mới",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "Không đóng các tab đã ghim",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "Đóng các tab khác",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "Khôi phục",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "Thẻ trái",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "Thẻ phải",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 Kéo để tìm kiếm",

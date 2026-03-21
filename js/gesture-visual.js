@@ -223,8 +223,8 @@ class GestureVisualizer {
 		this.resizeHandler = () => {
 			if (!this.canvas) return;
 			const dpr = window.devicePixelRatio || 1;
-			const width = document.documentElement.clientWidth;
-			const height = document.documentElement.clientHeight;
+			const width = window.innerWidth;
+			const height = window.innerHeight;
 
 			this.canvas.width = width * dpr;
 			this.canvas.height = height * dpr;

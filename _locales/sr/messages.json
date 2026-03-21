@@ -107,6 +107,38 @@
 		"message": "Држите десни тастер миша и померите миша да бисте лако извршили гестове",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "Дугмад за покретање",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "Изаберите која дугмад миша могу да покрећу гестове",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "Десни тастер",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "Средњи тастер",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "Бочни тастер (Назад)",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "Бочни тастер (Напред)",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "Десни тастер оловке",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "Neki okidački tasteri možda neće raditi ispravno u zavisnosti od hardvera ili postavki upravljačkog programa. Na primer, Logitech miševi mogu zahtevati onemogućavanje opcije „Horizontalno pomeranje“ (Horizontal scrolling) u drajveru kako bi se bočni tasteri koristili za poteze (gestove).",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "Због системских ограничења, када су омогућени гестови десним тастером миша, двоструки десни клик је потребан за отварање контекстног менија на macOS / Linux.",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "Премести тренутну картицу",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "Тврдо поновно учитавање (заобиђи кеш)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "Затвори прегледач",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "Нова картица",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "Не затварај закачене картице",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "Затвори остале картице",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "Врати",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "Лева картица",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "Десна картица",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 Превлачење претраге",

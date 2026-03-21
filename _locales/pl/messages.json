@@ -107,6 +107,38 @@
 		"message": "Przytrzymaj prawy przycisk myszy i przesuń mysz, aby łatwo wykonywać gesty",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "Przyciski wyzwalające",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "Wybierz, które przyciski myszy mogą wyzwalać gesty",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "Prawy przycisk",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "Środkowy przycisk",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "Przycisk boczny (Wstecz)",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "Przycisk boczny (Dalej)",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "Prawy przycisk rysika",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "Niektóre przyciski wyzwalające mogą nie działać prawidłowo w zależności od używanego sprzętu lub ustawień sterownika. Na przykład myszy Logitech mogą wymagać wyłączenia „Przewijania w poziomie” (Horizontal Scrolling) w sterowniku, aby móc używać przycisków bocznych do gestów.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "Ze względu na ograniczenia systemowe, gdy włączone są gesty prawego przycisku myszy, podwójne kliknięcie prawym przyciskiem jest wymagane do otwarcia menu kontekstowego na macOS / Linux.",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "Przenieś bieżącą kartę",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "Twarde przeładowanie (pomiń pamięć podręczną)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "Zamknij przeglądarkę",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "Nowa karta",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "Nie zamykaj przypiętych kart",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "Zamknij inne karty",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "Przywróć",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "Lewa karta",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "Prawa karta",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 Przeciągnij, aby wyszukać",

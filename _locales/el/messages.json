@@ -107,6 +107,38 @@
 		"message": "Κρατήστε πατημένο το δεξί κουμπί του ποντικιού και μετακινήστε το ποντίκι για να εκτελέσετε εύκολα χειρονομίες",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "Κουμπιά ενεργοποίησης",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "Επιλέξτε ποια κουμπιά του ποντικιού μπορούν να ενεργοποιήσουν χειρονομίες",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "Δεξί Κουμπί",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "Μεσαίο Κουμπί",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "Πλαϊνό Κουμπί (Πίσω)",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "Πλαϊνό Κουμπί (Εμπρός)",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "Δεξί Κουμπί Γραφίδας",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "Ορισμένα κουμπιά ενεργοποίησης ενδέχεται να μην λειτουργούν σωστά ανάλογα με το υλικό ή τις ρυθμίσεις του προγράμματος οδήγησης. Για παράδειγμα, τα ποντίκια Logitech μπορεί να απαιτούν την απενεργοποίηση της 'Οριζόντιας Κύλισης' (Horizontal Scrolling) στο πρόγραμμα οδήγησης για να χρησιμοποιήσετε τα πλαϊνά κουμπιά για χειρονομίες.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "Λόγω περιορισμών του συστήματος, όταν είναι ενεργοποιημένες οι χειρονομίες δεξιού κλικ, απαιτείται διπλό δεξί κλικ για το άνοιγμα του μενού περιβάλλοντος σε macOS / Linux.",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "Μετακίνηση τρέχουσας καρτέλας",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "Σκληρή επαναφόρτωση (παράκαμψη κρυφής μνήμης)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "Κλείσιμο Προγράμματος Περιήγησης",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "Νέα Καρτέλα",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "Μην κλείνετε τις καρφιτσωμένες καρτέλες",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "Κλείσιμο Άλλων Καρτελών",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "Επαναφορά",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "Αριστερή Καρτέλα",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "Δεξιά Καρτέλα",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 Σύρετε για Αναζήτηση",

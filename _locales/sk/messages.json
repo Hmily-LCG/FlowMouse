@@ -107,6 +107,38 @@
 		"message": "Podržte pravé tlačidlo myši a pohybujte myšou pre jednoduché vykonanie gest",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "Spúšťacie tlačidlá",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "Vyberte, ktoré tlačidlá myši môžu spúšťať gestá",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "Pravé tlačidlo",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "Stredné tlačidlo",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "Bočné tlačidlo (Späť)",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "Bočné tlačidlo (Vpred)",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "Pravé tlačidlo dotykového pera",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "Niektoré spúšťacie tlačidlá nemusia fungovať správne v závislosti od vášho hardvéru alebo nastavení ovládača. Napríklad myši Logitech môžu vyžadovať zakázanie funkcie „Horizontálne posúvanie“ (Horizontal Scrolling) v ovládači, aby ste mohli používať bočné tlačidlá na gestá.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "Kvôli systémovým obmedzeniam je pri povolených gestách pravého tlačidla myši na macOS / Linux potrebné dvojité kliknutie pravým tlačidlom na otvorenie kontextového menu.",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "Presunúť aktuálnu kartu",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "Tvrdé obnovenie (obísť vyrovnávaciu pamäť)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "Zavrieť prehliadač",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "Nová karta",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "Nezatvárať pripnuté karty",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "Zavrieť ostatné karty",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "Obnoviť",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "Ľavá karta",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "Pravá karta",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 Vyhľadať ťahaním",

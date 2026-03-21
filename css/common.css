@@ -24,6 +24,7 @@
 	--toggle-secondary-bg: rgba(255, 255, 255, 0.18);
 	--input-focus-border-color: #5b9cf680;
 	--warning-color: #e6a117;
+	--notice-color: #60a5fa;
 	--bezier: cubic-bezier(.4, 0, .2, 1);
 	--rail-color: rgba(255, 255, 255, .20);
 	--rail-color-muted: rgba(255, 255, 255, .17);
@@ -53,6 +54,7 @@
 	--toggle-secondary-bg: rgba(0, 0, 0, .25);
 	--input-focus-border-color: #4285f480;
 	--warning-color: #e6a117;
+	--notice-color: #3b82f6;
 	--rail-color: rgba(0, 0, 0, .27);
 	--rail-color-muted: rgba(0, 0, 0, .18);
 }

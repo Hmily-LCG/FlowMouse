@@ -107,6 +107,38 @@
 		"message": "右クリックを押したままマウスを動かすことで、ジェスチャー操作を簡単に実行できます",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "トリガーボタン",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "ジェスチャーをトリガーできるマウスボタンを選択します",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "右ボタン",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "中ボタン",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "サイドボタン（戻る）",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "サイドボタン（進む）",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "タッチペン右ボタン",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "お使いのハードウェアやドライバの設定によっては、一部のトリガーボタンが正しく機能しない場合があります。例えば、Logicool（Logitech）のマウスでは、サイドボタンをジェスチャーに使用するためにドライバの「水平スクロール」を無効にする必要がある場合があります。",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "システムの制限により、右クリックジェスチャーが有効な場合、macOS / Linuxでは右ダブルクリックでコンテキストメニューを開きます。",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "現在のタブを移動",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "ハードリロード（キャッシュをバイパス）",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "ブラウザを閉じる",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "新しいタブを開く",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "固定されたタブを閉じない",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "他のタブを閉じる",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "復元",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "左のタブ",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "右のタブ",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 ドラッグして検索",

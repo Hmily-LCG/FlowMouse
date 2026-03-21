@@ -25,6 +25,22 @@ const CONTENT_ACTIONS = new Set([
 	'simulateKey',
 ]);
 
+async function createTabAtPosition(sender, position, extraOpts = {}) {
+	if (!sender.tab) {
+		return await chrome.tabs.create({ active: true, ...extraOpts });
+	}
+	const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
+	const createOpts = { active: true, windowId: sender.tab.windowId, ...extraOpts };
+	switch (position) {
+		case 'right': createOpts.index = sender.tab.index + 1; break;
+		case 'left': createOpts.index = sender.tab.index; break;
+		case 'first': createOpts.index = 0; break;
+		case 'last':
+		default: createOpts.index = tabs.length; break;
+	}
+	return await chrome.tabs.create(createOpts);
+}
+
 async function handleAction(request, sender) {
 	switch (request.action) {
 		case 'back':
@@ -41,12 +57,15 @@ async function handleAction(request, sender) {
 
 		case 'refresh':
 			if (sender.tab?.id) {
-				await chrome.tabs.reload(sender.tab.id);
+				await chrome.tabs.reload(sender.tab.id, { bypassCache: !!request.hardReload });
 			}
 			return { success: true };
 
 		case 'closeTab': {
 			if (sender.tab?.id) {
+				if (request.skipPinned && sender.tab.pinned) {
+					return { success: true };
+				}
 				const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
 				const currentIndex = sender.tab.index;
 				const afterClose = request.afterClose || 'default';
@@ -93,74 +112,33 @@ async function handleAction(request, sender) {
 			await chrome.sessions.restore(null).catch(() => { });
 			return { success: true };
 
-		case 'openTab':
-			if (sender.tab) {
-				await chrome.tabs.create({
-					url: request.url || undefined,
-					active: true,
-					index: sender.tab.index + 1,
-					openerTabId: sender.tab.id,  
-					windowId: sender.tab.windowId
-				});
-			} else {
-				await chrome.tabs.create({ url: request.url || undefined, active: true });
-			}
+		case 'newTab': {
+			await createTabAtPosition(sender, request.position || 'last');
 			return { success: true };
-
-		case 'newTab':
-			if (sender.tab) {
-				await chrome.tabs.create({ active: true, windowId: sender.tab.windowId });
-			} else {
-				await chrome.tabs.create({ active: true });
-			}
-			return { success: true };
+		}
 
 		case 'openTabAtPosition': {
-			if (sender.tab) {
-				if (request.incognito && !sender.tab.incognito) {
-					const granted = await requestPermission(['incognito'], sender.tab.windowId);
-					if (granted) {
-						await chrome.windows.create({ incognito: true, url: request.url }); 
-					}
-					return { success: true };
+			if (sender.tab && request.incognito && !sender.tab.incognito) {
+				const granted = await requestPermission(['incognito'], sender.tab.windowId);
+				if (granted) {
+					await chrome.windows.create({ incognito: true, url: request.url }); 
 				}
-
-				const position = request.position || 'right';
-				const active = request.active !== false;
-
-				if (position === 'current') {
-					await chrome.tabs.update(sender.tab.id, { url: request.url, active: active });
-					return { success: true };
-				}
-
-				const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
-				let newIndex;
-				switch (position) {
-					case 'left':
-						newIndex = sender.tab.index;
-						break;
-					case 'first':
-						newIndex = 0;
-						break;
-					case 'last':
-						newIndex = tabs.length;
-						break;
-					case 'right':
-					default:
-						newIndex = sender.tab.index + 1;
-						break;
-				}
-
-				await chrome.tabs.create({
-					url: request.url,
-					active: active,
-					index: newIndex,
-					openerTabId: sender.tab.id,
-					windowId: sender.tab.windowId
-				});
-			} else {
-				await chrome.tabs.create({ url: request.url, active: request.active !== false });
+				return { success: true };
 			}
+
+			const position = request.position || 'right';
+			const active = request.active !== false;
+
+			if (position === 'current' && sender.tab) {
+				await chrome.tabs.update(sender.tab.id, { url: request.url, active });
+				return { success: true };
+			}
+
+			await createTabAtPosition(sender, position, {
+				url: request.url,
+				active,
+				openerTabId: sender.tab?.id,
+			});
 			return { success: true };
 		}
 
@@ -210,29 +188,9 @@ async function handleAction(request, sender) {
 				if (position === 'current') {
 					await chrome.search.query({ text: request.query, tabId: sender.tab.id });
 				} else {
-					const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
-					let newIndex;
-					switch (position) {
-						case 'left':
-							newIndex = sender.tab.index;
-							break;
-						case 'first':
-							newIndex = 0;
-							break;
-						case 'last':
-							newIndex = tabs.length;
-							break;
-						case 'right':
-						default:
-							newIndex = sender.tab.index + 1;
-							break;
-					}
-
-					const newTab = await chrome.tabs.create({
-						active: active,
-						index: newIndex,
+					const newTab = await createTabAtPosition(sender, position, {
+						active,
 						openerTabId: sender.tab.id,
-						windowId: sender.tab.windowId
 					});
 					if (newTab) {
 						await chrome.search.query({ text: request.query, tabId: newTab.id });
@@ -298,7 +256,7 @@ async function handleAction(request, sender) {
 			if (sender.tab) {
 				const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
 				const tabsToRemove = tabs
-					.filter(tab => tab.id !== sender.tab.id)
+					.filter(tab => tab.id !== sender.tab.id && !(request.skipPinned && tab.pinned))
 					.map(tab => tab.id);
 
 				if (tabsToRemove.length > 0) {
@@ -312,7 +270,7 @@ async function handleAction(request, sender) {
 			if (sender.tab) {
 				const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
 				const tabsToRemove = tabs
-					.filter(tab => tab.index > sender.tab.index)
+					.filter(tab => tab.index > sender.tab.index && !(request.skipPinned && tab.pinned))
 					.map(tab => tab.id);
 
 				if (tabsToRemove.length > 0) {
@@ -326,7 +284,7 @@ async function handleAction(request, sender) {
 			if (sender.tab) {
 				const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
 				const tabsToRemove = tabs
-					.filter(tab => tab.index < sender.tab.index)
+					.filter(tab => tab.index < sender.tab.index && !(request.skipPinned && tab.pinned))
 					.map(tab => tab.id);
 
 				if (tabsToRemove.length > 0) {
@@ -339,16 +297,21 @@ async function handleAction(request, sender) {
 		case 'refreshAllTabs': {
 			const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
 			for (const tab of tabs) {
-				await chrome.tabs.reload(tab.id);
+				await chrome.tabs.reload(tab.id, { bypassCache: !!request.hardReload });
 			}
 			return { success: true };
 		}
 
 		case 'closeAllTabs': {
 			const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
-			await chrome.tabs.create({ active: true, windowId: sender.tab.windowId });
-			const tabsToRemove = tabs.map(tab => tab.id);
+			const tabsToRemove = tabs
+				.filter(tab => !(request.skipPinned && tab.pinned))
+				.map(tab => tab.id);
 			if (tabsToRemove.length > 0) {
+				const remainingTabs = tabs.length - tabsToRemove.length;
+				if (remainingTabs === 0) {
+					await chrome.tabs.create({ active: true, windowId: sender.tab.windowId });
+				}
 				await chrome.tabs.remove(tabsToRemove);
 			}
 			return { success: true };
@@ -484,7 +447,7 @@ async function handleAction(request, sender) {
 					url = 'http://' + url;
 				}
 
-				await chrome.tabs.create({ url: url, active: true, windowId: sender.tab.windowId });
+				await createTabAtPosition(sender, request.position || 'last', { url });
 			}
 			return { success: true };
 		}

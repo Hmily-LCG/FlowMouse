@@ -796,6 +796,24 @@ class ActionSelect extends LitElement {
 		return result;
 	}
 
+	#renderPositionSelect() {
+		const action = this._pendingValue;
+		const defaults = window.GestureConstants.ACTION_DEFAULTS[action] || {};
+		const position = this._pendingConfig.position ?? defaults.position;
+		return html`
+			<div class="action-config-row">
+				<span class="action-config-label">${window.i18n.getMessage('newTabPosition')}</span>
+				<select .value=${position}
+					@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, position: e.target.value }; this.requestUpdate(); }}>
+					<option value="right" ?selected=${position === 'right'}>${window.i18n.getMessage('tabPositionRight')}</option>
+					<option value="left" ?selected=${position === 'left'}>${window.i18n.getMessage('tabPositionLeft')}</option>
+					<option value="first" ?selected=${position === 'first'}>${window.i18n.getMessage('tabPositionFirst')}</option>
+					<option value="last" ?selected=${position === 'last'}>${window.i18n.getMessage('tabPositionLast')}</option>
+				</select>
+			</div>
+		`;
+	}
+
 	#renderActionConfig() {
 		const action = this._pendingValue;
 		const { ACTION_DEFAULTS } = window.GestureConstants;
@@ -809,12 +827,14 @@ class ActionSelect extends LitElement {
 					@input=${(e) => { this._pendingConfig = { ...this._pendingConfig, customUrl: e.target.value }; }}
 					@keydown=${(e) => { if (e.key === 'Enter') this.#close(); }}
 				>
+				${this.#renderPositionSelect()}
 			`;
 		}
 		if (action === 'closeTab') {
 			const defaults = ACTION_DEFAULTS.closeTab || {};
 			const keepWindowChecked = this._pendingConfig.keepWindow ?? defaults.keepWindow;
 			const afterClose = this._pendingConfig.afterClose ?? defaults.afterClose;
+			const skipPinnedChecked = this._pendingConfig.skipPinned ?? defaults.skipPinned;
 			return html`
 				<label class="action-config-checkbox">
 					<input type="checkbox"
@@ -822,6 +842,13 @@ class ActionSelect extends LitElement {
 						@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, keepWindow: e.target.checked }; this.requestUpdate(); }}
 					>
 					<span>${window.i18n.getMessage('closeTabKeepWindow')}</span>
+				</label>
+				<label class="action-config-checkbox">
+					<input type="checkbox"
+						.checked=${skipPinnedChecked}
+						@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, skipPinned: e.target.checked }; this.requestUpdate(); }}
+					>
+					<span>${window.i18n.getMessage('closeTabsSkipPinned')}</span>
 				</label>
 				<div class="action-config-row">
 					<span class="action-config-label">${window.i18n.getMessage('closeTabAfterClose')}</span>
@@ -834,6 +861,19 @@ class ActionSelect extends LitElement {
 						<option value="right">${window.i18n.getMessage('closeTabAfterCloseRight')}</option>
 					</select>
 				</div>
+			`;
+		}
+		if (action === 'closeOtherTabs' || action === 'closeLeftTabs' || action === 'closeRightTabs' || action === 'closeAllTabs') {
+			const defaults = ACTION_DEFAULTS[action] || {};
+			const skipPinnedChecked = this._pendingConfig.skipPinned ?? defaults.skipPinned;
+			return html`
+				<label class="action-config-checkbox">
+					<input type="checkbox"
+						.checked=${skipPinnedChecked}
+						@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, skipPinned: e.target.checked }; this.requestUpdate(); }}
+					>
+					<span>${window.i18n.getMessage('closeTabsSkipPinned')}</span>
+				</label>
 			`;
 		}
 		if (action === 'switchLeftTab' || action === 'switchRightTab') {
@@ -869,6 +909,22 @@ class ActionSelect extends LitElement {
 					<span>${window.i18n.getMessage('switchTabMoveTab')}</span>
 				</label>
 			`;
+		}
+		if (action === 'refresh' || action === 'refreshAllTabs') {
+			const defaults = ACTION_DEFAULTS[action] || {};
+			const hardReloadChecked = this._pendingConfig.hardReload ?? defaults.hardReload;
+			return html`
+				<label class="action-config-checkbox">
+					<input type="checkbox"
+						.checked=${hardReloadChecked}
+						@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, hardReload: e.target.checked }; this.requestUpdate(); }}
+					>
+					<span>${window.i18n.getMessage('refreshHardReload')}</span>
+				</label>
+			`;
+		}
+		if (action === 'newTab') {
+			return this.#renderPositionSelect();
 		}
 		if (action === 'copyUrl') {
 			const defaults = ACTION_DEFAULTS.copyUrl || {};

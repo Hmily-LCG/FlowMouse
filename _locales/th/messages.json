@@ -107,6 +107,38 @@
 		"message": "กดคลิกขวาค้างไว้แล้วเลื่อนเมาส์เพื่อใช้ท่าทาง",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "ปุ่มทริกเกอร์",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "เลือกปุ่มเมาส์ที่สามารถเรียกใช้ท่าทางได้",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "คลิกขวา",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "คลิกกลาง",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "ปุ่มด้านข้าง (ย้อนกลับ)",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "ปุ่มด้านข้าง (ไปข้างหน้า)",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "คลิกขวาสไตลัส",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "ปุ่มทริกเกอร์บางปุ่มอาจทำงานไม่ถูกต้องขึ้นอยู่กับฮาร์ดแวร์หรือการตั้งค่าไดรเวอร์ของคุณ ตัวอย่างเช่น เมาส์ Logitech อาจต้องปิดใช้งาน 'การเลื่อนแนวนอน' (Horizontal Scrolling) ในไดรเวอร์เพื่อใช้ปุ่มด้านข้างสำหรับท่าทางหรือเมาส์เจสเจอร์",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "เนื่องจากข้อจำกัดของระบบ เมื่อเปิดใช้งานท่าทางสัมผัสคลิกขวา ใน macOS / Linux ต้องดับเบิลคลิกขวาเพื่อเปิดเมนูบริบท",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "ย้ายแท็บปัจจุบัน",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "โหลดซ้ำแบบฮาร์ด (ข้ามแคช)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "ปิดเบราว์เซอร์",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "แท็บใหม่",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "ไม่ปิดแท็บที่ปักหมุดไว้",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "ปิดแท็บอื่น",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "กู้คืน",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "แท็บซ้าย",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "แท็บขวา",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 ค้นหาด้วยการลาก",

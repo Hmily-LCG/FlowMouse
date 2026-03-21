@@ -107,6 +107,38 @@
 		"message": "اضغط باستمرار على زر الماوس الأيمن وحرك الماوس لتنفيذ الإيماءات بسهولة",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "أزرار التشغيل",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "حدد أزرار الماوس التي يمكنها تشغيل الإيماءات",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "الزر الأيمن",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "الزر الأوسط",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "الزر الجانبي (للخلف)",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "الزر الجانبي (للأمام)",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "الزر الأيمن للقلم",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "قد لا تعمل بعض أزرار التشغيل بشكل صحيح بناءً على إعدادات الأجهزة أو برامج التشغيل الخاصة بك. على سبيل المثال، قد تتطلب أجهزة ماوس Logitech تعطيل \"التمرير الأفقي\" في برنامج التشغيل لاستخدام الأزرار الجانبية للإيماءات.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "بسبب قيود النظام، عند تمكين إيماءات النقر بزر الماوس الأيمن، يلزم النقر المزدوج السريع بزر الماوس الأيمن لفتح قائمة السياق على macOS / Linux.",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "نقل علامة التبويب الحالية",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "إعادة تحميل قسري (تجاوز ذاكرة التخزين المؤقت)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "إغلاق المتصفح",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "علامة تبويب جديدة",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "لا تغلق علامات التبويب المثبتة",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "إغلاق علامات التبويب الأخرى",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "استعادة",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "التبويب الأيسر",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "التبويب الأيمن",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 البحث بالسحب",

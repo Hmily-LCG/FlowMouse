@@ -107,6 +107,38 @@
 		"message": "برای اجرای آسان ژست‌ها، دکمه راست ماوس را نگه دارید و حرکت دهید",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "دکمه‌های فعال‌سازی",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "دکمه‌های ماوس که می‌توانند حرکات را فعال کنند را انتخاب کنید",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "کلیک راست",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "کلیک وسط",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "دکمه کناری (عقب)",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "دکمه کناری (جلو)",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "کلیک راست قلم",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "ممکن است برخی از دکمه‌های راه‌انداز (تریگر) بسته به سخت‌افزار یا تنظیمات درایور شما به درستی کار نکنند. به عنوان مثال، در ماوس‌های لاجیتک (Logitech) ممکن است برای استفاده از دکمه‌های کناری برای ژست‌ها، نیاز باشد گزینه «پیمایش افقی» (Horizontal Scrolling) در درایور غیرفعال شود.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "به دلیل محدودیت‌های سیستم، وقتی ژست‌های کلیک راست فعال هستند، در macOS / Linux برای باز کردن منوی راست‌کلیک نیاز به دوبار کلیک راست سریع است.",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "انتقال تب جاری",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "بارگیری مجدد سخت (نادیده گرفتن حافظه پنهان)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "بستن مرورگر",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "تب جدید",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "برگه‌های سنجاق شده را نبند",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "بستن سایر تب‌ها",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "بازگردانی",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "برگه چپ",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "برگه راست",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 جستجوی با کشیدن",

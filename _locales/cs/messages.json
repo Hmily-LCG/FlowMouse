@@ -107,6 +107,38 @@
 		"message": "Podržte pravé tlačítko myši a pohybujte myší pro snadné provádění gest",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "Spouštěcí tlačítka",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "Vyberte, která tlačítka myši mohou spouštět gesta",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "Pravé tlačítko",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "Prostřední tlačítko",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "Boční tlačítko (Zpět)",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "Boční tlačítko (Vpřed)",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "Pravé tlačítko stylusu",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "Některá spouštěcí tlačítka nemusí fungovat správně v závislosti na hardwaru nebo nastavení ovladače. Například myši Logitech mohou pro použití bočních tlačítek pro gesta vyžadovat zakázání funkce „Horizontální posouvání“ v ovladači.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "Kvůli systémovým omezením je při povolených gestech pravého tlačítka myši pro otevření kontextové nabídky na macOS / Linux vyžadován dvojitý klik pravým tlačítkem.",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "Přesunout aktuální kartu",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "Tvrdé obnovení (obejít mezipaměť)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "Zavřít prohlížeč",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "Nová karta",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "Nezavírat připnuté karty",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "Zavřít ostatní karty",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "Obnovit",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "Levá karta",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "Pravá karta",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 Hledat",

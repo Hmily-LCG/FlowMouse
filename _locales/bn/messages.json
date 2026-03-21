@@ -107,6 +107,38 @@
 		"message": "মাউসের ডান বোতাম চেপে ধরে মাউস সরিয়ে সহজেই জেসচার সম্পাদন করুন",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "ট্রিগার বোতাম",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "কোন মাউস বোতামগুলি অঙ্গভঙ্গি ট্রিগার করতে পারে তা নির্বাচন করুন",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "ডান বোতাম",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "মাঝের বোতাম",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "পাশের বোতাম (পিছনে)",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "পাশের বোতাম (সামনে)",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "স্টাইলাসের ডান বোতাম",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "আপনার হার্ডওয়্যার বা ড্রাইভার সেটিংসের উপর নির্ভর করে কিছু ট্রিগার বোতাম সঠিকভাবে কাজ নাও করতে পারে। উদাহরণস্বরূপ, লজিটেক (Logitech) মাউসগুলিতে জেসচার বা ইশারার জন্য সাইড বোতামগুলি ব্যবহার করার জন্য ড্রাইভা‌রে \"Horizontal Scrolling\" (অনুভূমিক স্ক্রোলিং) নিষ্ক্রিয় করার প্রয়োজন হতে পারে।",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "সিস্টেমের সীমাবদ্ধতার কারণে, যখন রাইট-ক্লিক জেসচারগুলি সক্ষম করা থাকে, macOS / Linux-এ প্রসঙ্গ মেনু খুলতে ডাবল রাইট-ক্লিক করতে হতে পারে।",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "বর্তমান ট্যাব সরান",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "হার্ড রিলোড (ক্যাশে বাইপাস করুন)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "ব্রাউজার বন্ধ করুন",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "নতুন ট্যাব",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "পিন করা ট্যাব বন্ধ করবেন না",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "অন্যান্য ট্যাব বন্ধ করুন",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "পুনরুদ্ধার",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "বাম ট্যাব",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "ডান ট্যাব",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 ড্র্যাগ অনুসন্ধান",

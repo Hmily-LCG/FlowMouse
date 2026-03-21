@@ -107,6 +107,38 @@
 		"message": "Задръжте десния бутон на мишката и движете мишката, за да изпълните жестове лесно",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "Бутони за задействане",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "Изберете кои бутони на мишката могат да задействат жестове",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "Десен бутон",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "Среден бутон",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "Страничен бутон (Назад)",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "Страничен бутон (Напред)",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "Десен бутон на стилус",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "Някои бутони за задействане може да не работят правилно в зависимост от вашия хардуер или настройките на драйвера. Например, мишките Logitech може да изискват деактивиране на \"Хоризонтално превъртане\" в драйвера, за да се използват страничните бутони за жестове.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "Поради системни ограничения, когато са активирани жестовете с десния бутон, при macOS / Linux е необходимо двойно щракване с десния бутон за отваряне на контекстното меню.",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "Премести текущия раздел",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "Твърдо презареждане (заобикаляне на кеша)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "Затвори браузъра",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "Нов раздел",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "Не затваряйте фиксирани раздели",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "Затваряне на други раздели",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "Възстанови",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "Ляв раздел",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "Десен раздел",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 Търсене с плъзгане",

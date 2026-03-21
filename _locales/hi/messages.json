@@ -107,6 +107,38 @@
 		"message": "आसानी से जेस्चर करने के लिए दायां माउस बटन दबाए रखें और माउस को घुमाएं",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "ट्रिगर बटन",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "चुनें कि कौन से माउस बटन जेस्चर को ट्रिगर कर सकते हैं",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "राइट बटन",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "मिडिल बटन",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "साइड बटन (पीछे)",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "साइड बटन (आगे)",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "स्टाइलस राइट बटन",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "आपके हार्डवेयर या ड्राइवर सेटिंग्स के आधार पर कुछ ट्रिगर बटन ठीक से काम नहीं कर सकते हैं। उदाहरण के लिए, लॉगिटेक (Logitech) चूहों में जेस्चर के लिए साइड बटन का उपयोग करने के लिए ड्राइवर में 'हॉरिजॉन्टल स्क्रॉलिंग' (Horizontal Scrolling) को अक्षम करने की आवश्यकता हो सकती है।",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "सिस्टम सीमाओं के कारण, जब राइट-क्लिक जेस्चर सक्षम होते हैं, तो macOS / Linux पर संदर्भ मेनू खोलने के लिए डबल राइट-क्लिक की आवश्यकता होती है।",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "वर्तमान टैब को ले जाएँ",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "हार्ड रीलोड (कैशे बायपास करें)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "ब्राउज़र बंद करें",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "नया टैब",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "पिन किए गए टैब बंद न करें",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "अन्य टैब बंद करें",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "बहाल करें",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "बायाँ टैब",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "दायाँ टैब",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 ड्रैग खोज",

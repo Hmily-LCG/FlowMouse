@@ -107,6 +107,38 @@
 		"message": "Hold the right mouse button and move the mouse to easily perform gestures",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "Trigger Buttons",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "Select which mouse buttons can trigger gestures",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "Right Button",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "Middle Button",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "Side Button (Back)",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "Side Button (Forward)",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "Stylus Right Button",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "Some trigger buttons may not work correctly depending on your hardware or driver settings. For example, Logitech mice may require disabling \"Horizontal Scrolling\" in the driver to use side buttons for gestures.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "Due to system limitations, when right-click gestures are enabled, a double right-click is required to open the context menu on macOS / Linux.",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "Move current tab",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "Hard Reload (bypass cache)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "Close Browser",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "New Tab",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "Do not close pinned tabs",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "Close Other Tabs",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "Restore",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "Left Tab",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "Right Tab",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 Drag Search",

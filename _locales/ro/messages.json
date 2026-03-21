@@ -107,6 +107,38 @@
 		"message": "Ține apăsat butonul dreapta al mouse-ului și mișcă mouse-ul pentru a efectua gesturi cu ușurință",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "Butoane de declanșare",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "Selectați ce butoane ale mouse-ului pot declanșa gesturi",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "Buton dreapta",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "Buton mijloc",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "Buton lateral (Înapoi)",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "Buton lateral (Înainte)",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "Buton dreapta stylus",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "Este posibil ca unele butoane de declanșare să nu funcționeze corect, în funcție de hardware-ul dvs. sau de setările driverului. De exemplu, mouse-urile Logitech ar putea necesita dezactivarea opțiunii „Derulare orizontală” din driver pentru a utiliza butoanele laterale pentru gesturi.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "Din cauza limitărilor de sistem, când gesturile pentru click dreapta sunt activate, pe macOS / Linux este necesar dublu click dreapta pentru a deschide meniul contextual.",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "Mută tabul curent",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "Reîncărcare completă (ignoră memoria cache)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "Închide Browser",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "Tab Nou",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "Nu închide filele fixate",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "Închide Celelalte Tab-uri",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "Restabilește",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "Fila stângă",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "Fila dreaptă",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 Căutare prin Tragere",

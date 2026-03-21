@@ -107,6 +107,38 @@
 		"message": "Segure o botão direito do mouse e mova o mouse para realizar gestos facilmente",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "Botões de Acionamento",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "Selecione quais botões do mouse podem acionar os gestos",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "Botão direito",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "Botão do meio",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "Botão lateral (Voltar)",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "Botão lateral (Avançar)",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "Botão direito da caneta",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "Alguns botões de acionamento podem não funcionar corretamente dependendo do hardware ou das configurações do driver. Por exemplo, os mouses da Logitech podem exigir a desativação da 'Rolagem horizontal' no driver para que os botões laterais possam ser usados para gestos.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "Devido a limitações do sistema, quando os gestos de clique com o botão direito estão ativados, é necessário clicar duas vezes com o botão direito para abrir o menu de contexto no macOS / Linux.",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "Mover aba atual",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "Recarga Forçada (ignorar cache)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "Fechar Navegador",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "Nova Aba",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "Não fechar guias fixadas",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "Fechar Outras Abas",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "Restaurar",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "Guia esquerda",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "Guia direita",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 Pesquisa por Arrasto",

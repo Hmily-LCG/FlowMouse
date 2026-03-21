@@ -107,6 +107,38 @@
 		"message": "Mantén presionado el botón derecho del ratón y muévelo para realizar gestos fácilmente",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "Botones de activación",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "Selecciona qué botones del mouse pueden activar gestos",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "Botón derecho",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "Botón central",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "Botón lateral (Atrás)",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "Botón lateral (Adelante)",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "Botón derecho del lápiz",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "Es posible que algunos botones de activación no funcionen correctamente dependiendo de su hardware o configuración de controladores. Por ejemplo, los ratones Logitech pueden requerir que se desactive el 'Desplazamiento horizontal' en el controlador para poder usar los botones laterales para gestos.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "Debido a limitaciones del sistema, cuando los gestos de clic derecho están habilitados, se requiere doble clic derecho para abrir el menú contextual en macOS / Linux.",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "Mover pestaña actual",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "Recarga dura (omitir caché)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "Cerrar Navegador",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "Nueva Pestaña",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "No cerrar pestañas fijadas",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "Cerrar Otras Pestañas",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "Restaurar",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "Pestaña izq.",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "Pestaña der.",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 Arrastrar Buscar",

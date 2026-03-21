@@ -107,6 +107,38 @@
 		"message": "Tartsd lenyomva a jobb egérgombot és mozgasd az egeret a gesztusok egyszerű végrehajtásához",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "Indítógombok",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "Válassza ki, mely egérgombok válthatnak ki gesztusokat",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "Jobb gomb",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "Középső gomb",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "Oldalsó gomb (Vissza)",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "Oldalsó gomb (Előre)",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "Érintőtoll jobb gombja",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "Egyes aktiváló gombok a hardvertől vagy az illesztőprogram beállításaitól függően előfordulhat, hogy nem működnek megfelelően. Például a Logitech egereknél előfordulhat, hogy az illesztőprogramban le kell tiltani a „Vízszintes görgetést” (Horizontal Scrolling) ahhoz, hogy az oldalsó gombokat gesztusokhoz lehessen használni.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "Rendszerkorlátozások miatt, ha a jobb gombos gesztusok engedélyezve vannak, macOS / Linux alatt dupla jobb kattintás szükséges a helyi menü megnyitásához.",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "Jelenlegi lap mozgatása",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "Teljes újratöltés (gyorsítótár megkerülése)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "Böngésző bezárása",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "Új lap",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "Ne zárja be a rögzített lapokat",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "Más lapok bezárása",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "Visszaállít",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "Bal lap",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "Jobb lap",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 Keresés húzással",

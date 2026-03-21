@@ -107,6 +107,38 @@
 		"message": "Hareketleri kolayca uygulamak için sağ fare tuşunu basılı tutun ve fareyi hareket ettirin",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "Tetikleyici Düğmeler",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "Hangi fare düğmelerinin hareketleri tetikleyebileceğini seçin",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "Sağ Düğme",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "Orta Düğme",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "Yan Düğme (Geri)",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "Yan Düğme (İleri)",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "Kalem Sağ Düğmesi",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "Donanımınıza veya sürücü ayarlarınıza bağlı olarak bazı tetikleyici düğmeler doğru çalışmayabilir. Örneğin, Logitech farelerde yan düğmeleri fare hareketleri (jestler) için kullanmak amacıyla sürücüde 'Yatay Kaydırma' özelliğinin devre dışı bırakılması gerekebilir.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "Sistem kısıtlamaları nedeniyle, sağ tık hareketleri etkinleştirildiğinde, macOS / Linux üzerinde bağlam menüsünü açmak için çift sağ tıklama gereklidir.",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "Geçerli sekmeyi taşı",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "Sert Yeniden Yükleme (önbelleği atla)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "Tarayıcıyı Kapat",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "Yeni Sekme",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "Sabitlenmiş sekmeleri kapatma",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "Diğer Sekmeleri Kapat",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "Geri Yükle",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "Sol Sekme",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "Sağ Sekme",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 Sürükle Ara",

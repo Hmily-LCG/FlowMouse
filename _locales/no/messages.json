@@ -107,6 +107,38 @@
 		"message": "Hold høyre museknapp og beveg musen for å utføre bevegelser enkelt",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "Utløserknapper",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "Velg hvilke museknapper som kan utløse bevegelser",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "Høyre knapp",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "Midtknapp",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "Sideknapp (Tilbake)",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "Sideknapp (Frem)",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "Stylus høyre knapp",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "Enkelte utløserknapper fungerer kanskje ikke riktig avhengig av maskinvare- eller driverinnstillingene dine. For eksempel kan Logitech-mus kreve deaktivering av 'Horisontal rulling' i driveren for å kunne bruke sideknapper for bevegelser.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "På grunn av systembegrensninger, når høyreklikkbevegelser er aktivert, kreves det et dobbelt høyreklikk for å åpne hurtigmenyen på macOS / Linux.",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "Flytt gjeldende fane",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "Hard innlasting (omgå hurtigbuffer)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "Lukk nettleser",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "Ny fane",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "Ikke lukk festede faner",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "Lukk andre faner",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "Gjenopprett",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "Venstre fane",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "Høyre fane",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 Dra-søk",

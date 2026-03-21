@@ -107,6 +107,38 @@
 		"message": "Pidä hiiren oikeaa painiketta painettuna ja liikuta hiirtä suorittaaksesi eleitä helposti",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "Laukaisupainikkeet",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "Valitse, mitkä hiiren painikkeet voivat laukaista eleitä",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "Oikea painike",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "Keskipainike",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "Sivupainike (Taakse)",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "Sivupainike (Eteenpäin)",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "Kynän oikea painike",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "Jotkin liipaisinpainikkeet eivät ehkä toimi oikein laitteistostasi tai ohjainasetuksistasi riippuen. Esimerkiksi Logitech-hiiret voivat vaatia \"Vaakasuuntaisen vierityksen\" (Horizontal Scrolling) poistamista käytöstä ohjaimessa, jotta sivupainikkeita voidaan käyttää eleisiin.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "Järjestelmärajoitusten vuoksi, kun oikean painikkeen eleet ovat käytössä, kontekstivalikon avaaminen vaatii kaksoisnapsautuksen oikealla painikkeella macOS:ssä / Linuxissa.",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "Siirrä nykyistä välilehteä",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "Kova uudelleenlataus (ohita välimuisti)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "Sulje selain",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "Uusi välilehti",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "Älä sulje kiinnitettyjä välilehtiä",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "Sulje muut välilehdet",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "Palauta",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "Vasen välilehti",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "Oikea välilehti",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 Raahaushaku",

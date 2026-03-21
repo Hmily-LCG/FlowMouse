@@ -107,6 +107,38 @@
 		"message": "Tahan butang tetikus kanan dan gerakkan tetikus untuk melakukan gerak isyarat dengan mudah",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "Butang Pencetus",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "Pilih butang tetikus yang boleh mencetuskan gerak isyarat",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "Butang Kanan",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "Butang Tengah",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "Butang Sisi (Kembali)",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "Butang Sisi (Ke Hadapan)",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "Butang Kanan Stylus",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "Beberapa butang pencetus mungkin tidak berfungsi dengan betul bergantung pada perkakasan atau tetapan pemacu (driver) anda. Sebagai contoh, tetikus Logitech mungkin memerlukan anda melumpuhkan 'Tatalan Mendatar' (Horizontal Scrolling) pada pemacu untuk menggunakan butang sisi bagi isyarat.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "Disebabkan batasan sistem, apabila gerak isyarat klik kanan didayakan, klik kanan dua kali diperlukan untuk membuka menu konteks pada macOS / Linux.",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "Alihkan tab semasa",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "Muat Semula Keras (pintas cache)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "Tutup Penyemak Imbas",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "Tab Baharu",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "Jangan tutup tab yang disematkan",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "Tutup Tab Lain",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "Buat Asal",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "Tab Kiri",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "Tab Kanan",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 Seret Cari",

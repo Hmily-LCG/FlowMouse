@@ -107,6 +107,38 @@
 		"message": "Maintenez le bouton droit de la souris et déplacez-la pour effectuer des gestes facilement",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "Boutons de déclenchement",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "Sélectionnez les boutons de la souris pouvant déclencher des gestes",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "Bouton droit",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "Bouton central",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "Bouton latéral (Retour)",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "Bouton latéral (Suivant)",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "Bouton droit du stylet",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "Certains boutons de déclenchement peuvent ne pas fonctionner correctement selon votre matériel ou les paramètres de votre pilote. Par exemple, les souris Logitech peuvent nécessiter la désactivation du « Défilement horizontal » dans le pilote pour utiliser les boutons latéraux pour les gestes.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "En raison des limitations du système, lorsque les gestes du clic droit sont activés, un double clic droit est nécessaire pour ouvrir le menu contextuel sur macOS / Linux.",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "Déplacer l'onglet actuel",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "Rechargement forcé (ignorer le cache)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "Fermer le navigateur",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "Nouvel onglet",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "Ne pas fermer les onglets épinglés",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "Fermer les autres onglets",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "Restaurer",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "Onglet gauche",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "Onglet droit",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 Recherche glissée",

@@ -107,6 +107,38 @@
 		"message": "Tieni premuto il tasto destro e muovi il mouse per eseguire gesti facilmente",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "Pulsanti di attivazione",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "Seleziona quali pulsanti del mouse possono attivare i gesti",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "Tasto destro",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "Tasto centrale",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "Tasto laterale (Indietro)",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "Tasto laterale (Avanti)",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "Tasto destro della penna",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "Alcuni pulsanti di attivazione potrebbero non funzionare correttamente a seconda dell'hardware o delle impostazioni del driver. Ad esempio, i mouse Logitech potrebbero richiedere la disattivazione dello 'Scorrimento orizzontale' nel driver per poter utilizzare i pulsanti laterali per i gesti.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "A causa di limitazioni di sistema, quando le gesture del clic destro sono abilitate, è necessario un doppio clic destro per aprire il menu contestuale su macOS / Linux.",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "Sposta scheda corrente",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "Ricaricamento forzato (ignora cache)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "Chiudi Browser",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "Nuova Scheda",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "Non chiudere le schede bloccate",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "Chiudi Altre Schede",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "Ripristina",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "Scheda sx",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "Scheda dx",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 Ricerca Trascinamento",

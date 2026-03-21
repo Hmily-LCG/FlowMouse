@@ -68,7 +68,7 @@ class WheelGestureManager extends LitElement {
 			}
 			.wheel-gesture-action {
 				flex-shrink: 0;
-				min-width: 140px;
+				min-width: 160px;
 				max-width: 300px;
 			}
 			.reset-btn {

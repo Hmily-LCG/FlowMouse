@@ -107,6 +107,38 @@
 		"message": "Утримуйте праву кнопку миші та проведіть нею для виконання жесту",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "Кнопки тригера",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "Виберіть, які кнопки миші можуть запускати жести",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "Права кнопка",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "Середня кнопка",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "Бічна кнопка (Назад)",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "Бічна кнопка (Вперед)",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "Права кнопка стилуса",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "Деякі кнопки запуску можуть працювати неправильно залежно від вашого обладнання або налаштувань драйвера. Наприклад, для мишей Logitech може знадобитися вимкнути «Горизонтальну прокрутку» (Horizontal Scrolling) у драйвері, щоб використовувати бічні кнопки для жестів.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "Через системні обмеження, коли ввімкнено жести правою кнопкою миші, для виклику контекстного меню на macOS / Linux потрібен подвійний клік правою кнопкою.",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "Перемістити поточну вкладку",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "Жорстке перезавантаження (ігнорувати кеш)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "Закрити браузер",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "Нова вкладка",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "Не закривати закріплені вкладки",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "Закрити інші вкладки",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "Відновити",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "Ліва вкладка",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "Права вкладка",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 Пошук перетягуванням",

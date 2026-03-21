@@ -107,6 +107,38 @@
 		"message": "Tahan tombol kanan mouse dan gerakkan mouse untuk melakukan gestur dengan mudah",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "Tombol Pemicu",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "Pilih tombol mouse mana yang dapat memicu gestur",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "Tombol Kanan",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "Tombol Tengah",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "Tombol Samping (Kembali)",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "Tombol Samping (Maju)",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "Tombol Kanan Stylus",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "Beberapa tombol pemicu mungkin tidak berfungsi dengan benar tergantung pada perangkat keras atau pengaturan driver Anda. Misalnya, mouse Logitech mungkin memerlukan penonaktifan 'Pengguliran Horizontal' di dalam driver untuk menggunakan tombol samping untuk gestur.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "Karena batasan sistem, saat gestur klik kanan diaktifkan, diperlukan klik kanan dua kali untuk membuka menu konteks pada macOS / Linux.",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "Pindahkan tab saat ini",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "Muat Ulang Keras (lewati cache)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "Tutup Browser",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "Tab Baru",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "Jangan tutup tab yang disematkan",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "Tutup Tab Lain",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "Pulihkan Tab",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "Tab Kiri",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "Tab Kanan",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 Seret Cari",

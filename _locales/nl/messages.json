@@ -107,6 +107,38 @@
 		"message": "Houd de rechtermuisknop ingedrukt en beweeg de muis om eenvoudig gebaren uit te voeren",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "Triggerknoppen",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "Selecteer welke muisknoppen gebaren kunnen activeren",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "Rechtermuisknop",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "Middelste muisknop",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "Zijknop (Terug)",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "Zijknop (Vooruit)",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "Rechterknop stylus",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "Sommige activeringsknoppen werken mogelijk niet correct, afhankelijk van uw hardware of stuurprogramma-instellingen. Bij Logitech-muizen kan het bijvoorbeeld nodig zijn om 'Horizontaal scrollen' in het stuurprogramma uit te schakelen om toegang te krijgen tot de zijknoppen voor gebaren.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "Vanwege systeembeperkingen is, wanneer rechtsklikgebaren zijn ingeschakeld, een dubbele rechtsklik vereist om het contextmenu te openen op macOS / Linux.",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "Huidig tabblad verplaatsen",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "Harde vernieuwing (cache negeren)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "Browser Sluiten",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "Nieuw Tabblad",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "Vastgezette tabbladen niet sluiten",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "Andere Tabbladen Sluiten",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "Herstel",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "Tab links",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "Tab rechts",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 Sleep Zoeken",

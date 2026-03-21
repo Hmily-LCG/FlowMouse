@@ -92,12 +92,12 @@
 		return false;
 	}
 
-	function getMessage(key, substitutions) {
+	function getMessage(key) {
 		let message;
 		if (translations[key] && translations[key].message) {
 			message = translations[key].message;
 		} else {
-			message = chrome.i18n.getMessage(key, substitutions) || '[!!!]' + key;
+			message = chrome.i18n.getMessage(key) || '[!!!]' + key;
 		}
 		if (message.indexOf('%browserName%') !== -1) {
 			message = message.replaceAll("%browserName%", getBrowserName());

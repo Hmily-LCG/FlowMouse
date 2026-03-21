@@ -107,6 +107,38 @@
 		"message": "Håll ned höger musknapp och flytta musen för att enkelt utföra gester",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "Utlösarknappar",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "Välj vilka musknappar som kan utlösa gester",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "Högerknapp",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "Mittenknapp",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "Sidoknapp (Bakåt)",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "Sidoknapp (Framåt)",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "Stylus högerknapp",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "Vissa utlösarknappar kanske inte fungerar korrekt beroende på din hårdvara eller dina drivrutinsinställningar. Till exempel kan Logitech-möss kräva att du inaktiverar 'Horisontell rullning' (Horizontal Scrolling) i drivrutinen för att kunna använda sidoknapparna för gester.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "På grund av systembegränsningar, när högerklicksgester är aktiverade, krävs dubbel högerklick för att öppna kontextmenyn på macOS / Linux.",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "Flytta aktuell flik",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "Hård omladdning (kringgå cache)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "Stäng webbläsare",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "Ny flik",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "Stäng inte fästa flikar",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "Stäng andra flikar",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "Återställ",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "Vänster flik",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "Höger flik",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 Dragsökning",

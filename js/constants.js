@@ -8,13 +8,13 @@
 		'→': 'forward',           
 		'↑': 'scrollUp',          
 		'↓': 'scrollDown',        
-		'↓→': 'closeTab',         
-		'←↑': 'restoreTab',       
-		'→↑': 'newTab',           
-		'→↓': 'refresh',          
 		'↑←': 'switchLeftTab',    
 		'↑→': 'switchRightTab',   
+		'→↑': 'newTab',           
+		'→↓': 'refresh',          
 		'↓←': 'stopLoading',      
+		'↓→': 'closeTab',         
+		'←↑': 'restoreTab',       
 		'←↓': 'closeAllTabs',     
 		'↑↓': 'scrollToBottom',   
 		'↓↑': 'scrollToTop',      
@@ -68,8 +68,15 @@
 	};
 
 	const ACTION_DEFAULTS = {
-		closeTab: { keepWindow: false, afterClose: 'default' }, 
-		openCustomUrl: { customUrl: '' },
+		closeTab: { keepWindow: false, afterClose: 'default', skipPinned: false }, 
+		closeOtherTabs: { skipPinned: true },
+		closeLeftTabs: { skipPinned: true },
+		closeRightTabs: { skipPinned: true },
+		closeAllTabs: { skipPinned: true },
+		refresh: { hardReload: false },
+		refreshAllTabs: { hardReload: false },
+		newTab: { position: 'last' },
+		openCustomUrl: { customUrl: '', position: 'last' },
 		copyUrl: { includeTitle: false },
 		scrollUp: { scrollDistance: 75, scrollSmoothness: 'auto', scrollAccel: 1, scrollAccelWindow: 500 },
 		scrollDown: { scrollDistance: 75, scrollSmoothness: 'auto', scrollAccel: 1, scrollAccelWindow: 500 },
@@ -98,6 +105,8 @@
 		'scrollDown': 'popupScrollDown',
 		'closeTab': 'popupClose',
 		'restoreTab': 'popupRestore',
+		'switchLeftTab': 'popupSwitchLeftTab',
+		'switchRightTab': 'popupSwitchRightTab',
 	};
 
 	const TEXT_DRAG_ACTIONS = {
@@ -233,6 +242,7 @@
 		theme: 'auto',
 		language: 'auto',
 		enableGesture: true, 
+		gestureTriggerButtons: { right: true, middle: false, side1: false, side2: false, penRight: false }, 
 		enableHUD: true,
 		enableTrail: true,
 		showTrailOrigin: true, 
@@ -290,7 +300,19 @@
 		'→': '<svg xmlns="http://www.w3.org/2000/svg" width="0.85em" height="0.85em" fill="currentColor" viewBox="3.5 5 9 6" style="vertical-align:-0.125em; margin:0.05em; display:inline"><path fill-rule="evenodd" d="M 4 8 a 0.5 0.5 0 0 1 0.5 -0.5 h 5.793 L 8.146 5.354 a 0.5 0.5 0 1 1 0.708 -0.708 l 3 3 a 0.5 0.5 0 0 1 0 0.708 l -3 3 a 0.5 0.5 0 0 1 -0.708 -0.708 L 10.293 8.5 H 4.5 A 0.5 0.5 0 0 1 4 8"/></svg>'
 	};
 
+	const CORNER_SVG = {
+		'↓→': '<svg xmlns="http://www.w3.org/2000/svg" width="1.0em" height="1.0em" viewBox="1 1 23 23" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.2em; margin:0 0.05em; display:inline"><path d="M4 3v8a4 4 0 0 0 4 4h12"/><path d="m15 10 5 5-5 5"/></svg>',
+		'←↑': '<svg xmlns="http://www.w3.org/2000/svg" width="1.0em" height="1.0em" viewBox="1 1 23 23" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.2em; margin:0 0.05em; display:inline"><path d="M21 20h-8a4 4 0 0 1-4-4V4"/><path d="m4 9 5-5 5 5"/></svg>',
+		'→↑': '<svg xmlns="http://www.w3.org/2000/svg" width="1.0em" height="1.0em" viewBox="1 1 23 23" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.2em; margin:0 0.05em; display:inline"><path d="M3 20h8a4 4 0 0 0 4-4V4"/><path d="m10 9 5-5 5 5"/></svg>',
+		'→↓': '<svg xmlns="http://www.w3.org/2000/svg" width="1.0em" height="1.0em" viewBox="1 1 23 23" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.2em; margin:0 0.05em; display:inline"><path d="M3 4h8a4 4 0 0 1 4 4v12"/><path d="m10 15 5 5 5-5"/></svg>',
+		'↑←': '<svg xmlns="http://www.w3.org/2000/svg" width="1.0em" height="1.0em" viewBox="1 1 23 23" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.2em; margin:0 0.05em; display:inline"><path d="M20 21v-8a4 4 0 0 0-4-4H4"/><path d="m9 4-5 5 5 5"/></svg>',
+		'↑→': '<svg xmlns="http://www.w3.org/2000/svg" width="1.0em" height="1.0em" viewBox="1 1 23 23" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.2em; margin:0 0.05em; display:inline"><path d="M4 21v-8a4 4 0 0 1 4-4h12"/><path d="m15 4 5 5-5 5"/></svg>',
+		'↓←': '<svg xmlns="http://www.w3.org/2000/svg" width="1.0em" height="1.0em" viewBox="1 1 23 23" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.2em; margin:0 0.05em; display:inline"><path d="M20 3v8a4 4 0 0 1-4 4H4"/><path d="m9 10-5 5 5 5"/></svg>',
+		'←↓': '<svg xmlns="http://www.w3.org/2000/svg" width="1.0em" height="1.0em" viewBox="1 1 23 23" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.2em; margin:0 0.05em; display:inline"><path d="M21 4h-8a4 4 0 0 0-4 4v12"/><path d="m14 15-5 5-5-5"/></svg>',
+	};
+
 	function arrowsToSvg(text) {
+		if (CORNER_SVG[text]) return CORNER_SVG[text];
 		return text.replace(/[↑↓←→]/g, match => ARROW_SVG[match] || match);
 	}
 
@@ -313,7 +335,6 @@
 
 		DEFAULT_SETTINGS,
 
-		ARROW_SVG,
 		arrowsToSvg,
 	};
 

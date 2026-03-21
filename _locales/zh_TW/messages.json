@@ -107,6 +107,38 @@
 		"message": "按住右鍵並滑動滑鼠，輕鬆進行手勢操作",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "觸發按鈕",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "選擇可用於觸發手勢的滑鼠按鍵",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "右鍵",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "中鍵",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "側鍵（後退）",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "側鍵（前進）",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "觸控筆右鍵",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "部分觸發按鍵可能因硬體或驅動設定而無法生效。例如，羅技滑鼠可能需要在驅動中停用「水平捲動」才能將側鍵用於手勢。",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "由於系統限制，啟用涉及右鍵的手勢功能時，macOS / Linux 下需按兩下右鍵才能開啟原生選單。",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "移動目前分頁",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "強制重新載入（略過快取）",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "關閉瀏覽器",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "開啟新分頁",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "不關閉已固定的分頁",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "關閉其他分頁",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "還原分頁",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "左側分頁",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "右側分頁",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 拖曳搜尋",

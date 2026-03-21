@@ -107,6 +107,38 @@
 		"message": "החזק את הלחצן הימני והזז את העכבר לביצוע מחוות בקלות",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "כפתורי הפעלה",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "בחר אילו כפתורי עכבר יכולים להפעיל מחוות",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "לחצן ימני",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "לחצן אמצעי",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "לחצן צדדי (אחורה)",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "לחצן צדדי (קדימה)",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "לחצן ימני של עט סטיילוס",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "ייתכן שחלק מלחצני ההפעלה לא יעבדו כראוי בהתאם לחומרה או להגדרות מנהל ההתקן (דרייבר) שלך. לדוגמה, בעכברי Logitech ייתכן שיהיה צורך להשבית את הסימון \"גלילה אופקית\" (Horizontal Scrolling) במנהל ההתקן כדי להשתמש בלחצני הצד עבור מחוות.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "עקב מגבלות מערכת, כאשר מחוות לחיצה ימנית מופעלות, לחיצה כפולה ימנית נדרשת לפתיחת התפריט ב-macOS / Linux.",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "העבר כרטיסייה נוכחית",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "רענון קשיח (עוקף מטמון)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "סגור דפדפן",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "כרטיסייה חדשה",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "אל תסגור כרטיסיות נעוצות",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "סגור כרטיסיות אחרות",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "שחזר",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "כרטיסייה שמאלית",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "כרטיסייה ימנית",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 גרירה לחיפוש",

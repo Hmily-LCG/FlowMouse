@@ -107,6 +107,38 @@
 		"message": "Зажмите правую кнопку мыши и сдвиньте мышь для выполнения жестов",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "Кнопки триггера",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "Выберите, какие кнопки мыши могут запускать жесты",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "Правая кнопка",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "Средняя кнопка",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "Боковая кнопка (Назад)",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "Боковая кнопка (Вперед)",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "Правая кнопка стилуса",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "Некоторые кнопки запуска могут работать неправильно в зависимости от вашего оборудования или настроек драйвера. Например, для мышей Logitech может потребоваться отключить «Горизонтальную прокрутку» в драйвере, чтобы использовать боковые кнопки для жестов.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "Из-за системных ограничений, когда включены жесты правой кнопкой мыши, для открытия контекстного меню на macOS / Linux требуется двойное нажатие правой кнопкой.",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "Переместить текущую вкладку",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "Жесткая перезагрузка (игнорировать кэш)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "Закрыть браузер",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "Новая вкладка",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "Не закрывать закрепленные вкладки",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "Закрыть другие вкладки",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "Восстановить",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "Левая вкладка",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "Правая вкладка",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 Поиск при перетаскивании",

@@ -107,6 +107,38 @@
 		"message": "Halten Sie die rechte Maustaste gedrückt und bewegen Sie die Maus, um Gesten einfach auszuführen",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "Auslösetasten",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "Wählen Sie aus, welche Maustasten Gesten auslösen können",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "Rechte Taste",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "Mittlere Taste",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "Seitliche Taste (Zurück)",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "Seitliche Taste (Vorwärts)",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "Rechte Stifttaste",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "Einige Auslösetasten funktionieren je nach Hardware oder Treibereinstellungen möglicherweise nicht richtig. Bei Logitech-Mäusen muss beispielsweise das \"Horizontale Scrollen\" im Treiber deaktiviert werden, um Seitentasten für Gesten nutzen zu können.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "Aufgrund von Systemeinschränkungen ist unter macOS / Linux ein Rechts-Doppelklick erforderlich, um das Kontextmenü zu öffnen, wenn Rechtsklick-Gesten aktiviert sind.",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "Aktuellen Tab verschieben",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "Hartes Neuladen (Cache umgehen)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "Browser schließen",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "Neuer Tab",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "Angeheftete Tabs nicht schließen",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "Andere Tabs schließen",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "Wiederherst.",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "Linker Tab",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "Rechter Tab",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 Drag-Suche",

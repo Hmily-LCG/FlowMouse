@@ -107,6 +107,38 @@
 		"message": "按住右键并移动鼠标，轻松执行手势操作",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "触发按钮",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "选择可用于触发手势的鼠标按键",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "右键",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "中键",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "侧键（后退）",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "侧键（前进）",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "触控笔右键",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "部分触发按键可能因硬件或驱动设置而无法生效。例如，罗技鼠标可能需要在驱动中禁用「水平滚动」才能将侧键用于手势。",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "由于系统限制，启用涉及右键的手势功能时，macOS / Linux 下需双击右键才能打开原生菜单。",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "移动当前标签页",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "硬性重新加载（跳过缓存）",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "关闭浏览器",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "打开新标签页",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "不关闭已固定的标签页",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "关闭其他标签页",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "恢复标签页",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "左侧标签页",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "右侧标签页",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 拖拽搜索",

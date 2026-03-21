@@ -237,16 +237,6 @@ header .version {
 	stroke-width: 1.5;
 }
 
-.setting-notice {
-	background: rgba(66, 133, 244, 0.1);
-	border: 1px solid rgba(66, 133, 244, 0.7);
-	border-radius: 8px;
-	padding: 10px 14px;
-	margin: 0 0 16px 0;
-	font-size: 13px;
-	color: #4285f4;
-}
-
 .setting-label {
 	display: flex;
 	flex-direction: column;
@@ -451,17 +441,24 @@ color-picker {
 	gap: 20px;
 	align-items: center;
 	flex-wrap: wrap;
-	padding-inline-start: 10px;
+	padding-inline-start: 12px;
 }
 
-.color-setting {
+.inline-setting-item {
 	display: flex;
 	align-items: center;
 	gap: 8px;
 	font-size: 13px;
 }
 
-.color-setting input[type="number"] {
+.inline-setting-item label {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	cursor: pointer;
+}
+
+.inline-setting-item input[type="number"] {
 	width: 60px;
 }
 

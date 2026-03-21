@@ -107,6 +107,38 @@
 		"message": "Pindutin nang matagal ang kanang pindutan ng mouse at igalaw ang mouse upang madaling magsagawa ng mga galaw",
 		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
 	},
+	"gestureTriggerButtons": {
+		"message": "Mga Pindutan ng Trigger",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "Piliin kung aling mga pindutan ng mouse ang maaaring mag-trigger ng mga galaw",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "Kanang Pindutan",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "Gitnang Pindutan",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "Gilid na Pindutan (Paurong)",
+		"description": "Mouse button 4 — the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "Gilid na Pindutan (Pasulong)",
+		"description": "Mouse button 5 — the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "Kanang Pindutan ng Stylus",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "Maaaring hindi gumana nang tama ang ilang trigger button depende sa iyong hardware o mga setting ng driver. Halimbawa, maaaring mangailangan ang mga Logitech mouse na i-disable ang \"Pahalang na Pag-scroll\" (Horizontal Scrolling) sa driver upang magamit ang mga side button para sa mga galaw (gestures).",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
 	"macLinuxContextMenuNotice": {
 		"message": "Dahil sa mga limitasyon ng system, kapag naka-enable ang mga right-click gesture, kinakailangan ang dobleng pag-right-click upang buksan ang context menu sa macOS / Linux.",
 		"description": "Notice for macOS / Linux users about double right-click for context menu"
@@ -527,6 +559,10 @@
 		"message": "Ilipat ang kasalukuyang tab",
 		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
 	},
+	"refreshHardReload": {
+		"message": "Hard Reload (i-bypass ang cache)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
 	"actionCloseBrowser": {
 		"message": "Isara ang Browser",
 		"description": "Close browser"
@@ -542,6 +578,10 @@
 	"actionNewTab": {
 		"message": "Bagong Tab",
 		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "Huwag isara ang mga naka-pin na tab",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"actionCloseOtherTabs": {
 		"message": "Isara ang Ibang mga Tab",
@@ -850,6 +890,14 @@
 	"popupRestore": {
 		"message": "Ibalik",
 		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "Kaliwang Tab",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "Kanang Tab",
+		"description": "Switch Right Tab - short"
 	},
 	"dragSearchText": {
 		"message": "🔍 Mag-drag para Maghanap",
