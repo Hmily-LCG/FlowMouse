@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "__MSG_extName__",
-    "version": "1.4",
+    "version": "1.4.1",
     "author": "Hmily[LCG] & Coxxs",
     "description": "__MSG_extDescription__",
     "default_locale": "en",
@@ -71,7 +71,7 @@
     "browser_specific_settings": {
         "gecko": {
             "id": "flowmouse@52pojie.cn",
-            "strict_min_version": "147.0",
+            "strict_min_version": "140.0",
             "data_collection_permissions": {
                 "required": [
                     "none"

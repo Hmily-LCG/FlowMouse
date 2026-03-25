@@ -4,10 +4,16 @@
 	class EventManager {
 		constructor() {
 			this._bindings = [];
+			this._onUpdateCallbacks = [];
 		}
 
 		add(condition, target, event, handler, options) {
 			this._bindings.push({ target, event, handler, options, condition, active: false });
+			return this;
+		}
+
+		onUpdate(fn) {
+			this._onUpdateCallbacks.push(fn);
 			return this;
 		}
 
@@ -22,6 +28,7 @@
 					b.active = false;
 				}
 			}
+			for (const fn of this._onUpdateCallbacks) fn();
 		}
 
 		dispose() {
@@ -748,6 +755,7 @@
 		const visualizer = new RelayGestureVisualizer();
 
 		const isGestureEnabled = () => SETTINGS.enableGesture && !isBlacklisted;
+		const isWheelGestureEnabled = () => SETTINGS.enableWheelGestures && !isBlacklisted;
 		const isSpecialGestureEnabled = () => SETTINGS.enableSpecialGestures && !isBlacklisted;
 		const isDragEnabled = () => SETTINGS.enableDrag && !isBlacklisted;
 		const eventManager = new window.EventManager();
@@ -1212,7 +1220,7 @@
 			}
 		}, true);
 
-		eventManager.add(() => SETTINGS.enableWheelGestures && !isBlacklisted, document, 'wheel', (e) => {
+		function handleWheelGesture(e) {
 			if (!(e.buttons & 2)) return;
 			if (recognizer.isActive()) return;
 			if (e.deltaY === 0) return;
@@ -1230,7 +1238,12 @@
 			wheelGestureTriggered = true;
 
 			executeAction(action, scrollConfig, e.clientX, e.clientY);
-		}, { capture: true, passive: false });
+		}
+
+		{
+			eventManager.add(isWheelGestureEnabled, document, 'wheel', handleWheelGesture, { capture: true, passive: false });
+		}
+
 
 		window.addEventListener('blur', () => {
 			if (gestureState.isRightButton) {
