@@ -154,9 +154,7 @@ class GestureVisualizer {
 	}
 
 	#mountContainer() {
-		if (document.body) {
-			document.body.appendChild(this.container);
-		} else if (document.contentType === 'image/svg+xml' || (document.documentElement && document.documentElement.tagName.toLowerCase() === 'svg')) {
+		if (document.contentType === 'image/svg+xml' || (document.documentElement && document.documentElement.tagName.toLowerCase() === 'svg')) {
 			this.#mountToSvg();
 		} else {
 			document.documentElement.appendChild(this.container);
@@ -313,7 +311,7 @@ class GestureVisualizer {
 	}
 
 	updateHudStyle() {
-		if (!this.init()) return;
+		if (!this.hud) return;
 
 		this.hud.style.cssText = `
 			position: absolute;
