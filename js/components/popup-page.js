@@ -3,6 +3,9 @@ import { commonStyles } from './shared-styles.js';
 import { SettingsStore } from '../settings-store.js';
 import { icons } from '../icons.js'; 
 
+let fileSchemeAllowed = false;
+chrome.extension.isAllowedFileSchemeAccess().then(v => { fileSchemeAllowed = v; });
+
 class PopupPage extends LitElement {
 	static properties = {
 		_enableTrail: { state: true },
@@ -241,16 +244,6 @@ class PopupPage extends LitElement {
 				white-space: nowrap;
 			}
 
-			.btn {
-				display: inline-flex;
-				align-items: center;
-				justify-content: center;
-				gap: 4px;
-				padding: 10px;
-				font-size: 13px;
-				border-radius: 6px;
-			}
-
 			.notice-box {
 				display: none;
 				background: var(--bg-secondary);
@@ -290,16 +283,6 @@ class PopupPage extends LitElement {
 
 			.notice-box .btn {
 				width: 100%;
-			}
-
-			.btn-icon {
-				display: flex;
-				align-items: center;
-			}
-
-			.btn-icon svg {
-				width: 14px;
-				height: 14px;
 			}
 
 			.notice-box.warning .notice-icon {
@@ -429,6 +412,16 @@ class PopupPage extends LitElement {
 				</label>
 			</div>
 
+			${(showGestures && !isBlacklisted) ? html`
+				<div class="status-row">
+					<span class="status-label">${i18n.getMessage('areaSelectTitle')}</span>
+					<button class="btn btn-secondary btn-sm" @click=${this.#enterAreaSelect} title="${i18n.getMessage('actionAreaSelect')}">
+						${unsafeHTML(icons.squareDashedMousePointer)}
+						${i18n.getMessage('start')}
+					</button>
+				</div>
+			` : ''}
+
 			<div class="gestures-info" style="display:${showGestures ? 'block' : 'none'};opacity:${this._gestureEnabled ? '1' : '0.5'}">
 				<div class="gestures-info-header ${this._gesturesCollapsed ? 'collapsed' : ''}" @click=${this.#toggleGesturesCollapsed}>
 					<div style="display:flex;align-items:center;gap:6px">
@@ -453,14 +446,14 @@ class PopupPage extends LitElement {
 				<div class="notice-icon">${unsafeHTML(icons.triangleAlert)}</div>
 				<div class="notice-title">${i18n.getMessage('popupNeedRefresh')}</div>
 				<div class="notice-desc">${i18n.getMessage('popupNeedRefreshDesc')}</div>
-				<button class="btn btn-primary" @click=${this.#refreshPage}><span class="btn-icon">${unsafeHTML(icons.refreshCw)}</span> ${i18n.getMessage('popupRefreshBtn')}</button>
+				<button class="btn btn-primary btn-lg" @click=${this.#refreshPage}>${unsafeHTML(icons.refreshCw)} ${i18n.getMessage('popupRefreshBtn')}</button>
 			</div>
 
 			<div class="notice-box error ${this._isRestrictedPage ? 'show' : ''}">
 				<div class="notice-icon">${unsafeHTML(icons.ban)}</div>
 				<div class="notice-title">${i18n.getMessage('popupRestrictedTitle')}</div>
 				<div class="notice-desc">${i18n.getMessage('popupRestrictedDesc')}</div>
-				<button class="btn btn-secondary" @click=${this.#learnMore}><span class="btn-icon">${unsafeHTML(icons.info)}</span> ${i18n.getMessage('popupLearnMore')}</button>
+				<button class="btn btn-secondary btn-lg" @click=${this.#learnMore}>${unsafeHTML(icons.info)} ${i18n.getMessage('popupLearnMore')}</button>
 			</div>
 
 
@@ -499,7 +492,9 @@ class PopupPage extends LitElement {
 				if (chain?.name) label = chain.name;
 			}
 			if (!label) {
-				label = i18n.getMessage(ACTION_SHORT_KEYS[action] || ACTION_KEYS[action]);
+				const i18nKey = ACTION_SHORT_KEYS[action] || ACTION_KEYS[action];
+				if (!i18nKey) continue; 
+				label = i18n.getMessage(i18nKey);
 			}
 			entries.push([pattern, label]);
 		}
@@ -521,7 +516,11 @@ class PopupPage extends LitElement {
 			return false;
 		}
 
-		const restrictedProtocols = ['chrome:', 'chrome-extension:', 'moz-extension:', 'about:', 'edge:', 'file:', 'view-source:', 'devtools:'];
+		if (url.startsWith('file:')) {
+			return !fileSchemeAllowed;
+		}
+
+		const restrictedProtocols = ['chrome:', 'chrome-extension:', 'moz-extension:', 'about:', 'edge:', 'view-source:', 'devtools:'];
 		for (const protocol of restrictedProtocols) {
 			if (url.startsWith(protocol)) return true;
 		}
@@ -658,6 +657,18 @@ class PopupPage extends LitElement {
 	#toggleGesturesCollapsed() {
 		this._gesturesCollapsed = !this._gesturesCollapsed;
 		localStorage.setItem('popupGesturesCollapsed', this._gesturesCollapsed);
+	}
+
+	async #enterAreaSelect() {
+		if (!this._currentTabId) return;
+		const settings = this._store.current;
+		await chrome.tabs.sendMessage(this._currentTabId, {
+			action: 'areaSelectEnter',
+			warnThreshold: settings.areaSelectWarnThreshold,
+			textUrl: settings.areaSelectTextUrl,
+			operationInterval: settings.areaSelectDelay,
+		});
+		window.close();
 	}
 }
 

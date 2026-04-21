@@ -35,9 +35,9 @@
 		"message": "%browserName% 계정을 통한 설정 동기화",
 		"description": "Sync status description"
 	},
-	"synced": {
-		"message": "동기화됨",
-		"description": "Synced"
+	"saved": {
+		"message": "저장됨",
+		"description": "Saved"
 	},
 	"author": {
 		"message": "제작자",
@@ -66,6 +66,10 @@
 	"feedbackText": {
 		"message": "문제나 제안 사항이 있으신가요? <a href='mailto:Service@52pojie.cn'>이메일</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> 또는 <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>포럼</a>을 통해 알려주시면 최대한 빨리 개선하겠습니다!",
 		"description": "Feedback text"
+	},
+	"feedbackTextChrome": {
+		"message": "문제나 제안 사항이 있으신가요? <a href='https://chromewebstore.google.com/detail/fnldhkfidchnjiokpoemdhoejmaojkgp/support' target='_blank'>Chrome 웹 스토어 지원</a>, <a href='mailto:Service@52pojie.cn'>이메일</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> 또는 <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>포럼</a>을 통해 알려주시면 최대한 빨리 개선하겠습니다!",
+		"description": "Feedback text for Chrome browser"
 	},
 	"supportAndFeedback": {
 		"message": "지원 및 피드백",
@@ -125,11 +129,11 @@
 	},
 	"btnSide1Mouse": {
 		"message": "측면 버튼(뒤로가기)",
-		"description": "Mouse button 4 — the side button typically used for navigating back"
+		"description": "Mouse button 4 - the side button typically used for navigating back"
 	},
 	"btnSide2Mouse": {
 		"message": "측면 버튼(앞으로가기)",
-		"description": "Mouse button 5 — the side button typically used for navigating forward"
+		"description": "Mouse button 5 - the side button typically used for navigating forward"
 	},
 	"btnPenRight": {
 		"message": "스타일러스 오른쪽 버튼",
@@ -195,6 +199,54 @@
 		"message": "그림자",
 		"description": "HUD shadow toggle"
 	},
+	"customCss": {
+		"message": "사용자 지정 CSS",
+		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
+	},
+	"customCssDesc": {
+		"message": "FlowMouse 자체 UI를 조정하려면 사용자 지정 CSS를 설정하세요",
+		"description": "Description for the Custom CSS advanced setting"
+	},
+	"customCssConfigure": {
+		"message": "구성",
+		"description": "Button label to open the Custom CSS editor dialog when no CSS is set"
+	},
+	"customCssEdit": {
+		"message": "편집",
+		"description": "Button label to open the Custom CSS editor dialog when CSS is already set"
+	},
+	"customCssEditorTitle": {
+		"message": "사용자 지정 CSS 편집기",
+		"description": "Title of the dedicated custom CSS editor page"
+	},
+	"customCssEditorHint": {
+		"message": "스타일은 FlowMouse가 생성하는 각 Shadow DOM에 삽입됩니다. 저장하려면 Ctrl+S를 누르세요.",
+		"description": "Hint shown above the editor textarea."
+	},
+	"customCssEditorPlaceholder": {
+		"message": "/* 여기에 맞춤형 CSS를 입력하세요… */",
+		"description": "Placeholder inside the Custom CSS editor textarea"
+	},
+	"customCssEditorInsertSnippet": {
+		"message": "예시",
+		"description": "Button to append an example/starter CSS snippet to the editor"
+	},
+	"customCssEditorRevert": {
+		"message": "변경사항 실행 취소",
+		"description": "Button that reverts the editor content back to the last saved value"
+	},
+	"customCssEditorSave": {
+		"message": "저장",
+		"description": "Save button in the Custom CSS editor"
+	},
+	"customCssEditorSaved": {
+		"message": "저장됨",
+		"description": "Status message shown briefly after the user saves the custom CSS"
+	},
+	"customCssEditorDiscardConfirm": {
+		"message": "저장하지 않은 편집 내용을 취소하고 마지막으로 저장한 CSS로 되돌리시겠습니까?",
+		"description": "Confirmation dialog shown before reverting unsaved edits"
+	},
 	"text": {
 		"message": "텍스트",
 		"description": "Text"
@@ -255,6 +307,14 @@
 		"message": "선택한 텍스트를 드래그하여 검색",
 		"description": "Drag selected text to search"
 	},
+	"textDragIgnoreInput": {
+		"message": "입력 필드에서 비활성화",
+		"description": "Option to disable text drag inside input boxes and textareas"
+	},
+	"textDragIgnoreInputDesc": {
+		"message": "입력 필드 및 텍스트 편집기와 같은 편집 가능한 영역에서 텍스트 드래그를 트리거하지 않음",
+		"description": "Description for text drag ignore input option"
+	},
 	"searchEngine": {
 		"message": "검색 엔진",
 		"description": "Search engine"
@@ -267,6 +327,10 @@
 		"message": "사용자 정의 URL, 검색어를 %s로 대체",
 		"description": "Custom URL placeholder"
 	},
+	"customUrlPlaceholderHint": {
+		"message": "프로토콜(예: https://)을 포함해야 합니다. 사용 가능한 자리 표시자: %placeholders%. URL 인코딩을 건너뛰려면 :raw를 추가하세요. (예: %example%)",
+		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
+	},
 	"urlPlaceholderText": {
 		"message": "%s=검색어",
 		"description": "Placeholder for text drag custom URL"
@@ -274,6 +338,14 @@
 	"urlPlaceholderImage": {
 		"message": "%s=이미지 URL",
 		"description": "Placeholder for image drag custom URL"
+	},
+	"searchEngine_google_translate": {
+		"message": "Google 번역",
+		"description": "Google Translate search engine"
+	},
+	"searchEngine_bing_translate": {
+		"message": "Bing 번역",
+		"description": "Bing Translate search engine"
 	},
 	"searchEngine_baidu": {
 		"message": "Baidu",
@@ -367,8 +439,16 @@
 		"message": "기본값으로 복원",
 		"description": "Reset to default"
 	},
+	"duplicate": {
+		"message": "복제",
+		"description": "Generic duplicate button tooltip"
+	},
+	"delete": {
+		"message": "삭제",
+		"description": "Generic delete button tooltip"
+	},
 	"autoSaved": {
-		"message": "✓ 자동 저장됨",
+		"message": "자동 저장됨",
 		"description": "Auto-saved message"
 	},
 	"saveFailure": {
@@ -663,6 +743,10 @@
 		"message": "페이지 제목 복사",
 		"description": "Copy page title"
 	},
+	"actionCopyTitleAndUrl": {
+		"message": "페이지 제목 및 URL 복사",
+		"description": "Copy page title and URL"
+	},
 	"actionOpenDownloads": {
 		"message": "다운로드 페이지 열기",
 		"description": "Open downloads page"
@@ -674,6 +758,10 @@
 	"actionOpenExtensions": {
 		"message": "확장 프로그램 관리 열기",
 		"description": "Open extensions page"
+	},
+	"actionSaveAsMhtml": {
+		"message": "MHTML로 저장",
+		"description": "Save current page as MHTML file"
 	},
 	"actionPrintPage": {
 		"message": "페이지 인쇄",
@@ -694,6 +782,14 @@
 	"actionTogglePinTab": {
 		"message": "현재 탭 고정/해제",
 		"description": "Toggle pin current tab"
+	},
+	"actionMoveTabToNewWindow": {
+		"message": "새 창으로 탭 이동",
+		"description": "Move current tab to a new window"
+	},
+	"actionSearchClipboard": {
+		"message": "클립보드에서 검색",
+		"description": "Search clipboard text using a search engine"
 	},
 	"showTrailOrigin": {
 		"message": "시작점 표시",
@@ -731,6 +827,10 @@
 		"message": "기타 설정",
 		"description": "Section title for other/miscellaneous settings"
 	},
+	"styleSettings": {
+		"message": "모양",
+		"description": "Section title for style/appearance settings (trail, HUD, etc.)"
+	},
 	"show": {
 		"message": "표시",
 		"description": "Show navigation menu"
@@ -760,7 +860,7 @@
 		"description": "Clear button"
 	},
 	"gestureAdded": {
-		"message": "✓ 제스처가 추가되었습니다.",
+		"message": "제스처가 추가되었습니다.",
 		"description": "Gesture added success message"
 	},
 	"gestureRecorderTitle": {
@@ -816,16 +916,16 @@
 		"description": "Delete gesture confirmation"
 	},
 	"gestureDeleted": {
-		"message": "✓ 제스처가 삭제되었습니다.",
+		"message": "제스처가 삭제되었습니다.",
 		"description": "Gesture deleted success message"
 	},
 	"enterCustomUrl": {
-		"message": "URL을 입력하세요 (https://, chrome:// 등 프로토콜 포함 권장):",
+		"message": "URL",
 		"description": "Prompt for custom URL input"
 	},
-	"copyUrlIncludeTitle": {
-		"message": "페이지 제목도 복사",
-		"description": "Checkbox label for including page title when copying URL"
+	"copyAsMarkdown": {
+		"message": "Markdown 형식으로 복사",
+		"description": "Checkbox label for copying as markdown format"
 	},
 	"invalidUrl": {
 		"message": "유효한 URL을 입력하세요 (http:// 또는 https://로 시작)",
@@ -956,27 +1056,27 @@
 		"description": "Features"
 	},
 	"aboutFeature1": {
-		"message": "🎯 16가지 기본 제스처 + 사용자 정의 제스처",
+		"message": "16가지 기본 제스처 + 사용자 정의 제스처",
 		"description": "Feature 1"
 	},
 	"aboutFeature2": {
-		"message": "🎨 시각적 궤적 피드백",
+		"message": "시각적 궤적 피드백",
 		"description": "Feature 2"
 	},
 	"aboutFeature3": {
-		"message": "🔍 텍스트/이미지/링크 슈퍼 드래그",
+		"message": "텍스트/이미지/링크 슈퍼 드래그",
 		"description": "Feature 3"
 	},
 	"aboutFeature4": {
-		"message": "🚫 웹사이트 블랙리스트",
+		"message": "웹사이트 블랙리스트",
 		"description": "Feature 4"
 	},
 	"aboutFeature5": {
-		"message": "☁️ %browserName% 계정 동기화",
+		"message": "%browserName% 계정 동기화",
 		"description": "Feature 5"
 	},
 	"aboutFeature6": {
-		"message": "🔒 로컬 완전 실행, 동기화 외 네트워크 없음",
+		"message": "로컬 완전 실행, 동기화 외 네트워크 없음",
 		"description": "Feature 6"
 	},
 	"tutorial": {
@@ -988,15 +1088,15 @@
 		"description": "Learn more link"
 	},
 	"badgeNoNetwork": {
-		"message": "🔒 동기화 외 네트워크 없음",
+		"message": "동기화 외 네트워크 없음",
 		"description": "No network privacy badge"
 	},
 	"badgeNoData": {
-		"message": "🚫 데이터 수집 없음",
+		"message": "데이터 수집 없음",
 		"description": "No data collection badge"
 	},
 	"badgeLocalRun": {
-		"message": "✅ 로컬 실행",
+		"message": "로컬 실행",
 		"description": "Local run badge"
 	},
 	"newTabSettings": {
@@ -1091,6 +1191,10 @@
 		"message": "📋 링크 텍스트 복사",
 		"description": "Copy link text"
 	},
+	"dragActionCopyLinkAndText": {
+		"message": "📋 텍스트 및 링크 복사",
+		"description": "Copy link text and URL"
+	},
 	"dragActionSaveImage": {
 		"message": "💾 이미지 저장",
 		"description": "Save image"
@@ -1111,6 +1215,10 @@
 		"message": "🔍 사용자 정의 검색",
 		"description": "Custom search"
 	},
+	"dragActionSendCustomEvent": {
+		"message": "사용자 지정 이벤트 보내기",
+		"description": "Send custom DOM event on drag gesture"
+	},
 	"reducedMotionWarning": {
 		"message": "%OS% 시스템 애니메이션이 활성화되지 않아 스크롤 애니메이션이 정상적으로 표시되지 않을 수 있습니다. %OS% 시스템 설정에서 애니메이션을 켤 수 있습니다.",
 		"description": "Warning message when system reduced motion is enabled"
@@ -1119,9 +1227,29 @@
 		"message": "링크 자동 인식",
 		"description": "Auto detect URL checkbox label"
 	},
+	"autoDetectUrlTooltip": {
+		"message": "텍스트가 링크 형식인 경우 검색하지 않고 직접 열기",
+		"description": "Tooltip for the auto detect URL checkbox"
+	},
 	"preferLink": {
 		"message": "링크 우선 열기",
 		"description": "Prefer link checkbox label"
+	},
+	"customHudName": {
+		"message": "이름",
+		"description": "Placeholder for custom action name shown on HUD"
+	},
+	"customHudNameTooltip": {
+		"message": "제스처를 실행할 때 화면에 표시되는 사용자 지정 이름",
+		"description": "Tooltip for the custom HUD name field"
+	},
+	"actionNoOptions": {
+		"message": "이 명령에는 설정 항목이 없습니다.",
+		"description": "Placeholder shown in the action picker's detail panel when the selected action has no configurable settings"
+	},
+	"actionRequiredBadge": {
+		"message": "필수",
+		"description": "Badge shown next to fields that must be filled in (e.g., URL for Open URL)"
 	},
 	"menuNeedRefresh": {
 		"message": "FlowMouse 미로드, 클릭하여 새로고침",
@@ -1376,11 +1504,11 @@
 		"description": "Permission popup description for downloads"
 	},
 	"permissionDownloadsPageCaptureTitle": {
-		"message": "이미지 저장",
+		"message": "콘텐츠 저장",
 		"description": "Permission popup title for downloads and page capture"
 	},
 	"permissionDownloadsPageCaptureDesc": {
-		"message": "이미지를 저장하려면 FlowMouse에 페이지 및 다운로드 액세스 권한이 필요합니다.",
+		"message": "콘텐츠를 저장하려면 FlowMouse에 페이지 및 다운로드 액세스 권한이 필요합니다.",
 		"description": "Permission popup description for downloads and page capture"
 	},
 	"permissionIncognitoTitle": {
@@ -1390,6 +1518,14 @@
 	"permissionIncognitoDesc": {
 		"message": "시크릿 창에서 사용하려면 FlowMouse에 대해 \"시크릿 모드에서 허용\"을 수동으로 활성화해야 합니다.",
 		"description": "Permission popup description for incognito"
+	},
+	"permissionClipboardReadTitle": {
+		"message": "클립보드 읽기",
+		"description": "Permission popup title for clipboard read"
+	},
+	"permissionClipboardReadDesc": {
+		"message": "클립보드 내용을 붙여넣기 위해 FlowMouse가 클립보드를 읽을 수 있는 권한이 필요합니다.",
+		"description": "Permission popup description for clipboard read"
 	},
 	"openExtensionsSettings": {
 		"message": "확장 프로그램 세부정보 열기",
@@ -1434,6 +1570,10 @@
 	"buttonOkay": {
 		"message": "확인",
 		"description": "Generic OK button"
+	},
+	"buttonConfirm": {
+		"message": "확인",
+		"description": "Generic Confirm button"
 	},
 	"buttonCancel": {
 		"message": "취소",
@@ -1487,6 +1627,10 @@
 		"message": "오른쪽 버튼을 누른 채 아래로 스크롤",
 		"description": "Wheel gesture: scroll down while holding right button"
 	},
+	"wheelGesture_wheelClickHoldingRight": {
+		"message": "오른쪽 버튼을 누른 채 휠 클릭",
+		"description": "Wheel gesture: wheel (middle) click while holding right button"
+	},
 	"specialGestures": {
 		"message": "특수 제스처",
 		"description": "Special gestures section title"
@@ -1507,32 +1651,68 @@
 		"message": "좌클릭을 누른 상태에서 우클릭",
 		"description": "Special gesture: right click while holding left button"
 	},
-	"actionChains": {
-		"message": "명령 체인",
-		"description": "Action chains section title"
-	},
 	"actionChainsDesc": {
-		"message": "순서대로 실행되는 재사용 가능한 명령 시퀀스를 만듭니다",
+		"message": "명령 체인을 사용하여 여러 명령을 순서대로 실행합니다.",
 		"description": "Action chains section description"
 	},
 	"actionActionChain": {
 		"message": "명령 체인",
 		"description": "Action chain action name"
 	},
-	"actionCategoryChains": {
-		"message": "명령 체인",
-		"description": "Action category: action chains"
+	"actionCustomMenu": {
+		"message": "맞춤 메뉴",
+		"description": "Custom popup menu action name"
+	},
+	"customMenuDesc": {
+		"message": "여러 작업이 포함된 맞춤형 팝업 메뉴를 만듭니다.",
+		"description": "Custom menu section description"
+	},
+	"addMenu": {
+		"message": "메뉴 추가",
+		"description": "Add menu button"
+	},
+	"menuNamePlaceholder": {
+		"message": "맞춤 메뉴",
+		"description": "Menu name input placeholder"
+	},
+	"menuItemCount": {
+		"message": "항목 %count%개",
+		"description": "Item count for menus, e.g. '3 items'"
+	},
+	"menuItemCountOne": {
+		"message": "항목 %count%개",
+		"description": "Item count for menus with exactly 1 item"
+	},
+	"addMenuItem": {
+		"message": "항목 추가",
+		"description": "Add menu item button"
+	},
+	"addMenuSeparator": {
+		"message": "구분선 추가",
+		"description": "Add separator to menu button"
+	},
+	"emptyMenuItems": {
+		"message": "추가된 항목이 없습니다. 시작하려면 \"항목 추가\"를 클릭하세요.",
+		"description": "Empty menu items message"
+	},
+	"menuNotFound": {
+		"message": "(메뉴를 찾을 수 없음)",
+		"description": "Menu not found label"
+	},
+	"deleteMenuConfirm": {
+		"message": "메뉴 '%name%'을(를) 삭제하시겠습니까?",
+		"description": "Delete menu confirmation"
+	},
+	"menuItemNumber": {
+		"message": "항목 %n%",
+		"description": "Menu item number label"
 	},
 	"addChain": {
 		"message": "체인 추가",
 		"description": "Add chain button"
 	},
-	"addNewChain": {
-		"message": "새 체인 만들기...",
-		"description": "Action item to navigate to chain editor and create a new chain"
-	},
 	"chainNamePlaceholder": {
-		"message": "내 명령 체인",
+		"message": "명령 체인",
 		"description": "Chain name input placeholder"
 	},
 	"chainDelayUnit": {
@@ -1579,6 +1759,14 @@
 		"message": "키 입력 시뮬레이션",
 		"description": "Action to simulate a keyboard key press on the page"
 	},
+	"actionPasteClipboard": {
+		"message": "클립보드 붙여넣기",
+		"description": "Action to paste clipboard text at the gesture start position"
+	},
+	"pasteClipboardHint": {
+		"message": "클립보드 내용이 <b>제스처 시작 위치</b>의 입력 필드에 붙여넣기됩니다.",
+		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
 	"simulateKeyPreset": {
 		"message": "프리셋 키",
 		"description": "Label for preset key dropdown in simulate key config"
@@ -1615,6 +1803,14 @@
 		"message": "잘못된 JSON 형식",
 		"description": "Error message when event detail is not valid JSON"
 	},
+	"customEventIncludeGestureInfo": {
+		"message": "%code%에 제스처 정보 포함",
+		"description": "Checkbox label for including gesture context in custom event detail. %code% = detail.gesture"
+	},
+	"customEventConfigureBtn": {
+		"message": "설정",
+		"description": "Label for the configure button of custom event action in drag gesture manager"
+	},
 	"customEventHint": {
 		"message": "%window%에 %code%을(를) 보냅니다. 다른 스크립트와의 통합에 유용합니다.",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
@@ -1630,5 +1826,233 @@
 	"chainStepCountOne": {
 		"message": "%count% 단계",
 		"description": "Step count for unnamed chains with exactly 1 step"
+	},
+	"actionZoomIn": {
+		"message": "확대",
+		"description": "Zoom in on the current page"
+	},
+	"actionZoomOut": {
+		"message": "축소",
+		"description": "Zoom out on the current page"
+	},
+	"actionResetZoom": {
+		"message": "확대/축소 초기화",
+		"description": "Reset page zoom to default or a specified level"
+	},
+	"actionViewPageSource": {
+		"message": "페이지 소스 보기",
+		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionPauseGesture": {
+		"message": "새로고침 시까지 제스처 일시정지",
+		"description": "Temporarily disable all gestures on the current tab until page refresh"
+	},
+	"actionAreaSelect": {
+		"message": "영역 선택",
+		"description": "Enter area select mode to drag-select links on the page and batch open them"
+	},
+	"areaSelectTitle": {
+		"message": "영역 선택",
+		"description": "Label for the area select row in the popup"
+	},
+	"areaSelectModifierKey": {
+		"message": "빠른 영역 선택",
+		"description": "Label for the modifier key dropdown in area select settings"
+	},
+	"areaSelectModifierKeyDesc": {
+		"message": "수정자 키를 누른 상태에서 마우스 왼쪽 버튼을 클릭하고 드래그하여 페이지의 링크를 빠르게 선택하여 일괄 작업을 수행합니다",
+		"description": "Description for the modifier key setting"
+	},
+	"areaSelectDisabled": {
+		"message": "사용 안 함",
+		"description": "Disabled option for the area select modifier key dropdown"
+	},
+	"areaSelectMouseDrag": {
+		"message": "마우스 드래그",
+		"description": "Suffix label next to the modifier key dropdown"
+	},
+	"areaSelectTextUrl": {
+		"message": "텍스트 URL 인식",
+		"description": "Label for the text URL recognition toggle"
+	},
+	"areaSelectTextUrlDesc": {
+		"message": "영역 선택 시 일반 텍스트 URL(하이퍼링크 아님)도 함께 추출",
+		"description": "Description for the text URL recognition toggle"
+	},
+	"areaSelectWarnThreshold": {
+		"message": "일괄 작업 경고",
+		"description": "Label for the batch operation alert threshold input"
+	},
+	"areaSelectWarnThresholdDesc": {
+		"message": "항목 수가 이 값을 초과하는 일괄 작업 시 확인 메시지 표시, 0으로 설정하면 사용 안 함",
+		"description": "Description for the batch operation alert threshold"
+	},
+	"areaSelectDelay": {
+		"message": "작업 간격",
+		"description": "Label for the operation interval input"
+	},
+	"areaSelectDelayDesc": {
+		"message": "일괄 작업에서 각각 열기 사이의 지연 (초)",
+		"description": "Description for the operation interval setting"
+	},
+	"areaSelectHint": {
+		"message": "드래그하여 링크 선택",
+		"description": "Hint text shown in the area select overlay"
+	},
+	"areaSelectOpen": {
+		"message": "링크 %count%개 열기",
+		"description": "Button text in the area select toolbar to batch open selected links"
+	},
+	"areaSelectOpenOne": {
+		"message": "링크 %count%개 열기",
+		"description": "Button text to open a single selected link (singular form)"
+	},
+	"areaSelectCopy": {
+		"message": "링크 복사",
+		"description": "Button text to copy all selected link URLs to clipboard"
+	},
+	"areaSelectCancel": {
+		"message": "취소",
+		"description": "Button text to cancel area select mode"
+	},
+	"areaSelectConfirm": {
+		"message": "확인",
+		"description": "Button text to confirm opening many links"
+	},
+	"areaSelectWarnTitle": {
+		"message": "많은 링크 열기",
+		"description": "Title of the warning modal when opening many links"
+	},
+	"areaSelectWarnMessage": {
+		"message": "%count%개의 링크를 열려고 합니다. 브라우저 속도가 느려질 수 있습니다. 계속하시겠습니까?",
+		"description": "Body text of the warning modal"
+	},
+	"start": {
+		"message": "시작",
+		"description": "Button label to start an action (e.g. area select)"
+	},
+	"actionMenuShowTabs": {
+		"message": "탭 전환",
+		"description": "Show a context menu listing all open tabs in the current window"
+	},
+	"actionMenuRecentlyClosed": {
+		"message": "최근에 닫은 탭",
+		"description": "Show a context menu listing recently closed tabs for quick restore"
+	},
+	"recentlyClosedMaxItems": {
+		"message": "최대 항목 수",
+		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
+	},
+	"actionCategoryContextMenu": {
+		"message": "팝업 메뉴",
+		"description": "Action category: context menu actions"
+	},
+	"zoomStepMode": {
+		"message": "확대/축소 모드",
+		"description": "Label for zoom mode selector: browser steps vs fixed increment"
+	},
+	"zoomStepModeBrowser": {
+		"message": "브라우저 확대/축소 수준 사용",
+		"description": "Option: follow Chrome's built-in zoom steps (25%, 33%, 50%, …, 500%)"
+	},
+	"zoomStepModeFixed": {
+		"message": "고정 단위",
+		"description": "Option: zoom in/out by a configurable fixed percentage each time"
+	},
+	"zoomDelta": {
+		"message": "증감 단위",
+		"description": "Label for the zoom increment/decrement slider"
+	},
+	"resetZoomLevel": {
+		"message": "다음으로 재설정",
+		"description": "Label for the target zoom level when resetting zoom"
+	},
+	"resetZoomDefault": {
+		"message": "브라우저 기본값",
+		"description": "Option: reset zoom to the browser's default zoom setting"
+	},
+	"resetZoomCustom": {
+		"message": "사용자 지정 값",
+		"description": "Option: reset zoom to a user-specified custom zoom level"
+	},
+	"actionMenuShowBookmarks": {
+		"message": "북마크 표시",
+		"description": "Show a context menu listing bookmarks from a selected folder"
+	},
+	"bookmarkFolder": {
+		"message": "폴더",
+		"description": "Label for selecting which bookmark folder to display"
+	},
+	"bookmarkGrantPermission": {
+		"message": "북마크 권한 부여",
+		"description": "Button label to request bookmarks permission"
+	},
+	"ctxMenuSortOrder": {
+		"message": "정렬 기준",
+		"description": "Label for context menu sort order dropdown"
+	},
+	"ctxMenuSortDefault": {
+		"message": "기본값",
+		"description": "Sort option: original API/insertion order"
+	},
+	"ctxMenuSortDefaultDesc": {
+		"message": "기본값(역순)",
+		"description": "Sort option: reverse of original API order"
+	},
+	"ctxMenuSortDateAddedAsc": {
+		"message": "추가된 날짜(오래된 순)",
+		"description": "Sort option: by date added ascending"
+	},
+	"ctxMenuSortDateAddedDesc": {
+		"message": "추가된 날짜(최신순)",
+		"description": "Sort option: by date added descending"
+	},
+	"ctxMenuSortNameAsc": {
+		"message": "이름(오름차순)",
+		"description": "Sort option: alphabetical ascending"
+	},
+	"ctxMenuSortNameDesc": {
+		"message": "이름(내림차순)",
+		"description": "Sort option: alphabetical descending"
+	},
+	"ctxMenuSortLastAccessAsc": {
+		"message": "최근 액세스(오래된 순)",
+		"description": "Sort option: by last access time ascending"
+	},
+	"ctxMenuSortLastAccessDesc": {
+		"message": "최근 액세스(최신순)",
+		"description": "Sort option: by last access time descending"
+	},
+	"ctxMenuMaxItems": {
+		"message": "최대 개수",
+		"description": "Label for maximum number of items in context menu"
+	},
+	"ctxMenuMaxItemsUnlimited": {
+		"message": "무제한",
+		"description": "Placeholder shown when max items is 0 (no limit)"
+	},
+	"ctxMenuScrollToBottom": {
+		"message": "맨 아래로 스크롤",
+		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuTimeDisplay": {
+		"message": "시간 표시",
+		"description": "Label for time display mode dropdown in context menu"
+	},
+	"ctxMenuTimeNone": {
+		"message": "표시 안 함",
+		"description": "Time display option: hide time column"
+	},
+	"ctxMenuTimeLastAccess": {
+		"message": "최근 액세스",
+		"description": "Time display option: show last access time"
+	},
+	"ctxMenuTimeClosedTime": {
+		"message": "닫은 시간",
+		"description": "Time display option: show when the tab was closed"
+	},
+	"ctxMenuTimeDateAdded": {
+		"message": "추가한 날짜",
+		"description": "Time display option: show when the bookmark was added"
 	}
 }

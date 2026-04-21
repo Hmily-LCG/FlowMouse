@@ -39,12 +39,13 @@ class BlacklistManager extends LitElement {
 				<input 
 					type="text" 
 					id="blacklistInput"
+					class="input-lg"
 					placeholder="${window.i18n.getMessage('blacklistPlaceholder')}"
 					.value="${this._inputValue}"
 					@input="${this.#handleInput}"
 					@keydown="${this.#handleKeydown}"
 				>
-				<button class="btn btn-primary" id="addDomain" @click="${() => this.#addDomain()}">${window.i18n.getMessage('add')}</button>
+				<button class="btn btn-primary btn-lg" id="addDomain" @click="${() => this.#addDomain()}">${window.i18n.getMessage('add')}</button>
 			</div>
 
 			<div class="blacklist-list" id="blacklistList">

@@ -181,6 +181,14 @@ class GestureRecognizer {
 		return this.#startY;
 	}
 
+	get currentX() {
+		return this.#currentX;
+	}
+
+	get currentY() {
+		return this.#currentY;
+	}
+
 	get startTimestamp() {
 		return this.#startTimestamp;
 	}

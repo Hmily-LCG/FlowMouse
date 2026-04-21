@@ -35,9 +35,9 @@
 		"message": "设置通过 %browserName% 账号同步",
 		"description": "Sync status description"
 	},
-	"synced": {
-		"message": "已同步",
-		"description": "Synced"
+	"saved": {
+		"message": "已保存",
+		"description": "Saved"
 	},
 	"author": {
 		"message": "作者",
@@ -66,6 +66,10 @@
 	"feedbackText": {
 		"message": "遇到问题或有建议？请通过 <a href='mailto:Service@52pojie.cn'>邮箱</a>、<a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> 或 <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>论坛</a> 告诉我们，我们会尽快完善！",
 		"description": "Feedback text"
+	},
+	"feedbackTextChrome": {
+		"message": "遇到问题或有建议？请通过 <a href='https://chromewebstore.google.com/detail/fnldhkfidchnjiokpoemdhoejmaojkgp/support' target='_blank'>Chrome 应用商店支持中心</a>、<a href='mailto:Service@52pojie.cn'>邮箱</a>、<a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> 或 <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>论坛</a> 告诉我们，我们会尽快完善！",
+		"description": "Feedback text for Chrome browser"
 	},
 	"supportAndFeedback": {
 		"message": "支持与反馈",
@@ -125,11 +129,11 @@
 	},
 	"btnSide1Mouse": {
 		"message": "侧键（后退）",
-		"description": "Mouse button 4 — the side button typically used for navigating back"
+		"description": "Mouse button 4 - the side button typically used for navigating back"
 	},
 	"btnSide2Mouse": {
 		"message": "侧键（前进）",
-		"description": "Mouse button 5 — the side button typically used for navigating forward"
+		"description": "Mouse button 5 - the side button typically used for navigating forward"
 	},
 	"btnPenRight": {
 		"message": "触控笔右键",
@@ -195,6 +199,54 @@
 		"message": "阴影",
 		"description": "HUD shadow toggle"
 	},
+	"customCss": {
+		"message": "自定义 CSS",
+		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
+	},
+	"customCssDesc": {
+		"message": "设置自定义 CSS 以调整 FlowMouse 自身的界面样式",
+		"description": "Description for the Custom CSS advanced setting"
+	},
+	"customCssConfigure": {
+		"message": "配置",
+		"description": "Button label to open the Custom CSS editor dialog when no CSS is set"
+	},
+	"customCssEdit": {
+		"message": "编辑",
+		"description": "Button label to open the Custom CSS editor dialog when CSS is already set"
+	},
+	"customCssEditorTitle": {
+		"message": "自定义 CSS 编辑器",
+		"description": "Title of the dedicated custom CSS editor page"
+	},
+	"customCssEditorHint": {
+		"message": "样式会被注入到 FlowMouse 创建的每个 Shadow DOM 中。按 Ctrl+S 保存。",
+		"description": "Hint shown above the editor textarea."
+	},
+	"customCssEditorPlaceholder": {
+		"message": "/* 在此处输入自定义 CSS… */",
+		"description": "Placeholder inside the Custom CSS editor textarea"
+	},
+	"customCssEditorInsertSnippet": {
+		"message": "示例",
+		"description": "Button to append an example/starter CSS snippet to the editor"
+	},
+	"customCssEditorRevert": {
+		"message": "撤销更改",
+		"description": "Button that reverts the editor content back to the last saved value"
+	},
+	"customCssEditorSave": {
+		"message": "保存",
+		"description": "Save button in the Custom CSS editor"
+	},
+	"customCssEditorSaved": {
+		"message": "已保存",
+		"description": "Status message shown briefly after the user saves the custom CSS"
+	},
+	"customCssEditorDiscardConfirm": {
+		"message": "放弃未保存的修改，还原到上次保存的 CSS 吗？",
+		"description": "Confirmation dialog shown before reverting unsaved edits"
+	},
 	"text": {
 		"message": "文字",
 		"description": "Text"
@@ -255,6 +307,14 @@
 		"message": "选中文字后拖拽进行搜索",
 		"description": "Drag selected text to search"
 	},
+	"textDragIgnoreInput": {
+		"message": "在输入框中禁用",
+		"description": "Option to disable text drag inside input boxes and textareas"
+	},
+	"textDragIgnoreInputDesc": {
+		"message": "在输入框和文本编辑器等可编辑区域中不触发文字拖拽",
+		"description": "Description for text drag ignore input option"
+	},
 	"searchEngine": {
 		"message": "搜索引擎",
 		"description": "Search engine"
@@ -267,6 +327,10 @@
 		"message": "自定义 URL，用 %s 代替搜索词",
 		"description": "Custom URL placeholder"
 	},
+	"customUrlPlaceholderHint": {
+		"message": "需包含协议（如 https://）。可用占位符：%placeholders%。追加 :raw 可跳过 URL 编码，如：%example%",
+		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
+	},
 	"urlPlaceholderText": {
 		"message": "%s=搜索词",
 		"description": "Placeholder for text drag custom URL"
@@ -274,6 +338,14 @@
 	"urlPlaceholderImage": {
 		"message": "%s=图片地址",
 		"description": "Placeholder for image drag custom URL"
+	},
+	"searchEngine_google_translate": {
+		"message": "Google 翻译",
+		"description": "Google Translate search engine"
+	},
+	"searchEngine_bing_translate": {
+		"message": "Bing 翻译",
+		"description": "Bing Translate search engine"
 	},
 	"searchEngine_baidu": {
 		"message": "百度",
@@ -367,8 +439,16 @@
 		"message": "恢复默认",
 		"description": "Reset to default"
 	},
+	"duplicate": {
+		"message": "复制",
+		"description": "Generic duplicate button tooltip"
+	},
+	"delete": {
+		"message": "删除",
+		"description": "Generic delete button tooltip"
+	},
 	"autoSaved": {
-		"message": "✓ 已自动保存",
+		"message": "已自动保存",
 		"description": "Auto-saved message"
 	},
 	"saveFailure": {
@@ -636,7 +716,7 @@
 		"description": "New incognito window"
 	},
 	"actionAddToBookmarks": {
-		"message": "添加到收藏夹",
+		"message": "添加到书签",
 		"description": "Add to bookmarks"
 	},
 	"actionToggleFullscreen": {
@@ -663,6 +743,10 @@
 		"message": "复制页面标题",
 		"description": "Copy page title"
 	},
+	"actionCopyTitleAndUrl": {
+		"message": "复制页面标题和网址",
+		"description": "Copy page title and URL"
+	},
 	"actionOpenDownloads": {
 		"message": "打开下载页面",
 		"description": "Open downloads page"
@@ -674,6 +758,10 @@
 	"actionOpenExtensions": {
 		"message": "打开扩展管理",
 		"description": "Open extensions page"
+	},
+	"actionSaveAsMhtml": {
+		"message": "保存为 MHTML",
+		"description": "Save current page as MHTML file"
 	},
 	"actionPrintPage": {
 		"message": "打印页面",
@@ -694,6 +782,14 @@
 	"actionTogglePinTab": {
 		"message": "固定/取消固定当前标签页",
 		"description": "Toggle pin current tab"
+	},
+	"actionMoveTabToNewWindow": {
+		"message": "移动标签页到新窗口",
+		"description": "Move current tab to a new window"
+	},
+	"actionSearchClipboard": {
+		"message": "搜索剪贴板",
+		"description": "Search clipboard text using a search engine"
 	},
 	"showTrailOrigin": {
 		"message": "显示起始原点",
@@ -731,6 +827,10 @@
 		"message": "其他设置",
 		"description": "Section title for other/miscellaneous settings"
 	},
+	"styleSettings": {
+		"message": "外观设置",
+		"description": "Section title for style/appearance settings (trail, HUD, etc.)"
+	},
 	"show": {
 		"message": "显示",
 		"description": "Show navigation menu"
@@ -760,7 +860,7 @@
 		"description": "Clear button"
 	},
 	"gestureAdded": {
-		"message": "✓ 手势已添加",
+		"message": "手势已添加",
 		"description": "Gesture added success message"
 	},
 	"gestureRecorderTitle": {
@@ -816,16 +916,16 @@
 		"description": "Delete gesture confirmation"
 	},
 	"gestureDeleted": {
-		"message": "✓ 手势已删除",
+		"message": "手势已删除",
 		"description": "Gesture deleted success message"
 	},
 	"enterCustomUrl": {
-		"message": "请输入网址（建议包含协议，如 https://、chrome:// 等）：",
+		"message": "网址",
 		"description": "Prompt for custom URL input"
 	},
-	"copyUrlIncludeTitle": {
-		"message": "同时复制页面标题",
-		"description": "Checkbox label for including page title when copying URL"
+	"copyAsMarkdown": {
+		"message": "以 Markdown 格式复制",
+		"description": "Checkbox label for copying as markdown format"
 	},
 	"invalidUrl": {
 		"message": "请输入有效的网址（以 http:// 或 https:// 开头）",
@@ -956,27 +1056,27 @@
 		"description": "Features"
 	},
 	"aboutFeature1": {
-		"message": "🎯 16 种默认手势 + 自定义手势",
+		"message": "16 种默认手势 + 自定义手势",
 		"description": "Feature 1"
 	},
 	"aboutFeature2": {
-		"message": "🎨 可视化轨迹反馈",
+		"message": "可视化轨迹反馈",
 		"description": "Feature 2"
 	},
 	"aboutFeature3": {
-		"message": "🔍 文字/图片/链接超级拖拽",
+		"message": "文字/图片/链接超级拖拽",
 		"description": "Feature 3"
 	},
 	"aboutFeature4": {
-		"message": "🚫 网站黑名单",
+		"message": "网站黑名单",
 		"description": "Feature 4"
 	},
 	"aboutFeature5": {
-		"message": "☁️ %browserName% 账号同步",
+		"message": "%browserName% 账号同步",
 		"description": "Feature 5"
 	},
 	"aboutFeature6": {
-		"message": "🔒 完全本地运行，除同步外无联网",
+		"message": "完全本地运行，除同步外无联网",
 		"description": "Feature 6"
 	},
 	"tutorial": {
@@ -988,15 +1088,15 @@
 		"description": "Learn more link"
 	},
 	"badgeNoNetwork": {
-		"message": "🔒 除同步外无联网",
+		"message": "除同步外无联网",
 		"description": "No network privacy badge"
 	},
 	"badgeNoData": {
-		"message": "🚫 不收集数据",
+		"message": "不收集数据",
 		"description": "No data collection badge"
 	},
 	"badgeLocalRun": {
-		"message": "✅ 本地运行",
+		"message": "本地运行",
 		"description": "Local run badge"
 	},
 	"newTabSettings": {
@@ -1091,6 +1191,10 @@
 		"message": "📋 复制链接文字",
 		"description": "Copy link text"
 	},
+	"dragActionCopyLinkAndText": {
+		"message": "📋 复制文字和链接",
+		"description": "Copy link text and URL"
+	},
 	"dragActionSaveImage": {
 		"message": "💾 保存图片",
 		"description": "Save image"
@@ -1111,6 +1215,10 @@
 		"message": "🔍 自定义搜索",
 		"description": "Custom search"
 	},
+	"dragActionSendCustomEvent": {
+		"message": "发送自定义事件",
+		"description": "Send custom DOM event on drag gesture"
+	},
 	"reducedMotionWarning": {
 		"message": "%OS% 系统动画未启用，可能无法正常显示滚动动画。可在 %OS% 系统设置中开启动画。",
 		"description": "Warning message when system reduced motion is enabled"
@@ -1119,9 +1227,29 @@
 		"message": "自动识别链接",
 		"description": "Auto detect URL checkbox label"
 	},
+	"autoDetectUrlTooltip": {
+		"message": "若文本是链接格式，则直接打开而非搜索",
+		"description": "Tooltip for the auto detect URL checkbox"
+	},
 	"preferLink": {
 		"message": "优先打开链接",
 		"description": "Prefer link checkbox label"
+	},
+	"customHudName": {
+		"message": "名称",
+		"description": "Placeholder for custom action name shown on HUD"
+	},
+	"customHudNameTooltip": {
+		"message": "执行手势时显示在屏幕上的自定义名称",
+		"description": "Tooltip for the custom HUD name field"
+	},
+	"actionNoOptions": {
+		"message": "此命令无需任何设置。",
+		"description": "Placeholder shown in the action picker's detail panel when the selected action has no configurable settings"
+	},
+	"actionRequiredBadge": {
+		"message": "必填",
+		"description": "Badge shown next to fields that must be filled in (e.g., URL for Open URL)"
 	},
 	"menuNeedRefresh": {
 		"message": "FlowMouse 未加载，点击刷新",
@@ -1364,7 +1492,7 @@
 		"description": "Permission popup title for bookmarks"
 	},
 	"permissionBookmarksDesc": {
-		"message": "为了将页面添加到书签，FlowMouse 需要书签权限。",
+		"message": "为了管理书签，FlowMouse 需要书签权限。",
 		"description": "Permission popup description for bookmarks"
 	},
 	"permissionDownloadsTitle": {
@@ -1376,11 +1504,11 @@
 		"description": "Permission popup description for downloads"
 	},
 	"permissionDownloadsPageCaptureTitle": {
-		"message": "保存图片",
+		"message": "保存内容",
 		"description": "Permission popup title for downloads and page capture"
 	},
 	"permissionDownloadsPageCaptureDesc": {
-		"message": "为了保存图片，FlowMouse 需要访问页面和下载权限。",
+		"message": "为了保存内容，FlowMouse 需要访问页面和下载权限。",
 		"description": "Permission popup description for downloads and page capture"
 	},
 	"permissionIncognitoTitle": {
@@ -1390,6 +1518,14 @@
 	"permissionIncognitoDesc": {
 		"message": "如需在无痕窗口中使用，您需要手动为 FlowMouse 开启“在无痕模式下启用”权限。",
 		"description": "Permission popup description for incognito"
+	},
+	"permissionClipboardReadTitle": {
+		"message": "读取剪贴板",
+		"description": "Permission popup title for clipboard read"
+	},
+	"permissionClipboardReadDesc": {
+		"message": "为了粘贴剪贴板内容，FlowMouse 需要读取剪贴板的权限。",
+		"description": "Permission popup description for clipboard read"
 	},
 	"openExtensionsSettings": {
 		"message": "打开扩展详情",
@@ -1434,6 +1570,10 @@
 	"buttonOkay": {
 		"message": "确定",
 		"description": "Generic OK button"
+	},
+	"buttonConfirm": {
+		"message": "确定",
+		"description": "Generic Confirm button"
 	},
 	"buttonCancel": {
 		"message": "取消",
@@ -1487,6 +1627,10 @@
 		"message": "按住右键并向下滚动滚轮",
 		"description": "Wheel gesture: scroll down while holding right button"
 	},
+	"wheelGesture_wheelClickHoldingRight": {
+		"message": "按住右键并点击滚轮",
+		"description": "Wheel gesture: wheel (middle) click while holding right button"
+	},
 	"specialGestures": {
 		"message": "特殊手势",
 		"description": "Special gestures section title"
@@ -1507,32 +1651,68 @@
 		"message": "按住左键并点击右键",
 		"description": "Special gesture: right click while holding left button"
 	},
-	"actionChains": {
-		"message": "命令链",
-		"description": "Action chains section title"
-	},
 	"actionChainsDesc": {
-		"message": "创建可复用的命令序列，按顺序依次执行",
+		"message": "使用命令链，按顺序执行多个命令。",
 		"description": "Action chains section description"
 	},
 	"actionActionChain": {
 		"message": "命令链",
 		"description": "Action chain action name"
 	},
-	"actionCategoryChains": {
-		"message": "命令链",
-		"description": "Action category: action chains"
+	"actionCustomMenu": {
+		"message": "自定义菜单",
+		"description": "Custom popup menu action name"
+	},
+	"customMenuDesc": {
+		"message": "创建包含多个操作的自定义弹出菜单。",
+		"description": "Custom menu section description"
+	},
+	"addMenu": {
+		"message": "添加菜单",
+		"description": "Add menu button"
+	},
+	"menuNamePlaceholder": {
+		"message": "自定义菜单",
+		"description": "Menu name input placeholder"
+	},
+	"menuItemCount": {
+		"message": "%count% 个项目",
+		"description": "Item count for menus, e.g. '3 items'"
+	},
+	"menuItemCountOne": {
+		"message": "%count% 个项目",
+		"description": "Item count for menus with exactly 1 item"
+	},
+	"addMenuItem": {
+		"message": "添加项目",
+		"description": "Add menu item button"
+	},
+	"addMenuSeparator": {
+		"message": "添加分隔线",
+		"description": "Add separator to menu button"
+	},
+	"emptyMenuItems": {
+		"message": "暂无项目，点击「添加项目」开始。",
+		"description": "Empty menu items message"
+	},
+	"menuNotFound": {
+		"message": "（菜单未找到）",
+		"description": "Menu not found label"
+	},
+	"deleteMenuConfirm": {
+		"message": "确定删除菜单「%name%」吗？",
+		"description": "Delete menu confirmation"
+	},
+	"menuItemNumber": {
+		"message": "项目 %n%",
+		"description": "Menu item number label"
 	},
 	"addChain": {
 		"message": "添加命令链",
 		"description": "Add chain button"
 	},
-	"addNewChain": {
-		"message": "新建命令链...",
-		"description": "Action item to navigate to chain editor and create a new chain"
-	},
 	"chainNamePlaceholder": {
-		"message": "我的命令链",
+		"message": "命令链",
 		"description": "Chain name input placeholder"
 	},
 	"chainDelayUnit": {
@@ -1579,6 +1759,14 @@
 		"message": "模拟按键",
 		"description": "Action to simulate a keyboard key press on the page"
 	},
+	"actionPasteClipboard": {
+		"message": "粘贴剪贴板",
+		"description": "Action to paste clipboard text at the gesture start position"
+	},
+	"pasteClipboardHint": {
+		"message": "剪贴板内容将粘贴到<b>手势起始位置</b>的输入框中。",
+		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
 	"simulateKeyPreset": {
 		"message": "预设按键",
 		"description": "Label for preset key dropdown in simulate key config"
@@ -1615,6 +1803,14 @@
 		"message": "JSON 格式无效",
 		"description": "Error message when event detail is not valid JSON"
 	},
+	"customEventIncludeGestureInfo": {
+		"message": "在 %code% 中包含手势信息",
+		"description": "Checkbox label for including gesture context in custom event detail. %code% = detail.gesture"
+	},
+	"customEventConfigureBtn": {
+		"message": "设置",
+		"description": "Label for the configure button of custom event action in drag gesture manager"
+	},
 	"customEventHint": {
 		"message": "在 %window% 上触发 %code%，可用于与其他脚本集成。",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
@@ -1630,5 +1826,233 @@
 	"chainStepCountOne": {
 		"message": "%count% 个步骤",
 		"description": "Step count for unnamed chains with exactly 1 step"
+	},
+	"actionZoomIn": {
+		"message": "放大页面",
+		"description": "Zoom in on the current page"
+	},
+	"actionZoomOut": {
+		"message": "缩小页面",
+		"description": "Zoom out on the current page"
+	},
+	"actionResetZoom": {
+		"message": "重置缩放",
+		"description": "Reset page zoom to default or a specified level"
+	},
+	"actionViewPageSource": {
+		"message": "查看页面源代码",
+		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionPauseGesture": {
+		"message": "暂停手势直到刷新",
+		"description": "Temporarily disable all gestures on the current tab until page refresh"
+	},
+	"actionAreaSelect": {
+		"message": "区域框选",
+		"description": "Enter area select mode to drag-select links on the page and batch open them"
+	},
+	"areaSelectTitle": {
+		"message": "区域框选",
+		"description": "Label for the area select row in the popup"
+	},
+	"areaSelectModifierKey": {
+		"message": "快速区域框选",
+		"description": "Label for the modifier key dropdown in area select settings"
+	},
+	"areaSelectModifierKeyDesc": {
+		"message": "按住修饰键的同时按下鼠标左键并拖动，快速框选页面上的链接并进行批量操作",
+		"description": "Description for the modifier key setting"
+	},
+	"areaSelectDisabled": {
+		"message": "禁用",
+		"description": "Disabled option for the area select modifier key dropdown"
+	},
+	"areaSelectMouseDrag": {
+		"message": "鼠标拖拽",
+		"description": "Suffix label next to the modifier key dropdown"
+	},
+	"areaSelectTextUrl": {
+		"message": "文本URL识别",
+		"description": "Label for the text URL recognition toggle"
+	},
+	"areaSelectTextUrlDesc": {
+		"message": "框选时同时提取纯文本URL（非超链接）",
+		"description": "Description for the text URL recognition toggle"
+	},
+	"areaSelectWarnThreshold": {
+		"message": "批量操作提醒",
+		"description": "Label for the batch operation alert threshold input"
+	},
+	"areaSelectWarnThresholdDesc": {
+		"message": "批量操作超过此数量时显示确认，设为 0 禁用",
+		"description": "Description for the batch operation alert threshold"
+	},
+	"areaSelectDelay": {
+		"message": "操作间隔",
+		"description": "Label for the operation interval input"
+	},
+	"areaSelectDelayDesc": {
+		"message": "批量打开时每次操作之间的延迟（秒）",
+		"description": "Description for the operation interval setting"
+	},
+	"areaSelectHint": {
+		"message": "拖动选择链接",
+		"description": "Hint text shown in the area select overlay"
+	},
+	"areaSelectOpen": {
+		"message": "打开 %count% 个链接",
+		"description": "Button text in the area select toolbar to batch open selected links"
+	},
+	"areaSelectOpenOne": {
+		"message": "打开 %count% 个链接",
+		"description": "Button text to open a single selected link (singular form)"
+	},
+	"areaSelectCopy": {
+		"message": "复制链接",
+		"description": "Button text to copy all selected link URLs to clipboard"
+	},
+	"areaSelectCancel": {
+		"message": "取消",
+		"description": "Button text to cancel area select mode"
+	},
+	"areaSelectConfirm": {
+		"message": "确认",
+		"description": "Button text to confirm opening many links"
+	},
+	"areaSelectWarnTitle": {
+		"message": "打开大量链接？",
+		"description": "Title of the warning modal when opening many links"
+	},
+	"areaSelectWarnMessage": {
+		"message": "即将打开 %count% 个链接，这可能会导致浏览器变慢。是否继续？",
+		"description": "Body text of the warning modal"
+	},
+	"start": {
+		"message": "开始",
+		"description": "Button label to start an action (e.g. area select)"
+	},
+	"actionMenuShowTabs": {
+		"message": "切换标签页",
+		"description": "Show a context menu listing all open tabs in the current window"
+	},
+	"actionMenuRecentlyClosed": {
+		"message": "最近关闭的标签页",
+		"description": "Show a context menu listing recently closed tabs for quick restore"
+	},
+	"recentlyClosedMaxItems": {
+		"message": "最大数量",
+		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
+	},
+	"actionCategoryContextMenu": {
+		"message": "弹出菜单",
+		"description": "Action category: context menu actions"
+	},
+	"zoomStepMode": {
+		"message": "缩放方式",
+		"description": "Label for zoom mode selector: browser steps vs fixed increment"
+	},
+	"zoomStepModeBrowser": {
+		"message": "使用浏览器缩放级别",
+		"description": "Option: follow Chrome's built-in zoom steps (25%, 33%, 50%, …, 500%)"
+	},
+	"zoomStepModeFixed": {
+		"message": "固定步进",
+		"description": "Option: zoom in/out by a configurable fixed percentage each time"
+	},
+	"zoomDelta": {
+		"message": "步进大小",
+		"description": "Label for the zoom increment/decrement slider"
+	},
+	"resetZoomLevel": {
+		"message": "重置为",
+		"description": "Label for the target zoom level when resetting zoom"
+	},
+	"resetZoomDefault": {
+		"message": "浏览器默认值",
+		"description": "Option: reset zoom to the browser's default zoom setting"
+	},
+	"resetZoomCustom": {
+		"message": "自定义值",
+		"description": "Option: reset zoom to a user-specified custom zoom level"
+	},
+	"actionMenuShowBookmarks": {
+		"message": "显示书签",
+		"description": "Show a context menu listing bookmarks from a selected folder"
+	},
+	"bookmarkFolder": {
+		"message": "文件夹",
+		"description": "Label for selecting which bookmark folder to display"
+	},
+	"bookmarkGrantPermission": {
+		"message": "授权书签权限",
+		"description": "Button label to request bookmarks permission"
+	},
+	"ctxMenuSortOrder": {
+		"message": "排序方式",
+		"description": "Label for context menu sort order dropdown"
+	},
+	"ctxMenuSortDefault": {
+		"message": "默认",
+		"description": "Sort option: original API/insertion order"
+	},
+	"ctxMenuSortDefaultDesc": {
+		"message": "默认（倒序）",
+		"description": "Sort option: reverse of original API order"
+	},
+	"ctxMenuSortDateAddedAsc": {
+		"message": "添加日期（最早优先）",
+		"description": "Sort option: by date added ascending"
+	},
+	"ctxMenuSortDateAddedDesc": {
+		"message": "添加日期（最新优先）",
+		"description": "Sort option: by date added descending"
+	},
+	"ctxMenuSortNameAsc": {
+		"message": "名称（升序）",
+		"description": "Sort option: alphabetical ascending"
+	},
+	"ctxMenuSortNameDesc": {
+		"message": "名称（降序）",
+		"description": "Sort option: alphabetical descending"
+	},
+	"ctxMenuSortLastAccessAsc": {
+		"message": "最近访问（最早优先）",
+		"description": "Sort option: by last access time ascending"
+	},
+	"ctxMenuSortLastAccessDesc": {
+		"message": "最近访问（最新优先）",
+		"description": "Sort option: by last access time descending"
+	},
+	"ctxMenuMaxItems": {
+		"message": "最大数量",
+		"description": "Label for maximum number of items in context menu"
+	},
+	"ctxMenuMaxItemsUnlimited": {
+		"message": "无限制",
+		"description": "Placeholder shown when max items is 0 (no limit)"
+	},
+	"ctxMenuScrollToBottom": {
+		"message": "滚动到底部",
+		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuTimeDisplay": {
+		"message": "显示时间",
+		"description": "Label for time display mode dropdown in context menu"
+	},
+	"ctxMenuTimeNone": {
+		"message": "不显示",
+		"description": "Time display option: hide time column"
+	},
+	"ctxMenuTimeLastAccess": {
+		"message": "最近访问",
+		"description": "Time display option: show last access time"
+	},
+	"ctxMenuTimeClosedTime": {
+		"message": "关闭时间",
+		"description": "Time display option: show when the tab was closed"
+	},
+	"ctxMenuTimeDateAdded": {
+		"message": "添加日期",
+		"description": "Time display option: show when the bookmark was added"
 	}
 }

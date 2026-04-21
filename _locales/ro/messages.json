@@ -35,9 +35,9 @@
 		"message": "Sincronizare setări prin contul %browserName%",
 		"description": "Sync status description"
 	},
-	"synced": {
-		"message": "Sincronizat",
-		"description": "Synced"
+	"saved": {
+		"message": "Salvat",
+		"description": "Saved"
 	},
 	"author": {
 		"message": "Autor",
@@ -66,6 +66,10 @@
 	"feedbackText": {
 		"message": "Aveți probleme sau sugestii? Vă rugăm să raportați prin <a href='mailto:Service@52pojie.cn'>E-mail</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> sau <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Forum</a>. Vom îmbunătăți cât mai curând posibil!",
 		"description": "Feedback text"
+	},
+	"feedbackTextChrome": {
+		"message": "Aveți probleme sau sugestii? Vă rugăm să raportați prin <a href='https://chromewebstore.google.com/detail/fnldhkfidchnjiokpoemdhoejmaojkgp/support' target='_blank'>Asistența Magazinului web Chrome</a>, <a href='mailto:Service@52pojie.cn'>E-mail</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> sau <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Forum</a>. Vom îmbunătăți cât mai curând posibil!",
+		"description": "Feedback text for Chrome browser"
 	},
 	"supportAndFeedback": {
 		"message": "Suport și Feedback",
@@ -125,11 +129,11 @@
 	},
 	"btnSide1Mouse": {
 		"message": "Buton lateral (Înapoi)",
-		"description": "Mouse button 4 — the side button typically used for navigating back"
+		"description": "Mouse button 4 - the side button typically used for navigating back"
 	},
 	"btnSide2Mouse": {
 		"message": "Buton lateral (Înainte)",
-		"description": "Mouse button 5 — the side button typically used for navigating forward"
+		"description": "Mouse button 5 - the side button typically used for navigating forward"
 	},
 	"btnPenRight": {
 		"message": "Buton dreapta stylus",
@@ -195,6 +199,54 @@
 		"message": "Umbră",
 		"description": "HUD shadow toggle"
 	},
+	"customCss": {
+		"message": "CSS personalizat",
+		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
+	},
+	"customCssDesc": {
+		"message": "Setați CSS personalizat pentru a ajusta propria interfață FlowMouse",
+		"description": "Description for the Custom CSS advanced setting"
+	},
+	"customCssConfigure": {
+		"message": "Configurare",
+		"description": "Button label to open the Custom CSS editor dialog when no CSS is set"
+	},
+	"customCssEdit": {
+		"message": "Editare",
+		"description": "Button label to open the Custom CSS editor dialog when CSS is already set"
+	},
+	"customCssEditorTitle": {
+		"message": "Editor CSS personalizat",
+		"description": "Title of the dedicated custom CSS editor page"
+	},
+	"customCssEditorHint": {
+		"message": "Stilurile sunt injectate în fiecare Shadow DOM creat de FlowMouse. Apăsați Ctrl+S pentru a salva.",
+		"description": "Hint shown above the editor textarea."
+	},
+	"customCssEditorPlaceholder": {
+		"message": "/* Scrie aici CSS-ul tău personalizat… */",
+		"description": "Placeholder inside the Custom CSS editor textarea"
+	},
+	"customCssEditorInsertSnippet": {
+		"message": "Exemplu",
+		"description": "Button to append an example/starter CSS snippet to the editor"
+	},
+	"customCssEditorRevert": {
+		"message": "Revino",
+		"description": "Button that reverts the editor content back to the last saved value"
+	},
+	"customCssEditorSave": {
+		"message": "Salvează",
+		"description": "Save button in the Custom CSS editor"
+	},
+	"customCssEditorSaved": {
+		"message": "Salvat",
+		"description": "Status message shown briefly after the user saves the custom CSS"
+	},
+	"customCssEditorDiscardConfirm": {
+		"message": "Renunți la modificările nesalvate și revii la ultimul CSS salvat?",
+		"description": "Confirmation dialog shown before reverting unsaved edits"
+	},
 	"text": {
 		"message": "Text",
 		"description": "Text"
@@ -255,6 +307,14 @@
 		"message": "Trage textul selectat pentru a căuta",
 		"description": "Drag selected text to search"
 	},
+	"textDragIgnoreInput": {
+		"message": "Dezactivare în câmpurile de intrare",
+		"description": "Option to disable text drag inside input boxes and textareas"
+	},
+	"textDragIgnoreInputDesc": {
+		"message": "Nu declanșați tragerea textului în zonele de editare, cum ar fi câmpurile de intrare și editoarele de text",
+		"description": "Description for text drag ignore input option"
+	},
 	"searchEngine": {
 		"message": "Motor de Căutare",
 		"description": "Search engine"
@@ -267,6 +327,10 @@
 		"message": "URL personalizat, folosește %s pentru termenul căutat",
 		"description": "Custom URL placeholder"
 	},
+	"customUrlPlaceholderHint": {
+		"message": "Trebuie să includă protocolul (de ex. https://). Substituenți disponibili: %placeholders%. Adăugați :raw pentru a sări peste codificarea URL-ului, de ex. %example%",
+		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
+	},
 	"urlPlaceholderText": {
 		"message": "%s=Cuvânt cheie",
 		"description": "Placeholder for text drag custom URL"
@@ -274,6 +338,14 @@
 	"urlPlaceholderImage": {
 		"message": "%s=URL imagine",
 		"description": "Placeholder for image drag custom URL"
+	},
+	"searchEngine_google_translate": {
+		"message": "Google Traducere",
+		"description": "Google Translate search engine"
+	},
+	"searchEngine_bing_translate": {
+		"message": "Traducere Bing",
+		"description": "Bing Translate search engine"
 	},
 	"searchEngine_baidu": {
 		"message": "Baidu",
@@ -367,8 +439,16 @@
 		"message": "Resetează",
 		"description": "Reset to default"
 	},
+	"duplicate": {
+		"message": "Duplicare",
+		"description": "Generic duplicate button tooltip"
+	},
+	"delete": {
+		"message": "Șterge",
+		"description": "Generic delete button tooltip"
+	},
 	"autoSaved": {
-		"message": "✓ Salvat automat",
+		"message": "Salvat automat",
 		"description": "Auto-saved message"
 	},
 	"saveFailure": {
@@ -663,6 +743,10 @@
 		"message": "Copiază Titlu Pagină",
 		"description": "Copy page title"
 	},
+	"actionCopyTitleAndUrl": {
+		"message": "Copiați titlul paginii și adresa URL",
+		"description": "Copy page title and URL"
+	},
 	"actionOpenDownloads": {
 		"message": "Deschide Descărcări",
 		"description": "Open downloads page"
@@ -674,6 +758,10 @@
 	"actionOpenExtensions": {
 		"message": "Deschide Extensii",
 		"description": "Open extensions page"
+	},
+	"actionSaveAsMhtml": {
+		"message": "Salvează ca MHTML",
+		"description": "Save current page as MHTML file"
 	},
 	"actionPrintPage": {
 		"message": "Printează Pagina",
@@ -694,6 +782,14 @@
 	"actionTogglePinTab": {
 		"message": "Fixează/Anulează fixarea tabului curent",
 		"description": "Toggle pin current tab"
+	},
+	"actionMoveTabToNewWindow": {
+		"message": "Mutați fila într-o fereastră nouă",
+		"description": "Move current tab to a new window"
+	},
+	"actionSearchClipboard": {
+		"message": "Caută din clipboard",
+		"description": "Search clipboard text using a search engine"
 	},
 	"showTrailOrigin": {
 		"message": "Arată Punctul de Origine",
@@ -731,6 +827,10 @@
 		"message": "Alte setări",
 		"description": "Section title for other/miscellaneous settings"
 	},
+	"styleSettings": {
+		"message": "Aspect",
+		"description": "Section title for style/appearance settings (trail, HUD, etc.)"
+	},
 	"show": {
 		"message": "Afișare",
 		"description": "Show navigation menu"
@@ -760,7 +860,7 @@
 		"description": "Clear button"
 	},
 	"gestureAdded": {
-		"message": "✓ Gest adăugat",
+		"message": "Gest adăugat",
 		"description": "Gesture added success message"
 	},
 	"gestureRecorderTitle": {
@@ -816,16 +916,16 @@
 		"description": "Delete gesture confirmation"
 	},
 	"gestureDeleted": {
-		"message": "✓ Gest șters",
+		"message": "Gest șters",
 		"description": "Gesture deleted success message"
 	},
 	"enterCustomUrl": {
-		"message": "Introdu URL (sugerat inclusiv protocol precum https://, chrome://, etc.):",
+		"message": "URL",
 		"description": "Prompt for custom URL input"
 	},
-	"copyUrlIncludeTitle": {
-		"message": "Copiază și titlul paginii",
-		"description": "Checkbox label for including page title when copying URL"
+	"copyAsMarkdown": {
+		"message": "Copiați ca Markdown",
+		"description": "Checkbox label for copying as markdown format"
 	},
 	"invalidUrl": {
 		"message": "Te rugăm să introduci un URL valid (începând cu http:// sau https://)",
@@ -956,27 +1056,27 @@
 		"description": "Features"
 	},
 	"aboutFeature1": {
-		"message": "🎯 16 Gesturi Implicite + Gesturi Personalizate",
+		"message": "16 Gesturi Implicite + Gesturi Personalizate",
 		"description": "Feature 1"
 	},
 	"aboutFeature2": {
-		"message": "🎨 Feedback Vizual Urmă",
+		"message": "Feedback Vizual Urmă",
 		"description": "Feature 2"
 	},
 	"aboutFeature3": {
-		"message": "🔍 Super Drag Text/Imagine/Link",
+		"message": "Super Drag Text/Imagine/Link",
 		"description": "Feature 3"
 	},
 	"aboutFeature4": {
-		"message": "🚫 Listă Neagră Site-uri",
+		"message": "Listă Neagră Site-uri",
 		"description": "Feature 4"
 	},
 	"aboutFeature5": {
-		"message": "☁️ Sincronizare Cont %browserName%",
+		"message": "Sincronizare Cont %browserName%",
 		"description": "Feature 5"
 	},
 	"aboutFeature6": {
-		"message": "🔒 Rulează Local, Fără Rețea (exceptând Sincronizarea)",
+		"message": "Rulează Local, Fără Rețea (exceptând Sincronizarea)",
 		"description": "Feature 6"
 	},
 	"tutorial": {
@@ -988,15 +1088,15 @@
 		"description": "Learn more link"
 	},
 	"badgeNoNetwork": {
-		"message": "🔒 Fără Rețea (doar Sync)",
+		"message": "Fără Rețea (doar Sync)",
 		"description": "No network privacy badge"
 	},
 	"badgeNoData": {
-		"message": "🚫 Fără Colectare Date",
+		"message": "Fără Colectare Date",
 		"description": "No data collection badge"
 	},
 	"badgeLocalRun": {
-		"message": "✅ Rulează Local",
+		"message": "Rulează Local",
 		"description": "Local run badge"
 	},
 	"newTabSettings": {
@@ -1091,6 +1191,10 @@
 		"message": "📋 Copiază Textul Linkului",
 		"description": "Copy link text"
 	},
+	"dragActionCopyLinkAndText": {
+		"message": "📋 Copiați textul și linkul",
+		"description": "Copy link text and URL"
+	},
 	"dragActionSaveImage": {
 		"message": "💾 Salvează Imagine",
 		"description": "Save image"
@@ -1111,6 +1215,10 @@
 		"message": "🔍 Căutare Personalizată",
 		"description": "Custom search"
 	},
+	"dragActionSendCustomEvent": {
+		"message": "Trimite eveniment personalizat",
+		"description": "Send custom DOM event on drag gesture"
+	},
 	"reducedMotionWarning": {
 		"message": "Animația de sistem %OS% este dezactivată, derularea animată ar putea să nu funcționeze corect. Poți activa animația în setările de sistem %OS%.",
 		"description": "Warning message when system reduced motion is enabled"
@@ -1119,9 +1227,29 @@
 		"message": "Detectare Automată URL",
 		"description": "Auto detect URL checkbox label"
 	},
+	"autoDetectUrlTooltip": {
+		"message": "Dacă textul are format de link, deschide-l direct în loc să căutați",
+		"description": "Tooltip for the auto detect URL checkbox"
+	},
 	"preferLink": {
 		"message": "Preferă Link",
 		"description": "Prefer link checkbox label"
+	},
+	"customHudName": {
+		"message": "Nume",
+		"description": "Placeholder for custom action name shown on HUD"
+	},
+	"customHudNameTooltip": {
+		"message": "Nume personalizat afișat pe ecran la efectuarea gestului",
+		"description": "Tooltip for the custom HUD name field"
+	},
+	"actionNoOptions": {
+		"message": "Această comandă nu necesită nicio setare.",
+		"description": "Placeholder shown in the action picker's detail panel when the selected action has no configurable settings"
+	},
+	"actionRequiredBadge": {
+		"message": "Obligatoriu",
+		"description": "Badge shown next to fields that must be filled in (e.g., URL for Open URL)"
 	},
 	"menuNeedRefresh": {
 		"message": "FlowMouse nu s-a încărcat, click pentru refresh",
@@ -1376,11 +1504,11 @@
 		"description": "Permission popup description for downloads"
 	},
 	"permissionDownloadsPageCaptureTitle": {
-		"message": "Salvează imaginea",
+		"message": "Salvează conținutul",
 		"description": "Permission popup title for downloads and page capture"
 	},
 	"permissionDownloadsPageCaptureDesc": {
-		"message": "Pentru a salva imagini, FlowMouse are nevoie de acces la pagini și descărcări.",
+		"message": "Pentru a salva conținut, FlowMouse are nevoie de acces la pagini și descărcări.",
 		"description": "Permission popup description for downloads and page capture"
 	},
 	"permissionIncognitoTitle": {
@@ -1390,6 +1518,14 @@
 	"permissionIncognitoDesc": {
 		"message": "Pentru a funcționa în ferestrele incognito, trebuie să activați manual \"Permite în modul incognito\" pentru FlowMouse.",
 		"description": "Permission popup description for incognito"
+	},
+	"permissionClipboardReadTitle": {
+		"message": "Citire clipboard",
+		"description": "Permission popup title for clipboard read"
+	},
+	"permissionClipboardReadDesc": {
+		"message": "Pentru a lipi conținutul din clipboard, FlowMouse are nevoie de permisiunea de a citi clipboard-ul dvs.",
+		"description": "Permission popup description for clipboard read"
 	},
 	"openExtensionsSettings": {
 		"message": "Deschide detaliile extensiei",
@@ -1434,6 +1570,10 @@
 	"buttonOkay": {
 		"message": "OK",
 		"description": "Generic OK button"
+	},
+	"buttonConfirm": {
+		"message": "Confirmă",
+		"description": "Generic Confirm button"
 	},
 	"buttonCancel": {
 		"message": "Anulare",
@@ -1487,6 +1627,10 @@
 		"message": "Derulați în jos în timp ce țineți apăsat butonul drept",
 		"description": "Wheel gesture: scroll down while holding right button"
 	},
+	"wheelGesture_wheelClickHoldingRight": {
+		"message": "Faceți clic pe rotiță în timp ce țineți apăsat butonul drept",
+		"description": "Wheel gesture: wheel (middle) click while holding right button"
+	},
 	"specialGestures": {
 		"message": "Gesturi speciale",
 		"description": "Special gestures section title"
@@ -1507,32 +1651,68 @@
 		"message": "Clic dreapta în timp ce țineți apăsat butonul stâng",
 		"description": "Special gesture: right click while holding left button"
 	},
-	"actionChains": {
-		"message": "Lanțuri de comenzi",
-		"description": "Action chains section title"
-	},
 	"actionChainsDesc": {
-		"message": "Creați secvențe de comenzi reutilizabile care se execută una după alta",
+		"message": "Utilizați lanțurile de comenzi pentru a executa mai multe comenzi în secvență.",
 		"description": "Action chains section description"
 	},
 	"actionActionChain": {
 		"message": "Lanț de comenzi",
 		"description": "Action chain action name"
 	},
-	"actionCategoryChains": {
-		"message": "Lanțuri de comenzi",
-		"description": "Action category: action chains"
+	"actionCustomMenu": {
+		"message": "Meniu personalizat",
+		"description": "Custom popup menu action name"
+	},
+	"customMenuDesc": {
+		"message": "Creați meniuri pop-up personalizate cu mai multe acțiuni.",
+		"description": "Custom menu section description"
+	},
+	"addMenu": {
+		"message": "Adăugare meniu",
+		"description": "Add menu button"
+	},
+	"menuNamePlaceholder": {
+		"message": "Meniu personalizat",
+		"description": "Menu name input placeholder"
+	},
+	"menuItemCount": {
+		"message": "%count% elemente",
+		"description": "Item count for menus, e.g. '3 items'"
+	},
+	"menuItemCountOne": {
+		"message": "%count% element",
+		"description": "Item count for menus with exactly 1 item"
+	},
+	"addMenuItem": {
+		"message": "Adaugă element",
+		"description": "Add menu item button"
+	},
+	"addMenuSeparator": {
+		"message": "Adaugă separator",
+		"description": "Add separator to menu button"
+	},
+	"emptyMenuItems": {
+		"message": "Nu au fost adăugate elemente. Faceți clic pe „Adaugă element” pentru a începe.",
+		"description": "Empty menu items message"
+	},
+	"menuNotFound": {
+		"message": "(Meniul nu a fost găsit)",
+		"description": "Menu not found label"
+	},
+	"deleteMenuConfirm": {
+		"message": "Ștergeți meniul „%name%”?",
+		"description": "Delete menu confirmation"
+	},
+	"menuItemNumber": {
+		"message": "Elementul %n%",
+		"description": "Menu item number label"
 	},
 	"addChain": {
 		"message": "Adăugați lanț",
 		"description": "Add chain button"
 	},
-	"addNewChain": {
-		"message": "Creați un lanț nou...",
-		"description": "Action item to navigate to chain editor and create a new chain"
-	},
 	"chainNamePlaceholder": {
-		"message": "Lanțul meu de comenzi",
+		"message": "Lanț de comenzi",
 		"description": "Chain name input placeholder"
 	},
 	"chainDelayUnit": {
@@ -1579,6 +1759,14 @@
 		"message": "Simulează apăsarea unei taste",
 		"description": "Action to simulate a keyboard key press on the page"
 	},
+	"actionPasteClipboard": {
+		"message": "Lipește din clipboard",
+		"description": "Action to paste clipboard text at the gesture start position"
+	},
+	"pasteClipboardHint": {
+		"message": "Conținutul clipboardului va fi lipit în câmpul de introducere la <b>poziția de început a gestului</b>.",
+		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
 	"simulateKeyPreset": {
 		"message": "Tastă presetată",
 		"description": "Label for preset key dropdown in simulate key config"
@@ -1615,6 +1803,14 @@
 		"message": "Format JSON nevalid",
 		"description": "Error message when event detail is not valid JSON"
 	},
+	"customEventIncludeGestureInfo": {
+		"message": "Include informațiile despre gesturi în %code%",
+		"description": "Checkbox label for including gesture context in custom event detail. %code% = detail.gesture"
+	},
+	"customEventConfigureBtn": {
+		"message": "Setări",
+		"description": "Label for the configure button of custom event action in drag gesture manager"
+	},
 	"customEventHint": {
 		"message": "Expediază %code% pe %window%. Util pentru integrarea cu alte scripturi.",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
@@ -1630,5 +1826,233 @@
 	"chainStepCountOne": {
 		"message": "%count% pas",
 		"description": "Step count for unnamed chains with exactly 1 step"
+	},
+	"actionZoomIn": {
+		"message": "Mărire",
+		"description": "Zoom in on the current page"
+	},
+	"actionZoomOut": {
+		"message": "Micșorare",
+		"description": "Zoom out on the current page"
+	},
+	"actionResetZoom": {
+		"message": "Resetare zoom",
+		"description": "Reset page zoom to default or a specified level"
+	},
+	"actionViewPageSource": {
+		"message": "Afișează sursa paginii",
+		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionPauseGesture": {
+		"message": "Pauză gesturi până la reîmprospătare",
+		"description": "Temporarily disable all gestures on the current tab until page refresh"
+	},
+	"actionAreaSelect": {
+		"message": "Selecție zonă",
+		"description": "Enter area select mode to drag-select links on the page and batch open them"
+	},
+	"areaSelectTitle": {
+		"message": "Selecție zonă",
+		"description": "Label for the area select row in the popup"
+	},
+	"areaSelectModifierKey": {
+		"message": "Selecție rapidă zonă",
+		"description": "Label for the modifier key dropdown in area select settings"
+	},
+	"areaSelectModifierKeyDesc": {
+		"message": "Țineți apăsată tasta modificatoare, apoi faceți clic stânga și trageți pentru a selecta rapid linkurile de pe pagină pentru operațiuni în lot",
+		"description": "Description for the modifier key setting"
+	},
+	"areaSelectDisabled": {
+		"message": "Dezactivat",
+		"description": "Disabled option for the area select modifier key dropdown"
+	},
+	"areaSelectMouseDrag": {
+		"message": "Tragere cu mouse-ul",
+		"description": "Suffix label next to the modifier key dropdown"
+	},
+	"areaSelectTextUrl": {
+		"message": "Recunoaștere text URL",
+		"description": "Label for the text URL recognition toggle"
+	},
+	"areaSelectTextUrlDesc": {
+		"message": "De asemenea, extrageți adresele URL sub formă de text simplu (non-hyperlink-uri) la selectare",
+		"description": "Description for the text URL recognition toggle"
+	},
+	"areaSelectWarnThreshold": {
+		"message": "Avertisment operație în lot",
+		"description": "Label for the batch operation alert threshold input"
+	},
+	"areaSelectWarnThresholdDesc": {
+		"message": "Afișați confirmarea când procesați în lot mai mult de acest număr de elemente, 0 pentru a dezactiva",
+		"description": "Description for the batch operation alert threshold"
+	},
+	"areaSelectDelay": {
+		"message": "Interval operațiune",
+		"description": "Label for the operation interval input"
+	},
+	"areaSelectDelayDesc": {
+		"message": "Întârziere între fiecare deschidere în operațiunile în lot (secunde)",
+		"description": "Description for the operation interval setting"
+	},
+	"areaSelectHint": {
+		"message": "Trageți pentru a selecta linkuri",
+		"description": "Hint text shown in the area select overlay"
+	},
+	"areaSelectOpen": {
+		"message": "Deschideți %count% linkuri",
+		"description": "Button text in the area select toolbar to batch open selected links"
+	},
+	"areaSelectOpenOne": {
+		"message": "Deschideți %count% link",
+		"description": "Button text to open a single selected link (singular form)"
+	},
+	"areaSelectCopy": {
+		"message": "Copiați linkurile",
+		"description": "Button text to copy all selected link URLs to clipboard"
+	},
+	"areaSelectCancel": {
+		"message": "Anulați",
+		"description": "Button text to cancel area select mode"
+	},
+	"areaSelectConfirm": {
+		"message": "Confirmați",
+		"description": "Button text to confirm opening many links"
+	},
+	"areaSelectWarnTitle": {
+		"message": "Deschideți multe linkuri?",
+		"description": "Title of the warning modal when opening many links"
+	},
+	"areaSelectWarnMessage": {
+		"message": "Sunteți pe cale să deschideți %count% linkuri. Acest lucru vă poate încetini browserul. Continuați?",
+		"description": "Body text of the warning modal"
+	},
+	"start": {
+		"message": "Începeți",
+		"description": "Button label to start an action (e.g. area select)"
+	},
+	"actionMenuShowTabs": {
+		"message": "Comutare filă",
+		"description": "Show a context menu listing all open tabs in the current window"
+	},
+	"actionMenuRecentlyClosed": {
+		"message": "File închise recent",
+		"description": "Show a context menu listing recently closed tabs for quick restore"
+	},
+	"recentlyClosedMaxItems": {
+		"message": "Număr maxim",
+		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
+	},
+	"actionCategoryContextMenu": {
+		"message": "Meniu pop-up",
+		"description": "Action category: context menu actions"
+	},
+	"zoomStepMode": {
+		"message": "Mod de zoom",
+		"description": "Label for zoom mode selector: browser steps vs fixed increment"
+	},
+	"zoomStepModeBrowser": {
+		"message": "Folosiți nivelurile browserului",
+		"description": "Option: follow Chrome's built-in zoom steps (25%, 33%, 50%, …, 500%)"
+	},
+	"zoomStepModeFixed": {
+		"message": "Pas fix",
+		"description": "Option: zoom in/out by a configurable fixed percentage each time"
+	},
+	"zoomDelta": {
+		"message": "Dimensiune pas",
+		"description": "Label for the zoom increment/decrement slider"
+	},
+	"resetZoomLevel": {
+		"message": "Resetează la",
+		"description": "Label for the target zoom level when resetting zoom"
+	},
+	"resetZoomDefault": {
+		"message": "Setarea prestabilită a browserului",
+		"description": "Option: reset zoom to the browser's default zoom setting"
+	},
+	"resetZoomCustom": {
+		"message": "Valoare personalizată",
+		"description": "Option: reset zoom to a user-specified custom zoom level"
+	},
+	"actionMenuShowBookmarks": {
+		"message": "Afișează marcajele",
+		"description": "Show a context menu listing bookmarks from a selected folder"
+	},
+	"bookmarkFolder": {
+		"message": "Dosar",
+		"description": "Label for selecting which bookmark folder to display"
+	},
+	"bookmarkGrantPermission": {
+		"message": "Acordă permisiunea pentru marcaje",
+		"description": "Button label to request bookmarks permission"
+	},
+	"ctxMenuSortOrder": {
+		"message": "Sortează după",
+		"description": "Label for context menu sort order dropdown"
+	},
+	"ctxMenuSortDefault": {
+		"message": "Implicit",
+		"description": "Sort option: original API/insertion order"
+	},
+	"ctxMenuSortDefaultDesc": {
+		"message": "Implicit (invers)",
+		"description": "Sort option: reverse of original API order"
+	},
+	"ctxMenuSortDateAddedAsc": {
+		"message": "Data adăugării (cele mai vechi primele)",
+		"description": "Sort option: by date added ascending"
+	},
+	"ctxMenuSortDateAddedDesc": {
+		"message": "Data adăugării (cele mai noi primele)",
+		"description": "Sort option: by date added descending"
+	},
+	"ctxMenuSortNameAsc": {
+		"message": "Nume (crescător)",
+		"description": "Sort option: alphabetical ascending"
+	},
+	"ctxMenuSortNameDesc": {
+		"message": "Nume (descrescător)",
+		"description": "Sort option: alphabetical descending"
+	},
+	"ctxMenuSortLastAccessAsc": {
+		"message": "Ultima accesare (cele mai vechi primele)",
+		"description": "Sort option: by last access time ascending"
+	},
+	"ctxMenuSortLastAccessDesc": {
+		"message": "Ultima accesare (cele mai noi primele)",
+		"description": "Sort option: by last access time descending"
+	},
+	"ctxMenuMaxItems": {
+		"message": "Număr maxim",
+		"description": "Label for maximum number of items in context menu"
+	},
+	"ctxMenuMaxItemsUnlimited": {
+		"message": "Nelimitat",
+		"description": "Placeholder shown when max items is 0 (no limit)"
+	},
+	"ctxMenuScrollToBottom": {
+		"message": "Derulează în jos",
+		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuTimeDisplay": {
+		"message": "Afișează ora",
+		"description": "Label for time display mode dropdown in context menu"
+	},
+	"ctxMenuTimeNone": {
+		"message": "Nu afișa",
+		"description": "Time display option: hide time column"
+	},
+	"ctxMenuTimeLastAccess": {
+		"message": "Ultima accesare",
+		"description": "Time display option: show last access time"
+	},
+	"ctxMenuTimeClosedTime": {
+		"message": "Ora închiderii",
+		"description": "Time display option: show when the tab was closed"
+	},
+	"ctxMenuTimeDateAdded": {
+		"message": "Data adăugării",
+		"description": "Time display option: show when the bookmark was added"
 	}
 }

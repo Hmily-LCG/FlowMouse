@@ -35,9 +35,9 @@
 		"message": "Синхронізація налаштувань через обліковий запис %browserName%",
 		"description": "Sync status description"
 	},
-	"synced": {
-		"message": "Синхронізовано",
-		"description": "Synced"
+	"saved": {
+		"message": "Збережено",
+		"description": "Saved"
 	},
 	"author": {
 		"message": "Автор",
@@ -66,6 +66,10 @@
 	"feedbackText": {
 		"message": "Є проблеми чи пропозиції? Пишіть на <a href='mailto:Service@52pojie.cn'>Email</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> або <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Форум</a>. Ми покращимо це якнайшвидше!",
 		"description": "Feedback text"
+	},
+	"feedbackTextChrome": {
+		"message": "Є проблеми чи пропозиції? Звітуйте через <a href='https://chromewebstore.google.com/detail/fnldhkfidchnjiokpoemdhoejmaojkgp/support' target='_blank'>підтримку Веб-магазину Chrome</a>, на <a href='mailto:Service@52pojie.cn'>Email</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> або <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Форум</a>. Ми покращимо це якнайшвидше!",
+		"description": "Feedback text for Chrome browser"
 	},
 	"supportAndFeedback": {
 		"message": "Підтримка та відгуки",
@@ -125,11 +129,11 @@
 	},
 	"btnSide1Mouse": {
 		"message": "Бічна кнопка (Назад)",
-		"description": "Mouse button 4 — the side button typically used for navigating back"
+		"description": "Mouse button 4 - the side button typically used for navigating back"
 	},
 	"btnSide2Mouse": {
 		"message": "Бічна кнопка (Вперед)",
-		"description": "Mouse button 5 — the side button typically used for navigating forward"
+		"description": "Mouse button 5 - the side button typically used for navigating forward"
 	},
 	"btnPenRight": {
 		"message": "Права кнопка стилуса",
@@ -195,6 +199,54 @@
 		"message": "Тінь",
 		"description": "HUD shadow toggle"
 	},
+	"customCss": {
+		"message": "Спеціальний CSS",
+		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
+	},
+	"customCssDesc": {
+		"message": "Встановіть спеціальний CSS, щоб налаштувати власний інтерфейс FlowMouse",
+		"description": "Description for the Custom CSS advanced setting"
+	},
+	"customCssConfigure": {
+		"message": "Налаштувати",
+		"description": "Button label to open the Custom CSS editor dialog when no CSS is set"
+	},
+	"customCssEdit": {
+		"message": "Редагувати",
+		"description": "Button label to open the Custom CSS editor dialog when CSS is already set"
+	},
+	"customCssEditorTitle": {
+		"message": "Редактор користувацького CSS",
+		"description": "Title of the dedicated custom CSS editor page"
+	},
+	"customCssEditorHint": {
+		"message": "Стилі впроваджуються в кожен Shadow DOM, створений FlowMouse. Натисніть Ctrl+S для збереження.",
+		"description": "Hint shown above the editor textarea."
+	},
+	"customCssEditorPlaceholder": {
+		"message": "/* Введіть тут ваш користувацький CSS… */",
+		"description": "Placeholder inside the Custom CSS editor textarea"
+	},
+	"customCssEditorInsertSnippet": {
+		"message": "Приклад",
+		"description": "Button to append an example/starter CSS snippet to the editor"
+	},
+	"customCssEditorRevert": {
+		"message": "Скасувати зміни",
+		"description": "Button that reverts the editor content back to the last saved value"
+	},
+	"customCssEditorSave": {
+		"message": "Зберегти",
+		"description": "Save button in the Custom CSS editor"
+	},
+	"customCssEditorSaved": {
+		"message": "Збережено",
+		"description": "Status message shown briefly after the user saves the custom CSS"
+	},
+	"customCssEditorDiscardConfirm": {
+		"message": "Скасувати незбережені зміни та повернутися до останнього збереженого CSS?",
+		"description": "Confirmation dialog shown before reverting unsaved edits"
+	},
 	"text": {
 		"message": "Текст",
 		"description": "Text"
@@ -255,6 +307,14 @@
 		"message": "Перетягніть виділений текст для пошуку",
 		"description": "Drag selected text to search"
 	},
+	"textDragIgnoreInput": {
+		"message": "Вимкнути в полях вводу",
+		"description": "Option to disable text drag inside input boxes and textareas"
+	},
+	"textDragIgnoreInputDesc": {
+		"message": "Не активувати перетягування тексту в редагованих областях, таких як поля вводу та текстові редактори",
+		"description": "Description for text drag ignore input option"
+	},
 	"searchEngine": {
 		"message": "Пошукова система",
 		"description": "Search engine"
@@ -267,6 +327,10 @@
 		"message": "Власний URL, використовуйте %s замість пошукового запиту",
 		"description": "Custom URL placeholder"
 	},
+	"customUrlPlaceholderHint": {
+		"message": "Повинен містити протокол (наприклад, https://). Доступні заповнювачі: %placeholders%. Додайте :raw, щоб пропустити URL-кодування, наприклад: %example%",
+		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
+	},
 	"urlPlaceholderText": {
 		"message": "%s=Ключове слово",
 		"description": "Placeholder for text drag custom URL"
@@ -274,6 +338,14 @@
 	"urlPlaceholderImage": {
 		"message": "%s=URL зображення",
 		"description": "Placeholder for image drag custom URL"
+	},
+	"searchEngine_google_translate": {
+		"message": "Google Перекладач",
+		"description": "Google Translate search engine"
+	},
+	"searchEngine_bing_translate": {
+		"message": "Перекладач Bing",
+		"description": "Bing Translate search engine"
 	},
 	"searchEngine_baidu": {
 		"message": "Baidu",
@@ -367,8 +439,16 @@
 		"message": "Скинути",
 		"description": "Reset to default"
 	},
+	"duplicate": {
+		"message": "Дублювати",
+		"description": "Generic duplicate button tooltip"
+	},
+	"delete": {
+		"message": "Видалити",
+		"description": "Generic delete button tooltip"
+	},
 	"autoSaved": {
-		"message": "✓ Автозбереження",
+		"message": "Автозбереження",
 		"description": "Auto-saved message"
 	},
 	"saveFailure": {
@@ -663,6 +743,10 @@
 		"message": "Копіювати заголовок сторінки",
 		"description": "Copy page title"
 	},
+	"actionCopyTitleAndUrl": {
+		"message": "Копіювати заголовок сторінки та URL",
+		"description": "Copy page title and URL"
+	},
 	"actionOpenDownloads": {
 		"message": "Відкрити завантаження",
 		"description": "Open downloads page"
@@ -674,6 +758,10 @@
 	"actionOpenExtensions": {
 		"message": "Відкрити розширення",
 		"description": "Open extensions page"
+	},
+	"actionSaveAsMhtml": {
+		"message": "Зберегти як MHTML",
+		"description": "Save current page as MHTML file"
 	},
 	"actionPrintPage": {
 		"message": "Друкувати сторінку",
@@ -694,6 +782,14 @@
 	"actionTogglePinTab": {
 		"message": "Закріпити/Відкріпити поточну вкладку",
 		"description": "Toggle pin current tab"
+	},
+	"actionMoveTabToNewWindow": {
+		"message": "Перемістити вкладку в нове вікно",
+		"description": "Move current tab to a new window"
+	},
+	"actionSearchClipboard": {
+		"message": "Шукати з буфера обміну",
+		"description": "Search clipboard text using a search engine"
 	},
 	"showTrailOrigin": {
 		"message": "Показувати точку початку",
@@ -731,6 +827,10 @@
 		"message": "Інші налаштування",
 		"description": "Section title for other/miscellaneous settings"
 	},
+	"styleSettings": {
+		"message": "Вигляд",
+		"description": "Section title for style/appearance settings (trail, HUD, etc.)"
+	},
 	"show": {
 		"message": "Показати",
 		"description": "Show navigation menu"
@@ -760,7 +860,7 @@
 		"description": "Clear button"
 	},
 	"gestureAdded": {
-		"message": "✓ Жест додано",
+		"message": "Жест додано",
 		"description": "Gesture added success message"
 	},
 	"gestureRecorderTitle": {
@@ -816,16 +916,16 @@
 		"description": "Delete gesture confirmation"
 	},
 	"gestureDeleted": {
-		"message": "✓ Жест видалено",
+		"message": "Жест видалено",
 		"description": "Gesture deleted success message"
 	},
 	"enterCustomUrl": {
-		"message": "Введіть URL (рекомендовано з протоколом, напр. https://, chrome:// тощо):",
+		"message": "URL",
 		"description": "Prompt for custom URL input"
 	},
-	"copyUrlIncludeTitle": {
-		"message": "Також копіювати заголовок сторінки",
-		"description": "Checkbox label for including page title when copying URL"
+	"copyAsMarkdown": {
+		"message": "Копіювати як Markdown",
+		"description": "Checkbox label for copying as markdown format"
 	},
 	"invalidUrl": {
 		"message": "Будь ласка, введіть дійсний URL (починаючи з http:// або https://)",
@@ -956,27 +1056,27 @@
 		"description": "Features"
 	},
 	"aboutFeature1": {
-		"message": "🎯 16 стандартних жестів + власні",
+		"message": "16 стандартних жестів + власні",
 		"description": "Feature 1"
 	},
 	"aboutFeature2": {
-		"message": "🎨 Візуальний слід жесту",
+		"message": "Візуальний слід жесту",
 		"description": "Feature 2"
 	},
 	"aboutFeature3": {
-		"message": "🔍 Супер-перетягування тексту/зображень/посилань",
+		"message": "Супер-перетягування тексту/зображень/посилань",
 		"description": "Feature 3"
 	},
 	"aboutFeature4": {
-		"message": "🚫 Чорний список сайтів",
+		"message": "Чорний список сайтів",
 		"description": "Feature 4"
 	},
 	"aboutFeature5": {
-		"message": "☁️ Синхронизація через акаунт %browserName%",
+		"message": "Синхронизація через акаунт %browserName%",
 		"description": "Feature 5"
 	},
 	"aboutFeature6": {
-		"message": "🔒 Лише локальна робота, без доступу до мережі (крім синхронізації)",
+		"message": "Лише локальна робота, без доступу до мережі (крім синхронізації)",
 		"description": "Feature 6"
 	},
 	"tutorial": {
@@ -988,15 +1088,15 @@
 		"description": "Learn more link"
 	},
 	"badgeNoNetwork": {
-		"message": "🔒 Без доступу до мережі (крім синхронізації)",
+		"message": "Без доступу до мережі (крім синхронізації)",
 		"description": "No network privacy badge"
 	},
 	"badgeNoData": {
-		"message": "🚫 Без збору даних",
+		"message": "Без збору даних",
 		"description": "No data collection badge"
 	},
 	"badgeLocalRun": {
-		"message": "✅ Локальна робота",
+		"message": "Локальна робота",
 		"description": "Local run badge"
 	},
 	"newTabSettings": {
@@ -1091,6 +1191,10 @@
 		"message": "📋 Копіювати текст посилання",
 		"description": "Copy link text"
 	},
+	"dragActionCopyLinkAndText": {
+		"message": "📋 Копіювати текст і посилання",
+		"description": "Copy link text and URL"
+	},
 	"dragActionSaveImage": {
 		"message": "💾 Зберегти зображення",
 		"description": "Save image"
@@ -1111,6 +1215,10 @@
 		"message": "🔍 Власний пошук",
 		"description": "Custom search"
 	},
+	"dragActionSendCustomEvent": {
+		"message": "Надіслати спеціальну подію",
+		"description": "Send custom DOM event on drag gesture"
+	},
 	"reducedMotionWarning": {
 		"message": "У системі %OS% вимкнено анімації. Анімація прокрутки може працювати некоректно. Ви можете увімкнути анімації в налаштуваннях системи %OS%.",
 		"description": "Warning message when system reduced motion is enabled"
@@ -1119,9 +1227,29 @@
 		"message": "Автовизначення URL",
 		"description": "Auto detect URL checkbox label"
 	},
+	"autoDetectUrlTooltip": {
+		"message": "Якщо текст має формат посилання, відкрити його напряму замість пошуку",
+		"description": "Tooltip for the auto detect URL checkbox"
+	},
 	"preferLink": {
 		"message": "Віддавати перевагу посиланню",
 		"description": "Prefer link checkbox label"
+	},
+	"customHudName": {
+		"message": "Назва",
+		"description": "Placeholder for custom action name shown on HUD"
+	},
+	"customHudNameTooltip": {
+		"message": "Спеціальне ім'я, яке відображається на екрані під час виконання жесту",
+		"description": "Tooltip for the custom HUD name field"
+	},
+	"actionNoOptions": {
+		"message": "Ця команда не потребує жодних налаштувань.",
+		"description": "Placeholder shown in the action picker's detail panel when the selected action has no configurable settings"
+	},
+	"actionRequiredBadge": {
+		"message": "Обов'язково",
+		"description": "Badge shown next to fields that must be filled in (e.g., URL for Open URL)"
 	},
 	"menuNeedRefresh": {
 		"message": "FlowMouse не завантажено, натисніть для оновлення",
@@ -1376,11 +1504,11 @@
 		"description": "Permission popup description for downloads"
 	},
 	"permissionDownloadsPageCaptureTitle": {
-		"message": "Зберегти зображення",
+		"message": "Зберегти контент",
 		"description": "Permission popup title for downloads and page capture"
 	},
 	"permissionDownloadsPageCaptureDesc": {
-		"message": "Для зберігання зображень FlowMouse потрібен доступ до сторінок та завантажень.",
+		"message": "Для збереження контенту FlowMouse потрібен доступ до сторінок та завантажень.",
 		"description": "Permission popup description for downloads and page capture"
 	},
 	"permissionIncognitoTitle": {
@@ -1390,6 +1518,14 @@
 	"permissionIncognitoDesc": {
 		"message": "Щоб працювати у вікнах інкогніто, потрібно вручну ввімкнути опцію «Дозволити в режимі інкогніто» для FlowMouse.",
 		"description": "Permission popup description for incognito"
+	},
+	"permissionClipboardReadTitle": {
+		"message": "Читання буфера обміну",
+		"description": "Permission popup title for clipboard read"
+	},
+	"permissionClipboardReadDesc": {
+		"message": "Щоб вставити вміст буфера обміну, FlowMouse потрібен дозвіл на читання вашого буфера обміну.",
+		"description": "Permission popup description for clipboard read"
 	},
 	"openExtensionsSettings": {
 		"message": "Відкрити відомості про розширення",
@@ -1434,6 +1570,10 @@
 	"buttonOkay": {
 		"message": "Гаразд",
 		"description": "Generic OK button"
+	},
+	"buttonConfirm": {
+		"message": "Підтвердити",
+		"description": "Generic Confirm button"
 	},
 	"buttonCancel": {
 		"message": "Скасувати",
@@ -1487,6 +1627,10 @@
 		"message": "Прокручування вниз, утримуючи праву кнопку",
 		"description": "Wheel gesture: scroll down while holding right button"
 	},
+	"wheelGesture_wheelClickHoldingRight": {
+		"message": "Клік коліщатком, утримуючи праву кнопку",
+		"description": "Wheel gesture: wheel (middle) click while holding right button"
+	},
 	"specialGestures": {
 		"message": "Спеціальні жести",
 		"description": "Special gestures section title"
@@ -1507,32 +1651,68 @@
 		"message": "Клацання правою кнопкою миші під час утримання лівої",
 		"description": "Special gesture: right click while holding left button"
 	},
-	"actionChains": {
-		"message": "Ланцюжки команд",
-		"description": "Action chains section title"
-	},
 	"actionChainsDesc": {
-		"message": "Створюйте багаторазові послідовності команд, які виконуються одна за одною",
+		"message": "Використовуйте ланцюжки команд для послідовного виконання кількох команд.",
 		"description": "Action chains section description"
 	},
 	"actionActionChain": {
 		"message": "Ланцюжок команд",
 		"description": "Action chain action name"
 	},
-	"actionCategoryChains": {
-		"message": "Ланцюжки команд",
-		"description": "Action category: action chains"
+	"actionCustomMenu": {
+		"message": "Користувацьке меню",
+		"description": "Custom popup menu action name"
+	},
+	"customMenuDesc": {
+		"message": "Створюйте власні спливаючі меню з кількома діями.",
+		"description": "Custom menu section description"
+	},
+	"addMenu": {
+		"message": "Додати меню",
+		"description": "Add menu button"
+	},
+	"menuNamePlaceholder": {
+		"message": "Користувацьке меню",
+		"description": "Menu name input placeholder"
+	},
+	"menuItemCount": {
+		"message": "%count% елементів",
+		"description": "Item count for menus, e.g. '3 items'"
+	},
+	"menuItemCountOne": {
+		"message": "%count% елемент",
+		"description": "Item count for menus with exactly 1 item"
+	},
+	"addMenuItem": {
+		"message": "Додати елемент",
+		"description": "Add menu item button"
+	},
+	"addMenuSeparator": {
+		"message": "Додати розділювач",
+		"description": "Add separator to menu button"
+	},
+	"emptyMenuItems": {
+		"message": "Не додано жодного елемента. Натисніть «Додати елемент», щоб почати.",
+		"description": "Empty menu items message"
+	},
+	"menuNotFound": {
+		"message": "(Меню не знайдено)",
+		"description": "Menu not found label"
+	},
+	"deleteMenuConfirm": {
+		"message": "Видалити меню «%name%»?",
+		"description": "Delete menu confirmation"
+	},
+	"menuItemNumber": {
+		"message": "Елемент %n%",
+		"description": "Menu item number label"
 	},
 	"addChain": {
 		"message": "Додати ланцюжок",
 		"description": "Add chain button"
 	},
-	"addNewChain": {
-		"message": "Створити новий ланцюжок...",
-		"description": "Action item to navigate to chain editor and create a new chain"
-	},
 	"chainNamePlaceholder": {
-		"message": "Мій ланцюжок команд",
+		"message": "Ланцюжок команд",
 		"description": "Chain name input placeholder"
 	},
 	"chainDelayUnit": {
@@ -1579,6 +1759,14 @@
 		"message": "Імітація натискання клавіші",
 		"description": "Action to simulate a keyboard key press on the page"
 	},
+	"actionPasteClipboard": {
+		"message": "Вставити з буфера обміну",
+		"description": "Action to paste clipboard text at the gesture start position"
+	},
+	"pasteClipboardHint": {
+		"message": "Вміст буфера обміну буде вставлено в поле введення в <b>початковій позиції жесту</b>.",
+		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
 	"simulateKeyPreset": {
 		"message": "Попередньо встановлена клавіша",
 		"description": "Label for preset key dropdown in simulate key config"
@@ -1615,6 +1803,14 @@
 		"message": "Недійсний формат JSON",
 		"description": "Error message when event detail is not valid JSON"
 	},
+	"customEventIncludeGestureInfo": {
+		"message": "Включити інформацію про жести в %code%",
+		"description": "Checkbox label for including gesture context in custom event detail. %code% = detail.gesture"
+	},
+	"customEventConfigureBtn": {
+		"message": "Налаштування",
+		"description": "Label for the configure button of custom event action in drag gesture manager"
+	},
 	"customEventHint": {
 		"message": "Відправляє %code% на %window%. Корисно для інтеграції з іншими скриптами.",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
@@ -1630,5 +1826,233 @@
 	"chainStepCountOne": {
 		"message": "%count% крок",
 		"description": "Step count for unnamed chains with exactly 1 step"
+	},
+	"actionZoomIn": {
+		"message": "Збільшити",
+		"description": "Zoom in on the current page"
+	},
+	"actionZoomOut": {
+		"message": "Зменшити",
+		"description": "Zoom out on the current page"
+	},
+	"actionResetZoom": {
+		"message": "Скинути масштаб",
+		"description": "Reset page zoom to default or a specified level"
+	},
+	"actionViewPageSource": {
+		"message": "Переглянути код сторінки",
+		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionPauseGesture": {
+		"message": "Пауза жестів до оновлення",
+		"description": "Temporarily disable all gestures on the current tab until page refresh"
+	},
+	"actionAreaSelect": {
+		"message": "Вибір області",
+		"description": "Enter area select mode to drag-select links on the page and batch open them"
+	},
+	"areaSelectTitle": {
+		"message": "Вибір області",
+		"description": "Label for the area select row in the popup"
+	},
+	"areaSelectModifierKey": {
+		"message": "Швидкий вибір області",
+		"description": "Label for the modifier key dropdown in area select settings"
+	},
+	"areaSelectModifierKeyDesc": {
+		"message": "Утримуйте клавішу-модифікатор, потім натисніть ліву кнопку миші та потягніть, щоб швидко вибрати посилання на сторінці для групових операцій",
+		"description": "Description for the modifier key setting"
+	},
+	"areaSelectDisabled": {
+		"message": "Вимкнено",
+		"description": "Disabled option for the area select modifier key dropdown"
+	},
+	"areaSelectMouseDrag": {
+		"message": "Перетягування мишею",
+		"description": "Suffix label next to the modifier key dropdown"
+	},
+	"areaSelectTextUrl": {
+		"message": "Розпізнавання текстових URL",
+		"description": "Label for the text URL recognition toggle"
+	},
+	"areaSelectTextUrlDesc": {
+		"message": "Під час виділення також витягувати звичайні текстові URL-адреси (не гіперпосилання)",
+		"description": "Description for the text URL recognition toggle"
+	},
+	"areaSelectWarnThreshold": {
+		"message": "Попередження про пакетну операцію",
+		"description": "Label for the batch operation alert threshold input"
+	},
+	"areaSelectWarnThresholdDesc": {
+		"message": "Показувати підтвердження при пакетній обробці більше цієї кількості елементів, 0 для відключення",
+		"description": "Description for the batch operation alert threshold"
+	},
+	"areaSelectDelay": {
+		"message": "Інтервал операції",
+		"description": "Label for the operation interval input"
+	},
+	"areaSelectDelayDesc": {
+		"message": "Затримка між кожним відкриттям при пакетних операціях (секунди)",
+		"description": "Description for the operation interval setting"
+	},
+	"areaSelectHint": {
+		"message": "Перетягніть, щоб вибрати посилання",
+		"description": "Hint text shown in the area select overlay"
+	},
+	"areaSelectOpen": {
+		"message": "Відкрити %count% посилань",
+		"description": "Button text in the area select toolbar to batch open selected links"
+	},
+	"areaSelectOpenOne": {
+		"message": "Відкрити %count% посилання",
+		"description": "Button text to open a single selected link (singular form)"
+	},
+	"areaSelectCopy": {
+		"message": "Копіювати посилання",
+		"description": "Button text to copy all selected link URLs to clipboard"
+	},
+	"areaSelectCancel": {
+		"message": "Скасувати",
+		"description": "Button text to cancel area select mode"
+	},
+	"areaSelectConfirm": {
+		"message": "Підтвердити",
+		"description": "Button text to confirm opening many links"
+	},
+	"areaSelectWarnTitle": {
+		"message": "Відкрити багато посилань?",
+		"description": "Title of the warning modal when opening many links"
+	},
+	"areaSelectWarnMessage": {
+		"message": "Ви збираєтеся відкрити %count% посилань. Це може уповільнити роботу браузера. Продовжити?",
+		"description": "Body text of the warning modal"
+	},
+	"start": {
+		"message": "Почати",
+		"description": "Button label to start an action (e.g. area select)"
+	},
+	"actionMenuShowTabs": {
+		"message": "Перемкнути вкладку",
+		"description": "Show a context menu listing all open tabs in the current window"
+	},
+	"actionMenuRecentlyClosed": {
+		"message": "Нещодавно закриті вкладки",
+		"description": "Show a context menu listing recently closed tabs for quick restore"
+	},
+	"recentlyClosedMaxItems": {
+		"message": "Макс. елементів",
+		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
+	},
+	"actionCategoryContextMenu": {
+		"message": "Спливаюче меню",
+		"description": "Action category: context menu actions"
+	},
+	"zoomStepMode": {
+		"message": "Режим масштабування",
+		"description": "Label for zoom mode selector: browser steps vs fixed increment"
+	},
+	"zoomStepModeBrowser": {
+		"message": "Використовувати рівні браузера",
+		"description": "Option: follow Chrome's built-in zoom steps (25%, 33%, 50%, …, 500%)"
+	},
+	"zoomStepModeFixed": {
+		"message": "Фіксований крок",
+		"description": "Option: zoom in/out by a configurable fixed percentage each time"
+	},
+	"zoomDelta": {
+		"message": "Розмір кроку",
+		"description": "Label for the zoom increment/decrement slider"
+	},
+	"resetZoomLevel": {
+		"message": "Скинути до",
+		"description": "Label for the target zoom level when resetting zoom"
+	},
+	"resetZoomDefault": {
+		"message": "За замовчуванням для веб-переглядача",
+		"description": "Option: reset zoom to the browser's default zoom setting"
+	},
+	"resetZoomCustom": {
+		"message": "Власне значення",
+		"description": "Option: reset zoom to a user-specified custom zoom level"
+	},
+	"actionMenuShowBookmarks": {
+		"message": "Показати закладки",
+		"description": "Show a context menu listing bookmarks from a selected folder"
+	},
+	"bookmarkFolder": {
+		"message": "Папка",
+		"description": "Label for selecting which bookmark folder to display"
+	},
+	"bookmarkGrantPermission": {
+		"message": "Надати дозвіл на закладки",
+		"description": "Button label to request bookmarks permission"
+	},
+	"ctxMenuSortOrder": {
+		"message": "Сортувати за",
+		"description": "Label for context menu sort order dropdown"
+	},
+	"ctxMenuSortDefault": {
+		"message": "За замовчуванням",
+		"description": "Sort option: original API/insertion order"
+	},
+	"ctxMenuSortDefaultDesc": {
+		"message": "За замовчуванням (у зворотному порядку)",
+		"description": "Sort option: reverse of original API order"
+	},
+	"ctxMenuSortDateAddedAsc": {
+		"message": "Дата додавання (спочатку старіші)",
+		"description": "Sort option: by date added ascending"
+	},
+	"ctxMenuSortDateAddedDesc": {
+		"message": "Дата додавання (спочатку новіші)",
+		"description": "Sort option: by date added descending"
+	},
+	"ctxMenuSortNameAsc": {
+		"message": "Ім'я (за зростанням)",
+		"description": "Sort option: alphabetical ascending"
+	},
+	"ctxMenuSortNameDesc": {
+		"message": "Ім'я (за спаданням)",
+		"description": "Sort option: alphabetical descending"
+	},
+	"ctxMenuSortLastAccessAsc": {
+		"message": "Останній доступ (спочатку старіші)",
+		"description": "Sort option: by last access time ascending"
+	},
+	"ctxMenuSortLastAccessDesc": {
+		"message": "Останній доступ (спочатку новіші)",
+		"description": "Sort option: by last access time descending"
+	},
+	"ctxMenuMaxItems": {
+		"message": "Макс. кількість",
+		"description": "Label for maximum number of items in context menu"
+	},
+	"ctxMenuMaxItemsUnlimited": {
+		"message": "Без обмежень",
+		"description": "Placeholder shown when max items is 0 (no limit)"
+	},
+	"ctxMenuScrollToBottom": {
+		"message": "Прокрутити вниз",
+		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuTimeDisplay": {
+		"message": "Показувати час",
+		"description": "Label for time display mode dropdown in context menu"
+	},
+	"ctxMenuTimeNone": {
+		"message": "Не показувати",
+		"description": "Time display option: hide time column"
+	},
+	"ctxMenuTimeLastAccess": {
+		"message": "Останній доступ",
+		"description": "Time display option: show last access time"
+	},
+	"ctxMenuTimeClosedTime": {
+		"message": "Час закриття",
+		"description": "Time display option: show when the tab was closed"
+	},
+	"ctxMenuTimeDateAdded": {
+		"message": "Дата додавання",
+		"description": "Time display option: show when the bookmark was added"
 	}
 }

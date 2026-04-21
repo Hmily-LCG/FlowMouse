@@ -35,9 +35,9 @@
 		"message": "Segerakkan tetapan melalui akaun %browserName%",
 		"description": "Sync status description"
 	},
-	"synced": {
-		"message": "Disegerakkan",
-		"description": "Synced"
+	"saved": {
+		"message": "Disimpan",
+		"description": "Saved"
 	},
 	"author": {
 		"message": "Pengarang",
@@ -66,6 +66,10 @@
 	"feedbackText": {
 		"message": "Ada masalah atau cadangan? Sila lapor melalui <a href='mailto:Service@52pojie.cn'>E-mel</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> atau <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Forum</a>. Kami akan menambah baik secepat mungkin!",
 		"description": "Feedback text"
+	},
+	"feedbackTextChrome": {
+		"message": "Ada masalah atau cadangan? Sila lapor melalui <a href='https://chromewebstore.google.com/detail/fnldhkfidchnjiokpoemdhoejmaojkgp/support' target='_blank'>Sokongan Chrome Web Store</a>, <a href='mailto:Service@52pojie.cn'>E-mel</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> atau <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Forum</a>. Kami akan menambah baik secepat mungkin!",
+		"description": "Feedback text for Chrome browser"
 	},
 	"supportAndFeedback": {
 		"message": "Sokongan & Maklum Balas",
@@ -125,11 +129,11 @@
 	},
 	"btnSide1Mouse": {
 		"message": "Butang Sisi (Kembali)",
-		"description": "Mouse button 4 — the side button typically used for navigating back"
+		"description": "Mouse button 4 - the side button typically used for navigating back"
 	},
 	"btnSide2Mouse": {
 		"message": "Butang Sisi (Ke Hadapan)",
-		"description": "Mouse button 5 — the side button typically used for navigating forward"
+		"description": "Mouse button 5 - the side button typically used for navigating forward"
 	},
 	"btnPenRight": {
 		"message": "Butang Kanan Stylus",
@@ -195,6 +199,54 @@
 		"message": "Bayang",
 		"description": "HUD shadow toggle"
 	},
+	"customCss": {
+		"message": "CSS Tersuai",
+		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
+	},
+	"customCssDesc": {
+		"message": "Tetapkan CSS tersuai untuk mengubah suai UI FlowMouse",
+		"description": "Description for the Custom CSS advanced setting"
+	},
+	"customCssConfigure": {
+		"message": "Konfigurasi",
+		"description": "Button label to open the Custom CSS editor dialog when no CSS is set"
+	},
+	"customCssEdit": {
+		"message": "Edit",
+		"description": "Button label to open the Custom CSS editor dialog when CSS is already set"
+	},
+	"customCssEditorTitle": {
+		"message": "Editor CSS Tersuai",
+		"description": "Title of the dedicated custom CSS editor page"
+	},
+	"customCssEditorHint": {
+		"message": "Gaya disuntikkan ke setiap Shadow DOM yang dibuat oleh FlowMouse. Tekan Ctrl+S untuk simpan.",
+		"description": "Hint shown above the editor textarea."
+	},
+	"customCssEditorPlaceholder": {
+		"message": "/* Tulis CSS Tersuai anda di sini… */",
+		"description": "Placeholder inside the Custom CSS editor textarea"
+	},
+	"customCssEditorInsertSnippet": {
+		"message": "Contoh",
+		"description": "Button to append an example/starter CSS snippet to the editor"
+	},
+	"customCssEditorRevert": {
+		"message": "Kembalikan",
+		"description": "Button that reverts the editor content back to the last saved value"
+	},
+	"customCssEditorSave": {
+		"message": "Simpan",
+		"description": "Save button in the Custom CSS editor"
+	},
+	"customCssEditorSaved": {
+		"message": "Disimpan",
+		"description": "Status message shown briefly after the user saves the custom CSS"
+	},
+	"customCssEditorDiscardConfirm": {
+		"message": "Buang edit anda yang belum disimpan dan kembali kepada CSS yang terakhir disimpan?",
+		"description": "Confirmation dialog shown before reverting unsaved edits"
+	},
 	"text": {
 		"message": "Teks",
 		"description": "Text"
@@ -255,6 +307,14 @@
 		"message": "Seret teks yang dipilih untuk mencari",
 		"description": "Drag selected text to search"
 	},
+	"textDragIgnoreInput": {
+		"message": "Lumpuhkan dalam medan input",
+		"description": "Option to disable text drag inside input boxes and textareas"
+	},
+	"textDragIgnoreInputDesc": {
+		"message": "Jangan mencetuskan seretan teks dalam kawasan yang boleh diedit seperti medan input dan penyunting teks",
+		"description": "Description for text drag ignore input option"
+	},
 	"searchEngine": {
 		"message": "Enjin Carian",
 		"description": "Search engine"
@@ -267,6 +327,10 @@
 		"message": "URL tersuai, gunakan %s untuk istilah carian",
 		"description": "Custom URL placeholder"
 	},
+	"customUrlPlaceholderHint": {
+		"message": "Mesti menyertakan protokol (cth. https://). Pemegang tempat yang tersedia: %placeholders%. Tambahkan :raw untuk melangkau pengekodan URL, cth. %example%",
+		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
+	},
 	"urlPlaceholderText": {
 		"message": "%s=Kata kunci",
 		"description": "Placeholder for text drag custom URL"
@@ -274,6 +338,14 @@
 	"urlPlaceholderImage": {
 		"message": "%s=URL Imej",
 		"description": "Placeholder for image drag custom URL"
+	},
+	"searchEngine_google_translate": {
+		"message": "Google Terjemah",
+		"description": "Google Translate search engine"
+	},
+	"searchEngine_bing_translate": {
+		"message": "Terjemahan Bing",
+		"description": "Bing Translate search engine"
 	},
 	"searchEngine_baidu": {
 		"message": "Baidu",
@@ -367,8 +439,16 @@
 		"message": "Tetapkan Semula",
 		"description": "Reset to default"
 	},
+	"duplicate": {
+		"message": "Pendua",
+		"description": "Generic duplicate button tooltip"
+	},
+	"delete": {
+		"message": "Padam",
+		"description": "Generic delete button tooltip"
+	},
 	"autoSaved": {
-		"message": "✓ Disimpan secara automatik",
+		"message": "Disimpan secara automatik",
 		"description": "Auto-saved message"
 	},
 	"saveFailure": {
@@ -663,6 +743,10 @@
 		"message": "Salin Tajuk Halaman",
 		"description": "Copy page title"
 	},
+	"actionCopyTitleAndUrl": {
+		"message": "Salin Tajuk Halaman & URL",
+		"description": "Copy page title and URL"
+	},
 	"actionOpenDownloads": {
 		"message": "Buka Muat Turun",
 		"description": "Open downloads page"
@@ -674,6 +758,10 @@
 	"actionOpenExtensions": {
 		"message": "Buka Sambungan",
 		"description": "Open extensions page"
+	},
+	"actionSaveAsMhtml": {
+		"message": "Simpan sebagai MHTML",
+		"description": "Save current page as MHTML file"
 	},
 	"actionPrintPage": {
 		"message": "Cetak Halaman",
@@ -694,6 +782,14 @@
 	"actionTogglePinTab": {
 		"message": "Semat/Nyahsemat Tab Semasa",
 		"description": "Toggle pin current tab"
+	},
+	"actionMoveTabToNewWindow": {
+		"message": "Alihkan tab ke tetingkap baru",
+		"description": "Move current tab to a new window"
+	},
+	"actionSearchClipboard": {
+		"message": "Cari dari papan keratan",
+		"description": "Search clipboard text using a search engine"
 	},
 	"showTrailOrigin": {
 		"message": "Tunjukkan Titik Asal",
@@ -731,6 +827,10 @@
 		"message": "Tetapan Lain",
 		"description": "Section title for other/miscellaneous settings"
 	},
+	"styleSettings": {
+		"message": "Penampilan",
+		"description": "Section title for style/appearance settings (trail, HUD, etc.)"
+	},
 	"show": {
 		"message": "Tunjukkan",
 		"description": "Show navigation menu"
@@ -760,7 +860,7 @@
 		"description": "Clear button"
 	},
 	"gestureAdded": {
-		"message": "✓ Gerak isyarat ditambah",
+		"message": "Gerak isyarat ditambah",
 		"description": "Gesture added success message"
 	},
 	"gestureRecorderTitle": {
@@ -816,16 +916,16 @@
 		"description": "Delete gesture confirmation"
 	},
 	"gestureDeleted": {
-		"message": "✓ Gerak isyarat dipadamkan",
+		"message": "Gerak isyarat dipadamkan",
 		"description": "Gesture deleted success message"
 	},
 	"enterCustomUrl": {
-		"message": "Masukkan URL (cadangan termasuk protokol seperti https://, chrome://, dll.):",
+		"message": "URL",
 		"description": "Prompt for custom URL input"
 	},
-	"copyUrlIncludeTitle": {
-		"message": "Salin juga tajuk halaman",
-		"description": "Checkbox label for including page title when copying URL"
+	"copyAsMarkdown": {
+		"message": "Salin sebagai Markdown",
+		"description": "Checkbox label for copying as markdown format"
 	},
 	"invalidUrl": {
 		"message": "Sila masukkan URL yang sah (bermula dengan http:// atau https://)",
@@ -956,27 +1056,27 @@
 		"description": "Features"
 	},
 	"aboutFeature1": {
-		"message": "🎯 16 Gerak Isyarat Lalai + Gerak Isyarat Tersuai",
+		"message": "16 Gerak Isyarat Lalai + Gerak Isyarat Tersuai",
 		"description": "Feature 1"
 	},
 	"aboutFeature2": {
-		"message": "🎨 Maklum Balas Jejak Visual",
+		"message": "Maklum Balas Jejak Visual",
 		"description": "Feature 2"
 	},
 	"aboutFeature3": {
-		"message": "🔍 Seret Super Teks/Imej/Pautan",
+		"message": "Seret Super Teks/Imej/Pautan",
 		"description": "Feature 3"
 	},
 	"aboutFeature4": {
-		"message": "🚫 Senarai Hitam Laman Web",
+		"message": "Senarai Hitam Laman Web",
 		"description": "Feature 4"
 	},
 	"aboutFeature5": {
-		"message": "☁️ Penyegerakan Akaun %browserName%",
+		"message": "Penyegerakan Akaun %browserName%",
 		"description": "Feature 5"
 	},
 	"aboutFeature6": {
-		"message": "🔒 Berjalan Setempat, Tiada Rangkaian Kecuali Segerak",
+		"message": "Berjalan Setempat, Tiada Rangkaian Kecuali Segerak",
 		"description": "Feature 6"
 	},
 	"tutorial": {
@@ -988,15 +1088,15 @@
 		"description": "Learn more link"
 	},
 	"badgeNoNetwork": {
-		"message": "🔒 Tiada Rangkaian Kecuali Segerak",
+		"message": "Tiada Rangkaian Kecuali Segerak",
 		"description": "No network privacy badge"
 	},
 	"badgeNoData": {
-		"message": "🚫 Tiada Pengumpulan Data",
+		"message": "Tiada Pengumpulan Data",
 		"description": "No data collection badge"
 	},
 	"badgeLocalRun": {
-		"message": "✅ Berjalan Setempat",
+		"message": "Berjalan Setempat",
 		"description": "Local run badge"
 	},
 	"newTabSettings": {
@@ -1091,6 +1191,10 @@
 		"message": "📋 Salin Teks Pautan",
 		"description": "Copy link text"
 	},
+	"dragActionCopyLinkAndText": {
+		"message": "📋 Salin Teks & Pautan",
+		"description": "Copy link text and URL"
+	},
 	"dragActionSaveImage": {
 		"message": "💾 Simpan Imej",
 		"description": "Save image"
@@ -1111,6 +1215,10 @@
 		"message": "🔍 Carian Tersuai",
 		"description": "Custom search"
 	},
+	"dragActionSendCustomEvent": {
+		"message": "Hantar Acara Tersuai",
+		"description": "Send custom DOM event on drag gesture"
+	},
 	"reducedMotionWarning": {
 		"message": "Animasi sistem %OS% dilumpuhkan, animasi tatal mungkin tidak berfungsi dengan betul. Anda boleh dayakan animasi dalam tetapan sistem %OS%.",
 		"description": "Warning message when system reduced motion is enabled"
@@ -1119,9 +1227,29 @@
 		"message": "Kesan URL Secara Automatik",
 		"description": "Auto detect URL checkbox label"
 	},
+	"autoDetectUrlTooltip": {
+		"message": "Jika teks dalam format pautan, buka terus dan bukannya mencari",
+		"description": "Tooltip for the auto detect URL checkbox"
+	},
 	"preferLink": {
 		"message": "Keutamaan Pautan",
 		"description": "Prefer link checkbox label"
+	},
+	"customHudName": {
+		"message": "Nama",
+		"description": "Placeholder for custom action name shown on HUD"
+	},
+	"customHudNameTooltip": {
+		"message": "Nama tersuai yang dipaparkan pada skrin semasa melakukan gerak isyarat",
+		"description": "Tooltip for the custom HUD name field"
+	},
+	"actionNoOptions": {
+		"message": "Perintah ini tidak memerlukan sebarang tetapan.",
+		"description": "Placeholder shown in the action picker's detail panel when the selected action has no configurable settings"
+	},
+	"actionRequiredBadge": {
+		"message": "Diperlukan",
+		"description": "Badge shown next to fields that must be filled in (e.g., URL for Open URL)"
 	},
 	"menuNeedRefresh": {
 		"message": "FlowMouse tidak dimuatkan, klik untuk muat semula",
@@ -1376,11 +1504,11 @@
 		"description": "Permission popup description for downloads"
 	},
 	"permissionDownloadsPageCaptureTitle": {
-		"message": "Simpan Imej",
+		"message": "Simpan Kandungan",
 		"description": "Permission popup title for downloads and page capture"
 	},
 	"permissionDownloadsPageCaptureDesc": {
-		"message": "Untuk menyimpan imej, FlowMouse memerlukan akses kepada halaman dan muat turun.",
+		"message": "Untuk menyimpan kandungan, FlowMouse memerlukan akses kepada halaman dan muat turun.",
 		"description": "Permission popup description for downloads and page capture"
 	},
 	"permissionIncognitoTitle": {
@@ -1390,6 +1518,14 @@
 	"permissionIncognitoDesc": {
 		"message": "Untuk berfungsi dalam tetingkap inkognito, anda perlu mengaktifkan \"Benarkan dalam inkognito\" secara manual untuk FlowMouse.",
 		"description": "Permission popup description for incognito"
+	},
+	"permissionClipboardReadTitle": {
+		"message": "Baca Papan Keratan",
+		"description": "Permission popup title for clipboard read"
+	},
+	"permissionClipboardReadDesc": {
+		"message": "Untuk menampal kandungan papan keratan, FlowMouse memerlukan akses untuk membaca papan keratan anda.",
+		"description": "Permission popup description for clipboard read"
 	},
 	"openExtensionsSettings": {
 		"message": "Buka Butiran Sambungan",
@@ -1434,6 +1570,10 @@
 	"buttonOkay": {
 		"message": "OK",
 		"description": "Generic OK button"
+	},
+	"buttonConfirm": {
+		"message": "Sahkan",
+		"description": "Generic Confirm button"
 	},
 	"buttonCancel": {
 		"message": "Batal",
@@ -1487,6 +1627,10 @@
 		"message": "Tatal ke bawah sambil menahan butang kanan",
 		"description": "Wheel gesture: scroll down while holding right button"
 	},
+	"wheelGesture_wheelClickHoldingRight": {
+		"message": "Klik butang tengah sambil menahan butang kanan",
+		"description": "Wheel gesture: wheel (middle) click while holding right button"
+	},
 	"specialGestures": {
 		"message": "Gerak Isyarat Khas",
 		"description": "Special gestures section title"
@@ -1507,32 +1651,68 @@
 		"message": "Klik kanan sambil menahan butang kiri",
 		"description": "Special gesture: right click while holding left button"
 	},
-	"actionChains": {
-		"message": "Rantaian Perintah",
-		"description": "Action chains section title"
-	},
 	"actionChainsDesc": {
-		"message": "Buat urutan perintah boleh guna semula yang dilaksanakan satu persatu",
+		"message": "Gunakan rantaian perintah untuk melaksanakan pelbagai perintah mengikut urutan.",
 		"description": "Action chains section description"
 	},
 	"actionActionChain": {
 		"message": "Rantaian Perintah",
 		"description": "Action chain action name"
 	},
-	"actionCategoryChains": {
-		"message": "Rantaian Perintah",
-		"description": "Action category: action chains"
+	"actionCustomMenu": {
+		"message": "Menu Tersuai",
+		"description": "Custom popup menu action name"
+	},
+	"customMenuDesc": {
+		"message": "Cipta menu timbul tersuai dengan pelbagai tindakan.",
+		"description": "Custom menu section description"
+	},
+	"addMenu": {
+		"message": "Tambah Menu",
+		"description": "Add menu button"
+	},
+	"menuNamePlaceholder": {
+		"message": "Menu Tersuai",
+		"description": "Menu name input placeholder"
+	},
+	"menuItemCount": {
+		"message": "%count% item",
+		"description": "Item count for menus, e.g. '3 items'"
+	},
+	"menuItemCountOne": {
+		"message": "%count% item",
+		"description": "Item count for menus with exactly 1 item"
+	},
+	"addMenuItem": {
+		"message": "Tambah item",
+		"description": "Add menu item button"
+	},
+	"addMenuSeparator": {
+		"message": "Tambah pemisah",
+		"description": "Add separator to menu button"
+	},
+	"emptyMenuItems": {
+		"message": "Tiada item ditambahkan. Klik \"Tambah item\" untuk bermula.",
+		"description": "Empty menu items message"
+	},
+	"menuNotFound": {
+		"message": "(Menu tidak ditemui)",
+		"description": "Menu not found label"
+	},
+	"deleteMenuConfirm": {
+		"message": "Padam menu \"%name%\"?",
+		"description": "Delete menu confirmation"
+	},
+	"menuItemNumber": {
+		"message": "Item %n%",
+		"description": "Menu item number label"
 	},
 	"addChain": {
 		"message": "Tambah Rantaian",
 		"description": "Add chain button"
 	},
-	"addNewChain": {
-		"message": "Cipta Rantaian Baharu...",
-		"description": "Action item to navigate to chain editor and create a new chain"
-	},
 	"chainNamePlaceholder": {
-		"message": "Rantaian Perintah Saya",
+		"message": "Rantaian Perintah",
 		"description": "Chain name input placeholder"
 	},
 	"chainDelayUnit": {
@@ -1579,6 +1759,14 @@
 		"message": "Simulasikan Tekanan Kekunci",
 		"description": "Action to simulate a keyboard key press on the page"
 	},
+	"actionPasteClipboard": {
+		"message": "Tampal dari Papan Keratan",
+		"description": "Action to paste clipboard text at the gesture start position"
+	},
+	"pasteClipboardHint": {
+		"message": "Kandungan papan keratan akan ditampal ke dalam medan input pada <b>kedudukan mula gerak isyarat</b>.",
+		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
 	"simulateKeyPreset": {
 		"message": "Kekunci Pratetap",
 		"description": "Label for preset key dropdown in simulate key config"
@@ -1615,6 +1803,14 @@
 		"message": "Format JSON tidak sah",
 		"description": "Error message when event detail is not valid JSON"
 	},
+	"customEventIncludeGestureInfo": {
+		"message": "Sertakan maklumat gerak isyarat dalam %code%",
+		"description": "Checkbox label for including gesture context in custom event detail. %code% = detail.gesture"
+	},
+	"customEventConfigureBtn": {
+		"message": "Tetapan",
+		"description": "Label for the configure button of custom event action in drag gesture manager"
+	},
 	"customEventHint": {
 		"message": "Menghantar %code% pada %window%. Berguna untuk penyepaduan dengan skrip lain.",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
@@ -1630,5 +1826,233 @@
 	"chainStepCountOne": {
 		"message": "%count% langkah",
 		"description": "Step count for unnamed chains with exactly 1 step"
+	},
+	"actionZoomIn": {
+		"message": "Zum masuk",
+		"description": "Zoom in on the current page"
+	},
+	"actionZoomOut": {
+		"message": "Zum keluar",
+		"description": "Zoom out on the current page"
+	},
+	"actionResetZoom": {
+		"message": "Tetapkan semula zum",
+		"description": "Reset page zoom to default or a specified level"
+	},
+	"actionViewPageSource": {
+		"message": "Lihat sumber halaman",
+		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionPauseGesture": {
+		"message": "Jeda Gerak Isyarat Hingga Muat Semula",
+		"description": "Temporarily disable all gestures on the current tab until page refresh"
+	},
+	"actionAreaSelect": {
+		"message": "Pilih Kawasan",
+		"description": "Enter area select mode to drag-select links on the page and batch open them"
+	},
+	"areaSelectTitle": {
+		"message": "Pilih Kawasan",
+		"description": "Label for the area select row in the popup"
+	},
+	"areaSelectModifierKey": {
+		"message": "Pilihan Kawasan Pantas",
+		"description": "Label for the modifier key dropdown in area select settings"
+	},
+	"areaSelectModifierKeyDesc": {
+		"message": "Tahan kekunci pengubah, kemudian klik kiri dan seret untuk memilih pautan secara pantas pada halaman untuk operasi kumpulan",
+		"description": "Description for the modifier key setting"
+	},
+	"areaSelectDisabled": {
+		"message": "Dilumpuhkan",
+		"description": "Disabled option for the area select modifier key dropdown"
+	},
+	"areaSelectMouseDrag": {
+		"message": "Seret tetikus",
+		"description": "Suffix label next to the modifier key dropdown"
+	},
+	"areaSelectTextUrl": {
+		"message": "Pengiktirafan URL Teks",
+		"description": "Label for the text URL recognition toggle"
+	},
+	"areaSelectTextUrlDesc": {
+		"message": "Ekstrak juga URL teks-biasa (bukan hiperpautan) apabila memilih",
+		"description": "Description for the text URL recognition toggle"
+	},
+	"areaSelectWarnThreshold": {
+		"message": "Amaran Operasi Kelompok",
+		"description": "Label for the batch operation alert threshold input"
+	},
+	"areaSelectWarnThresholdDesc": {
+		"message": "Tunjukkan pengesahan apabila operasi kelompok melebihi jumlah item ini, 0 untuk melumpuhkan",
+		"description": "Description for the batch operation alert threshold"
+	},
+	"areaSelectDelay": {
+		"message": "Selang Masa Operasi",
+		"description": "Label for the operation interval input"
+	},
+	"areaSelectDelayDesc": {
+		"message": "Kelewatan antara setiap buka dalam operasi kelompok (saat)",
+		"description": "Description for the operation interval setting"
+	},
+	"areaSelectHint": {
+		"message": "Seret untuk memilih pautan",
+		"description": "Hint text shown in the area select overlay"
+	},
+	"areaSelectOpen": {
+		"message": "Buka %count% pautan",
+		"description": "Button text in the area select toolbar to batch open selected links"
+	},
+	"areaSelectOpenOne": {
+		"message": "Buka %count% pautan",
+		"description": "Button text to open a single selected link (singular form)"
+	},
+	"areaSelectCopy": {
+		"message": "Salin Pautan",
+		"description": "Button text to copy all selected link URLs to clipboard"
+	},
+	"areaSelectCancel": {
+		"message": "Batal",
+		"description": "Button text to cancel area select mode"
+	},
+	"areaSelectConfirm": {
+		"message": "Sahkan",
+		"description": "Button text to confirm opening many links"
+	},
+	"areaSelectWarnTitle": {
+		"message": "Buka banyak pautan?",
+		"description": "Title of the warning modal when opening many links"
+	},
+	"areaSelectWarnMessage": {
+		"message": "Anda akan membuka %count% pautan. Ini mungkin akan memperlahankan pelayar anda. Teruskan?",
+		"description": "Body text of the warning modal"
+	},
+	"start": {
+		"message": "Mula",
+		"description": "Button label to start an action (e.g. area select)"
+	},
+	"actionMenuShowTabs": {
+		"message": "Tukar Tab",
+		"description": "Show a context menu listing all open tabs in the current window"
+	},
+	"actionMenuRecentlyClosed": {
+		"message": "Tab Baru Ditutup",
+		"description": "Show a context menu listing recently closed tabs for quick restore"
+	},
+	"recentlyClosedMaxItems": {
+		"message": "Jumlah maks.",
+		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
+	},
+	"actionCategoryContextMenu": {
+		"message": "Menu Timbul",
+		"description": "Action category: context menu actions"
+	},
+	"zoomStepMode": {
+		"message": "Mod Zum",
+		"description": "Label for zoom mode selector: browser steps vs fixed increment"
+	},
+	"zoomStepModeBrowser": {
+		"message": "Guna tahap zum pelayar",
+		"description": "Option: follow Chrome's built-in zoom steps (25%, 33%, 50%, …, 500%)"
+	},
+	"zoomStepModeFixed": {
+		"message": "Langkah tetap",
+		"description": "Option: zoom in/out by a configurable fixed percentage each time"
+	},
+	"zoomDelta": {
+		"message": "Saiz langkah",
+		"description": "Label for the zoom increment/decrement slider"
+	},
+	"resetZoomLevel": {
+		"message": "Tetapkan semula kepada",
+		"description": "Label for the target zoom level when resetting zoom"
+	},
+	"resetZoomDefault": {
+		"message": "Lalai pelayar",
+		"description": "Option: reset zoom to the browser's default zoom setting"
+	},
+	"resetZoomCustom": {
+		"message": "Nilai tersuai",
+		"description": "Option: reset zoom to a user-specified custom zoom level"
+	},
+	"actionMenuShowBookmarks": {
+		"message": "Tunjukkan Penanda Halaman",
+		"description": "Show a context menu listing bookmarks from a selected folder"
+	},
+	"bookmarkFolder": {
+		"message": "Folder",
+		"description": "Label for selecting which bookmark folder to display"
+	},
+	"bookmarkGrantPermission": {
+		"message": "Berikan Kebenaran Penanda Halaman",
+		"description": "Button label to request bookmarks permission"
+	},
+	"ctxMenuSortOrder": {
+		"message": "Susun mengikut",
+		"description": "Label for context menu sort order dropdown"
+	},
+	"ctxMenuSortDefault": {
+		"message": "Lalai",
+		"description": "Sort option: original API/insertion order"
+	},
+	"ctxMenuSortDefaultDesc": {
+		"message": "Lalai (terbalik)",
+		"description": "Sort option: reverse of original API order"
+	},
+	"ctxMenuSortDateAddedAsc": {
+		"message": "Tarikh ditambah (paling lama dahulu)",
+		"description": "Sort option: by date added ascending"
+	},
+	"ctxMenuSortDateAddedDesc": {
+		"message": "Tarikh ditambah (paling baharu dahulu)",
+		"description": "Sort option: by date added descending"
+	},
+	"ctxMenuSortNameAsc": {
+		"message": "Nama (menaik)",
+		"description": "Sort option: alphabetical ascending"
+	},
+	"ctxMenuSortNameDesc": {
+		"message": "Nama (menurun)",
+		"description": "Sort option: alphabetical descending"
+	},
+	"ctxMenuSortLastAccessAsc": {
+		"message": "Terakhir diakses (paling lama dahulu)",
+		"description": "Sort option: by last access time ascending"
+	},
+	"ctxMenuSortLastAccessDesc": {
+		"message": "Terakhir diakses (paling baharu dahulu)",
+		"description": "Sort option: by last access time descending"
+	},
+	"ctxMenuMaxItems": {
+		"message": "Item maksimum",
+		"description": "Label for maximum number of items in context menu"
+	},
+	"ctxMenuMaxItemsUnlimited": {
+		"message": "Tanpa had",
+		"description": "Placeholder shown when max items is 0 (no limit)"
+	},
+	"ctxMenuScrollToBottom": {
+		"message": "Tatal ke bawah",
+		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuTimeDisplay": {
+		"message": "Paparkan masa",
+		"description": "Label for time display mode dropdown in context menu"
+	},
+	"ctxMenuTimeNone": {
+		"message": "Jangan paparkan",
+		"description": "Time display option: hide time column"
+	},
+	"ctxMenuTimeLastAccess": {
+		"message": "Akses terakhir",
+		"description": "Time display option: show last access time"
+	},
+	"ctxMenuTimeClosedTime": {
+		"message": "Masa ditutup",
+		"description": "Time display option: show when the tab was closed"
+	},
+	"ctxMenuTimeDateAdded": {
+		"message": "Tarikh ditambah",
+		"description": "Time display option: show when the bookmark was added"
 	}
 }

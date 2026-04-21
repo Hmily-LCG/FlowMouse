@@ -1,5 +1,33 @@
 const GLOBAL_MUTE_KEY = 'flowmouse_global_mute_state';
 
+const ctxMenuSessions = new Map();
+
+function sortAndClamp(items, sortOrder, maxItems, titleKey = 'title') {
+	if (sortOrder && sortOrder !== 'default') {
+		if (sortOrder === 'default_desc') {
+			items = items.slice().reverse();
+		} else {
+			const [field, dir] = sortOrder.split('_');
+			const asc = dir === 'asc';
+			items = items.slice().sort((a, b) => {
+				let va, vb;
+				if (field === 'name') {
+					va = (a[titleKey] || '').toLowerCase();
+					vb = (b[titleKey] || '').toLowerCase();
+					return asc ? va.localeCompare(vb) : vb.localeCompare(va);
+				}
+				va = a[field] || 0;
+				vb = b[field] || 0;
+				return asc ? va - vb : vb - va;
+			});
+		}
+	}
+	if (maxItems > 0 && items.length > maxItems) {
+		items = items.slice(0, maxItems);
+	}
+	return items;
+}
+
 chrome.tabs.onCreated.addListener((tab) => {
 	chrome.storage.session.get([GLOBAL_MUTE_KEY], (items) => {
 		if (items[GLOBAL_MUTE_KEY]) {
@@ -21,8 +49,10 @@ function asyncMessageHandler(asyncHandler) {
 
 const CONTENT_ACTIONS = new Set([
 	'scrollUp', 'scrollDown', 'scrollToTop', 'scrollToBottom',
-	'stopLoading', 'copyUrl', 'copyTitle', 'printPage', 'sendCustomEvent',
-	'simulateKey',
+	'stopLoading', 'copyUrl', 'copyTitle', 'copyTitleAndUrl', 'printPage', 'sendCustomEvent',
+	'simulateKey', 'pasteClipboard', 'searchClipboard',
+	'menuShowTabs', 'menuRecentlyClosed', 'menuShowBookmarks',
+	'customMenu',
 ]);
 
 async function createTabAtPosition(sender, position, extraOpts = {}) {
@@ -39,6 +69,24 @@ async function createTabAtPosition(sender, position, extraOpts = {}) {
 		default: createOpts.index = tabs.length; break;
 	}
 	return await chrome.tabs.create(createOpts);
+}
+
+function replaceUrlPlaceholders(template, tab) {
+	const rawUrl = tab?.url || '';
+	const raw = {
+		tabUrl: rawUrl,
+		tabTitle: tab?.title || '',
+		tabDomain: '',
+	};
+	if (rawUrl) {
+		try {
+			raw.tabDomain = new URL(rawUrl).hostname;
+		} catch { }
+	}
+	return (template || '').replace(/\{(tabUrl|tabTitle|tabDomain)(?::(raw))?\}/g, (_, key, mod) => {
+		const val = raw[key] || '';
+		return mod ? val : encodeURIComponent(val);
+	});
 }
 
 async function handleAction(request, sender) {
@@ -109,11 +157,13 @@ async function handleAction(request, sender) {
 		}
 
 		case 'restoreTab':
+			if (sender.tab?.incognito) return { success: false };
 			await chrome.sessions.restore(null).catch(() => { });
 			return { success: true };
 
 		case 'newTab': {
-			await createTabAtPosition(sender, request.position || 'last');
+			const active = request.active !== false;
+			await createTabAtPosition(sender, request.position || 'last', { active });
 			return { success: true };
 		}
 
@@ -189,6 +239,7 @@ async function handleAction(request, sender) {
 					await chrome.search.query({ text: request.query, tabId: sender.tab.id });
 				} else {
 					const newTab = await createTabAtPosition(sender, position, {
+						url: 'about:blank', 
 						active,
 						openerTabId: sender.tab.id,
 					});
@@ -250,6 +301,9 @@ async function handleAction(request, sender) {
 					}
 				});
 			}
+			return { success: true };
+
+		case 'saveAsMhtml':
 			return { success: true };
 
 		case 'closeOtherTabs': {
@@ -383,6 +437,12 @@ async function handleAction(request, sender) {
 			return { success: true };
 		}
 
+		case 'moveTabToNewWindow':
+			if (sender.tab?.id) {
+				await chrome.windows.create({ tabId: sender.tab.id, incognito: sender.tab.incognito });
+			}
+			return { success: true };
+
 		case 'newWindow':
 			await chrome.windows.create({});
 			return { success: true };
@@ -436,8 +496,38 @@ async function handleAction(request, sender) {
 			return { success: true };
 		}
 
+		case 'zoomIn':
+		case 'zoomOut': {
+			if (!sender.tab?.id) return { success: false };
+			const currentZoom = await chrome.tabs.getZoom(sender.tab.id);
+			const direction = request.action === 'zoomIn' ? 1 : -1;
+			let newZoom;
+			if (request.zoomMode === 'fixed') {
+				const delta = (request.zoomDelta || 10) / 100;
+				newZoom = currentZoom + delta * direction;
+			} else {
+				const ZOOM_LEVELS = [0.3, 0.5, 0.67, 0.8, 0.9, 1, 1.1, 1.2, 1.33, 1.5, 1.7, 2, 2.4, 3, 4, 5];
+				if (direction === 1) {
+					newZoom = ZOOM_LEVELS.find(z => z > currentZoom + 0.005) ?? ZOOM_LEVELS[ZOOM_LEVELS.length - 1];
+				} else {
+					newZoom = [...ZOOM_LEVELS].reverse().find(z => z < currentZoom - 0.005) ?? ZOOM_LEVELS[0];
+				}
+			}
+			newZoom = Math.min(5, Math.max(0.25, newZoom));
+			await chrome.tabs.setZoom(sender.tab.id, newZoom);
+			return { success: true };
+		}
+
+		case 'resetZoom': {
+			if (!sender.tab?.id) return { success: false };
+			const resetLevel = request.resetZoomLevel;
+			const zoomFactor = resetLevel > 0 ? resetLevel / 100 : 0;
+			await chrome.tabs.setZoom(sender.tab.id, zoomFactor);
+			return { success: true };
+		}
+
 		case 'openCustomUrl': {
-			let url = request.customUrl;
+			let url = replaceUrlPlaceholders(request.customUrl, sender.tab);
 			if (url) {
 				const protocolRegex = /^[a-zA-Z][a-zA-Z0-9+.-]*:/;
 
@@ -447,7 +537,13 @@ async function handleAction(request, sender) {
 					url = 'http://' + url;
 				}
 
-				await createTabAtPosition(sender, request.position || 'last', { url });
+				const pos = request.position || 'last';
+				const act = request.active !== false;
+				if (pos === 'current' && sender.tab) {
+					await chrome.tabs.update(sender.tab.id, { url });
+				} else {
+					await createTabAtPosition(sender, pos, { url, active: act });
+				}
 			}
 			return { success: true };
 		}
@@ -460,6 +556,20 @@ async function handleAction(request, sender) {
 
 		case 'openExtensions':
 			return { success: true };
+
+		case 'viewPageSource': {
+			if (sender.tab?.url) {
+				const url = 'view-source:' + sender.tab.url;
+				const pos = request.position || 'right';
+				if (pos === 'current' && sender.tab) {
+					await chrome.tabs.update(sender.tab.id, { url });
+				} else {
+					const active = request.active !== false;
+					await createTabAtPosition(sender, pos, { url, active });
+				}
+			}
+			return { success: true };
+		}
 
 		case 'duplicateTab':
 			if (sender.tab?.id) {
@@ -497,6 +607,10 @@ async function handleAction(request, sender) {
 			return { success: true };
 		}
 
+		case 'requestPermission':
+			const granted = await requestPermission(request.permissions, sender.tab?.windowId ?? null);
+			return { success: true, granted };
+
 		case 'gestureStateUpdate':
 			if (sender.tab?.id) {
 				await chrome.tabs.sendMessage(sender.tab.id, {
@@ -506,6 +620,66 @@ async function handleAction(request, sender) {
 				});
 			}
 			return { success: true };
+
+		case 'pauseGesture':
+			if (sender.tab?.id) {
+				await chrome.tabs.sendMessage(sender.tab.id, {
+					action: 'pauseGesture'
+				}).catch(() => {});
+			}
+			return { success: true };
+
+		case 'areaSelect':
+			if (sender.tab?.id) {
+				await chrome.tabs.sendMessage(sender.tab.id, {
+					action: 'areaSelectEnter',
+					warnThreshold: request.warnThreshold,
+					textUrl: request.textUrl,
+					operationInterval: request.operationInterval,
+				}).catch(() => {});
+			}
+			return { success: true };
+
+		case 'areaSelectExit':
+			if (sender.tab?.id) {
+				await chrome.tabs.sendMessage(sender.tab.id, {
+					action: 'areaSelectExit',
+				}).catch(() => {});
+			}
+			return { success: true };
+
+		case 'areaSelectUpdate':
+			if (sender.tab?.id) {
+				await chrome.tabs.sendMessage(sender.tab.id, {
+					action: 'areaSelectUpdate',
+					frameId: sender.frameId ?? 0,
+					links: request.links,
+				}).catch(() => {});
+			}
+			return { success: true };
+
+		case 'areaSelectBatchOpen': {
+			const urls = request.urls;
+			const interval = Math.max(0, Math.min(60000, (parseFloat(request.operationInterval) || 0) * 1000));
+			if (urls?.length && sender.tab) {
+				const openerTabId = sender.tab.id;
+				const baseIndex = sender.tab.index + 1;
+				for (let i = 0; i < urls.length; i++) {
+					if (i > 0 && interval > 0) {
+						await new Promise(r => setTimeout(r, interval));
+					}
+					try { await chrome.tabs.get(openerTabId); } catch { break; }
+					await chrome.tabs.create({
+						url: urls[i],
+						active: false,
+						windowId: sender.tab.windowId,
+						index: baseIndex + i,
+						openerTabId,
+					});
+				}
+			}
+			return { success: true };
+		}
 
 		case 'gestureHudUpdate':
 			if (sender.tab?.id) {
@@ -526,6 +700,159 @@ async function handleAction(request, sender) {
 				});
 			}
 			return { success: true };
+
+		case 'getTabList': {
+			if (sender.tab) {
+				const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
+				let mapped = tabs.map(t => ({
+					id: t.id,
+					title: t.title,
+					url: t.url,
+					favIconUrl: t.favIconUrl,
+					active: t.active,
+					index: t.index,
+					lastAccess: t.lastAccessed,
+				}));
+				mapped = sortAndClamp(mapped, request.sortOrder, request.maxItems);
+				return { success: true, tabs: mapped };
+			}
+			return { success: false };
+		}
+
+		case 'switchToTab':
+			if (request.tabId) {
+				await chrome.tabs.update(request.tabId, { active: true });
+			}
+			return { success: true };
+
+		case 'restoreSession':
+			if (request.sessionId) {
+				await chrome.sessions.restore(request.sessionId).catch(() => {});
+			}
+			return { success: true };
+
+		case 'getRecentlyClosedTabs': {
+			const maxItems = request.maxItems ?? 12;
+			const sessions = await chrome.sessions.getRecentlyClosed({ maxResults: 25 });
+			let tabs = [];
+			for (const session of sessions) {
+				if (session.tab) {
+					tabs.push({
+						sessionId: session.tab.sessionId,
+						title: session.tab.title,
+						url: session.tab.url,
+						favIconUrl: session.tab.favIconUrl,
+						lastModified: session.lastModified,
+					});
+				} else if (session.window) {
+					for (const tab of session.window.tabs || []) {
+						tabs.push({
+							sessionId: tab.sessionId,
+							title: tab.title,
+							url: tab.url,
+							favIconUrl: tab.favIconUrl,
+							lastModified: session.lastModified,
+						});
+					}
+				}
+			}
+			if (maxItems > 0 && tabs.length > maxItems) {
+				tabs = tabs.slice(0, maxItems);
+			}
+			tabs = sortAndClamp(tabs, request.sortOrder, 0);
+			return { success: true, tabs };
+		}
+
+		case 'getBookmarks': {
+			const folderId = request.folderId || '1';
+			const granted = await requestPermission(['bookmarks'], sender.tab?.windowId);
+			if (!granted) return { success: false };
+			try {
+				const nodes = await chrome.bookmarks.getChildren(folderId);
+				let bookmarks = nodes
+					.filter(n => n.url)
+					.map(n => ({
+						title: n.title,
+						url: n.url,
+						date: n.dateAdded,
+					}));
+				bookmarks = sortAndClamp(bookmarks, request.sortOrder, request.maxItems);
+				return { success: true, bookmarks };
+			} catch {
+				return { success: false, bookmarks: [] };
+			}
+		}
+
+
+		case 'ctxMenuPrepare': {
+			const { menuId } = request;
+			if (!menuId) return { success: false };
+			let resolve;
+			const items = new Promise((r) => { resolve = r; });
+			const timeout = setTimeout(() => resolve({ items: null }), 10000);
+			ctxMenuSessions.set(menuId, {
+				tabId: sender.tab?.id,
+				frameId: sender.frameId ?? 0,
+				items,
+				setItems: (v) => { clearTimeout(timeout); resolve({ items: v }); },
+			});
+			return { success: true };
+		}
+
+		case 'ctxMenuSetItems': {
+			const session = ctxMenuSessions.get(request.menuId);
+			if (!session) return { success: false };
+			session.setItems(request.items);
+			return { success: true };
+		}
+
+		case 'ctxMenuFetch': {
+			const session = ctxMenuSessions.get(request.menuId);
+			if (!session) return { items: [] };
+			return await session.items;
+		}
+
+		case 'ctxMenuDimensions': {
+			const session = ctxMenuSessions.get(request.menuId);
+			if (!session) return;
+			chrome.tabs.sendMessage(session.tabId, {
+				action: 'ctxMenuDimensions',
+				menuId: request.menuId,
+				width: request.width,
+				height: request.height,
+			}, { frameId: session.frameId }).catch(() => {});
+			return { success: true };
+		}
+
+		case 'ctxMenuSelect': {
+			const session = ctxMenuSessions.get(request.menuId);
+			if (!session) return;
+			chrome.tabs.sendMessage(session.tabId, {
+				action: 'ctxMenuSelect',
+				menuId: request.menuId,
+				index: request.index,
+			}, { frameId: session.frameId }).catch(() => {});
+			ctxMenuSessions.delete(request.menuId);
+			return { success: true };
+		}
+
+		case 'ctxMenuClose': {
+			const session = ctxMenuSessions.get(request.menuId);
+			if (!session) return;
+			chrome.tabs.sendMessage(session.tabId, {
+				action: 'ctxMenuClose',
+				menuId: request.menuId,
+			}, { frameId: session.frameId }).catch(() => {});
+			ctxMenuSessions.delete(request.menuId);
+			return { success: true };
+		}
+
+		case 'ctxMenuCleanup': {
+			const session = ctxMenuSessions.get(request.menuId);
+			if (session) session.setItems(null);
+			ctxMenuSessions.delete(request.menuId);
+			return { success: true };
+		}
 
 		case 'actionChain': {
 			const steps = request.steps;
@@ -686,6 +1013,67 @@ chrome.runtime.onInstalled.addListener((details) => {
 		if (details.previousVersion.startsWith('1.2')) {
 			const isMacOrLinux = /Mac|Linux/i.test(navigator.platform);
 		}
+
+		chrome.storage.sync.get(['mouseGestures', 'wheelGestures', 'specialGestures', 'actionChains'], (items) => {
+			const updates = {};
+			let changed = false;
+
+			if (items.mouseGestures) {
+				const mg = structuredClone(items.mouseGestures);
+				for (const [pattern, config] of Object.entries(mg)) {
+					if (config.action === 'copyUrl' && config.includeTitle) {
+						config.action = 'copyTitleAndUrl';
+						delete config.includeTitle;
+						changed = true;
+					}
+				}
+				if (changed) updates.mouseGestures = mg;
+			}
+
+			if (items.wheelGestures) {
+				const wg = structuredClone(items.wheelGestures);
+				let wgChanged = false;
+				for (const config of Object.values(wg)) {
+					if (config.action === 'copyUrl' && config.includeTitle) {
+						config.action = 'copyTitleAndUrl';
+						delete config.includeTitle;
+						wgChanged = true;
+					}
+				}
+				if (wgChanged) { updates.wheelGestures = wg; changed = true; }
+			}
+
+			if (items.specialGestures) {
+				const sg = structuredClone(items.specialGestures);
+				let sgChanged = false;
+				for (const config of Object.values(sg)) {
+					if (config.action === 'copyUrl' && config.includeTitle) {
+						config.action = 'copyTitleAndUrl';
+						delete config.includeTitle;
+						sgChanged = true;
+					}
+				}
+				if (sgChanged) { updates.specialGestures = sg; changed = true; }
+			}
+
+			if (items.actionChains) {
+				const ac = structuredClone(items.actionChains);
+				let acChanged = false;
+				for (const chain of Object.values(ac)) {
+					if (!chain.steps) continue;
+					for (const step of chain.steps) {
+						if (step.action === 'copyUrl' && step.includeTitle) {
+							step.action = 'copyTitleAndUrl';
+							delete step.includeTitle;
+							acChanged = true;
+						}
+					}
+				}
+				if (acChanged) { updates.actionChains = ac; changed = true; }
+			}
+
+			if (changed) chrome.storage.sync.set(updates);
+		});
 	}
 
 	{
@@ -694,12 +1082,17 @@ chrome.runtime.onInstalled.addListener((details) => {
 			chrome.browserSettings.contextMenuShowEvent.set({ value: "mouseup" }).catch((e) => { });
 		}
 	}
+
 });
+
 
 
 const MENU_ID_REFRESH = 'flowmouse-need-refresh';
 const MENU_ID_RESTRICTED = 'flowmouse-restricted';
 const MENU_ID_BLACKLIST = 'flowmouse-blacklist-toggle';
+
+let fileSchemeAllowed = false;
+chrome.extension.isAllowedFileSchemeAccess().then(v => { fileSchemeAllowed = v; });
 
 function isRestrictedUrl(url) {
 	if (!url) return true;
@@ -708,7 +1101,11 @@ function isRestrictedUrl(url) {
 		return false;
 	}
 
-	const restrictedProtocols = ['chrome:', 'chrome-extension:', 'moz-extension:', 'about:', 'edge:', 'file:', 'view-source:', 'devtools:'];
+	if (url.startsWith('file:')) {
+		return !fileSchemeAllowed;
+	}
+
+	const restrictedProtocols = ['chrome:', 'chrome-extension:', 'moz-extension:', 'about:', 'edge:', 'view-source:', 'devtools:'];
 	for (const protocol of restrictedProtocols) {
 		if (url.startsWith(protocol)) return true;
 	}
@@ -733,6 +1130,9 @@ async function isContentScriptLoaded(tabId) {
 
 function getMsg(key, fallback) {
 	try {
+		if (typeof key !== 'string') {
+			return fallback
+		}
 		const msg = chrome.i18n.getMessage(key);
 		return msg || fallback;
 	} catch (e) {

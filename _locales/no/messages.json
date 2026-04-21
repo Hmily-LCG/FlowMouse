@@ -35,9 +35,9 @@
 		"message": "Innstillinger synkroniseres via %browserName%-konto",
 		"description": "Sync status description"
 	},
-	"synced": {
-		"message": "Synkronisert",
-		"description": "Synced"
+	"saved": {
+		"message": "Lagret",
+		"description": "Saved"
 	},
 	"author": {
 		"message": "Forfatter",
@@ -66,6 +66,10 @@
 	"feedbackText": {
 		"message": "Har du problemer eller forslag? Vennligst rapporter via <a href='mailto:Service@52pojie.cn'>E-post</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> eller <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Forum</a>. Vi vil forbedre oss så snart som mulig!",
 		"description": "Feedback text"
+	},
+	"feedbackTextChrome": {
+		"message": "Har du problemer eller forslag? Vennligst rapporter via <a href='https://chromewebstore.google.com/detail/fnldhkfidchnjiokpoemdhoejmaojkgp/support' target='_blank'>Chrome Nettmarked-brukerstøtte</a>, <a href='mailto:Service@52pojie.cn'>E-post</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> eller <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Forum</a>. Vi vil forbedre oss så snart som mulig!",
+		"description": "Feedback text for Chrome browser"
 	},
 	"supportAndFeedback": {
 		"message": "Støtte og tilbakemelding",
@@ -125,11 +129,11 @@
 	},
 	"btnSide1Mouse": {
 		"message": "Sideknapp (Tilbake)",
-		"description": "Mouse button 4 — the side button typically used for navigating back"
+		"description": "Mouse button 4 - the side button typically used for navigating back"
 	},
 	"btnSide2Mouse": {
 		"message": "Sideknapp (Frem)",
-		"description": "Mouse button 5 — the side button typically used for navigating forward"
+		"description": "Mouse button 5 - the side button typically used for navigating forward"
 	},
 	"btnPenRight": {
 		"message": "Stylus høyre knapp",
@@ -195,6 +199,54 @@
 		"message": "Skygge",
 		"description": "HUD shadow toggle"
 	},
+	"customCss": {
+		"message": "Tilpasset CSS",
+		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
+	},
+	"customCssDesc": {
+		"message": "Angi tilpasset CSS for å justere FlowMouses eget brukergrensesnitt",
+		"description": "Description for the Custom CSS advanced setting"
+	},
+	"customCssConfigure": {
+		"message": "Konfigurer",
+		"description": "Button label to open the Custom CSS editor dialog when no CSS is set"
+	},
+	"customCssEdit": {
+		"message": "Rediger",
+		"description": "Button label to open the Custom CSS editor dialog when CSS is already set"
+	},
+	"customCssEditorTitle": {
+		"message": "Tilpasset CSS-redigering",
+		"description": "Title of the dedicated custom CSS editor page"
+	},
+	"customCssEditorHint": {
+		"message": "Stiler injiseres i hver Shadow DOM som FlowMouse oppretter. Trykk på Ctrl+S for å lagre.",
+		"description": "Hint shown above the editor textarea."
+	},
+	"customCssEditorPlaceholder": {
+		"message": "/* Skriv din egendefinerte CSS her… */",
+		"description": "Placeholder inside the Custom CSS editor textarea"
+	},
+	"customCssEditorInsertSnippet": {
+		"message": "Eksempel",
+		"description": "Button to append an example/starter CSS snippet to the editor"
+	},
+	"customCssEditorRevert": {
+		"message": "Tilbakestill",
+		"description": "Button that reverts the editor content back to the last saved value"
+	},
+	"customCssEditorSave": {
+		"message": "Lagre",
+		"description": "Save button in the Custom CSS editor"
+	},
+	"customCssEditorSaved": {
+		"message": "Lagret",
+		"description": "Status message shown briefly after the user saves the custom CSS"
+	},
+	"customCssEditorDiscardConfirm": {
+		"message": "Forkast ulagrede endringer og gå tilbake til sist lagrede CSS?",
+		"description": "Confirmation dialog shown before reverting unsaved edits"
+	},
 	"text": {
 		"message": "Tekst",
 		"description": "Text"
@@ -255,6 +307,14 @@
 		"message": "Dra valgt tekst for å søke",
 		"description": "Drag selected text to search"
 	},
+	"textDragIgnoreInput": {
+		"message": "Deaktiver i inndatafelt",
+		"description": "Option to disable text drag inside input boxes and textareas"
+	},
+	"textDragIgnoreInputDesc": {
+		"message": "Ikke aktiver teksttrekking i redigerbare områder som inndatafelt og tekstredigerere",
+		"description": "Description for text drag ignore input option"
+	},
 	"searchEngine": {
 		"message": "Søkemotor",
 		"description": "Search engine"
@@ -267,6 +327,10 @@
 		"message": "Egendefinert URL, bruk %s for søkeord",
 		"description": "Custom URL placeholder"
 	},
+	"customUrlPlaceholderHint": {
+		"message": "Må inkludere protokoll (f.eks. https://). Tilgjengelige plassholdere: %placeholders%. Legg til :raw for å hoppe over URL-koding, f.eks. %example%",
+		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
+	},
 	"urlPlaceholderText": {
 		"message": "%s=Søkeord",
 		"description": "Placeholder for text drag custom URL"
@@ -274,6 +338,14 @@
 	"urlPlaceholderImage": {
 		"message": "%s=Bilde-URL",
 		"description": "Placeholder for image drag custom URL"
+	},
+	"searchEngine_google_translate": {
+		"message": "Google Oversetter",
+		"description": "Google Translate search engine"
+	},
+	"searchEngine_bing_translate": {
+		"message": "Bing Oversetter",
+		"description": "Bing Translate search engine"
 	},
 	"searchEngine_baidu": {
 		"message": "Baidu",
@@ -367,8 +439,16 @@
 		"message": "Tilbakestill",
 		"description": "Reset to default"
 	},
+	"duplicate": {
+		"message": "Dupliser",
+		"description": "Generic duplicate button tooltip"
+	},
+	"delete": {
+		"message": "Slett",
+		"description": "Generic delete button tooltip"
+	},
 	"autoSaved": {
-		"message": "✓ Automatisk lagret",
+		"message": "Automatisk lagret",
 		"description": "Auto-saved message"
 	},
 	"saveFailure": {
@@ -663,6 +743,10 @@
 		"message": "Kopier sidetittel",
 		"description": "Copy page title"
 	},
+	"actionCopyTitleAndUrl": {
+		"message": "Kopier sidetittel og URL",
+		"description": "Copy page title and URL"
+	},
 	"actionOpenDownloads": {
 		"message": "Åpne nedlastinger",
 		"description": "Open downloads page"
@@ -674,6 +758,10 @@
 	"actionOpenExtensions": {
 		"message": "Åpne utvidelser",
 		"description": "Open extensions page"
+	},
+	"actionSaveAsMhtml": {
+		"message": "Lagre som MHTML",
+		"description": "Save current page as MHTML file"
 	},
 	"actionPrintPage": {
 		"message": "Skriv ut side",
@@ -694,6 +782,14 @@
 	"actionTogglePinTab": {
 		"message": "Fest/løsne gjeldende fane",
 		"description": "Toggle pin current tab"
+	},
+	"actionMoveTabToNewWindow": {
+		"message": "Flytt fane til nytt vindu",
+		"description": "Move current tab to a new window"
+	},
+	"actionSearchClipboard": {
+		"message": "Søk fra utklippstavlen",
+		"description": "Search clipboard text using a search engine"
 	},
 	"showTrailOrigin": {
 		"message": "Vis startpunkt",
@@ -731,6 +827,10 @@
 		"message": "Andre innstillinger",
 		"description": "Section title for other/miscellaneous settings"
 	},
+	"styleSettings": {
+		"message": "Utseende",
+		"description": "Section title for style/appearance settings (trail, HUD, etc.)"
+	},
 	"show": {
 		"message": "Vis",
 		"description": "Show navigation menu"
@@ -760,7 +860,7 @@
 		"description": "Clear button"
 	},
 	"gestureAdded": {
-		"message": "✓ Bevegelse lagt til",
+		"message": "Bevegelse lagt til",
 		"description": "Gesture added success message"
 	},
 	"gestureRecorderTitle": {
@@ -816,16 +916,16 @@
 		"description": "Delete gesture confirmation"
 	},
 	"gestureDeleted": {
-		"message": "✓ Bevegelse slettet",
+		"message": "Bevegelse slettet",
 		"description": "Gesture deleted success message"
 	},
 	"enterCustomUrl": {
-		"message": "Skriv inn URL (anbefaler å inkludere protokoll som https://, chrome://, osv.):",
+		"message": "URL",
 		"description": "Prompt for custom URL input"
 	},
-	"copyUrlIncludeTitle": {
-		"message": "Kopier også sidetittelen",
-		"description": "Checkbox label for including page title when copying URL"
+	"copyAsMarkdown": {
+		"message": "Kopier som Markdown",
+		"description": "Checkbox label for copying as markdown format"
 	},
 	"invalidUrl": {
 		"message": "Vennligst skriv inn en gyldig URL (starter med http:// eller https://)",
@@ -956,27 +1056,27 @@
 		"description": "Features"
 	},
 	"aboutFeature1": {
-		"message": "🎯 16 Standardbevegelser + Egendefinerte bevegelser",
+		"message": "16 Standardbevegelser + Egendefinerte bevegelser",
 		"description": "Feature 1"
 	},
 	"aboutFeature2": {
-		"message": "🎨 Visuell sporefeedback",
+		"message": "Visuell sporefeedback",
 		"description": "Feature 2"
 	},
 	"aboutFeature3": {
-		"message": "🔍 Tekst/Bilde/Lenke Super-drag",
+		"message": "Tekst/Bilde/Lenke Super-drag",
 		"description": "Feature 3"
 	},
 	"aboutFeature4": {
-		"message": "🚫 Nettstedsvarteliste",
+		"message": "Nettstedsvarteliste",
 		"description": "Feature 4"
 	},
 	"aboutFeature5": {
-		"message": "☁️ %browserName%-kontosynkronisering",
+		"message": "%browserName%-kontosynkronisering",
 		"description": "Feature 5"
 	},
 	"aboutFeature6": {
-		"message": "🔒 Kjøres lokalt, ingen nettverk unntatt synkronisering",
+		"message": "Kjøres lokalt, ingen nettverk unntatt synkronisering",
 		"description": "Feature 6"
 	},
 	"tutorial": {
@@ -988,15 +1088,15 @@
 		"description": "Learn more link"
 	},
 	"badgeNoNetwork": {
-		"message": "🔒 Ingen nettverk unntatt synkronisering",
+		"message": "Ingen nettverk unntatt synkronisering",
 		"description": "No network privacy badge"
 	},
 	"badgeNoData": {
-		"message": "🚫 Ingen datainnsamling",
+		"message": "Ingen datainnsamling",
 		"description": "No data collection badge"
 	},
 	"badgeLocalRun": {
-		"message": "✅ Kjøres lokalt",
+		"message": "Kjøres lokalt",
 		"description": "Local run badge"
 	},
 	"newTabSettings": {
@@ -1091,6 +1191,10 @@
 		"message": "📋 Kopier lenketekst",
 		"description": "Copy link text"
 	},
+	"dragActionCopyLinkAndText": {
+		"message": "📋 Kopier tekst og lenke",
+		"description": "Copy link text and URL"
+	},
 	"dragActionSaveImage": {
 		"message": "💾 Lagre bilde",
 		"description": "Save image"
@@ -1111,6 +1215,10 @@
 		"message": "🔍 Egendefinert søk",
 		"description": "Custom search"
 	},
+	"dragActionSendCustomEvent": {
+		"message": "Send egendefinert hendelse",
+		"description": "Send custom DOM event on drag gesture"
+	},
 	"reducedMotionWarning": {
 		"message": "%OS% systemanimasjon er deaktivert, rulleanimasjon virker kanskje ikke som den skal. Du kan aktivere animasjon i %OS% systeminnstillinger.",
 		"description": "Warning message when system reduced motion is enabled"
@@ -1119,9 +1227,29 @@
 		"message": "Gjenkjenn URL automatisk",
 		"description": "Auto detect URL checkbox label"
 	},
+	"autoDetectUrlTooltip": {
+		"message": "Hvis teksten er i lenkeformat, åpne den direkte i stedet for å søke",
+		"description": "Tooltip for the auto detect URL checkbox"
+	},
 	"preferLink": {
 		"message": "Foretrekk lenke",
 		"description": "Prefer link checkbox label"
+	},
+	"customHudName": {
+		"message": "Navn",
+		"description": "Placeholder for custom action name shown on HUD"
+	},
+	"customHudNameTooltip": {
+		"message": "Egendefinert navn som vises på skjermen når du utfører bevegelsen",
+		"description": "Tooltip for the custom HUD name field"
+	},
+	"actionNoOptions": {
+		"message": "Denne kommandoen krever ingen innstillinger.",
+		"description": "Placeholder shown in the action picker's detail panel when the selected action has no configurable settings"
+	},
+	"actionRequiredBadge": {
+		"message": "Påkrevd",
+		"description": "Badge shown next to fields that must be filled in (e.g., URL for Open URL)"
 	},
 	"menuNeedRefresh": {
 		"message": "FlowMouse ikke lastet, klikk for å oppdatere",
@@ -1376,11 +1504,11 @@
 		"description": "Permission popup description for downloads"
 	},
 	"permissionDownloadsPageCaptureTitle": {
-		"message": "Lagre bilde",
+		"message": "Lagre innhold",
 		"description": "Permission popup title for downloads and page capture"
 	},
 	"permissionDownloadsPageCaptureDesc": {
-		"message": "For å lagre bilder, trenger FlowMouse tilgang til sider og nedlastinger.",
+		"message": "For å lagre innhold, trenger FlowMouse tilgang til sider og nedlastinger.",
 		"description": "Permission popup description for downloads and page capture"
 	},
 	"permissionIncognitoTitle": {
@@ -1390,6 +1518,14 @@
 	"permissionIncognitoDesc": {
 		"message": "For å fungere i inkognitovinduer må du manuelt aktivere \"Tillat i inkognitomodus\" for FlowMouse.",
 		"description": "Permission popup description for incognito"
+	},
+	"permissionClipboardReadTitle": {
+		"message": "Les utklippstavlen",
+		"description": "Permission popup title for clipboard read"
+	},
+	"permissionClipboardReadDesc": {
+		"message": "For å lime inn innhold fra utklippstavlen, trenger FlowMouse tilgang til å lese utklippstavlen din.",
+		"description": "Permission popup description for clipboard read"
 	},
 	"openExtensionsSettings": {
 		"message": "Åpne utvidelsesdetaljer",
@@ -1434,6 +1570,10 @@
 	"buttonOkay": {
 		"message": "OK",
 		"description": "Generic OK button"
+	},
+	"buttonConfirm": {
+		"message": "Bekreft",
+		"description": "Generic Confirm button"
 	},
 	"buttonCancel": {
 		"message": "Avbryt",
@@ -1487,6 +1627,10 @@
 		"message": "Rull ned mens du holder høyre knapp inne",
 		"description": "Wheel gesture: scroll down while holding right button"
 	},
+	"wheelGesture_wheelClickHoldingRight": {
+		"message": "Klikk på midtknappen mens du holder høyre knapp inne",
+		"description": "Wheel gesture: wheel (middle) click while holding right button"
+	},
 	"specialGestures": {
 		"message": "Spesialbevegelser",
 		"description": "Special gestures section title"
@@ -1507,32 +1651,68 @@
 		"message": "Høyreklikk mens du holder venstre knapp inne",
 		"description": "Special gesture: right click while holding left button"
 	},
-	"actionChains": {
-		"message": "Kommandokjeder",
-		"description": "Action chains section title"
-	},
 	"actionChainsDesc": {
-		"message": "Lag gjenbrukbare sekvenser av kommandoer som utføres etter hverandre",
+		"message": "Bruk kommandokjeder for å utføre flere kommandoer i rekkefølge.",
 		"description": "Action chains section description"
 	},
 	"actionActionChain": {
 		"message": "Kommandokjede",
 		"description": "Action chain action name"
 	},
-	"actionCategoryChains": {
-		"message": "Kommandokjeder",
-		"description": "Action category: action chains"
+	"actionCustomMenu": {
+		"message": "Egendefinert meny",
+		"description": "Custom popup menu action name"
+	},
+	"customMenuDesc": {
+		"message": "Opprett egendefinerte hurtigmenyer med flere handlinger.",
+		"description": "Custom menu section description"
+	},
+	"addMenu": {
+		"message": "Legg til meny",
+		"description": "Add menu button"
+	},
+	"menuNamePlaceholder": {
+		"message": "Egendefinert meny",
+		"description": "Menu name input placeholder"
+	},
+	"menuItemCount": {
+		"message": "%count% elementer",
+		"description": "Item count for menus, e.g. '3 items'"
+	},
+	"menuItemCountOne": {
+		"message": "%count% element",
+		"description": "Item count for menus with exactly 1 item"
+	},
+	"addMenuItem": {
+		"message": "Legg til element",
+		"description": "Add menu item button"
+	},
+	"addMenuSeparator": {
+		"message": "Legg til skilletegn",
+		"description": "Add separator to menu button"
+	},
+	"emptyMenuItems": {
+		"message": "Ingen elementer lagt til. Klikk på \"Legg til element\" for å begynne.",
+		"description": "Empty menu items message"
+	},
+	"menuNotFound": {
+		"message": "(Meny ikke funnet)",
+		"description": "Menu not found label"
+	},
+	"deleteMenuConfirm": {
+		"message": "Slett menyen \"%name%\"?",
+		"description": "Delete menu confirmation"
+	},
+	"menuItemNumber": {
+		"message": "Element %n%",
+		"description": "Menu item number label"
 	},
 	"addChain": {
 		"message": "Legg til kjede",
 		"description": "Add chain button"
 	},
-	"addNewChain": {
-		"message": "Lag ny kjede...",
-		"description": "Action item to navigate to chain editor and create a new chain"
-	},
 	"chainNamePlaceholder": {
-		"message": "Min kommandokjede",
+		"message": "Kommandokjede",
 		"description": "Chain name input placeholder"
 	},
 	"chainDelayUnit": {
@@ -1579,6 +1759,14 @@
 		"message": "Simuler tastetrykk",
 		"description": "Action to simulate a keyboard key press on the page"
 	},
+	"actionPasteClipboard": {
+		"message": "Lim inn fra utklippstavlen",
+		"description": "Action to paste clipboard text at the gesture start position"
+	},
+	"pasteClipboardHint": {
+		"message": "Utklippstavlens innhold vil bli limt inn i inndatafeltet ved <b>startposisjonen for gesten</b>.",
+		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
 	"simulateKeyPreset": {
 		"message": "Forhåndsinnstilt tast",
 		"description": "Label for preset key dropdown in simulate key config"
@@ -1615,6 +1803,14 @@
 		"message": "Ugyldig JSON-format",
 		"description": "Error message when event detail is not valid JSON"
 	},
+	"customEventIncludeGestureInfo": {
+		"message": "Inkluder gestusinformasjon i %code%",
+		"description": "Checkbox label for including gesture context in custom event detail. %code% = detail.gesture"
+	},
+	"customEventConfigureBtn": {
+		"message": "Innstillinger",
+		"description": "Label for the configure button of custom event action in drag gesture manager"
+	},
 	"customEventHint": {
 		"message": "Sender %code% til %window%. Nyttig for integrasjon med andre skript.",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
@@ -1630,5 +1826,233 @@
 	"chainStepCountOne": {
 		"message": "%count% trinn",
 		"description": "Step count for unnamed chains with exactly 1 step"
+	},
+	"actionZoomIn": {
+		"message": "Zoom inn",
+		"description": "Zoom in on the current page"
+	},
+	"actionZoomOut": {
+		"message": "Zoom ut",
+		"description": "Zoom out on the current page"
+	},
+	"actionResetZoom": {
+		"message": "Tilbakestill zoom",
+		"description": "Reset page zoom to default or a specified level"
+	},
+	"actionViewPageSource": {
+		"message": "Vis sidekilde",
+		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionPauseGesture": {
+		"message": "Paus bevegelser til oppdatering",
+		"description": "Temporarily disable all gestures on the current tab until page refresh"
+	},
+	"actionAreaSelect": {
+		"message": "Områdevalg",
+		"description": "Enter area select mode to drag-select links on the page and batch open them"
+	},
+	"areaSelectTitle": {
+		"message": "Områdevalg",
+		"description": "Label for the area select row in the popup"
+	},
+	"areaSelectModifierKey": {
+		"message": "Raskt områdevalg",
+		"description": "Label for the modifier key dropdown in area select settings"
+	},
+	"areaSelectModifierKeyDesc": {
+		"message": "Hold ned modifikatortasten, og venstreklikk og dra for raskt å velge lenker på siden for gruppehandlinger",
+		"description": "Description for the modifier key setting"
+	},
+	"areaSelectDisabled": {
+		"message": "Deaktivert",
+		"description": "Disabled option for the area select modifier key dropdown"
+	},
+	"areaSelectMouseDrag": {
+		"message": "Musedrag",
+		"description": "Suffix label next to the modifier key dropdown"
+	},
+	"areaSelectTextUrl": {
+		"message": "URL-gjenkjenning av tekst",
+		"description": "Label for the text URL recognition toggle"
+	},
+	"areaSelectTextUrlDesc": {
+		"message": "Pakk også ut rekktekst-URL-er (ikke-hyperkoblinger) ved valg",
+		"description": "Description for the text URL recognition toggle"
+	},
+	"areaSelectWarnThreshold": {
+		"message": "Advarsel for massehandling",
+		"description": "Label for the batch operation alert threshold input"
+	},
+	"areaSelectWarnThresholdDesc": {
+		"message": "Vis bekreftelse når du utfører massehandling på flere enn dette antallet elementer, 0 for å deaktivere",
+		"description": "Description for the batch operation alert threshold"
+	},
+	"areaSelectDelay": {
+		"message": "Handlingsintervall",
+		"description": "Label for the operation interval input"
+	},
+	"areaSelectDelayDesc": {
+		"message": "Forsinkelse mellom hver åpning i batchoperasjoner (sekunder)",
+		"description": "Description for the operation interval setting"
+	},
+	"areaSelectHint": {
+		"message": "Dra for å velge lenker",
+		"description": "Hint text shown in the area select overlay"
+	},
+	"areaSelectOpen": {
+		"message": "Åpne %count% lenker",
+		"description": "Button text in the area select toolbar to batch open selected links"
+	},
+	"areaSelectOpenOne": {
+		"message": "Åpne %count% lenke",
+		"description": "Button text to open a single selected link (singular form)"
+	},
+	"areaSelectCopy": {
+		"message": "Kopier lenker",
+		"description": "Button text to copy all selected link URLs to clipboard"
+	},
+	"areaSelectCancel": {
+		"message": "Avbryt",
+		"description": "Button text to cancel area select mode"
+	},
+	"areaSelectConfirm": {
+		"message": "Bekreft",
+		"description": "Button text to confirm opening many links"
+	},
+	"areaSelectWarnTitle": {
+		"message": "Åpne mange lenker?",
+		"description": "Title of the warning modal when opening many links"
+	},
+	"areaSelectWarnMessage": {
+		"message": "Du er i ferd med å åpne %count% lenker. Dette kan gjøre nettleseren din tregere. Vil du fortsette?",
+		"description": "Body text of the warning modal"
+	},
+	"start": {
+		"message": "Start",
+		"description": "Button label to start an action (e.g. area select)"
+	},
+	"actionMenuShowTabs": {
+		"message": "Bytt fane",
+		"description": "Show a context menu listing all open tabs in the current window"
+	},
+	"actionMenuRecentlyClosed": {
+		"message": "Nylig lukkede faner",
+		"description": "Show a context menu listing recently closed tabs for quick restore"
+	},
+	"recentlyClosedMaxItems": {
+		"message": "Maks. antall",
+		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
+	},
+	"actionCategoryContextMenu": {
+		"message": "Hurtigmeny",
+		"description": "Action category: context menu actions"
+	},
+	"zoomStepMode": {
+		"message": "Zoom-modus",
+		"description": "Label for zoom mode selector: browser steps vs fixed increment"
+	},
+	"zoomStepModeBrowser": {
+		"message": "Bruk nettleserens zoomnivåer",
+		"description": "Option: follow Chrome's built-in zoom steps (25%, 33%, 50%, …, 500%)"
+	},
+	"zoomStepModeFixed": {
+		"message": "Fast trinn",
+		"description": "Option: zoom in/out by a configurable fixed percentage each time"
+	},
+	"zoomDelta": {
+		"message": "Trinnstørrelse",
+		"description": "Label for the zoom increment/decrement slider"
+	},
+	"resetZoomLevel": {
+		"message": "Tilbakestill til",
+		"description": "Label for the target zoom level when resetting zoom"
+	},
+	"resetZoomDefault": {
+		"message": "Nettleserstandard",
+		"description": "Option: reset zoom to the browser's default zoom setting"
+	},
+	"resetZoomCustom": {
+		"message": "Egendefinert verdi",
+		"description": "Option: reset zoom to a user-specified custom zoom level"
+	},
+	"actionMenuShowBookmarks": {
+		"message": "Vis bokmerker",
+		"description": "Show a context menu listing bookmarks from a selected folder"
+	},
+	"bookmarkFolder": {
+		"message": "Mappe",
+		"description": "Label for selecting which bookmark folder to display"
+	},
+	"bookmarkGrantPermission": {
+		"message": "Gi tillatelse til bokmerker",
+		"description": "Button label to request bookmarks permission"
+	},
+	"ctxMenuSortOrder": {
+		"message": "Sorter etter",
+		"description": "Label for context menu sort order dropdown"
+	},
+	"ctxMenuSortDefault": {
+		"message": "Standard",
+		"description": "Sort option: original API/insertion order"
+	},
+	"ctxMenuSortDefaultDesc": {
+		"message": "Standard (omvendt)",
+		"description": "Sort option: reverse of original API order"
+	},
+	"ctxMenuSortDateAddedAsc": {
+		"message": "Dato lagt til (eldste først)",
+		"description": "Sort option: by date added ascending"
+	},
+	"ctxMenuSortDateAddedDesc": {
+		"message": "Dato lagt til (nyeste først)",
+		"description": "Sort option: by date added descending"
+	},
+	"ctxMenuSortNameAsc": {
+		"message": "Navn (stigende)",
+		"description": "Sort option: alphabetical ascending"
+	},
+	"ctxMenuSortNameDesc": {
+		"message": "Navn (synkende)",
+		"description": "Sort option: alphabetical descending"
+	},
+	"ctxMenuSortLastAccessAsc": {
+		"message": "Sist åpnet (eldste først)",
+		"description": "Sort option: by last access time ascending"
+	},
+	"ctxMenuSortLastAccessDesc": {
+		"message": "Sist åpnet (nyeste først)",
+		"description": "Sort option: by last access time descending"
+	},
+	"ctxMenuMaxItems": {
+		"message": "Maks. elementer",
+		"description": "Label for maximum number of items in context menu"
+	},
+	"ctxMenuMaxItemsUnlimited": {
+		"message": "Ubegrenset",
+		"description": "Placeholder shown when max items is 0 (no limit)"
+	},
+	"ctxMenuScrollToBottom": {
+		"message": "Rull til bunnen",
+		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuTimeDisplay": {
+		"message": "Vis tid",
+		"description": "Label for time display mode dropdown in context menu"
+	},
+	"ctxMenuTimeNone": {
+		"message": "Ikke vis",
+		"description": "Time display option: hide time column"
+	},
+	"ctxMenuTimeLastAccess": {
+		"message": "Sist åpnet",
+		"description": "Time display option: show last access time"
+	},
+	"ctxMenuTimeClosedTime": {
+		"message": "Lukketidspunkt",
+		"description": "Time display option: show when the tab was closed"
+	},
+	"ctxMenuTimeDateAdded": {
+		"message": "Dato lagt til",
+		"description": "Time display option: show when the bookmark was added"
 	}
 }

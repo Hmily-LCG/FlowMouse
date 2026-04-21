@@ -35,9 +35,9 @@
 		"message": "%browserName%アカウント経由での設定同期",
 		"description": "Sync status description"
 	},
-	"synced": {
-		"message": "同期済み",
-		"description": "Synced"
+	"saved": {
+		"message": "保存済み",
+		"description": "Saved"
 	},
 	"author": {
 		"message": "作者",
@@ -66,6 +66,10 @@
 	"feedbackText": {
 		"message": "不具合やご提案がありますか？<a href='mailto:Service@52pojie.cn'>メール</a>、<a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a>、または<a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>フォーラム</a>でお知らせください。迅速に対応いたします！",
 		"description": "Feedback text"
+	},
+	"feedbackTextChrome": {
+		"message": "不具合やご提案がありますか？<a href='https://chromewebstore.google.com/detail/fnldhkfidchnjiokpoemdhoejmaojkgp/support' target='_blank'>Chromeウェブストアのサポート</a>、<a href='mailto:Service@52pojie.cn'>メール</a>、<a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a>、または<a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>フォーラム</a>でお知らせください。迅速に対応いたします！",
+		"description": "Feedback text for Chrome browser"
 	},
 	"supportAndFeedback": {
 		"message": "サポートとフィードバック",
@@ -125,11 +129,11 @@
 	},
 	"btnSide1Mouse": {
 		"message": "サイドボタン（戻る）",
-		"description": "Mouse button 4 — the side button typically used for navigating back"
+		"description": "Mouse button 4 - the side button typically used for navigating back"
 	},
 	"btnSide2Mouse": {
 		"message": "サイドボタン（進む）",
-		"description": "Mouse button 5 — the side button typically used for navigating forward"
+		"description": "Mouse button 5 - the side button typically used for navigating forward"
 	},
 	"btnPenRight": {
 		"message": "タッチペン右ボタン",
@@ -195,6 +199,54 @@
 		"message": "影",
 		"description": "HUD shadow toggle"
 	},
+	"customCss": {
+		"message": "カスタム CSS",
+		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
+	},
+	"customCssDesc": {
+		"message": "カスタム CSS を設定して FlowMouse 自身の UI を調整します",
+		"description": "Description for the Custom CSS advanced setting"
+	},
+	"customCssConfigure": {
+		"message": "設定",
+		"description": "Button label to open the Custom CSS editor dialog when no CSS is set"
+	},
+	"customCssEdit": {
+		"message": "編集",
+		"description": "Button label to open the Custom CSS editor dialog when CSS is already set"
+	},
+	"customCssEditorTitle": {
+		"message": "カスタム CSS エディター",
+		"description": "Title of the dedicated custom CSS editor page"
+	},
+	"customCssEditorHint": {
+		"message": "スタイルは FlowMouse が作成する各 Shadow DOM に挿入されます。保存するには Ctrl+S を押してください。",
+		"description": "Hint shown above the editor textarea."
+	},
+	"customCssEditorPlaceholder": {
+		"message": "/* ここにカスタム CSS を記述します… */",
+		"description": "Placeholder inside the Custom CSS editor textarea"
+	},
+	"customCssEditorInsertSnippet": {
+		"message": "例",
+		"description": "Button to append an example/starter CSS snippet to the editor"
+	},
+	"customCssEditorRevert": {
+		"message": "元に戻す",
+		"description": "Button that reverts the editor content back to the last saved value"
+	},
+	"customCssEditorSave": {
+		"message": "保存",
+		"description": "Save button in the Custom CSS editor"
+	},
+	"customCssEditorSaved": {
+		"message": "保存しました",
+		"description": "Status message shown briefly after the user saves the custom CSS"
+	},
+	"customCssEditorDiscardConfirm": {
+		"message": "未保存の編集を破棄して、最後に保存したCSSに戻しますか？",
+		"description": "Confirmation dialog shown before reverting unsaved edits"
+	},
 	"text": {
 		"message": "文字",
 		"description": "Text"
@@ -255,6 +307,14 @@
 		"message": "選択したテキストをドラッグして検索します",
 		"description": "Drag selected text to search"
 	},
+	"textDragIgnoreInput": {
+		"message": "入力フィールドで無効にする",
+		"description": "Option to disable text drag inside input boxes and textareas"
+	},
+	"textDragIgnoreInputDesc": {
+		"message": "入力フィールドやテキストエディタなどの編集可能な領域でテキストのドラッグをトリガーしない",
+		"description": "Description for text drag ignore input option"
+	},
 	"searchEngine": {
 		"message": "検索エンジン",
 		"description": "Search engine"
@@ -267,6 +327,10 @@
 		"message": "カスタムURL、検索語を %s で置き換えます",
 		"description": "Custom URL placeholder"
 	},
+	"customUrlPlaceholderHint": {
+		"message": "プロトコル（例: https://）を含める必要があります。使用可能なプレースホルダー: %placeholders%。URLエンコードをスキップするには :raw を追加します（例: %example%）。",
+		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
+	},
 	"urlPlaceholderText": {
 		"message": "%s=検索キーワード",
 		"description": "Placeholder for text drag custom URL"
@@ -274,6 +338,14 @@
 	"urlPlaceholderImage": {
 		"message": "%s=画像URL",
 		"description": "Placeholder for image drag custom URL"
+	},
+	"searchEngine_google_translate": {
+		"message": "Google 翻訳",
+		"description": "Google Translate search engine"
+	},
+	"searchEngine_bing_translate": {
+		"message": "Bing 翻訳",
+		"description": "Bing Translate search engine"
 	},
 	"searchEngine_baidu": {
 		"message": "Baidu",
@@ -367,8 +439,16 @@
 		"message": "デフォルトに戻す",
 		"description": "Reset to default"
 	},
+	"duplicate": {
+		"message": "複製",
+		"description": "Generic duplicate button tooltip"
+	},
+	"delete": {
+		"message": "削除",
+		"description": "Generic delete button tooltip"
+	},
 	"autoSaved": {
-		"message": "✓ 自動保存されました",
+		"message": "自動保存されました",
 		"description": "Auto-saved message"
 	},
 	"saveFailure": {
@@ -663,6 +743,10 @@
 		"message": "ページのタイトルをコピー",
 		"description": "Copy page title"
 	},
+	"actionCopyTitleAndUrl": {
+		"message": "ページのタイトルとURLをコピー",
+		"description": "Copy page title and URL"
+	},
 	"actionOpenDownloads": {
 		"message": "ダウンロードを開く",
 		"description": "Open downloads page"
@@ -674,6 +758,10 @@
 	"actionOpenExtensions": {
 		"message": "拡張機能を開く",
 		"description": "Open extensions page"
+	},
+	"actionSaveAsMhtml": {
+		"message": "MHTMLとして保存",
+		"description": "Save current page as MHTML file"
 	},
 	"actionPrintPage": {
 		"message": "ページを印刷",
@@ -694,6 +782,14 @@
 	"actionTogglePinTab": {
 		"message": "現在のタブの固定/解除",
 		"description": "Toggle pin current tab"
+	},
+	"actionMoveTabToNewWindow": {
+		"message": "タブを新しいウィンドウに移動",
+		"description": "Move current tab to a new window"
+	},
+	"actionSearchClipboard": {
+		"message": "クリップボードから検索",
+		"description": "Search clipboard text using a search engine"
 	},
 	"showTrailOrigin": {
 		"message": "起点を表示",
@@ -731,6 +827,10 @@
 		"message": "その他の設定",
 		"description": "Section title for other/miscellaneous settings"
 	},
+	"styleSettings": {
+		"message": "外観",
+		"description": "Section title for style/appearance settings (trail, HUD, etc.)"
+	},
 	"show": {
 		"message": "表示",
 		"description": "Show navigation menu"
@@ -760,7 +860,7 @@
 		"description": "Clear button"
 	},
 	"gestureAdded": {
-		"message": "✓ ジェスチャーを追加しました",
+		"message": "ジェスチャーを追加しました",
 		"description": "Gesture added success message"
 	},
 	"gestureRecorderTitle": {
@@ -816,16 +916,16 @@
 		"description": "Delete gesture confirmation"
 	},
 	"gestureDeleted": {
-		"message": "✓ ジェスチャーを削除しました",
+		"message": "ジェスチャーを削除しました",
 		"description": "Gesture deleted success message"
 	},
 	"enterCustomUrl": {
-		"message": "URLを入力してください（https://、chrome:// などのプロトコルを含めることを推奨）：",
+		"message": "URL",
 		"description": "Prompt for custom URL input"
 	},
-	"copyUrlIncludeTitle": {
-		"message": "ページのタイトルもコピーする",
-		"description": "Checkbox label for including page title when copying URL"
+	"copyAsMarkdown": {
+		"message": "Markdown形式でコピー",
+		"description": "Checkbox label for copying as markdown format"
 	},
 	"invalidUrl": {
 		"message": "有効なURLを入力してください（http:// または https:// で始まるもの）",
@@ -956,27 +1056,27 @@
 		"description": "Features"
 	},
 	"aboutFeature1": {
-		"message": "🎯 16種類のデフォルトジェスチャー + カスタムジェスチャー",
+		"message": "16種類のデフォルトジェスチャー + カスタムジェスチャー",
 		"description": "Feature 1"
 	},
 	"aboutFeature2": {
-		"message": "🎨 視覚的な軌跡フィードバック",
+		"message": "視覚的な軌跡フィードバック",
 		"description": "Feature 2"
 	},
 	"aboutFeature3": {
-		"message": "🔍 テキスト/画像/リンクのスーパードラッグ",
+		"message": "テキスト/画像/リンクのスーパードラッグ",
 		"description": "Feature 3"
 	},
 	"aboutFeature4": {
-		"message": "🚫 サイトブラックリスト",
+		"message": "サイトブラックリスト",
 		"description": "Feature 4"
 	},
 	"aboutFeature5": {
-		"message": "☁️ %browserName%アカウント同期",
+		"message": "%browserName%アカウント同期",
 		"description": "Feature 5"
 	},
 	"aboutFeature6": {
-		"message": "🔒 完全ローカル動作、同期以外でネットワーク接続なし",
+		"message": "完全ローカル動作、同期以外でネットワーク接続なし",
 		"description": "Feature 6"
 	},
 	"tutorial": {
@@ -988,15 +1088,15 @@
 		"description": "Learn more link"
 	},
 	"badgeNoNetwork": {
-		"message": "🔒 同期以外で通信なし",
+		"message": "同期以外で通信なし",
 		"description": "No network privacy badge"
 	},
 	"badgeNoData": {
-		"message": "🚫 データ収集なし",
+		"message": "データ収集なし",
 		"description": "No data collection badge"
 	},
 	"badgeLocalRun": {
-		"message": "✅ ローカル動作",
+		"message": "ローカル動作",
 		"description": "Local run badge"
 	},
 	"newTabSettings": {
@@ -1091,6 +1191,10 @@
 		"message": "📋 リンクテキストをコピー",
 		"description": "Copy link text"
 	},
+	"dragActionCopyLinkAndText": {
+		"message": "📋 テキストとリンクをコピー",
+		"description": "Copy link text and URL"
+	},
 	"dragActionSaveImage": {
 		"message": "💾 画像を保存",
 		"description": "Save image"
@@ -1111,6 +1215,10 @@
 		"message": "🔍 カスタム検索",
 		"description": "Custom search"
 	},
+	"dragActionSendCustomEvent": {
+		"message": "カスタムイベントを送信",
+		"description": "Send custom DOM event on drag gesture"
+	},
 	"reducedMotionWarning": {
 		"message": "%OS% システムのアニメーションが無効になっているため、スクロールアニメーションが正常に表示されない場合があります。%OS% のシステム設定でアニメーションを有効にできます。",
 		"description": "Warning message when system reduced motion is enabled"
@@ -1119,9 +1227,29 @@
 		"message": "リンクを自動認識",
 		"description": "Auto detect URL checkbox label"
 	},
+	"autoDetectUrlTooltip": {
+		"message": "テキストがリンク形式の場合、検索せずに直接開く",
+		"description": "Tooltip for the auto detect URL checkbox"
+	},
 	"preferLink": {
 		"message": "リンクを開くことを優先",
 		"description": "Prefer link checkbox label"
+	},
+	"customHudName": {
+		"message": "名前",
+		"description": "Placeholder for custom action name shown on HUD"
+	},
+	"customHudNameTooltip": {
+		"message": "ジェスチャー実行時に画面上に表示されるカスタム名",
+		"description": "Tooltip for the custom HUD name field"
+	},
+	"actionNoOptions": {
+		"message": "このコマンドには設定項目がありません。",
+		"description": "Placeholder shown in the action picker's detail panel when the selected action has no configurable settings"
+	},
+	"actionRequiredBadge": {
+		"message": "必須",
+		"description": "Badge shown next to fields that must be filled in (e.g., URL for Open URL)"
 	},
 	"menuNeedRefresh": {
 		"message": "FlowMouse未ロード、クリックして更新",
@@ -1376,11 +1504,11 @@
 		"description": "Permission popup description for downloads"
 	},
 	"permissionDownloadsPageCaptureTitle": {
-		"message": "画像を保存",
+		"message": "コンテンツを保存",
 		"description": "Permission popup title for downloads and page capture"
 	},
 	"permissionDownloadsPageCaptureDesc": {
-		"message": "画像を保存するために、FlowMouseはページへのアクセスとダウンロードの権限を必要とします。",
+		"message": "コンテンツを保存するために、FlowMouseはページへのアクセスとダウンロードの権限を必要とします。",
 		"description": "Permission popup description for downloads and page capture"
 	},
 	"permissionIncognitoTitle": {
@@ -1390,6 +1518,14 @@
 	"permissionIncognitoDesc": {
 		"message": "シークレット ウィンドウで使用するには、FlowMouse の「シークレット モードでの実行を許可する」を手動で有効にする必要があります。",
 		"description": "Permission popup description for incognito"
+	},
+	"permissionClipboardReadTitle": {
+		"message": "クリップボードの読み取り",
+		"description": "Permission popup title for clipboard read"
+	},
+	"permissionClipboardReadDesc": {
+		"message": "クリップボードの内容を貼り付けるために、FlowMouseはクリップボードを読み取る権限を必要とします。",
+		"description": "Permission popup description for clipboard read"
 	},
 	"openExtensionsSettings": {
 		"message": "拡張機能の詳細を開く",
@@ -1434,6 +1570,10 @@
 	"buttonOkay": {
 		"message": "OK",
 		"description": "Generic OK button"
+	},
+	"buttonConfirm": {
+		"message": "確認",
+		"description": "Generic Confirm button"
 	},
 	"buttonCancel": {
 		"message": "キャンセル",
@@ -1487,6 +1627,10 @@
 		"message": "右ボタンを押しながら下にスクロール",
 		"description": "Wheel gesture: scroll down while holding right button"
 	},
+	"wheelGesture_wheelClickHoldingRight": {
+		"message": "右ボタンを押しながらホイールをクリック",
+		"description": "Wheel gesture: wheel (middle) click while holding right button"
+	},
 	"specialGestures": {
 		"message": "特別なジェスチャー",
 		"description": "Special gestures section title"
@@ -1507,32 +1651,68 @@
 		"message": "左ボタンを押しながら右クリック",
 		"description": "Special gesture: right click while holding left button"
 	},
-	"actionChains": {
-		"message": "コマンドチェーン",
-		"description": "Action chains section title"
-	},
 	"actionChainsDesc": {
-		"message": "順番に実行される再利用可能なコマンドシーケンスを作成します",
+		"message": "コマンドチェーンを使用して、複数のコマンドを順番に実行します。",
 		"description": "Action chains section description"
 	},
 	"actionActionChain": {
 		"message": "コマンドチェーン",
 		"description": "Action chain action name"
 	},
-	"actionCategoryChains": {
-		"message": "コマンドチェーン",
-		"description": "Action category: action chains"
+	"actionCustomMenu": {
+		"message": "カスタムメニュー",
+		"description": "Custom popup menu action name"
+	},
+	"customMenuDesc": {
+		"message": "複数のアクションを含むカスタムポップアップメニューを作成します。",
+		"description": "Custom menu section description"
+	},
+	"addMenu": {
+		"message": "メニューを追加",
+		"description": "Add menu button"
+	},
+	"menuNamePlaceholder": {
+		"message": "カスタムメニュー",
+		"description": "Menu name input placeholder"
+	},
+	"menuItemCount": {
+		"message": "%count% 個のアイテム",
+		"description": "Item count for menus, e.g. '3 items'"
+	},
+	"menuItemCountOne": {
+		"message": "%count% 個のアイテム",
+		"description": "Item count for menus with exactly 1 item"
+	},
+	"addMenuItem": {
+		"message": "アイテムを追加",
+		"description": "Add menu item button"
+	},
+	"addMenuSeparator": {
+		"message": "区切り線を追加",
+		"description": "Add separator to menu button"
+	},
+	"emptyMenuItems": {
+		"message": "アイテムが追加されていません。「アイテムを追加」をクリックして開始してください。",
+		"description": "Empty menu items message"
+	},
+	"menuNotFound": {
+		"message": "（メニューが見つかりません）",
+		"description": "Menu not found label"
+	},
+	"deleteMenuConfirm": {
+		"message": "メニュー「%name%」を削除しますか？",
+		"description": "Delete menu confirmation"
+	},
+	"menuItemNumber": {
+		"message": "アイテム %n%",
+		"description": "Menu item number label"
 	},
 	"addChain": {
 		"message": "チェーンを追加",
 		"description": "Add chain button"
 	},
-	"addNewChain": {
-		"message": "新しいチェーンを作成...",
-		"description": "Action item to navigate to chain editor and create a new chain"
-	},
 	"chainNamePlaceholder": {
-		"message": "マイコマンドチェーン",
+		"message": "コマンドチェーン",
 		"description": "Chain name input placeholder"
 	},
 	"chainDelayUnit": {
@@ -1579,6 +1759,14 @@
 		"message": "キー入力をシミュレート",
 		"description": "Action to simulate a keyboard key press on the page"
 	},
+	"actionPasteClipboard": {
+		"message": "クリップボードを貼り付け",
+		"description": "Action to paste clipboard text at the gesture start position"
+	},
+	"pasteClipboardHint": {
+		"message": "クリップボードの内容は、<b>ジェスチャーの開始位置</b>にある入力フィールドに貼り付けられます。",
+		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
 	"simulateKeyPreset": {
 		"message": "プリセットキー",
 		"description": "Label for preset key dropdown in simulate key config"
@@ -1615,6 +1803,14 @@
 		"message": "無効なJSONフォーマット",
 		"description": "Error message when event detail is not valid JSON"
 	},
+	"customEventIncludeGestureInfo": {
+		"message": "%code% にジェスチャー情報を含める",
+		"description": "Checkbox label for including gesture context in custom event detail. %code% = detail.gesture"
+	},
+	"customEventConfigureBtn": {
+		"message": "設定",
+		"description": "Label for the configure button of custom event action in drag gesture manager"
+	},
 	"customEventHint": {
 		"message": "%window% に %code% をディスパッチします。他のスクリプトとの統合に便利です。",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
@@ -1630,5 +1826,233 @@
 	"chainStepCountOne": {
 		"message": "%count% ステップ",
 		"description": "Step count for unnamed chains with exactly 1 step"
+	},
+	"actionZoomIn": {
+		"message": "拡大",
+		"description": "Zoom in on the current page"
+	},
+	"actionZoomOut": {
+		"message": "縮小",
+		"description": "Zoom out on the current page"
+	},
+	"actionResetZoom": {
+		"message": "ズームをリセット",
+		"description": "Reset page zoom to default or a specified level"
+	},
+	"actionViewPageSource": {
+		"message": "ページのソースを表示",
+		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionPauseGesture": {
+		"message": "更新までジェスチャーを一時停止",
+		"description": "Temporarily disable all gestures on the current tab until page refresh"
+	},
+	"actionAreaSelect": {
+		"message": "エリア選択",
+		"description": "Enter area select mode to drag-select links on the page and batch open them"
+	},
+	"areaSelectTitle": {
+		"message": "エリア選択",
+		"description": "Label for the area select row in the popup"
+	},
+	"areaSelectModifierKey": {
+		"message": "クイックエリア選択",
+		"description": "Label for the modifier key dropdown in area select settings"
+	},
+	"areaSelectModifierKeyDesc": {
+		"message": "修飾キーを押しながら左クリックしてドラッグし、ページのリンクをすばやく選択して一括操作を行います",
+		"description": "Description for the modifier key setting"
+	},
+	"areaSelectDisabled": {
+		"message": "無効",
+		"description": "Disabled option for the area select modifier key dropdown"
+	},
+	"areaSelectMouseDrag": {
+		"message": "マウスドラッグ",
+		"description": "Suffix label next to the modifier key dropdown"
+	},
+	"areaSelectTextUrl": {
+		"message": "テキストURL認識",
+		"description": "Label for the text URL recognition toggle"
+	},
+	"areaSelectTextUrlDesc": {
+		"message": "範囲選択時にプレーンテキストのURL（ハイパーリンク以外）も抽出する",
+		"description": "Description for the text URL recognition toggle"
+	},
+	"areaSelectWarnThreshold": {
+		"message": "一括操作の警告",
+		"description": "Label for the batch operation alert threshold input"
+	},
+	"areaSelectWarnThresholdDesc": {
+		"message": "一括操作の対象がこの数を超える場合に確認を表示します。無効にするには 0 に設定します",
+		"description": "Description for the batch operation alert threshold"
+	},
+	"areaSelectDelay": {
+		"message": "操作間隔",
+		"description": "Label for the operation interval input"
+	},
+	"areaSelectDelayDesc": {
+		"message": "一括処理での各開く操作間の遅延（秒）",
+		"description": "Description for the operation interval setting"
+	},
+	"areaSelectHint": {
+		"message": "ドラッグしてリンクを選択",
+		"description": "Hint text shown in the area select overlay"
+	},
+	"areaSelectOpen": {
+		"message": "%count% 個のリンクを開く",
+		"description": "Button text in the area select toolbar to batch open selected links"
+	},
+	"areaSelectOpenOne": {
+		"message": "%count% 個のリンクを開く",
+		"description": "Button text to open a single selected link (singular form)"
+	},
+	"areaSelectCopy": {
+		"message": "リンクをコピー",
+		"description": "Button text to copy all selected link URLs to clipboard"
+	},
+	"areaSelectCancel": {
+		"message": "キャンセル",
+		"description": "Button text to cancel area select mode"
+	},
+	"areaSelectConfirm": {
+		"message": "確認",
+		"description": "Button text to confirm opening many links"
+	},
+	"areaSelectWarnTitle": {
+		"message": "多数のリンクを開きますか？",
+		"description": "Title of the warning modal when opening many links"
+	},
+	"areaSelectWarnMessage": {
+		"message": "%count% 個のリンクを開こうとしています。ブラウザの動作が遅くなる可能性があります。続行しますか？",
+		"description": "Body text of the warning modal"
+	},
+	"start": {
+		"message": "開始",
+		"description": "Button label to start an action (e.g. area select)"
+	},
+	"actionMenuShowTabs": {
+		"message": "タブを切り替え",
+		"description": "Show a context menu listing all open tabs in the current window"
+	},
+	"actionMenuRecentlyClosed": {
+		"message": "最近閉じたタブ",
+		"description": "Show a context menu listing recently closed tabs for quick restore"
+	},
+	"recentlyClosedMaxItems": {
+		"message": "最大表示数",
+		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
+	},
+	"actionCategoryContextMenu": {
+		"message": "ポップアップメニュー",
+		"description": "Action category: context menu actions"
+	},
+	"zoomStepMode": {
+		"message": "ズーム方式",
+		"description": "Label for zoom mode selector: browser steps vs fixed increment"
+	},
+	"zoomStepModeBrowser": {
+		"message": "ブラウザのズームレベルを使用",
+		"description": "Option: follow Chrome's built-in zoom steps (25%, 33%, 50%, …, 500%)"
+	},
+	"zoomStepModeFixed": {
+		"message": "固定ステップ",
+		"description": "Option: zoom in/out by a configurable fixed percentage each time"
+	},
+	"zoomDelta": {
+		"message": "ステップサイズ",
+		"description": "Label for the zoom increment/decrement slider"
+	},
+	"resetZoomLevel": {
+		"message": "リセット先",
+		"description": "Label for the target zoom level when resetting zoom"
+	},
+	"resetZoomDefault": {
+		"message": "ブラウザのデフォルト",
+		"description": "Option: reset zoom to the browser's default zoom setting"
+	},
+	"resetZoomCustom": {
+		"message": "カスタム値",
+		"description": "Option: reset zoom to a user-specified custom zoom level"
+	},
+	"actionMenuShowBookmarks": {
+		"message": "ブックマークを表示",
+		"description": "Show a context menu listing bookmarks from a selected folder"
+	},
+	"bookmarkFolder": {
+		"message": "フォルダ",
+		"description": "Label for selecting which bookmark folder to display"
+	},
+	"bookmarkGrantPermission": {
+		"message": "ブックマークの権限を付与",
+		"description": "Button label to request bookmarks permission"
+	},
+	"ctxMenuSortOrder": {
+		"message": "並べ替え",
+		"description": "Label for context menu sort order dropdown"
+	},
+	"ctxMenuSortDefault": {
+		"message": "デフォルト",
+		"description": "Sort option: original API/insertion order"
+	},
+	"ctxMenuSortDefaultDesc": {
+		"message": "デフォルト（逆順）",
+		"description": "Sort option: reverse of original API order"
+	},
+	"ctxMenuSortDateAddedAsc": {
+		"message": "追加日（古い順）",
+		"description": "Sort option: by date added ascending"
+	},
+	"ctxMenuSortDateAddedDesc": {
+		"message": "追加日（新しい順）",
+		"description": "Sort option: by date added descending"
+	},
+	"ctxMenuSortNameAsc": {
+		"message": "名前（昇順）",
+		"description": "Sort option: alphabetical ascending"
+	},
+	"ctxMenuSortNameDesc": {
+		"message": "名前（降順）",
+		"description": "Sort option: alphabetical descending"
+	},
+	"ctxMenuSortLastAccessAsc": {
+		"message": "最近のアクセス（古い順）",
+		"description": "Sort option: by last access time ascending"
+	},
+	"ctxMenuSortLastAccessDesc": {
+		"message": "最近のアクセス（新しい順）",
+		"description": "Sort option: by last access time descending"
+	},
+	"ctxMenuMaxItems": {
+		"message": "最大数",
+		"description": "Label for maximum number of items in context menu"
+	},
+	"ctxMenuMaxItemsUnlimited": {
+		"message": "無制限",
+		"description": "Placeholder shown when max items is 0 (no limit)"
+	},
+	"ctxMenuScrollToBottom": {
+		"message": "一番下までスクロール",
+		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuTimeDisplay": {
+		"message": "時間を表示",
+		"description": "Label for time display mode dropdown in context menu"
+	},
+	"ctxMenuTimeNone": {
+		"message": "表示しない",
+		"description": "Time display option: hide time column"
+	},
+	"ctxMenuTimeLastAccess": {
+		"message": "最終アクセス",
+		"description": "Time display option: show last access time"
+	},
+	"ctxMenuTimeClosedTime": {
+		"message": "閉じた時間",
+		"description": "Time display option: show when the tab was closed"
+	},
+	"ctxMenuTimeDateAdded": {
+		"message": "追加日時",
+		"description": "Time display option: show when the bookmark was added"
 	}
 }

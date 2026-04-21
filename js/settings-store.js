@@ -117,6 +117,10 @@ export const SettingsStore = {
 
 	onChange(fn) {
 		this._listeners.push(fn);
+		return () => {
+			const i = this._listeners.indexOf(fn);
+			if (i >= 0) this._listeners.splice(i, 1);
+		};
 	},
 
 	_notifyExternal(changed) {

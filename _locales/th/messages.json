@@ -35,9 +35,9 @@
 		"message": "การตั้งค่าซิงค์ผ่านบัญชี %browserName%",
 		"description": "Sync status description"
 	},
-	"synced": {
-		"message": "ซิงค์แล้ว",
-		"description": "Synced"
+	"saved": {
+		"message": "บันทึกแล้ว",
+		"description": "Saved"
 	},
 	"author": {
 		"message": "ผู้เขียน",
@@ -66,6 +66,10 @@
 	"feedbackText": {
 		"message": "พบปัญหาหรือมีข้อเสนอแนะ? โปรดแจ้งเราผ่าน <a href='mailto:Service@52pojie.cn'>Email</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> หรือ <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Forum</a> เราจะปรับปรุงให้ดีขึ้นโดยเร็ว!",
 		"description": "Feedback text"
+	},
+	"feedbackTextChrome": {
+		"message": "พบปัญหาหรือมีข้อเสนอแนะ? โปรดแจ้งเราผ่าน <a href='https://chromewebstore.google.com/detail/fnldhkfidchnjiokpoemdhoejmaojkgp/support' target='_blank'>ฝ่ายสนับสนุน Chrome เว็บสโตร์</a>, <a href='mailto:Service@52pojie.cn'>Email</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> หรือ <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Forum</a> เราจะปรับปรุงให้ดีขึ้นโดยเร็ว!",
+		"description": "Feedback text for Chrome browser"
 	},
 	"supportAndFeedback": {
 		"message": "สนับสนุน & ข้อเสนอแนะ",
@@ -125,11 +129,11 @@
 	},
 	"btnSide1Mouse": {
 		"message": "ปุ่มด้านข้าง (ย้อนกลับ)",
-		"description": "Mouse button 4 — the side button typically used for navigating back"
+		"description": "Mouse button 4 - the side button typically used for navigating back"
 	},
 	"btnSide2Mouse": {
 		"message": "ปุ่มด้านข้าง (ไปข้างหน้า)",
-		"description": "Mouse button 5 — the side button typically used for navigating forward"
+		"description": "Mouse button 5 - the side button typically used for navigating forward"
 	},
 	"btnPenRight": {
 		"message": "คลิกขวาสไตลัส",
@@ -195,6 +199,54 @@
 		"message": "เงา",
 		"description": "HUD shadow toggle"
 	},
+	"customCss": {
+		"message": "CSS แบบกำหนดเอง",
+		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
+	},
+	"customCssDesc": {
+		"message": "ตั้งค่า CSS แบบกำหนดเองเพื่อปรับแต่ง UI ของ FlowMouse เอง",
+		"description": "Description for the Custom CSS advanced setting"
+	},
+	"customCssConfigure": {
+		"message": "กำหนดค่า",
+		"description": "Button label to open the Custom CSS editor dialog when no CSS is set"
+	},
+	"customCssEdit": {
+		"message": "แก้ไข",
+		"description": "Button label to open the Custom CSS editor dialog when CSS is already set"
+	},
+	"customCssEditorTitle": {
+		"message": "ตัวแก้ไข CSS แบบกำหนดเอง",
+		"description": "Title of the dedicated custom CSS editor page"
+	},
+	"customCssEditorHint": {
+		"message": "สไตล์จะถูกฉีดเข้าไปในแต่ละ Shadow DOM ที่ FlowMouse สร้างขึ้น กด Ctrl+S เพื่อบันทึก",
+		"description": "Hint shown above the editor textarea."
+	},
+	"customCssEditorPlaceholder": {
+		"message": "/* เขียน CSS ที่กำหนดเองของคุณที่นี่… */",
+		"description": "Placeholder inside the Custom CSS editor textarea"
+	},
+	"customCssEditorInsertSnippet": {
+		"message": "ตัวอย่าง",
+		"description": "Button to append an example/starter CSS snippet to the editor"
+	},
+	"customCssEditorRevert": {
+		"message": "คืนค่า",
+		"description": "Button that reverts the editor content back to the last saved value"
+	},
+	"customCssEditorSave": {
+		"message": "บันทึก",
+		"description": "Save button in the Custom CSS editor"
+	},
+	"customCssEditorSaved": {
+		"message": "บันทึกแล้ว",
+		"description": "Status message shown briefly after the user saves the custom CSS"
+	},
+	"customCssEditorDiscardConfirm": {
+		"message": "ละทิ้งการแก้ไขที่ยังไม่ได้บันทึกและกลับไปใช้ CSS ที่บันทึกล่าสุดหรือไม่?",
+		"description": "Confirmation dialog shown before reverting unsaved edits"
+	},
 	"text": {
 		"message": "ข้อความ",
 		"description": "Text"
@@ -255,6 +307,14 @@
 		"message": "ลากข้อความที่เลือกเพื่อค้นหา",
 		"description": "Drag selected text to search"
 	},
+	"textDragIgnoreInput": {
+		"message": "ปิดใช้งานในช่องป้อนข้อมูล",
+		"description": "Option to disable text drag inside input boxes and textareas"
+	},
+	"textDragIgnoreInputDesc": {
+		"message": "ไม่ต้องเปิดใช้งานการลากข้อความในพื้นที่ที่สามารถแก้ไขได้ เช่น ช่องป้อนข้อมูลและตัวแก้ไขข้อความ",
+		"description": "Description for text drag ignore input option"
+	},
 	"searchEngine": {
 		"message": "เครื่องมือค้นหา",
 		"description": "Search engine"
@@ -267,6 +327,10 @@
 		"message": "URL กำหนดเอง ใช้ %s แทนคำค้นหา",
 		"description": "Custom URL placeholder"
 	},
+	"customUrlPlaceholderHint": {
+		"message": "ต้องระบุโปรโตคอล (เช่น https://) ตัวยึดตำแหน่งที่ใช้ได้: %placeholders% ต่อท้ายด้วย :raw เพื่อข้ามการเข้ารหัส URL เช่น %example%",
+		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
+	},
 	"urlPlaceholderText": {
 		"message": "%s=คำค้นหา",
 		"description": "Placeholder for text drag custom URL"
@@ -274,6 +338,14 @@
 	"urlPlaceholderImage": {
 		"message": "%s=URL รูปภาพ",
 		"description": "Placeholder for image drag custom URL"
+	},
+	"searchEngine_google_translate": {
+		"message": "Google แปลภาษา",
+		"description": "Google Translate search engine"
+	},
+	"searchEngine_bing_translate": {
+		"message": "Bing แปลภาษา",
+		"description": "Bing Translate search engine"
 	},
 	"searchEngine_baidu": {
 		"message": "Baidu",
@@ -367,8 +439,16 @@
 		"message": "รีเซ็ต",
 		"description": "Reset to default"
 	},
+	"duplicate": {
+		"message": "ทำซ้ำ",
+		"description": "Generic duplicate button tooltip"
+	},
+	"delete": {
+		"message": "ลบ",
+		"description": "Generic delete button tooltip"
+	},
 	"autoSaved": {
-		"message": "✓ บันทึกอัตโนมัติแล้ว",
+		"message": "บันทึกอัตโนมัติแล้ว",
 		"description": "Auto-saved message"
 	},
 	"saveFailure": {
@@ -663,6 +743,10 @@
 		"message": "คัดลอกชื่อหน้า",
 		"description": "Copy page title"
 	},
+	"actionCopyTitleAndUrl": {
+		"message": "คัดลอกชื่อหน้าและ URL",
+		"description": "Copy page title and URL"
+	},
 	"actionOpenDownloads": {
 		"message": "เปิดหน้าดาวน์โหลด",
 		"description": "Open downloads page"
@@ -674,6 +758,10 @@
 	"actionOpenExtensions": {
 		"message": "เปิดส่วนขยาย",
 		"description": "Open extensions page"
+	},
+	"actionSaveAsMhtml": {
+		"message": "บันทึกเป็น MHTML",
+		"description": "Save current page as MHTML file"
 	},
 	"actionPrintPage": {
 		"message": "พิมพ์หน้านี้",
@@ -694,6 +782,14 @@
 	"actionTogglePinTab": {
 		"message": "ปักหมุด/เลิกปักหมุดแท็บปัจจุบัน",
 		"description": "Toggle pin current tab"
+	},
+	"actionMoveTabToNewWindow": {
+		"message": "ย้ายแท็บไปยังหน้าต่างใหม่",
+		"description": "Move current tab to a new window"
+	},
+	"actionSearchClipboard": {
+		"message": "ค้นหาจากคลิปบอร์ด",
+		"description": "Search clipboard text using a search engine"
 	},
 	"showTrailOrigin": {
 		"message": "แสดงจุดเริ่มต้น",
@@ -731,6 +827,10 @@
 		"message": "การตั้งค่าอื่นๆ",
 		"description": "Section title for other/miscellaneous settings"
 	},
+	"styleSettings": {
+		"message": "ลักษณะที่ปรากฏ",
+		"description": "Section title for style/appearance settings (trail, HUD, etc.)"
+	},
 	"show": {
 		"message": "แสดง",
 		"description": "Show navigation menu"
@@ -760,7 +860,7 @@
 		"description": "Clear button"
 	},
 	"gestureAdded": {
-		"message": "✓ เพิ่มท่าทางแล้ว",
+		"message": "เพิ่มท่าทางแล้ว",
 		"description": "Gesture added success message"
 	},
 	"gestureRecorderTitle": {
@@ -816,16 +916,16 @@
 		"description": "Delete gesture confirmation"
 	},
 	"gestureDeleted": {
-		"message": "✓ ลบท่าทางแล้ว",
+		"message": "ลบท่าทางแล้ว",
 		"description": "Gesture deleted success message"
 	},
 	"enterCustomUrl": {
-		"message": "ป้อน URL (แนะนำให้ระบุโปรโตคอล เช่น https://, chrome:// ฯลฯ):",
+		"message": "URL",
 		"description": "Prompt for custom URL input"
 	},
-	"copyUrlIncludeTitle": {
-		"message": "คัดลอกชื่อหน้าด้วย",
-		"description": "Checkbox label for including page title when copying URL"
+	"copyAsMarkdown": {
+		"message": "คัดลอกเป็น Markdown",
+		"description": "Checkbox label for copying as markdown format"
 	},
 	"invalidUrl": {
 		"message": "โปรดป้อน URL ที่ถูกต้อง (ขึ้นต้นด้วย http:// หรือ https://)",
@@ -956,27 +1056,27 @@
 		"description": "Features"
 	},
 	"aboutFeature1": {
-		"message": "🎯 16 ท่าทางเริ่มต้น + ท่าทางกำหนดเอง",
+		"message": "16 ท่าทางเริ่มต้น + ท่าทางกำหนดเอง",
 		"description": "Feature 1"
 	},
 	"aboutFeature2": {
-		"message": "🎨 การแสดงเส้นทางท่าทาง",
+		"message": "การแสดงเส้นทางท่าทาง",
 		"description": "Feature 2"
 	},
 	"aboutFeature3": {
-		"message": "🔍 Super Drag ข้อความ/รูปภาพ/ลิงก์",
+		"message": "Super Drag ข้อความ/รูปภาพ/ลิงก์",
 		"description": "Feature 3"
 	},
 	"aboutFeature4": {
-		"message": "🚫 บัญชีดำเว็บไซต์",
+		"message": "บัญชีดำเว็บไซต์",
 		"description": "Feature 4"
 	},
 	"aboutFeature5": {
-		"message": "☁️ ซิงค์ผ่านบัญชี %browserName%",
+		"message": "ซิงค์ผ่านบัญชี %browserName%",
 		"description": "Feature 5"
 	},
 	"aboutFeature6": {
-		"message": "🔒 ทำงานในเครื่อง ไม่มีการเชื่อมต่อเครือข่ายยกเว้นการซิงค์",
+		"message": "ทำงานในเครื่อง ไม่มีการเชื่อมต่อเครือข่ายยกเว้นการซิงค์",
 		"description": "Feature 6"
 	},
 	"tutorial": {
@@ -988,15 +1088,15 @@
 		"description": "Learn more link"
 	},
 	"badgeNoNetwork": {
-		"message": "🔒 ไม่มีการเชื่อมต่อเครือข่ายยกเว้นซิงค์",
+		"message": "ไม่มีการเชื่อมต่อเครือข่ายยกเว้นซิงค์",
 		"description": "No network privacy badge"
 	},
 	"badgeNoData": {
-		"message": "🚫 ไม่มีการรวบรวมข้อมูล",
+		"message": "ไม่มีการรวบรวมข้อมูล",
 		"description": "No data collection badge"
 	},
 	"badgeLocalRun": {
-		"message": "✅ ทำงานในเครื่อง",
+		"message": "ทำงานในเครื่อง",
 		"description": "Local run badge"
 	},
 	"newTabSettings": {
@@ -1091,6 +1191,10 @@
 		"message": "📋 คัดลอกข้อความลิงก์",
 		"description": "Copy link text"
 	},
+	"dragActionCopyLinkAndText": {
+		"message": "📋 คัดลอกข้อความและลิงก์",
+		"description": "Copy link text and URL"
+	},
 	"dragActionSaveImage": {
 		"message": "💾 บันทึกรูปภาพ",
 		"description": "Save image"
@@ -1111,6 +1215,10 @@
 		"message": "🔍 ค้นหาแบบกำหนดเอง",
 		"description": "Custom search"
 	},
+	"dragActionSendCustomEvent": {
+		"message": "ส่งเหตุการณ์ที่กำหนดเอง",
+		"description": "Send custom DOM event on drag gesture"
+	},
 	"reducedMotionWarning": {
 		"message": "ภาพเคลื่อนไหวของระบบ %OS% ถูกปิดใช้งาน การเลื่อนแบบมีภาพเคลื่อนไหวอาจทำงานไม่ถูกต้อง คุณสามารถเปิดใช้งานภาพเคลื่อนไหวในการตั้งค่าระบบ %OS%",
 		"description": "Warning message when system reduced motion is enabled"
@@ -1119,9 +1227,29 @@
 		"message": "ตรวจจับ URL อัตโนมัติ",
 		"description": "Auto detect URL checkbox label"
 	},
+	"autoDetectUrlTooltip": {
+		"message": "หากข้อความอยู่ในรูปแบบลิงก์ ให้เปิดโดยตรงแทนการค้นหา",
+		"description": "Tooltip for the auto detect URL checkbox"
+	},
 	"preferLink": {
 		"message": "เลือกลิงก์ก่อน",
 		"description": "Prefer link checkbox label"
+	},
+	"customHudName": {
+		"message": "ชื่อ",
+		"description": "Placeholder for custom action name shown on HUD"
+	},
+	"customHudNameTooltip": {
+		"message": "ชื่อที่กำหนดเองซึ่งแสดงบนหน้าจอเมื่อทำท่าทาง",
+		"description": "Tooltip for the custom HUD name field"
+	},
+	"actionNoOptions": {
+		"message": "คำสั่งนี้ไม่จำเป็นต้องมีการตั้งค่าใดๆ",
+		"description": "Placeholder shown in the action picker's detail panel when the selected action has no configurable settings"
+	},
+	"actionRequiredBadge": {
+		"message": "จำเป็น",
+		"description": "Badge shown next to fields that must be filled in (e.g., URL for Open URL)"
 	},
 	"menuNeedRefresh": {
 		"message": "FlowMouse ยังไม่โหลด คลิกเพื่อรีเฟรช",
@@ -1376,11 +1504,11 @@
 		"description": "Permission popup description for downloads"
 	},
 	"permissionDownloadsPageCaptureTitle": {
-		"message": "บันทึกรูปภาพ",
+		"message": "บันทึกเนื้อหา",
 		"description": "Permission popup title for downloads and page capture"
 	},
 	"permissionDownloadsPageCaptureDesc": {
-		"message": "เพื่อบันทึกรูปภาพ FlowMouse ต้องการสิทธิ์เข้าถึงหน้าเว็บและการดาวน์โหลด",
+		"message": "เพื่อบันทึกเนื้อหา FlowMouse ต้องการสิทธิ์เข้าถึงหน้าเว็บและการดาวน์โหลด",
 		"description": "Permission popup description for downloads and page capture"
 	},
 	"permissionIncognitoTitle": {
@@ -1390,6 +1518,14 @@
 	"permissionIncognitoDesc": {
 		"message": "หากต้องการใช้งานในหน้าต่างที่ไม่ระบุตัวตน คุณต้องเปิดใช้งาน \"อนุญาตในโหมดไม่ระบุตัวตน\" สำหรับ FlowMouse ด้วยตนเอง",
 		"description": "Permission popup description for incognito"
+	},
+	"permissionClipboardReadTitle": {
+		"message": "อ่านคลิปบอร์ด",
+		"description": "Permission popup title for clipboard read"
+	},
+	"permissionClipboardReadDesc": {
+		"message": "หากต้องการวางเนื้อหาในคลิปบอร์ด FlowMouse จำเป็นต้องเข้าถึงเพื่ออ่านคลิปบอร์ดของคุณ",
+		"description": "Permission popup description for clipboard read"
 	},
 	"openExtensionsSettings": {
 		"message": "เปิดรายละเอียดส่วนขยาย",
@@ -1434,6 +1570,10 @@
 	"buttonOkay": {
 		"message": "ตกลง",
 		"description": "Generic OK button"
+	},
+	"buttonConfirm": {
+		"message": "ยืนยัน",
+		"description": "Generic Confirm button"
 	},
 	"buttonCancel": {
 		"message": "ยกเลิก",
@@ -1487,6 +1627,10 @@
 		"message": "เลื่อนลงในขณะที่กดปุ่มขวาค้างไว้",
 		"description": "Wheel gesture: scroll down while holding right button"
 	},
+	"wheelGesture_wheelClickHoldingRight": {
+		"message": "คลิกกลางในขณะที่กดปุ่มขวาค้างไว้",
+		"description": "Wheel gesture: wheel (middle) click while holding right button"
+	},
 	"specialGestures": {
 		"message": "ท่าทางพิเศษ",
 		"description": "Special gestures section title"
@@ -1507,32 +1651,68 @@
 		"message": "คลิกขวาในขณะที่กดปุ่มซ้ายค้างไว้",
 		"description": "Special gesture: right click while holding left button"
 	},
-	"actionChains": {
-		"message": "เชนคำสั่ง",
-		"description": "Action chains section title"
-	},
 	"actionChainsDesc": {
-		"message": "สร้างลำดับคำสั่งที่นำมาใช้ซ้ำได้ ซึ่งจะดำเนินการทีละรายการต่อเนื่องกัน",
+		"message": "ใช้เชนคำสั่งเพื่อดำเนินการหลายคำสั่งตามลำดับ",
 		"description": "Action chains section description"
 	},
 	"actionActionChain": {
 		"message": "เชนคำสั่ง",
 		"description": "Action chain action name"
 	},
-	"actionCategoryChains": {
-		"message": "เชนคำสั่ง",
-		"description": "Action category: action chains"
+	"actionCustomMenu": {
+		"message": "เมนูกำหนดเอง",
+		"description": "Custom popup menu action name"
+	},
+	"customMenuDesc": {
+		"message": "สร้างเมนูป๊อปอัปแบบกำหนดเองพร้อมการดำเนินการหลายอย่าง",
+		"description": "Custom menu section description"
+	},
+	"addMenu": {
+		"message": "เพิ่มเมนู",
+		"description": "Add menu button"
+	},
+	"menuNamePlaceholder": {
+		"message": "เมนูกำหนดเอง",
+		"description": "Menu name input placeholder"
+	},
+	"menuItemCount": {
+		"message": "%count% รายการ",
+		"description": "Item count for menus, e.g. '3 items'"
+	},
+	"menuItemCountOne": {
+		"message": "%count% รายการ",
+		"description": "Item count for menus with exactly 1 item"
+	},
+	"addMenuItem": {
+		"message": "เพิ่มรายการ",
+		"description": "Add menu item button"
+	},
+	"addMenuSeparator": {
+		"message": "เพิ่มตัวคั่น",
+		"description": "Add separator to menu button"
+	},
+	"emptyMenuItems": {
+		"message": "ยังไม่ได้เพิ่มรายการ คลิก \"เพิ่มรายการ\" เพื่อเริ่มต้น",
+		"description": "Empty menu items message"
+	},
+	"menuNotFound": {
+		"message": "(ไม่พบเมนู)",
+		"description": "Menu not found label"
+	},
+	"deleteMenuConfirm": {
+		"message": "ลบเมนู \"%name%\" หรือไม่",
+		"description": "Delete menu confirmation"
+	},
+	"menuItemNumber": {
+		"message": "รายการ %n%",
+		"description": "Menu item number label"
 	},
 	"addChain": {
 		"message": "เพิ่มเชน",
 		"description": "Add chain button"
 	},
-	"addNewChain": {
-		"message": "สร้างเชนใหม่...",
-		"description": "Action item to navigate to chain editor and create a new chain"
-	},
 	"chainNamePlaceholder": {
-		"message": "เชนคำสั่งของฉัน",
+		"message": "เชนคำสั่ง",
 		"description": "Chain name input placeholder"
 	},
 	"chainDelayUnit": {
@@ -1579,6 +1759,14 @@
 		"message": "จำลองการกดแป้นพิมพ์",
 		"description": "Action to simulate a keyboard key press on the page"
 	},
+	"actionPasteClipboard": {
+		"message": "วางจากคลิปบอร์ด",
+		"description": "Action to paste clipboard text at the gesture start position"
+	},
+	"pasteClipboardHint": {
+		"message": "เนื้อหาคลิปบอร์ดจะถูกวางลงในช่องป้อนข้อมูลที่<b>ตำแหน่งเริ่มต้นของท่าทางสัมผัส</b>",
+		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
 	"simulateKeyPreset": {
 		"message": "แป้นพิมพ์ที่ตั้งไว้ล่วงหน้า",
 		"description": "Label for preset key dropdown in simulate key config"
@@ -1615,6 +1803,14 @@
 		"message": "รูปแบบ JSON ไม่ถูกต้อง",
 		"description": "Error message when event detail is not valid JSON"
 	},
+	"customEventIncludeGestureInfo": {
+		"message": "รวมข้อมูลท่าทางใน %code%",
+		"description": "Checkbox label for including gesture context in custom event detail. %code% = detail.gesture"
+	},
+	"customEventConfigureBtn": {
+		"message": "การตั้งค่า",
+		"description": "Label for the configure button of custom event action in drag gesture manager"
+	},
 	"customEventHint": {
 		"message": "ส่ง %code% บน %window% มีประโยชน์สำหรับการผสานรวมกับสคริปต์อื่น",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
@@ -1630,5 +1826,233 @@
 	"chainStepCountOne": {
 		"message": "%count% ขั้นตอน",
 		"description": "Step count for unnamed chains with exactly 1 step"
+	},
+	"actionZoomIn": {
+		"message": "ซูมเข้า",
+		"description": "Zoom in on the current page"
+	},
+	"actionZoomOut": {
+		"message": "ซูมออก",
+		"description": "Zoom out on the current page"
+	},
+	"actionResetZoom": {
+		"message": "รีเซ็ตการซูม",
+		"description": "Reset page zoom to default or a specified level"
+	},
+	"actionViewPageSource": {
+		"message": "ดูซอร์สโค้ดของหน้า",
+		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionPauseGesture": {
+		"message": "หยุดท่าทางจนกว่าจะรีเฟรช",
+		"description": "Temporarily disable all gestures on the current tab until page refresh"
+	},
+	"actionAreaSelect": {
+		"message": "เลือกพื้นที่",
+		"description": "Enter area select mode to drag-select links on the page and batch open them"
+	},
+	"areaSelectTitle": {
+		"message": "เลือกพื้นที่",
+		"description": "Label for the area select row in the popup"
+	},
+	"areaSelectModifierKey": {
+		"message": "เลือกพื้นที่อย่างรวดเร็ว",
+		"description": "Label for the modifier key dropdown in area select settings"
+	},
+	"areaSelectModifierKeyDesc": {
+		"message": "กดปุ่มปรับเปลี่ยนค้างไว้ จากนั้นคลิกซ้ายแล้วลากเพื่อเลือกหน้าเว็บลิงก์อย่างรวดเร็วสำหรับการทำงานเป็นชุด",
+		"description": "Description for the modifier key setting"
+	},
+	"areaSelectDisabled": {
+		"message": "ปิดใช้งาน",
+		"description": "Disabled option for the area select modifier key dropdown"
+	},
+	"areaSelectMouseDrag": {
+		"message": "ลากเมาส์",
+		"description": "Suffix label next to the modifier key dropdown"
+	},
+	"areaSelectTextUrl": {
+		"message": "การจดจำ URL ของข้อความ",
+		"description": "Label for the text URL recognition toggle"
+	},
+	"areaSelectTextUrlDesc": {
+		"message": "ดึงข้อมูล URL แบบข้อความธรรมดา (ไม่ใช่ไฮเปอร์ลิงก์) เมื่อทำการเลือกเช่นกัน",
+		"description": "Description for the text URL recognition toggle"
+	},
+	"areaSelectWarnThreshold": {
+		"message": "การแจ้งเตือนการดำเนินการเป็นชุด",
+		"description": "Label for the batch operation alert threshold input"
+	},
+	"areaSelectWarnThresholdDesc": {
+		"message": "แสดงการยืนยันเมื่อดำเนินการเป็นชุดมากกว่าจำนวนรายการนี้ตั้งค่าเป็น 0 เพื่อปิดใช้งาน",
+		"description": "Description for the batch operation alert threshold"
+	},
+	"areaSelectDelay": {
+		"message": "ช่วงเวลาการทำงาน",
+		"description": "Label for the operation interval input"
+	},
+	"areaSelectDelayDesc": {
+		"message": "ความหน่วงระหว่างการเปิดแต่ละรายการในการทำงานแบบแบตช์ (วินาที)",
+		"description": "Description for the operation interval setting"
+	},
+	"areaSelectHint": {
+		"message": "ลากเพื่อเลือกลิงก์",
+		"description": "Hint text shown in the area select overlay"
+	},
+	"areaSelectOpen": {
+		"message": "เปิด %count% ลิงก์",
+		"description": "Button text in the area select toolbar to batch open selected links"
+	},
+	"areaSelectOpenOne": {
+		"message": "เปิด %count% ลิงก์",
+		"description": "Button text to open a single selected link (singular form)"
+	},
+	"areaSelectCopy": {
+		"message": "คัดลอกลิงก์",
+		"description": "Button text to copy all selected link URLs to clipboard"
+	},
+	"areaSelectCancel": {
+		"message": "ยกเลิก",
+		"description": "Button text to cancel area select mode"
+	},
+	"areaSelectConfirm": {
+		"message": "ยืนยัน",
+		"description": "Button text to confirm opening many links"
+	},
+	"areaSelectWarnTitle": {
+		"message": "เปิดลิงก์จำนวนมากหรือไม่",
+		"description": "Title of the warning modal when opening many links"
+	},
+	"areaSelectWarnMessage": {
+		"message": "คุณกำลังจะเปิด %count% ลิงก์ ซึ่งอาจทำให้เบราว์เซอร์ทำงานช้าลง ดำเนินการต่อหรือไม่",
+		"description": "Body text of the warning modal"
+	},
+	"start": {
+		"message": "เริ่ม",
+		"description": "Button label to start an action (e.g. area select)"
+	},
+	"actionMenuShowTabs": {
+		"message": "สลับแท็บ",
+		"description": "Show a context menu listing all open tabs in the current window"
+	},
+	"actionMenuRecentlyClosed": {
+		"message": "แท็บที่เพิ่งปิด",
+		"description": "Show a context menu listing recently closed tabs for quick restore"
+	},
+	"recentlyClosedMaxItems": {
+		"message": "จำนวนสูงสุด",
+		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
+	},
+	"actionCategoryContextMenu": {
+		"message": "เมนูป๊อปอัป",
+		"description": "Action category: context menu actions"
+	},
+	"zoomStepMode": {
+		"message": "โหมดการซูม",
+		"description": "Label for zoom mode selector: browser steps vs fixed increment"
+	},
+	"zoomStepModeBrowser": {
+		"message": "ใช้ระดับการซูมของเบราว์เซอร์",
+		"description": "Option: follow Chrome's built-in zoom steps (25%, 33%, 50%, …, 500%)"
+	},
+	"zoomStepModeFixed": {
+		"message": "ขั้นคงที่",
+		"description": "Option: zoom in/out by a configurable fixed percentage each time"
+	},
+	"zoomDelta": {
+		"message": "ขนาดขั้น",
+		"description": "Label for the zoom increment/decrement slider"
+	},
+	"resetZoomLevel": {
+		"message": "รีเซ็ตเป็น",
+		"description": "Label for the target zoom level when resetting zoom"
+	},
+	"resetZoomDefault": {
+		"message": "ค่าเริ่มต้นของเบราว์เซอร์",
+		"description": "Option: reset zoom to the browser's default zoom setting"
+	},
+	"resetZoomCustom": {
+		"message": "ค่าที่กำหนดเอง",
+		"description": "Option: reset zoom to a user-specified custom zoom level"
+	},
+	"actionMenuShowBookmarks": {
+		"message": "แสดงบุ๊กมาร์ก",
+		"description": "Show a context menu listing bookmarks from a selected folder"
+	},
+	"bookmarkFolder": {
+		"message": "โฟลเดอร์",
+		"description": "Label for selecting which bookmark folder to display"
+	},
+	"bookmarkGrantPermission": {
+		"message": "ให้สิทธิ์เข้าถึงบุ๊กมาร์ก",
+		"description": "Button label to request bookmarks permission"
+	},
+	"ctxMenuSortOrder": {
+		"message": "จัดเรียงตาม",
+		"description": "Label for context menu sort order dropdown"
+	},
+	"ctxMenuSortDefault": {
+		"message": "ค่าเริ่มต้น",
+		"description": "Sort option: original API/insertion order"
+	},
+	"ctxMenuSortDefaultDesc": {
+		"message": "ค่าเริ่มต้น (ย้อนกลับ)",
+		"description": "Sort option: reverse of original API order"
+	},
+	"ctxMenuSortDateAddedAsc": {
+		"message": "วันที่เพิ่ม (เก่าสุดก่อน)",
+		"description": "Sort option: by date added ascending"
+	},
+	"ctxMenuSortDateAddedDesc": {
+		"message": "วันที่เพิ่ม (ใหม่สุดก่อน)",
+		"description": "Sort option: by date added descending"
+	},
+	"ctxMenuSortNameAsc": {
+		"message": "ชื่อ (จากน้อยไปมาก)",
+		"description": "Sort option: alphabetical ascending"
+	},
+	"ctxMenuSortNameDesc": {
+		"message": "ชื่อ (จากมากไปน้อย)",
+		"description": "Sort option: alphabetical descending"
+	},
+	"ctxMenuSortLastAccessAsc": {
+		"message": "เข้าถึงล่าสุด (เก่าสุดก่อน)",
+		"description": "Sort option: by last access time ascending"
+	},
+	"ctxMenuSortLastAccessDesc": {
+		"message": "เข้าถึงล่าสุด (ใหม่สุดก่อน)",
+		"description": "Sort option: by last access time descending"
+	},
+	"ctxMenuMaxItems": {
+		"message": "จำนวนสูงสุด",
+		"description": "Label for maximum number of items in context menu"
+	},
+	"ctxMenuMaxItemsUnlimited": {
+		"message": "ไม่จำกัด",
+		"description": "Placeholder shown when max items is 0 (no limit)"
+	},
+	"ctxMenuScrollToBottom": {
+		"message": "เลื่อนลงด้านล่าง",
+		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuTimeDisplay": {
+		"message": "แสดงเวลา",
+		"description": "Label for time display mode dropdown in context menu"
+	},
+	"ctxMenuTimeNone": {
+		"message": "ไม่ต้องแสดง",
+		"description": "Time display option: hide time column"
+	},
+	"ctxMenuTimeLastAccess": {
+		"message": "เข้าถึงล่าสุด",
+		"description": "Time display option: show last access time"
+	},
+	"ctxMenuTimeClosedTime": {
+		"message": "เวลาที่ปิด",
+		"description": "Time display option: show when the tab was closed"
+	},
+	"ctxMenuTimeDateAdded": {
+		"message": "วันที่เพิ่ม",
+		"description": "Time display option: show when the bookmark was added"
 	}
 }

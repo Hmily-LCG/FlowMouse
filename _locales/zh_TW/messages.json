@@ -35,9 +35,9 @@
 		"message": "設定透過 %browserName% 帳號同步",
 		"description": "Sync status description"
 	},
-	"synced": {
-		"message": "已同步",
-		"description": "Synced"
+	"saved": {
+		"message": "已儲存",
+		"description": "Saved"
 	},
 	"author": {
 		"message": "作者",
@@ -66,6 +66,10 @@
 	"feedbackText": {
 		"message": "遇到問題或有建議？請透過 <a href='mailto:Service@52pojie.cn'>Email</a>、<a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> 或 <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>論壇</a> 告訴我們，我們會盡快改進！",
 		"description": "Feedback text"
+	},
+	"feedbackTextChrome": {
+		"message": "遇到問題或有建議？請透過 <a href='https://chromewebstore.google.com/detail/fnldhkfidchnjiokpoemdhoejmaojkgp/support' target='_blank'>Chrome 線上應用程式商店支援中心</a>、<a href='mailto:Service@52pojie.cn'>Email</a>、<a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> 或 <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>論壇</a> 告訴我們，我們會盡快改進！",
+		"description": "Feedback text for Chrome browser"
 	},
 	"supportAndFeedback": {
 		"message": "支援與回饋",
@@ -125,11 +129,11 @@
 	},
 	"btnSide1Mouse": {
 		"message": "側鍵（後退）",
-		"description": "Mouse button 4 — the side button typically used for navigating back"
+		"description": "Mouse button 4 - the side button typically used for navigating back"
 	},
 	"btnSide2Mouse": {
 		"message": "側鍵（前進）",
-		"description": "Mouse button 5 — the side button typically used for navigating forward"
+		"description": "Mouse button 5 - the side button typically used for navigating forward"
 	},
 	"btnPenRight": {
 		"message": "觸控筆右鍵",
@@ -195,6 +199,54 @@
 		"message": "陰影",
 		"description": "HUD shadow toggle"
 	},
+	"customCss": {
+		"message": "自訂 CSS",
+		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
+	},
+	"customCssDesc": {
+		"message": "設定自訂 CSS 以調整 FlowMouse 自身的介面樣式",
+		"description": "Description for the Custom CSS advanced setting"
+	},
+	"customCssConfigure": {
+		"message": "設定",
+		"description": "Button label to open the Custom CSS editor dialog when no CSS is set"
+	},
+	"customCssEdit": {
+		"message": "編輯",
+		"description": "Button label to open the Custom CSS editor dialog when CSS is already set"
+	},
+	"customCssEditorTitle": {
+		"message": "自訂 CSS 編輯器",
+		"description": "Title of the dedicated custom CSS editor page"
+	},
+	"customCssEditorHint": {
+		"message": "樣式會被注入到 FlowMouse 建立的每個 Shadow DOM 中。按 Ctrl+S 儲存。",
+		"description": "Hint shown above the editor textarea."
+	},
+	"customCssEditorPlaceholder": {
+		"message": "/* 在此輸入自訂 CSS… */",
+		"description": "Placeholder inside the Custom CSS editor textarea"
+	},
+	"customCssEditorInsertSnippet": {
+		"message": "範例",
+		"description": "Button to append an example/starter CSS snippet to the editor"
+	},
+	"customCssEditorRevert": {
+		"message": "撤銷變更",
+		"description": "Button that reverts the editor content back to the last saved value"
+	},
+	"customCssEditorSave": {
+		"message": "儲存",
+		"description": "Save button in the Custom CSS editor"
+	},
+	"customCssEditorSaved": {
+		"message": "已儲存",
+		"description": "Status message shown briefly after the user saves the custom CSS"
+	},
+	"customCssEditorDiscardConfirm": {
+		"message": "放棄未儲存的修改，還原到上次儲存的 CSS 嗎？",
+		"description": "Confirmation dialog shown before reverting unsaved edits"
+	},
 	"text": {
 		"message": "文字",
 		"description": "Text"
@@ -255,6 +307,14 @@
 		"message": "選取文字後拖曳進行搜尋",
 		"description": "Drag selected text to search"
 	},
+	"textDragIgnoreInput": {
+		"message": "在輸入框中停用",
+		"description": "Option to disable text drag inside input boxes and textareas"
+	},
+	"textDragIgnoreInputDesc": {
+		"message": "在輸入框與文字編輯器等可編輯區域中不觸發文字拖曳",
+		"description": "Description for text drag ignore input option"
+	},
 	"searchEngine": {
 		"message": "搜尋引擎",
 		"description": "Search engine"
@@ -267,6 +327,10 @@
 		"message": "自訂網址，用 %s 代替搜尋詞",
 		"description": "Custom URL placeholder"
 	},
+	"customUrlPlaceholderHint": {
+		"message": "須包含通訊協定（如 https://）。可用的預留位置：%placeholders%。加上 :raw 可跳過 URL 編碼，如：%example%",
+		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
+	},
 	"urlPlaceholderText": {
 		"message": "%s=搜尋詞",
 		"description": "Placeholder for text drag custom URL"
@@ -274,6 +338,14 @@
 	"urlPlaceholderImage": {
 		"message": "%s=圖片網址",
 		"description": "Placeholder for image drag custom URL"
+	},
+	"searchEngine_google_translate": {
+		"message": "Google 翻譯",
+		"description": "Google Translate search engine"
+	},
+	"searchEngine_bing_translate": {
+		"message": "Bing 翻譯",
+		"description": "Bing Translate search engine"
 	},
 	"searchEngine_baidu": {
 		"message": "百度",
@@ -367,8 +439,16 @@
 		"message": "還原預設值",
 		"description": "Reset to default"
 	},
+	"duplicate": {
+		"message": "複製",
+		"description": "Generic duplicate button tooltip"
+	},
+	"delete": {
+		"message": "刪除",
+		"description": "Generic delete button tooltip"
+	},
 	"autoSaved": {
-		"message": "✓ 已自動儲存",
+		"message": "已自動儲存",
 		"description": "Auto-saved message"
 	},
 	"saveFailure": {
@@ -663,6 +743,10 @@
 		"message": "複製頁面標題",
 		"description": "Copy page title"
 	},
+	"actionCopyTitleAndUrl": {
+		"message": "複製頁面標題和網址",
+		"description": "Copy page title and URL"
+	},
 	"actionOpenDownloads": {
 		"message": "開啟下載頁面",
 		"description": "Open downloads page"
@@ -674,6 +758,10 @@
 	"actionOpenExtensions": {
 		"message": "開啟擴充功能管理",
 		"description": "Open extensions page"
+	},
+	"actionSaveAsMhtml": {
+		"message": "儲存為 MHTML",
+		"description": "Save current page as MHTML file"
 	},
 	"actionPrintPage": {
 		"message": "列印頁面",
@@ -694,6 +782,14 @@
 	"actionTogglePinTab": {
 		"message": "固定/取消固定目前分頁",
 		"description": "Toggle pin current tab"
+	},
+	"actionMoveTabToNewWindow": {
+		"message": "將分頁移至新視窗",
+		"description": "Move current tab to a new window"
+	},
+	"actionSearchClipboard": {
+		"message": "搜尋剪貼簿",
+		"description": "Search clipboard text using a search engine"
 	},
 	"showTrailOrigin": {
 		"message": "顯示起始原點",
@@ -731,6 +827,10 @@
 		"message": "其他設定",
 		"description": "Section title for other/miscellaneous settings"
 	},
+	"styleSettings": {
+		"message": "外觀設定",
+		"description": "Section title for style/appearance settings (trail, HUD, etc.)"
+	},
 	"show": {
 		"message": "顯示",
 		"description": "Show navigation menu"
@@ -760,7 +860,7 @@
 		"description": "Clear button"
 	},
 	"gestureAdded": {
-		"message": "✓ 手勢已新增",
+		"message": "手勢已新增",
 		"description": "Gesture added success message"
 	},
 	"gestureRecorderTitle": {
@@ -816,16 +916,16 @@
 		"description": "Delete gesture confirmation"
 	},
 	"gestureDeleted": {
-		"message": "✓ 手勢已刪除",
+		"message": "手勢已刪除",
 		"description": "Gesture deleted success message"
 	},
 	"enterCustomUrl": {
-		"message": "請輸入網址（建議包含協定，如 https://、chrome:// 等）：",
+		"message": "網址",
 		"description": "Prompt for custom URL input"
 	},
-	"copyUrlIncludeTitle": {
-		"message": "同時複製頁面標題",
-		"description": "Checkbox label for including page title when copying URL"
+	"copyAsMarkdown": {
+		"message": "以 Markdown 格式複製",
+		"description": "Checkbox label for copying as markdown format"
 	},
 	"invalidUrl": {
 		"message": "請輸入有效的網址（以 http:// 或 https:// 開頭）",
@@ -956,27 +1056,27 @@
 		"description": "Features"
 	},
 	"aboutFeature1": {
-		"message": "🎯 16 種預設手勢 + 自訂手勢",
+		"message": "16 種預設手勢 + 自訂手勢",
 		"description": "Feature 1"
 	},
 	"aboutFeature2": {
-		"message": "🎨 視覺化軌跡回饋",
+		"message": "視覺化軌跡回饋",
 		"description": "Feature 2"
 	},
 	"aboutFeature3": {
-		"message": "🔍 文字/圖片/連結超級拖曳",
+		"message": "文字/圖片/連結超級拖曳",
 		"description": "Feature 3"
 	},
 	"aboutFeature4": {
-		"message": "🚫 網站黑名單",
+		"message": "網站黑名單",
 		"description": "Feature 4"
 	},
 	"aboutFeature5": {
-		"message": "☁️ %browserName% 帳號同步",
+		"message": "%browserName% 帳號同步",
 		"description": "Feature 5"
 	},
 	"aboutFeature6": {
-		"message": "🔒 完全本地執行，除同步外無連線",
+		"message": "完全本地執行，除同步外無連線",
 		"description": "Feature 6"
 	},
 	"tutorial": {
@@ -988,15 +1088,15 @@
 		"description": "Learn more link"
 	},
 	"badgeNoNetwork": {
-		"message": "🔒 除同步外無連線",
+		"message": "除同步外無連線",
 		"description": "No network privacy badge"
 	},
 	"badgeNoData": {
-		"message": "🚫 不收集資料",
+		"message": "不收集資料",
 		"description": "No data collection badge"
 	},
 	"badgeLocalRun": {
-		"message": "✅ 本地執行",
+		"message": "本地執行",
 		"description": "Local run badge"
 	},
 	"newTabSettings": {
@@ -1091,6 +1191,10 @@
 		"message": "📋 複製連結文字",
 		"description": "Copy link text"
 	},
+	"dragActionCopyLinkAndText": {
+		"message": "📋 複製文字和連結",
+		"description": "Copy link text and URL"
+	},
 	"dragActionSaveImage": {
 		"message": "💾 儲存圖片",
 		"description": "Save image"
@@ -1111,6 +1215,10 @@
 		"message": "🔍 自訂搜尋",
 		"description": "Custom search"
 	},
+	"dragActionSendCustomEvent": {
+		"message": "發送自訂事件",
+		"description": "Send custom DOM event on drag gesture"
+	},
 	"reducedMotionWarning": {
 		"message": "%OS% 系統動畫未啟用，可能無法正常顯示捲動動畫。可在 %OS% 系統設定中開啟動畫。",
 		"description": "Warning message when system reduced motion is enabled"
@@ -1119,9 +1227,29 @@
 		"message": "自動辨識連結",
 		"description": "Auto detect URL checkbox label"
 	},
+	"autoDetectUrlTooltip": {
+		"message": "若文字是連結格式，則直接開啟而非搜尋",
+		"description": "Tooltip for the auto detect URL checkbox"
+	},
 	"preferLink": {
 		"message": "優先開啟連結",
 		"description": "Prefer link checkbox label"
+	},
+	"customHudName": {
+		"message": "名稱",
+		"description": "Placeholder for custom action name shown on HUD"
+	},
+	"customHudNameTooltip": {
+		"message": "執行手勢時顯示在螢幕上的自訂名稱",
+		"description": "Tooltip for the custom HUD name field"
+	},
+	"actionNoOptions": {
+		"message": "此指令無需任何設定。",
+		"description": "Placeholder shown in the action picker's detail panel when the selected action has no configurable settings"
+	},
+	"actionRequiredBadge": {
+		"message": "必填",
+		"description": "Badge shown next to fields that must be filled in (e.g., URL for Open URL)"
 	},
 	"menuNeedRefresh": {
 		"message": "FlowMouse 未載入，點擊重新整理",
@@ -1376,11 +1504,11 @@
 		"description": "Permission popup description for downloads"
 	},
 	"permissionDownloadsPageCaptureTitle": {
-		"message": "儲存圖片",
+		"message": "儲存內容",
 		"description": "Permission popup title for downloads and page capture"
 	},
 	"permissionDownloadsPageCaptureDesc": {
-		"message": "為了儲存圖片，FlowMouse 需要存取頁面和下載權限。",
+		"message": "為了儲存內容，FlowMouse 需要存取頁面和下載權限。",
 		"description": "Permission popup description for downloads and page capture"
 	},
 	"permissionIncognitoTitle": {
@@ -1390,6 +1518,14 @@
 	"permissionIncognitoDesc": {
 		"message": "如需在無痕視窗中使用，您需要手動為 FlowMouse 開啟「在無痕模式下啟用」權限。",
 		"description": "Permission popup description for incognito"
+	},
+	"permissionClipboardReadTitle": {
+		"message": "讀取剪貼簿",
+		"description": "Permission popup title for clipboard read"
+	},
+	"permissionClipboardReadDesc": {
+		"message": "為了貼上剪貼簿內容，FlowMouse 需要讀取剪貼簿的權限。",
+		"description": "Permission popup description for clipboard read"
 	},
 	"openExtensionsSettings": {
 		"message": "開啟擴充功能詳細資訊",
@@ -1434,6 +1570,10 @@
 	"buttonOkay": {
 		"message": "確定",
 		"description": "Generic OK button"
+	},
+	"buttonConfirm": {
+		"message": "確認",
+		"description": "Generic Confirm button"
 	},
 	"buttonCancel": {
 		"message": "取消",
@@ -1487,6 +1627,10 @@
 		"message": "按住右鍵並向下滾動滾輪",
 		"description": "Wheel gesture: scroll down while holding right button"
 	},
+	"wheelGesture_wheelClickHoldingRight": {
+		"message": "按住右鍵並點擊滾輪",
+		"description": "Wheel gesture: wheel (middle) click while holding right button"
+	},
 	"specialGestures": {
 		"message": "特殊手勢",
 		"description": "Special gestures section title"
@@ -1507,32 +1651,68 @@
 		"message": "按住左鍵並點擊右鍵",
 		"description": "Special gesture: right click while holding left button"
 	},
-	"actionChains": {
-		"message": "命令鏈",
-		"description": "Action chains section title"
-	},
 	"actionChainsDesc": {
-		"message": "建立可重複使用的命令序列，依序執行",
+		"message": "使用命令鏈，依序執行多個命令。",
 		"description": "Action chains section description"
 	},
 	"actionActionChain": {
 		"message": "命令鏈",
 		"description": "Action chain action name"
 	},
-	"actionCategoryChains": {
-		"message": "命令鏈",
-		"description": "Action category: action chains"
+	"actionCustomMenu": {
+		"message": "自訂選單",
+		"description": "Custom popup menu action name"
+	},
+	"customMenuDesc": {
+		"message": "建立包含多個動作的自訂彈出選單。",
+		"description": "Custom menu section description"
+	},
+	"addMenu": {
+		"message": "新增選單",
+		"description": "Add menu button"
+	},
+	"menuNamePlaceholder": {
+		"message": "自訂選單",
+		"description": "Menu name input placeholder"
+	},
+	"menuItemCount": {
+		"message": "%count% 個項目",
+		"description": "Item count for menus, e.g. '3 items'"
+	},
+	"menuItemCountOne": {
+		"message": "%count% 個項目",
+		"description": "Item count for menus with exactly 1 item"
+	},
+	"addMenuItem": {
+		"message": "新增項目",
+		"description": "Add menu item button"
+	},
+	"addMenuSeparator": {
+		"message": "新增分隔線",
+		"description": "Add separator to menu button"
+	},
+	"emptyMenuItems": {
+		"message": "暫無項目，點擊「新增項目」開始。",
+		"description": "Empty menu items message"
+	},
+	"menuNotFound": {
+		"message": "（找不到選單）",
+		"description": "Menu not found label"
+	},
+	"deleteMenuConfirm": {
+		"message": "確定要刪除選單「%name%」嗎？",
+		"description": "Delete menu confirmation"
+	},
+	"menuItemNumber": {
+		"message": "項目 %n%",
+		"description": "Menu item number label"
 	},
 	"addChain": {
 		"message": "新增命令鏈",
 		"description": "Add chain button"
 	},
-	"addNewChain": {
-		"message": "建立新命令鏈...",
-		"description": "Action item to navigate to chain editor and create a new chain"
-	},
 	"chainNamePlaceholder": {
-		"message": "我的命令鏈",
+		"message": "命令鏈",
 		"description": "Chain name input placeholder"
 	},
 	"chainDelayUnit": {
@@ -1579,6 +1759,14 @@
 		"message": "模擬按鍵",
 		"description": "Action to simulate a keyboard key press on the page"
 	},
+	"actionPasteClipboard": {
+		"message": "貼上剪貼簿",
+		"description": "Action to paste clipboard text at the gesture start position"
+	},
+	"pasteClipboardHint": {
+		"message": "剪貼簿內容將貼上到<b>手勢起始位置</b>的輸入框中。",
+		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
 	"simulateKeyPreset": {
 		"message": "預設按鍵",
 		"description": "Label for preset key dropdown in simulate key config"
@@ -1615,6 +1803,14 @@
 		"message": "JSON 格式無效",
 		"description": "Error message when event detail is not valid JSON"
 	},
+	"customEventIncludeGestureInfo": {
+		"message": "在 %code% 中包含手勢資訊",
+		"description": "Checkbox label for including gesture context in custom event detail. %code% = detail.gesture"
+	},
+	"customEventConfigureBtn": {
+		"message": "設定",
+		"description": "Label for the configure button of custom event action in drag gesture manager"
+	},
 	"customEventHint": {
 		"message": "在 %window% 上觸發 %code%，可用於與其他腳本整合。",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
@@ -1630,5 +1826,233 @@
 	"chainStepCountOne": {
 		"message": "%count% 個步驟",
 		"description": "Step count for unnamed chains with exactly 1 step"
+	},
+	"actionZoomIn": {
+		"message": "放大頁面",
+		"description": "Zoom in on the current page"
+	},
+	"actionZoomOut": {
+		"message": "縮小頁面",
+		"description": "Zoom out on the current page"
+	},
+	"actionResetZoom": {
+		"message": "重設縮放",
+		"description": "Reset page zoom to default or a specified level"
+	},
+	"actionViewPageSource": {
+		"message": "檢視網頁原始碼",
+		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionPauseGesture": {
+		"message": "暫停手勢直到重新整理",
+		"description": "Temporarily disable all gestures on the current tab until page refresh"
+	},
+	"actionAreaSelect": {
+		"message": "區域框選",
+		"description": "Enter area select mode to drag-select links on the page and batch open them"
+	},
+	"areaSelectTitle": {
+		"message": "區域框選",
+		"description": "Label for the area select row in the popup"
+	},
+	"areaSelectModifierKey": {
+		"message": "快速區域框選",
+		"description": "Label for the modifier key dropdown in area select settings"
+	},
+	"areaSelectModifierKeyDesc": {
+		"message": "按住修飾鍵的同時按下滑鼠左鍵並拖曳，快速框選頁面上的連結並進行批次操作",
+		"description": "Description for the modifier key setting"
+	},
+	"areaSelectDisabled": {
+		"message": "停用",
+		"description": "Disabled option for the area select modifier key dropdown"
+	},
+	"areaSelectMouseDrag": {
+		"message": "滑鼠拖曳",
+		"description": "Suffix label next to the modifier key dropdown"
+	},
+	"areaSelectTextUrl": {
+		"message": "文字URL辨識",
+		"description": "Label for the text URL recognition toggle"
+	},
+	"areaSelectTextUrlDesc": {
+		"message": "框選時同時提取純文字URL（非超連結）",
+		"description": "Description for the text URL recognition toggle"
+	},
+	"areaSelectWarnThreshold": {
+		"message": "批次操作提醒",
+		"description": "Label for the batch operation alert threshold input"
+	},
+	"areaSelectWarnThresholdDesc": {
+		"message": "批次操作超過此數量時顯示確認，設為 0 以停用",
+		"description": "Description for the batch operation alert threshold"
+	},
+	"areaSelectDelay": {
+		"message": "操作間隔",
+		"description": "Label for the operation interval input"
+	},
+	"areaSelectDelayDesc": {
+		"message": "批次開啟時每次操作之間的延遲（秒）",
+		"description": "Description for the operation interval setting"
+	},
+	"areaSelectHint": {
+		"message": "拖曳以選取連結",
+		"description": "Hint text shown in the area select overlay"
+	},
+	"areaSelectOpen": {
+		"message": "開啟 %count% 個連結",
+		"description": "Button text in the area select toolbar to batch open selected links"
+	},
+	"areaSelectOpenOne": {
+		"message": "開啟 %count% 個連結",
+		"description": "Button text to open a single selected link (singular form)"
+	},
+	"areaSelectCopy": {
+		"message": "複製連結",
+		"description": "Button text to copy all selected link URLs to clipboard"
+	},
+	"areaSelectCancel": {
+		"message": "取消",
+		"description": "Button text to cancel area select mode"
+	},
+	"areaSelectConfirm": {
+		"message": "確認",
+		"description": "Button text to confirm opening many links"
+	},
+	"areaSelectWarnTitle": {
+		"message": "開啟大量連結？",
+		"description": "Title of the warning modal when opening many links"
+	},
+	"areaSelectWarnMessage": {
+		"message": "即將開啟 %count% 個連結，這可能會導致瀏覽器變慢。是否繼續？",
+		"description": "Body text of the warning modal"
+	},
+	"start": {
+		"message": "開始",
+		"description": "Button label to start an action (e.g. area select)"
+	},
+	"actionMenuShowTabs": {
+		"message": "切換分頁",
+		"description": "Show a context menu listing all open tabs in the current window"
+	},
+	"actionMenuRecentlyClosed": {
+		"message": "最近關閉的分頁",
+		"description": "Show a context menu listing recently closed tabs for quick restore"
+	},
+	"recentlyClosedMaxItems": {
+		"message": "最大數量",
+		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
+	},
+	"actionCategoryContextMenu": {
+		"message": "彈出選單",
+		"description": "Action category: context menu actions"
+	},
+	"zoomStepMode": {
+		"message": "縮放方式",
+		"description": "Label for zoom mode selector: browser steps vs fixed increment"
+	},
+	"zoomStepModeBrowser": {
+		"message": "使用瀏覽器縮放級別",
+		"description": "Option: follow Chrome's built-in zoom steps (25%, 33%, 50%, …, 500%)"
+	},
+	"zoomStepModeFixed": {
+		"message": "固定步進",
+		"description": "Option: zoom in/out by a configurable fixed percentage each time"
+	},
+	"zoomDelta": {
+		"message": "步進大小",
+		"description": "Label for the zoom increment/decrement slider"
+	},
+	"resetZoomLevel": {
+		"message": "重設為",
+		"description": "Label for the target zoom level when resetting zoom"
+	},
+	"resetZoomDefault": {
+		"message": "瀏覽器預設值",
+		"description": "Option: reset zoom to the browser's default zoom setting"
+	},
+	"resetZoomCustom": {
+		"message": "自訂值",
+		"description": "Option: reset zoom to a user-specified custom zoom level"
+	},
+	"actionMenuShowBookmarks": {
+		"message": "顯示書籤",
+		"description": "Show a context menu listing bookmarks from a selected folder"
+	},
+	"bookmarkFolder": {
+		"message": "資料夾",
+		"description": "Label for selecting which bookmark folder to display"
+	},
+	"bookmarkGrantPermission": {
+		"message": "授權書籤權限",
+		"description": "Button label to request bookmarks permission"
+	},
+	"ctxMenuSortOrder": {
+		"message": "排序方式",
+		"description": "Label for context menu sort order dropdown"
+	},
+	"ctxMenuSortDefault": {
+		"message": "預設",
+		"description": "Sort option: original API/insertion order"
+	},
+	"ctxMenuSortDefaultDesc": {
+		"message": "預設（倒序）",
+		"description": "Sort option: reverse of original API order"
+	},
+	"ctxMenuSortDateAddedAsc": {
+		"message": "加入日期（最早優先）",
+		"description": "Sort option: by date added ascending"
+	},
+	"ctxMenuSortDateAddedDesc": {
+		"message": "加入日期（最新優先）",
+		"description": "Sort option: by date added descending"
+	},
+	"ctxMenuSortNameAsc": {
+		"message": "名稱（遞增）",
+		"description": "Sort option: alphabetical ascending"
+	},
+	"ctxMenuSortNameDesc": {
+		"message": "名稱（遞減）",
+		"description": "Sort option: alphabetical descending"
+	},
+	"ctxMenuSortLastAccessAsc": {
+		"message": "最近存取（最早優先）",
+		"description": "Sort option: by last access time ascending"
+	},
+	"ctxMenuSortLastAccessDesc": {
+		"message": "最近存取（最新優先）",
+		"description": "Sort option: by last access time descending"
+	},
+	"ctxMenuMaxItems": {
+		"message": "最大數量",
+		"description": "Label for maximum number of items in context menu"
+	},
+	"ctxMenuMaxItemsUnlimited": {
+		"message": "無限制",
+		"description": "Placeholder shown when max items is 0 (no limit)"
+	},
+	"ctxMenuScrollToBottom": {
+		"message": "捲動到底部",
+		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuTimeDisplay": {
+		"message": "顯示時間",
+		"description": "Label for time display mode dropdown in context menu"
+	},
+	"ctxMenuTimeNone": {
+		"message": "不顯示",
+		"description": "Time display option: hide time column"
+	},
+	"ctxMenuTimeLastAccess": {
+		"message": "最近存取",
+		"description": "Time display option: show last access time"
+	},
+	"ctxMenuTimeClosedTime": {
+		"message": "關閉時間",
+		"description": "Time display option: show when the tab was closed"
+	},
+	"ctxMenuTimeDateAdded": {
+		"message": "加入日期",
+		"description": "Time display option: show when the bookmark was added"
 	}
 }

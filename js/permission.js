@@ -33,6 +33,14 @@
 		iconDownloads.style.display = 'block';
 		permissions = permissionsParam.split(',');
 	}
+	if (permissionsParam === 'clipboardRead') {
+		const titleText = window.i18n.getMessage('permissionClipboardReadTitle');
+		titleEl.textContent = titleText;
+		descEl.textContent = window.i18n.getMessage('permissionClipboardReadDesc');
+		const iconClipboard = document.getElementById('icon-clipboard');
+		if (iconClipboard) iconClipboard.style.display = 'block';
+		permissions = permissionsParam.split(',');
+	}
 	if (permissionsParam === 'incognito') {
 		{
 			const titleText = window.i18n.getMessage('permissionFirefoxIncognitoTitle');

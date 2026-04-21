@@ -1,10 +1,12 @@
 import { LitElement, html, css, unsafeHTML } from '../../js/lib/lit-all.min.js';
 import { commonStyles, optionStyles } from './shared-styles.js';
 import { icon } from '../icons.js'; 
+import { tooltip } from '../tooltip.js';
 
 class GestureGrid extends LitElement {
 	static properties = {
 		mouseGestures: { type: Object },       
+		advancedMode: { type: Boolean, attribute: 'advanced-mode' },
 	};
 
 	static styles = [
@@ -15,13 +17,17 @@ class GestureGrid extends LitElement {
 				display: block;
 			}
 
+			.gesture-item {
+				position: relative;
+			}
+
 			.gesture-item .reset-btn,
 			.gesture-item .delete-gesture-btn {
 				position: absolute;
-				top: 4px;
-				inset-inline-end: 4px;
-				width: 22px;
-				height: 22px;
+				top: 6px;
+				inset-inline-end: 6px;
+				width: 18px;
+				height: 18px;
 				border: none;
 				border-radius: 50%;
 				cursor: pointer;
@@ -29,7 +35,7 @@ class GestureGrid extends LitElement {
 				display: inline-flex;
 				align-items: center;
 				justify-content: center;
-				transition: all 0.2s;
+				transition: color 0.2s;
 				z-index: 1;
 			}
 
@@ -39,8 +45,7 @@ class GestureGrid extends LitElement {
 			}
 
 			.gesture-item .reset-btn:hover {
-				background: var(--primary-color);
-				color: white;
+				color: var(--accent-color);
 			}
 
 			.gesture-item .delete-gesture-btn {
@@ -50,18 +55,15 @@ class GestureGrid extends LitElement {
 			}
 
 			.gesture-item .delete-gesture-btn:hover {
-				background: var(--danger-color);
-				color: white;
+				color: var(--danger-color);
 			}
 
 			.gesture-item.modified {
-				position: relative;
 				background: rgba(66, 133, 244, 0.05);
 				border-radius: 8px;
 			}
 
 			.gesture-item.custom {
-				position: relative;
 				background: rgba(52, 168, 83, 0.05);
 			}
 		`,
@@ -128,11 +130,11 @@ class GestureGrid extends LitElement {
 			<div class="gesture-item ${isModified ? 'modified' : ''} ${isCustom ? 'custom' : ''}">
 				${isCustom ? html`
 					<button class="delete-gesture-btn" @click=${() => this.#handleDelete(pattern)}
-						title=${window.i18n.getMessage('deleteGesture')}
+						.tooltip=${tooltip(window.i18n.getMessage('deleteGesture'))}
 						style="display: inline-flex">${unsafeHTML(icon('x', { size: 14, strokeWidth: 2.5 }))}</button>
 				` : html`
 					<button class="reset-btn" @click=${() => this.#handleReset(pattern)}
-						title=${window.i18n.getMessage('resetToDefault')}
+						.tooltip=${tooltip(window.i18n.getMessage('resetToDefault'))}
 						style="display: ${isModified ? 'inline-flex' : 'none'}">${unsafeHTML(icon('rotateCcw', { size: 13, strokeWidth: 2.5 }))}</button>
 				`}
 				<div class="gesture-pattern" title="${pattern} ${desc}">
@@ -142,6 +144,7 @@ class GestureGrid extends LitElement {
 					.value=${currentAction}
 					.config=${entryConfig}
 					.gestureLabel=${`${pattern}${desc ? ' ' + desc : ''}`}
+					?allow-custom-name=${this.advancedMode}
 					data-pattern=${pattern}
 					@action-change=${(e) => this.#handleActionChange(pattern, e)}
 				></action-select>

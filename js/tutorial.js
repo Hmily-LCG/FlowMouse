@@ -68,7 +68,7 @@
 		settingsDragContainer: document.querySelector('.settings-drag-container')
 	};
 
-	const visualizer = new window.GestureVisualizer();
+	const visualizer = new window.GestureOverlay();
 
 	const recognizer = new window.GestureRecognizer({
 		distanceThreshold: CONFIG.DISTANCE_THRESHOLD

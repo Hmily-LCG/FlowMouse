@@ -2,6 +2,7 @@ import { LitElement, html, css, unsafeHTML, unsafeCSS, live } from '../../js/lib
 import { commonStyles, optionStyles } from './shared-styles.js';
 import { SettingsStore } from '../settings-store.js';
 import { icons, icon, iconUrl } from '../icons.js'; 
+import { tooltip } from '../tooltip.js';
 
 class OptionsPage extends LitElement {
 	static properties = {
@@ -44,7 +45,7 @@ class OptionsPage extends LitElement {
 				background: transparent;
 				cursor: pointer;
 				border-radius: 8px;
-				transition: background 0.2s ease;
+				transition: background-color 0.2s ease;
 				width: fit-content;
 			}
 
@@ -228,13 +229,14 @@ class OptionsPage extends LitElement {
 		this._navClickLock = false;
 		this._sectionHoverTimer = null;
 		this._debounceTimer = null;
+		this._pendingPatch = null;
 		this._statusTimer = null;
 		this._store = SettingsStore;
 	}
 
 	connectedCallback() {
 		super.connectedCallback();
-		this._boundBeforeUnload = () => this.#flushPendingDebounce();
+		this._boundBeforeUnload = () => this.#flushPendingPatch();
 		this._boundMouseMove = (e) => this.#onDocumentMouseMove(e);
 		this._boundScroll = () => this.#updateHoveredSection();
 		this._boundNavigateSection = (e) => this.#onNavigateSection(e);
@@ -253,12 +255,21 @@ class OptionsPage extends LitElement {
 		this.removeEventListener('navigate-section', this._boundNavigateSection);
 	}
 
-	#flushPendingDebounce() {
+	#flushPendingPatch() {
 		if (this._debounceTimer) {
 			clearTimeout(this._debounceTimer);
 			this._debounceTimer = null;
-			this._store.save(this.#collectSettings());
 		}
+		if (!this._pendingPatch) return;
+		const patch = this._pendingPatch;
+		this._pendingPatch = null;
+		this._store.save(patch).then((ok) => {
+			if (!ok) {
+				this.#showStatus(window.i18n.getMessage('saveFailure'), 'error');
+				return;
+			}
+			this._settings = { ...this._store.current, ...(this._pendingPatch || {}) };
+		});
 	}
 
 	async #init() {
@@ -274,7 +285,7 @@ class OptionsPage extends LitElement {
 			if ('theme' in changed) {
 				window.i18n.applyTheme(changed.theme);
 			}
-			this._settings = { ...this._store.current };
+			this._settings = { ...this._store.current, ...(this._pendingPatch || {}) };
 		});
 
 		this.updateComplete.then(() => {
@@ -310,12 +321,115 @@ class OptionsPage extends LitElement {
 						</h1>
 					</div>
 					<div class="header-controls">
-						<button class="theme-toggle" @click=${this.#rotateTheme} title=${this.#getThemeLabel(i18n)}>
+						<button class="theme-toggle" @click=${this.#rotateTheme} .tooltip=${tooltip(this.#getThemeLabel(i18n))}>
 							<span class="theme-toggle-icon">${unsafeHTML(this.#getThemeIcon())}</span>
 						</button>
-						<language-select id="language" .value=${this._settings.language || 'auto'} @change=${this.#onLanguageChange} title=${i18n.getMessage('language')}></language-select>
+						<language-select id="language" .value=${this._settings.language || 'auto'} @change=${this.#onLanguageChange}></language-select>
 					</div>
 				</header>
+
+				<div class="section ${this._activeSection === 'style' ? 'active' : ''} ${(this._settings.sectionAdvanced?.style) ? 'advanced-expanded' : ''}" data-nav="style">
+					<h2><span class="section-icon">${unsafeHTML(icon('palette', { strokeWidth: 2.3 }))}</span> <span>${i18n.getMessage('styleSettings')}</span>${this.#renderAdvancedToggle('style')}</h2>
+					<div class="section-body">
+						<div class="setting-row first-row">
+							<div class="setting-label">
+								<span class="setting-title">${i18n.getMessage('showTrail')}${this.#renderInlineReset(['enableTrail', 'trailColor', 'trailWidth', 'showTrailOrigin', 'enableTrailSmooth'], { confirm: true })}</span>
+								<span>${i18n.getMessage('showTrailDesc')}</span>
+							</div>
+							<label class="toggle">
+								<input type="checkbox" id="enableTrail" .checked=${this._settings.enableTrail} @change=${e => this.#updateSetting('enableTrail', e.target.checked)}>
+								<span class="slider"></span>
+							</label>
+						</div>
+						<div class="sub-settings ${this._settings.enableTrail ? 'show' : ''}" style="padding-block: 12px;">
+							<div class="inline-settings">
+								<div class="inline-setting-item">
+									<span>${i18n.getMessage('color')}</span>
+									<color-picker id="trailColor" .value=${this._settings.trailColor} alpha .defaultValue=${defaults.trailColor} @change=${e => this.#updateSetting('trailColor', e.detail.value)} @input=${e => this.#debounceSetting('trailColor', e.detail.value)}></color-picker>
+								</div>
+								<div class="inline-setting-item">
+									<span>${i18n.getMessage('width')}</span>
+									<input type="number" id="trailWidth" .value=${String(this._settings.trailWidth)} min="1" max="20" @change=${e => this.#updateSetting('trailWidth', e.target.value)} @input=${e => this.#debounceSetting('trailWidth', e.target.value)}>
+								</div>
+								<div class="inline-setting-item advanced-setting">
+									<label>
+										<input type="checkbox" id="showTrailOrigin" .checked=${this._settings.showTrailOrigin} @change=${e => this.#updateSetting('showTrailOrigin', e.target.checked)}>
+										<span>${i18n.getMessage('showTrailOrigin')}</span>
+									</label>
+								</div>
+								<div class="inline-setting-item advanced-setting">
+									<label>
+										<input type="checkbox" id="enableTrailSmooth" .checked=${this._settings.enableTrailSmooth} @change=${e => this.#updateSetting('enableTrailSmooth', e.target.checked)}>
+										<span>${i18n.getMessage('enableTrailSmooth')}</span>
+									</label>
+								</div>
+							</div>
+						</div>
+
+						<div class="setting-row">
+							<div class="setting-label">
+								<span class="setting-title">${i18n.getMessage('showHint')}${this.#renderInlineReset(['enableHUD', 'hudBgColor', 'hudTextColor', 'hudBlurRadius', 'enableHudShadow'], { confirm: true })}</span>
+								<span>${i18n.getMessage('showHintDesc')}</span>
+							</div>
+							<label class="toggle">
+								<input type="checkbox" id="enableHUD" .checked=${this._settings.enableHUD} @change=${e => this.#updateSetting('enableHUD', e.target.checked)}>
+								<span class="slider"></span>
+							</label>
+						</div>
+						<div class="sub-settings ${this._settings.enableHUD ? 'show' : ''}" style="padding-block: 12px;">
+							<div class="inline-settings">
+								<div class="inline-setting-item">
+									<span>${i18n.getMessage('background')}</span>
+									<color-picker
+										id="hudBgColor"
+										.value=${this._settings.hudBgColor}
+										alpha
+										.blurRadius=${this._settings.hudBlurRadius}
+										.defaultValue=${defaults.hudBgColor}
+										.defaultBlurRadius=${defaults.hudBlurRadius}
+										@change=${e => {
+											this.#updateSetting('hudBgColor', e.detail.value);
+											this.#updateSetting('hudBlurRadius', e.detail.blurRadius);
+										}}
+										@input=${e => {
+											this.#debounceSetting('hudBgColor', e.detail.value);
+											this.#debounceSetting('hudBlurRadius', e.detail.blurRadius);
+										}}
+									></color-picker>
+								</div>
+								<div class="inline-setting-item">
+									<span>${i18n.getMessage('text')}</span>
+									<color-picker
+										id="hudTextColor"
+										.value=${this._settings.hudTextColor}
+										alpha
+										.defaultValue=${defaults.hudTextColor}
+										@change=${e => this.#updateSetting('hudTextColor', e.detail.value)}
+										@input=${e => this.#debounceSetting('hudTextColor', e.detail.value)}
+									></color-picker>
+								</div>
+								<div class="inline-setting-item">
+									<label>
+										<input type="checkbox" id="enableHudShadow" .checked=${this._settings.enableHudShadow} @change=${e => this.#updateSetting('enableHudShadow', e.target.checked)}>
+										<span>${i18n.getMessage('hudShadow')}</span>
+									</label>
+								</div>
+							</div>
+						</div>
+
+						<div class="setting-row ${this._settings.customCss ? '' : 'advanced-setting'}">
+							<div class="setting-label">
+								<span class="setting-title">${i18n.getMessage('customCss')}${this.#renderInlineReset('customCss', { confirm: true })}</span>
+								<span>${i18n.getMessage('customCssDesc')}</span>
+							</div>
+							<a class="btn btn-ghost" id="customCssConfigBtn"
+								href="css-editor.html" target="_blank" rel="noopener">
+								${unsafeHTML(icon('codeXml', { size: 15, strokeWidth: 2.2 }))}
+								<span>${this._settings.customCss ? i18n.getMessage('customCssEdit') : i18n.getMessage('customCssConfigure')}</span>
+							</a>
+						</div>
+					</div>
+				</div>
 
 				<div class="section ${this._activeSection === 'basic' ? 'active' : ''} ${(this._settings.sectionAdvanced?.basic) ? 'advanced-expanded' : ''}" data-nav="basic">
 					<h2><span class="section-icon">${unsafeHTML(icon('mouseRight', { strokeWidth: 2.3 }))}</span> <span>${i18n.getMessage('basicSettings')}</span>${this.#renderAdvancedToggle('basic')}</h2>
@@ -371,92 +485,6 @@ class OptionsPage extends LitElement {
 								<div class="setting-notice"><span>${i18n.getMessage('triggerButtonDriverWarning')}</span></div>
 							` : ''}
 
-							<div class="setting-row">
-								<div class="setting-label">
-									<span class="setting-title">${i18n.getMessage('showTrail')}${this.#renderInlineReset(['enableTrail', 'trailColor', 'trailWidth', 'showTrailOrigin', 'enableTrailSmooth'], { confirm: true })}</span>
-									<span>${i18n.getMessage('showTrailDesc')}</span>
-								</div>
-								<label class="toggle">
-									<input type="checkbox" id="enableTrail" .checked=${this._settings.enableTrail} @change=${e => this.#updateSetting('enableTrail', e.target.checked)}>
-									<span class="slider"></span>
-								</label>
-							</div>
-							<div class="sub-settings ${this._settings.enableTrail ? 'show' : ''}" style="padding-block: 12px;">
-								<div class="inline-settings">
-									<div class="inline-setting-item">
-										<span>${i18n.getMessage('color')}</span>
-										<color-picker id="trailColor" .value=${this._settings.trailColor} alpha .defaultValue=${defaults.trailColor} @change=${e => this.#updateSetting('trailColor', e.detail.value)} @input=${e => this.#debounceSetting('trailColor', e.detail.value)}></color-picker>
-									</div>
-									<div class="inline-setting-item">
-										<span>${i18n.getMessage('width')}</span>
-										<input type="number" id="trailWidth" .value=${String(this._settings.trailWidth)} min="1" max="20" @change=${e => this.#updateSetting('trailWidth', e.target.value)} @input=${e => this.#debounceSetting('trailWidth', e.target.value)}>
-									</div>
-									<div class="inline-setting-item advanced-setting">
-										<label>
-											<input type="checkbox" id="showTrailOrigin" .checked=${this._settings.showTrailOrigin} @change=${e => this.#updateSetting('showTrailOrigin', e.target.checked)}>
-											<span>${i18n.getMessage('showTrailOrigin')}</span>
-										</label>
-									</div>
-									<div class="inline-setting-item advanced-setting">
-										<label>
-											<input type="checkbox" id="enableTrailSmooth" .checked=${this._settings.enableTrailSmooth} @change=${e => this.#updateSetting('enableTrailSmooth', e.target.checked)}>
-											<span>${i18n.getMessage('enableTrailSmooth')}</span>
-										</label>
-									</div>
-								</div>
-							</div>
-
-							<div class="setting-row">
-								<div class="setting-label">
-									<span class="setting-title">${i18n.getMessage('showHint')}${this.#renderInlineReset(['enableHUD', 'hudBgColor', 'hudTextColor', 'hudBlurRadius', 'enableHudShadow'], { confirm: true })}</span>
-									<span>${i18n.getMessage('showHintDesc')}</span>
-								</div>
-								<label class="toggle">
-									<input type="checkbox" id="enableHUD" .checked=${this._settings.enableHUD} @change=${e => this.#updateSetting('enableHUD', e.target.checked)}>
-									<span class="slider"></span>
-								</label>
-							</div>
-							<div class="sub-settings ${this._settings.enableHUD ? 'show' : ''}" style="padding-block: 12px;">
-								<div class="inline-settings">
-									<div class="inline-setting-item">
-										<span>${i18n.getMessage('background')}</span>
-										<color-picker
-											id="hudBgColor"
-											.value=${this._settings.hudBgColor}
-											alpha
-											.blurRadius=${this._settings.hudBlurRadius}
-											.defaultValue=${defaults.hudBgColor}
-											.defaultBlurRadius=${defaults.hudBlurRadius}
-											@change=${e => {
-												this.#updateSetting('hudBgColor', e.detail.value);
-												this.#updateSetting('hudBlurRadius', e.detail.blurRadius);
-											}}
-											@input=${e => {
-												this.#debounceSetting('hudBgColor', e.detail.value);
-												this.#debounceSetting('hudBlurRadius', e.detail.blurRadius);
-											}}
-										></color-picker>
-									</div>
-									<div class="inline-setting-item">
-										<span>${i18n.getMessage('text')}</span>
-										<color-picker
-											id="hudTextColor"
-											.value=${this._settings.hudTextColor}
-											alpha
-											.defaultValue=${defaults.hudTextColor}
-											@change=${e => this.#updateSetting('hudTextColor', e.detail.value)}
-											@input=${e => this.#debounceSetting('hudTextColor', e.detail.value)}
-										></color-picker>
-									</div>
-									<div class="inline-setting-item">
-										<label>
-											<input type="checkbox" id="enableHudShadow" .checked=${this._settings.enableHudShadow} @change=${e => this.#updateSetting('enableHudShadow', e.target.checked)}>
-											<span>${i18n.getMessage('hudShadow')}</span>
-										</label>
-									</div>
-								</div>
-							</div>
-
 							<div class="setting-row advanced-setting">
 								<div class="setting-label">
 									<span class="setting-title">${i18n.getMessage('distanceThreshold')}${this.#renderInlineReset('distanceThreshold')}</span>
@@ -496,14 +524,15 @@ class OptionsPage extends LitElement {
 								<div style="display:${this._settings.enableGestureCustomization ? 'block' : 'none'}">
 									<gesture-grid id="gestureGrid"
 										.mouseGestures=${{ ...(this._settings.mouseGestures || {}) }}
+										?advanced-mode=${this._settings.sectionAdvanced?.basic}
 										@gestures-change=${this.#onGesturesChange}
 										@gesture-delete=${this.#onGestureDelete}
 										@permission-check=${this.#onPermissionCheck}
 									></gesture-grid>
 
-									<div class="advanced-setting" style="margin-bottom: 18px;">
-										<button class="add-gesture-btn" id="openGestureDrawer" @click=${this.#openGestureModal}>
-										<span class="add-gesture-icon">${unsafeHTML(icons.plus)}</span> <span>${i18n.getMessage('addCustomGesture')}</span>
+									<div style="margin-bottom: 18px;">
+										<button class="btn btn-dashed btn-lg add-gesture-btn" id="openGestureDrawer" @click=${this.#openGestureModal}>
+										${unsafeHTML(icons.plus)} <span>${i18n.getMessage('addCustomGesture')}</span>
 									</button>
 									</div>
 								</div>
@@ -528,6 +557,19 @@ class OptionsPage extends LitElement {
 							</div>
 							${showMacTextDragNotice ? html`
 								<div class="setting-warning"><span>${i18n.getMessage('macTextDragNotice')}</span></div>
+							` : ''}
+							${this._settings.enableTextDrag && this._settings.sectionAdvanced?.drag ? html`
+							<div class="sub-settings show" style="padding-block: 15px; margin-bottom: 10px;">
+								<div class="inline-settings">
+									<div class="inline-setting-item">
+										<label>
+											<input type="checkbox" id="textDragIgnoreInput" .checked=${this._settings.textDragIgnoreInput} @change=${e => this.#updateSetting('textDragIgnoreInput', e.target.checked)}>
+											<span>${i18n.getMessage('textDragIgnoreInput')}</span>
+											<span class="help-icon" .tooltip=${tooltip(i18n.getMessage('textDragIgnoreInputDesc'))}>${unsafeHTML(icon('circleHelp', { size: 14 }))}</span>
+										</label>
+									</div>
+								</div>
+							</div>
 							` : ''}
 							<div class="sub-settings ${this._settings.enableTextDrag ? 'show' : ''}">
 								<div class="drag-settings-section">
@@ -589,6 +631,59 @@ class OptionsPage extends LitElement {
 					</div>
 				</div>
 
+				<div class="section ${this._activeSection === 'areaSelect' ? 'active' : ''}" data-nav="areaSelect">
+					<h2><span class="section-icon">${unsafeHTML(icon('squareDashedMousePointer', { strokeWidth: 2.3 }))}</span> <span>${i18n.getMessage('areaSelectTitle')}</span></h2>
+					<div class="section-body">
+						<div class="setting-row first-row">
+							<div class="setting-label">
+								<span class="setting-title">${i18n.getMessage('areaSelectModifierKey')}${this.#renderInlineReset('areaSelectModifierKey')}</span>
+								<span>${i18n.getMessage('areaSelectModifierKeyDesc')}</span>
+							</div>
+							<div style="display:flex;align-items:center;gap:8px;">
+								<select class="input-lg" .value=${this._settings.areaSelectModifierKey}
+									@change=${e => this.#updateSetting('areaSelectModifierKey', e.target.value)}>
+									<option value="disabled">${i18n.getMessage('areaSelectDisabled')}</option>
+									<option value="Shift">${i18n.getModifierKeyName('Shift')}</option>
+									<option value="Ctrl">${i18n.getModifierKeyName('Ctrl')}</option>
+									<option value="Alt">${i18n.getModifierKeyName('Alt')}</option>
+									<option value="Meta">${i18n.getModifierKeyName('Meta')}</option>
+								</select>
+								${this._settings.areaSelectModifierKey !== 'disabled' ? html`<span> + </span><span>${i18n.getMessage('areaSelectMouseDrag')}</span>` : ''}
+							</div>
+						</div>
+						<div class="setting-row">
+							<div class="setting-label">
+								<span class="setting-title">${i18n.getMessage('areaSelectTextUrl')}${this.#renderInlineReset('areaSelectTextUrl')}</span>
+								<span>${i18n.getMessage('areaSelectTextUrlDesc')}</span>
+							</div>
+							<label class="toggle">
+								<input type="checkbox" id="areaSelectTextUrl"
+									.checked=${this._settings.areaSelectTextUrl}
+									@change=${e => this.#updateSetting('areaSelectTextUrl', e.target.checked)}>
+								<span class="slider"></span>
+							</label>
+						</div>
+						<div class="setting-row">
+							<div class="setting-label">
+								<span class="setting-title">${i18n.getMessage('areaSelectWarnThreshold')}${this.#renderInlineReset('areaSelectWarnThreshold')}</span>
+								<span>${i18n.getMessage('areaSelectWarnThresholdDesc')}</span>
+							</div>
+							<input type="number" class="input-lg" id="areaSelectWarnThreshold" min="0" max="999" step="1" style="width:70px;"
+								.value=${String(this._settings.areaSelectWarnThreshold)}
+								@change=${e => { const v = Math.max(0, Math.min(999, parseInt(e.target.value) || 0)); e.target.value = v; this.#updateSetting('areaSelectWarnThreshold', v); }}>
+						</div>
+						<div class="setting-row">
+							<div class="setting-label">
+								<span class="setting-title">${i18n.getMessage('areaSelectDelay')}${this.#renderInlineReset('areaSelectDelay')}</span>
+								<span>${i18n.getMessage('areaSelectDelayDesc')}</span>
+							</div>
+							<input type="number" class="input-lg" id="areaSelectDelay" min="0" max="60" step="0.1" style="width:70px;"
+								.value=${String(this._settings.areaSelectDelay)}
+								@change=${e => { const v = Math.max(0, Math.min(60, Math.round(parseFloat(e.target.value) * 100) / 100 || 0)); e.target.value = v; this.#updateSetting('areaSelectDelay', v); }}>
+						</div>
+					</div>
+				</div>
+
 				<div class="section ${this._activeSection === 'wheel' ? 'active' : ''}" data-nav="wheel">
 					<h2><span class="section-icon">${unsafeHTML(icon('mouse', { strokeWidth: 2.3 }))}</span> <span>${i18n.getMessage('wheelGestures')}</span></h2>
 					<div class="section-body">
@@ -636,27 +731,6 @@ class OptionsPage extends LitElement {
 						</div>
 					</div>
 				</div>
-
-				${this.#shouldShowChainSection() ? html`
-				<div class="section ${this._activeSection === 'chains' ? 'active' : ''}" data-nav="chains">
-					<h2><span class="section-icon">${unsafeHTML(icon('workflow', { strokeWidth: 2.3 }))}</span> <span>${i18n.getMessage('actionChains')}</span></h2>
-					<div class="section-body">
-						<div class="setting-row first-row">
-							<div class="setting-label">
-								<span>${i18n.getMessage('actionChains')}</span>
-								<span>${i18n.getMessage('actionChainsDesc')}</span>
-							</div>
-						</div>
-						<div class="sub-settings show">
-							<chain-editor
-								.actionChains=${{ ...(this._settings.actionChains || {}) }}
-								@chains-change=${this.#onChainsChange}
-								@permission-check=${this.#onPermissionCheck}
-							></chain-editor>
-						</div>
-					</div>
-				</div>
-				` : ''}
 
 				<div class="section ${this._activeSection === 'blacklist' ? 'active' : ''}" data-nav="blacklist">
 					<h2><span class="section-icon">${unsafeHTML(icon('mouseOff', { strokeWidth: 2.3 }))}</span> <span>${i18n.getMessage('blacklist')}</span></h2>
@@ -732,14 +806,14 @@ class OptionsPage extends LitElement {
 								<span>${i18n.getMessage('syncStatusDesc')}</span>
 							</div>
 							<div class="sync-status">
-								<span>${i18n.getMessage('synced')}</span>
+								<span>${i18n.getMessage('saved')}</span>
 								${this._settings.lastSyncTime ? html`<span>${this.#formatSyncTime(this._settings.lastSyncTime)}</span>` : ''}
 							</div>
 						</div>
 						<div class="setting-row actions">
-							<button class="btn btn-secondary" @click=${this.#exportSettings}>${i18n.getMessage('export')}</button>
-							<button class="btn btn-secondary" @click=${this.#triggerImport}>${i18n.getMessage('import')}</button>
-							<button class="btn btn-danger" @click=${this.#resetSettings}>${i18n.getMessage('reset')}</button>
+							<button class="btn btn-secondary btn-lg" @click=${this.#exportSettings}>${i18n.getMessage('export')}</button>
+							<button class="btn btn-secondary btn-lg" @click=${this.#triggerImport}>${i18n.getMessage('import')}</button>
+							<button class="btn btn-danger btn-lg" @click=${this.#resetSettings}>${i18n.getMessage('reset')}</button>
 						</div>
 					</div>
 
@@ -755,7 +829,7 @@ class OptionsPage extends LitElement {
 								</span>
 								<div class="setting-label">
 									<span>${i18n.getMessage('feedbackTitle')}</span>
-									<span>${unsafeHTML(i18n.getMessage('feedbackText'))}</span>
+									<span>${unsafeHTML(i18n.getMessage(!i18n.isFirefox && !i18n.isEdge ? 'feedbackTextChrome' : 'feedbackText'))}</span>
 								</div>
 							</div>
 						</div>
@@ -834,27 +908,18 @@ class OptionsPage extends LitElement {
 
 	#getSections(i18n) {
 		const sections = [
+			{ id: 'style', label: i18n.getMessage('styleSettings'), icon: icons.palette },
 			{ id: 'basic', label: i18n.getMessage('basicSettings'), icon: icons.mouseRight },
 			{ id: 'drag', label: i18n.getMessage('dragFeatures'), icon: icons.mouseLeft },
+			{ id: 'areaSelect', label: i18n.getMessage('areaSelectTitle'), icon: icons.squareDashedMousePointer },
 			{ id: 'wheel', label: i18n.getMessage('wheelGestures'), icon: icons.mouse },
 			{ id: 'special', label: i18n.getMessage('specialGestures'), icon: icons.mousePointerClick },
-		];
-		if (this.#shouldShowChainSection()) {
-			sections.push({ id: 'chains', label: i18n.getMessage('actionChains'), icon: icons.workflow });
-		}
-		sections.push(
 			{ id: 'blacklist', label: i18n.getMessage('blacklist'), icon: icons.mouseOff },
 			{ id: 'other', label: i18n.getMessage('otherSettings'), icon: icons.slidersHorizontal },
 			{ id: 'data', label: i18n.getMessage('dataManagement'), icon: icons.hardDrive },
 			{ id: 'support', label: i18n.getMessage('supportAndFeedback'), icon: icons.messageCircleMore },
-		);
+		];
 		return sections;
-	}
-
-	#shouldShowChainSection() {
-		const hasChains = Object.keys(this._settings.actionChains || {}).length > 0;
-		const advancedEnabled = this._settings.sectionAdvanced?.basic;
-		return hasChains || this._settings.showChainSection || advancedEnabled;
 	}
 
 	#updateHoveredSection() {
@@ -889,12 +954,7 @@ class OptionsPage extends LitElement {
 	}
 
 	async #onNavigateSection(e) {
-		const { section, enableChainSection } = e.detail;
-		if (enableChainSection && !this._settings.showChainSection) {
-			this._settings = { ...this._settings, showChainSection: true };
-			await this.#autoSave();
-			await this.updateComplete;
-		}
+		const { section } = e.detail;
 		this.#scrollToSection(section);
 	}
 
@@ -992,9 +1052,7 @@ class OptionsPage extends LitElement {
 	}
 
 	async #updateSetting(key, value) {
-		const coerced = this.#coerce(key, value);
-		this._settings = { ...this._settings, [key]: coerced };
-		await this.#autoSave();
+		await this.#savePatch({ [key]: this.#coerce(key, value) });
 	}
 
 	async #updateTriggerButton(buttonKey, checked) {
@@ -1007,14 +1065,11 @@ class OptionsPage extends LitElement {
 		if (!current.right && !current.middle && !current.side1 && !current.side2 && !current.penRight) {
 			current.right = true;
 		}
-		this._settings = { ...this._settings, gestureTriggerButtons: current };
-		await this.#autoSave();
+		await this.#savePatch({ gestureTriggerButtons: current });
 	}
 
 	#debounceSetting(key, value) {
-		const coerced = this.#coerce(key, value);
-		this._settings = { ...this._settings, [key]: coerced };
-		this.#debounceAutoSave();
+		this.#debouncePatch({ [key]: this.#coerce(key, value) });
 	}
 
 
@@ -1051,8 +1106,7 @@ class OptionsPage extends LitElement {
 	}
 
 	async #onBlacklistChange(e) {
-		this._settings = { ...this._settings, blacklist: e.detail.blacklist };
-		await this.#autoSave();
+		await this.#savePatch({ blacklist: e.detail.blacklist });
 	}
 
 	#onBlacklistError(e) {
@@ -1060,26 +1114,13 @@ class OptionsPage extends LitElement {
 	}
 
 	async #onGesturesChange(e) {
-		const { mouseGestures } = e.detail;
-		this._settings = {
-			...this._settings,
-			mouseGestures,
-		};
-		await this.#autoSave();
+		await this.#savePatch({ mouseGestures: e.detail.mouseGestures });
 	}
 
 	async #onGestureDelete(e) {
-		const pattern = e.detail.pattern;
-
 		const mouseGestures = { ...(this._settings.mouseGestures || {}) };
-		delete mouseGestures[pattern];
-
-		this._settings = {
-			...this._settings,
-			mouseGestures,
-		};
-
-		await this.#autoSave();
+		delete mouseGestures[e.detail.pattern];
+		await this.#savePatch({ mouseGestures });
 		this.#showStatus(window.i18n.getMessage('gestureDeleted'));
 	}
 
@@ -1088,24 +1129,15 @@ class OptionsPage extends LitElement {
 	}
 
 	#onDragGesturesChange(settingsKey, e) {
-		this._settings = { ...this._settings, [settingsKey]: e.detail.dragGestures };
-		this.#debounceAutoSave();
+		this.#debouncePatch({ [settingsKey]: e.detail.dragGestures });
 	}
 
 	async #onWheelGesturesChange(e) {
-		this._settings = { ...this._settings, wheelGestures: e.detail.wheelGestures };
-		await this.#autoSave();
+		await this.#savePatch({ wheelGestures: e.detail.wheelGestures });
 	}
 
 	async #onSpecialGesturesChange(e) {
-		this._settings = { ...this._settings, specialGestures: e.detail.specialGestures };
-		await this.#autoSave();
-	}
-
-	async #onChainsChange(e) {
-		this._settings = { ...this._settings, actionChains: e.detail.actionChains };
-		await this.#autoSave();
-		window.dispatchEvent(new Event('action-catalog-changed'));
+		await this.#savePatch({ specialGestures: e.detail.specialGestures });
 	}
 
 	async #openGestureModal() {
@@ -1126,12 +1158,7 @@ class OptionsPage extends LitElement {
 		const newMouseGestures = { ...mouseGestures };
 		newMouseGestures[pattern] = { action: 'none' };
 
-		this._settings = {
-			...this._settings,
-			mouseGestures: newMouseGestures,
-		};
-
-		await this.#autoSave();
+		await this.#savePatch({ mouseGestures: newMouseGestures });
 		this.#showStatus(window.i18n.getMessage('gestureAdded'));
 
 		const gestureGrid = this.shadowRoot.getElementById('gestureGrid');
@@ -1139,35 +1166,22 @@ class OptionsPage extends LitElement {
 	}
 
 
-	async #autoSave() {
-		const ok = await this._store.save(this.#collectSettings());
-		const showAutoSaved = false;
-		if (ok) {
-			this._settings = { ...this._store.current };
-			if (showAutoSaved) {
-				this.#showStatus(window.i18n.getMessage('autoSaved'));
-			}
-		} else {
+	async #savePatch(patch) {
+		this._settings = { ...this._settings, ...patch };
+		const ok = await this._store.save(patch);
+		if (!ok) {
 			this.#showStatus(window.i18n.getMessage('saveFailure'), 'error');
+			return false;
 		}
+		this._settings = { ...this._store.current, ...(this._pendingPatch || {}) };
+		return true;
 	}
 
-	#debounceAutoSave() {
+	#debouncePatch(patch) {
+		this._settings = { ...this._settings, ...patch };
+		this._pendingPatch = { ...(this._pendingPatch || {}), ...patch };
 		if (this._debounceTimer) clearTimeout(this._debounceTimer);
-		this._debounceTimer = setTimeout(() => this.#autoSave(), 500);
-	}
-
-	#collectSettings() {
-		const stored = this._store.current;
-		return {
-			...this._settings,
-			mouseGestures: this._settings.mouseGestures || stored.mouseGestures || {},
-			textDragGestures: this._settings.textDragGestures || stored.textDragGestures,
-			linkDragGestures: this._settings.linkDragGestures || stored.linkDragGestures,
-			imageDragGestures: this._settings.imageDragGestures || stored.imageDragGestures,
-			edgeGestureConflict: this._settings.edgeGestureConflict || stored.edgeGestureConflict || false,
-			blacklist: this._settings.blacklist || stored.blacklist || [],
-		};
+		this._debounceTimer = setTimeout(() => this.#flushPendingPatch(), 500);
 	}
 
 	#exportSettings() {
@@ -1269,7 +1283,7 @@ class OptionsPage extends LitElement {
 		return html`<button
 			class="inline-reset-btn ${isModified ? 'visible' : ''}"
 			@click=${handleClick}
-			title=${window.i18n.getMessage('resetToDefault')}
+			.tooltip=${tooltip(window.i18n.getMessage('resetToDefault'))}
 		>${unsafeHTML(icon('rotateCcw', { size: 13, strokeWidth: 2.5 }))}</button>`;
 	}
 
@@ -1310,10 +1324,12 @@ class OptionsPage extends LitElement {
 		if (!chrome.permissions) return;
 
 		let permissions = null;
-		if (action === 'addToBookmarks') {
+		if (action === 'addToBookmarks' || action === 'menuShowBookmarks') {
 			permissions = ['bookmarks'];
 		} else if (action === 'saveImage') {
 			permissions = ['downloads'];
+		} else if (action === 'pasteClipboard' || action === 'searchClipboard') {
+			permissions = ['clipboardRead'];
 		}
 
 		if (!permissions) return;

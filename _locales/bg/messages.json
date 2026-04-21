@@ -35,9 +35,9 @@
 		"message": "Синхронизация на настройките чрез %browserName% акаунт",
 		"description": "Sync status description"
 	},
-	"synced": {
-		"message": "Синхронизирано",
-		"description": "Synced"
+	"saved": {
+		"message": "Запазено",
+		"description": "Saved"
 	},
 	"author": {
 		"message": "Автор",
@@ -66,6 +66,10 @@
 	"feedbackText": {
 		"message": "Имате проблеми или предложения? Моля, споделете ги чрез <a href='mailto:Service@52pojie.cn'>Имейл</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> или във <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Форума</a>. Ще го подобрим възможно най-скоро!",
 		"description": "Feedback text"
+	},
+	"feedbackTextChrome": {
+		"message": "Имате проблеми или предложения? Моля, споделете ги чрез <a href='https://chromewebstore.google.com/detail/fnldhkfidchnjiokpoemdhoejmaojkgp/support' target='_blank'>Поддръжка на Уеб магазина на Chrome</a>, <a href='mailto:Service@52pojie.cn'>Имейл</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> или във <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Форума</a>. Ще го подобрим възможно най-скоро!",
+		"description": "Feedback text for Chrome browser"
 	},
 	"supportAndFeedback": {
 		"message": "Поддръжка и обратна връзка",
@@ -125,11 +129,11 @@
 	},
 	"btnSide1Mouse": {
 		"message": "Страничен бутон (Назад)",
-		"description": "Mouse button 4 — the side button typically used for navigating back"
+		"description": "Mouse button 4 - the side button typically used for navigating back"
 	},
 	"btnSide2Mouse": {
 		"message": "Страничен бутон (Напред)",
-		"description": "Mouse button 5 — the side button typically used for navigating forward"
+		"description": "Mouse button 5 - the side button typically used for navigating forward"
 	},
 	"btnPenRight": {
 		"message": "Десен бутон на стилус",
@@ -195,6 +199,54 @@
 		"message": "Сянка",
 		"description": "HUD shadow toggle"
 	},
+	"customCss": {
+		"message": "Персонализиран CSS",
+		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
+	},
+	"customCssDesc": {
+		"message": "Задайте персонализиран CSS, за да промените собствения интерфейс на FlowMouse",
+		"description": "Description for the Custom CSS advanced setting"
+	},
+	"customCssConfigure": {
+		"message": "Конфигуриране",
+		"description": "Button label to open the Custom CSS editor dialog when no CSS is set"
+	},
+	"customCssEdit": {
+		"message": "Редактиране",
+		"description": "Button label to open the Custom CSS editor dialog when CSS is already set"
+	},
+	"customCssEditorTitle": {
+		"message": "Редактор на персонализиран CSS",
+		"description": "Title of the dedicated custom CSS editor page"
+	},
+	"customCssEditorHint": {
+		"message": "Стиловете се инжектират във всеки Shadow DOM, създаден от FlowMouse. Натиснете Ctrl+S, за да запазите.",
+		"description": "Hint shown above the editor textarea."
+	},
+	"customCssEditorPlaceholder": {
+		"message": "/* Напишете вашия персонализиран CSS тук… */",
+		"description": "Placeholder inside the Custom CSS editor textarea"
+	},
+	"customCssEditorInsertSnippet": {
+		"message": "Пример",
+		"description": "Button to append an example/starter CSS snippet to the editor"
+	},
+	"customCssEditorRevert": {
+		"message": "Връщане",
+		"description": "Button that reverts the editor content back to the last saved value"
+	},
+	"customCssEditorSave": {
+		"message": "Запазване",
+		"description": "Save button in the Custom CSS editor"
+	},
+	"customCssEditorSaved": {
+		"message": "Запазено",
+		"description": "Status message shown briefly after the user saves the custom CSS"
+	},
+	"customCssEditorDiscardConfirm": {
+		"message": "Отхвърляне на незапазените редакции и връщане към последния запазен CSS?",
+		"description": "Confirmation dialog shown before reverting unsaved edits"
+	},
 	"text": {
 		"message": "Текст",
 		"description": "Text"
@@ -255,6 +307,14 @@
 		"message": "Плъзнете избран текст за търсене",
 		"description": "Drag selected text to search"
 	},
+	"textDragIgnoreInput": {
+		"message": "Деактивиране в полета за въвеждане",
+		"description": "Option to disable text drag inside input boxes and textareas"
+	},
+	"textDragIgnoreInputDesc": {
+		"message": "Не задействайте плъзгане на текст в редактируеми области като полета за въвеждане и текстови редактори",
+		"description": "Description for text drag ignore input option"
+	},
 	"searchEngine": {
 		"message": "Търсачка",
 		"description": "Search engine"
@@ -267,6 +327,10 @@
 		"message": "Персонализиран URL, използвайте %s за термин за търсене",
 		"description": "Custom URL placeholder"
 	},
+	"customUrlPlaceholderHint": {
+		"message": "Трябва да включва протокол (напр. https://). Налични контейнери: %placeholders%. Добавете :raw, за да пропуснете URL кодирането, напр. %example%",
+		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
+	},
 	"urlPlaceholderText": {
 		"message": "%s=Ключова дума",
 		"description": "Placeholder for text drag custom URL"
@@ -274,6 +338,14 @@
 	"urlPlaceholderImage": {
 		"message": "%s=URL на изображението",
 		"description": "Placeholder for image drag custom URL"
+	},
+	"searchEngine_google_translate": {
+		"message": "Google Преводач",
+		"description": "Google Translate search engine"
+	},
+	"searchEngine_bing_translate": {
+		"message": "Преводач на Bing",
+		"description": "Bing Translate search engine"
 	},
 	"searchEngine_baidu": {
 		"message": "Baidu",
@@ -367,8 +439,16 @@
 		"message": "Нулиране на настройките",
 		"description": "Reset to default"
 	},
+	"duplicate": {
+		"message": "Дублиране",
+		"description": "Generic duplicate button tooltip"
+	},
+	"delete": {
+		"message": "Изтриване",
+		"description": "Generic delete button tooltip"
+	},
 	"autoSaved": {
-		"message": "✓ Автоматично запазено",
+		"message": "Автоматично запазено",
 		"description": "Auto-saved message"
 	},
 	"saveFailure": {
@@ -663,6 +743,10 @@
 		"message": "Копирай заглавието на страницата",
 		"description": "Copy page title"
 	},
+	"actionCopyTitleAndUrl": {
+		"message": "Копиране на заглавието на страницата и URL адреса",
+		"description": "Copy page title and URL"
+	},
 	"actionOpenDownloads": {
 		"message": "Отвори изтеглянията",
 		"description": "Open downloads page"
@@ -674,6 +758,10 @@
 	"actionOpenExtensions": {
 		"message": "Отвори разширенията",
 		"description": "Open extensions page"
+	},
+	"actionSaveAsMhtml": {
+		"message": "Запазване като MHTML",
+		"description": "Save current page as MHTML file"
 	},
 	"actionPrintPage": {
 		"message": "Разпечатай страницата",
@@ -694,6 +782,14 @@
 	"actionTogglePinTab": {
 		"message": "Фиксирай/Откачи текущия раздел",
 		"description": "Toggle pin current tab"
+	},
+	"actionMoveTabToNewWindow": {
+		"message": "Преместване на раздела в нов прозорец",
+		"description": "Move current tab to a new window"
+	},
+	"actionSearchClipboard": {
+		"message": "Търсене от клипборда",
+		"description": "Search clipboard text using a search engine"
 	},
 	"showTrailOrigin": {
 		"message": "Показване на начална точка",
@@ -731,6 +827,10 @@
 		"message": "Други настройки",
 		"description": "Section title for other/miscellaneous settings"
 	},
+	"styleSettings": {
+		"message": "Изглед",
+		"description": "Section title for style/appearance settings (trail, HUD, etc.)"
+	},
 	"show": {
 		"message": "Показване",
 		"description": "Show navigation menu"
@@ -760,7 +860,7 @@
 		"description": "Clear button"
 	},
 	"gestureAdded": {
-		"message": "✓ Жестът е добавен",
+		"message": "Жестът е добавен",
 		"description": "Gesture added success message"
 	},
 	"gestureRecorderTitle": {
@@ -816,16 +916,16 @@
 		"description": "Delete gesture confirmation"
 	},
 	"gestureDeleted": {
-		"message": "✓ Жестът е изтрит",
+		"message": "Жестът е изтрит",
 		"description": "Gesture deleted success message"
 	},
 	"enterCustomUrl": {
-		"message": "Въведете URL (препоръчително включете протокол като https://, chrome:// и др.):",
+		"message": "URL",
 		"description": "Prompt for custom URL input"
 	},
-	"copyUrlIncludeTitle": {
-		"message": "Копиране и на заглавието на страницата",
-		"description": "Checkbox label for including page title when copying URL"
+	"copyAsMarkdown": {
+		"message": "Копиране като Markdown",
+		"description": "Checkbox label for copying as markdown format"
 	},
 	"invalidUrl": {
 		"message": "Моля, въведете валиден URL (започващ с http:// или https://)",
@@ -956,27 +1056,27 @@
 		"description": "Features"
 	},
 	"aboutFeature1": {
-		"message": "🎯 16 стандартни жеста + персонализирани жестове",
+		"message": "16 стандартни жеста + персонализирани жестове",
 		"description": "Feature 1"
 	},
 	"aboutFeature2": {
-		"message": "🎨 Визуална обратна връзка за следата",
+		"message": "Визуална обратна връзка за следата",
 		"description": "Feature 2"
 	},
 	"aboutFeature3": {
-		"message": "🔍 Супер плъзгане за текст/изображение/връзка",
+		"message": "Супер плъзгане за текст/изображение/връзка",
 		"description": "Feature 3"
 	},
 	"aboutFeature4": {
-		"message": "🚫 Черен списък на сайтове",
+		"message": "Черен списък на сайтове",
 		"description": "Feature 4"
 	},
 	"aboutFeature5": {
-		"message": "☁️ Синхронизация с %browserName% акаунт",
+		"message": "Синхронизация с %browserName% акаунт",
 		"description": "Feature 5"
 	},
 	"aboutFeature6": {
-		"message": "🔒 Работи локално, няма мрежа освен за синхронизация",
+		"message": "Работи локално, няма мрежа освен за синхронизация",
 		"description": "Feature 6"
 	},
 	"tutorial": {
@@ -988,15 +1088,15 @@
 		"description": "Learn more link"
 	},
 	"badgeNoNetwork": {
-		"message": "🔒 Няма мрежа освен за синхронизация",
+		"message": "Няма мрежа освен за синхронизация",
 		"description": "No network privacy badge"
 	},
 	"badgeNoData": {
-		"message": "🚫 Не се събират данни",
+		"message": "Не се събират данни",
 		"description": "No data collection badge"
 	},
 	"badgeLocalRun": {
-		"message": "✅ Работи локално",
+		"message": "Работи локално",
 		"description": "Local run badge"
 	},
 	"newTabSettings": {
@@ -1091,6 +1191,10 @@
 		"message": "📋 Копиране на текста на връзката",
 		"description": "Copy link text"
 	},
+	"dragActionCopyLinkAndText": {
+		"message": "📋 Копиране на текст и връзка",
+		"description": "Copy link text and URL"
+	},
 	"dragActionSaveImage": {
 		"message": "💾 Запази изображението",
 		"description": "Save image"
@@ -1111,6 +1215,10 @@
 		"message": "🔍 Персонализирано търсене",
 		"description": "Custom search"
 	},
+	"dragActionSendCustomEvent": {
+		"message": "Изпращане на персонализирано събитие",
+		"description": "Send custom DOM event on drag gesture"
+	},
 	"reducedMotionWarning": {
 		"message": "Системните анимации на %OS% не са активирани, анимацията на превъртане може да не се показва правилно. Можете да активирате анимациите в системните настройки на %OS%.",
 		"description": "Warning message when system reduced motion is enabled"
@@ -1119,9 +1227,29 @@
 		"message": "Автоматично разпознаване на URL",
 		"description": "Auto detect URL checkbox label"
 	},
+	"autoDetectUrlTooltip": {
+		"message": "Ако текстът е във формат на връзка, отворете я директно вместо да търсите",
+		"description": "Tooltip for the auto detect URL checkbox"
+	},
 	"preferLink": {
 		"message": "Предпочитание за отваряне на връзка",
 		"description": "Prefer link checkbox label"
+	},
+	"customHudName": {
+		"message": "Име",
+		"description": "Placeholder for custom action name shown on HUD"
+	},
+	"customHudNameTooltip": {
+		"message": "Персонализирано име, показвано на екрана при изпълнение на жеста",
+		"description": "Tooltip for the custom HUD name field"
+	},
+	"actionNoOptions": {
+		"message": "Тази команда не изисква никакви настройки.",
+		"description": "Placeholder shown in the action picker's detail panel when the selected action has no configurable settings"
+	},
+	"actionRequiredBadge": {
+		"message": "Задължително",
+		"description": "Badge shown next to fields that must be filled in (e.g., URL for Open URL)"
 	},
 	"menuNeedRefresh": {
 		"message": "FlowMouse не е зареден, щракнете за опресняване",
@@ -1376,11 +1504,11 @@
 		"description": "Permission popup description for downloads"
 	},
 	"permissionDownloadsPageCaptureTitle": {
-		"message": "Запазване на изображение",
+		"message": "Запазване на съдържание",
 		"description": "Permission popup title for downloads and page capture"
 	},
 	"permissionDownloadsPageCaptureDesc": {
-		"message": "За да запази изображения, FlowMouse се нуждае от достъп до страници и изтегляния.",
+		"message": "За да запази съдържание, FlowMouse се нуждае от достъп до страници и изтегляния.",
 		"description": "Permission popup description for downloads and page capture"
 	},
 	"permissionIncognitoTitle": {
@@ -1390,6 +1518,14 @@
 	"permissionIncognitoDesc": {
 		"message": "За да работи в прозорци „инкогнито“, трябва ръчно да разрешите „Да се разрешава в режим „инкогнито““ за FlowMouse.",
 		"description": "Permission popup description for incognito"
+	},
+	"permissionClipboardReadTitle": {
+		"message": "Четене на клипборда",
+		"description": "Permission popup title for clipboard read"
+	},
+	"permissionClipboardReadDesc": {
+		"message": "За да постави съдържанието от клипборда, FlowMouse се нуждае от достъп за четене на вашия клипборд.",
+		"description": "Permission popup description for clipboard read"
 	},
 	"openExtensionsSettings": {
 		"message": "Отвори подробности за разширението",
@@ -1434,6 +1570,10 @@
 	"buttonOkay": {
 		"message": "Добре",
 		"description": "Generic OK button"
+	},
+	"buttonConfirm": {
+		"message": "Потвърди",
+		"description": "Generic Confirm button"
 	},
 	"buttonCancel": {
 		"message": "Отказ",
@@ -1487,6 +1627,10 @@
 		"message": "Превъртане надолу при задържане на десния бутон",
 		"description": "Wheel gesture: scroll down while holding right button"
 	},
+	"wheelGesture_wheelClickHoldingRight": {
+		"message": "Щракване със средния бутон при задържане на десния бутон",
+		"description": "Wheel gesture: wheel (middle) click while holding right button"
+	},
 	"specialGestures": {
 		"message": "Специални жестове",
 		"description": "Special gestures section title"
@@ -1507,32 +1651,68 @@
 		"message": "Щракнете с десния бутон, докато задържате левия",
 		"description": "Special gesture: right click while holding left button"
 	},
-	"actionChains": {
-		"message": "Вериги от команди",
-		"description": "Action chains section title"
-	},
 	"actionChainsDesc": {
-		"message": "Създаване на последователности от команди за многократна употреба, които се изпълняват една след друга",
+		"message": "Използвайте вериги от команди, за да изпълнявате множество команди последователно.",
 		"description": "Action chains section description"
 	},
 	"actionActionChain": {
 		"message": "Верига от команди",
 		"description": "Action chain action name"
 	},
-	"actionCategoryChains": {
-		"message": "Вериги от команди",
-		"description": "Action category: action chains"
+	"actionCustomMenu": {
+		"message": "Персонализирано меню",
+		"description": "Custom popup menu action name"
+	},
+	"customMenuDesc": {
+		"message": "Създавайте персонализирани изскачащи менюта с множество действия.",
+		"description": "Custom menu section description"
+	},
+	"addMenu": {
+		"message": "Добавяне на меню",
+		"description": "Add menu button"
+	},
+	"menuNamePlaceholder": {
+		"message": "Персонализирано меню",
+		"description": "Menu name input placeholder"
+	},
+	"menuItemCount": {
+		"message": "%count% елемента",
+		"description": "Item count for menus, e.g. '3 items'"
+	},
+	"menuItemCountOne": {
+		"message": "%count% елемент",
+		"description": "Item count for menus with exactly 1 item"
+	},
+	"addMenuItem": {
+		"message": "Добавяне на елемент",
+		"description": "Add menu item button"
+	},
+	"addMenuSeparator": {
+		"message": "Добавяне на разделител",
+		"description": "Add separator to menu button"
+	},
+	"emptyMenuItems": {
+		"message": "Няма добавени елементи. Кликнете върху „Добавяне на елемент“, за да започнете.",
+		"description": "Empty menu items message"
+	},
+	"menuNotFound": {
+		"message": "(Менюто не е намерено)",
+		"description": "Menu not found label"
+	},
+	"deleteMenuConfirm": {
+		"message": "Изтриване на менюто „%name%“?",
+		"description": "Delete menu confirmation"
+	},
+	"menuItemNumber": {
+		"message": "Елемент %n%",
+		"description": "Menu item number label"
 	},
 	"addChain": {
 		"message": "Добавяне на верига",
 		"description": "Add chain button"
 	},
-	"addNewChain": {
-		"message": "Създаване на нова верига...",
-		"description": "Action item to navigate to chain editor and create a new chain"
-	},
 	"chainNamePlaceholder": {
-		"message": "Моята верига от команди",
+		"message": "Верига от команди",
 		"description": "Chain name input placeholder"
 	},
 	"chainDelayUnit": {
@@ -1579,6 +1759,14 @@
 		"message": "Симулиране на натискане на клавиш",
 		"description": "Action to simulate a keyboard key press on the page"
 	},
+	"actionPasteClipboard": {
+		"message": "Поставяне от клипборда",
+		"description": "Action to paste clipboard text at the gesture start position"
+	},
+	"pasteClipboardHint": {
+		"message": "Съдържанието на клипборда ще бъде поставено във входното поле на <b>началната позиция на жеста</b>.",
+		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
 	"simulateKeyPreset": {
 		"message": "Предварително зададен клавиш",
 		"description": "Label for preset key dropdown in simulate key config"
@@ -1615,6 +1803,14 @@
 		"message": "Невалиден JSON формат",
 		"description": "Error message when event detail is not valid JSON"
 	},
+	"customEventIncludeGestureInfo": {
+		"message": "Включване на информация за жестове в %code%",
+		"description": "Checkbox label for including gesture context in custom event detail. %code% = detail.gesture"
+	},
+	"customEventConfigureBtn": {
+		"message": "Настройки",
+		"description": "Label for the configure button of custom event action in drag gesture manager"
+	},
 	"customEventHint": {
 		"message": "Изпраща %code% на %window%. Полезно за интеграция с други скриптове.",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
@@ -1630,5 +1826,233 @@
 	"chainStepCountOne": {
 		"message": "%count% стъпка",
 		"description": "Step count for unnamed chains with exactly 1 step"
+	},
+	"actionZoomIn": {
+		"message": "Увеличаване",
+		"description": "Zoom in on the current page"
+	},
+	"actionZoomOut": {
+		"message": "Намаляване",
+		"description": "Zoom out on the current page"
+	},
+	"actionResetZoom": {
+		"message": "Нулиране на мащаба",
+		"description": "Reset page zoom to default or a specified level"
+	},
+	"actionViewPageSource": {
+		"message": "Преглед на изходния код на страницата",
+		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionPauseGesture": {
+		"message": "Пауза на жестовете до опресняване",
+		"description": "Temporarily disable all gestures on the current tab until page refresh"
+	},
+	"actionAreaSelect": {
+		"message": "Избор на област",
+		"description": "Enter area select mode to drag-select links on the page and batch open them"
+	},
+	"areaSelectTitle": {
+		"message": "Избор на област",
+		"description": "Label for the area select row in the popup"
+	},
+	"areaSelectModifierKey": {
+		"message": "Бърз избор на област",
+		"description": "Label for the modifier key dropdown in area select settings"
+	},
+	"areaSelectModifierKeyDesc": {
+		"message": "Задръжте клавиша модификатор, след което щракнете с левия бутон и плъзнете, за да изберете бързо връзки на страницата за пакетни операции",
+		"description": "Description for the modifier key setting"
+	},
+	"areaSelectDisabled": {
+		"message": "Изключено",
+		"description": "Disabled option for the area select modifier key dropdown"
+	},
+	"areaSelectMouseDrag": {
+		"message": "Влачене с мишката",
+		"description": "Suffix label next to the modifier key dropdown"
+	},
+	"areaSelectTextUrl": {
+		"message": "Разпознаване на текстови URL адреси",
+		"description": "Label for the text URL recognition toggle"
+	},
+	"areaSelectTextUrlDesc": {
+		"message": "При маркиране извличай и обикновени текстови URL адреси (без хипервръзки)",
+		"description": "Description for the text URL recognition toggle"
+	},
+	"areaSelectWarnThreshold": {
+		"message": "Предупреждение за пакетна операция",
+		"description": "Label for the batch operation alert threshold input"
+	},
+	"areaSelectWarnThresholdDesc": {
+		"message": "Показване на потвърждение при пакетна обработка на повече от този брой елементи, 0 за деактивиране",
+		"description": "Description for the batch operation alert threshold"
+	},
+	"areaSelectDelay": {
+		"message": "Интервал на операция",
+		"description": "Label for the operation interval input"
+	},
+	"areaSelectDelayDesc": {
+		"message": "Закъснение между всяко отваряне при пакетни операции (секунди)",
+		"description": "Description for the operation interval setting"
+	},
+	"areaSelectHint": {
+		"message": "Плъзнете, за да изберете връзки",
+		"description": "Hint text shown in the area select overlay"
+	},
+	"areaSelectOpen": {
+		"message": "Отваряне на %count% връзки",
+		"description": "Button text in the area select toolbar to batch open selected links"
+	},
+	"areaSelectOpenOne": {
+		"message": "Отваряне на %count% връзка",
+		"description": "Button text to open a single selected link (singular form)"
+	},
+	"areaSelectCopy": {
+		"message": "Копиране на връзки",
+		"description": "Button text to copy all selected link URLs to clipboard"
+	},
+	"areaSelectCancel": {
+		"message": "Отказ",
+		"description": "Button text to cancel area select mode"
+	},
+	"areaSelectConfirm": {
+		"message": "Потвърждаване",
+		"description": "Button text to confirm opening many links"
+	},
+	"areaSelectWarnTitle": {
+		"message": "Отваряне на много връзки?",
+		"description": "Title of the warning modal when opening many links"
+	},
+	"areaSelectWarnMessage": {
+		"message": "На път сте да отворите %count% връзки. Това може да забави браузъра ви. Продължавате ли?",
+		"description": "Body text of the warning modal"
+	},
+	"start": {
+		"message": "Старт",
+		"description": "Button label to start an action (e.g. area select)"
+	},
+	"actionMenuShowTabs": {
+		"message": "Превключване на раздел",
+		"description": "Show a context menu listing all open tabs in the current window"
+	},
+	"actionMenuRecentlyClosed": {
+		"message": "Наскоро затворени раздели",
+		"description": "Show a context menu listing recently closed tabs for quick restore"
+	},
+	"recentlyClosedMaxItems": {
+		"message": "Макс. елементи",
+		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
+	},
+	"actionCategoryContextMenu": {
+		"message": "Изскачащо меню",
+		"description": "Action category: context menu actions"
+	},
+	"zoomStepMode": {
+		"message": "Метод на мащабиране",
+		"description": "Label for zoom mode selector: browser steps vs fixed increment"
+	},
+	"zoomStepModeBrowser": {
+		"message": "Използване на нивата на браузъра",
+		"description": "Option: follow Chrome's built-in zoom steps (25%, 33%, 50%, …, 500%)"
+	},
+	"zoomStepModeFixed": {
+		"message": "Фиксирана стъпка",
+		"description": "Option: zoom in/out by a configurable fixed percentage each time"
+	},
+	"zoomDelta": {
+		"message": "Размер на стъпката",
+		"description": "Label for the zoom increment/decrement slider"
+	},
+	"resetZoomLevel": {
+		"message": "Нулиране до",
+		"description": "Label for the target zoom level when resetting zoom"
+	},
+	"resetZoomDefault": {
+		"message": "По подразбиране за браузъра",
+		"description": "Option: reset zoom to the browser's default zoom setting"
+	},
+	"resetZoomCustom": {
+		"message": "Персонализирана стойност",
+		"description": "Option: reset zoom to a user-specified custom zoom level"
+	},
+	"actionMenuShowBookmarks": {
+		"message": "Покажи отметките",
+		"description": "Show a context menu listing bookmarks from a selected folder"
+	},
+	"bookmarkFolder": {
+		"message": "Папка",
+		"description": "Label for selecting which bookmark folder to display"
+	},
+	"bookmarkGrantPermission": {
+		"message": "Предоставяне на достъп до отметките",
+		"description": "Button label to request bookmarks permission"
+	},
+	"ctxMenuSortOrder": {
+		"message": "Сортиране по",
+		"description": "Label for context menu sort order dropdown"
+	},
+	"ctxMenuSortDefault": {
+		"message": "По подразбиране",
+		"description": "Sort option: original API/insertion order"
+	},
+	"ctxMenuSortDefaultDesc": {
+		"message": "По подразбиране (обратен ред)",
+		"description": "Sort option: reverse of original API order"
+	},
+	"ctxMenuSortDateAddedAsc": {
+		"message": "Дата на добавяне (първо най-старите)",
+		"description": "Sort option: by date added ascending"
+	},
+	"ctxMenuSortDateAddedDesc": {
+		"message": "Дата на добавяне (първо най-новите)",
+		"description": "Sort option: by date added descending"
+	},
+	"ctxMenuSortNameAsc": {
+		"message": "Име (възходящо)",
+		"description": "Sort option: alphabetical ascending"
+	},
+	"ctxMenuSortNameDesc": {
+		"message": "Име (низходящо)",
+		"description": "Sort option: alphabetical descending"
+	},
+	"ctxMenuSortLastAccessAsc": {
+		"message": "Последен достъп (първо най-старите)",
+		"description": "Sort option: by last access time ascending"
+	},
+	"ctxMenuSortLastAccessDesc": {
+		"message": "Последен достъп (първо най-новите)",
+		"description": "Sort option: by last access time descending"
+	},
+	"ctxMenuMaxItems": {
+		"message": "Макс. брой",
+		"description": "Label for maximum number of items in context menu"
+	},
+	"ctxMenuMaxItemsUnlimited": {
+		"message": "Неограничено",
+		"description": "Placeholder shown when max items is 0 (no limit)"
+	},
+	"ctxMenuScrollToBottom": {
+		"message": "Превъртане до долу",
+		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuTimeDisplay": {
+		"message": "Показване на времето",
+		"description": "Label for time display mode dropdown in context menu"
+	},
+	"ctxMenuTimeNone": {
+		"message": "Не показвай",
+		"description": "Time display option: hide time column"
+	},
+	"ctxMenuTimeLastAccess": {
+		"message": "Последен достъп",
+		"description": "Time display option: show last access time"
+	},
+	"ctxMenuTimeClosedTime": {
+		"message": "Време на затваряне",
+		"description": "Time display option: show when the tab was closed"
+	},
+	"ctxMenuTimeDateAdded": {
+		"message": "Дата на добавяне",
+		"description": "Time display option: show when the bookmark was added"
 	}
 }

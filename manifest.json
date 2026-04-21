@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "__MSG_extName__",
-    "version": "1.4.2",
+    "version": "2.0",
     "author": "Hmily[LCG] & Coxxs",
     "description": "__MSG_extDescription__",
     "default_locale": "en",
@@ -15,6 +15,7 @@
     ],
     "optional_permissions": [
         "bookmarks",
+        "clipboardRead",
         "downloads"
     ],
     "options_ui": {
@@ -61,7 +62,8 @@
     "web_accessible_resources": [
         {
             "resources": [
-                "_locales/*/messages.json"
+                "_locales/*/messages.json",
+                "pages/context-menu.html"
             ],
             "matches": [
                 "<all_urls>"

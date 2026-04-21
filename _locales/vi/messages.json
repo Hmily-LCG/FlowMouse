@@ -35,9 +35,9 @@
 		"message": "Đồng bộ cài đặt qua tài khoản %browserName%",
 		"description": "Sync status description"
 	},
-	"synced": {
-		"message": "Đã đồng bộ",
-		"description": "Synced"
+	"saved": {
+		"message": "Đã lưu",
+		"description": "Saved"
 	},
 	"author": {
 		"message": "Tác giả",
@@ -66,6 +66,10 @@
 	"feedbackText": {
 		"message": "Có vấn đề hoặc góp ý? Vui lòng báo cáo qua <a href='mailto:Service@52pojie.cn'>Email</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> hoặc <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Diễn đàn</a>. Chúng tôi sẽ cải thiện sớm nhất có thể!",
 		"description": "Feedback text"
+	},
+	"feedbackTextChrome": {
+		"message": "Có vấn đề hoặc góp ý? Vui lòng báo cáo qua <a href='https://chromewebstore.google.com/detail/fnldhkfidchnjiokpoemdhoejmaojkgp/support' target='_blank'>Hỗ trợ Cửa hàng Chrome trực tuyến</a>, <a href='mailto:Service@52pojie.cn'>Email</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> hoặc <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Diễn đàn</a>. Chúng tôi sẽ cải thiện sớm nhất có thể!",
+		"description": "Feedback text for Chrome browser"
 	},
 	"supportAndFeedback": {
 		"message": "Hỗ trợ & Phản hồi",
@@ -125,11 +129,11 @@
 	},
 	"btnSide1Mouse": {
 		"message": "Nút bên (Quay lại)",
-		"description": "Mouse button 4 — the side button typically used for navigating back"
+		"description": "Mouse button 4 - the side button typically used for navigating back"
 	},
 	"btnSide2Mouse": {
 		"message": "Nút bên (Tiếp theo)",
-		"description": "Mouse button 5 — the side button typically used for navigating forward"
+		"description": "Mouse button 5 - the side button typically used for navigating forward"
 	},
 	"btnPenRight": {
 		"message": "Nút phải bút cảm ứng",
@@ -195,6 +199,54 @@
 		"message": "Bóng",
 		"description": "HUD shadow toggle"
 	},
+	"customCss": {
+		"message": "CSS tùy chỉnh",
+		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
+	},
+	"customCssDesc": {
+		"message": "Thiết lập CSS tùy chỉnh để điều chỉnh giao diện của chính FlowMouse",
+		"description": "Description for the Custom CSS advanced setting"
+	},
+	"customCssConfigure": {
+		"message": "Cấu hình",
+		"description": "Button label to open the Custom CSS editor dialog when no CSS is set"
+	},
+	"customCssEdit": {
+		"message": "Chỉnh sửa",
+		"description": "Button label to open the Custom CSS editor dialog when CSS is already set"
+	},
+	"customCssEditorTitle": {
+		"message": "Trình chỉnh sửa CSS tùy chỉnh",
+		"description": "Title of the dedicated custom CSS editor page"
+	},
+	"customCssEditorHint": {
+		"message": "Các kiểu được chèn vào mỗi Shadow DOM do FlowMouse tạo. Nhấn Ctrl+S để lưu.",
+		"description": "Hint shown above the editor textarea."
+	},
+	"customCssEditorPlaceholder": {
+		"message": "/* Viết CSS tùy chỉnh của bạn tại đây… */",
+		"description": "Placeholder inside the Custom CSS editor textarea"
+	},
+	"customCssEditorInsertSnippet": {
+		"message": "Ví dụ",
+		"description": "Button to append an example/starter CSS snippet to the editor"
+	},
+	"customCssEditorRevert": {
+		"message": "Hoàn tác",
+		"description": "Button that reverts the editor content back to the last saved value"
+	},
+	"customCssEditorSave": {
+		"message": "Lưu",
+		"description": "Save button in the Custom CSS editor"
+	},
+	"customCssEditorSaved": {
+		"message": "Đã lưu",
+		"description": "Status message shown briefly after the user saves the custom CSS"
+	},
+	"customCssEditorDiscardConfirm": {
+		"message": "Hủy bỏ các chỉnh sửa chưa lưu của bạn và khôi phục về CSS được lưu lần cuối?",
+		"description": "Confirmation dialog shown before reverting unsaved edits"
+	},
 	"text": {
 		"message": "Văn bản",
 		"description": "Text"
@@ -255,6 +307,14 @@
 		"message": "Kéo văn bản đã chọn để tìm kiếm",
 		"description": "Drag selected text to search"
 	},
+	"textDragIgnoreInput": {
+		"message": "Vô hiệu hóa trong trường nhập",
+		"description": "Option to disable text drag inside input boxes and textareas"
+	},
+	"textDragIgnoreInputDesc": {
+		"message": "Không kích hoạt kéo văn bản trong các vùng có thể chỉnh sửa như trường nhập và trình chỉnh sửa văn bản",
+		"description": "Description for text drag ignore input option"
+	},
 	"searchEngine": {
 		"message": "Công cụ tìm kiếm",
 		"description": "Search engine"
@@ -267,6 +327,10 @@
 		"message": "URL tùy chỉnh, sử dụng %s thay thế cho từ khóa tìm kiếm",
 		"description": "Custom URL placeholder"
 	},
+	"customUrlPlaceholderHint": {
+		"message": "Phải bao gồm giao thức (vd: https://). Các biến có sẵn: %placeholders%. Thêm :raw để bỏ qua mã hóa URL, vd: %example%",
+		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
+	},
 	"urlPlaceholderText": {
 		"message": "%s=Từ khóa",
 		"description": "Placeholder for text drag custom URL"
@@ -274,6 +338,14 @@
 	"urlPlaceholderImage": {
 		"message": "%s=URL hình ảnh",
 		"description": "Placeholder for image drag custom URL"
+	},
+	"searchEngine_google_translate": {
+		"message": "Google Dịch",
+		"description": "Google Translate search engine"
+	},
+	"searchEngine_bing_translate": {
+		"message": "Bing Dịch",
+		"description": "Bing Translate search engine"
 	},
 	"searchEngine_baidu": {
 		"message": "Baidu",
@@ -367,8 +439,16 @@
 		"message": "Đặt lại",
 		"description": "Reset to default"
 	},
+	"duplicate": {
+		"message": "Nhân bản",
+		"description": "Generic duplicate button tooltip"
+	},
+	"delete": {
+		"message": "Xóa",
+		"description": "Generic delete button tooltip"
+	},
 	"autoSaved": {
-		"message": "✓ Đã tự động lưu",
+		"message": "Đã tự động lưu",
 		"description": "Auto-saved message"
 	},
 	"saveFailure": {
@@ -663,6 +743,10 @@
 		"message": "Sao chép tiêu đề trang",
 		"description": "Copy page title"
 	},
+	"actionCopyTitleAndUrl": {
+		"message": "Sao chép tiêu đề trang và URL",
+		"description": "Copy page title and URL"
+	},
 	"actionOpenDownloads": {
 		"message": "Mở trang Tải xuống",
 		"description": "Open downloads page"
@@ -674,6 +758,10 @@
 	"actionOpenExtensions": {
 		"message": "Mở trang Tiện ích mở rộng",
 		"description": "Open extensions page"
+	},
+	"actionSaveAsMhtml": {
+		"message": "Lưu dưới dạng MHTML",
+		"description": "Save current page as MHTML file"
 	},
 	"actionPrintPage": {
 		"message": "In trang",
@@ -694,6 +782,14 @@
 	"actionTogglePinTab": {
 		"message": "Ghim/Bỏ ghim tab hiện tại",
 		"description": "Toggle pin current tab"
+	},
+	"actionMoveTabToNewWindow": {
+		"message": "Di chuyển thẻ sang cửa sổ mới",
+		"description": "Move current tab to a new window"
+	},
+	"actionSearchClipboard": {
+		"message": "Tìm kiếm từ khay nhớ tạm",
+		"description": "Search clipboard text using a search engine"
 	},
 	"showTrailOrigin": {
 		"message": "Hiển thị điểm gốc",
@@ -731,6 +827,10 @@
 		"message": "Cài đặt khác",
 		"description": "Section title for other/miscellaneous settings"
 	},
+	"styleSettings": {
+		"message": "Giao diện",
+		"description": "Section title for style/appearance settings (trail, HUD, etc.)"
+	},
 	"show": {
 		"message": "Hiển thị",
 		"description": "Show navigation menu"
@@ -760,7 +860,7 @@
 		"description": "Clear button"
 	},
 	"gestureAdded": {
-		"message": "✓ Đã thêm cử chỉ",
+		"message": "Đã thêm cử chỉ",
 		"description": "Gesture added success message"
 	},
 	"gestureRecorderTitle": {
@@ -816,16 +916,16 @@
 		"description": "Delete gesture confirmation"
 	},
 	"gestureDeleted": {
-		"message": "✓ Đã xóa cử chỉ",
+		"message": "Đã xóa cử chỉ",
 		"description": "Gesture deleted success message"
 	},
 	"enterCustomUrl": {
-		"message": "Nhập URL (khuyên dùng bao gồm giao thức như https://, chrome://, v.v.):",
+		"message": "URL",
 		"description": "Prompt for custom URL input"
 	},
-	"copyUrlIncludeTitle": {
-		"message": "Đồng thời sao chép tiêu đề trang",
-		"description": "Checkbox label for including page title when copying URL"
+	"copyAsMarkdown": {
+		"message": "Sao chép dưới dạng Markdown",
+		"description": "Checkbox label for copying as markdown format"
 	},
 	"invalidUrl": {
 		"message": "Vui lòng nhập URL hợp lệ (bắt đầu bằng http:// hoặc https://)",
@@ -956,27 +1056,27 @@
 		"description": "Features"
 	},
 	"aboutFeature1": {
-		"message": "🎯 16 cử chỉ mặc định + Cử chỉ tùy chỉnh",
+		"message": "16 cử chỉ mặc định + Cử chỉ tùy chỉnh",
 		"description": "Feature 1"
 	},
 	"aboutFeature2": {
-		"message": "🎨 Phản hồi đường dẫn trực quan",
+		"message": "Phản hồi đường dẫn trực quan",
 		"description": "Feature 2"
 	},
 	"aboutFeature3": {
-		"message": "🔍 Siêu kéo văn bản/hình ảnh/liên kết",
+		"message": "Siêu kéo văn bản/hình ảnh/liên kết",
 		"description": "Feature 3"
 	},
 	"aboutFeature4": {
-		"message": "🚫 Danh sách đen trang web",
+		"message": "Danh sách đen trang web",
 		"description": "Feature 4"
 	},
 	"aboutFeature5": {
-		"message": "☁️ Đồng bộ tài khoản %browserName%",
+		"message": "Đồng bộ tài khoản %browserName%",
 		"description": "Feature 5"
 	},
 	"aboutFeature6": {
-		"message": "🔒 Chạy cục bộ, không nối mạng trừ đồng bộ",
+		"message": "Chạy cục bộ, không nối mạng trừ đồng bộ",
 		"description": "Feature 6"
 	},
 	"tutorial": {
@@ -988,15 +1088,15 @@
 		"description": "Learn more link"
 	},
 	"badgeNoNetwork": {
-		"message": "🔒 Không kết nối mạng trừ đồng bộ",
+		"message": "Không kết nối mạng trừ đồng bộ",
 		"description": "No network privacy badge"
 	},
 	"badgeNoData": {
-		"message": "🚫 Không thu thập dữ liệu",
+		"message": "Không thu thập dữ liệu",
 		"description": "No data collection badge"
 	},
 	"badgeLocalRun": {
-		"message": "✅ Chạy cục bộ",
+		"message": "Chạy cục bộ",
 		"description": "Local run badge"
 	},
 	"newTabSettings": {
@@ -1091,6 +1191,10 @@
 		"message": "📋 Sao chép văn bản liên kết",
 		"description": "Copy link text"
 	},
+	"dragActionCopyLinkAndText": {
+		"message": "📋 Sao chép Văn bản & Liên kết",
+		"description": "Copy link text and URL"
+	},
 	"dragActionSaveImage": {
 		"message": "💾 Lưu hình ảnh",
 		"description": "Save image"
@@ -1111,6 +1215,10 @@
 		"message": "🔍 Tìm kiếm tùy chỉnh",
 		"description": "Custom search"
 	},
+	"dragActionSendCustomEvent": {
+		"message": "Gửi sự kiện tùy chỉnh",
+		"description": "Send custom DOM event on drag gesture"
+	},
 	"reducedMotionWarning": {
 		"message": "Hoạt ảnh hệ thống %OS% đã bị tắt, hoạt ảnh cuộn có thể không hiển thị đúng. Bạn có thể bật hoạt ảnh trong cài đặt hệ thống %OS%.",
 		"description": "Warning message when system reduced motion is enabled"
@@ -1119,9 +1227,29 @@
 		"message": "Tự động phát hiện URL",
 		"description": "Auto detect URL checkbox label"
 	},
+	"autoDetectUrlTooltip": {
+		"message": "Nếu văn bản có định dạng liên kết, hãy mở trực tiếp thay vì tìm kiếm",
+		"description": "Tooltip for the auto detect URL checkbox"
+	},
 	"preferLink": {
 		"message": "Ưu tiên mở liên kết",
 		"description": "Prefer link checkbox label"
+	},
+	"customHudName": {
+		"message": "Tên",
+		"description": "Placeholder for custom action name shown on HUD"
+	},
+	"customHudNameTooltip": {
+		"message": "Tên tùy chỉnh hiển thị trên màn hình khi thực hiện cử chỉ",
+		"description": "Tooltip for the custom HUD name field"
+	},
+	"actionNoOptions": {
+		"message": "Lệnh này không yêu cầu bất kỳ cài đặt nào.",
+		"description": "Placeholder shown in the action picker's detail panel when the selected action has no configurable settings"
+	},
+	"actionRequiredBadge": {
+		"message": "Bắt buộc",
+		"description": "Badge shown next to fields that must be filled in (e.g., URL for Open URL)"
 	},
 	"menuNeedRefresh": {
 		"message": "FlowMouse chưa được tải, nhấp để làm mới",
@@ -1376,11 +1504,11 @@
 		"description": "Permission popup description for downloads"
 	},
 	"permissionDownloadsPageCaptureTitle": {
-		"message": "Lưu hình ảnh",
+		"message": "Lưu nội dung",
 		"description": "Permission popup title for downloads and page capture"
 	},
 	"permissionDownloadsPageCaptureDesc": {
-		"message": "Để lưu hình ảnh, FlowMouse cần quyền truy cập vào các trang và tải xuống.",
+		"message": "Để lưu nội dung, FlowMouse cần quyền truy cập vào các trang và tải xuống.",
 		"description": "Permission popup description for downloads and page capture"
 	},
 	"permissionIncognitoTitle": {
@@ -1390,6 +1518,14 @@
 	"permissionIncognitoDesc": {
 		"message": "Để hoạt động trong các cửa sổ ẩn danh, bạn cần bật thủ công \"Cho phép ở chế độ ẩn danh\" cho FlowMouse.",
 		"description": "Permission popup description for incognito"
+	},
+	"permissionClipboardReadTitle": {
+		"message": "Đọc khay nhớ tạm",
+		"description": "Permission popup title for clipboard read"
+	},
+	"permissionClipboardReadDesc": {
+		"message": "Để dán nội dung trong khay nhớ tạm, FlowMouse cần quyền truy cập để đọc khay nhớ tạm của bạn.",
+		"description": "Permission popup description for clipboard read"
 	},
 	"openExtensionsSettings": {
 		"message": "Mở chi tiết tiện ích",
@@ -1434,6 +1570,10 @@
 	"buttonOkay": {
 		"message": "OK",
 		"description": "Generic OK button"
+	},
+	"buttonConfirm": {
+		"message": "Xác nhận",
+		"description": "Generic Confirm button"
 	},
 	"buttonCancel": {
 		"message": "Hủy",
@@ -1487,6 +1627,10 @@
 		"message": "Cuộn xuống trong khi giữ nút phải",
 		"description": "Wheel gesture: scroll down while holding right button"
 	},
+	"wheelGesture_wheelClickHoldingRight": {
+		"message": "Nhấp chuột giữa trong khi giữ nút phải",
+		"description": "Wheel gesture: wheel (middle) click while holding right button"
+	},
 	"specialGestures": {
 		"message": "Cử chỉ đặc biệt",
 		"description": "Special gestures section title"
@@ -1507,32 +1651,68 @@
 		"message": "Nhấp chuột phải trong khi giữ nút trái",
 		"description": "Special gesture: right click while holding left button"
 	},
-	"actionChains": {
-		"message": "Chuỗi lệnh",
-		"description": "Action chains section title"
-	},
 	"actionChainsDesc": {
-		"message": "Tạo các chuỗi lệnh có thể tái sử dụng để chạy lần lượt",
+		"message": "Sử dụng chuỗi lệnh để chạy nhiều lệnh theo trình tự.",
 		"description": "Action chains section description"
 	},
 	"actionActionChain": {
 		"message": "Chuỗi lệnh",
 		"description": "Action chain action name"
 	},
-	"actionCategoryChains": {
-		"message": "Chuỗi lệnh",
-		"description": "Action category: action chains"
+	"actionCustomMenu": {
+		"message": "Menu tùy chỉnh",
+		"description": "Custom popup menu action name"
+	},
+	"customMenuDesc": {
+		"message": "Tạo menu bật lên tùy chỉnh với nhiều hành động.",
+		"description": "Custom menu section description"
+	},
+	"addMenu": {
+		"message": "Thêm menu",
+		"description": "Add menu button"
+	},
+	"menuNamePlaceholder": {
+		"message": "Menu tùy chỉnh",
+		"description": "Menu name input placeholder"
+	},
+	"menuItemCount": {
+		"message": "%count% mục",
+		"description": "Item count for menus, e.g. '3 items'"
+	},
+	"menuItemCountOne": {
+		"message": "%count% mục",
+		"description": "Item count for menus with exactly 1 item"
+	},
+	"addMenuItem": {
+		"message": "Thêm mục",
+		"description": "Add menu item button"
+	},
+	"addMenuSeparator": {
+		"message": "Thêm dấu phân cách",
+		"description": "Add separator to menu button"
+	},
+	"emptyMenuItems": {
+		"message": "Chưa có mục nào được thêm. Nhấp vào \"Thêm mục\" để bắt đầu.",
+		"description": "Empty menu items message"
+	},
+	"menuNotFound": {
+		"message": "(Không tìm thấy menu)",
+		"description": "Menu not found label"
+	},
+	"deleteMenuConfirm": {
+		"message": "Xóa menu \"%name%\"?",
+		"description": "Delete menu confirmation"
+	},
+	"menuItemNumber": {
+		"message": "Mục %n%",
+		"description": "Menu item number label"
 	},
 	"addChain": {
 		"message": "Thêm chuỗi",
 		"description": "Add chain button"
 	},
-	"addNewChain": {
-		"message": "Tạo chuỗi mới...",
-		"description": "Action item to navigate to chain editor and create a new chain"
-	},
 	"chainNamePlaceholder": {
-		"message": "Chuỗi lệnh của tôi",
+		"message": "Chuỗi lệnh",
 		"description": "Chain name input placeholder"
 	},
 	"chainDelayUnit": {
@@ -1579,6 +1759,14 @@
 		"message": "Mô phỏng nhấn phím",
 		"description": "Action to simulate a keyboard key press on the page"
 	},
+	"actionPasteClipboard": {
+		"message": "Dán từ khay nhớ tạm",
+		"description": "Action to paste clipboard text at the gesture start position"
+	},
+	"pasteClipboardHint": {
+		"message": "Nội dung khay nhớ tạm sẽ được dán vào trường nhập liệu tại <b>vị trí bắt đầu cử chỉ</b>.",
+		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
 	"simulateKeyPreset": {
 		"message": "Phím đặt trước",
 		"description": "Label for preset key dropdown in simulate key config"
@@ -1615,6 +1803,14 @@
 		"message": "Định dạng JSON không hợp lệ",
 		"description": "Error message when event detail is not valid JSON"
 	},
+	"customEventIncludeGestureInfo": {
+		"message": "Bao gồm thông tin cử chỉ trong %code%",
+		"description": "Checkbox label for including gesture context in custom event detail. %code% = detail.gesture"
+	},
+	"customEventConfigureBtn": {
+		"message": "Cài đặt",
+		"description": "Label for the configure button of custom event action in drag gesture manager"
+	},
 	"customEventHint": {
 		"message": "Gửi %code% trên %window%. Hữu ích cho việc tích hợp với các tập lệnh khác.",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
@@ -1630,5 +1826,233 @@
 	"chainStepCountOne": {
 		"message": "%count% bước",
 		"description": "Step count for unnamed chains with exactly 1 step"
+	},
+	"actionZoomIn": {
+		"message": "Phóng to",
+		"description": "Zoom in on the current page"
+	},
+	"actionZoomOut": {
+		"message": "Thu nhỏ",
+		"description": "Zoom out on the current page"
+	},
+	"actionResetZoom": {
+		"message": "Đặt lại mức thu phóng",
+		"description": "Reset page zoom to default or a specified level"
+	},
+	"actionViewPageSource": {
+		"message": "Xem nguồn trang",
+		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionPauseGesture": {
+		"message": "Tạm dừng cử chỉ đến khi tải lại",
+		"description": "Temporarily disable all gestures on the current tab until page refresh"
+	},
+	"actionAreaSelect": {
+		"message": "Chọn vùng",
+		"description": "Enter area select mode to drag-select links on the page and batch open them"
+	},
+	"areaSelectTitle": {
+		"message": "Chọn vùng",
+		"description": "Label for the area select row in the popup"
+	},
+	"areaSelectModifierKey": {
+		"message": "Chọn vùng nhanh",
+		"description": "Label for the modifier key dropdown in area select settings"
+	},
+	"areaSelectModifierKeyDesc": {
+		"message": "Giữ phím điều chỉnh, sau đó nhấp chuột trái và kéo để chọn nhanh các liên kết trên trang cho các thao tác hàng loạt",
+		"description": "Description for the modifier key setting"
+	},
+	"areaSelectDisabled": {
+		"message": "Tắt",
+		"description": "Disabled option for the area select modifier key dropdown"
+	},
+	"areaSelectMouseDrag": {
+		"message": "Kéo chuột",
+		"description": "Suffix label next to the modifier key dropdown"
+	},
+	"areaSelectTextUrl": {
+		"message": "Nhận dạng URL văn bản",
+		"description": "Label for the text URL recognition toggle"
+	},
+	"areaSelectTextUrlDesc": {
+		"message": "Đồng thời trích xuất URL văn bản thuần túy (không phải siêu liên kết) khi chọn",
+		"description": "Description for the text URL recognition toggle"
+	},
+	"areaSelectWarnThreshold": {
+		"message": "Cảnh báo hoạt động hàng loạt",
+		"description": "Label for the batch operation alert threshold input"
+	},
+	"areaSelectWarnThresholdDesc": {
+		"message": "Hiển thị xác nhận khi hoạt động hàng loạt nhiều hơn số lượng mục này, 0 để tắt",
+		"description": "Description for the batch operation alert threshold"
+	},
+	"areaSelectDelay": {
+		"message": "Khoảng thời gian thao tác",
+		"description": "Label for the operation interval input"
+	},
+	"areaSelectDelayDesc": {
+		"message": "Khoảng trễ giữa mỗi lần mở trong các hoạt động hàng loạt (giây)",
+		"description": "Description for the operation interval setting"
+	},
+	"areaSelectHint": {
+		"message": "Kéo để chọn các liên kết",
+		"description": "Hint text shown in the area select overlay"
+	},
+	"areaSelectOpen": {
+		"message": "Mở %count% liên kết",
+		"description": "Button text in the area select toolbar to batch open selected links"
+	},
+	"areaSelectOpenOne": {
+		"message": "Mở %count% liên kết",
+		"description": "Button text to open a single selected link (singular form)"
+	},
+	"areaSelectCopy": {
+		"message": "Sao chép liên kết",
+		"description": "Button text to copy all selected link URLs to clipboard"
+	},
+	"areaSelectCancel": {
+		"message": "Hủy",
+		"description": "Button text to cancel area select mode"
+	},
+	"areaSelectConfirm": {
+		"message": "Xác nhận",
+		"description": "Button text to confirm opening many links"
+	},
+	"areaSelectWarnTitle": {
+		"message": "Mở nhiều liên kết?",
+		"description": "Title of the warning modal when opening many links"
+	},
+	"areaSelectWarnMessage": {
+		"message": "Bạn sắp mở %count% liên kết. Điều này có thể làm chậm trình duyệt của bạn. Bạn muốn tiếp tục không?",
+		"description": "Body text of the warning modal"
+	},
+	"start": {
+		"message": "Bắt đầu",
+		"description": "Button label to start an action (e.g. area select)"
+	},
+	"actionMenuShowTabs": {
+		"message": "Chuyển tab",
+		"description": "Show a context menu listing all open tabs in the current window"
+	},
+	"actionMenuRecentlyClosed": {
+		"message": "Các tab đã đóng gần đây",
+		"description": "Show a context menu listing recently closed tabs for quick restore"
+	},
+	"recentlyClosedMaxItems": {
+		"message": "Số lượng tối đa",
+		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
+	},
+	"actionCategoryContextMenu": {
+		"message": "Menu bật lên",
+		"description": "Action category: context menu actions"
+	},
+	"zoomStepMode": {
+		"message": "Chế độ thu phóng",
+		"description": "Label for zoom mode selector: browser steps vs fixed increment"
+	},
+	"zoomStepModeBrowser": {
+		"message": "Sử dụng mức của trình duyệt",
+		"description": "Option: follow Chrome's built-in zoom steps (25%, 33%, 50%, …, 500%)"
+	},
+	"zoomStepModeFixed": {
+		"message": "Bước cố định",
+		"description": "Option: zoom in/out by a configurable fixed percentage each time"
+	},
+	"zoomDelta": {
+		"message": "Kích thước bước",
+		"description": "Label for the zoom increment/decrement slider"
+	},
+	"resetZoomLevel": {
+		"message": "Đặt lại thành",
+		"description": "Label for the target zoom level when resetting zoom"
+	},
+	"resetZoomDefault": {
+		"message": "Mặc định của trình duyệt",
+		"description": "Option: reset zoom to the browser's default zoom setting"
+	},
+	"resetZoomCustom": {
+		"message": "Giá trị tùy chỉnh",
+		"description": "Option: reset zoom to a user-specified custom zoom level"
+	},
+	"actionMenuShowBookmarks": {
+		"message": "Hiển thị Dấu trang",
+		"description": "Show a context menu listing bookmarks from a selected folder"
+	},
+	"bookmarkFolder": {
+		"message": "Thư mục",
+		"description": "Label for selecting which bookmark folder to display"
+	},
+	"bookmarkGrantPermission": {
+		"message": "Cấp quyền Dấu trang",
+		"description": "Button label to request bookmarks permission"
+	},
+	"ctxMenuSortOrder": {
+		"message": "Sắp xếp theo",
+		"description": "Label for context menu sort order dropdown"
+	},
+	"ctxMenuSortDefault": {
+		"message": "Mặc định",
+		"description": "Sort option: original API/insertion order"
+	},
+	"ctxMenuSortDefaultDesc": {
+		"message": "Mặc định (đảo ngược)",
+		"description": "Sort option: reverse of original API order"
+	},
+	"ctxMenuSortDateAddedAsc": {
+		"message": "Ngày thêm (cũ nhất trước)",
+		"description": "Sort option: by date added ascending"
+	},
+	"ctxMenuSortDateAddedDesc": {
+		"message": "Ngày thêm (mới nhất trước)",
+		"description": "Sort option: by date added descending"
+	},
+	"ctxMenuSortNameAsc": {
+		"message": "Tên (tăng dần)",
+		"description": "Sort option: alphabetical ascending"
+	},
+	"ctxMenuSortNameDesc": {
+		"message": "Tên (giảm dần)",
+		"description": "Sort option: alphabetical descending"
+	},
+	"ctxMenuSortLastAccessAsc": {
+		"message": "Truy cập lần cuối (cũ nhất trước)",
+		"description": "Sort option: by last access time ascending"
+	},
+	"ctxMenuSortLastAccessDesc": {
+		"message": "Truy cập lần cuối (mới nhất trước)",
+		"description": "Sort option: by last access time descending"
+	},
+	"ctxMenuMaxItems": {
+		"message": "Số lượng tối đa",
+		"description": "Label for maximum number of items in context menu"
+	},
+	"ctxMenuMaxItemsUnlimited": {
+		"message": "Không giới hạn",
+		"description": "Placeholder shown when max items is 0 (no limit)"
+	},
+	"ctxMenuScrollToBottom": {
+		"message": "Cuộn xuống dưới cùng",
+		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuTimeDisplay": {
+		"message": "Hiển thị thời gian",
+		"description": "Label for time display mode dropdown in context menu"
+	},
+	"ctxMenuTimeNone": {
+		"message": "Không hiển thị",
+		"description": "Time display option: hide time column"
+	},
+	"ctxMenuTimeLastAccess": {
+		"message": "Truy cập gần nhất",
+		"description": "Time display option: show last access time"
+	},
+	"ctxMenuTimeClosedTime": {
+		"message": "Thời gian đã đóng",
+		"description": "Time display option: show when the tab was closed"
+	},
+	"ctxMenuTimeDateAdded": {
+		"message": "Ngày thêm",
+		"description": "Time display option: show when the bookmark was added"
 	}
 }

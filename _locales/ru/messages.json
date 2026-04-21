@@ -35,9 +35,9 @@
 		"message": "Синхронизация настроек через аккаунт %browserName%",
 		"description": "Sync status description"
 	},
-	"synced": {
-		"message": "Синхронизировано",
-		"description": "Synced"
+	"saved": {
+		"message": "Сохранено",
+		"description": "Saved"
 	},
 	"author": {
 		"message": "Автор",
@@ -66,6 +66,10 @@
 	"feedbackText": {
 		"message": "Проблемы или предложения? Сообщите нам по <a href='mailto:Service@52pojie.cn'>электронной почте</a>, через <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> или на <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>форуме</a>. Мы все исправим как можно быстрее!",
 		"description": "Feedback text"
+	},
+	"feedbackTextChrome": {
+		"message": "Проблемы или предложения? Сообщите нам через <a href='https://chromewebstore.google.com/detail/fnldhkfidchnjiokpoemdhoejmaojkgp/support' target='_blank'>поддержку Интернет-магазина Chrome</a>, по <a href='mailto:Service@52pojie.cn'>электронной почте</a>, через <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> или на <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>форуме</a>. Мы все исправим как можно быстрее!",
+		"description": "Feedback text for Chrome browser"
 	},
 	"supportAndFeedback": {
 		"message": "Поддержка и обратная связь",
@@ -125,11 +129,11 @@
 	},
 	"btnSide1Mouse": {
 		"message": "Боковая кнопка (Назад)",
-		"description": "Mouse button 4 — the side button typically used for navigating back"
+		"description": "Mouse button 4 - the side button typically used for navigating back"
 	},
 	"btnSide2Mouse": {
 		"message": "Боковая кнопка (Вперед)",
-		"description": "Mouse button 5 — the side button typically used for navigating forward"
+		"description": "Mouse button 5 - the side button typically used for navigating forward"
 	},
 	"btnPenRight": {
 		"message": "Правая кнопка стилуса",
@@ -195,6 +199,54 @@
 		"message": "Тень",
 		"description": "HUD shadow toggle"
 	},
+	"customCss": {
+		"message": "Пользовательский CSS",
+		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
+	},
+	"customCssDesc": {
+		"message": "Установите пользовательский CSS для настройки собственного интерфейса FlowMouse",
+		"description": "Description for the Custom CSS advanced setting"
+	},
+	"customCssConfigure": {
+		"message": "Настроить",
+		"description": "Button label to open the Custom CSS editor dialog when no CSS is set"
+	},
+	"customCssEdit": {
+		"message": "Изменить",
+		"description": "Button label to open the Custom CSS editor dialog when CSS is already set"
+	},
+	"customCssEditorTitle": {
+		"message": "Редактор пользовательского CSS",
+		"description": "Title of the dedicated custom CSS editor page"
+	},
+	"customCssEditorHint": {
+		"message": "Стили внедряются в каждый Shadow DOM, созданный FlowMouse. Нажмите Ctrl+S для сохранения.",
+		"description": "Hint shown above the editor textarea."
+	},
+	"customCssEditorPlaceholder": {
+		"message": "/* Введите здесь ваш пользовательский CSS… */",
+		"description": "Placeholder inside the Custom CSS editor textarea"
+	},
+	"customCssEditorInsertSnippet": {
+		"message": "Пример",
+		"description": "Button to append an example/starter CSS snippet to the editor"
+	},
+	"customCssEditorRevert": {
+		"message": "Отменить изменения",
+		"description": "Button that reverts the editor content back to the last saved value"
+	},
+	"customCssEditorSave": {
+		"message": "Сохранить",
+		"description": "Save button in the Custom CSS editor"
+	},
+	"customCssEditorSaved": {
+		"message": "Сохранено",
+		"description": "Status message shown briefly after the user saves the custom CSS"
+	},
+	"customCssEditorDiscardConfirm": {
+		"message": "Отменить несохраненные изменения и вернуться к последнему сохраненному CSS?",
+		"description": "Confirmation dialog shown before reverting unsaved edits"
+	},
 	"text": {
 		"message": "Текст",
 		"description": "Text"
@@ -255,6 +307,14 @@
 		"message": "Перетащите выделенный текст для поиска",
 		"description": "Drag selected text to search"
 	},
+	"textDragIgnoreInput": {
+		"message": "Отключить в полях ввода",
+		"description": "Option to disable text drag inside input boxes and textareas"
+	},
+	"textDragIgnoreInputDesc": {
+		"message": "Не активировать перетаскивание текста в редактируемых областях, таких как поля ввода и текстовые редакторы",
+		"description": "Description for text drag ignore input option"
+	},
 	"searchEngine": {
 		"message": "Поисковая система",
 		"description": "Search engine"
@@ -267,6 +327,10 @@
 		"message": "Пользовательский URL, используйте %s для поискового запроса",
 		"description": "Custom URL placeholder"
 	},
+	"customUrlPlaceholderHint": {
+		"message": "Должен включать протокол (например, https://). Доступные заполнители: %placeholders%. Добавьте :raw, чтобы пропустить URL-кодирование, например: %example%",
+		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
+	},
 	"urlPlaceholderText": {
 		"message": "%s=Ключевое слово",
 		"description": "Placeholder for text drag custom URL"
@@ -274,6 +338,14 @@
 	"urlPlaceholderImage": {
 		"message": "%s=URL изображения",
 		"description": "Placeholder for image drag custom URL"
+	},
+	"searchEngine_google_translate": {
+		"message": "Google Переводчик",
+		"description": "Google Translate search engine"
+	},
+	"searchEngine_bing_translate": {
+		"message": "Переводчик Bing",
+		"description": "Bing Translate search engine"
 	},
 	"searchEngine_baidu": {
 		"message": "Baidu",
@@ -367,8 +439,16 @@
 		"message": "Сброс",
 		"description": "Reset to default"
 	},
+	"duplicate": {
+		"message": "Дублировать",
+		"description": "Generic duplicate button tooltip"
+	},
+	"delete": {
+		"message": "Удалить",
+		"description": "Generic delete button tooltip"
+	},
 	"autoSaved": {
-		"message": "✓ Автосохранение",
+		"message": "Автосохранение",
 		"description": "Auto-saved message"
 	},
 	"saveFailure": {
@@ -663,6 +743,10 @@
 		"message": "Копировать заголовок страницы",
 		"description": "Copy page title"
 	},
+	"actionCopyTitleAndUrl": {
+		"message": "Копировать заголовок страницы и URL",
+		"description": "Copy page title and URL"
+	},
 	"actionOpenDownloads": {
 		"message": "Открыть загрузки",
 		"description": "Open downloads page"
@@ -674,6 +758,10 @@
 	"actionOpenExtensions": {
 		"message": "Открыть расширения",
 		"description": "Open extensions page"
+	},
+	"actionSaveAsMhtml": {
+		"message": "Сохранить как MHTML",
+		"description": "Save current page as MHTML file"
 	},
 	"actionPrintPage": {
 		"message": "Печать страницы",
@@ -694,6 +782,14 @@
 	"actionTogglePinTab": {
 		"message": "Закрепить/Открепить текущую вкладку",
 		"description": "Toggle pin current tab"
+	},
+	"actionMoveTabToNewWindow": {
+		"message": "Переместить вкладку в новое окно",
+		"description": "Move current tab to a new window"
+	},
+	"actionSearchClipboard": {
+		"message": "Искать из буфера обмена",
+		"description": "Search clipboard text using a search engine"
 	},
 	"showTrailOrigin": {
 		"message": "Показывать начальную точку",
@@ -731,6 +827,10 @@
 		"message": "Другие настройки",
 		"description": "Section title for other/miscellaneous settings"
 	},
+	"styleSettings": {
+		"message": "Внешний вид",
+		"description": "Section title for style/appearance settings (trail, HUD, etc.)"
+	},
 	"show": {
 		"message": "Показать",
 		"description": "Show navigation menu"
@@ -760,7 +860,7 @@
 		"description": "Clear button"
 	},
 	"gestureAdded": {
-		"message": "✓ Жест добавлен",
+		"message": "Жест добавлен",
 		"description": "Gesture added success message"
 	},
 	"gestureRecorderTitle": {
@@ -816,16 +916,16 @@
 		"description": "Delete gesture confirmation"
 	},
 	"gestureDeleted": {
-		"message": "✓ Жест удален",
+		"message": "Жест удален",
 		"description": "Gesture deleted success message"
 	},
 	"enterCustomUrl": {
-		"message": "Введите URL (рекомендуется указать протокол, например https://, chrome:// и т.д.):",
+		"message": "URL",
 		"description": "Prompt for custom URL input"
 	},
-	"copyUrlIncludeTitle": {
-		"message": "Также копировать заголовок страницы",
-		"description": "Checkbox label for including page title when copying URL"
+	"copyAsMarkdown": {
+		"message": "Копировать как Markdown",
+		"description": "Checkbox label for copying as markdown format"
 	},
 	"invalidUrl": {
 		"message": "Пожалуйста, введите корректный URL (начинающийся с http:// или https://)",
@@ -956,27 +1056,27 @@
 		"description": "Features"
 	},
 	"aboutFeature1": {
-		"message": "🎯 16 стандартных жестов + Пользовательские жесты",
+		"message": "16 стандартных жестов + Пользовательские жесты",
 		"description": "Feature 1"
 	},
 	"aboutFeature2": {
-		"message": "🎨 Визуальный след",
+		"message": "Визуальный след",
 		"description": "Feature 2"
 	},
 	"aboutFeature3": {
-		"message": "🔍 Super Drag текста/картинок/ссылок",
+		"message": "Super Drag текста/картинок/ссылок",
 		"description": "Feature 3"
 	},
 	"aboutFeature4": {
-		"message": "🚫 Черный список сайтов",
+		"message": "Черный список сайтов",
 		"description": "Feature 4"
 	},
 	"aboutFeature5": {
-		"message": "☁️ Синхронизация через аккаунт %browserName%",
+		"message": "Синхронизация через аккаунт %browserName%",
 		"description": "Feature 5"
 	},
 	"aboutFeature6": {
-		"message": "🔒 Работает локально, без интернета (кроме синхронизации)",
+		"message": "Работает локально, без интернета (кроме синхронизации)",
 		"description": "Feature 6"
 	},
 	"tutorial": {
@@ -988,15 +1088,15 @@
 		"description": "Learn more link"
 	},
 	"badgeNoNetwork": {
-		"message": "🔒 Без интернета (кроме синхронизации)",
+		"message": "Без интернета (кроме синхронизации)",
 		"description": "No network privacy badge"
 	},
 	"badgeNoData": {
-		"message": "🚫 Без сбора данных",
+		"message": "Без сбора данных",
 		"description": "No data collection badge"
 	},
 	"badgeLocalRun": {
-		"message": "✅ Локальная работа",
+		"message": "Локальная работа",
 		"description": "Local run badge"
 	},
 	"newTabSettings": {
@@ -1091,6 +1191,10 @@
 		"message": "📋 Копировать текст ссылки",
 		"description": "Copy link text"
 	},
+	"dragActionCopyLinkAndText": {
+		"message": "📋 Копировать текст и ссылку",
+		"description": "Copy link text and URL"
+	},
 	"dragActionSaveImage": {
 		"message": "💾 Сохранить изображение",
 		"description": "Save image"
@@ -1111,6 +1215,10 @@
 		"message": "🔍 Пользовательский поиск",
 		"description": "Custom search"
 	},
+	"dragActionSendCustomEvent": {
+		"message": "Отправить пользовательское событие",
+		"description": "Send custom DOM event on drag gesture"
+	},
 	"reducedMotionWarning": {
 		"message": "В системе %OS% отключена анимация, плавная прокрутка может работать некорректно. Вы можете включить анимацию в настройках системы %OS%.",
 		"description": "Warning message when system reduced motion is enabled"
@@ -1119,9 +1227,29 @@
 		"message": "Автоопределение URL",
 		"description": "Auto detect URL checkbox label"
 	},
+	"autoDetectUrlTooltip": {
+		"message": "Если текст имеет формат ссылки, открыть её напрямую вместо поиска",
+		"description": "Tooltip for the auto detect URL checkbox"
+	},
 	"preferLink": {
 		"message": "Предпочитать ссылку",
 		"description": "Prefer link checkbox label"
+	},
+	"customHudName": {
+		"message": "Название",
+		"description": "Placeholder for custom action name shown on HUD"
+	},
+	"customHudNameTooltip": {
+		"message": "Пользовательское имя, отображаемое на экране при выполнении жеста",
+		"description": "Tooltip for the custom HUD name field"
+	},
+	"actionNoOptions": {
+		"message": "Для этой команды не требуются настройки.",
+		"description": "Placeholder shown in the action picker's detail panel when the selected action has no configurable settings"
+	},
+	"actionRequiredBadge": {
+		"message": "Обязательно",
+		"description": "Badge shown next to fields that must be filled in (e.g., URL for Open URL)"
 	},
 	"menuNeedRefresh": {
 		"message": "FlowMouse не загружен, нажмите для обновления",
@@ -1376,11 +1504,11 @@
 		"description": "Permission popup description for downloads"
 	},
 	"permissionDownloadsPageCaptureTitle": {
-		"message": "Сохранить изображение",
+		"message": "Сохранить контент",
 		"description": "Permission popup title for downloads and page capture"
 	},
 	"permissionDownloadsPageCaptureDesc": {
-		"message": "Чтобы сохранять изображения, FlowMouse нужен доступ к страницам и загрузкам.",
+		"message": "Чтобы сохранять контент, FlowMouse нужен доступ к страницам и загрузкам.",
 		"description": "Permission popup description for downloads and page capture"
 	},
 	"permissionIncognitoTitle": {
@@ -1390,6 +1518,14 @@
 	"permissionIncognitoDesc": {
 		"message": "Для работы в режиме инкогнито необходимо вручную включить опцию «Разрешить использование в режиме инкогнито» для FlowMouse.",
 		"description": "Permission popup description for incognito"
+	},
+	"permissionClipboardReadTitle": {
+		"message": "Чтение буфера обмена",
+		"description": "Permission popup title for clipboard read"
+	},
+	"permissionClipboardReadDesc": {
+		"message": "Чтобы вставить содержимое буфера обмена, FlowMouse требуется разрешение на чтение вашего буфера обмена.",
+		"description": "Permission popup description for clipboard read"
 	},
 	"openExtensionsSettings": {
 		"message": "Открыть сведения о расширении",
@@ -1434,6 +1570,10 @@
 	"buttonOkay": {
 		"message": "ОК",
 		"description": "Generic OK button"
+	},
+	"buttonConfirm": {
+		"message": "Подтвердить",
+		"description": "Generic Confirm button"
 	},
 	"buttonCancel": {
 		"message": "Отмена",
@@ -1487,6 +1627,10 @@
 		"message": "Прокрутка вниз при удерживании правой кнопки",
 		"description": "Wheel gesture: scroll down while holding right button"
 	},
+	"wheelGesture_wheelClickHoldingRight": {
+		"message": "Клик колесиком при удерживании правой кнопки",
+		"description": "Wheel gesture: wheel (middle) click while holding right button"
+	},
 	"specialGestures": {
 		"message": "Специальные жесты",
 		"description": "Special gestures section title"
@@ -1507,32 +1651,68 @@
 		"message": "Щелчок правой кнопкой мыши при удерживании левой",
 		"description": "Special gesture: right click while holding left button"
 	},
-	"actionChains": {
-		"message": "Цепочки команд",
-		"description": "Action chains section title"
-	},
 	"actionChainsDesc": {
-		"message": "Создавайте повторяемые последовательности команд, которые выполняются друг за другом",
+		"message": "Используйте цепочки команд для последовательного выполнения нескольких команд.",
 		"description": "Action chains section description"
 	},
 	"actionActionChain": {
 		"message": "Цепочка команд",
 		"description": "Action chain action name"
 	},
-	"actionCategoryChains": {
-		"message": "Цепочки команд",
-		"description": "Action category: action chains"
+	"actionCustomMenu": {
+		"message": "Пользовательское меню",
+		"description": "Custom popup menu action name"
+	},
+	"customMenuDesc": {
+		"message": "Создавайте настраиваемые всплывающие меню с несколькими действиями.",
+		"description": "Custom menu section description"
+	},
+	"addMenu": {
+		"message": "Добавить меню",
+		"description": "Add menu button"
+	},
+	"menuNamePlaceholder": {
+		"message": "Пользовательское меню",
+		"description": "Menu name input placeholder"
+	},
+	"menuItemCount": {
+		"message": "%count% элементов",
+		"description": "Item count for menus, e.g. '3 items'"
+	},
+	"menuItemCountOne": {
+		"message": "%count% элемент",
+		"description": "Item count for menus with exactly 1 item"
+	},
+	"addMenuItem": {
+		"message": "Добавить элемент",
+		"description": "Add menu item button"
+	},
+	"addMenuSeparator": {
+		"message": "Добавить разделитель",
+		"description": "Add separator to menu button"
+	},
+	"emptyMenuItems": {
+		"message": "Элементы не добавлены. Нажмите «Добавить элемент», чтобы начать.",
+		"description": "Empty menu items message"
+	},
+	"menuNotFound": {
+		"message": "(Меню не найдено)",
+		"description": "Menu not found label"
+	},
+	"deleteMenuConfirm": {
+		"message": "Удалить меню «%name%»?",
+		"description": "Delete menu confirmation"
+	},
+	"menuItemNumber": {
+		"message": "Элемент %n%",
+		"description": "Menu item number label"
 	},
 	"addChain": {
 		"message": "Добавить цепочку",
 		"description": "Add chain button"
 	},
-	"addNewChain": {
-		"message": "Создать новую цепочку...",
-		"description": "Action item to navigate to chain editor and create a new chain"
-	},
 	"chainNamePlaceholder": {
-		"message": "Моя цепочка команд",
+		"message": "Цепочка команд",
 		"description": "Chain name input placeholder"
 	},
 	"chainDelayUnit": {
@@ -1579,6 +1759,14 @@
 		"message": "Имитация нажатия клавиши",
 		"description": "Action to simulate a keyboard key press on the page"
 	},
+	"actionPasteClipboard": {
+		"message": "Вставить из буфера обмена",
+		"description": "Action to paste clipboard text at the gesture start position"
+	},
+	"pasteClipboardHint": {
+		"message": "Содержимое буфера обмена будет вставлено в поле ввода в <b>начальной позиции жеста</b>.",
+		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
 	"simulateKeyPreset": {
 		"message": "Предустановленная клавиша",
 		"description": "Label for preset key dropdown in simulate key config"
@@ -1615,6 +1803,14 @@
 		"message": "Неверный формат JSON",
 		"description": "Error message when event detail is not valid JSON"
 	},
+	"customEventIncludeGestureInfo": {
+		"message": "Включить информацию о жестах в %code%",
+		"description": "Checkbox label for including gesture context in custom event detail. %code% = detail.gesture"
+	},
+	"customEventConfigureBtn": {
+		"message": "Настройки",
+		"description": "Label for the configure button of custom event action in drag gesture manager"
+	},
 	"customEventHint": {
 		"message": "Отправляет %code% в %window%. Полезно для интеграции с другими скриптами.",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
@@ -1630,5 +1826,233 @@
 	"chainStepCountOne": {
 		"message": "Шагов: %count%",
 		"description": "Step count for unnamed chains with exactly 1 step"
+	},
+	"actionZoomIn": {
+		"message": "Увеличить",
+		"description": "Zoom in on the current page"
+	},
+	"actionZoomOut": {
+		"message": "Уменьшить",
+		"description": "Zoom out on the current page"
+	},
+	"actionResetZoom": {
+		"message": "Сбросить масштаб",
+		"description": "Reset page zoom to default or a specified level"
+	},
+	"actionViewPageSource": {
+		"message": "Просмотр кода страницы",
+		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionPauseGesture": {
+		"message": "Пауза жестов до обновления",
+		"description": "Temporarily disable all gestures on the current tab until page refresh"
+	},
+	"actionAreaSelect": {
+		"message": "Выбор области",
+		"description": "Enter area select mode to drag-select links on the page and batch open them"
+	},
+	"areaSelectTitle": {
+		"message": "Выбор области",
+		"description": "Label for the area select row in the popup"
+	},
+	"areaSelectModifierKey": {
+		"message": "Быстрый выбор области",
+		"description": "Label for the modifier key dropdown in area select settings"
+	},
+	"areaSelectModifierKeyDesc": {
+		"message": "Удерживайте клавишу-модификатор, затем нажмите левую кнопку мыши и потяните, чтобы быстро выбрать ссылки на странице для пакетных операций",
+		"description": "Description for the modifier key setting"
+	},
+	"areaSelectDisabled": {
+		"message": "Отключено",
+		"description": "Disabled option for the area select modifier key dropdown"
+	},
+	"areaSelectMouseDrag": {
+		"message": "Перетаскивание мышью",
+		"description": "Suffix label next to the modifier key dropdown"
+	},
+	"areaSelectTextUrl": {
+		"message": "Распознавание текстовых URL",
+		"description": "Label for the text URL recognition toggle"
+	},
+	"areaSelectTextUrlDesc": {
+		"message": "Также извлекать обычные текстовые URL-адреса (не гиперссылки) при выделении",
+		"description": "Description for the text URL recognition toggle"
+	},
+	"areaSelectWarnThreshold": {
+		"message": "Предупреждение о пакетной операции",
+		"description": "Label for the batch operation alert threshold input"
+	},
+	"areaSelectWarnThresholdDesc": {
+		"message": "Показывать подтверждение при пакетной обработке больше этого количества элементов, 0 для отключения",
+		"description": "Description for the batch operation alert threshold"
+	},
+	"areaSelectDelay": {
+		"message": "Интервал операции",
+		"description": "Label for the operation interval input"
+	},
+	"areaSelectDelayDesc": {
+		"message": "Задержка между каждым открытием при пакетных операциях (секунды)",
+		"description": "Description for the operation interval setting"
+	},
+	"areaSelectHint": {
+		"message": "Перетащите, чтобы выбрать ссылки",
+		"description": "Hint text shown in the area select overlay"
+	},
+	"areaSelectOpen": {
+		"message": "Открыть %count% ссылок",
+		"description": "Button text in the area select toolbar to batch open selected links"
+	},
+	"areaSelectOpenOne": {
+		"message": "Открыть %count% ссылку",
+		"description": "Button text to open a single selected link (singular form)"
+	},
+	"areaSelectCopy": {
+		"message": "Копировать ссылки",
+		"description": "Button text to copy all selected link URLs to clipboard"
+	},
+	"areaSelectCancel": {
+		"message": "Отмена",
+		"description": "Button text to cancel area select mode"
+	},
+	"areaSelectConfirm": {
+		"message": "Подтвердить",
+		"description": "Button text to confirm opening many links"
+	},
+	"areaSelectWarnTitle": {
+		"message": "Открыть много ссылок?",
+		"description": "Title of the warning modal when opening many links"
+	},
+	"areaSelectWarnMessage": {
+		"message": "Вы собираетесь открыть %count% ссылок. Это может замедлить работу браузера. Продолжить?",
+		"description": "Body text of the warning modal"
+	},
+	"start": {
+		"message": "Начать",
+		"description": "Button label to start an action (e.g. area select)"
+	},
+	"actionMenuShowTabs": {
+		"message": "Переключить вкладку",
+		"description": "Show a context menu listing all open tabs in the current window"
+	},
+	"actionMenuRecentlyClosed": {
+		"message": "Недавно закрытые вкладки",
+		"description": "Show a context menu listing recently closed tabs for quick restore"
+	},
+	"recentlyClosedMaxItems": {
+		"message": "Макс. элементов",
+		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
+	},
+	"actionCategoryContextMenu": {
+		"message": "Всплывающее меню",
+		"description": "Action category: context menu actions"
+	},
+	"zoomStepMode": {
+		"message": "Режим масштабирования",
+		"description": "Label for zoom mode selector: browser steps vs fixed increment"
+	},
+	"zoomStepModeBrowser": {
+		"message": "Использовать уровни браузера",
+		"description": "Option: follow Chrome's built-in zoom steps (25%, 33%, 50%, …, 500%)"
+	},
+	"zoomStepModeFixed": {
+		"message": "Фиксированный шаг",
+		"description": "Option: zoom in/out by a configurable fixed percentage each time"
+	},
+	"zoomDelta": {
+		"message": "Размер шага",
+		"description": "Label for the zoom increment/decrement slider"
+	},
+	"resetZoomLevel": {
+		"message": "Сбросить до",
+		"description": "Label for the target zoom level when resetting zoom"
+	},
+	"resetZoomDefault": {
+		"message": "По умолчанию в браузере",
+		"description": "Option: reset zoom to the browser's default zoom setting"
+	},
+	"resetZoomCustom": {
+		"message": "Пользовательское значение",
+		"description": "Option: reset zoom to a user-specified custom zoom level"
+	},
+	"actionMenuShowBookmarks": {
+		"message": "Показать закладки",
+		"description": "Show a context menu listing bookmarks from a selected folder"
+	},
+	"bookmarkFolder": {
+		"message": "Папка",
+		"description": "Label for selecting which bookmark folder to display"
+	},
+	"bookmarkGrantPermission": {
+		"message": "Предоставить разрешение на закладки",
+		"description": "Button label to request bookmarks permission"
+	},
+	"ctxMenuSortOrder": {
+		"message": "Сортировать по",
+		"description": "Label for context menu sort order dropdown"
+	},
+	"ctxMenuSortDefault": {
+		"message": "По умолчанию",
+		"description": "Sort option: original API/insertion order"
+	},
+	"ctxMenuSortDefaultDesc": {
+		"message": "По умолчанию (в обратном порядке)",
+		"description": "Sort option: reverse of original API order"
+	},
+	"ctxMenuSortDateAddedAsc": {
+		"message": "Дата добавления (сначала старые)",
+		"description": "Sort option: by date added ascending"
+	},
+	"ctxMenuSortDateAddedDesc": {
+		"message": "Дата добавления (сначала новые)",
+		"description": "Sort option: by date added descending"
+	},
+	"ctxMenuSortNameAsc": {
+		"message": "Имя (по возрастанию)",
+		"description": "Sort option: alphabetical ascending"
+	},
+	"ctxMenuSortNameDesc": {
+		"message": "Имя (по убыванию)",
+		"description": "Sort option: alphabetical descending"
+	},
+	"ctxMenuSortLastAccessAsc": {
+		"message": "Последний доступ (сначала старые)",
+		"description": "Sort option: by last access time ascending"
+	},
+	"ctxMenuSortLastAccessDesc": {
+		"message": "Последний доступ (сначала новые)",
+		"description": "Sort option: by last access time descending"
+	},
+	"ctxMenuMaxItems": {
+		"message": "Макс. количество",
+		"description": "Label for maximum number of items in context menu"
+	},
+	"ctxMenuMaxItemsUnlimited": {
+		"message": "Без ограничений",
+		"description": "Placeholder shown when max items is 0 (no limit)"
+	},
+	"ctxMenuScrollToBottom": {
+		"message": "Прокрутить вниз",
+		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuTimeDisplay": {
+		"message": "Показывать время",
+		"description": "Label for time display mode dropdown in context menu"
+	},
+	"ctxMenuTimeNone": {
+		"message": "Не показывать",
+		"description": "Time display option: hide time column"
+	},
+	"ctxMenuTimeLastAccess": {
+		"message": "Последний визит",
+		"description": "Time display option: show last access time"
+	},
+	"ctxMenuTimeClosedTime": {
+		"message": "Время закрытия",
+		"description": "Time display option: show when the tab was closed"
+	},
+	"ctxMenuTimeDateAdded": {
+		"message": "Дата добавления",
+		"description": "Time display option: show when the bookmark was added"
 	}
 }

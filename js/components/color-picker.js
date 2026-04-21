@@ -1,5 +1,6 @@
 import { LitElement, html, css, unsafeHTML } from '../../js/lib/lit-all.min.js';
 import { icon } from '../icons.js'; 
+import { tooltip } from '../tooltip.js';
 
 class ColorPicker extends LitElement {
 	static properties = {
@@ -157,19 +158,20 @@ class ColorPicker extends LitElement {
 			min-width: 0;
 			padding: 5px 8px;
 			border-radius: 6px;
-			border: 1px solid var(--border-color);
+			border: 0;
+			box-shadow: 0 0 0 0.75px var(--border-color);
 			background: var(--input-bg);
 			color: var(--text-primary);
 			font-size: 12px;
-			font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
+			font-family: var(--font-mono);
 			text-align: center;
 			direction: ltr;
 			outline: none;
-			transition: border-color 0.2s;
+			transition: box-shadow 0.15s ease;
 		}
 
 		.hex-input:focus {
-			border-color: var(--accent-color);
+			box-shadow: 0 0 0 2px var(--input-focus-border-color);
 		}
 
 		.alpha-input-wrap {
@@ -183,14 +185,15 @@ class ColorPicker extends LitElement {
 			width: 40px;
 			padding: 5px 4px;
 			border-radius: 6px;
-			border: 1px solid var(--border-color);
+			border: 0;
+			box-shadow: 0 0 0 0.75px var(--border-color);
 			background: var(--input-bg);
 			color: var(--text-primary);
 			font-size: 12px;
-			font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
+			font-family: var(--font-mono);
 			text-align: center;
 			outline: none;
-			transition: border-color 0.2s;
+			transition: box-shadow 0.15s ease;
 			-moz-appearance: textfield;
 		}
 
@@ -200,7 +203,7 @@ class ColorPicker extends LitElement {
 		}
 
 		.alpha-input:focus {
-			border-color: var(--accent-color);
+			box-shadow: 0 0 0 2px var(--input-focus-border-color);
 		}
 
 		.alpha-unit {
@@ -288,7 +291,8 @@ class ColorPicker extends LitElement {
 		.reset-btn {
 			height: 24px;
 			border-radius: 6px;
-			border: 1px solid var(--border-color-solid);
+			border: 0;
+			box-shadow: 0 0 0 0.75px var(--border-color-solid);
 			background: transparent;
 			color: var(--text-secondary);
 			cursor: pointer;
@@ -311,7 +315,12 @@ class ColorPicker extends LitElement {
 		.reset-btn:hover {
 			background: var(--bg-tertiary);
 			color: var(--text-primary);
-			border-color: var(--accent-color);
+			box-shadow: 0 0 0 2px var(--input-focus-border-color);
+		}
+
+		.reset-btn:focus-visible {
+			box-shadow: 0 0 0 2px var(--input-focus-border-color);
+			outline: none;
 		}
 	`;
 
@@ -455,7 +464,7 @@ class ColorPicker extends LitElement {
 						<div class="preview-color" style="background:${rgba}"></div>
 					</div>
 					${this.defaultValue || this.defaultBlurRadius != null ? html`
-						<button class="reset-btn" @click=${this.#onReset} title="Reset">${unsafeHTML(icon('rotateCcw', { strokeWidth: 2.5 }))} <span>${window.i18n.getMessage('reset')}</span></button>
+						<button class="reset-btn" @click=${this.#onReset} .tooltip=${tooltip(window.i18n.getMessage('reset'))}>${unsafeHTML(icon('rotateCcw', { strokeWidth: 2.5 }))}</button>
 					` : ''}
 				</div>
 			</div>

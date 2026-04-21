@@ -1,13 +1,14 @@
 import { LitElement, html, css, unsafeCSS, unsafeHTML } from '../../js/lib/lit-all.min.js';
 import { commonStyles, optionStyles } from './shared-styles.js';
 import { icons, icon, iconUrl } from '../icons.js'; 
+import { tooltip } from '../tooltip.js';
 
 class DragGestureManager extends LitElement {
 
 	static properties = {
 		type: { type: String },       
 		dragGestures: { type: Array },    
-		advancedMode: { type: Boolean }, 
+		advancedMode: { type: Boolean, attribute: 'advanced-mode' }, 
 	};
 
 	static styles = [
@@ -42,32 +43,9 @@ class DragGestureManager extends LitElement {
 				border: 1px solid var(--border-color);
 				background: var(--bg-secondary);
 			}
-			.drag-row select {
-				padding: 5px 8px;
-				border-radius: 5px;
-				background: var(--card-bg);
-				font-size: 13px;
-			}
 			.direction-btn {
-				display: inline-flex;
-				align-items: center;
-				gap: 2px;
 				min-width: 50px;
-				padding: 7px 8px;
-				border-radius: 6px;
-				border: 1px solid var(--border-color);
-				background: var(--card-bg);
-				color: var(--text-color);
-				font-size: 16px;
-				cursor: pointer;
-				transition: all 0.15s;
-				justify-content: center;
-				line-height: 1.4;
 				flex-wrap: wrap;
-			}
-			.direction-btn:hover {
-				border-color: var(--accent-color);
-				background: color-mix(in srgb, var(--accent-color) 8%, var(--card-bg));
 			}
 			.position-select {
 				min-width: 60px;
@@ -79,17 +57,21 @@ class DragGestureManager extends LitElement {
 				min-width: 80px;
 			}
 			input[type="text"].url-input {
-				padding: 5px 8px;
-				border-radius: 5px;
-				border: 1px solid var(--border-color);
-				background: var(--card-bg);
-				color: var(--text-color);
-				font-size: 12px;
 				flex: 1;
 				min-width: 150px;
 			}
-			input[type="text"].url-input::placeholder {
-				color: var(--text-muted);
+			input[type="text"].custom-name-input {
+				flex: 0 1 auto;
+				min-width: 80px;
+				width: 130px;
+			}
+			.custom-name-label {
+				font-size: 12px;
+				color: var(--text-secondary);
+				flex-shrink: 0;
+			}
+			.auto-detect-label .help-icon svg {
+				transform: translateY(1px);
 			}
 			.drag-row-primary {
 				display: flex;
@@ -115,7 +97,7 @@ class DragGestureManager extends LitElement {
 				flex-shrink: 0;
 				background: transparent;
 				border: none;
-				border-left: 1px solid var(--border-color-light, color-mix(in srgb, var(--border-color) 50%, transparent));
+				border-left: 1px solid var(--border-color-light, color-mix(in srgb, var(--border-color) 70%, transparent));
 				padding: 0;
 				cursor: pointer;
 				color: var(--text-muted);
@@ -193,44 +175,14 @@ class DragGestureManager extends LitElement {
 			}
 			.drag-add-btn {
 				display: flex;
-				align-items: center;
-				justify-content: center;
-				margin-inline: auto;
-				padding: 8px 20px;
 				margin-top: 8px;
-				background: transparent;
-				border: 1.5px dashed var(--border-color);
-				border-radius: 8px;
-				color: var(--text-muted);
-				cursor: pointer;
-				transition: all 0.2s ease;
+				margin-inline: auto;
 			}
-			.drag-add-btn:hover {
-				border-color: var(--accent-color);
-				background: rgba(66, 133, 244, 0.06);
-				color: var(--accent-color);
+			.configure-btn svg {
+				transform: translateY(1px);
 			}
-			.drag-add-btn svg {
-				width: 18px;
-				height: 18px;
-				stroke-width: 1.5;
-			}
-			:host(:not([advanced-mode])) .drag-add-btn {
-				display: none;
-			}
-			:host(:not([advanced-mode])) .drag-row-toggle,
-			:host(:not([advanced-mode])) .drag-row-secondary {
-				display: none !important;
-			}
-			:host(:not([advanced-mode])) .direction-btn {
-				border-color: transparent;
-				background: transparent;
-				cursor: default;
-				pointer-events: none;
-			}
-			:host(:not([advanced-mode])) .drag-delete-btn,
-			:host(:not([advanced-mode])) .drag-copy-btn {
-				display: none;
+			.gesture-icon-wrap {
+				transform: scale(1.2);
 			}
 		`,
 	];
@@ -252,6 +204,13 @@ class DragGestureManager extends LitElement {
 		}
 	}
 
+	static ADVANCED_ACTIONS = new Set(['sendCustomEvent']);
+
+	#visibleActions(currentAction) {
+		return Object.entries(this._actions)
+			.filter(([v]) => !DragGestureManager.ADVANCED_ACTIONS.has(v) || this.advancedMode || v === currentAction);
+	}
+
 	render() {
 		const dragGestures = structuredClone(this.dragGestures);
 
@@ -259,33 +218,36 @@ class DragGestureManager extends LitElement {
 			<div class="drag-rows-container">
 				${dragGestures.map((cfg, index) => this.#renderRow(cfg, index, dragGestures.length))}
 			</div>
-			<button type="button" class="drag-add-btn" @click=${this.#addRow}>${unsafeHTML(icon('plus', { strokeWidth: 2.5 }))}</button>
+			<button type="button" class="btn btn-dashed drag-add-btn btn-lg" @click=${this.#addRow}>${unsafeHTML(icon('plus', { strokeWidth: 2 }))}</button>
 			<gesture-recorder id="dragRecorder" data-gesture-ignore></gesture-recorder>
+			<event-config-dialog id="eventConfigDialog"></event-config-dialog>
 		`;
 	}
 
 	#renderRow(cfg, index, totalRows) {
-		const { TAB_POSITIONS } = window.GestureConstants;
+		const { TAB_POSITIONS, DRAG_ACTION_DEFAULTS } = window.GestureConstants;
 
 		const action = cfg.action || 'none';
-		const position = cfg.position || 'right';
-		const active = cfg.active !== false;
-		const engine = cfg.engine || (this.type === 'text' ? 'system' : 'google');
-		const url = cfg.url || '';
+		const defaults = DRAG_ACTION_DEFAULTS[action] || {};
 		const direction = cfg.direction || '→';
-		const autoDetectUrl = cfg.autoDetectUrl === true;
-		const preferLink = cfg.preferLink === true;
-		const incognito = cfg.incognito === true;
+		const position = cfg.position ?? defaults.position;
+		const active = cfg.active ?? defaults.active;
+		const engine = cfg.engine ?? defaults.engine;
+		const url = cfg.url ?? defaults.url;
+		const autoDetectUrl = cfg.autoDetectUrl ?? defaults.autoDetectUrl;
+		const preferLink = cfg.preferLink ?? defaults.preferLink;
+		const incognito = cfg.incognito ?? defaults.incognito;
 
 		const showPos = ['openTab', 'search', 'imageSearch'].includes(action);
 		const showActive = showPos && position !== 'current';
-		const showIncognito = ['openTab', 'search', 'imageSearch'].includes(action);
+		const showIncognito = this.advancedMode && ['openTab', 'search', 'imageSearch'].includes(action);
 		const showEngine = (this.type === 'text' && action === 'search') || (this.type === 'image' && action === 'imageSearch');
 		const showUrl = (this.type === 'text' && action === 'search' && engine === 'custom') ||
 			(this.type === 'image' && action === 'imageSearch' && engine === 'custom');
 		const showPreferLink = this.type === 'image' && action === 'openTab';
+		const showCustomEvent = action === 'sendCustomEvent';
 
-		const showSecondary = showPos || showIncognito;
+		const showSecondary = showPos || this.advancedMode;
 
 		const isExpanded = cfg.simple !== true;
 
@@ -295,14 +257,14 @@ class DragGestureManager extends LitElement {
 					<div class="drag-row-content">
 						<div class="drag-row-primary">
 							<div class="drag-row-primary-content">
-								<button type="button" class="direction-btn"
+								<button type="button" class="btn btn-secondary direction-btn"
 									@click=${() => this.#changeDirection(index)}>
-									${unsafeHTML(window.GestureConstants.arrowsToSvg(direction))}
+									<span class="gesture-icon-wrap">${unsafeHTML(window.GestureConstants.arrowsToSvg(direction))}</span>
 								</button>
 
 								<select class="action-select" .value=${action}
 									@change=${(e) => this.#handleActionChange(index, e.target.value)}>
-									${Object.entries(this._actions).map(([v, k]) => html`
+									${this.#visibleActions(action).map(([v, k]) => html`
 										<option value=${v} ?selected=${action === v}>${window.i18n.getMessage(k)}</option>
 									`)}
 								</select>
@@ -326,6 +288,10 @@ class DragGestureManager extends LitElement {
 										<input type="checkbox" .checked=${autoDetectUrl}
 											@change=${(e) => this.#updateRow(index, 'autoDetectUrl', e.target.checked)}>
 										<span>${window.i18n.getMessage('autoDetectUrl')}</span>
+										<span class="help-icon"
+											.tooltip=${tooltip(window.i18n.getMessage('autoDetectUrlTooltip'))}>
+											${unsafeHTML(icon('circleHelp', { size: 14 }))}
+										</span>
 									</label>
 								` : ''}
 
@@ -335,6 +301,22 @@ class DragGestureManager extends LitElement {
 											@change=${(e) => this.#updateRow(index, 'preferLink', e.target.checked)}>
 										<span>${window.i18n.getMessage('preferLink')}</span>
 									</label>
+								` : ''}
+
+								${this.type === 'link' && action === 'copyLinkAndText' ? html`
+									<label class="inline-checkbox">
+										<input type="checkbox" .checked=${cfg.asMarkdown ?? (defaults.asMarkdown || false)}
+											@change=${(e) => this.#updateRow(index, 'asMarkdown', e.target.checked)}>
+										<span>${window.i18n.getMessage('copyAsMarkdown')}</span>
+									</label>
+								` : ''}
+
+								${showCustomEvent ? html`
+									<button type="button" class="btn btn-ghost configure-btn"
+										@click=${() => this.#openEventConfig(index)}>
+										${unsafeHTML(icon('settings', { size: 13 }))}
+										${window.i18n.getMessage('customEventConfigureBtn')}
+									</button>
 								` : ''}
 							</div>
 
@@ -347,7 +329,7 @@ class DragGestureManager extends LitElement {
 						</div>
 
 						<div class="drag-row-secondary" style=${showSecondary && isExpanded ? '' : 'display:none'}>
-							<select class="position-select" style=${showPos ? (incognito ? 'opacity: 0.5' : '') : 'display:none'}
+							<select class="position-select input" style=${showPos ? (incognito ? 'opacity: 0.5' : '') : 'display:none'}
 								.value=${position}
 								@change=${(e) => this.#updateRow(index, 'position', e.target.value)}>
 								${Object.entries(TAB_POSITIONS).map(([value, key]) => html`
@@ -366,16 +348,67 @@ class DragGestureManager extends LitElement {
 									@change=${(e) => this.#handleIncognitoChange(index, e.target.checked)}>
 								${window.i18n.getMessage('openInIncognito', 'Open in Incognito')}
 							</label>
+
+							<span class="custom-name-label" style=${this.advancedMode ? '' : 'display:none'}>
+								${window.i18n.getMessage('customHudName')}
+								<span class="help-icon"
+									.tooltip=${tooltip(window.i18n.getMessage('customHudNameTooltip'))}>
+									${unsafeHTML(icon('circleHelp', { size: 14 }))}
+								</span>
+							</span>
+							<input type="text" class="custom-name-input input"
+								style=${this.advancedMode ? '' : 'display:none'}
+								placeholder=${window.i18n.getMessage(this._actions[action]) || action}
+								.value=${cfg.customName || ''}
+								maxlength="80"
+								@input=${(e) => this.#updateRow(index, 'customName', e.target.value)}>
+							${showPreferLink && preferLink ? html`
+							<input type="text" class="custom-name-input input"
+								style=${this.advancedMode ? '' : 'display:none'}
+								placeholder=${window.i18n.getMessage('dragActionOpenTabLink')}
+								.value=${cfg.customNamePreferLink || ''}
+								maxlength="80"
+								@input=${(e) => this.#updateRow(index, 'customNamePreferLink', e.target.value)}>
+							` : ''}
+							${showEngine && autoDetectUrl && this.type === 'text' ? html`
+							<input type="text" class="custom-name-input input"
+								style=${this.advancedMode ? '' : 'display:none'}
+								placeholder=${window.i18n.getMessage('dragActionOpenTabLink')}
+								.value=${cfg.customNameAutoDetectUrl || ''}
+								maxlength="80"
+								@input=${(e) => this.#updateRow(index, 'customNameAutoDetectUrl', e.target.value)}>
+							` : ''}
 						</div>
 					</div>
 				</div>
 
 				<button type="button" class="drag-copy-btn"
-					@click=${() => this.#copyRow(index)}></button>
+					@click=${() => this.#copyRow(index)}
+					.tooltip=${tooltip(window.i18n.getMessage('duplicate'))}></button>
 				<button type="button" class="drag-delete-btn"
-					@click=${() => this.#deleteRow(index)}></button>
+					@click=${() => this.#deleteRow(index)}
+					.tooltip=${tooltip(window.i18n.getMessage('delete'))}></button>
 			</div>
 		`;
+	}
+
+	async #openEventConfig(index) {
+		const dialog = this.shadowRoot.getElementById('eventConfigDialog');
+		if (!dialog) return;
+		const cfg = this.dragGestures[index] || {};
+		const { DRAG_ACTION_DEFAULTS } = window.GestureConstants;
+		const defaults = DRAG_ACTION_DEFAULTS.sendCustomEvent || {};
+		const result = await dialog.open({
+			eventType: cfg.eventType ?? defaults.eventType,
+			eventDetail: cfg.eventDetail ?? defaults.eventDetail,
+			gestureInfo: cfg.gestureInfo ?? defaults.gestureInfo,
+		});
+		if (!result.confirmed) return;
+		const dragGestures = structuredClone(this.dragGestures);
+		dragGestures[index].eventType = result.eventType;
+		dragGestures[index].eventDetail = result.eventDetail;
+		dragGestures[index].gestureInfo = result.gestureInfo;
+		this.#dispatchChange(dragGestures);
 	}
 
 	#renderEngineOptions(current) {
@@ -429,9 +462,43 @@ class DragGestureManager extends LitElement {
 		`;
 	}
 
+	static #CUSTOM_NAME_FIELDS = ['customName', 'customNamePreferLink', 'customNameAutoDetectUrl'];
+
+	#cleanConfig(cfg) {
+		const { DRAG_ACTION_DEFAULTS } = window.GestureConstants;
+		const defaults = DRAG_ACTION_DEFAULTS[cfg.action];
+
+		const result = { direction: cfg.direction, action: cfg.action || 'none' };
+
+		if (cfg.simple !== undefined) result.simple = !!cfg.simple;
+
+		if (defaults) {
+			for (const key of Object.keys(defaults)) {
+				if (cfg[key] !== undefined) {
+					if (typeof defaults[key] === 'string') {
+						result[key] = String(cfg[key]);
+					} else if (typeof defaults[key] === 'boolean') {
+						result[key] = !!cfg[key];
+					}
+				}
+			}
+		}
+
+		for (const field of DragGestureManager.#CUSTOM_NAME_FIELDS) {
+			const val = (cfg[field] || '').trim();
+			if (val) result[field] = val;
+		}
+
+		return result;
+	}
+
 	#updateRow(index, field, value) {
 		const dragGestures = structuredClone(this.dragGestures);
-		dragGestures[index][field] = value;
+		if (DragGestureManager.#CUSTOM_NAME_FIELDS.includes(field) && typeof value === 'string' && value.trim() === '') {
+			delete dragGestures[index][field];
+		} else {
+			dragGestures[index][field] = value;
+		}
 		this.#dispatchChange(dragGestures);
 	}
 
@@ -483,18 +550,9 @@ class DragGestureManager extends LitElement {
 			direction = result.pattern;
 		}
 
+		const action = this.type === 'text' ? 'search' : 'openTab';
 		const dragGestures = structuredClone(this.dragGestures);
-		dragGestures.push({
-			direction,
-			action: this.type === 'text' ? 'search' : 'openTab',
-			position: 'right',
-			active: true,
-			engine: this.type === 'text' ? 'system' : 'google',
-			url: '',
-			autoDetectUrl: true,
-			incognito: false,
-			simple: true,
-		});
+		dragGestures.push({ direction, action, simple: true });
 		this.#dispatchChange(dragGestures);
 	}
 
@@ -523,9 +581,10 @@ class DragGestureManager extends LitElement {
 	}
 
 	#dispatchChange(dragGestures) {
-		this.dragGestures = dragGestures;
+		const cleaned = dragGestures.map(cfg => this.#cleanConfig(cfg));
+		this.dragGestures = cleaned;
 		this.dispatchEvent(new CustomEvent('drag-gestures-change', {
-			detail: { dragGestures: dragGestures },
+			detail: { dragGestures: cleaned },
 			bubbles: true,
 			composed: true,
 		}));

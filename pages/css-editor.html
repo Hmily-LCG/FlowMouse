@@ -6,9 +6,10 @@
 	<link rel="modulepreload" href="../js/lib/lit-all.min.js">
 	<link rel="modulepreload" href="../js/icons.js">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title data-i18n="aboutTitle">About FlowMouse</title>
+	<title data-i18n="customCssEditorTitle">FlowMouse</title>
 	<link rel="stylesheet" href="../css/common.css">
 	<link rel="stylesheet" href="../css/option.css">
+	<style>body { padding: 0; }</style>
 	<style id="i18n-load-style">
 		[data-i18n], [data-i18n-placeholder], [data-i18n-title], select {
 			visibility: hidden;
@@ -16,16 +17,18 @@
 	</style>
 </head>
 
-<body class="about-page">
-	<about-page></about-page>
+<body class="css-editor-page">
+	<css-editor-page></css-editor-page>
 
 	<script src="../js/i18n.js"></script>
 	<script src="../js/constants.js"></script>
+
 	<script src="../js/gesture-visual.js"></script>
 	<script src="../js/gesture-recognizer.js"></script>
 	<script src="../js/content.js"></script>
 
-	<script type="module" src="../js/components/about-page.js"></script>
+	<script type="module" src="../js/context-menu.js"></script>
+	<script type="module" src="../js/components/css-editor-page.js"></script>
 </body>
 
 </html>

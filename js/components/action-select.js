@@ -1,7 +1,22 @@
 import { LitElement, html, css, unsafeHTML } from '../../js/lib/lit-all.min.js';
 import { commonStyles, optionStyles } from './shared-styles.js';
 import { icons, icon } from '../icons.js'; 
-import { SettingsStore } from '../settings-store.js';
+import { getChainLabel } from './chain-panel.js';
+import { getMenuLabel } from './menu-panel.js';
+import { tooltip } from '../tooltip.js';
+
+let modalOpenCount = 0;
+function lockBodyScroll() {
+	if (modalOpenCount++ === 0) {
+		document.documentElement.style.overflow = 'hidden';
+	}
+}
+function unlockBodyScroll() {
+	if (--modalOpenCount <= 0) {
+		modalOpenCount = 0;
+		document.documentElement.style.overflow = '';
+	}
+}
 
 const ACTION_ICONS = {
 	'none': 'minus',
@@ -29,26 +44,40 @@ const ACTION_ICONS = {
 	'stopLoading': 'ban',
 	'newWindow': 'appWindow',
 	'newIncognito': 'hatGlasses',
-	'addToBookmarks': 'bookmark',
+	'addToBookmarks': 'star',
 	'toggleFullscreen': 'maximize',
 	'toggleMaximize': 'squarePlus',
 	'minimize': 'squareMinus',
 	'openCustomUrl': 'externalLink',
 	'copyUrl': 'copy',
 	'copyTitle': 'copy',
+	'copyTitleAndUrl': 'copy',
 	'openDownloads': 'download',
 	'openHistory': 'history',
 	'openExtensions': 'puzzle',
+	'saveAsMhtml': 'fileDown',
 	'printPage': 'printer',
 	'duplicateTab': 'layers2',
 	'toggleMuteTab': 'volumeX',
 	'toggleMuteAllTabs': 'volumeOff',
 	'togglePinTab': 'pin',
+	'moveTabToNewWindow': 'squareArrowOutUpRight',
 	'actionChain': 'workflow',
 	'delay': 'timer',
 	'sendCustomEvent': 'codeXml',
 	'simulateKey': 'keyboard',
-	'_addNewChain': 'plus',
+	'pasteClipboard': 'clipboardPaste',
+	'searchClipboard': 'search',
+	'zoomIn': 'zoomIn',
+	'zoomOut': 'zoomOut',
+	'resetZoom': 'searchX',
+	'viewPageSource': 'fileCode',
+	'pauseGesture': 'circlePause',
+	'menuShowTabs': 'layoutList',
+	'menuRecentlyClosed': 'history',
+	'menuShowBookmarks': 'bookOpen',
+	'customMenu': 'layoutGrid',
+	'areaSelect': 'squareDashedMousePointer',
 };
 
 const SCROLL_SMOOTHNESS = {
@@ -63,11 +92,12 @@ const SCROLL_ACTIONS = ['scrollUp', 'scrollDown', 'scrollToTop', 'scrollToBottom
 const SCROLL_DISTANCE_ACTIONS = ['scrollUp', 'scrollDown'];
 
 const ACTION_CATEGORIES = [
-	{ key: 'actionCategoryChains', icon: 'workflow', actions: ['actionChain', 'delay'] },
+	{ key: '', actions: ['none', 'actionChain', 'delay'] },
 	{ key: 'actionCategoryNavigation', icon: 'compass', actions: ['back', 'forward', 'scrollUp', 'scrollDown', 'scrollToTop', 'scrollToBottom'] },
-	{ key: 'actionCategoryTabs', icon: 'panelTop', actions: ['newTab', 'closeTab', 'refresh', 'refreshAllTabs', 'switchLeftTab', 'switchRightTab', 'switchFirstTab', 'switchLastTab', 'closeOtherTabs', 'closeLeftTabs', 'closeRightTabs', 'closeAllTabs', 'restoreTab', 'duplicateTab', 'togglePinTab'] },
+	{ key: 'actionCategoryContextMenu', icon: 'menu', actions: ['menuShowTabs', 'menuRecentlyClosed', 'menuShowBookmarks', 'customMenu'] },
+	{ key: 'actionCategoryTabs', icon: 'panelTop', actions: ['newTab', 'closeTab', 'refresh', 'refreshAllTabs', 'switchLeftTab', 'switchRightTab', 'switchFirstTab', 'switchLastTab', 'closeOtherTabs', 'closeLeftTabs', 'closeRightTabs', 'closeAllTabs', 'restoreTab', 'duplicateTab', 'togglePinTab', 'moveTabToNewWindow'] },
 	{ key: 'actionCategoryWindow', icon: 'appWindow', actions: ['newWindow', 'newIncognito', 'toggleFullscreen', 'toggleMaximize', 'minimize', 'closeWindow', 'closeBrowser'] },
-	{ key: 'actionCategoryUtilities', icon: 'wrench', actions: ['addToBookmarks', 'copyUrl', 'copyTitle', 'openCustomUrl', 'openDownloads', 'openHistory', 'openExtensions', 'toggleMuteTab', 'toggleMuteAllTabs', 'stopLoading', 'printPage', 'simulateKey', 'sendCustomEvent'] },
+	{ key: 'actionCategoryUtilities', icon: 'wrench', actions: ['addToBookmarks', 'copyUrl', 'copyTitle', 'copyTitleAndUrl', 'openCustomUrl', 'openDownloads', 'openHistory', 'openExtensions', 'zoomIn', 'zoomOut', 'resetZoom', 'toggleMuteTab', 'toggleMuteAllTabs', 'stopLoading', 'printPage', 'saveAsMhtml', 'viewPageSource', 'pasteClipboard', 'searchClipboard', 'pauseGesture', 'simulateKey', 'sendCustomEvent', 'areaSelect'] },
 ];
 
 class ActionSelect extends LitElement {
@@ -76,6 +106,9 @@ class ActionSelect extends LitElement {
 		config: { type: Object },
 		gestureLabel: { type: String, attribute: 'gesture-label' },
 		excludeChain: { type: Boolean, attribute: 'exclude-chain' },
+		excludeMenu: { type: Boolean, attribute: 'exclude-menu' },
+		allowCustomName: { type: Boolean, attribute: 'allow-custom-name' },
+		compact: { type: Boolean, reflect: true },
 		_open: { state: true },
 		_search: { state: true },
 		_pendingValue: { state: true },
@@ -109,7 +142,7 @@ class ActionSelect extends LitElement {
 				justify-content: space-between;
 				gap: 2px;
 				transition: box-shadow 0.15s ease;
-				line-height: 1.4;
+				line-height: 18px;
 			}
 			.trigger:hover,
 			.trigger:focus {
@@ -148,24 +181,36 @@ class ActionSelect extends LitElement {
 				from { opacity: 0; transform: scale(0.97); }
 				to { opacity: 1; transform: scale(1); }
 			}
+			@keyframes as-pulse {
+				0% { transform: scale(1); }
+				40% { transform: scale(1.02); }
+				100% { transform: scale(1); }
+			}
+			.modal-panel.shake {
+				animation: as-pulse 0.3s ease;
+			}
 
 			.modal-panel {
-				width: min(900px, 92vw);
-				max-height: 80vh;
+				width: min(1280px, 94vw);
+				height: min(1000px, 85vh);
 				background: var(--card-bg);
 				border-radius: 14px;
 				box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 0 1px var(--border-color);
 				display: flex;
 				flex-direction: column;
-				overflow-y: auto;
+				overflow: hidden;
 				animation: as-slideIn 0.12s ease;
+			}
+			:host([compact]) .modal-panel {
+				width: min(1180px, 88vw);
+				height: min(900px, 78vh);
 			}
 
 			.modal-header {
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
-				padding: 14px 18px;
+				padding: 12px 16px;
 				border-bottom: 1px solid var(--border-color);
 				flex-shrink: 0;
 			}
@@ -212,37 +257,45 @@ class ActionSelect extends LitElement {
 				color: var(--text-primary);
 			}
 
+			.modal-body {
+				flex: 1;
+				display: flex;
+				min-height: 0;
+				padding: 0;
+			}
+			.modal-left {
+				flex: 1;
+				min-width: 0;
+				display: flex;
+				flex-direction: column;
+				border-inline-end: 1px solid var(--border-color);
+			}
+			.modal-right {
+				width: 340px;
+				flex-shrink: 0;
+				display: flex;
+				flex-direction: column;
+				min-height: 0;
+			}
+
 			.search-wrapper {
 				padding: 10px 14px 6px;
 				flex-shrink: 0;
 			}
 			input.search-input {
 				width: 100%;
-				padding: 8px 10px;
-				border-radius: 8px;
-				border: 1px solid var(--border-color);
-				background: var(--bg-secondary);
-				color: var(--text-primary);
-				font-size: 13px;
-				outline: none;
-				transition: border-color 0.15s;
-			}
-			input.search-input:focus {
-				border-color: var(--accent-color);
-			}
-			input.search-input::placeholder {
-				color: var(--text-muted);
 			}
 
 			.action-list {
 				flex: 1;
 				overflow-y: auto;
-				padding: 6px 14px 14px;
+				padding: 0 14px 14px;
 				overscroll-behavior: contain;
 			}
 			.category-label {
-				padding: 12px 8px 6px;
+				padding: 6px 8px 6px;
 				margin-top: 8px;
+				margin-bottom: 2px;
 				font-size: 11px;
 				font-weight: 700;
 				color: var(--text-muted);
@@ -263,20 +316,11 @@ class ActionSelect extends LitElement {
 				width: 13px;
 				height: 13px;
 			}
-			.category-label:first-child {
-				padding-top: 4px;
-				margin-top: 0;
-			}
 			.action-grid {
 				display: grid;
-				grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+				grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 				gap: 2px;
-				padding-top: 6px;
-			}
-			@media (max-width: 500px) {
-				.action-grid {
-					grid-template-columns: repeat(2, 1fr);
-				}
+				margin-top: 4px;
 			}
 			.action-item {
 				padding: 5px 6px;
@@ -323,14 +367,106 @@ class ActionSelect extends LitElement {
 				font-size: 13px;
 			}
 
-			.action-config {
-				padding: 12px;
-				border-top: 1px solid var(--border-color);
+			.detail-header {
+				padding: 12px 12px 12px 18px;
 				display: flex;
-				flex-direction: column;
+				align-items: center;
 				gap: 10px;
+				border-bottom: 1px solid var(--border-color);
+				flex-shrink: 0;
+				min-height: 52px;
+			}
+			.detail-header-icon {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: var(--text-secondary);
 				flex-shrink: 0;
 			}
+			.detail-header-icon svg {
+				width: 18px;
+				height: 18px;
+			}
+			.detail-header-text {
+				flex: 1;
+				min-width: 0;
+			}
+			.detail-header-name {
+				font-size: 14px;
+				font-weight: 600;
+				color: var(--text-primary);
+				line-height: 1.35;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+				word-break: break-word;
+			}
+			.detail-reset-btn {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 28px;
+				height: 28px;
+				padding: 0;
+				border: 0;
+				border-radius: 6px;
+				background: transparent;
+				color: var(--text-muted);
+				cursor: pointer;
+				flex-shrink: 0;
+				opacity: 0;
+				pointer-events: none;
+				transition: opacity 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+			}
+			.detail-reset-btn.visible {
+				opacity: 1;
+				pointer-events: auto;
+			}
+			.detail-reset-btn:hover {
+				background: var(--bg-secondary);
+				color: var(--text-primary);
+			}
+			.detail-body {
+				flex: 1;
+				min-height: 0;
+				overflow-y: auto;
+				overscroll-behavior: contain;
+				padding: 15px 16px 16px;
+				display: flex;
+				flex-direction: column;
+				gap: 14px;
+			}
+			.detail-empty {
+				margin: auto;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 8px;
+				font-size: 13px;
+				color: var(--text-muted);
+				text-align: center;
+				user-select: none;
+			}
+			.detail-empty svg {
+				opacity: 0.55;
+			}
+			.required-badge {
+				display: inline-flex;
+				align-items: center;
+				padding: 1px 6px;
+				font-size: 10px;
+				font-weight: 700;
+				color: var(--warning-color);
+				background: rgba(230, 161, 23, 0.14);
+				border-radius: 4px;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+				margin-inline-start: 6px;
+				vertical-align: middle;
+			}
+
 			.action-config-label {
 				font-size: 12px;
 				color: var(--text-secondary);
@@ -339,40 +475,18 @@ class ActionSelect extends LitElement {
 			.action-config-input {
 				width: 100%;
 				padding: 8px 10px;
-				border-radius: 6px;
-				border: 1px solid var(--border-color);
-				background: var(--bg-secondary);
-				color: var(--text-primary);
 				font-size: 13px;
-				outline: none;
-			}
-			.action-config-input:focus {
-				border-color: var(--accent-color);
-			}
-			.action-config-input::placeholder {
-				color: var(--text-muted);
 			}
 			.action-config-textarea {
 				width: 100%;
 				padding: 8px 10px;
-				border-radius: 6px;
-				border: 1px solid var(--border-color);
-				background: var(--bg-secondary);
-				color: var(--text-primary);
 				font-size: 13px;
-				font-family: monospace;
-				outline: none;
+				font-family: var(--font-mono);
 				resize: vertical;
 				min-height: 20px;
 			}
-			.action-config-textarea:focus {
-				border-color: var(--accent-color);
-			}
-			.action-config-textarea::placeholder {
-				color: var(--text-muted);
-			}
 			.action-config-textarea.invalid {
-				border-color: var(--warning-color);
+				box-shadow: 0 0 0 0.75px var(--warning-color);
 			}
 			.action-config-hint {
 				font-size: 11px;
@@ -380,8 +494,9 @@ class ActionSelect extends LitElement {
 				line-height: 1.4;
 			}
 			.action-config-hint code,
-			.action-config-label code {
-				font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+			.action-config-label code,
+			.action-config-checkbox code {
+				font-family: var(--font-mono);
 				font-size: 0.9em;
 				background: var(--bg-tertiary);
 				padding: 1px 5px;
@@ -399,29 +514,38 @@ class ActionSelect extends LitElement {
 			}
 			.action-config-checkbox input[type="checkbox"] {
 				margin: 0;
+				flex-shrink: 0;
 			}
 			.action-config-row {
 				display: flex;
 				align-items: center;
-				gap: 10px;
+				gap: 9px 10px;
+				flex-wrap: wrap;
 			}
-			.action-config-row.disabled {
+			.action-config-field {
+				display: flex;
+				flex-direction: column;
+				gap: 6px;
+			}
+			.action-config-field .action-config-label {
+				display: inline-flex;
+				align-items: center;
+			}
+			.action-config-row.disabled,
+			.action-config-field.disabled {
 				opacity: 0.4;
 				pointer-events: none;
 			}
-			.action-config-row .action-config-label {
-				flex-shrink: 0;
-				min-width: 100px;
+			.action-config-row > .action-config-label {
+				flex-basis: 100%;
+				min-width: 0;
 			}
 			.action-config-row select {
 				flex: 1;
 				min-width: 0;
-				padding: 6px 8px;
-				border-radius: 6px;
-				border: 1px solid var(--border-color);
-				background: var(--bg-secondary);
-				color: var(--text-primary);
-				font-size: 13px;
+			}
+			.action-config-row.compact select {
+				flex: 0 1 auto;
 			}
 			.action-config-row .slider-control {
 				flex: 1;
@@ -429,7 +553,7 @@ class ActionSelect extends LitElement {
 				align-items: center;
 				gap: 8px;
 				min-width: 0;
-				padding-block: 5px;
+				padding-block: 1px;
 			}
 			.action-config-row .slider-control input[type="range"] {
 				flex: 1;
@@ -443,6 +567,15 @@ class ActionSelect extends LitElement {
 				text-align: end;
 				line-height: 16px;
 			}
+			.inline-input-control {
+				display: flex;
+				align-items: center;
+				gap: 4px;
+			}
+			.inline-input-control span {
+				font-size: 13px;
+				color: var(--text-secondary);
+			}
 			.action-config-warning {
 				font-size: 12px;
 				color: var(--warning-color);
@@ -451,51 +584,82 @@ class ActionSelect extends LitElement {
 				border-radius: 6px;
 				line-height: 1.5;
 			}
+			.action-config-info {
+				font-size: 12px;
+				color: var(--accent-color);
+				padding: 6px 8px;
+				background: rgba(66, 133, 244, 0.08);
+				border-radius: 6px;
+				line-height: 1.5;
+			}
+			.action-config-warning b, .action-config-info b {
+				font-weight: 600;
+			}
 
-			.action-config-footer {
+			.modal-footer {
 				display: flex;
+				align-items: center;
 				justify-content: flex-end;
-				padding: 10px 14px;
+				gap: 8px;
+				padding: 10px 16px;
 				border-top: 1px solid var(--border-color);
 				flex-shrink: 0;
 			}
-			.action-config-confirm-btn {
-				padding: 7px 24px;
-				border-radius: 6px;
-				border: 1px solid var(--accent-color);
-				background: var(--accent-color);
-				color: #fff;
-				font-size: 13px;
-				cursor: pointer;
-				transition: all 0.15s;
+			.modal-footer-label {
+				font-size: 12px;
+				color: var(--text-secondary);
+				flex-shrink: 0;
+				display: inline-flex;
+				align-items: center;
+				gap: 4px;
 			}
-			.action-config-confirm-btn:hover {
-				opacity: 0.9;
+			input.modal-footer-name {
+				width: 180px;
+				margin-inline-end: auto;
+			}
+			.modal-footer-btn {
+				min-width: 92px;
 			}
 
-			.key-record-btn {
-				padding: 7px 14px;
-				border-radius: 6px;
-				border: 1px solid var(--border-color);
-				background: var(--bg-secondary);
-				color: var(--text-primary);
-				font-size: 13px;
-				cursor: pointer;
-				transition: all 0.15s;
-				white-space: nowrap;
-			}
-			.key-record-btn:hover {
-				border-color: var(--accent-color);
-			}
 			.key-record-btn.recording {
 				border-color: var(--accent-color);
 				background: rgba(66, 133, 244, 0.1);
 				color: var(--accent-color);
-				animation: as-pulse 1.2s ease-in-out infinite;
+				box-shadow: 0 0 0 0.75px var(--accent-color);
+				animation: as-recording-pulse 1.2s ease-in-out infinite;
 			}
-			@keyframes as-pulse {
+			@keyframes as-recording-pulse {
 				0%, 100% { opacity: 1; }
 				50% { opacity: 0.6; }
+			}
+
+			@media (max-width: 780px) {
+				.modal-panel {
+					height: 92vh;
+				}
+				.modal-body {
+					flex-direction: column;
+				}
+				.modal-left {
+					border-inline-end: none;
+					border-bottom: 1px solid var(--border-color);
+					flex: 1 1 0;
+					min-height: 0;
+				}
+				.modal-right {
+					width: auto;
+					flex: 0 1 auto;
+					max-height: 50%;
+					min-height: 0;
+				}
+				.detail-header {
+					display: none;
+				}
+			}
+			@media (max-width: 500px) {
+				.action-grid {
+					grid-template-columns: repeat(2, 1fr);
+				}
 			}
 		`,
 	];
@@ -506,6 +670,8 @@ class ActionSelect extends LitElement {
 		this.config = {};
 		this.gestureLabel = '';
 		this.excludeChain = false;
+		this.excludeMenu = false;
+		this.compact = false;
 		this._open = false;
 		this._search = '';
 		this._pendingValue = 'none';
@@ -522,9 +688,15 @@ class ActionSelect extends LitElement {
 	disconnectedCallback() {
 		super.disconnectedCallback();
 		window.removeEventListener('action-catalog-changed', this._onActionsUpdated);
+		if (this._open) {
+			this._open = false;
+			unlockBodyScroll();
+			this.#stopKeyRecording();
+		}
 	}
 
 	#getActionLabel(val) {
+		if (this.config?.customName) return this.config.customName;
 		const ACTION_KEYS = window.GestureConstants.ACTION_KEYS;
 		const key = ACTION_KEYS[val];
 		if (!key) return val;
@@ -536,17 +708,10 @@ class ActionSelect extends LitElement {
 				: baseLabel;
 		}
 		if (val === 'actionChain') {
-			const chainId = this.config?.chainId;
-			if (chainId) {
-				const chains = SettingsStore.current.actionChains || {};
-				const chain = chains[chainId];
-				if (!chain) return window.i18n.getMessage('chainNotFound');
-				const steps = chain.steps?.length || 0;
-				const stepsLabel = (steps === 1 ? window.i18n.getMessage('chainStepCountOne') : window.i18n.getMessage('chainStepCount')).replace('%count%', steps);
-				const displayName = chain.name || window.i18n.getMessage('actionActionChain');
-				return `${displayName} (${stepsLabel})`;
-			}
-			return window.i18n.getMessage('actionActionChain');
+			return getChainLabel(this.config?.chainId);
+		}
+		if (val === 'customMenu') {
+			return getMenuLabel(this.config?.menuId);
 		}
 		if (val === 'delay') {
 			const delayMs = this.config?.delayMs ?? window.GestureConstants.ACTION_DEFAULTS.delay.delayMs;
@@ -556,10 +721,10 @@ class ActionSelect extends LitElement {
 			const baseLabel = window.i18n.getMessage('actionSimulateKey');
 			const keyValue = this.config?.keyValue || 'ArrowLeft';
 			const mods = [];
-			if (this.config?.modCtrl) mods.push('Ctrl');
-			if (this.config?.modShift) mods.push('Shift');
-			if (this.config?.modAlt) mods.push('Alt');
-			if (this.config?.modMeta) mods.push('Meta');
+			if (this.config?.modCtrl) mods.push(window.i18n.getModifierKeyName('Ctrl'));
+			if (this.config?.modShift) mods.push(window.i18n.getModifierKeyName('Shift'));
+			if (this.config?.modAlt) mods.push(window.i18n.getModifierKeyName('Alt'));
+			if (this.config?.modMeta) mods.push(window.i18n.getModifierKeyName('Meta'));
 			mods.push(keyValue);
 			return `${baseLabel} (${mods.join('+')})`;
 		}
@@ -571,42 +736,20 @@ class ActionSelect extends LitElement {
 		const search = this._search.toLowerCase().trim();
 		const result = [];
 
-		const noneLabel = window.i18n.getMessage(ACTION_KEYS['none']);
-		if (!search || noneLabel.toLowerCase().includes(search) || 'none'.includes(search)) {
-			result.push({ label: '', items: [{ value: 'none', label: noneLabel }] });
-		}
-
 		for (const cat of ACTION_CATEGORIES) {
 			const items = [];
 			for (const action of cat.actions) {
 				if (!ACTION_KEYS[action]) continue;
 				if (action === 'actionChain' && this.excludeChain) continue;
-				if (action === 'delay' && !this.excludeChain) continue;
-				if (action === 'actionChain') {
-					const chains = SettingsStore.current.actionChains || {};
-					for (const [id, c] of Object.entries(chains)) {
-						const steps = c.steps?.length || 0;
-						const stepsLabel = (steps === 1 ? window.i18n.getMessage('chainStepCountOne') : window.i18n.getMessage('chainStepCount')).replace('%count%', steps);
-						const name = c.name
-							? `${c.name} (${stepsLabel})`
-							: `${window.i18n.getMessage('actionActionChain')} (${stepsLabel})`;
-						if (!search || name.toLowerCase().includes(search) || 'chain'.includes(search)) {
-							items.push({ value: 'actionChain', label: name, chainId: id });
-						}
-					}
-					const addLabel = window.i18n.getMessage('addNewChain');
-					if (!search || addLabel.toLowerCase().includes(search) || 'chain'.includes(search)) {
-						items.push({ value: '_addNewChain', label: addLabel });
-					}
-					continue;
-				}
+				if (action === 'customMenu' && this.excludeMenu) continue;
+				if (action === 'delay' && (!this.excludeChain || this.excludeMenu)) continue;
 				const label = window.i18n.getMessage(ACTION_KEYS[action]);
 				if (!search || label.toLowerCase().includes(search) || action.toLowerCase().includes(search)) {
 					items.push({ value: action, label });
 				}
 			}
 			if (items.length > 0) {
-				result.push({ label: window.i18n.getMessage(cat.key), icon: cat.icon, items });
+				result.push({ label: cat.key ? window.i18n.getMessage(cat.key) : '', icon: cat.icon, items });
 			}
 		}
 
@@ -614,11 +757,11 @@ class ActionSelect extends LitElement {
 	}
 
 	render() {
-		const hasConfig = this.#hasActionConfig(this.value);
+		const hasConfigUI = this.#hasActionConfig(this.value);
 		return html`
 			<button class="trigger" @click=${this.open} type="button">
 				<span class="trigger-label">${this.#getActionLabel(this.value)}</span>
-				<span class="trigger-chevron">${unsafeHTML(hasConfig ? icon('settings', { size: 15 }) : icon('chevronDown', { size: 16 }))}</span>
+				<span class="trigger-chevron">${unsafeHTML(hasConfigUI ? icon('settings', { size: 15 }) : icon('chevronDown', { size: 16 }))}</span>
 			</button>
 			${this._open ? this.#renderModal() : ''}
 		`;
@@ -628,93 +771,185 @@ class ActionSelect extends LitElement {
 		const categories = this.#getFilteredCategories();
 		const hasResults = categories.some(c => c.items.length > 0);
 		const showActionConfig = this.#hasActionConfig(this._pendingValue);
+		const showHudName = this._pendingValue !== 'none' && (this.allowCustomName || this._pendingConfig?.customName);
 
 		return html`
 			<div class="modal-overlay" @mousedown=${this.#onOverlayClick}
 				@dragstart=${e => e.stopPropagation()}
-				@dragover=${e => { e.stopPropagation(); e.preventDefault(); }}>
+				@dragover=${e => e.stopPropagation()}>
 				<div class="modal-panel" @mousedown=${(e) => e.stopPropagation()}>
 					<div class="modal-header">
 						<span class="modal-title">
 							${window.i18n.getMessage('action')}${this.gestureLabel ? html`<span class="modal-gesture">${unsafeHTML(window.GestureConstants.arrowsToSvg(this.gestureLabel))}</span>` : ''}
 						</span>
-						<button type="button" class="modal-close" @click=${this.#close}>${unsafeHTML(icons.x)}</button>
+						<button type="button" class="modal-close" @click=${this.#cancel}>${unsafeHTML(icons.x)}</button>
 					</div>
-					<div class="search-wrapper">
-						<input class="search-input" type="text"
-							placeholder=${window.i18n.getMessage('searchActions')}
-							.value=${this._search}
-							@input=${this.#onSearchInput}
-							@keydown=${this.#onKeydown}
-						>
-					</div>
-					<div class="action-list">
-						${hasResults ? categories.map(cat => html`
-							${cat.label ? html`<div class="category-label"><span class="category-icon">${unsafeHTML(icon(cat.icon))}</span>${cat.label}</div>` : ''}
-							<div class="action-grid">
-								${cat.items.map(item => html`
-								<div class="action-item ${this.#isItemSelected(item) ? 'selected' : ''}"
-									@click=${() => this.#selectAction(item.value, item.chainId)}>
-									<span class="action-icon">${unsafeHTML(icon(ACTION_ICONS[item.value]))}</span>
-									<span>${item.label}</span>
-								</div>
-							`)}
+					<div class="modal-body">
+						<div class="modal-left">
+							<div class="search-wrapper">
+								<input class="search-input input-lg" type="text"
+									placeholder=${window.i18n.getMessage('searchActions')}
+									.value=${this._search}
+									@input=${this.#onSearchInput}
+									@keydown=${this.#onKeydown}
+								>
 							</div>
-						`) : html`<div class="no-results">${window.i18n.getMessage('noResults')}</div>`}
+							<div class="action-list">
+								${hasResults ? categories.map(cat => html`
+									${cat.label ? html`<div class="category-label"><span class="category-icon">${unsafeHTML(icon(cat.icon))}</span>${cat.label}</div>` : ''}
+									<div class="action-grid">
+										${cat.items.map(item => html`
+											<div class="action-item ${this.#isItemSelected(item) ? 'selected' : ''}"
+												@click=${() => this.#selectAction(item.value)}>
+												<span class="action-icon">${unsafeHTML(icon(ACTION_ICONS[item.value]))}</span>
+												<span>${item.label}</span>
+											</div>
+										`)}
+									</div>
+								`) : html`<div class="no-results">${window.i18n.getMessage('noResults')}</div>`}
+							</div>
+						</div>
+						<div class="modal-right">
+							${this.#renderDetailHeader(showActionConfig)}
+							<div class="detail-body">
+								${showActionConfig
+									? this.#renderActionConfig()
+									: html`
+										<div class="detail-empty">
+											${unsafeHTML(icon('circleCheck', { size: 22 }))}
+											<span>${window.i18n.getMessage('actionNoOptions')}</span>
+										</div>
+									`}
+							</div>
+						</div>
 					</div>
-					${showActionConfig ? html`
-						<div class="action-config">
-							${this.#renderActionConfig()}
-						</div>
-						<div class="action-config-footer">
-							<button type="button" class="action-config-confirm-btn" @click=${this.#close}>
-								${window.i18n.getMessage('buttonOkay')}
-							</button>
-						</div>
-					` : ''}
+					<div class="modal-footer">
+						${showHudName ? html`
+							<span class="modal-footer-label">
+								${window.i18n.getMessage('customHudName')}
+								<span class="help-icon"
+									.tooltip=${tooltip(window.i18n.getMessage('customHudNameTooltip'))}>
+									${unsafeHTML(icon('circleHelp', { size: 14 }))}
+								</span>
+							</span>
+							<input class="modal-footer-name" type="text"
+								placeholder=${window.i18n.getMessage(window.GestureConstants.ACTION_KEYS[this._pendingValue]) || this._pendingValue}
+								maxlength="80"
+								.value=${this._pendingConfig.customName || ''}
+								@input=${(e) => { this._pendingConfig = { ...this._pendingConfig, customName: e.target.value }; }}
+							>
+						` : ''}
+						<button type="button" class="btn btn-lg btn-secondary modal-footer-btn" @click=${this.#cancel}>
+							${window.i18n.getMessage('buttonCancel')}
+						</button>
+						<button type="button" class="btn btn-lg btn-primary modal-footer-btn" @click=${this.#confirm}>
+							${window.i18n.getMessage('buttonConfirm')}
+						</button>
+					</div>
 				</div>
 			</div>
 		`;
+	}
+
+	#renderDetailHeader(showActionConfig) {
+		const val = this._pendingValue;
+		const ACTION_KEYS = window.GestureConstants.ACTION_KEYS;
+
+		const key = ACTION_KEYS[val];
+		const name = key ? window.i18n.getMessage(key) : val;
+
+		const canReset = showActionConfig && val !== 'actionChain' && val !== 'customMenu' && this.#isConfigModified();
+		return html`
+			<div class="detail-header">
+				<div class="detail-header-icon">${unsafeHTML(icon(ACTION_ICONS[val] || 'minus'))}</div>
+				<div class="detail-header-text">
+					<div class="detail-header-name">${name}</div>
+				</div>
+				${showActionConfig ? html`
+					<button type="button" class="detail-reset-btn ${canReset ? 'visible' : ''}"
+						.tooltip=${tooltip(window.i18n.getMessage('resetToDefault'))}
+						@click=${this.#resetConfig}>
+						${unsafeHTML(icon('rotateCcw', { size: 14, strokeWidth: 2.5 }))}
+					</button>
+				` : ''}
+			</div>
+		`;
+	}
+
+	#isConfigModified() {
+		const defaults = window.GestureConstants.ACTION_DEFAULTS[this._pendingValue];
+		if (!defaults) return false;
+		return Object.keys(this._pendingConfig).some(k => k !== 'customName' && k in defaults);
+	}
+
+	#resetConfig() {
+		const customName = this._pendingConfig.customName;
+		this._pendingConfig = customName ? { customName } : {};
+		this.#stopKeyRecording();
+		this.requestUpdate();
 	}
 
 	open() {
 		this._open = true;
 		this._search = '';
 		this._pendingValue = this.value;
-		this._pendingConfig = { ...(this.config || {}) };
-		document.documentElement.style.overflow = 'hidden';
+		this._pendingConfig = structuredClone(this.config || {});
+		lockBodyScroll();
 		this.updateComplete.then(() => {
 			this.shadowRoot.querySelector('.search-input')?.focus();
 			this.#scrollToSelected();
 		});
 	}
 
-	#close() {
+	#hasChanges() {
+		if (this._pendingValue !== this.value) return true;
+		const pendingCfg = this.#cleanConfig(this._pendingConfig);
+		const currentCfg = this.#cleanConfig(this.config || {});
+		const sorted = obj => JSON.stringify(obj, Object.keys(obj).sort());
+		return sorted(pendingCfg) !== sorted(currentCfg);
+	}
+
+	#confirm() {
 		const oldValue = this.value;
 		const oldConfig = this.config;
 		this.value = this._pendingValue;
-		if (this._pendingValue === 'actionChain') {
-			this.config = this._pendingConfig.chainId ? { chainId: this._pendingConfig.chainId } : {};
-		} else {
-			this.config = this.#hasActionConfig(this._pendingValue)
-				? this.#cleanConfig(this._pendingConfig)
-				: {};
-		}
+		this.config = this.#cleanConfig(this._pendingConfig);
 		const changed = this.value !== oldValue
 			|| JSON.stringify(this.config) !== JSON.stringify(oldConfig);
 		this._open = false;
 		this.#stopKeyRecording();
-		document.documentElement.style.overflow = '';
+		unlockBodyScroll();
 		if (changed) this.#dispatchChange();
 		this.updateComplete.then(() => {
 			this.shadowRoot.querySelector('.trigger').focus();
 		});
 	}
 
+	#cancel() {
+		this._open = false;
+		this.#stopKeyRecording();
+		unlockBodyScroll();
+		this.updateComplete.then(() => {
+			this.shadowRoot.querySelector('.trigger').focus();
+		});
+	}
+
+	#shakeModal() {
+		const panel = this.shadowRoot.querySelector('.modal-panel');
+		if (!panel) return;
+		panel.classList.remove('shake');
+		void panel.offsetWidth;
+		panel.classList.add('shake');
+	}
+
 	#onOverlayClick(e) {
 		if (e.target.classList.contains('modal-overlay')) {
 			e.preventDefault();
-			this.#close();
+			if (this.#hasChanges()) {
+				this.#shakeModal();
+			} else {
+				this.#cancel();
+			}
 		}
 	}
 
@@ -725,41 +960,35 @@ class ActionSelect extends LitElement {
 	#onKeydown(e) {
 		if (e.key === 'Escape') {
 			e.preventDefault();
-			this.#close();
+			this.#cancel();
 		}
 	}
 
 	#isItemSelected(item) {
-		if (item.value !== this._pendingValue) return false;
-		if (item.chainId) return item.chainId === this._pendingConfig.chainId;
-		return true;
+		return item.value === this._pendingValue;
 	}
 
-	#selectAction(actionValue, chainId) {
-		if (actionValue === '_addNewChain') {
-			this._pendingValue = this.value;
-			this.#close();
-			this.dispatchEvent(new CustomEvent('navigate-section', {
-				detail: { section: 'chains', enableChainSection: true },
-				bubbles: true,
-				composed: true,
-			}));
-			return;
-		}
+	#selectAction(actionValue) {
 		this._pendingValue = actionValue;
-		if (chainId) {
-			this._pendingConfig = { chainId };
-			this.#close();
-			return;
-		}
 		if (this.#hasActionConfig(actionValue)) {
 			this.updateComplete.then(() => {
 				this.#scrollToSelected();
-				this.shadowRoot.querySelector('.action-config-input')?.focus();
 			});
-			return;
 		}
-		this.#close();
+	}
+
+	#onChainSelect(e) {
+		const chainId = e.detail.chainId;
+		if (!chainId) return;
+		this._pendingConfig = { ...this._pendingConfig, chainId };
+		this.requestUpdate();
+	}
+
+	#onMenuSelect(e) {
+		const menuId = e.detail.menuId;
+		if (!menuId) return;
+		this._pendingConfig = { ...this._pendingConfig, menuId };
+		this.requestUpdate();
 	}
 
 	#scrollToSelected() {
@@ -770,36 +999,41 @@ class ActionSelect extends LitElement {
 
 
 	#hasActionConfig(action) {
-		if (action === 'actionChain') return false;
 		return !!window.GestureConstants.ACTION_DEFAULTS[action];
 	}
 
 	#cleanConfig(pendingConfig) {
 		const action = this._pendingValue;
 		const defaults = window.GestureConstants.ACTION_DEFAULTS[action];
-		if (!defaults) return {};
 
 		const result = {};
-		for (const key of Object.keys(defaults)) {
-			if (pendingConfig[key] !== undefined) {
-				if (typeof defaults[key] === 'string') {
-					result[key] = String(pendingConfig[key]).trim();
-				} else if (typeof defaults[key] === 'number') {
-					result[key] = Number(pendingConfig[key]);
-				} else if (typeof defaults[key] === 'boolean') {
-					result[key] = !!pendingConfig[key];
-				} else {
-					result[key] = pendingConfig[key];
+		if (defaults) {
+			for (const key of Object.keys(defaults)) {
+				if (pendingConfig[key] !== undefined) {
+					if (typeof defaults[key] === 'string') {
+						result[key] = String(pendingConfig[key]).trim();
+					} else if (typeof defaults[key] === 'number') {
+						result[key] = Number(pendingConfig[key]);
+					} else if (typeof defaults[key] === 'boolean') {
+						result[key] = !!pendingConfig[key];
+					} else if (defaults[key] !== null && typeof defaults[key] === 'object') {
+						result[key] = structuredClone(pendingConfig[key]);
+					} else {
+						result[key] = pendingConfig[key];
+					}
 				}
 			}
 		}
+		const customName = (pendingConfig.customName || '').trim();
+		if (customName) result.customName = customName;
 		return result;
 	}
 
-	#renderPositionSelect() {
+	#renderPositionSelect(showCurrent) {
 		const action = this._pendingValue;
 		const defaults = window.GestureConstants.ACTION_DEFAULTS[action] || {};
 		const position = this._pendingConfig.position ?? defaults.position;
+		const active = this._pendingConfig.active ?? defaults.active;
 		return html`
 			<div class="action-config-row">
 				<span class="action-config-label">${window.i18n.getMessage('newTabPosition')}</span>
@@ -809,6 +1043,108 @@ class ActionSelect extends LitElement {
 					<option value="left" ?selected=${position === 'left'}>${window.i18n.getMessage('tabPositionLeft')}</option>
 					<option value="first" ?selected=${position === 'first'}>${window.i18n.getMessage('tabPositionFirst')}</option>
 					<option value="last" ?selected=${position === 'last'}>${window.i18n.getMessage('tabPositionLast')}</option>
+					${showCurrent ? html`<option value="current" ?selected=${position === 'current'}>${window.i18n.getMessage('tabPositionCurrent')}</option>` : ''}
+				</select>
+				${position !== 'current' ? html`
+					<label class="action-config-checkbox">
+						<input type="checkbox"
+							.checked=${active}
+							@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, active: e.target.checked }; this.requestUpdate(); }}
+						>
+						<span>${window.i18n.getMessage('newTabActive')}</span>
+					</label>
+				` : ''}
+			</div>
+		`;
+	}
+
+
+	#renderMenuConfigRow() {
+		const action = this._pendingValue;
+		const defaults = window.GestureConstants.ACTION_DEFAULTS[action] || {};
+		const sortOrder = this._pendingConfig.sortOrder ?? defaults.sortOrder;
+		const maxItems = this._pendingConfig.maxItems ?? defaults.maxItems;
+		const scrollToBottom = this._pendingConfig.scrollToBottom ?? defaults.scrollToBottom;
+		const hardMax = action === 'menuRecentlyClosed' ? 100 : 999;
+		const isFirefox = !!window.i18n.isFirefox;
+
+		const sortOptions = [
+			{ value: 'default', key: 'ctxMenuSortDefault' },
+			{ value: 'default_desc', key: 'ctxMenuSortDefaultDesc' },
+		];
+		if (action === 'menuShowBookmarks') {
+			sortOptions.push(
+				{ value: 'date_asc', key: 'ctxMenuSortDateAddedAsc' },
+				{ value: 'date_desc', key: 'ctxMenuSortDateAddedDesc' },
+			);
+		}
+		if (action === 'menuShowTabs') {
+			sortOptions.push(
+				{ value: 'lastAccess_asc', key: 'ctxMenuSortLastAccessAsc' },
+				{ value: 'lastAccess_desc', key: 'ctxMenuSortLastAccessDesc' },
+			);
+		}
+		sortOptions.push(
+			{ value: 'name_asc', key: 'ctxMenuSortNameAsc' },
+			{ value: 'name_desc', key: 'ctxMenuSortNameDesc' },
+		);
+
+		return html`
+			<div class="action-config-row">
+				<span class="action-config-label">${window.i18n.getMessage('ctxMenuSortOrder')}</span>
+				<select .value=${sortOrder}
+					@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, sortOrder: e.target.value }; this.requestUpdate(); }}>
+					${sortOptions.map(o => html`<option value=${o.value} ?selected=${sortOrder === o.value}>${window.i18n.getMessage(o.key)}</option>`)}
+				</select>
+			</div>
+			<div class="action-config-row">
+				<span class="action-config-label" style="min-width: auto;">${window.i18n.getMessage('ctxMenuMaxItems')}</span>
+				<div class="inline-input-control">
+					<input type="number" class="action-config-input" min="0" max=${hardMax} step="1"
+						style="min-width: 100px"
+						placeholder=${window.i18n.getMessage('ctxMenuMaxItemsUnlimited')}
+						.value=${maxItems > 0 ? String(maxItems) : ''}
+						@change=${(e) => {
+							const raw = parseInt(e.target.value);
+							const v = (!raw || raw <= 0 || raw > hardMax) ? 0 : raw;
+							e.target.value = v > 0 ? v : '';
+							this._pendingConfig = { ...this._pendingConfig, maxItems: v };
+							this.requestUpdate();
+						}}
+					>
+				</div>
+				<label class="action-config-checkbox">
+					<input type="checkbox"
+						.checked=${scrollToBottom}
+						@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, scrollToBottom: e.target.checked }; this.requestUpdate(); }}
+					>
+					<span>${window.i18n.getMessage('ctxMenuScrollToBottom')}</span>
+				</label>
+			</div>
+		`;
+	}
+
+	#renderTimeDisplay() {
+		const action = this._pendingValue;
+		const defaults = window.GestureConstants.ACTION_DEFAULTS[action] || {};
+		const timeDisplay = this._pendingConfig.timeDisplay ?? defaults.timeDisplay;
+		const isFirefox = !!window.i18n.isFirefox;
+
+		const options = [{ value: 'none', key: 'ctxMenuTimeNone' }];
+		if (action === 'menuShowTabs') {
+			options.push({ value: 'lastAccess', key: 'ctxMenuTimeLastAccess' });
+		} else if (action === 'menuRecentlyClosed') {
+			options.push({ value: 'closedTime', key: 'ctxMenuTimeClosedTime' });
+		} else if (action === 'menuShowBookmarks') {
+			options.push({ value: 'dateAdded', key: 'ctxMenuTimeDateAdded' });
+		}
+
+		return html`
+			<div class="action-config-row">
+				<span class="action-config-label">${window.i18n.getMessage('ctxMenuTimeDisplay')}</span>
+				<select .value=${timeDisplay}
+					@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, timeDisplay: e.target.value }; this.requestUpdate(); }}>
+					${options.map(o => html`<option value=${o.value} ?selected=${timeDisplay === o.value}>${window.i18n.getMessage(o.key)}</option>`)}
 				</select>
 			</div>
 		`;
@@ -817,17 +1153,40 @@ class ActionSelect extends LitElement {
 	#renderActionConfig() {
 		const action = this._pendingValue;
 		const { ACTION_DEFAULTS } = window.GestureConstants;
+		if (action === 'actionChain') {
+			return html`
+				<div class="action-config-info">${window.i18n.getMessage('actionChainsDesc')}</div>
+				<chain-panel
+					.selectedChainId=${this._pendingConfig?.chainId || ''}
+					@chain-select=${this.#onChainSelect}
+				></chain-panel>
+			`;
+		}
+		if (action === 'customMenu') {
+			return html`
+				<div class="action-config-info">${window.i18n.getMessage('customMenuDesc')}</div>
+				<menu-panel
+					.selectedMenuId=${this._pendingConfig?.menuId || ''}
+					@menu-select=${this.#onMenuSelect}
+				></menu-panel>
+			`;
+		}
 		if (action === 'openCustomUrl') {
 			return html`
-				<div class="action-config-label">${window.i18n.getMessage('enterCustomUrl')}</div>
-				<input class="action-config-input" type="text"
-					placeholder="https://..."
-					maxlength="512"
-					.value=${this._pendingConfig.customUrl || ''}
-					@input=${(e) => { this._pendingConfig = { ...this._pendingConfig, customUrl: e.target.value }; }}
-					@keydown=${(e) => { if (e.key === 'Enter') this.#close(); }}
-				>
-				${this.#renderPositionSelect()}
+				<div class="action-config-field">
+					<label class="action-config-label">
+						${window.i18n.getMessage('enterCustomUrl')}
+						<span class="required-badge">${window.i18n.getMessage('actionRequiredBadge')}</span>
+					</label>
+					<input class="action-config-input" type="text"
+						placeholder="https://web.archive.org/web/{tabUrl:raw}"
+						maxlength="512"
+						.value=${this._pendingConfig.customUrl || ''}
+						@input=${(e) => { this._pendingConfig = { ...this._pendingConfig, customUrl: e.target.value }; }}
+					>
+					<div class="action-config-hint">${unsafeHTML(window.i18n.getMessage('customUrlPlaceholderHint').replace('%placeholders%', '<code>{tabUrl}</code> <code>{tabTitle}</code> <code>{tabDomain}</code>').replace('%example%', '<code>{tabUrl:raw}</code>'))}</div>
+				</div>
+				${this.#renderPositionSelect(true)}
 			`;
 		}
 		if (action === 'closeTab') {
@@ -924,18 +1283,21 @@ class ActionSelect extends LitElement {
 			`;
 		}
 		if (action === 'newTab') {
-			return this.#renderPositionSelect();
+			return this.#renderPositionSelect(false);
 		}
-		if (action === 'copyUrl') {
-			const defaults = ACTION_DEFAULTS.copyUrl || {};
-			const checked = this._pendingConfig.includeTitle ?? defaults.includeTitle;
+		if (action === 'viewPageSource') {
+			return this.#renderPositionSelect(true);
+		}
+		if (action === 'copyTitleAndUrl') {
+			const defaults = ACTION_DEFAULTS.copyTitleAndUrl || {};
+			const checked = this._pendingConfig.asMarkdown ?? defaults.asMarkdown;
 			return html`
 				<label class="action-config-checkbox">
 					<input type="checkbox"
 						.checked=${checked}
-						@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, includeTitle: e.target.checked }; this.requestUpdate(); }}
+						@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, asMarkdown: e.target.checked }; this.requestUpdate(); }}
 					>
-					<span>${window.i18n.getMessage('copyUrlIncludeTitle')}</span>
+					<span>${window.i18n.getMessage('copyAsMarkdown')}</span>
 				</label>
 			`;
 		}
@@ -967,10 +1329,10 @@ class ActionSelect extends LitElement {
 			const isRecording = !!this._keyRecording;
 
 			const currentMods = [];
-			if (modCtrl) currentMods.push('Ctrl');
-			if (modShift) currentMods.push('Shift');
-			if (modAlt) currentMods.push('Alt');
-			if (modMeta) currentMods.push('Meta');
+			if (modCtrl) currentMods.push(window.i18n.getModifierKeyName('Ctrl'));
+			if (modShift) currentMods.push(window.i18n.getModifierKeyName('Shift'));
+			if (modAlt) currentMods.push(window.i18n.getModifierKeyName('Alt'));
+			if (modMeta) currentMods.push(window.i18n.getModifierKeyName('Meta'));
 			if (keyValue && keyValue !== 'ArrowLeft' && keyValue !== 'ArrowRight') {
 				currentMods.push(keyValue);
 			} else if (keyValue === 'ArrowLeft' || keyValue === 'ArrowRight') {
@@ -1000,7 +1362,7 @@ class ActionSelect extends LitElement {
 					<div class="action-config-row">
 						<span class="action-config-label">${window.i18n.getMessage('simulateKeyManualInput')}</span>
 						<span style="flex:1;font-size:13px;font-weight:600;color:var(--text-primary);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${displayKey}</span>
-						<button type="button" class="key-record-btn ${isRecording ? 'recording' : ''}"
+						<button type="button" class="btn btn-secondary key-record-btn ${isRecording ? 'recording' : ''}"
 							@click=${this.#toggleKeyRecording}>
 							${isRecording ? window.i18n.getMessage('simulateKeyRecording') : window.i18n.getMessage('simulateKeyRecordBtn')}
 						</button>
@@ -1013,10 +1375,13 @@ class ActionSelect extends LitElement {
 			const defaults = ACTION_DEFAULTS.sendCustomEvent || {};
 			const eventType = this._pendingConfig.eventType ?? defaults.eventType;
 			const eventDetail = this._pendingConfig.eventDetail ?? defaults.eventDetail;
+			const includeGestureInfo = this._pendingConfig.gestureInfo ?? defaults.gestureInfo;
 			const isValidJson = this.#isValidJson(eventDetail);
 			const hint = window.i18n.getMessage('customEventHint')
 				.replace('%code%', '<code>new CustomEvent(<b>type</b>, { detail: <b>detail</b>, bubbles: true, cancelable: true })</code>')
 				.replace('%window%', '<code>window</code>');
+			const gestureInfoLabel = window.i18n.getMessage('customEventIncludeGestureInfo')
+				.replace('%code%', '<code><b>detail.gesture</b></code>');
 			return html`
 				<div class="action-config-row">
 					<span class="action-config-label"><code>type</code></span>
@@ -1040,7 +1405,190 @@ class ActionSelect extends LitElement {
 				${!isValidJson ? html`
 					<div class="action-config-warning">${window.i18n.getMessage('customEventInvalidJson')}</div>
 				` : ''}
+				<label class="action-config-checkbox">
+					<input type="checkbox"
+						.checked=${includeGestureInfo}
+						@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, gestureInfo: e.target.checked }; this.requestUpdate(); }}
+					>
+					<span>${unsafeHTML(gestureInfoLabel)}</span>
+				</label>
 				<div class="action-config-hint">${unsafeHTML(hint)}</div>
+			`;
+		}
+		if (action === 'pasteClipboard') {
+			return html`
+				<div class="action-config-info">${unsafeHTML(window.i18n.getMessage('pasteClipboardHint'))}</div>
+			`;
+		}
+		if (action === 'searchClipboard') {
+			const defaults = ACTION_DEFAULTS.searchClipboard || {};
+			const engine = this._pendingConfig.engine ?? defaults.engine;
+			const url = this._pendingConfig.url ?? defaults.url;
+			const autoDetectUrl = this._pendingConfig.autoDetectUrl ?? defaults.autoDetectUrl;
+			const { SEARCH_ENGINES, SEARCH_ENGINE_ORDER } = window.GestureConstants;
+			const lang = window.i18n.getCurrentLanguage();
+			const order = SEARCH_ENGINE_ORDER[lang] || SEARCH_ENGINE_ORDER['default'];
+			const displayKeys = [...order];
+			if (engine && engine !== 'custom' && !displayKeys.includes(engine) && SEARCH_ENGINES[engine]) {
+				displayKeys.push(engine);
+			}
+			return html`
+				<div class="action-config-row">
+					<span class="action-config-label">${window.i18n.getMessage('searchEngine')}</span>
+					<select .value=${engine}
+						@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, engine: e.target.value }; this.requestUpdate(); }}>
+						${displayKeys.map(key => {
+							const eng = SEARCH_ENGINES[key];
+							if (!eng) return '';
+							const label = eng.i18nKey ? window.i18n.getMessage(eng.i18nKey) : eng.name;
+							return html`<option value=${key} ?selected=${engine === key}>${label}</option>`;
+						})}
+						<option value="custom" ?selected=${engine === 'custom'}>${window.i18n.getMessage('custom')}</option>
+					</select>
+				</div>
+				${engine === 'custom' ? html`
+					<div class="action-config-field">
+						<input class="action-config-input" type="text"
+							placeholder=${window.i18n.getMessage('urlPlaceholderText')}
+							.value=${url}
+							@input=${(e) => { this._pendingConfig = { ...this._pendingConfig, url: e.target.value }; }}
+						>
+					</div>
+				` : ''}
+				<div class="action-config-row">
+					<label class="action-config-checkbox">
+						<input type="checkbox"
+							.checked=${autoDetectUrl}
+							@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, autoDetectUrl: e.target.checked }; this.requestUpdate(); }}
+						>
+						<span>${window.i18n.getMessage('autoDetectUrl')}</span>
+						<span class="help-icon"
+							.tooltip=${tooltip(window.i18n.getMessage('autoDetectUrlTooltip'))}>
+							${unsafeHTML(icon('circleHelp', { size: 14 }))}
+						</span>
+					</label>
+				</div>
+				${this.#renderPositionSelect(true)}
+			`;
+		}
+		if (action === 'zoomIn' || action === 'zoomOut') {
+			const defaults = ACTION_DEFAULTS[action] || {};
+			const zoomMode = this._pendingConfig.zoomMode ?? defaults.zoomMode;
+			const zoomDelta = this._pendingConfig.zoomDelta ?? defaults.zoomDelta;
+			return html`
+				<div class="action-config-row">
+					<span class="action-config-label">${window.i18n.getMessage('zoomStepMode')}</span>
+					<select class="action-config-select"
+						.value=${zoomMode}
+						@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, zoomMode: e.target.value }; this.requestUpdate(); }}
+					>
+						<option value="browser">${window.i18n.getMessage('zoomStepModeBrowser')}</option>
+						<option value="fixed">${window.i18n.getMessage('zoomStepModeFixed')}</option>
+					</select>
+				</div>
+				${zoomMode === 'fixed' ? html`
+					<div class="action-config-row">
+						<span class="action-config-label">${window.i18n.getMessage('zoomDelta')}</span>
+						<div class="inline-input-control">
+							<input type="number" class="action-config-input" min="0" max="475" .step=${'any'}
+								.value=${String(zoomDelta)}
+								@change=${(e) => { const v = Math.max(0, Math.min(475, parseFloat(e.target.value) || 10)); e.target.value = v; this._pendingConfig = { ...this._pendingConfig, zoomDelta: v }; this.requestUpdate(); }}
+							>
+							<span>%</span>
+						</div>
+					</div>
+				` : ''}
+			`;
+		}
+		if (action === 'resetZoom') {
+			const defaults = ACTION_DEFAULTS[action] || {};
+			const resetZoomLevel = this._pendingConfig.resetZoomLevel ?? defaults.resetZoomLevel;
+			const isCustom = resetZoomLevel > 0;
+			return html`
+				<div class="action-config-row">
+					<span class="action-config-label">${window.i18n.getMessage('resetZoomLevel')}</span>
+					<select class="action-config-select"
+						.value=${isCustom ? 'custom' : 'default'}
+						@change=${(e) => { if (e.target.value === 'default') { this._pendingConfig = { ...this._pendingConfig, resetZoomLevel: 0 }; } else { this._pendingConfig = { ...this._pendingConfig, resetZoomLevel: 100 }; } this.requestUpdate(); }}
+					>
+						<option value="default">${window.i18n.getMessage('resetZoomDefault')}</option>
+						<option value="custom">${window.i18n.getMessage('resetZoomCustom')}</option>
+					</select>
+				</div>
+				${isCustom ? html`
+					<div class="action-config-row">
+						<span class="action-config-label">${window.i18n.getMessage('resetZoomCustom')}</span>
+						<div class="inline-input-control">
+							<input type="number" class="action-config-input" min="25" max="500" .step=${'any'}
+								.value=${String(resetZoomLevel)}
+								@change=${(e) => { const v = Math.max(25, Math.min(500, parseFloat(e.target.value) || 100)); e.target.value = v; this._pendingConfig = { ...this._pendingConfig, resetZoomLevel: v }; this.requestUpdate(); }}
+							>
+							<span>%</span>
+						</div>
+					</div>
+				` : ''}
+			`;
+		}
+		if (action === 'menuShowTabs') {
+			return html`
+				${this.#renderMenuConfigRow()}
+				${this.#renderTimeDisplay()}
+			`;
+		}
+		if (action === 'menuRecentlyClosed') {
+			return html`
+				${this.#renderMenuConfigRow()}
+				${this.#renderTimeDisplay()}
+			`;
+		}
+		if (action === 'menuShowBookmarks') {
+			const defaults = ACTION_DEFAULTS[action] || {};
+			const folderId = this._pendingConfig.folderId ?? defaults.folderId;
+
+			if (!this._bookmarkPermission) {
+				if (chrome.permissions) {
+					chrome.permissions.contains({ permissions: ['bookmarks'] }).then(granted => {
+						if (granted !== this._bookmarkPermission) {
+							this._bookmarkPermission = granted;
+							if (granted) this.#loadBookmarkFolders();
+							this.requestUpdate();
+						}
+					});
+				}
+			}
+
+			if (!this._bookmarkPermission) {
+				return html`
+					<div class="action-config-row" style="justify-content:center;">
+						<button type="button" class="btn btn-primary"
+							@click=${() => {
+								if (chrome.permissions) {
+									chrome.permissions.request({ permissions: ['bookmarks'] }).then(granted => {
+										this._bookmarkPermission = granted;
+										if (granted) this.#loadBookmarkFolders();
+										this.requestUpdate();
+									});
+								}
+							}}
+						>${window.i18n.getMessage('bookmarkGrantPermission')}</button>
+					</div>
+				`;
+			}
+
+			const folders = this._bookmarkFolders || [];
+			return html`
+				<div class="action-config-row">
+					<span class="action-config-label">${window.i18n.getMessage('bookmarkFolder')}</span>
+					<select class="action-config-select"
+						.value=${folderId}
+						@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, folderId: e.target.value }; this.requestUpdate(); }}
+					>
+						${folders.map(f => html`<option value=${f.id} ?selected=${f.id === folderId}>${'\u00A0\u00A0'.repeat(f.depth)}${f.title} (${f.linkCount})</option>`)}
+					</select>
+				</div>
+				${this.#renderMenuConfigRow()}
+				${this.#renderTimeDisplay()}
+				${this.#renderPositionSelect(true)}
 			`;
 		}
 		if (SCROLL_ACTIONS.includes(action)) {
@@ -1115,8 +1663,28 @@ class ActionSelect extends LitElement {
 				config: this.config,
 			},
 			bubbles: true,
-			composed: true,
+			composed: false,
 		}));
+	}
+
+	#loadBookmarkFolders() {
+		chrome.bookmarks.getTree().then(tree => {
+			const folders = [];
+			const walk = (nodes, depth = 0) => {
+				for (const node of nodes) {
+					if (node.children) {
+						if (node.id === '0') { walk(node.children, 0); continue; }
+						if (node.id === 'root________') { walk(node.children, depth); continue; }
+						const linkCount = node.children.filter(c => c.url).length;
+						folders.push({ id: node.id, title: node.title, depth, linkCount });
+						walk(node.children, depth + 1);
+					}
+				}
+			};
+			walk(tree);
+			this._bookmarkFolders = folders;
+			this.requestUpdate();
+		});
 	}
 
 	#isValidJson(str) {

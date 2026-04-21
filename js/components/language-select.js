@@ -1,5 +1,6 @@
 import { LitElement, html, css, unsafeHTML } from '../../js/lib/lit-all.min.js';
 import { icons } from '../icons.js'; 
+import { tooltip } from '../tooltip.js';
 
 class LanguageSelect extends LitElement {
 	static properties = {
@@ -136,7 +137,7 @@ class LanguageSelect extends LitElement {
 			display: flex;
 			flex-direction: column;
 			border-radius: 6px;
-			transition: background 0.1s;
+			transition: background-color 0.1s;
 			border: 1px solid transparent;
 			justify-content: center;
 		}
@@ -224,7 +225,8 @@ class LanguageSelect extends LitElement {
 		return html`
 			<button class="trigger"
 				@click=${() => this.#toggleDropdown()}
-				@keydown=${(e) => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); this.#toggleDropdown(); } }}>
+				@keydown=${(e) => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); this.#toggleDropdown(); } }}
+				.tooltip=${tooltip(this._isOpen ? '' : window.i18n.getMessage('language'))}>
 				<span class="trigger-icon">${unsafeHTML(icons.globe)}</span>
 				${this.value !== 'auto' ? html`<span>${this.#getTriggerLabel()}</span>` : ''}
 				<span class="trigger-chevron">${unsafeHTML(icons.chevronDown)}</span>

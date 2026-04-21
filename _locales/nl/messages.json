@@ -35,9 +35,9 @@
 		"message": "Instellingensynchronisatie via %browserName%-account",
 		"description": "Sync status description"
 	},
-	"synced": {
-		"message": "Gesynchroniseerd",
-		"description": "Synced"
+	"saved": {
+		"message": "Opgeslagen",
+		"description": "Saved"
 	},
 	"author": {
 		"message": "Auteur",
@@ -66,6 +66,10 @@
 	"feedbackText": {
 		"message": "Problemen of suggesties? Meld ze via <a href='mailto:Service@52pojie.cn'>E-mail</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> of het <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Forum</a>. We zullen het zo snel mogelijk verbeteren!",
 		"description": "Feedback text"
+	},
+	"feedbackTextChrome": {
+		"message": "Problemen of suggesties? Meld ze via de <a href='https://chromewebstore.google.com/detail/fnldhkfidchnjiokpoemdhoejmaojkgp/support' target='_blank'>Chrome Web Store Support</a>, <a href='mailto:Service@52pojie.cn'>E-mail</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> of het <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Forum</a>. We zullen het zo snel mogelijk verbeteren!",
+		"description": "Feedback text for Chrome browser"
 	},
 	"supportAndFeedback": {
 		"message": "Ondersteuning en Feedback",
@@ -125,11 +129,11 @@
 	},
 	"btnSide1Mouse": {
 		"message": "Zijknop (Terug)",
-		"description": "Mouse button 4 — the side button typically used for navigating back"
+		"description": "Mouse button 4 - the side button typically used for navigating back"
 	},
 	"btnSide2Mouse": {
 		"message": "Zijknop (Vooruit)",
-		"description": "Mouse button 5 — the side button typically used for navigating forward"
+		"description": "Mouse button 5 - the side button typically used for navigating forward"
 	},
 	"btnPenRight": {
 		"message": "Rechterknop stylus",
@@ -195,6 +199,54 @@
 		"message": "Schaduw",
 		"description": "HUD shadow toggle"
 	},
+	"customCss": {
+		"message": "Aangepaste CSS",
+		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
+	},
+	"customCssDesc": {
+		"message": "Stel aangepaste CSS in om de eigen gebruikersinterface van FlowMouse aan te passen",
+		"description": "Description for the Custom CSS advanced setting"
+	},
+	"customCssConfigure": {
+		"message": "Configureren",
+		"description": "Button label to open the Custom CSS editor dialog when no CSS is set"
+	},
+	"customCssEdit": {
+		"message": "Bewerken",
+		"description": "Button label to open the Custom CSS editor dialog when CSS is already set"
+	},
+	"customCssEditorTitle": {
+		"message": "Aangepaste CSS-editor",
+		"description": "Title of the dedicated custom CSS editor page"
+	},
+	"customCssEditorHint": {
+		"message": "Stijlen worden geïnjecteerd in elke Shadow DOM die FlowMouse maakt. Druk op Ctrl+S om op te slaan.",
+		"description": "Hint shown above the editor textarea."
+	},
+	"customCssEditorPlaceholder": {
+		"message": "/* Schrijf hier je aangepaste CSS… */",
+		"description": "Placeholder inside the Custom CSS editor textarea"
+	},
+	"customCssEditorInsertSnippet": {
+		"message": "Voorbeeld",
+		"description": "Button to append an example/starter CSS snippet to the editor"
+	},
+	"customCssEditorRevert": {
+		"message": "Ongedaan maken",
+		"description": "Button that reverts the editor content back to the last saved value"
+	},
+	"customCssEditorSave": {
+		"message": "Opslaan",
+		"description": "Save button in the Custom CSS editor"
+	},
+	"customCssEditorSaved": {
+		"message": "Opgeslagen",
+		"description": "Status message shown briefly after the user saves the custom CSS"
+	},
+	"customCssEditorDiscardConfirm": {
+		"message": "Niet-opgeslagen bewerkingen weggooien en terugkeren naar de laatst opgeslagen CSS?",
+		"description": "Confirmation dialog shown before reverting unsaved edits"
+	},
 	"text": {
 		"message": "Tekst",
 		"description": "Text"
@@ -255,6 +307,14 @@
 		"message": "Sleep geselecteerde tekst om te zoeken",
 		"description": "Drag selected text to search"
 	},
+	"textDragIgnoreInput": {
+		"message": "Uitschakelen in invoervelden",
+		"description": "Option to disable text drag inside input boxes and textareas"
+	},
+	"textDragIgnoreInputDesc": {
+		"message": "Schakel het slepen van tekst niet in op bewerkbare gebieden zoals invoervelden en teksteditors",
+		"description": "Description for text drag ignore input option"
+	},
 	"searchEngine": {
 		"message": "Zoekmachine",
 		"description": "Search engine"
@@ -267,6 +327,10 @@
 		"message": "Aangepaste URL, gebruik %s voor zoekterm",
 		"description": "Custom URL placeholder"
 	},
+	"customUrlPlaceholderHint": {
+		"message": "Moet een protocol bevatten (bijv. https://). Beschikbare tijdelijke aanduidingen: %placeholders%. Voeg :raw toe om URL-codering over te slaan, bijv. %example%",
+		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
+	},
 	"urlPlaceholderText": {
 		"message": "%s=Zoekterm",
 		"description": "Placeholder for text drag custom URL"
@@ -274,6 +338,14 @@
 	"urlPlaceholderImage": {
 		"message": "%s=Afbeelding-URL",
 		"description": "Placeholder for image drag custom URL"
+	},
+	"searchEngine_google_translate": {
+		"message": "Google Translate",
+		"description": "Google Translate search engine"
+	},
+	"searchEngine_bing_translate": {
+		"message": "Bing Vertalen",
+		"description": "Bing Translate search engine"
 	},
 	"searchEngine_baidu": {
 		"message": "Baidu",
@@ -367,8 +439,16 @@
 		"message": "Herstellen",
 		"description": "Reset to default"
 	},
+	"duplicate": {
+		"message": "Dupliceren",
+		"description": "Generic duplicate button tooltip"
+	},
+	"delete": {
+		"message": "Verwijderen",
+		"description": "Generic delete button tooltip"
+	},
 	"autoSaved": {
-		"message": "✓ Automatisch opgeslagen",
+		"message": "Automatisch opgeslagen",
 		"description": "Auto-saved message"
 	},
 	"saveFailure": {
@@ -663,6 +743,10 @@
 		"message": "Paginatitel Kopiëren",
 		"description": "Copy page title"
 	},
+	"actionCopyTitleAndUrl": {
+		"message": "Paginatitel en URL kopiëren",
+		"description": "Copy page title and URL"
+	},
 	"actionOpenDownloads": {
 		"message": "Downloads Openen",
 		"description": "Open downloads page"
@@ -674,6 +758,10 @@
 	"actionOpenExtensions": {
 		"message": "Extensies Openen",
 		"description": "Open extensions page"
+	},
+	"actionSaveAsMhtml": {
+		"message": "Opslaan als MHTML",
+		"description": "Save current page as MHTML file"
 	},
 	"actionPrintPage": {
 		"message": "Pagina Afdrukken",
@@ -694,6 +782,14 @@
 	"actionTogglePinTab": {
 		"message": "Huidig tabblad vastzetten/losmaken",
 		"description": "Toggle pin current tab"
+	},
+	"actionMoveTabToNewWindow": {
+		"message": "Tabblad naar nieuw venster verplaatsen",
+		"description": "Move current tab to a new window"
+	},
+	"actionSearchClipboard": {
+		"message": "Zoeken vanaf klembord",
+		"description": "Search clipboard text using a search engine"
 	},
 	"showTrailOrigin": {
 		"message": "Toon Startpunt",
@@ -731,6 +827,10 @@
 		"message": "Andere instellingen",
 		"description": "Section title for other/miscellaneous settings"
 	},
+	"styleSettings": {
+		"message": "Vormgeving",
+		"description": "Section title for style/appearance settings (trail, HUD, etc.)"
+	},
 	"show": {
 		"message": "Weergeven",
 		"description": "Show navigation menu"
@@ -760,7 +860,7 @@
 		"description": "Clear button"
 	},
 	"gestureAdded": {
-		"message": "✓ Gebaar toegevoegd",
+		"message": "Gebaar toegevoegd",
 		"description": "Gesture added success message"
 	},
 	"gestureRecorderTitle": {
@@ -816,16 +916,16 @@
 		"description": "Delete gesture confirmation"
 	},
 	"gestureDeleted": {
-		"message": "✓ Gebaar verwijderd",
+		"message": "Gebaar verwijderd",
 		"description": "Gesture deleted success message"
 	},
 	"enterCustomUrl": {
-		"message": "Voer URL in (bij voorkeur inclusief protocol zoals https://, chrome://, etc.):",
+		"message": "URL",
 		"description": "Prompt for custom URL input"
 	},
-	"copyUrlIncludeTitle": {
-		"message": "Paginatitel ook kopiëren",
-		"description": "Checkbox label for including page title when copying URL"
+	"copyAsMarkdown": {
+		"message": "Kopiëren als Markdown",
+		"description": "Checkbox label for copying as markdown format"
 	},
 	"invalidUrl": {
 		"message": "Voer een geldige URL in (beginnend met http:// of https://)",
@@ -956,27 +1056,27 @@
 		"description": "Features"
 	},
 	"aboutFeature1": {
-		"message": "🎯 16 Standaard Gebaren + Aangepaste Gebaren",
+		"message": "16 Standaard Gebaren + Aangepaste Gebaren",
 		"description": "Feature 1"
 	},
 	"aboutFeature2": {
-		"message": "🎨 Visuele Spoor Feedback",
+		"message": "Visuele Spoor Feedback",
 		"description": "Feature 2"
 	},
 	"aboutFeature3": {
-		"message": "🔍 Tekst/Afbeelding/Link Super Drag",
+		"message": "Tekst/Afbeelding/Link Super Drag",
 		"description": "Feature 3"
 	},
 	"aboutFeature4": {
-		"message": "🚫 Website Zwarte Lijst",
+		"message": "Website Zwarte Lijst",
 		"description": "Feature 4"
 	},
 	"aboutFeature5": {
-		"message": "☁️ %browserName%-account Synchronisatie",
+		"message": "%browserName%-account Synchronisatie",
 		"description": "Feature 5"
 	},
 	"aboutFeature6": {
-		"message": "🔒 Draait Lokaal, Geen Netwerk Behalve Sync",
+		"message": "Draait Lokaal, Geen Netwerk Behalve Sync",
 		"description": "Feature 6"
 	},
 	"tutorial": {
@@ -988,15 +1088,15 @@
 		"description": "Learn more link"
 	},
 	"badgeNoNetwork": {
-		"message": "🔒 Geen Netwerk Behalve Sync",
+		"message": "Geen Netwerk Behalve Sync",
 		"description": "No network privacy badge"
 	},
 	"badgeNoData": {
-		"message": "🚫 Geen Gegevensverzameling",
+		"message": "Geen Gegevensverzameling",
 		"description": "No data collection badge"
 	},
 	"badgeLocalRun": {
-		"message": "✅ Draait Lokaal",
+		"message": "Draait Lokaal",
 		"description": "Local run badge"
 	},
 	"newTabSettings": {
@@ -1091,6 +1191,10 @@
 		"message": "📋 Linktekst Kopiëren",
 		"description": "Copy link text"
 	},
+	"dragActionCopyLinkAndText": {
+		"message": "📋 Tekst en link kopiëren",
+		"description": "Copy link text and URL"
+	},
 	"dragActionSaveImage": {
 		"message": "💾 Afbeelding Opslaan",
 		"description": "Save image"
@@ -1111,6 +1215,10 @@
 		"message": "🔍 Aangepast Zoeken",
 		"description": "Custom search"
 	},
+	"dragActionSendCustomEvent": {
+		"message": "Aangepaste gebeurtenis verzenden",
+		"description": "Send custom DOM event on drag gesture"
+	},
 	"reducedMotionWarning": {
 		"message": "%OS% systeem animatie is uitgeschakeld, scroll-animatie werkt mogelijk niet goed. U kunt animatie inschakelen in %OS% systeeminstellingen.",
 		"description": "Warning message when system reduced motion is enabled"
@@ -1119,9 +1227,29 @@
 		"message": "Automatisch URL detecteren",
 		"description": "Auto detect URL checkbox label"
 	},
+	"autoDetectUrlTooltip": {
+		"message": "Als de tekst een linkformaat heeft, open deze dan direct in plaats van te zoeken",
+		"description": "Tooltip for the auto detect URL checkbox"
+	},
 	"preferLink": {
 		"message": "Voorkeur voor Link",
 		"description": "Prefer link checkbox label"
+	},
+	"customHudName": {
+		"message": "Naam",
+		"description": "Placeholder for custom action name shown on HUD"
+	},
+	"customHudNameTooltip": {
+		"message": "Aangepaste naam die op het scherm wordt weergegeven tijdens het uitvoeren van het gebaar",
+		"description": "Tooltip for the custom HUD name field"
+	},
+	"actionNoOptions": {
+		"message": "Voor deze opdracht zijn geen instellingen vereist.",
+		"description": "Placeholder shown in the action picker's detail panel when the selected action has no configurable settings"
+	},
+	"actionRequiredBadge": {
+		"message": "Vereist",
+		"description": "Badge shown next to fields that must be filled in (e.g., URL for Open URL)"
 	},
 	"menuNeedRefresh": {
 		"message": "FlowMouse niet geladen, klik om te vernieuwen",
@@ -1376,11 +1504,11 @@
 		"description": "Permission popup description for downloads"
 	},
 	"permissionDownloadsPageCaptureTitle": {
-		"message": "Afbeelding opslaan",
+		"message": "Inhoud opslaan",
 		"description": "Permission popup title for downloads and page capture"
 	},
 	"permissionDownloadsPageCaptureDesc": {
-		"message": "Om afbeeldingen op te slaan, heeft FlowMouse toegang tot pagina's en downloads nodig.",
+		"message": "Om inhoud op te slaan, heeft FlowMouse toegang tot pagina's en downloads nodig.",
 		"description": "Permission popup description for downloads and page capture"
 	},
 	"permissionIncognitoTitle": {
@@ -1390,6 +1518,14 @@
 	"permissionIncognitoDesc": {
 		"message": "Om in incognitovensters te werken, moet je handmatig 'Toestaan in incognito' inschakelen voor FlowMouse.",
 		"description": "Permission popup description for incognito"
+	},
+	"permissionClipboardReadTitle": {
+		"message": "Klembord lezen",
+		"description": "Permission popup title for clipboard read"
+	},
+	"permissionClipboardReadDesc": {
+		"message": "Om de inhoud van het klembord te plakken, heeft FlowMouse toegang nodig om je klembord te lezen.",
+		"description": "Permission popup description for clipboard read"
 	},
 	"openExtensionsSettings": {
 		"message": "Extensiedetails openen",
@@ -1434,6 +1570,10 @@
 	"buttonOkay": {
 		"message": "OK",
 		"description": "Generic OK button"
+	},
+	"buttonConfirm": {
+		"message": "Bevestigen",
+		"description": "Generic Confirm button"
 	},
 	"buttonCancel": {
 		"message": "Annuleren",
@@ -1487,6 +1627,10 @@
 		"message": "Scroll omlaag terwijl u de rechtermuisknop ingedrukt houdt",
 		"description": "Wheel gesture: scroll down while holding right button"
 	},
+	"wheelGesture_wheelClickHoldingRight": {
+		"message": "Klik op de middelste muisknop terwijl u de rechtermuisknop ingedrukt houdt",
+		"description": "Wheel gesture: wheel (middle) click while holding right button"
+	},
 	"specialGestures": {
 		"message": "Speciale gebaren",
 		"description": "Special gestures section title"
@@ -1507,32 +1651,68 @@
 		"message": "Rechtsklikken terwijl u de linkerknop ingedrukt houdt",
 		"description": "Special gesture: right click while holding left button"
 	},
-	"actionChains": {
-		"message": "Opdrachtenreeksen",
-		"description": "Action chains section title"
-	},
 	"actionChainsDesc": {
-		"message": "Maak herbruikbare reeksen opdrachten die na elkaar worden uitgevoerd",
+		"message": "Gebruik opdrachtenreeksen om meerdere opdrachten na elkaar uit te voeren.",
 		"description": "Action chains section description"
 	},
 	"actionActionChain": {
 		"message": "Opdrachtenreeks",
 		"description": "Action chain action name"
 	},
-	"actionCategoryChains": {
-		"message": "Opdrachtenreeksen",
-		"description": "Action category: action chains"
+	"actionCustomMenu": {
+		"message": "Aangepast menu",
+		"description": "Custom popup menu action name"
+	},
+	"customMenuDesc": {
+		"message": "Maak aangepaste pop-upmenu's met meerdere acties.",
+		"description": "Custom menu section description"
+	},
+	"addMenu": {
+		"message": "Menu toevoegen",
+		"description": "Add menu button"
+	},
+	"menuNamePlaceholder": {
+		"message": "Aangepast menu",
+		"description": "Menu name input placeholder"
+	},
+	"menuItemCount": {
+		"message": "%count% items",
+		"description": "Item count for menus, e.g. '3 items'"
+	},
+	"menuItemCountOne": {
+		"message": "%count% item",
+		"description": "Item count for menus with exactly 1 item"
+	},
+	"addMenuItem": {
+		"message": "Item toevoegen",
+		"description": "Add menu item button"
+	},
+	"addMenuSeparator": {
+		"message": "Scheidingslijn toevoegen",
+		"description": "Add separator to menu button"
+	},
+	"emptyMenuItems": {
+		"message": "Geen items toegevoegd. Klik op \"Item toevoegen\" om te beginnen.",
+		"description": "Empty menu items message"
+	},
+	"menuNotFound": {
+		"message": "(Menu niet gevonden)",
+		"description": "Menu not found label"
+	},
+	"deleteMenuConfirm": {
+		"message": "Menu \"%name%\" verwijderen?",
+		"description": "Delete menu confirmation"
+	},
+	"menuItemNumber": {
+		"message": "Item %n%",
+		"description": "Menu item number label"
 	},
 	"addChain": {
 		"message": "Reeks toevoegen",
 		"description": "Add chain button"
 	},
-	"addNewChain": {
-		"message": "Nieuwe reeks maken...",
-		"description": "Action item to navigate to chain editor and create a new chain"
-	},
 	"chainNamePlaceholder": {
-		"message": "Mijn opdrachtenreeks",
+		"message": "Opdrachtenreeks",
 		"description": "Chain name input placeholder"
 	},
 	"chainDelayUnit": {
@@ -1579,6 +1759,14 @@
 		"message": "Toetsaanslag simuleren",
 		"description": "Action to simulate a keyboard key press on the page"
 	},
+	"actionPasteClipboard": {
+		"message": "Klembord plakken",
+		"description": "Action to paste clipboard text at the gesture start position"
+	},
+	"pasteClipboardHint": {
+		"message": "De klembord-inhoud wordt in het invoerveld op de <b>startpositie van de beweging</b> geplakt.",
+		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
 	"simulateKeyPreset": {
 		"message": "Vooraf ingestelde toets",
 		"description": "Label for preset key dropdown in simulate key config"
@@ -1615,6 +1803,14 @@
 		"message": "Ongeldige JSON-indeling",
 		"description": "Error message when event detail is not valid JSON"
 	},
+	"customEventIncludeGestureInfo": {
+		"message": "Gebaarinfo opnemen in %code%",
+		"description": "Checkbox label for including gesture context in custom event detail. %code% = detail.gesture"
+	},
+	"customEventConfigureBtn": {
+		"message": "Instellingen",
+		"description": "Label for the configure button of custom event action in drag gesture manager"
+	},
 	"customEventHint": {
 		"message": "Verzendt %code% naar %window%. Handig voor integratie met andere scripts.",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
@@ -1630,5 +1826,233 @@
 	"chainStepCountOne": {
 		"message": "%count% stap",
 		"description": "Step count for unnamed chains with exactly 1 step"
+	},
+	"actionZoomIn": {
+		"message": "Inzoomen",
+		"description": "Zoom in on the current page"
+	},
+	"actionZoomOut": {
+		"message": "Uitzoomen",
+		"description": "Zoom out on the current page"
+	},
+	"actionResetZoom": {
+		"message": "Zoomniveau herstellen",
+		"description": "Reset page zoom to default or a specified level"
+	},
+	"actionViewPageSource": {
+		"message": "Paginabron weergeven",
+		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionPauseGesture": {
+		"message": "Gebaren pauzeren tot herladen",
+		"description": "Temporarily disable all gestures on the current tab until page refresh"
+	},
+	"actionAreaSelect": {
+		"message": "Gebiedsselectie",
+		"description": "Enter area select mode to drag-select links on the page and batch open them"
+	},
+	"areaSelectTitle": {
+		"message": "Gebiedsselectie",
+		"description": "Label for the area select row in the popup"
+	},
+	"areaSelectModifierKey": {
+		"message": "Snelle gebiedsselectie",
+		"description": "Label for the modifier key dropdown in area select settings"
+	},
+	"areaSelectModifierKeyDesc": {
+		"message": "Houd de modificatietoets ingedrukt en klik en sleep met de linkermuisknop om snel links op de pagina te selecteren voor bulkbewerkingen",
+		"description": "Description for the modifier key setting"
+	},
+	"areaSelectDisabled": {
+		"message": "Uitgeschakeld",
+		"description": "Disabled option for the area select modifier key dropdown"
+	},
+	"areaSelectMouseDrag": {
+		"message": "Muis slepen",
+		"description": "Suffix label next to the modifier key dropdown"
+	},
+	"areaSelectTextUrl": {
+		"message": "Tekst-URL-herkenning",
+		"description": "Label for the text URL recognition toggle"
+	},
+	"areaSelectTextUrlDesc": {
+		"message": "Bij het selecteren ook plattetekst-URL's (niet-hyperlinks) extraheren",
+		"description": "Description for the text URL recognition toggle"
+	},
+	"areaSelectWarnThreshold": {
+		"message": "Waarschuwing bulkbewerking",
+		"description": "Label for the batch operation alert threshold input"
+	},
+	"areaSelectWarnThresholdDesc": {
+		"message": "Bevestiging tonen bij het bulkbewerken van meer dan dit aantal items, 0 om uit te schakelen",
+		"description": "Description for the batch operation alert threshold"
+	},
+	"areaSelectDelay": {
+		"message": "Bewerkingsinterval",
+		"description": "Label for the operation interval input"
+	},
+	"areaSelectDelayDesc": {
+		"message": "Vertraging tussen elke opening in batchbewerkingen (seconden)",
+		"description": "Description for the operation interval setting"
+	},
+	"areaSelectHint": {
+		"message": "Sleep om links te selecteren",
+		"description": "Hint text shown in the area select overlay"
+	},
+	"areaSelectOpen": {
+		"message": "Open %count% links",
+		"description": "Button text in the area select toolbar to batch open selected links"
+	},
+	"areaSelectOpenOne": {
+		"message": "Open %count% link",
+		"description": "Button text to open a single selected link (singular form)"
+	},
+	"areaSelectCopy": {
+		"message": "Links kopiëren",
+		"description": "Button text to copy all selected link URLs to clipboard"
+	},
+	"areaSelectCancel": {
+		"message": "Annuleren",
+		"description": "Button text to cancel area select mode"
+	},
+	"areaSelectConfirm": {
+		"message": "Bevestigen",
+		"description": "Button text to confirm opening many links"
+	},
+	"areaSelectWarnTitle": {
+		"message": "Veel links openen?",
+		"description": "Title of the warning modal when opening many links"
+	},
+	"areaSelectWarnMessage": {
+		"message": "U staat op het punt om %count% links te openen. Dit kan uw browser vertragen. Doorgaan?",
+		"description": "Body text of the warning modal"
+	},
+	"start": {
+		"message": "Starten",
+		"description": "Button label to start an action (e.g. area select)"
+	},
+	"actionMenuShowTabs": {
+		"message": "Tabblad wisselen",
+		"description": "Show a context menu listing all open tabs in the current window"
+	},
+	"actionMenuRecentlyClosed": {
+		"message": "Recent gesloten tabbladen",
+		"description": "Show a context menu listing recently closed tabs for quick restore"
+	},
+	"recentlyClosedMaxItems": {
+		"message": "Max. items",
+		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
+	},
+	"actionCategoryContextMenu": {
+		"message": "Pop-upmenu",
+		"description": "Action category: context menu actions"
+	},
+	"zoomStepMode": {
+		"message": "Zoommodus",
+		"description": "Label for zoom mode selector: browser steps vs fixed increment"
+	},
+	"zoomStepModeBrowser": {
+		"message": "Gebruik zoomniveaus van browser",
+		"description": "Option: follow Chrome's built-in zoom steps (25%, 33%, 50%, …, 500%)"
+	},
+	"zoomStepModeFixed": {
+		"message": "Vaste stap",
+		"description": "Option: zoom in/out by a configurable fixed percentage each time"
+	},
+	"zoomDelta": {
+		"message": "Stapgrootte",
+		"description": "Label for the zoom increment/decrement slider"
+	},
+	"resetZoomLevel": {
+		"message": "Resetten naar",
+		"description": "Label for the target zoom level when resetting zoom"
+	},
+	"resetZoomDefault": {
+		"message": "Standaardwaarde webbrowser",
+		"description": "Option: reset zoom to the browser's default zoom setting"
+	},
+	"resetZoomCustom": {
+		"message": "Aangepaste waarde",
+		"description": "Option: reset zoom to a user-specified custom zoom level"
+	},
+	"actionMenuShowBookmarks": {
+		"message": "Bladwijzers weergeven",
+		"description": "Show a context menu listing bookmarks from a selected folder"
+	},
+	"bookmarkFolder": {
+		"message": "Map",
+		"description": "Label for selecting which bookmark folder to display"
+	},
+	"bookmarkGrantPermission": {
+		"message": "Bladwijzertoestemming verlenen",
+		"description": "Button label to request bookmarks permission"
+	},
+	"ctxMenuSortOrder": {
+		"message": "Sorteren op",
+		"description": "Label for context menu sort order dropdown"
+	},
+	"ctxMenuSortDefault": {
+		"message": "Standaard",
+		"description": "Sort option: original API/insertion order"
+	},
+	"ctxMenuSortDefaultDesc": {
+		"message": "Standaard (omgekeerd)",
+		"description": "Sort option: reverse of original API order"
+	},
+	"ctxMenuSortDateAddedAsc": {
+		"message": "Datum toegevoegd (oudste eerst)",
+		"description": "Sort option: by date added ascending"
+	},
+	"ctxMenuSortDateAddedDesc": {
+		"message": "Datum toegevoegd (nieuwste eerst)",
+		"description": "Sort option: by date added descending"
+	},
+	"ctxMenuSortNameAsc": {
+		"message": "Naam (oplopend)",
+		"description": "Sort option: alphabetical ascending"
+	},
+	"ctxMenuSortNameDesc": {
+		"message": "Naam (aflopend)",
+		"description": "Sort option: alphabetical descending"
+	},
+	"ctxMenuSortLastAccessAsc": {
+		"message": "Laatst geopend (oudste eerst)",
+		"description": "Sort option: by last access time ascending"
+	},
+	"ctxMenuSortLastAccessDesc": {
+		"message": "Laatst geopend (nieuwste eerst)",
+		"description": "Sort option: by last access time descending"
+	},
+	"ctxMenuMaxItems": {
+		"message": "Max. aantal",
+		"description": "Label for maximum number of items in context menu"
+	},
+	"ctxMenuMaxItemsUnlimited": {
+		"message": "Onbeperkt",
+		"description": "Placeholder shown when max items is 0 (no limit)"
+	},
+	"ctxMenuScrollToBottom": {
+		"message": "Naar beneden scrollen",
+		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuTimeDisplay": {
+		"message": "Tijd weergeven",
+		"description": "Label for time display mode dropdown in context menu"
+	},
+	"ctxMenuTimeNone": {
+		"message": "Niet weergeven",
+		"description": "Time display option: hide time column"
+	},
+	"ctxMenuTimeLastAccess": {
+		"message": "Laatst geopend",
+		"description": "Time display option: show last access time"
+	},
+	"ctxMenuTimeClosedTime": {
+		"message": "Sluitingstijd",
+		"description": "Time display option: show when the tab was closed"
+	},
+	"ctxMenuTimeDateAdded": {
+		"message": "Datum toegevoegd",
+		"description": "Time display option: show when the bookmark was added"
 	}
 }

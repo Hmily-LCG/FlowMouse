@@ -35,9 +35,9 @@
 		"message": "I-sync ang mga setting gamit ang %browserName% account",
 		"description": "Sync status description"
 	},
-	"synced": {
-		"message": "Naka-sync",
-		"description": "Synced"
+	"saved": {
+		"message": "Nai-save",
+		"description": "Saved"
 	},
 	"author": {
 		"message": "May-akda",
@@ -66,6 +66,10 @@
 	"feedbackText": {
 		"message": "May mga problema o mungkahi? Mangyaring i-ulat sa pamamagitan ng <a href='mailto:Service@52pojie.cn'>Email</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a>, o <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Forum</a>. Papabutihin namin ito sa lalong madaling panahon!",
 		"description": "Feedback text"
+	},
+	"feedbackTextChrome": {
+		"message": "May mga problema o mungkahi? Mangyaring i-ulat sa pamamagitan ng <a href='https://chromewebstore.google.com/detail/fnldhkfidchnjiokpoemdhoejmaojkgp/support' target='_blank'>Suporta ng Chrome Web Store</a>, <a href='mailto:Service@52pojie.cn'>Email</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a>, o <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Forum</a>. Papabutihin namin ito sa lalong madaling panahon!",
+		"description": "Feedback text for Chrome browser"
 	},
 	"supportAndFeedback": {
 		"message": "Suporta at Feedback",
@@ -125,11 +129,11 @@
 	},
 	"btnSide1Mouse": {
 		"message": "Gilid na Pindutan (Paurong)",
-		"description": "Mouse button 4 — the side button typically used for navigating back"
+		"description": "Mouse button 4 - the side button typically used for navigating back"
 	},
 	"btnSide2Mouse": {
 		"message": "Gilid na Pindutan (Pasulong)",
-		"description": "Mouse button 5 — the side button typically used for navigating forward"
+		"description": "Mouse button 5 - the side button typically used for navigating forward"
 	},
 	"btnPenRight": {
 		"message": "Kanang Pindutan ng Stylus",
@@ -195,6 +199,54 @@
 		"message": "Anino",
 		"description": "HUD shadow toggle"
 	},
+	"customCss": {
+		"message": "Custom na CSS",
+		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
+	},
+	"customCssDesc": {
+		"message": "Mag-set ng custom na CSS upang i-tweak ang sariling UI ng FlowMouse",
+		"description": "Description for the Custom CSS advanced setting"
+	},
+	"customCssConfigure": {
+		"message": "I-configure",
+		"description": "Button label to open the Custom CSS editor dialog when no CSS is set"
+	},
+	"customCssEdit": {
+		"message": "I-edit",
+		"description": "Button label to open the Custom CSS editor dialog when CSS is already set"
+	},
+	"customCssEditorTitle": {
+		"message": "Custom na CSS Editor",
+		"description": "Title of the dedicated custom CSS editor page"
+	},
+	"customCssEditorHint": {
+		"message": "Ang mga istilo ay ini-inject sa bawat Shadow DOM na nililikha ng FlowMouse. Pindutin ang Ctrl+S para i-save.",
+		"description": "Hint shown above the editor textarea."
+	},
+	"customCssEditorPlaceholder": {
+		"message": "/* Isulat ang iyong Custom CSS dito… */",
+		"description": "Placeholder inside the Custom CSS editor textarea"
+	},
+	"customCssEditorInsertSnippet": {
+		"message": "Halimbawa",
+		"description": "Button to append an example/starter CSS snippet to the editor"
+	},
+	"customCssEditorRevert": {
+		"message": "Bawiin",
+		"description": "Button that reverts the editor content back to the last saved value"
+	},
+	"customCssEditorSave": {
+		"message": "I-save",
+		"description": "Save button in the Custom CSS editor"
+	},
+	"customCssEditorSaved": {
+		"message": "Na-save na",
+		"description": "Status message shown briefly after the user saves the custom CSS"
+	},
+	"customCssEditorDiscardConfirm": {
+		"message": "Itapon ang iyong mga hindi na-save na pag-edit at bumalik sa huling na-save na CSS?",
+		"description": "Confirmation dialog shown before reverting unsaved edits"
+	},
 	"text": {
 		"message": "Teksto",
 		"description": "Text"
@@ -255,6 +307,14 @@
 		"message": "I-drag ang napiling teksto upang maghanap",
 		"description": "Drag selected text to search"
 	},
+	"textDragIgnoreInput": {
+		"message": "I-disable sa mga input field",
+		"description": "Option to disable text drag inside input boxes and textareas"
+	},
+	"textDragIgnoreInputDesc": {
+		"message": "Huwag paganahin ang pag-drag ng text sa mga nae-edit na area tulad ng mga input field at text editor",
+		"description": "Description for text drag ignore input option"
+	},
 	"searchEngine": {
 		"message": "Search Engine",
 		"description": "Search engine"
@@ -267,6 +327,10 @@
 		"message": "Custom URL, gamitin ang %s para sa terminong hinahanap",
 		"description": "Custom URL placeholder"
 	},
+	"customUrlPlaceholderHint": {
+		"message": "Dapat may kasamang protocol (hal. https://). Mga available na placeholder: %placeholders%. Idagdag ang :raw para lagpasan ang pag-encode ng URL, hal. %example%",
+		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
+	},
 	"urlPlaceholderText": {
 		"message": "%s=Keyword",
 		"description": "Placeholder for text drag custom URL"
@@ -274,6 +338,14 @@
 	"urlPlaceholderImage": {
 		"message": "%s=URL ng Imahe",
 		"description": "Placeholder for image drag custom URL"
+	},
+	"searchEngine_google_translate": {
+		"message": "Google Translate",
+		"description": "Google Translate search engine"
+	},
+	"searchEngine_bing_translate": {
+		"message": "Bing Translate",
+		"description": "Bing Translate search engine"
 	},
 	"searchEngine_baidu": {
 		"message": "Baidu",
@@ -367,8 +439,16 @@
 		"message": "I-reset",
 		"description": "Reset to default"
 	},
+	"duplicate": {
+		"message": "Doblehin",
+		"description": "Generic duplicate button tooltip"
+	},
+	"delete": {
+		"message": "Tanggalin",
+		"description": "Generic delete button tooltip"
+	},
 	"autoSaved": {
-		"message": "✓ Awtomatikong nai-save",
+		"message": "Awtomatikong nai-save",
 		"description": "Auto-saved message"
 	},
 	"saveFailure": {
@@ -663,6 +743,10 @@
 		"message": "Kopyahin ang Pamagat ng Pahina",
 		"description": "Copy page title"
 	},
+	"actionCopyTitleAndUrl": {
+		"message": "Kopyahin ang Pamagat ng Pahina at URL",
+		"description": "Copy page title and URL"
+	},
 	"actionOpenDownloads": {
 		"message": "Buksan ang Mga Download",
 		"description": "Open downloads page"
@@ -674,6 +758,10 @@
 	"actionOpenExtensions": {
 		"message": "Buksan ang Mga Extension",
 		"description": "Open extensions page"
+	},
+	"actionSaveAsMhtml": {
+		"message": "I-save bilang MHTML",
+		"description": "Save current page as MHTML file"
 	},
 	"actionPrintPage": {
 		"message": "I-print ang Pahina",
@@ -694,6 +782,14 @@
 	"actionTogglePinTab": {
 		"message": "I-pin/I-unpin ang Kasalukuyang Tab",
 		"description": "Toggle pin current tab"
+	},
+	"actionMoveTabToNewWindow": {
+		"message": "Ilipat ang tab sa bagong window",
+		"description": "Move current tab to a new window"
+	},
+	"actionSearchClipboard": {
+		"message": "Maghanap mula sa clipboard",
+		"description": "Search clipboard text using a search engine"
 	},
 	"showTrailOrigin": {
 		"message": "Ipakita ang Pinagmulan",
@@ -731,6 +827,10 @@
 		"message": "Iba pang mga Setting",
 		"description": "Section title for other/miscellaneous settings"
 	},
+	"styleSettings": {
+		"message": "Hitsura",
+		"description": "Section title for style/appearance settings (trail, HUD, etc.)"
+	},
 	"show": {
 		"message": "Ipakita",
 		"description": "Show navigation menu"
@@ -760,7 +860,7 @@
 		"description": "Clear button"
 	},
 	"gestureAdded": {
-		"message": "✓ Naidagdag ang Galaw",
+		"message": "Naidagdag ang Galaw",
 		"description": "Gesture added success message"
 	},
 	"gestureRecorderTitle": {
@@ -816,16 +916,16 @@
 		"description": "Delete gesture confirmation"
 	},
 	"gestureDeleted": {
-		"message": "✓ Natanggal ang Galaw",
+		"message": "Natanggal ang Galaw",
 		"description": "Gesture deleted success message"
 	},
 	"enterCustomUrl": {
-		"message": "Ilagay ang URL (iminungkahing isama ang protocol tulad ng https://, chrome://, atbp.):",
+		"message": "URL",
 		"description": "Prompt for custom URL input"
 	},
-	"copyUrlIncludeTitle": {
-		"message": "Kopyahin din ang pamagat ng pahina",
-		"description": "Checkbox label for including page title when copying URL"
+	"copyAsMarkdown": {
+		"message": "Kopyahin bilang Markdown",
+		"description": "Checkbox label for copying as markdown format"
 	},
 	"invalidUrl": {
 		"message": "Mangyaring maglagay ng wastong URL (nagsisimula sa http:// o https://)",
@@ -956,27 +1056,27 @@
 		"description": "Features"
 	},
 	"aboutFeature1": {
-		"message": "🎯 16 na Default na Galaw + Mga Custom na Galaw",
+		"message": "16 na Default na Galaw + Mga Custom na Galaw",
 		"description": "Feature 1"
 	},
 	"aboutFeature2": {
-		"message": "🎨 Visual Trail Feedback",
+		"message": "Visual Trail Feedback",
 		"description": "Feature 2"
 	},
 	"aboutFeature3": {
-		"message": "🔍 Super Drag para sa Teksto/Larawan/Link",
+		"message": "Super Drag para sa Teksto/Larawan/Link",
 		"description": "Feature 3"
 	},
 	"aboutFeature4": {
-		"message": "🚫 Blacklist ng Website",
+		"message": "Blacklist ng Website",
 		"description": "Feature 4"
 	},
 	"aboutFeature5": {
-		"message": "☁️ Sync ng %browserName% Account",
+		"message": "Sync ng %browserName% Account",
 		"description": "Feature 5"
 	},
 	"aboutFeature6": {
-		"message": "🔒 Tumatakbo nang Lokal, Walang Network Maliban sa Sync",
+		"message": "Tumatakbo nang Lokal, Walang Network Maliban sa Sync",
 		"description": "Feature 6"
 	},
 	"tutorial": {
@@ -988,15 +1088,15 @@
 		"description": "Learn more link"
 	},
 	"badgeNoNetwork": {
-		"message": "🔒 Walang Network Maliban sa Sync",
+		"message": "Walang Network Maliban sa Sync",
 		"description": "No network privacy badge"
 	},
 	"badgeNoData": {
-		"message": "🚫 Walang Pangongolekta ng Data",
+		"message": "Walang Pangongolekta ng Data",
 		"description": "No data collection badge"
 	},
 	"badgeLocalRun": {
-		"message": "✅ Tumatakbo nang Lokal",
+		"message": "Tumatakbo nang Lokal",
 		"description": "Local run badge"
 	},
 	"newTabSettings": {
@@ -1091,6 +1191,10 @@
 		"message": "📋 Kopyahin ang Teksto ng Link",
 		"description": "Copy link text"
 	},
+	"dragActionCopyLinkAndText": {
+		"message": "📋 Kopyahin ang Teksto at Link",
+		"description": "Copy link text and URL"
+	},
 	"dragActionSaveImage": {
 		"message": "💾 I-save ang Larawan",
 		"description": "Save image"
@@ -1111,6 +1215,10 @@
 		"message": "🔍 Custom na Paghahanap",
 		"description": "Custom search"
 	},
+	"dragActionSendCustomEvent": {
+		"message": "Magpadala ng Custom Event",
+		"description": "Send custom DOM event on drag gesture"
+	},
 	"reducedMotionWarning": {
 		"message": "Ang animation ng system ng %OS% ay naka-disable, maaaring hindi gumana nang maayos ang scroll animation. Maaari mong paganahin ang animation sa mga setting ng system ng %OS%.",
 		"description": "Warning message when system reduced motion is enabled"
@@ -1119,9 +1227,29 @@
 		"message": "Awtomatikong I-detect ang URL",
 		"description": "Auto detect URL checkbox label"
 	},
+	"autoDetectUrlTooltip": {
+		"message": "Kung ang text ay nasa format ng link, buksan ito nang direkta sa halip na maghanap",
+		"description": "Tooltip for the auto detect URL checkbox"
+	},
 	"preferLink": {
 		"message": "Mas Gusto ang Link",
 		"description": "Prefer link checkbox label"
+	},
+	"customHudName": {
+		"message": "Pangalan",
+		"description": "Placeholder for custom action name shown on HUD"
+	},
+	"customHudNameTooltip": {
+		"message": "Pasadyang pangalan na ipinapakita sa screen kapag ginagawa ang galaw",
+		"description": "Tooltip for the custom HUD name field"
+	},
+	"actionNoOptions": {
+		"message": "Hindi nangangailangan ng mga setting ang command na ito.",
+		"description": "Placeholder shown in the action picker's detail panel when the selected action has no configurable settings"
+	},
+	"actionRequiredBadge": {
+		"message": "Kailangan",
+		"description": "Badge shown next to fields that must be filled in (e.g., URL for Open URL)"
 	},
 	"menuNeedRefresh": {
 		"message": "Hindi na-load ang FlowMouse, i-click para i-refresh",
@@ -1376,11 +1504,11 @@
 		"description": "Permission popup description for downloads"
 	},
 	"permissionDownloadsPageCaptureTitle": {
-		"message": "I-save ang Larawan",
+		"message": "I-save ang Content",
 		"description": "Permission popup title for downloads and page capture"
 	},
 	"permissionDownloadsPageCaptureDesc": {
-		"message": "Upang ma-save ang mga larawan, kailangan ng FlowMouse ng access sa mga page at mga download.",
+		"message": "Upang ma-save ang content, kailangan ng FlowMouse ng access sa mga page at mga download.",
 		"description": "Permission popup description for downloads and page capture"
 	},
 	"permissionIncognitoTitle": {
@@ -1390,6 +1518,14 @@
 	"permissionIncognitoDesc": {
 		"message": "Para gumana sa mga window ng Incognito, kailangan mong manual na i-enable ang 'Payagan sa Incognito' para sa FlowMouse.",
 		"description": "Permission popup description for incognito"
+	},
+	"permissionClipboardReadTitle": {
+		"message": "Basahin ang Clipboard",
+		"description": "Permission popup title for clipboard read"
+	},
+	"permissionClipboardReadDesc": {
+		"message": "Upang i-paste ang nilalaman ng clipboard, kailangan ng FlowMouse ng access na basahin ang iyong clipboard.",
+		"description": "Permission popup description for clipboard read"
 	},
 	"openExtensionsSettings": {
 		"message": "Buksan ang mga Detalye ng Extension",
@@ -1434,6 +1570,10 @@
 	"buttonOkay": {
 		"message": "OK",
 		"description": "Generic OK button"
+	},
+	"buttonConfirm": {
+		"message": "Kumpirmahin",
+		"description": "Generic Confirm button"
 	},
 	"buttonCancel": {
 		"message": "Kanselahin",
@@ -1487,6 +1627,10 @@
 		"message": "Mag-scroll pababa habang pinipigilan ang kanang button",
 		"description": "Wheel gesture: scroll down while holding right button"
 	},
+	"wheelGesture_wheelClickHoldingRight": {
+		"message": "I-click ang gitnang pindutan habang pinipigilan ang kanang button",
+		"description": "Wheel gesture: wheel (middle) click while holding right button"
+	},
 	"specialGestures": {
 		"message": "Mga Espesyal na Kumpas",
 		"description": "Special gestures section title"
@@ -1507,32 +1651,68 @@
 		"message": "I-click ang kanan habang nakadiin ang kaliwang button",
 		"description": "Special gesture: right click while holding left button"
 	},
-	"actionChains": {
-		"message": "Mga Command Chain",
-		"description": "Action chains section title"
-	},
 	"actionChainsDesc": {
-		"message": "Gumawa ng mga magagamit muling serye ng commands na sunod-sunod na gumagana",
+		"message": "Gumamit ng mga command chain para sunod-sunod na magpatupad ng maraming command.",
 		"description": "Action chains section description"
 	},
 	"actionActionChain": {
 		"message": "Command chain",
 		"description": "Action chain action name"
 	},
-	"actionCategoryChains": {
-		"message": "Mga command chain",
-		"description": "Action category: action chains"
+	"actionCustomMenu": {
+		"message": "Pasadyang Menu",
+		"description": "Custom popup menu action name"
+	},
+	"customMenuDesc": {
+		"message": "Lumikha ng mga pasadyang popup menu na may maraming aksyon.",
+		"description": "Custom menu section description"
+	},
+	"addMenu": {
+		"message": "Magdagdag ng Menu",
+		"description": "Add menu button"
+	},
+	"menuNamePlaceholder": {
+		"message": "Pasadyang Menu",
+		"description": "Menu name input placeholder"
+	},
+	"menuItemCount": {
+		"message": "%count% item",
+		"description": "Item count for menus, e.g. '3 items'"
+	},
+	"menuItemCountOne": {
+		"message": "%count% item",
+		"description": "Item count for menus with exactly 1 item"
+	},
+	"addMenuItem": {
+		"message": "Magdagdag ng item",
+		"description": "Add menu item button"
+	},
+	"addMenuSeparator": {
+		"message": "Magdagdag ng separator",
+		"description": "Add separator to menu button"
+	},
+	"emptyMenuItems": {
+		"message": "Walang naidagdag na mga item. I-click ang \"Magdagdag ng item\" para magsimula.",
+		"description": "Empty menu items message"
+	},
+	"menuNotFound": {
+		"message": "(Hindi nahanap ang menu)",
+		"description": "Menu not found label"
+	},
+	"deleteMenuConfirm": {
+		"message": "Tanggalin ang menu na \"%name%\"?",
+		"description": "Delete menu confirmation"
+	},
+	"menuItemNumber": {
+		"message": "Item %n%",
+		"description": "Menu item number label"
 	},
 	"addChain": {
 		"message": "Magdagdag ng Chain",
 		"description": "Add chain button"
 	},
-	"addNewChain": {
-		"message": "Gumawa ng Bagong Chain...",
-		"description": "Action item to navigate to chain editor and create a new chain"
-	},
 	"chainNamePlaceholder": {
-		"message": "Aking Command Chain",
+		"message": "Command Chain",
 		"description": "Chain name input placeholder"
 	},
 	"chainDelayUnit": {
@@ -1579,6 +1759,14 @@
 		"message": "Gayayahin ang pagpindot ng key",
 		"description": "Action to simulate a keyboard key press on the page"
 	},
+	"actionPasteClipboard": {
+		"message": "I-paste mula sa Clipboard",
+		"description": "Action to paste clipboard text at the gesture start position"
+	},
+	"pasteClipboardHint": {
+		"message": "Ang nilalaman ng clipboard ay ididikit sa input field sa <b>panimulang posisyon ng kumpas</b>.",
+		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
 	"simulateKeyPreset": {
 		"message": "Preset na Key",
 		"description": "Label for preset key dropdown in simulate key config"
@@ -1615,6 +1803,14 @@
 		"message": "Imbalidong format ng JSON",
 		"description": "Error message when event detail is not valid JSON"
 	},
+	"customEventIncludeGestureInfo": {
+		"message": "Isama ang impormasyon ng kilos sa %code%",
+		"description": "Checkbox label for including gesture context in custom event detail. %code% = detail.gesture"
+	},
+	"customEventConfigureBtn": {
+		"message": "Mga Setting",
+		"description": "Label for the configure button of custom event action in drag gesture manager"
+	},
 	"customEventHint": {
 		"message": "Nagpapadala ng %code% sa %window%. Kapaki-pakinabang para sa integration sa iba pang mga script.",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
@@ -1630,5 +1826,233 @@
 	"chainStepCountOne": {
 		"message": "%count% na hakbang",
 		"description": "Step count for unnamed chains with exactly 1 step"
+	},
+	"actionZoomIn": {
+		"message": "Mag-zoom In",
+		"description": "Zoom in on the current page"
+	},
+	"actionZoomOut": {
+		"message": "Mag-zoom Out",
+		"description": "Zoom out on the current page"
+	},
+	"actionResetZoom": {
+		"message": "I-reset ang Zoom",
+		"description": "Reset page zoom to default or a specified level"
+	},
+	"actionViewPageSource": {
+		"message": "Tingnan ang source ng page",
+		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionPauseGesture": {
+		"message": "I-pause ang Galaw Hanggang Refresh",
+		"description": "Temporarily disable all gestures on the current tab until page refresh"
+	},
+	"actionAreaSelect": {
+		"message": "Pagpili ng Lugar",
+		"description": "Enter area select mode to drag-select links on the page and batch open them"
+	},
+	"areaSelectTitle": {
+		"message": "Pagpili ng Lugar",
+		"description": "Label for the area select row in the popup"
+	},
+	"areaSelectModifierKey": {
+		"message": "Mabilis na Pagpili ng Lugar",
+		"description": "Label for the modifier key dropdown in area select settings"
+	},
+	"areaSelectModifierKeyDesc": {
+		"message": "Pindutin nang matagal ang modifier key, pagkatapos ay i-left-click at i-drag upang mabilis na pumili ng mga link sa pahina para sa mga batch operation",
+		"description": "Description for the modifier key setting"
+	},
+	"areaSelectDisabled": {
+		"message": "Hindi naka-enable",
+		"description": "Disabled option for the area select modifier key dropdown"
+	},
+	"areaSelectMouseDrag": {
+		"message": "Pag-drag ng mouse",
+		"description": "Suffix label next to the modifier key dropdown"
+	},
+	"areaSelectTextUrl": {
+		"message": "Pagkilala sa text URL",
+		"description": "Label for the text URL recognition toggle"
+	},
+	"areaSelectTextUrlDesc": {
+		"message": "Kumuha rin ng plain-text URLs (non-hyperlinks) kapag pumipili",
+		"description": "Description for the text URL recognition toggle"
+	},
+	"areaSelectWarnThreshold": {
+		"message": "Alerto sa Batch Operation",
+		"description": "Label for the batch operation alert threshold input"
+	},
+	"areaSelectWarnThresholdDesc": {
+		"message": "Magpakita ng kumpirmasyon kapag nag-batch operate ng higit sa ganitong dami ng item, 0 para i-disable",
+		"description": "Description for the batch operation alert threshold"
+	},
+	"areaSelectDelay": {
+		"message": "Pagitan ng Operasyon",
+		"description": "Label for the operation interval input"
+	},
+	"areaSelectDelayDesc": {
+		"message": "Antala sa pagitan ng bawat pagbukas sa batch operations (segundo)",
+		"description": "Description for the operation interval setting"
+	},
+	"areaSelectHint": {
+		"message": "I-drag upang pumili ng mga link",
+		"description": "Hint text shown in the area select overlay"
+	},
+	"areaSelectOpen": {
+		"message": "Buksan ang %count% (na) link",
+		"description": "Button text in the area select toolbar to batch open selected links"
+	},
+	"areaSelectOpenOne": {
+		"message": "Buksan ang %count% (na) link",
+		"description": "Button text to open a single selected link (singular form)"
+	},
+	"areaSelectCopy": {
+		"message": "Kopyahin ang mga Link",
+		"description": "Button text to copy all selected link URLs to clipboard"
+	},
+	"areaSelectCancel": {
+		"message": "Kanselahin",
+		"description": "Button text to cancel area select mode"
+	},
+	"areaSelectConfirm": {
+		"message": "Kumpirmahin",
+		"description": "Button text to confirm opening many links"
+	},
+	"areaSelectWarnTitle": {
+		"message": "Magbukas ng maraming link?",
+		"description": "Title of the warning modal when opening many links"
+	},
+	"areaSelectWarnMessage": {
+		"message": "Bubuksan mo ang %count% na mga link. Maaaring bumagal ang iyong browser dahil dito. Magpatuloy?",
+		"description": "Body text of the warning modal"
+	},
+	"start": {
+		"message": "Simulan",
+		"description": "Button label to start an action (e.g. area select)"
+	},
+	"actionMenuShowTabs": {
+		"message": "Lumipat ng Tab",
+		"description": "Show a context menu listing all open tabs in the current window"
+	},
+	"actionMenuRecentlyClosed": {
+		"message": "Mga Kamakailang Isinarang Tab",
+		"description": "Show a context menu listing recently closed tabs for quick restore"
+	},
+	"recentlyClosedMaxItems": {
+		"message": "Max items",
+		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
+	},
+	"actionCategoryContextMenu": {
+		"message": "Popup na Menu",
+		"description": "Action category: context menu actions"
+	},
+	"zoomStepMode": {
+		"message": "Mode ng Pag-zoom",
+		"description": "Label for zoom mode selector: browser steps vs fixed increment"
+	},
+	"zoomStepModeBrowser": {
+		"message": "Gamitin ang zoom levels ng browser",
+		"description": "Option: follow Chrome's built-in zoom steps (25%, 33%, 50%, …, 500%)"
+	},
+	"zoomStepModeFixed": {
+		"message": "Nakatakdang hakbang",
+		"description": "Option: zoom in/out by a configurable fixed percentage each time"
+	},
+	"zoomDelta": {
+		"message": "Laki ng hakbang",
+		"description": "Label for the zoom increment/decrement slider"
+	},
+	"resetZoomLevel": {
+		"message": "I-reset sa",
+		"description": "Label for the target zoom level when resetting zoom"
+	},
+	"resetZoomDefault": {
+		"message": "Default ng browser",
+		"description": "Option: reset zoom to the browser's default zoom setting"
+	},
+	"resetZoomCustom": {
+		"message": "Custom na value",
+		"description": "Option: reset zoom to a user-specified custom zoom level"
+	},
+	"actionMenuShowBookmarks": {
+		"message": "Ipakita ang Mga Bookmark",
+		"description": "Show a context menu listing bookmarks from a selected folder"
+	},
+	"bookmarkFolder": {
+		"message": "Folder",
+		"description": "Label for selecting which bookmark folder to display"
+	},
+	"bookmarkGrantPermission": {
+		"message": "Magbigay ng Pahintulot sa Mga Bookmark",
+		"description": "Button label to request bookmarks permission"
+	},
+	"ctxMenuSortOrder": {
+		"message": "Pagbukud-bukurin ayon sa",
+		"description": "Label for context menu sort order dropdown"
+	},
+	"ctxMenuSortDefault": {
+		"message": "Default",
+		"description": "Sort option: original API/insertion order"
+	},
+	"ctxMenuSortDefaultDesc": {
+		"message": "Default (kabaligtaran)",
+		"description": "Sort option: reverse of original API order"
+	},
+	"ctxMenuSortDateAddedAsc": {
+		"message": "Petsa idinagdag (pinakaluma muna)",
+		"description": "Sort option: by date added ascending"
+	},
+	"ctxMenuSortDateAddedDesc": {
+		"message": "Petsa idinagdag (pinakabago muna)",
+		"description": "Sort option: by date added descending"
+	},
+	"ctxMenuSortNameAsc": {
+		"message": "Pangalan (pataas)",
+		"description": "Sort option: alphabetical ascending"
+	},
+	"ctxMenuSortNameDesc": {
+		"message": "Pangalan (pababa)",
+		"description": "Sort option: alphabetical descending"
+	},
+	"ctxMenuSortLastAccessAsc": {
+		"message": "Huling na-access (pinakaluma muna)",
+		"description": "Sort option: by last access time ascending"
+	},
+	"ctxMenuSortLastAccessDesc": {
+		"message": "Huling na-access (pinakabago muna)",
+		"description": "Sort option: by last access time descending"
+	},
+	"ctxMenuMaxItems": {
+		"message": "Max na mga item",
+		"description": "Label for maximum number of items in context menu"
+	},
+	"ctxMenuMaxItemsUnlimited": {
+		"message": "Walang limitasyon",
+		"description": "Placeholder shown when max items is 0 (no limit)"
+	},
+	"ctxMenuScrollToBottom": {
+		"message": "Mag-scroll pababa",
+		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuTimeDisplay": {
+		"message": "Ipakita ang oras",
+		"description": "Label for time display mode dropdown in context menu"
+	},
+	"ctxMenuTimeNone": {
+		"message": "Huwag ipakita",
+		"description": "Time display option: hide time column"
+	},
+	"ctxMenuTimeLastAccess": {
+		"message": "Huling na-access",
+		"description": "Time display option: show last access time"
+	},
+	"ctxMenuTimeClosedTime": {
+		"message": "Oras ng pagsara",
+		"description": "Time display option: show when the tab was closed"
+	},
+	"ctxMenuTimeDateAdded": {
+		"message": "Petsang idinagdag",
+		"description": "Time display option: show when the bookmark was added"
 	}
 }

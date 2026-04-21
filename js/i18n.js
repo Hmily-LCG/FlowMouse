@@ -97,7 +97,11 @@
 		if (translations[key] && translations[key].message) {
 			message = translations[key].message;
 		} else {
-			message = chrome.i18n.getMessage(key) || '[!!!]' + key;
+			if (typeof key !== 'string') {
+				message = '[!!!] undefined';
+			} else {
+				message = chrome.i18n.getMessage(key) || '[!!!]' + key;
+			}
 		}
 		if (message.indexOf('%browserName%') !== -1) {
 			message = message.replaceAll("%browserName%", getBrowserName());
@@ -199,7 +203,7 @@
 			name: 'Edge',
 			storeLink: 'https://microsoftedge.microsoft.com/addons/',
 			storeNameKey: 'storeNameEdge',
-			flowmouseStoreLink: null,
+			flowmouseStoreLink: 'https://microsoftedge.microsoft.com/addons/detail/obaiedbdkdciaknhnmpcpodkndadhncc',
 			protocol: 'edge://'
 		},
 		'firefox': {
@@ -286,6 +290,18 @@
 		return;
 	}
 
+	function getModifierKeyName(key) {
+		const isMac = platform === 'mac';
+		const isLinux = platform === 'linux' || platform === 'cros' || platform === 'openbsd';
+		switch (key) {
+			case 'Ctrl': return isMac ? '⌃ Control' : 'Ctrl';
+			case 'Alt': return isMac ? '⌥ Option' : 'Alt';
+			case 'Shift': return isMac ? '⇧ Shift' : 'Shift';
+			case 'Meta': return isMac ? '⌘ Cmd' : isLinux ? 'Super' : 'Win';
+			default: return key;
+		}
+	}
+
 	window.i18n = {
 		getMessage,
 		applyI18n,
@@ -302,6 +318,7 @@
 		isEdgeDesktop,
 		getBrowserName,
 		getBrowserInfo,
+		getModifierKeyName,
 		get platform() { return platform; },
 		get platformName() { return platformName; },
 		version: chrome.runtime.getManifest().version,

@@ -187,32 +187,9 @@ class AboutPage extends LitElement {
 			}
 
 			.back-btn {
-				display: inline-flex;
-				align-items: center;
-				padding: 10px 20px;
-				background: var(--bg-secondary);
-				color: var(--text-primary);
-				text-decoration: none;
-				border-radius: 8px;
-				font-size: 14px;
 				margin-top: 20px;
-				transition: background 0.2s;
-				border: 1px solid var(--section-border);
-				box-shadow: var(--section-shadow) 0px 1px 3px 0px;
-			}
-
-			.back-btn:hover {
-				background: var(--bg-tertiary);
-			}
-
-			.back-btn-icon {
-				display: inline-flex;
-				margin-inline-end: 4px;
-			}
-
-			.back-btn-icon svg {
-				width: 16px;
-				height: 16px;
+				text-decoration: none;
+				box-shadow: none;
 			}
 		`,
 	];
@@ -230,10 +207,6 @@ class AboutPage extends LitElement {
 
 	#getVersion() {
 		return 'v' + window.i18n.version;
-	}
-
-	#stripEmoji(text) {
-		return text.replace(/^[\p{Emoji_Presentation}\p{Extended_Pictographic}\uFE0F\u200D]+\s*/u, '');
 	}
 
 	render() {
@@ -293,7 +266,7 @@ class AboutPage extends LitElement {
 						${features.map(f => html`
 							<div class="feature">
 								<span class="feature-icon">${unsafeHTML(icon(f.icon, { size: 18, strokeWidth: 2 }))}</span>
-								${this.#stripEmoji(i18n.getMessage(f.key))}
+								${i18n.getMessage(f.key)}
 							</div>
 						`)}
 					</div>
@@ -309,7 +282,7 @@ class AboutPage extends LitElement {
 						${badges.map(b => html`
 							<span class="privacy-badge">
 								<span class="badge-icon">${unsafeHTML(icon(b.icon, { size: 14, strokeWidth: 2 }))}</span>
-								${this.#stripEmoji(i18n.getMessage(b.key))}
+								${i18n.getMessage(b.key)}
 							</span>
 						`)}
 					</div>
@@ -323,8 +296,8 @@ class AboutPage extends LitElement {
 					<p class="credits">${i18n.getMessage('aboutCreditsText')}</p>
 				</div>
 
-				<a href="options.html" class="back-btn">
-					<span class="back-btn-icon">${unsafeHTML(icon('arrowLeft', { size: 16, strokeWidth: 2 }))}</span>
+				<a href="options.html" class="btn btn-secondary btn-lg back-btn">
+					${unsafeHTML(icon('arrowLeft', { size: 16, strokeWidth: 2 }))}
 					${i18n.getMessage('backToSettings')}
 				</a>
 			</div>

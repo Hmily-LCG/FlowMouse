@@ -35,9 +35,9 @@
 		"message": "Ayarları %browserName% hesabı üzerinden senkronize et",
 		"description": "Sync status description"
 	},
-	"synced": {
-		"message": "Senkronize Edildi",
-		"description": "Synced"
+	"saved": {
+		"message": "Kaydedildi",
+		"description": "Saved"
 	},
 	"author": {
 		"message": "Yazar",
@@ -66,6 +66,10 @@
 	"feedbackText": {
 		"message": "Sorun mu yaşıyorsunuz veya bir öneriniz mi var? Lütfen <a href='mailto:Service@52pojie.cn'>E-posta</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> veya <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Forum</a> üzerinden bildirin. En kısa sürede düzelteceğiz!",
 		"description": "Feedback text"
+	},
+	"feedbackTextChrome": {
+		"message": "Sorun mu yaşıyorsunuz veya bir öneriniz mi var? Lütfen <a href='https://chromewebstore.google.com/detail/fnldhkfidchnjiokpoemdhoejmaojkgp/support' target='_blank'>Chrome Web Mağazası Desteği</a>, <a href='mailto:Service@52pojie.cn'>E-posta</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> veya <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Forum</a> üzerinden bildirin. En kısa sürede düzelteceğiz!",
+		"description": "Feedback text for Chrome browser"
 	},
 	"supportAndFeedback": {
 		"message": "Destek ve Geri Bildirim",
@@ -125,11 +129,11 @@
 	},
 	"btnSide1Mouse": {
 		"message": "Yan Düğme (Geri)",
-		"description": "Mouse button 4 — the side button typically used for navigating back"
+		"description": "Mouse button 4 - the side button typically used for navigating back"
 	},
 	"btnSide2Mouse": {
 		"message": "Yan Düğme (İleri)",
-		"description": "Mouse button 5 — the side button typically used for navigating forward"
+		"description": "Mouse button 5 - the side button typically used for navigating forward"
 	},
 	"btnPenRight": {
 		"message": "Kalem Sağ Düğmesi",
@@ -195,6 +199,54 @@
 		"message": "Gölge",
 		"description": "HUD shadow toggle"
 	},
+	"customCss": {
+		"message": "Özel CSS",
+		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
+	},
+	"customCssDesc": {
+		"message": "FlowMouse'un kendi arayüzünü ayarlamak için özel CSS ayarlayın",
+		"description": "Description for the Custom CSS advanced setting"
+	},
+	"customCssConfigure": {
+		"message": "Yapılandır",
+		"description": "Button label to open the Custom CSS editor dialog when no CSS is set"
+	},
+	"customCssEdit": {
+		"message": "Düzenle",
+		"description": "Button label to open the Custom CSS editor dialog when CSS is already set"
+	},
+	"customCssEditorTitle": {
+		"message": "Özel CSS Düzenleyicisi",
+		"description": "Title of the dedicated custom CSS editor page"
+	},
+	"customCssEditorHint": {
+		"message": "Stiller, FlowMouse'un oluşturduğu her Shadow DOM'a enjekte edilir. Kaydetmek için Ctrl+S tuşlarına basın.",
+		"description": "Hint shown above the editor textarea."
+	},
+	"customCssEditorPlaceholder": {
+		"message": "/* Özel CSS'nizi buraya yazın… */",
+		"description": "Placeholder inside the Custom CSS editor textarea"
+	},
+	"customCssEditorInsertSnippet": {
+		"message": "Örnek",
+		"description": "Button to append an example/starter CSS snippet to the editor"
+	},
+	"customCssEditorRevert": {
+		"message": "Geri Al",
+		"description": "Button that reverts the editor content back to the last saved value"
+	},
+	"customCssEditorSave": {
+		"message": "Kaydet",
+		"description": "Save button in the Custom CSS editor"
+	},
+	"customCssEditorSaved": {
+		"message": "Kaydedildi",
+		"description": "Status message shown briefly after the user saves the custom CSS"
+	},
+	"customCssEditorDiscardConfirm": {
+		"message": "Kaydedilmemiş düzenlemelerinizi iptal edip en son kaydedilen CSS'e geri dönmek istiyor musunuz?",
+		"description": "Confirmation dialog shown before reverting unsaved edits"
+	},
 	"text": {
 		"message": "Metin",
 		"description": "Text"
@@ -255,6 +307,14 @@
 		"message": "Seçilen metni sürükleyerek ara",
 		"description": "Drag selected text to search"
 	},
+	"textDragIgnoreInput": {
+		"message": "Giriş alanlarında devre dışı bırak",
+		"description": "Option to disable text drag inside input boxes and textareas"
+	},
+	"textDragIgnoreInputDesc": {
+		"message": "Giriş alanları ve metin düzenleyiciler gibi düzenlenebilir alanlarda metin sürüklemeyi tetikleme",
+		"description": "Description for text drag ignore input option"
+	},
 	"searchEngine": {
 		"message": "Arama Motoru",
 		"description": "Search engine"
@@ -267,6 +327,10 @@
 		"message": "Özel URL, arama terimi için %s kullanın",
 		"description": "Custom URL placeholder"
 	},
+	"customUrlPlaceholderHint": {
+		"message": "Protokol içermelidir (örn. https://). Kullanılabilir yer tutucular: %placeholders%. URL kodlamasını atlamak için :raw ekleyin, örn. %example%",
+		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
+	},
 	"urlPlaceholderText": {
 		"message": "%s=Anahtar kelime",
 		"description": "Placeholder for text drag custom URL"
@@ -274,6 +338,14 @@
 	"urlPlaceholderImage": {
 		"message": "%s=Resim URL'si",
 		"description": "Placeholder for image drag custom URL"
+	},
+	"searchEngine_google_translate": {
+		"message": "Google Çeviri",
+		"description": "Google Translate search engine"
+	},
+	"searchEngine_bing_translate": {
+		"message": "Bing Çeviri",
+		"description": "Bing Translate search engine"
 	},
 	"searchEngine_baidu": {
 		"message": "Baidu",
@@ -367,8 +439,16 @@
 		"message": "Sıfırla",
 		"description": "Reset to default"
 	},
+	"duplicate": {
+		"message": "Çoğalt",
+		"description": "Generic duplicate button tooltip"
+	},
+	"delete": {
+		"message": "Sil",
+		"description": "Generic delete button tooltip"
+	},
 	"autoSaved": {
-		"message": "✓ Otomatik kaydedildi",
+		"message": "Otomatik kaydedildi",
 		"description": "Auto-saved message"
 	},
 	"saveFailure": {
@@ -663,6 +743,10 @@
 		"message": "Sayfa Başlığını Kopyala",
 		"description": "Copy page title"
 	},
+	"actionCopyTitleAndUrl": {
+		"message": "Sayfa Başlığını ve URL'yi Kopyala",
+		"description": "Copy page title and URL"
+	},
 	"actionOpenDownloads": {
 		"message": "İndirilenleri Aç",
 		"description": "Open downloads page"
@@ -674,6 +758,10 @@
 	"actionOpenExtensions": {
 		"message": "Eklentileri Aç",
 		"description": "Open extensions page"
+	},
+	"actionSaveAsMhtml": {
+		"message": "MHTML olarak kaydet",
+		"description": "Save current page as MHTML file"
 	},
 	"actionPrintPage": {
 		"message": "Sayfayı Yazdır",
@@ -694,6 +782,14 @@
 	"actionTogglePinTab": {
 		"message": "Geçerli Sekmeyi Sabitle/Ayır",
 		"description": "Toggle pin current tab"
+	},
+	"actionMoveTabToNewWindow": {
+		"message": "Sekmeyi yeni pencereye taşı",
+		"description": "Move current tab to a new window"
+	},
+	"actionSearchClipboard": {
+		"message": "Panodan arat",
+		"description": "Search clipboard text using a search engine"
 	},
 	"showTrailOrigin": {
 		"message": "Başlangıç Noktasını Göster",
@@ -731,6 +827,10 @@
 		"message": "Diğer Ayarlar",
 		"description": "Section title for other/miscellaneous settings"
 	},
+	"styleSettings": {
+		"message": "Görünüm",
+		"description": "Section title for style/appearance settings (trail, HUD, etc.)"
+	},
 	"show": {
 		"message": "Göster",
 		"description": "Show navigation menu"
@@ -760,7 +860,7 @@
 		"description": "Clear button"
 	},
 	"gestureAdded": {
-		"message": "✓ Hareket eklendi",
+		"message": "Hareket eklendi",
 		"description": "Gesture added success message"
 	},
 	"gestureRecorderTitle": {
@@ -816,16 +916,16 @@
 		"description": "Delete gesture confirmation"
 	},
 	"gestureDeleted": {
-		"message": "✓ Hareket silindi",
+		"message": "Hareket silindi",
 		"description": "Gesture deleted success message"
 	},
 	"enterCustomUrl": {
-		"message": "URL girin (https://, chrome:// vb. gibi protokolleri eklemeniz önerilir):",
+		"message": "URL",
 		"description": "Prompt for custom URL input"
 	},
-	"copyUrlIncludeTitle": {
-		"message": "Sayfa başlığını da kopyala",
-		"description": "Checkbox label for including page title when copying URL"
+	"copyAsMarkdown": {
+		"message": "Markdown Olarak Kopyala",
+		"description": "Checkbox label for copying as markdown format"
 	},
 	"invalidUrl": {
 		"message": "Lütfen geçerli bir URL girin (http:// veya https:// ile başlayan)",
@@ -956,27 +1056,27 @@
 		"description": "Features"
 	},
 	"aboutFeature1": {
-		"message": "🎯 16 Varsayılan Hareket + Özel Hareketler",
+		"message": "16 Varsayılan Hareket + Özel Hareketler",
 		"description": "Feature 1"
 	},
 	"aboutFeature2": {
-		"message": "🎨 Görsel İz Geri Bildirimi",
+		"message": "Görsel İz Geri Bildirimi",
 		"description": "Feature 2"
 	},
 	"aboutFeature3": {
-		"message": "🔍 Metin/Resim/Bağlantı Süper Sürükleme",
+		"message": "Metin/Resim/Bağlantı Süper Sürükleme",
 		"description": "Feature 3"
 	},
 	"aboutFeature4": {
-		"message": "🚫 Web Sitesi Kara Listesi",
+		"message": "Web Sitesi Kara Listesi",
 		"description": "Feature 4"
 	},
 	"aboutFeature5": {
-		"message": "☁️ %browserName% Hesap Senkronizasyonu",
+		"message": "%browserName% Hesap Senkronizasyonu",
 		"description": "Feature 5"
 	},
 	"aboutFeature6": {
-		"message": "🔒 Tamamen Yerel Çalışır, Senkronizasyon Harici Ağ Yok",
+		"message": "Tamamen Yerel Çalışır, Senkronizasyon Harici Ağ Yok",
 		"description": "Feature 6"
 	},
 	"tutorial": {
@@ -988,15 +1088,15 @@
 		"description": "Learn more link"
 	},
 	"badgeNoNetwork": {
-		"message": "🔒 Senkronizasyon Harici Ağ Yok",
+		"message": "Senkronizasyon Harici Ağ Yok",
 		"description": "No network privacy badge"
 	},
 	"badgeNoData": {
-		"message": "🚫 Veri Toplama Yok",
+		"message": "Veri Toplama Yok",
 		"description": "No data collection badge"
 	},
 	"badgeLocalRun": {
-		"message": "✅ Yerel Çalışır",
+		"message": "Yerel Çalışır",
 		"description": "Local run badge"
 	},
 	"newTabSettings": {
@@ -1091,6 +1191,10 @@
 		"message": "📋 Bağlantı Metnini Kopyala",
 		"description": "Copy link text"
 	},
+	"dragActionCopyLinkAndText": {
+		"message": "📋 Metni ve Bağlantıyı Kopyala",
+		"description": "Copy link text and URL"
+	},
 	"dragActionSaveImage": {
 		"message": "💾 Resmi Kaydet",
 		"description": "Save image"
@@ -1111,6 +1215,10 @@
 		"message": "🔍 Özel Arama",
 		"description": "Custom search"
 	},
+	"dragActionSendCustomEvent": {
+		"message": "Özel Etkinlik Gönder",
+		"description": "Send custom DOM event on drag gesture"
+	},
 	"reducedMotionWarning": {
 		"message": "%OS% sistem animasyonu devre dışı, kaydırma animasyonu düzgün görüntülenemeyebilir. %OS% sistem ayarlarından animasyonu açabilirsiniz.",
 		"description": "Warning message when system reduced motion is enabled"
@@ -1119,9 +1227,29 @@
 		"message": "Bağlantıyı otomatik algıla",
 		"description": "Auto detect URL checkbox label"
 	},
+	"autoDetectUrlTooltip": {
+		"message": "Metin bağlantı formatındaysa, aramak yerine doğrudan aç",
+		"description": "Tooltip for the auto detect URL checkbox"
+	},
 	"preferLink": {
 		"message": "Bağlantıyı tercih et",
 		"description": "Prefer link checkbox label"
+	},
+	"customHudName": {
+		"message": "Ad",
+		"description": "Placeholder for custom action name shown on HUD"
+	},
+	"customHudNameTooltip": {
+		"message": "Hareketi gerçekleştirirken ekranda görüntülenen özel ad",
+		"description": "Tooltip for the custom HUD name field"
+	},
+	"actionNoOptions": {
+		"message": "Bu komut herhangi bir ayar gerektirmez.",
+		"description": "Placeholder shown in the action picker's detail panel when the selected action has no configurable settings"
+	},
+	"actionRequiredBadge": {
+		"message": "Gerekli",
+		"description": "Badge shown next to fields that must be filled in (e.g., URL for Open URL)"
 	},
 	"menuNeedRefresh": {
 		"message": "FlowMouse yüklenmedi, yenilemek için tıkla",
@@ -1376,11 +1504,11 @@
 		"description": "Permission popup description for downloads"
 	},
 	"permissionDownloadsPageCaptureTitle": {
-		"message": "Resmi Kaydet",
+		"message": "İçeriği Kaydet",
 		"description": "Permission popup title for downloads and page capture"
 	},
 	"permissionDownloadsPageCaptureDesc": {
-		"message": "Resimleri kaydetmek için FlowMouse sayfa ve indirme erişimine ihtiyaç duyar.",
+		"message": "İçeriği kaydetmek için FlowMouse sayfa ve indirme erişimine ihtiyaç duyar.",
 		"description": "Permission popup description for downloads and page capture"
 	},
 	"permissionIncognitoTitle": {
@@ -1390,6 +1518,14 @@
 	"permissionIncognitoDesc": {
 		"message": "Gizli pencerelerde çalışmak için FlowMouse için \"Gizli modda izin ver\" seçeneğini manuel olarak etkinleştirmeniz gerekir.",
 		"description": "Permission popup description for incognito"
+	},
+	"permissionClipboardReadTitle": {
+		"message": "Panoyu Oku",
+		"description": "Permission popup title for clipboard read"
+	},
+	"permissionClipboardReadDesc": {
+		"message": "Pano içeriğini yapıştırmak için FlowMouse'un panonuzu okuma iznine ihtiyacı vardır.",
+		"description": "Permission popup description for clipboard read"
 	},
 	"openExtensionsSettings": {
 		"message": "Uzantı Ayrıntılarını Aç",
@@ -1434,6 +1570,10 @@
 	"buttonOkay": {
 		"message": "Tamam",
 		"description": "Generic OK button"
+	},
+	"buttonConfirm": {
+		"message": "Onayla",
+		"description": "Generic Confirm button"
 	},
 	"buttonCancel": {
 		"message": "İptal",
@@ -1487,6 +1627,10 @@
 		"message": "Sağ düğmeyi basılı tutarken aşağı kaydırın",
 		"description": "Wheel gesture: scroll down while holding right button"
 	},
+	"wheelGesture_wheelClickHoldingRight": {
+		"message": "Sağ düğmeyi basılı tutarken orta düğmeye tıklayın",
+		"description": "Wheel gesture: wheel (middle) click while holding right button"
+	},
 	"specialGestures": {
 		"message": "Özel Hareketler",
 		"description": "Special gestures section title"
@@ -1507,32 +1651,68 @@
 		"message": "Sol düğmeyi basılı tutarken sağ tıklama",
 		"description": "Special gesture: right click while holding left button"
 	},
-	"actionChains": {
-		"message": "Komut Zincirleri",
-		"description": "Action chains section title"
-	},
 	"actionChainsDesc": {
-		"message": "Birbiri ardına yürütülen yeniden kullanılabilir komut dizileri oluşturun",
+		"message": "Birden fazla komutu sırayla yürütmek için komut zincirlerini kullanın.",
 		"description": "Action chains section description"
 	},
 	"actionActionChain": {
 		"message": "Komut Zinciri",
 		"description": "Action chain action name"
 	},
-	"actionCategoryChains": {
-		"message": "Komut Zincirleri",
-		"description": "Action category: action chains"
+	"actionCustomMenu": {
+		"message": "Özel Menü",
+		"description": "Custom popup menu action name"
+	},
+	"customMenuDesc": {
+		"message": "Birden fazla eylem içeren özel açılır menüler oluşturun.",
+		"description": "Custom menu section description"
+	},
+	"addMenu": {
+		"message": "Menü Ekle",
+		"description": "Add menu button"
+	},
+	"menuNamePlaceholder": {
+		"message": "Özel Menü",
+		"description": "Menu name input placeholder"
+	},
+	"menuItemCount": {
+		"message": "%count% öğe",
+		"description": "Item count for menus, e.g. '3 items'"
+	},
+	"menuItemCountOne": {
+		"message": "%count% öğe",
+		"description": "Item count for menus with exactly 1 item"
+	},
+	"addMenuItem": {
+		"message": "Öğe ekle",
+		"description": "Add menu item button"
+	},
+	"addMenuSeparator": {
+		"message": "Ayırıcı ekle",
+		"description": "Add separator to menu button"
+	},
+	"emptyMenuItems": {
+		"message": "Hiçbir öğe eklenmedi. Başlamak için \"Öğe ekle\"ye tıklayın.",
+		"description": "Empty menu items message"
+	},
+	"menuNotFound": {
+		"message": "(Menü bulunamadı)",
+		"description": "Menu not found label"
+	},
+	"deleteMenuConfirm": {
+		"message": "\"%name%\" menüsü silinsin mi?",
+		"description": "Delete menu confirmation"
+	},
+	"menuItemNumber": {
+		"message": "Öğe %n%",
+		"description": "Menu item number label"
 	},
 	"addChain": {
 		"message": "Zincir Ekle",
 		"description": "Add chain button"
 	},
-	"addNewChain": {
-		"message": "Yeni Zincir Oluştur...",
-		"description": "Action item to navigate to chain editor and create a new chain"
-	},
 	"chainNamePlaceholder": {
-		"message": "Komut Zincirim",
+		"message": "Komut Zinciri",
 		"description": "Chain name input placeholder"
 	},
 	"chainDelayUnit": {
@@ -1579,6 +1759,14 @@
 		"message": "Tuş Basımını Simüle Et",
 		"description": "Action to simulate a keyboard key press on the page"
 	},
+	"actionPasteClipboard": {
+		"message": "Panodan Yapıştır",
+		"description": "Action to paste clipboard text at the gesture start position"
+	},
+	"pasteClipboardHint": {
+		"message": "Pano içeriği, <b>hareket başlangıç konumundaki</b> giriş alanına yapıştırılacaktır.",
+		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
 	"simulateKeyPreset": {
 		"message": "Ön Ayarlı Tuş",
 		"description": "Label for preset key dropdown in simulate key config"
@@ -1615,6 +1803,14 @@
 		"message": "Geçersiz JSON formatı",
 		"description": "Error message when event detail is not valid JSON"
 	},
+	"customEventIncludeGestureInfo": {
+		"message": "%code% alanına jest bilgilerini dahil et",
+		"description": "Checkbox label for including gesture context in custom event detail. %code% = detail.gesture"
+	},
+	"customEventConfigureBtn": {
+		"message": "Ayarlar",
+		"description": "Label for the configure button of custom event action in drag gesture manager"
+	},
 	"customEventHint": {
 		"message": "%window% üzerinde %code% gönderir. Diğer komut dosyalarıyla entegrasyon için kullanışlıdır.",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
@@ -1630,5 +1826,233 @@
 	"chainStepCountOne": {
 		"message": "%count% adım",
 		"description": "Step count for unnamed chains with exactly 1 step"
+	},
+	"actionZoomIn": {
+		"message": "Yakınlaştır",
+		"description": "Zoom in on the current page"
+	},
+	"actionZoomOut": {
+		"message": "Uzaklaştır",
+		"description": "Zoom out on the current page"
+	},
+	"actionResetZoom": {
+		"message": "Yakınlaştırmayı sıfırla",
+		"description": "Reset page zoom to default or a specified level"
+	},
+	"actionViewPageSource": {
+		"message": "Sayfa kaynağını görüntüle",
+		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionPauseGesture": {
+		"message": "Yenileyene Kadar Hareketleri Duraklat",
+		"description": "Temporarily disable all gestures on the current tab until page refresh"
+	},
+	"actionAreaSelect": {
+		"message": "Alan Seçimi",
+		"description": "Enter area select mode to drag-select links on the page and batch open them"
+	},
+	"areaSelectTitle": {
+		"message": "Alan Seçimi",
+		"description": "Label for the area select row in the popup"
+	},
+	"areaSelectModifierKey": {
+		"message": "Hızlı Alan Seçimi",
+		"description": "Label for the modifier key dropdown in area select settings"
+	},
+	"areaSelectModifierKeyDesc": {
+		"message": "Değiştirici tuşu basılı tutun, ardından sayfadaki bağlantıları toplu işlemler için hızlıca seçmek üzere sol tıklayıp sürükleyin",
+		"description": "Description for the modifier key setting"
+	},
+	"areaSelectDisabled": {
+		"message": "Devre dışı",
+		"description": "Disabled option for the area select modifier key dropdown"
+	},
+	"areaSelectMouseDrag": {
+		"message": "Fare ile sürükleme",
+		"description": "Suffix label next to the modifier key dropdown"
+	},
+	"areaSelectTextUrl": {
+		"message": "Metin URL Tanıma",
+		"description": "Label for the text URL recognition toggle"
+	},
+	"areaSelectTextUrlDesc": {
+		"message": "Seçim yaparken düz metin (köprü olmayan) URL'leri de çıkar",
+		"description": "Description for the text URL recognition toggle"
+	},
+	"areaSelectWarnThreshold": {
+		"message": "Toplu İşlem Uyarısı",
+		"description": "Label for the batch operation alert threshold input"
+	},
+	"areaSelectWarnThresholdDesc": {
+		"message": "Bu sayıdan fazla öğe üzerinde toplu işlem yapıldığında onay göster, devre dışı bırakmak için 0",
+		"description": "Description for the batch operation alert threshold"
+	},
+	"areaSelectDelay": {
+		"message": "İşlem Aralığı",
+		"description": "Label for the operation interval input"
+	},
+	"areaSelectDelayDesc": {
+		"message": "Toplu işlemlerde her açma arasındaki gecikme (saniye)",
+		"description": "Description for the operation interval setting"
+	},
+	"areaSelectHint": {
+		"message": "Bağlantıları seçmek için sürükleyin",
+		"description": "Hint text shown in the area select overlay"
+	},
+	"areaSelectOpen": {
+		"message": "%count% bağlantıyı aç",
+		"description": "Button text in the area select toolbar to batch open selected links"
+	},
+	"areaSelectOpenOne": {
+		"message": "%count% bağlantıyı aç",
+		"description": "Button text to open a single selected link (singular form)"
+	},
+	"areaSelectCopy": {
+		"message": "Bağlantıları Kopyala",
+		"description": "Button text to copy all selected link URLs to clipboard"
+	},
+	"areaSelectCancel": {
+		"message": "İptal",
+		"description": "Button text to cancel area select mode"
+	},
+	"areaSelectConfirm": {
+		"message": "Onayla",
+		"description": "Button text to confirm opening many links"
+	},
+	"areaSelectWarnTitle": {
+		"message": "Çok sayıda bağlantı açılsın mı?",
+		"description": "Title of the warning modal when opening many links"
+	},
+	"areaSelectWarnMessage": {
+		"message": "%count% bağlantı açmak üzeresiniz. Bu işlem tarayıcınızı yavaşlatabilir. Devam edilsin mi?",
+		"description": "Body text of the warning modal"
+	},
+	"start": {
+		"message": "Başla",
+		"description": "Button label to start an action (e.g. area select)"
+	},
+	"actionMenuShowTabs": {
+		"message": "Sekme Değiştir",
+		"description": "Show a context menu listing all open tabs in the current window"
+	},
+	"actionMenuRecentlyClosed": {
+		"message": "Son Kapatılan Sekmeler",
+		"description": "Show a context menu listing recently closed tabs for quick restore"
+	},
+	"recentlyClosedMaxItems": {
+		"message": "Maks. öge",
+		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
+	},
+	"actionCategoryContextMenu": {
+		"message": "Açılır Menü",
+		"description": "Action category: context menu actions"
+	},
+	"zoomStepMode": {
+		"message": "Yakınlaştırma Modu",
+		"description": "Label for zoom mode selector: browser steps vs fixed increment"
+	},
+	"zoomStepModeBrowser": {
+		"message": "Tarayıcı yakınlaştırma düzeylerini kullan",
+		"description": "Option: follow Chrome's built-in zoom steps (25%, 33%, 50%, …, 500%)"
+	},
+	"zoomStepModeFixed": {
+		"message": "Sabit adım",
+		"description": "Option: zoom in/out by a configurable fixed percentage each time"
+	},
+	"zoomDelta": {
+		"message": "Adım boyutu",
+		"description": "Label for the zoom increment/decrement slider"
+	},
+	"resetZoomLevel": {
+		"message": "Şuna sıfırla",
+		"description": "Label for the target zoom level when resetting zoom"
+	},
+	"resetZoomDefault": {
+		"message": "Tarayıcı varsayılanı",
+		"description": "Option: reset zoom to the browser's default zoom setting"
+	},
+	"resetZoomCustom": {
+		"message": "Özel değer",
+		"description": "Option: reset zoom to a user-specified custom zoom level"
+	},
+	"actionMenuShowBookmarks": {
+		"message": "Yer İşaretlerini Göster",
+		"description": "Show a context menu listing bookmarks from a selected folder"
+	},
+	"bookmarkFolder": {
+		"message": "Klasör",
+		"description": "Label for selecting which bookmark folder to display"
+	},
+	"bookmarkGrantPermission": {
+		"message": "Yer İşareti İzni Ver",
+		"description": "Button label to request bookmarks permission"
+	},
+	"ctxMenuSortOrder": {
+		"message": "Şuna göre sırala:",
+		"description": "Label for context menu sort order dropdown"
+	},
+	"ctxMenuSortDefault": {
+		"message": "Varsayılan",
+		"description": "Sort option: original API/insertion order"
+	},
+	"ctxMenuSortDefaultDesc": {
+		"message": "Varsayılan (ters)",
+		"description": "Sort option: reverse of original API order"
+	},
+	"ctxMenuSortDateAddedAsc": {
+		"message": "Eklenme tarihi (önce en eski)",
+		"description": "Sort option: by date added ascending"
+	},
+	"ctxMenuSortDateAddedDesc": {
+		"message": "Eklenme tarihi (önce en yeni)",
+		"description": "Sort option: by date added descending"
+	},
+	"ctxMenuSortNameAsc": {
+		"message": "Ad (artan)",
+		"description": "Sort option: alphabetical ascending"
+	},
+	"ctxMenuSortNameDesc": {
+		"message": "Ad (azalan)",
+		"description": "Sort option: alphabetical descending"
+	},
+	"ctxMenuSortLastAccessAsc": {
+		"message": "Son erişim (önce en eski)",
+		"description": "Sort option: by last access time ascending"
+	},
+	"ctxMenuSortLastAccessDesc": {
+		"message": "Son erişim (önce en yeni)",
+		"description": "Sort option: by last access time descending"
+	},
+	"ctxMenuMaxItems": {
+		"message": "Maksimum öğe",
+		"description": "Label for maximum number of items in context menu"
+	},
+	"ctxMenuMaxItemsUnlimited": {
+		"message": "Sınırsız",
+		"description": "Placeholder shown when max items is 0 (no limit)"
+	},
+	"ctxMenuScrollToBottom": {
+		"message": "Aşağı kaydır",
+		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuTimeDisplay": {
+		"message": "Saati göster",
+		"description": "Label for time display mode dropdown in context menu"
+	},
+	"ctxMenuTimeNone": {
+		"message": "Gösterme",
+		"description": "Time display option: hide time column"
+	},
+	"ctxMenuTimeLastAccess": {
+		"message": "Son erişim",
+		"description": "Time display option: show last access time"
+	},
+	"ctxMenuTimeClosedTime": {
+		"message": "Kapatılma saati",
+		"description": "Time display option: show when the tab was closed"
+	},
+	"ctxMenuTimeDateAdded": {
+		"message": "Eklenme tarihi",
+		"description": "Time display option: show when the bookmark was added"
 	}
 }

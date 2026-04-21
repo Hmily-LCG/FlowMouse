@@ -1,15 +1,18 @@
 import { LitElement, html, css, unsafeHTML } from '../lib/lit-all.min.js';
 import { commonStyles, optionStyles } from './shared-styles.js';
 import { icons, icon } from '../icons.js'; 
+import { tooltip } from '../tooltip.js';
 
 const WHEEL_GESTURE_KEYS = {
 	'scrollUpHoldingRight': 'wheelGesture_scrollUpHoldingRight',
 	'scrollDownHoldingRight': 'wheelGesture_scrollDownHoldingRight',
+	'wheelClickHoldingRight': 'wheelGesture_wheelClickHoldingRight',
 };
 
 const WHEEL_GESTURE_ICONS = {
 	'scrollUpHoldingRight': 'chevronUp',
 	'scrollDownHoldingRight': 'chevronDown',
+	'wheelClickHoldingRight': 'mouse',
 };
 
 class WheelGestureManager extends LitElement {
@@ -80,11 +83,10 @@ class WheelGestureManager extends LitElement {
 				color: var(--text-muted);
 				cursor: pointer;
 				border-radius: 4px;
-				transition: background 0.15s ease, color 0.15s ease;
+				transition: background-color 0.15s ease, color 0.15s ease;
 				flex-shrink: 0;
 			}
 			.reset-btn:hover {
-				background: var(--hover-bg);
 				color: var(--accent-color);
 			}
 		`,
@@ -122,7 +124,7 @@ class WheelGestureManager extends LitElement {
 				` : ''}
 				<span class="wheel-gesture-label">${label}</span>
 				<button class="reset-btn" @click=${() => this.#handleReset(key)}
-					title=${i18n.getMessage('resetToDefault')}
+					.tooltip=${tooltip(i18n.getMessage('resetToDefault'))}
 					style="display: ${isModified ? 'inline-flex' : 'none'}">${unsafeHTML(icon('rotateCcw', { size: 13, strokeWidth: 2.5 }))}</button>
 				<div class="wheel-gesture-action">
 					<action-select

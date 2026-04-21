@@ -35,9 +35,9 @@
 		"message": "Beállítások szinkronizálása %browserName% fiókkal",
 		"description": "Sync status description"
 	},
-	"synced": {
-		"message": "Szinkronizálva",
-		"description": "Synced"
+	"saved": {
+		"message": "Mentve",
+		"description": "Saved"
 	},
 	"author": {
 		"message": "Szerző",
@@ -66,6 +66,10 @@
 	"feedbackText": {
 		"message": "Problémái vagy javaslatai vannak? Kérjük, jelentse <a href='mailto:Service@52pojie.cn'>E-mailben</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHubon</a> vagy a <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Fórumon</a>. A lehető leghamarabb javítjuk!",
 		"description": "Feedback text"
+	},
+	"feedbackTextChrome": {
+		"message": "Problémái vagy javaslatai vannak? Kérjük, jelentse a <a href='https://chromewebstore.google.com/detail/fnldhkfidchnjiokpoemdhoejmaojkgp/support' target='_blank'>Chrome Webáruház támogatásán</a>, <a href='mailto:Service@52pojie.cn'>E-mailben</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHubon</a> vagy a <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Fórumon</a>. A lehető leghamarabb javítjuk!",
+		"description": "Feedback text for Chrome browser"
 	},
 	"supportAndFeedback": {
 		"message": "Támogatás és visszajelzés",
@@ -125,11 +129,11 @@
 	},
 	"btnSide1Mouse": {
 		"message": "Oldalsó gomb (Vissza)",
-		"description": "Mouse button 4 — the side button typically used for navigating back"
+		"description": "Mouse button 4 - the side button typically used for navigating back"
 	},
 	"btnSide2Mouse": {
 		"message": "Oldalsó gomb (Előre)",
-		"description": "Mouse button 5 — the side button typically used for navigating forward"
+		"description": "Mouse button 5 - the side button typically used for navigating forward"
 	},
 	"btnPenRight": {
 		"message": "Érintőtoll jobb gombja",
@@ -195,6 +199,54 @@
 		"message": "Árnyék",
 		"description": "HUD shadow toggle"
 	},
+	"customCss": {
+		"message": "Egyéni CSS",
+		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
+	},
+	"customCssDesc": {
+		"message": "Állítson be egyéni CSS-t a FlowMouse saját felhasználói felületének finomhangolásához",
+		"description": "Description for the Custom CSS advanced setting"
+	},
+	"customCssConfigure": {
+		"message": "Konfigurálás",
+		"description": "Button label to open the Custom CSS editor dialog when no CSS is set"
+	},
+	"customCssEdit": {
+		"message": "Szerkesztés",
+		"description": "Button label to open the Custom CSS editor dialog when CSS is already set"
+	},
+	"customCssEditorTitle": {
+		"message": "Egyéni CSS szerkesztő",
+		"description": "Title of the dedicated custom CSS editor page"
+	},
+	"customCssEditorHint": {
+		"message": "A stílusok minden egyes, a FlowMouse által létrehozott Shadow DOM-ba bekerülnek. A mentéshez nyomja le a Ctrl+S billentyűkombinációt.",
+		"description": "Hint shown above the editor textarea."
+	},
+	"customCssEditorPlaceholder": {
+		"message": "/* Ide írja be az egyéni CSS-t… */",
+		"description": "Placeholder inside the Custom CSS editor textarea"
+	},
+	"customCssEditorInsertSnippet": {
+		"message": "Példa",
+		"description": "Button to append an example/starter CSS snippet to the editor"
+	},
+	"customCssEditorRevert": {
+		"message": "Változtatások visszavonása",
+		"description": "Button that reverts the editor content back to the last saved value"
+	},
+	"customCssEditorSave": {
+		"message": "Mentés",
+		"description": "Save button in the Custom CSS editor"
+	},
+	"customCssEditorSaved": {
+		"message": "Mentve",
+		"description": "Status message shown briefly after the user saves the custom CSS"
+	},
+	"customCssEditorDiscardConfirm": {
+		"message": "Elveti a nem mentett szerkesztéseket, és visszatér a legutóbb mentett CSS-hez?",
+		"description": "Confirmation dialog shown before reverting unsaved edits"
+	},
 	"text": {
 		"message": "Szöveg",
 		"description": "Text"
@@ -255,6 +307,14 @@
 		"message": "Kijelölt szöveg húzása kereséshez",
 		"description": "Drag selected text to search"
 	},
+	"textDragIgnoreInput": {
+		"message": "Letiltás a beviteli mezőkben",
+		"description": "Option to disable text drag inside input boxes and textareas"
+	},
+	"textDragIgnoreInputDesc": {
+		"message": "Ne aktiválja a szöveghúzást olyan szerkeszthető területeken, mint a beviteli mezők és a szövegszerkesztők",
+		"description": "Description for text drag ignore input option"
+	},
 	"searchEngine": {
 		"message": "Keresőmotor",
 		"description": "Search engine"
@@ -267,6 +327,10 @@
 		"message": "Egyéni URL, használd a %s-t a keresési kifejezés helyett",
 		"description": "Custom URL placeholder"
 	},
+	"customUrlPlaceholderHint": {
+		"message": "Tartalmaznia kell a protokollt (pl. https://). Elérhető helyőrzők: %placeholders%. Csatolja a :raw kifejezést az URL-kódolás kihagyásához, pl. %example%",
+		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
+	},
 	"urlPlaceholderText": {
 		"message": "%s=Kulcsszó",
 		"description": "Placeholder for text drag custom URL"
@@ -274,6 +338,14 @@
 	"urlPlaceholderImage": {
 		"message": "%s=Kép URL",
 		"description": "Placeholder for image drag custom URL"
+	},
+	"searchEngine_google_translate": {
+		"message": "Google Fordító",
+		"description": "Google Translate search engine"
+	},
+	"searchEngine_bing_translate": {
+		"message": "Bing Fordító",
+		"description": "Bing Translate search engine"
 	},
 	"searchEngine_baidu": {
 		"message": "Baidu",
@@ -367,8 +439,16 @@
 		"message": "Visszaállítás",
 		"description": "Reset to default"
 	},
+	"duplicate": {
+		"message": "Duplikálás",
+		"description": "Generic duplicate button tooltip"
+	},
+	"delete": {
+		"message": "Törlés",
+		"description": "Generic delete button tooltip"
+	},
 	"autoSaved": {
-		"message": "✓ Automatikusan mentve",
+		"message": "Automatikusan mentve",
 		"description": "Auto-saved message"
 	},
 	"saveFailure": {
@@ -663,6 +743,10 @@
 		"message": "Oldal címének másolása",
 		"description": "Copy page title"
 	},
+	"actionCopyTitleAndUrl": {
+		"message": "Oldal címe és az URL másolása",
+		"description": "Copy page title and URL"
+	},
 	"actionOpenDownloads": {
 		"message": "Letöltések megnyitása",
 		"description": "Open downloads page"
@@ -674,6 +758,10 @@
 	"actionOpenExtensions": {
 		"message": "Bővítmények megnyitása",
 		"description": "Open extensions page"
+	},
+	"actionSaveAsMhtml": {
+		"message": "Mentés MHTML-ként",
+		"description": "Save current page as MHTML file"
 	},
 	"actionPrintPage": {
 		"message": "Oldal nyomtatása",
@@ -694,6 +782,14 @@
 	"actionTogglePinTab": {
 		"message": "Lap rögzítése/rögzítés feloldása",
 		"description": "Toggle pin current tab"
+	},
+	"actionMoveTabToNewWindow": {
+		"message": "Lap áthelyezése új ablakba",
+		"description": "Move current tab to a new window"
+	},
+	"actionSearchClipboard": {
+		"message": "Keresés a vágólapról",
+		"description": "Search clipboard text using a search engine"
 	},
 	"showTrailOrigin": {
 		"message": "Kezdőpont megjelenítése",
@@ -731,6 +827,10 @@
 		"message": "Egyéb beállítások",
 		"description": "Section title for other/miscellaneous settings"
 	},
+	"styleSettings": {
+		"message": "Megjelenés",
+		"description": "Section title for style/appearance settings (trail, HUD, etc.)"
+	},
 	"show": {
 		"message": "Megjelenítés",
 		"description": "Show navigation menu"
@@ -760,7 +860,7 @@
 		"description": "Clear button"
 	},
 	"gestureAdded": {
-		"message": "✓ Gesztus hozzáadva",
+		"message": "Gesztus hozzáadva",
 		"description": "Gesture added success message"
 	},
 	"gestureRecorderTitle": {
@@ -816,16 +916,16 @@
 		"description": "Delete gesture confirmation"
 	},
 	"gestureDeleted": {
-		"message": "✓ Gesztus törölve",
+		"message": "Gesztus törölve",
 		"description": "Gesture deleted success message"
 	},
 	"enterCustomUrl": {
-		"message": "Írd be az URL-t (javasolt a protokoll megadása, pl. https://, chrome:// stb.):",
+		"message": "URL",
 		"description": "Prompt for custom URL input"
 	},
-	"copyUrlIncludeTitle": {
-		"message": "Az oldal címének másolása is",
-		"description": "Checkbox label for including page title when copying URL"
+	"copyAsMarkdown": {
+		"message": "Másolás Markdownként",
+		"description": "Checkbox label for copying as markdown format"
 	},
 	"invalidUrl": {
 		"message": "Kérlek, adj meg egy érvényes URL-t (http:// vagy https:// kezdettel)",
@@ -956,27 +1056,27 @@
 		"description": "Features"
 	},
 	"aboutFeature1": {
-		"message": "🎯 16 Alapértelmezett gesztus + Egyéni gesztusok",
+		"message": "16 Alapértelmezett gesztus + Egyéni gesztusok",
 		"description": "Feature 1"
 	},
 	"aboutFeature2": {
-		"message": "🎨 Vizuális nyomvonal visszajelzés",
+		"message": "Vizuális nyomvonal visszajelzés",
 		"description": "Feature 2"
 	},
 	"aboutFeature3": {
-		"message": "🔍 Szöveg/Kép/Link Super Drag",
+		"message": "Szöveg/Kép/Link Super Drag",
 		"description": "Feature 3"
 	},
 	"aboutFeature4": {
-		"message": "🚫 Weboldal feketelista",
+		"message": "Weboldal feketelista",
 		"description": "Feature 4"
 	},
 	"aboutFeature5": {
-		"message": "☁️ %browserName% fiók szinkronizálás",
+		"message": "%browserName% fiók szinkronizálás",
 		"description": "Feature 5"
 	},
 	"aboutFeature6": {
-		"message": "🔒 Helyben fut, nincs hálózat kivéve szinkronizálás",
+		"message": "Helyben fut, nincs hálózat kivéve szinkronizálás",
 		"description": "Feature 6"
 	},
 	"tutorial": {
@@ -988,15 +1088,15 @@
 		"description": "Learn more link"
 	},
 	"badgeNoNetwork": {
-		"message": "🔒 Nincs hálózat kivéve szinkronizálás",
+		"message": "Nincs hálózat kivéve szinkronizálás",
 		"description": "No network privacy badge"
 	},
 	"badgeNoData": {
-		"message": "🚫 Nincs adatgyűjtés",
+		"message": "Nincs adatgyűjtés",
 		"description": "No data collection badge"
 	},
 	"badgeLocalRun": {
-		"message": "✅ Helyben fut",
+		"message": "Helyben fut",
 		"description": "Local run badge"
 	},
 	"newTabSettings": {
@@ -1091,6 +1191,10 @@
 		"message": "📋 Link szövegének másolása",
 		"description": "Copy link text"
 	},
+	"dragActionCopyLinkAndText": {
+		"message": "📋 Szöveg és link másolása",
+		"description": "Copy link text and URL"
+	},
 	"dragActionSaveImage": {
 		"message": "💾 Kép mentése",
 		"description": "Save image"
@@ -1111,6 +1215,10 @@
 		"message": "🔍 Egyéni keresés",
 		"description": "Custom search"
 	},
+	"dragActionSendCustomEvent": {
+		"message": "Egyéni esemény küldése",
+		"description": "Send custom DOM event on drag gesture"
+	},
 	"reducedMotionWarning": {
 		"message": "A %OS% rendszeranimáció le van tiltva, a görgetési animáció nem biztos, hogy megfelelően működik. Engedélyezheted az animációt a %OS% rendszerbeállításaiban.",
 		"description": "Warning message when system reduced motion is enabled"
@@ -1119,9 +1227,29 @@
 		"message": "URL automatikus észlelése",
 		"description": "Auto detect URL checkbox label"
 	},
+	"autoDetectUrlTooltip": {
+		"message": "Ha a szöveg hivatkozás formátumú, nyissa meg közvetlenül keresés helyett",
+		"description": "Tooltip for the auto detect URL checkbox"
+	},
 	"preferLink": {
 		"message": "Link előnyben részesítése",
 		"description": "Prefer link checkbox label"
+	},
+	"customHudName": {
+		"message": "Név",
+		"description": "Placeholder for custom action name shown on HUD"
+	},
+	"customHudNameTooltip": {
+		"message": "A gesztus végrehajtásakor a képernyőn megjelenő egyéni név",
+		"description": "Tooltip for the custom HUD name field"
+	},
+	"actionNoOptions": {
+		"message": "Ehhez a parancshoz nem tartoznak beállítások.",
+		"description": "Placeholder shown in the action picker's detail panel when the selected action has no configurable settings"
+	},
+	"actionRequiredBadge": {
+		"message": "Kötelező",
+		"description": "Badge shown next to fields that must be filled in (e.g., URL for Open URL)"
 	},
 	"menuNeedRefresh": {
 		"message": "A FlowMouse nem töltődött be, kattints a frissítéshez",
@@ -1376,11 +1504,11 @@
 		"description": "Permission popup description for downloads"
 	},
 	"permissionDownloadsPageCaptureTitle": {
-		"message": "Kép mentése",
+		"message": "Tartalom mentése",
 		"description": "Permission popup title for downloads and page capture"
 	},
 	"permissionDownloadsPageCaptureDesc": {
-		"message": "Képek mentéséhez a FlowMouse hozzáférést igényel az oldalakhoz és a letöltéseidhez.",
+		"message": "Tartalom mentéséhez a FlowMouse hozzáférést igényel az oldalakhoz és a letöltéseidhez.",
 		"description": "Permission popup description for downloads and page capture"
 	},
 	"permissionIncognitoTitle": {
@@ -1390,6 +1518,14 @@
 	"permissionIncognitoDesc": {
 		"message": "Ahhoz, hogy inkognitó ablakokban működjön, manuálisan engedélyeznie kell az \"Engedélyezés inkognitó módban\" lehetőséget a FlowMouse számára.",
 		"description": "Permission popup description for incognito"
+	},
+	"permissionClipboardReadTitle": {
+		"message": "Vágólap olvasása",
+		"description": "Permission popup title for clipboard read"
+	},
+	"permissionClipboardReadDesc": {
+		"message": "A vágólap tartalmának beillesztéséhez a FlowMouse-nak hozzá kell férnie a vágólap olvasásához.",
+		"description": "Permission popup description for clipboard read"
 	},
 	"openExtensionsSettings": {
 		"message": "Bővítmény részleteinek megnyitása",
@@ -1434,6 +1570,10 @@
 	"buttonOkay": {
 		"message": "Rendben",
 		"description": "Generic OK button"
+	},
+	"buttonConfirm": {
+		"message": "Megerősítés",
+		"description": "Generic Confirm button"
 	},
 	"buttonCancel": {
 		"message": "Mégse",
@@ -1487,6 +1627,10 @@
 		"message": "Görgessen lefelé a jobb gomb nyomva tartásával",
 		"description": "Wheel gesture: scroll down while holding right button"
 	},
+	"wheelGesture_wheelClickHoldingRight": {
+		"message": "Kattintás a középső gombbal a jobb gomb nyomva tartásával",
+		"description": "Wheel gesture: wheel (middle) click while holding right button"
+	},
 	"specialGestures": {
 		"message": "Speciális mozdulatok",
 		"description": "Special gestures section title"
@@ -1507,32 +1651,68 @@
 		"message": "Jobb kattintás a bal gomb nyomva tartása mellett",
 		"description": "Special gesture: right click while holding left button"
 	},
-	"actionChains": {
-		"message": "Parancsláncok",
-		"description": "Action chains section title"
-	},
 	"actionChainsDesc": {
-		"message": "Újrafelhasználható parancssorok létrehozása, amelyek egymás után hajtódnak végre",
+		"message": "Használjon parancsláncokat több parancs egymás utáni végrehajtásához.",
 		"description": "Action chains section description"
 	},
 	"actionActionChain": {
 		"message": "Parancslánc",
 		"description": "Action chain action name"
 	},
-	"actionCategoryChains": {
-		"message": "Parancsláncok",
-		"description": "Action category: action chains"
+	"actionCustomMenu": {
+		"message": "Egyéni menü",
+		"description": "Custom popup menu action name"
+	},
+	"customMenuDesc": {
+		"message": "Hozzon létre egyéni felugró menüket több művelettel.",
+		"description": "Custom menu section description"
+	},
+	"addMenu": {
+		"message": "Menü hozzáadása",
+		"description": "Add menu button"
+	},
+	"menuNamePlaceholder": {
+		"message": "Egyéni menü",
+		"description": "Menu name input placeholder"
+	},
+	"menuItemCount": {
+		"message": "%count% elem",
+		"description": "Item count for menus, e.g. '3 items'"
+	},
+	"menuItemCountOne": {
+		"message": "%count% elem",
+		"description": "Item count for menus with exactly 1 item"
+	},
+	"addMenuItem": {
+		"message": "Elem hozzáadása",
+		"description": "Add menu item button"
+	},
+	"addMenuSeparator": {
+		"message": "Elválasztó hozzáadása",
+		"description": "Add separator to menu button"
+	},
+	"emptyMenuItems": {
+		"message": "Nincsenek hozzáadott elemek. A kezdéshez kattintson az „Elem hozzáadása” gombra.",
+		"description": "Empty menu items message"
+	},
+	"menuNotFound": {
+		"message": "(Menü nem található)",
+		"description": "Menu not found label"
+	},
+	"deleteMenuConfirm": {
+		"message": "Törli a(z) „%name%” menüt?",
+		"description": "Delete menu confirmation"
+	},
+	"menuItemNumber": {
+		"message": "%n%. elem",
+		"description": "Menu item number label"
 	},
 	"addChain": {
 		"message": "Lánc hozzáadása",
 		"description": "Add chain button"
 	},
-	"addNewChain": {
-		"message": "Új lánc létrehozása...",
-		"description": "Action item to navigate to chain editor and create a new chain"
-	},
 	"chainNamePlaceholder": {
-		"message": "Saját parancsláncom",
+		"message": "Parancslánc",
 		"description": "Chain name input placeholder"
 	},
 	"chainDelayUnit": {
@@ -1579,6 +1759,14 @@
 		"message": "Billentyűleütés szimulálása",
 		"description": "Action to simulate a keyboard key press on the page"
 	},
+	"actionPasteClipboard": {
+		"message": "Beillesztés a vágólapról",
+		"description": "Action to paste clipboard text at the gesture start position"
+	},
+	"pasteClipboardHint": {
+		"message": "A vágólap tartalma be lesz illesztve a beviteli mezőbe a <b>gesztus kezdőpozíciójánál</b>.",
+		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
 	"simulateKeyPreset": {
 		"message": "Előre beállított billentyű",
 		"description": "Label for preset key dropdown in simulate key config"
@@ -1615,6 +1803,14 @@
 		"message": "Érvénytelen JSON formátum",
 		"description": "Error message when event detail is not valid JSON"
 	},
+	"customEventIncludeGestureInfo": {
+		"message": "Kézmozdulatinformációk belefoglalása ide: %code%",
+		"description": "Checkbox label for including gesture context in custom event detail. %code% = detail.gesture"
+	},
+	"customEventConfigureBtn": {
+		"message": "Beállítások",
+		"description": "Label for the configure button of custom event action in drag gesture manager"
+	},
 	"customEventHint": {
 		"message": "A %code% elküldése a %window% számára. Hasznos más szkriptekkel való integrációhoz.",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
@@ -1630,5 +1826,233 @@
 	"chainStepCountOne": {
 		"message": "%count% lépés",
 		"description": "Step count for unnamed chains with exactly 1 step"
+	},
+	"actionZoomIn": {
+		"message": "Nagyítás",
+		"description": "Zoom in on the current page"
+	},
+	"actionZoomOut": {
+		"message": "Kicsinyítés",
+		"description": "Zoom out on the current page"
+	},
+	"actionResetZoom": {
+		"message": "Nagyítás visszaállítása",
+		"description": "Reset page zoom to default or a specified level"
+	},
+	"actionViewPageSource": {
+		"message": "Oldal forrásának megtekintése",
+		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionPauseGesture": {
+		"message": "Gesztusok szüneteltetése frissítésig",
+		"description": "Temporarily disable all gestures on the current tab until page refresh"
+	},
+	"actionAreaSelect": {
+		"message": "Terület kijelölése",
+		"description": "Enter area select mode to drag-select links on the page and batch open them"
+	},
+	"areaSelectTitle": {
+		"message": "Terület kijelölése",
+		"description": "Label for the area select row in the popup"
+	},
+	"areaSelectModifierKey": {
+		"message": "Gyors területkijelölés",
+		"description": "Label for the modifier key dropdown in area select settings"
+	},
+	"areaSelectModifierKeyDesc": {
+		"message": "Tartsa lenyomva a módosítóbillentyűt, majd a bal egérgombbal kattintva és húzva gyorsan kijelölheti a hivatkozásokat az oldalon a kötegelt műveletekhez",
+		"description": "Description for the modifier key setting"
+	},
+	"areaSelectDisabled": {
+		"message": "Kikapcsolva",
+		"description": "Disabled option for the area select modifier key dropdown"
+	},
+	"areaSelectMouseDrag": {
+		"message": "Egérhúzás",
+		"description": "Suffix label next to the modifier key dropdown"
+	},
+	"areaSelectTextUrl": {
+		"message": "Szöveges URL felismerés",
+		"description": "Label for the text URL recognition toggle"
+	},
+	"areaSelectTextUrlDesc": {
+		"message": "Szöveges URL-ek (nem hiperhivatkozások) kinyerése is kijelöléskor",
+		"description": "Description for the text URL recognition toggle"
+	},
+	"areaSelectWarnThreshold": {
+		"message": "Kötegelt művelet riasztás",
+		"description": "Label for the batch operation alert threshold input"
+	},
+	"areaSelectWarnThresholdDesc": {
+		"message": "Megerősítés megjelenítése, ha ennél több elemre hajt végre csomagolt műveletet, a tiltáshoz állítsa 0-ra",
+		"description": "Description for the batch operation alert threshold"
+	},
+	"areaSelectDelay": {
+		"message": "Működési intervallum",
+		"description": "Label for the operation interval input"
+	},
+	"areaSelectDelayDesc": {
+		"message": "Késleltetés minden megnyitás között kötegelt műveleteknél (másodperc)",
+		"description": "Description for the operation interval setting"
+	},
+	"areaSelectHint": {
+		"message": "Húzza a linkek kiválasztásához",
+		"description": "Hint text shown in the area select overlay"
+	},
+	"areaSelectOpen": {
+		"message": "%count% link megnyitása",
+		"description": "Button text in the area select toolbar to batch open selected links"
+	},
+	"areaSelectOpenOne": {
+		"message": "%count% link megnyitása",
+		"description": "Button text to open a single selected link (singular form)"
+	},
+	"areaSelectCopy": {
+		"message": "Linkek másolása",
+		"description": "Button text to copy all selected link URLs to clipboard"
+	},
+	"areaSelectCancel": {
+		"message": "Mégse",
+		"description": "Button text to cancel area select mode"
+	},
+	"areaSelectConfirm": {
+		"message": "Megerősítés",
+		"description": "Button text to confirm opening many links"
+	},
+	"areaSelectWarnTitle": {
+		"message": "Sok link megnyitása?",
+		"description": "Title of the warning modal when opening many links"
+	},
+	"areaSelectWarnMessage": {
+		"message": "Arra készül, hogy megnyit %count% linket. Ez lelassíthatja a böngészőt. Folytatja?",
+		"description": "Body text of the warning modal"
+	},
+	"start": {
+		"message": "Indítás",
+		"description": "Button label to start an action (e.g. area select)"
+	},
+	"actionMenuShowTabs": {
+		"message": "Lap váltása",
+		"description": "Show a context menu listing all open tabs in the current window"
+	},
+	"actionMenuRecentlyClosed": {
+		"message": "Nemrég bezárt lapok",
+		"description": "Show a context menu listing recently closed tabs for quick restore"
+	},
+	"recentlyClosedMaxItems": {
+		"message": "Max. elemek",
+		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
+	},
+	"actionCategoryContextMenu": {
+		"message": "Felugró menü",
+		"description": "Action category: context menu actions"
+	},
+	"zoomStepMode": {
+		"message": "Nagyítási mód",
+		"description": "Label for zoom mode selector: browser steps vs fixed increment"
+	},
+	"zoomStepModeBrowser": {
+		"message": "Böngésző nagyítási szintjeinek használata",
+		"description": "Option: follow Chrome's built-in zoom steps (25%, 33%, 50%, …, 500%)"
+	},
+	"zoomStepModeFixed": {
+		"message": "Rögzített lépés",
+		"description": "Option: zoom in/out by a configurable fixed percentage each time"
+	},
+	"zoomDelta": {
+		"message": "Lépés mérete",
+		"description": "Label for the zoom increment/decrement slider"
+	},
+	"resetZoomLevel": {
+		"message": "Visszaállítás erre",
+		"description": "Label for the target zoom level when resetting zoom"
+	},
+	"resetZoomDefault": {
+		"message": "Böngésző alapértelmezett beállítása",
+		"description": "Option: reset zoom to the browser's default zoom setting"
+	},
+	"resetZoomCustom": {
+		"message": "Egyéni érték",
+		"description": "Option: reset zoom to a user-specified custom zoom level"
+	},
+	"actionMenuShowBookmarks": {
+		"message": "Könyvjelzők megjelenítése",
+		"description": "Show a context menu listing bookmarks from a selected folder"
+	},
+	"bookmarkFolder": {
+		"message": "Mappa",
+		"description": "Label for selecting which bookmark folder to display"
+	},
+	"bookmarkGrantPermission": {
+		"message": "Könyvjelzők engedélyezése",
+		"description": "Button label to request bookmarks permission"
+	},
+	"ctxMenuSortOrder": {
+		"message": "Rendezés",
+		"description": "Label for context menu sort order dropdown"
+	},
+	"ctxMenuSortDefault": {
+		"message": "Alapértelmezett",
+		"description": "Sort option: original API/insertion order"
+	},
+	"ctxMenuSortDefaultDesc": {
+		"message": "Alapértelmezett (fordított)",
+		"description": "Sort option: reverse of original API order"
+	},
+	"ctxMenuSortDateAddedAsc": {
+		"message": "Hozzáadás dátuma (legrégebbi elöl)",
+		"description": "Sort option: by date added ascending"
+	},
+	"ctxMenuSortDateAddedDesc": {
+		"message": "Hozzáadás dátuma (legújabb elöl)",
+		"description": "Sort option: by date added descending"
+	},
+	"ctxMenuSortNameAsc": {
+		"message": "Név (növekvő)",
+		"description": "Sort option: alphabetical ascending"
+	},
+	"ctxMenuSortNameDesc": {
+		"message": "Név (csökkenő)",
+		"description": "Sort option: alphabetical descending"
+	},
+	"ctxMenuSortLastAccessAsc": {
+		"message": "Utoljára megnyitva (legrégebbi elöl)",
+		"description": "Sort option: by last access time ascending"
+	},
+	"ctxMenuSortLastAccessDesc": {
+		"message": "Utoljára megnyitva (legújabb elöl)",
+		"description": "Sort option: by last access time descending"
+	},
+	"ctxMenuMaxItems": {
+		"message": "Max. elemek",
+		"description": "Label for maximum number of items in context menu"
+	},
+	"ctxMenuMaxItemsUnlimited": {
+		"message": "Korlátlan",
+		"description": "Placeholder shown when max items is 0 (no limit)"
+	},
+	"ctxMenuScrollToBottom": {
+		"message": "Görgetés az aljára",
+		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuTimeDisplay": {
+		"message": "Idő mutatása",
+		"description": "Label for time display mode dropdown in context menu"
+	},
+	"ctxMenuTimeNone": {
+		"message": "Ne mutassa",
+		"description": "Time display option: hide time column"
+	},
+	"ctxMenuTimeLastAccess": {
+		"message": "Utolsó hozzáférés",
+		"description": "Time display option: show last access time"
+	},
+	"ctxMenuTimeClosedTime": {
+		"message": "Bezárás ideje",
+		"description": "Time display option: show when the tab was closed"
+	},
+	"ctxMenuTimeDateAdded": {
+		"message": "Hozzáadás dátuma",
+		"description": "Time display option: show when the bookmark was added"
 	}
 }

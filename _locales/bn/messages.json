@@ -35,9 +35,9 @@
 		"message": "%browserName% অ্যাকাউন্টের মাধ্যমে সেটিংস সিঙ্ক করুন",
 		"description": "Sync status description"
 	},
-	"synced": {
-		"message": "সিঙ্ক হয়েছে",
-		"description": "Synced"
+	"saved": {
+		"message": "সংরক্ষিত",
+		"description": "Saved"
 	},
 	"author": {
 		"message": "লেখক",
@@ -66,6 +66,10 @@
 	"feedbackText": {
 		"message": "সমস্যা বা পরামর্শ আছে? অনুগ্রহ করে <a href='mailto:Service@52pojie.cn'>ইমেল</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> বা <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>ফোরামের</a> মাধ্যমে আমাদের জানান। আমরা যত দ্রুত সম্ভব এটি উন্নত করব!",
 		"description": "Feedback text"
+	},
+	"feedbackTextChrome": {
+		"message": "সমস্যা বা পরামর্শ আছে? অনুগ্রহ করে <a href='https://chromewebstore.google.com/detail/fnldhkfidchnjiokpoemdhoejmaojkgp/support' target='_blank'>Chrome ওয়েব স্টোর সমর্থন</a>, <a href='mailto:Service@52pojie.cn'>ইমেল</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> বা <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>ফোরামের</a> মাধ্যমে আমাদের জানান। আমরা যত দ্রুত সম্ভব এটি উন্নত করব!",
+		"description": "Feedback text for Chrome browser"
 	},
 	"supportAndFeedback": {
 		"message": "সমর্থন এবং প্রতিক্রিয়া",
@@ -125,11 +129,11 @@
 	},
 	"btnSide1Mouse": {
 		"message": "পাশের বোতাম (পিছনে)",
-		"description": "Mouse button 4 — the side button typically used for navigating back"
+		"description": "Mouse button 4 - the side button typically used for navigating back"
 	},
 	"btnSide2Mouse": {
 		"message": "পাশের বোতাম (সামনে)",
-		"description": "Mouse button 5 — the side button typically used for navigating forward"
+		"description": "Mouse button 5 - the side button typically used for navigating forward"
 	},
 	"btnPenRight": {
 		"message": "স্টাইলাসের ডান বোতাম",
@@ -195,6 +199,54 @@
 		"message": "ছায়া",
 		"description": "HUD shadow toggle"
 	},
+	"customCss": {
+		"message": "কাস্টম CSS",
+		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
+	},
+	"customCssDesc": {
+		"message": "FlowMouse এর নিজস্ব UI কাস্টমাইজ করতে কাস্টম CSS সেট করুন",
+		"description": "Description for the Custom CSS advanced setting"
+	},
+	"customCssConfigure": {
+		"message": "কনফিগার করুন",
+		"description": "Button label to open the Custom CSS editor dialog when no CSS is set"
+	},
+	"customCssEdit": {
+		"message": "সম্পাদনা করুন",
+		"description": "Button label to open the Custom CSS editor dialog when CSS is already set"
+	},
+	"customCssEditorTitle": {
+		"message": "কাস্টম CSS সম্পাদক",
+		"description": "Title of the dedicated custom CSS editor page"
+	},
+	"customCssEditorHint": {
+		"message": "স্টাইলগুলি FlowMouse-এর তৈরি প্রতিটি Shadow DOM-এ ইনজেক্ট করা হয়। সেভ করতে Ctrl+S চাপুন।",
+		"description": "Hint shown above the editor textarea."
+	},
+	"customCssEditorPlaceholder": {
+		"message": "/* আপনার কাস্টম CSS এখানে লিখুন… */",
+		"description": "Placeholder inside the Custom CSS editor textarea"
+	},
+	"customCssEditorInsertSnippet": {
+		"message": "উদাহরণ",
+		"description": "Button to append an example/starter CSS snippet to the editor"
+	},
+	"customCssEditorRevert": {
+		"message": "পরিবর্তন বাতিল করুন",
+		"description": "Button that reverts the editor content back to the last saved value"
+	},
+	"customCssEditorSave": {
+		"message": "সেভ করুন",
+		"description": "Save button in the Custom CSS editor"
+	},
+	"customCssEditorSaved": {
+		"message": "সেভ করা হয়েছে",
+		"description": "Status message shown briefly after the user saves the custom CSS"
+	},
+	"customCssEditorDiscardConfirm": {
+		"message": "আপনার সেভ না করা এডিটগুলি বাতিল করে শেষ সেভ করা CSS-এ ফিরে যাবেন?",
+		"description": "Confirmation dialog shown before reverting unsaved edits"
+	},
 	"text": {
 		"message": "টেক্সট",
 		"description": "Text"
@@ -255,6 +307,14 @@
 		"message": "নির্বাচন করা টেক্সট ড্র্যাগ করে অনুসন্ধান করুন",
 		"description": "Drag selected text to search"
 	},
+	"textDragIgnoreInput": {
+		"message": "ইনপুট ক্ষেত্রে নিষ্ক্রিয় করুন",
+		"description": "Option to disable text drag inside input boxes and textareas"
+	},
+	"textDragIgnoreInputDesc": {
+		"message": "ইনপুট ক্ষেত্র এবং পাঠ্য সম্পাদকগুলির মতো সম্পাদনাযোগ্য অঞ্চলগুলির ভিতরে পাঠ্য টানানো ট্রিগার করবেন না",
+		"description": "Description for text drag ignore input option"
+	},
 	"searchEngine": {
 		"message": "সার্চ ইঞ্জিন",
 		"description": "Search engine"
@@ -267,6 +327,10 @@
 		"message": "কাস্টম URL, সার্চ টার্মের জন্য %s ব্যবহার করুন",
 		"description": "Custom URL placeholder"
 	},
+	"customUrlPlaceholderHint": {
+		"message": "অবশ্যই প্রোটোকল অন্তর্ভুক্ত করতে হবে (যেমন https://)। উপলব্ধ স্থানধারক: %placeholders%। URL এনকোডিং এড়িয়ে যেতে :raw যোগ করুন, যেমন %example%",
+		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
+	},
 	"urlPlaceholderText": {
 		"message": "%s=কীওয়ার্ড",
 		"description": "Placeholder for text drag custom URL"
@@ -274,6 +338,14 @@
 	"urlPlaceholderImage": {
 		"message": "%s=ছবির ইউআরএল",
 		"description": "Placeholder for image drag custom URL"
+	},
+	"searchEngine_google_translate": {
+		"message": "Google অনুবাদ",
+		"description": "Google Translate search engine"
+	},
+	"searchEngine_bing_translate": {
+		"message": "Bing অনুবাদ",
+		"description": "Bing Translate search engine"
 	},
 	"searchEngine_baidu": {
 		"message": "Baidu",
@@ -367,8 +439,16 @@
 		"message": "রিসেট",
 		"description": "Reset to default"
 	},
+	"duplicate": {
+		"message": "অনুলিপি তৈরি করুন",
+		"description": "Generic duplicate button tooltip"
+	},
+	"delete": {
+		"message": "মুছুন",
+		"description": "Generic delete button tooltip"
+	},
 	"autoSaved": {
-		"message": "✓ স্বয়ংক্রিয়ভাবে সংরক্ষিত",
+		"message": "স্বয়ংক্রিয়ভাবে সংরক্ষিত",
 		"description": "Auto-saved message"
 	},
 	"saveFailure": {
@@ -663,6 +743,10 @@
 		"message": "পেজ টাইটেল কপি করুন",
 		"description": "Copy page title"
 	},
+	"actionCopyTitleAndUrl": {
+		"message": "পৃষ্ঠার শিরোনাম ও URL কপি করুন",
+		"description": "Copy page title and URL"
+	},
 	"actionOpenDownloads": {
 		"message": "ডাউনলোডস খুলুন",
 		"description": "Open downloads page"
@@ -674,6 +758,10 @@
 	"actionOpenExtensions": {
 		"message": "এক্সটেনশনস খুলুন",
 		"description": "Open extensions page"
+	},
+	"actionSaveAsMhtml": {
+		"message": "MHTML হিসেবে সংরক্ষণ করুন",
+		"description": "Save current page as MHTML file"
 	},
 	"actionPrintPage": {
 		"message": "পেজ প্রিন্ট করুন",
@@ -694,6 +782,14 @@
 	"actionTogglePinTab": {
 		"message": "বর্তমান ট্যাব পিন/আনপিন করুন",
 		"description": "Toggle pin current tab"
+	},
+	"actionMoveTabToNewWindow": {
+		"message": "ট্যাব নতুন উইন্ডোতে সরান",
+		"description": "Move current tab to a new window"
+	},
+	"actionSearchClipboard": {
+		"message": "ক্লিপবোর্ড থেকে খুঁজুন",
+		"description": "Search clipboard text using a search engine"
 	},
 	"showTrailOrigin": {
 		"message": "অরিজিন পয়েন্ট দেখান",
@@ -731,6 +827,10 @@
 		"message": "অন্যান্য সেটিংস",
 		"description": "Section title for other/miscellaneous settings"
 	},
+	"styleSettings": {
+		"message": "চেহারা",
+		"description": "Section title for style/appearance settings (trail, HUD, etc.)"
+	},
 	"show": {
 		"message": "দেখান",
 		"description": "Show navigation menu"
@@ -760,7 +860,7 @@
 		"description": "Clear button"
 	},
 	"gestureAdded": {
-		"message": "✓ জেসচার যোগ করা হয়েছে",
+		"message": "জেসচার যোগ করা হয়েছে",
 		"description": "Gesture added success message"
 	},
 	"gestureRecorderTitle": {
@@ -816,16 +916,16 @@
 		"description": "Delete gesture confirmation"
 	},
 	"gestureDeleted": {
-		"message": "✓ জেসচার মুছে ফেলা হয়েছে",
+		"message": "জেসচার মুছে ফেলা হয়েছে",
 		"description": "Gesture deleted success message"
 	},
 	"enterCustomUrl": {
-		"message": "URL লিখুন (প্রোটোকল সহ প্রস্তাবিত, যেমন https://, chrome:// ইত্যাদি):",
+		"message": "URL",
 		"description": "Prompt for custom URL input"
 	},
-	"copyUrlIncludeTitle": {
-		"message": "পৃষ্ঠার শিরোনামও অনুলিপি করুন",
-		"description": "Checkbox label for including page title when copying URL"
+	"copyAsMarkdown": {
+		"message": "Markdown হিসেবে কপি করুন",
+		"description": "Checkbox label for copying as markdown format"
 	},
 	"invalidUrl": {
 		"message": "অনুগ্রহ করে একটি বৈধ URL লিখুন (http:// বা https:// দিয়ে শুরু)",
@@ -956,27 +1056,27 @@
 		"description": "Features"
 	},
 	"aboutFeature1": {
-		"message": "🎯 ১৬টি ডিফল্ট জেসচার + কাস্টম জেসচার",
+		"message": "১৬টি ডিফল্ট জেসচার + কাস্টম জেসচার",
 		"description": "Feature 1"
 	},
 	"aboutFeature2": {
-		"message": "🎨 ভিজ্যুয়াল ট্রেইল ফিডব্যাক",
+		"message": "ভিজ্যুয়াল ট্রেইল ফিডব্যাক",
 		"description": "Feature 2"
 	},
 	"aboutFeature3": {
-		"message": "🔍 টেক্সট/ইমেজ/লিঙ্ক সুপার ড্র্যাগ",
+		"message": "টেক্সট/ইমেজ/লিঙ্ক সুপার ড্র্যাগ",
 		"description": "Feature 3"
 	},
 	"aboutFeature4": {
-		"message": "🚫 ওয়েবসাইট ব্ল্যাকলিস্ট",
+		"message": "ওয়েবসাইট ব্ল্যাকলিস্ট",
 		"description": "Feature 4"
 	},
 	"aboutFeature5": {
-		"message": "☁️ %browserName% অ্যাকাউন্ট সিঙ্ক",
+		"message": "%browserName% অ্যাকাউন্ট সিঙ্ক",
 		"description": "Feature 5"
 	},
 	"aboutFeature6": {
-		"message": "🔒 স্থানীয়ভাবে চলে, সিঙ্ক ছাড়া নেটওয়ার্ক নেই",
+		"message": "স্থানীয়ভাবে চলে, সিঙ্ক ছাড়া নেটওয়ার্ক নেই",
 		"description": "Feature 6"
 	},
 	"tutorial": {
@@ -988,15 +1088,15 @@
 		"description": "Learn more link"
 	},
 	"badgeNoNetwork": {
-		"message": "🔒 সিঙ্ক ছাড়া নেটওয়ার্ক নেই",
+		"message": "সিঙ্ক ছাড়া নেটওয়ার্ক নেই",
 		"description": "No network privacy badge"
 	},
 	"badgeNoData": {
-		"message": "🚫 ডেটা সংগ্রহ নেই",
+		"message": "ডেটা সংগ্রহ নেই",
 		"description": "No data collection badge"
 	},
 	"badgeLocalRun": {
-		"message": "✅ স্থানীয়ভাবে চলে",
+		"message": "স্থানীয়ভাবে চলে",
 		"description": "Local run badge"
 	},
 	"newTabSettings": {
@@ -1091,6 +1191,10 @@
 		"message": "📋 লিঙ্ক টেক্সট কপি করুন",
 		"description": "Copy link text"
 	},
+	"dragActionCopyLinkAndText": {
+		"message": "📋 পাঠ্য এবং লিঙ্ক অনুলিপি করুন",
+		"description": "Copy link text and URL"
+	},
 	"dragActionSaveImage": {
 		"message": "💾 ইমেজ সংরক্ষণ করুন",
 		"description": "Save image"
@@ -1111,6 +1215,10 @@
 		"message": "🔍 কাস্টম অনুসন্ধান",
 		"description": "Custom search"
 	},
+	"dragActionSendCustomEvent": {
+		"message": "কাস্টম ইভেন্ট পাঠান",
+		"description": "Send custom DOM event on drag gesture"
+	},
 	"reducedMotionWarning": {
 		"message": "%OS% সিস্টেম অ্যানিমেশন নিষ্ক্রিয়, স্ক্রল অ্যানিমেশন সঠিকভাবে কাজ নাও করতে পারে। আপনি %OS% সিস্টেম সেটিংসে অ্যানিমেশন চালু করতে পারেন।",
 		"description": "Warning message when system reduced motion is enabled"
@@ -1119,9 +1227,29 @@
 		"message": "স্বয়ংক্রিয় URL সনাক্তকরণ",
 		"description": "Auto detect URL checkbox label"
 	},
+	"autoDetectUrlTooltip": {
+		"message": "টেক্সট যদি লিঙ্ক বিন্যাসে থাকে, তবে অনুসন্ধান করার পরিবর্তে এটি সরাসরি খুলুন",
+		"description": "Tooltip for the auto detect URL checkbox"
+	},
 	"preferLink": {
 		"message": "লিঙ্ক অগ্রাধিকার দিন",
 		"description": "Prefer link checkbox label"
+	},
+	"customHudName": {
+		"message": "নাম",
+		"description": "Placeholder for custom action name shown on HUD"
+	},
+	"customHudNameTooltip": {
+		"message": "ভঙ্গিটি সম্পাদন করার সময় স্ক্রিনে প্রদর্শিত কাস্টম নাম",
+		"description": "Tooltip for the custom HUD name field"
+	},
+	"actionNoOptions": {
+		"message": "এই কমান্ডের জন্য কোনো সেটিংসের প্রয়োজন নেই।",
+		"description": "Placeholder shown in the action picker's detail panel when the selected action has no configurable settings"
+	},
+	"actionRequiredBadge": {
+		"message": "প্রয়োজনীয়",
+		"description": "Badge shown next to fields that must be filled in (e.g., URL for Open URL)"
 	},
 	"menuNeedRefresh": {
 		"message": "FlowMouse লোড হয়নি, রিফ্রেশ করতে ক্লিক করুন",
@@ -1376,11 +1504,11 @@
 		"description": "Permission popup description for downloads"
 	},
 	"permissionDownloadsPageCaptureTitle": {
-		"message": "ইমেজ সংরক্ষণ করুন",
+		"message": "কন্টেন্ট সংরক্ষণ করুন",
 		"description": "Permission popup title for downloads and page capture"
 	},
 	"permissionDownloadsPageCaptureDesc": {
-		"message": "ইমেজ সংরক্ষণ করতে, FlowMouse-এর পেজ এবং ডাউনলোডসে অ্যাক্সেস প্রয়োজন।",
+		"message": "কন্টেন্ট সংরক্ষণ করতে, FlowMouse-এর পেজ এবং ডাউনলোডসে অ্যাক্সেস প্রয়োজন।",
 		"description": "Permission popup description for downloads and page capture"
 	},
 	"permissionIncognitoTitle": {
@@ -1390,6 +1518,14 @@
 	"permissionIncognitoDesc": {
 		"message": "অজ্ঞাত উইন্ডোতে কাজ করার জন্য, আপনাকে ম্যানুয়ালি FlowMouse-এর জন্য 'অজ্ঞাত মোডে অনুমতি দিন' সক্ষম করতে হবে।",
 		"description": "Permission popup description for incognito"
+	},
+	"permissionClipboardReadTitle": {
+		"message": "ক্লিপবোর্ড পড়া",
+		"description": "Permission popup title for clipboard read"
+	},
+	"permissionClipboardReadDesc": {
+		"message": "ক্লিপবোর্ডের বিষয়বস্তু পেস্ট করতে, FlowMouse-এর আপনার ক্লিপবোর্ড পড়ার অ্যাক্সেস প্রয়োজন।",
+		"description": "Permission popup description for clipboard read"
 	},
 	"openExtensionsSettings": {
 		"message": "এক্সটেনশন বিশদ খুলুন",
@@ -1434,6 +1570,10 @@
 	"buttonOkay": {
 		"message": "ঠিক আছে",
 		"description": "Generic OK button"
+	},
+	"buttonConfirm": {
+		"message": "নিশ্চিত করুন",
+		"description": "Generic Confirm button"
 	},
 	"buttonCancel": {
 		"message": "বাতিল করুন",
@@ -1487,6 +1627,10 @@
 		"message": "ডান বোতাম চেপে ধরে নিচে স্ক্রোল করুন",
 		"description": "Wheel gesture: scroll down while holding right button"
 	},
+	"wheelGesture_wheelClickHoldingRight": {
+		"message": "ডান বোতাম চেপে ধরে মাঝের বোতামে ক্লিক করুন",
+		"description": "Wheel gesture: wheel (middle) click while holding right button"
+	},
 	"specialGestures": {
 		"message": "বিশেষ জেসচার",
 		"description": "Special gestures section title"
@@ -1507,32 +1651,68 @@
 		"message": "বাম বোতাম চেপে ধরে ডান ক্লিক করুন",
 		"description": "Special gesture: right click while holding left button"
 	},
-	"actionChains": {
-		"message": "কমান্ড চেইনসমূহ",
-		"description": "Action chains section title"
-	},
 	"actionChainsDesc": {
-		"message": "পুনঃব্যবহারযোগ্য কমান্ড সিকোয়েন্স তৈরি করুন যা একের পর এক কার্যকর হয়",
+		"message": "একাধিক কমান্ড ক্রমান্বয়ে কার্যকর করতে কমান্ড চেইন ব্যবহার করুন।",
 		"description": "Action chains section description"
 	},
 	"actionActionChain": {
 		"message": "কমান্ড চেইন",
 		"description": "Action chain action name"
 	},
-	"actionCategoryChains": {
-		"message": "কমান্ড চেইনসমূহ",
-		"description": "Action category: action chains"
+	"actionCustomMenu": {
+		"message": "কাস্টম মেনু",
+		"description": "Custom popup menu action name"
+	},
+	"customMenuDesc": {
+		"message": "একাধিক অ্যাকশন সহ কাস্টম পপআপ মেনু তৈরি করুন।",
+		"description": "Custom menu section description"
+	},
+	"addMenu": {
+		"message": "মেনু যোগ করুন",
+		"description": "Add menu button"
+	},
+	"menuNamePlaceholder": {
+		"message": "কাস্টম মেনু",
+		"description": "Menu name input placeholder"
+	},
+	"menuItemCount": {
+		"message": "%count% টি আইটেম",
+		"description": "Item count for menus, e.g. '3 items'"
+	},
+	"menuItemCountOne": {
+		"message": "%count% টি আইটেম",
+		"description": "Item count for menus with exactly 1 item"
+	},
+	"addMenuItem": {
+		"message": "আইটেম যোগ করুন",
+		"description": "Add menu item button"
+	},
+	"addMenuSeparator": {
+		"message": "বিভাজক যোগ করুন",
+		"description": "Add separator to menu button"
+	},
+	"emptyMenuItems": {
+		"message": "কোনো আইটেম যোগ করা হয়নি। শুরু করতে \"আইটেম যোগ করুন\"-এ ক্লিক করুন।",
+		"description": "Empty menu items message"
+	},
+	"menuNotFound": {
+		"message": "(মেনু পাওয়া যায়নি)",
+		"description": "Menu not found label"
+	},
+	"deleteMenuConfirm": {
+		"message": "\"%name%\" মেনু মুছে ফেলবেন?",
+		"description": "Delete menu confirmation"
+	},
+	"menuItemNumber": {
+		"message": "আইটেম %n%",
+		"description": "Menu item number label"
 	},
 	"addChain": {
 		"message": "চেইন যোগ করুন",
 		"description": "Add chain button"
 	},
-	"addNewChain": {
-		"message": "নতুন চেইন তৈরি করুন...",
-		"description": "Action item to navigate to chain editor and create a new chain"
-	},
 	"chainNamePlaceholder": {
-		"message": "আমার কমান্ড চেইন",
+		"message": "কমান্ড চেইন",
 		"description": "Chain name input placeholder"
 	},
 	"chainDelayUnit": {
@@ -1579,6 +1759,14 @@
 		"message": "কী টিপা অনুকরণ করুন",
 		"description": "Action to simulate a keyboard key press on the page"
 	},
+	"actionPasteClipboard": {
+		"message": "ক্লিপবোর্ড থেকে পেস্ট করুন",
+		"description": "Action to paste clipboard text at the gesture start position"
+	},
+	"pasteClipboardHint": {
+		"message": "<b>ভঙ্গির শুরুর স্থানে</b> ইনপুট ফিল্ডে ক্লিপবোর্ডের বিষয়বস্তু পেস্ট করা হবে।",
+		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
 	"simulateKeyPreset": {
 		"message": "প্রিসেট কী",
 		"description": "Label for preset key dropdown in simulate key config"
@@ -1615,6 +1803,14 @@
 		"message": "অবৈধ JSON ফর্ম্যাট",
 		"description": "Error message when event detail is not valid JSON"
 	},
+	"customEventIncludeGestureInfo": {
+		"message": "%code%-এ সংকেত তথ্য অন্তর্ভুক্ত করুন",
+		"description": "Checkbox label for including gesture context in custom event detail. %code% = detail.gesture"
+	},
+	"customEventConfigureBtn": {
+		"message": "সেটিংস",
+		"description": "Label for the configure button of custom event action in drag gesture manager"
+	},
 	"customEventHint": {
 		"message": "%window% এ %code% প্রেরণ করে। অন্যান্য স্ক্রিপ্টের সাথে একীকরণের জন্য দরকারী।",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
@@ -1630,5 +1826,233 @@
 	"chainStepCountOne": {
 		"message": "%count% ধাপ",
 		"description": "Step count for unnamed chains with exactly 1 step"
+	},
+	"actionZoomIn": {
+		"message": "জুম ইন করুন",
+		"description": "Zoom in on the current page"
+	},
+	"actionZoomOut": {
+		"message": "জুম আউট করুন",
+		"description": "Zoom out on the current page"
+	},
+	"actionResetZoom": {
+		"message": "জুম রিসেট করুন",
+		"description": "Reset page zoom to default or a specified level"
+	},
+	"actionViewPageSource": {
+		"message": "পৃষ্ঠার সোর্স দেখুন",
+		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionPauseGesture": {
+		"message": "রিফ্রেশ না হওয়া পর্যন্ত জেসচার পজ",
+		"description": "Temporarily disable all gestures on the current tab until page refresh"
+	},
+	"actionAreaSelect": {
+		"message": "এলাকা নির্বাচন",
+		"description": "Enter area select mode to drag-select links on the page and batch open them"
+	},
+	"areaSelectTitle": {
+		"message": "এলাকা নির্বাচন",
+		"description": "Label for the area select row in the popup"
+	},
+	"areaSelectModifierKey": {
+		"message": "দ্রুত এলাকা নির্বাচন",
+		"description": "Label for the modifier key dropdown in area select settings"
+	},
+	"areaSelectModifierKeyDesc": {
+		"message": "সংশোধক কী চেপে ধরে রাখুন, তারপর পৃষ্ঠায় ব্যাচ ক্রিয়াকলাপের জন্য লিঙ্কগুলি দ্রুত নির্বাচন করতে বাম-ক্লিক করুন এবং টেনে আনুন",
+		"description": "Description for the modifier key setting"
+	},
+	"areaSelectDisabled": {
+		"message": "নিষ্ক্রিয়",
+		"description": "Disabled option for the area select modifier key dropdown"
+	},
+	"areaSelectMouseDrag": {
+		"message": "মাউস টেনে আনা",
+		"description": "Suffix label next to the modifier key dropdown"
+	},
+	"areaSelectTextUrl": {
+		"message": "টেক্সট URL স্বীকৃতি",
+		"description": "Label for the text URL recognition toggle"
+	},
+	"areaSelectTextUrlDesc": {
+		"message": "নির্বাচনের সময় প্লেন-টেক্সট URL-ও (হাইপারলিঙ্ক নয় এমন) এক্সট্রাক্ট করুন",
+		"description": "Description for the text URL recognition toggle"
+	},
+	"areaSelectWarnThreshold": {
+		"message": "ব্যাচ অপারেশন সতর্কতা",
+		"description": "Label for the batch operation alert threshold input"
+	},
+	"areaSelectWarnThresholdDesc": {
+		"message": "এর বেশি আইটেম ব্যাচ অপারেট করার সময় নিশ্চিতকরণ দেখান, নিষ্ক্রিয় করতে 0",
+		"description": "Description for the batch operation alert threshold"
+	},
+	"areaSelectDelay": {
+		"message": "অপারেশন বিরতি",
+		"description": "Label for the operation interval input"
+	},
+	"areaSelectDelayDesc": {
+		"message": "ব্যাচ অপারেশনে প্রতিটি খোলার মধ্যে বিলম্ব (সেকেন্ড)",
+		"description": "Description for the operation interval setting"
+	},
+	"areaSelectHint": {
+		"message": "লিঙ্কগুলি নির্বাচন করতে টেনে আনুন",
+		"description": "Hint text shown in the area select overlay"
+	},
+	"areaSelectOpen": {
+		"message": "%count%টি লিঙ্ক খুলুন",
+		"description": "Button text in the area select toolbar to batch open selected links"
+	},
+	"areaSelectOpenOne": {
+		"message": "%count%টি লিঙ্ক খুলুন",
+		"description": "Button text to open a single selected link (singular form)"
+	},
+	"areaSelectCopy": {
+		"message": "লিঙ্কগুলি অনুলিপি করুন",
+		"description": "Button text to copy all selected link URLs to clipboard"
+	},
+	"areaSelectCancel": {
+		"message": "বাতিল করুন",
+		"description": "Button text to cancel area select mode"
+	},
+	"areaSelectConfirm": {
+		"message": "নিশ্চিত করুন",
+		"description": "Button text to confirm opening many links"
+	},
+	"areaSelectWarnTitle": {
+		"message": "অনেক লিঙ্ক খুলবেন?",
+		"description": "Title of the warning modal when opening many links"
+	},
+	"areaSelectWarnMessage": {
+		"message": "আপনি %count% টি লিঙ্ক খুলতে চলেছেন। এটি আপনার ব্রাউজার ধীর করতে পারে। চালিয়ে যাবেন?",
+		"description": "Body text of the warning modal"
+	},
+	"start": {
+		"message": "শুরু করুন",
+		"description": "Button label to start an action (e.g. area select)"
+	},
+	"actionMenuShowTabs": {
+		"message": "ট্যাব পাল্টান",
+		"description": "Show a context menu listing all open tabs in the current window"
+	},
+	"actionMenuRecentlyClosed": {
+		"message": "সম্প্রতি বন্ধ করা ট্যাব",
+		"description": "Show a context menu listing recently closed tabs for quick restore"
+	},
+	"recentlyClosedMaxItems": {
+		"message": "সর্বাধিক আইটেম",
+		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
+	},
+	"actionCategoryContextMenu": {
+		"message": "পপ-আপ মেনু",
+		"description": "Action category: context menu actions"
+	},
+	"zoomStepMode": {
+		"message": "জুম করার পদ্ধতি",
+		"description": "Label for zoom mode selector: browser steps vs fixed increment"
+	},
+	"zoomStepModeBrowser": {
+		"message": "ব্রাউজারের জুম স্তর ব্যবহার করুন",
+		"description": "Option: follow Chrome's built-in zoom steps (25%, 33%, 50%, …, 500%)"
+	},
+	"zoomStepModeFixed": {
+		"message": "নির্দিষ্ট ধাপ",
+		"description": "Option: zoom in/out by a configurable fixed percentage each time"
+	},
+	"zoomDelta": {
+		"message": "ধাপের আকার",
+		"description": "Label for the zoom increment/decrement slider"
+	},
+	"resetZoomLevel": {
+		"message": "এতে রিসেট করুন",
+		"description": "Label for the target zoom level when resetting zoom"
+	},
+	"resetZoomDefault": {
+		"message": "ব্রাউজারের ডিফল্ট",
+		"description": "Option: reset zoom to the browser's default zoom setting"
+	},
+	"resetZoomCustom": {
+		"message": "কাস্টম মান",
+		"description": "Option: reset zoom to a user-specified custom zoom level"
+	},
+	"actionMenuShowBookmarks": {
+		"message": "বুকমার্কগুলি দেখান",
+		"description": "Show a context menu listing bookmarks from a selected folder"
+	},
+	"bookmarkFolder": {
+		"message": "ফোল্ডার",
+		"description": "Label for selecting which bookmark folder to display"
+	},
+	"bookmarkGrantPermission": {
+		"message": "বুকমার্কের অনুমতি দিন",
+		"description": "Button label to request bookmarks permission"
+	},
+	"ctxMenuSortOrder": {
+		"message": "সাজানোর ধরন",
+		"description": "Label for context menu sort order dropdown"
+	},
+	"ctxMenuSortDefault": {
+		"message": "ডিফল্ট",
+		"description": "Sort option: original API/insertion order"
+	},
+	"ctxMenuSortDefaultDesc": {
+		"message": "ডিফল্ট (বিপরীত)",
+		"description": "Sort option: reverse of original API order"
+	},
+	"ctxMenuSortDateAddedAsc": {
+		"message": "যোগ করার তারিখ (পুরোনোটি আগে)",
+		"description": "Sort option: by date added ascending"
+	},
+	"ctxMenuSortDateAddedDesc": {
+		"message": "যোগ করার তারিখ (নতুনটি আগে)",
+		"description": "Sort option: by date added descending"
+	},
+	"ctxMenuSortNameAsc": {
+		"message": "নাম (আরোহী)",
+		"description": "Sort option: alphabetical ascending"
+	},
+	"ctxMenuSortNameDesc": {
+		"message": "নাম (অবরোহী)",
+		"description": "Sort option: alphabetical descending"
+	},
+	"ctxMenuSortLastAccessAsc": {
+		"message": "সর্বশেষ অ্যাক্সেস (পুরোনোটি আগে)",
+		"description": "Sort option: by last access time ascending"
+	},
+	"ctxMenuSortLastAccessDesc": {
+		"message": "সর্বশেষ অ্যাক্সেস (নতুনটি আগে)",
+		"description": "Sort option: by last access time descending"
+	},
+	"ctxMenuMaxItems": {
+		"message": "সর্বোচ্চ আইটেম",
+		"description": "Label for maximum number of items in context menu"
+	},
+	"ctxMenuMaxItemsUnlimited": {
+		"message": "অসীম",
+		"description": "Placeholder shown when max items is 0 (no limit)"
+	},
+	"ctxMenuScrollToBottom": {
+		"message": "নিচে স্ক্রোল করুন",
+		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuTimeDisplay": {
+		"message": "সময় দেখান",
+		"description": "Label for time display mode dropdown in context menu"
+	},
+	"ctxMenuTimeNone": {
+		"message": "দেখাবেন না",
+		"description": "Time display option: hide time column"
+	},
+	"ctxMenuTimeLastAccess": {
+		"message": "শেষবার অ্যাক্সেস করা হয়েছে",
+		"description": "Time display option: show last access time"
+	},
+	"ctxMenuTimeClosedTime": {
+		"message": "বন্ধ করার সময়",
+		"description": "Time display option: show when the tab was closed"
+	},
+	"ctxMenuTimeDateAdded": {
+		"message": "যোগ করা তারিখ",
+		"description": "Time display option: show when the bookmark was added"
 	}
 }

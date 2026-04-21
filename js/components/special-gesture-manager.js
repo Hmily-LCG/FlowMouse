@@ -1,6 +1,7 @@
 import { LitElement, html, css, unsafeHTML } from '../lib/lit-all.min.js';
 import { commonStyles, optionStyles } from './shared-styles.js';
 import { icons, icon } from '../icons.js'; 
+import { tooltip } from '../tooltip.js';
 
 const SPECIAL_GESTURE_KEYS = {
 	'leftClickHoldingRight': 'specialGesture_leftClickHoldingRight',
@@ -80,11 +81,10 @@ class SpecialGestureManager extends LitElement {
 				color: var(--text-muted);
 				cursor: pointer;
 				border-radius: 4px;
-				transition: background 0.15s ease, color 0.15s ease;
+				transition: background-color 0.15s ease, color 0.15s ease;
 				flex-shrink: 0;
 			}
 			.reset-btn:hover {
-				background: var(--hover-bg);
 				color: var(--accent-color);
 			}
 		`,
@@ -122,7 +122,7 @@ class SpecialGestureManager extends LitElement {
 				` : ''}
 				<span class="special-gesture-label">${label}</span>
 				<button class="reset-btn" @click=${() => this.#handleReset(key)}
-					title=${i18n.getMessage('resetToDefault')}
+					.tooltip=${tooltip(i18n.getMessage('resetToDefault'))}
 					style="display: ${isModified ? 'inline-flex' : 'none'}">${unsafeHTML(icon('rotateCcw', { size: 13, strokeWidth: 2.5 }))}</button>
 				<div class="special-gesture-action">
 					<action-select

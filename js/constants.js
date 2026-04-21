@@ -4,22 +4,22 @@
 
 
 	const DEFAULT_GESTURES = {
-		'←': 'back',              
-		'→': 'forward',           
-		'↑': 'scrollUp',          
-		'↓': 'scrollDown',        
-		'↑←': 'switchLeftTab',    
-		'↑→': 'switchRightTab',   
-		'→↑': 'newTab',           
-		'→↓': 'refresh',          
-		'↓←': 'stopLoading',      
-		'↓→': 'closeTab',         
-		'←↑': 'restoreTab',       
-		'←↓': 'closeAllTabs',     
-		'↑↓': 'scrollToBottom',   
-		'↓↑': 'scrollToTop',      
-		'←→': 'closeTab',         
-		'→←': 'restoreTab',       
+		'←': 'back',
+		'→': 'forward',
+		'↑': 'scrollUp',
+		'↓': 'scrollDown',
+		'↑←': 'switchLeftTab',
+		'↑→': 'switchRightTab',
+		'→↑': 'newTab',
+		'→↓': 'refresh',
+		'↓←': 'stopLoading',
+		'↓→': 'closeTab',
+		'←↑': 'menuRecentlyClosed',
+		'←↓': 'closeAllTabs',
+		'↑↓': 'scrollToBottom',
+		'↓↑': 'scrollToTop',
+		'←→': 'closeTab',
+		'→←': 'restoreTab',
 	};
 
 	const ACTION_KEYS = {
@@ -55,16 +55,30 @@
 		'openCustomUrl': 'actionOpenCustomUrl',
 		'copyUrl': 'actionCopyUrl',
 		'copyTitle': 'actionCopyTitle',
+		'copyTitleAndUrl': 'actionCopyTitleAndUrl',
 		...({}),
 		'printPage': 'actionPrintPage',
 		'duplicateTab': 'actionDuplicateTab',
 		'toggleMuteTab': 'actionToggleMuteTab',
 		'toggleMuteAllTabs': 'actionToggleMuteAllTabs',
 		'togglePinTab': 'actionTogglePinTab',
+		'moveTabToNewWindow': 'actionMoveTabToNewWindow',
 		'actionChain': 'actionActionChain',
+		'customMenu': 'actionCustomMenu',
 		'delay': 'actionDelay',
 		'sendCustomEvent': 'actionSendCustomEvent',
 		'simulateKey': 'actionSimulateKey',
+		'pasteClipboard': 'actionPasteClipboard',
+		'zoomIn': 'actionZoomIn',
+		'zoomOut': 'actionZoomOut',
+		'resetZoom': 'actionResetZoom',
+		'searchClipboard': 'actionSearchClipboard',
+		'viewPageSource': 'actionViewPageSource',
+		'pauseGesture': 'actionPauseGesture',
+		'areaSelect': 'actionAreaSelect',
+		'menuShowTabs': 'actionMenuShowTabs',
+		'menuRecentlyClosed': 'actionMenuRecentlyClosed',
+		...({}),
 	};
 
 	const ACTION_DEFAULTS = {
@@ -75,9 +89,9 @@
 		closeAllTabs: { skipPinned: true },
 		refresh: { hardReload: false },
 		refreshAllTabs: { hardReload: false },
-		newTab: { position: 'last' },
-		openCustomUrl: { customUrl: '', position: 'last' },
-		copyUrl: { includeTitle: false },
+		newTab: { position: 'last', active: true },
+		openCustomUrl: { customUrl: '', position: 'last', active: true },
+		copyTitleAndUrl: { asMarkdown: false },
 		scrollUp: { scrollDistance: 75, scrollSmoothness: 'auto', scrollAccel: 1, scrollAccelWindow: 500 },
 		scrollDown: { scrollDistance: 75, scrollSmoothness: 'auto', scrollAccel: 1, scrollAccelWindow: 500 },
 		scrollToTop: { scrollSmoothness: 'none' },
@@ -87,14 +101,27 @@
 		switchFirstTab: { moveTab: false },
 		switchLastTab: { moveTab: false },
 		actionChain: { chainId: '' },
+		customMenu: { menuId: '' },
 		delay: { delayMs: 500 },
-		sendCustomEvent: { eventType: 'flowmouse:gesture', eventDetail: '{}' },
+		sendCustomEvent: { eventType: 'flowmouse:gesture', eventDetail: '{}', gestureInfo: true },
 		simulateKey: { keyValue: 'ArrowLeft', modCtrl: false, modShift: false, modAlt: false, modMeta: false },
+		pasteClipboard: {},
+		searchClipboard: { engine: 'system', url: '', autoDetectUrl: true, position: 'right', active: true },
+		zoomIn: { zoomMode: 'browser', zoomDelta: 10 },
+		zoomOut: { zoomMode: 'browser', zoomDelta: 10 },
+		resetZoom: { resetZoomLevel: 0 },
+		viewPageSource: { position: 'right', active: true },
+		menuShowTabs: { sortOrder: 'default', maxItems: 0, scrollToBottom: false, timeDisplay: 'lastAccess' },
+		menuRecentlyClosed: { maxItems: 12, sortOrder: 'default', scrollToBottom: false, timeDisplay: 'closedTime' },
+		menuShowBookmarks: { folderId: '1', position: 'right', active: true, sortOrder: 'default', maxItems: 30, scrollToBottom: false, timeDisplay: 'dateAdded' },
 	};
 
 	const LOCAL_ACTIONS = new Set([
 		'none', 'scrollUp', 'scrollDown', 'scrollToTop', 'scrollToBottom',
-		'stopLoading', 'copyUrl', 'copyTitle', 'printPage', 'sendCustomEvent', 'simulateKey'
+		'stopLoading', 'copyUrl', 'copyTitle', 'copyTitleAndUrl', 'printPage', 'sendCustomEvent', 'simulateKey',
+		'pasteClipboard', 'searchClipboard', 
+		'menuShowTabs', 'menuRecentlyClosed', 'menuShowBookmarks',
+		'customMenu',
 	]);
 
 
@@ -112,14 +139,17 @@
 	const TEXT_DRAG_ACTIONS = {
 		'none': 'dragActionNone',
 		'search': 'dragActionSearch',
-		'copy': 'dragActionCopy'
+		'copy': 'dragActionCopy',
+		'sendCustomEvent': 'dragActionSendCustomEvent'
 	};
 
 	const LINK_DRAG_ACTIONS = {
 		'none': 'dragActionNone',
 		'openTab': 'dragActionOpenTabLink',
 		'copyLink': 'dragActionCopyLink',
-		'copyLinkText': 'dragActionCopyLinkText'
+		'copyLinkText': 'dragActionCopyLinkText',
+		'copyLinkAndText': 'dragActionCopyLinkAndText',
+		'sendCustomEvent': 'dragActionSendCustomEvent'
 	};
 
 	const IMAGE_DRAG_ACTIONS = {
@@ -127,7 +157,16 @@
 		'openTab': 'dragActionOpenTabImage',
 		'saveImage': 'dragActionSaveImage',
 		'copyImageUrl': 'dragActionCopyImageUrl',
-		'imageSearch': 'dragActionImageSearch'
+		'imageSearch': 'dragActionImageSearch',
+		'sendCustomEvent': 'dragActionSendCustomEvent'
+	};
+
+	const DRAG_ACTION_DEFAULTS = {
+		search:          { engine: 'system', url: '', autoDetectUrl: true, position: 'right', active: true, incognito: false },
+		openTab:         { position: 'right', active: true, incognito: false, preferLink: false },
+		imageSearch:     { engine: 'google', url: '', position: 'right', active: true, incognito: false },
+		copyLinkAndText: { asMarkdown: false },
+		sendCustomEvent: { eventType: 'flowmouse:drag', eventDetail: '{}', gestureInfo: true },
 	};
 
 	const TAB_POSITIONS = {
@@ -148,9 +187,19 @@
 			name: 'Google',
 			url: 'https://www.google.com/search?q='
 		},
+		'google_translate': {
+			name: 'Google Translate',
+			i18nKey: 'searchEngine_google_translate',
+			url: 'https://translate.google.com/?sl=auto&text='
+		},
 		'bing': {
 			name: 'Bing',
 			url: 'https://www.bing.com/search?q='
+		},
+		'bing_translate': {
+			name: 'Bing Translate',
+			i18nKey: 'searchEngine_bing_translate',
+			url: 'https://www.bing.com/translator/?text='
 		},
 		'baidu': {
 			name: 'Baidu',
@@ -190,15 +239,15 @@
 	};
 
 	const SEARCH_ENGINE_ORDER = {
-		'default': ['system', 'google', 'bing', 'duckduckgo', 'yahoo'],
-		'en': ['system', 'google', 'bing', 'duckduckgo', 'yahoo', 'baidu', '360', 'yandex', 'naver', 'seznam', 'yahoo_jp'],
-		'zh_CN': ['system', 'google', 'bing', 'baidu', '360', 'duckduckgo', 'yahoo'],
+		'default': ['system', 'google', 'google_translate', 'bing', 'bing_translate', 'duckduckgo', 'yahoo'],
+		'en': ['system', 'google', 'google_translate', 'bing', 'bing_translate', 'duckduckgo', 'yahoo', 'baidu', '360', 'yandex', 'naver', 'seznam', 'yahoo_jp'],
+		'zh_CN': ['system', 'google', 'google_translate', 'bing', 'bing_translate', 'baidu', '360', 'duckduckgo', 'yahoo'],
 
-		'cs': ['system', 'google', 'seznam', 'bing', 'duckduckgo', 'yahoo'],
-		'ja': ['system', 'google', 'yahoo_jp', 'bing', 'duckduckgo', 'yahoo'],
-		'ko': ['system', 'google', 'naver', 'bing', 'duckduckgo', 'yahoo'],
-		'uk': ['system', 'google', 'bing', 'duckduckgo', 'yahoo'],
-		'ru': ['system', 'google', 'yandex', 'bing', 'duckduckgo', 'yahoo'],
+		'cs': ['system', 'google', 'google_translate', 'seznam', 'bing', 'bing_translate', 'duckduckgo', 'yahoo'],
+		'ja': ['system', 'google', 'google_translate', 'yahoo_jp', 'bing', 'bing_translate', 'duckduckgo', 'yahoo'],
+		'ko': ['system', 'google', 'google_translate', 'naver', 'bing', 'bing_translate', 'duckduckgo', 'yahoo'],
+		'uk': ['system', 'google', 'google_translate', 'bing', 'bing_translate', 'duckduckgo', 'yahoo'],
+		'ru': ['system', 'google', 'google_translate', 'yandex', 'bing', 'bing_translate', 'duckduckgo', 'yahoo'],
 	};
 
 	const IMAGE_SEARCH_ENGINES = {
@@ -253,16 +302,17 @@
 		), 
 		sectionAdvanced: {}, 
 		enableTextDrag: true,
+		textDragIgnoreInput: false, 
 		enableImageDrag: true,
 		enableLinkDrag: true,
 		textDragGestures: [
-			{ direction: '→', action: 'search', engine: 'system', position: 'right', active: true, url: '', autoDetectUrl: true, incognito: false }
+			{ direction: '→', action: 'search' }
 		],
 		linkDragGestures: [
-			{ direction: '→', action: 'openTab', position: 'right', active: true, incognito: false }
+			{ direction: '→', action: 'openTab' }
 		],
 		imageDragGestures: [
-			{ direction: '→', action: 'openTab', position: 'right', active: true, url: '', incognito: false }
+			{ direction: '→', action: 'openTab' }
 		],
 		hudBgColor: '#000000b3',
 		hudTextColor: '#ffffff',
@@ -270,6 +320,7 @@
 		enableHudShadow: true,
 		trailColor: '#4285f4',
 		trailWidth: 5,
+		customCss: '', 
 		distanceThreshold: 20,
 		gestureTurnTolerance: 0.10, 
 		showRestrictedNotice: true, 
@@ -279,14 +330,19 @@
 		wheelGestures: {
 			scrollUpHoldingRight: { action: 'switchLeftTab' },
 			scrollDownHoldingRight: { action: 'switchRightTab' },
+			wheelClickHoldingRight: { action: 'none' },
 		},
 		enableSpecialGestures: false, 
 		specialGestures: {
 			leftClickHoldingRight: { action: 'back' },
 			rightClickHoldingLeft: { action: 'forward' },
 		},
+		areaSelectModifierKey: 'Shift', 
+		areaSelectTextUrl: false, 
+		areaSelectWarnThreshold: 15, 
+		areaSelectDelay: 0.3, 
 		actionChains: {},
-		showChainSection: false, 
+		customMenus: {},
 		blacklist: [],
 		enableBlacklistContextMenu: false,
 		navCollapsed: false,
@@ -326,6 +382,7 @@
 		TEXT_DRAG_ACTIONS,
 		LINK_DRAG_ACTIONS,
 		IMAGE_DRAG_ACTIONS,
+		DRAG_ACTION_DEFAULTS,
 		TAB_POSITIONS,
 
 		SEARCH_ENGINES,

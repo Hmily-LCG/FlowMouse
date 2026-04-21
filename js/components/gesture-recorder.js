@@ -251,33 +251,19 @@ class GestureRecorder extends LitElement {
 
 			.result-actions .btn {
 				min-width: 110px;
-				padding: 11px 22px;
-				font-size: 14px;
 				font-weight: 600;
-				border-radius: 10px;
-				cursor: pointer;
-				transition: all 0.15s ease;
 				pointer-events: auto;
-			}
-
-			.btn-confirm {
-				background: var(--accent-color);
-				color: #fff;
-				border: none;
-			}
-
-			.btn-confirm:hover {
-				background: var(--accent-hover);
 			}
 
 			.btn-redraw {
 				background: rgba(255, 255, 255, 0.08);
 				color: rgba(255, 255, 255, 0.85);
-				border: 1px solid rgba(255, 255, 255, 0.18);
+				box-shadow: 0 0 0 0.75px rgba(255, 255, 255, 0.18);
 			}
 
 			.btn-redraw:hover {
 				background: rgba(255, 255, 255, 0.14);
+				box-shadow: 0 0 0 0.75px rgba(255, 255, 255, 0.28);
 			}
 
 
@@ -359,7 +345,7 @@ class GestureRecorder extends LitElement {
 		this.#recognizer = new window.GestureRecognizer({ distanceThreshold: 20 });
 
 		if (!this.#visualizer) {
-			this.#visualizer = new window.GestureVisualizer();
+			this.#visualizer = new window.GestureOverlay();
 		}
 		this.#visualizer.updateSettings({
 			lang: window.i18n.getHtmlLang(),
@@ -431,12 +417,12 @@ class GestureRecorder extends LitElement {
 								${unsafeHTML(this._patternSvg)}
 							</div>
 							<div class="result-actions">
-								<button class="btn btn-confirm"
+								<button class="btn btn-primary btn-lg"
 									@mousedown=${e => e.stopPropagation()}
 									@click=${() => this.#confirm()}>
 									${i18n.getMessage('gestureRecorderConfirm')}
 								</button>
-								<button class="btn btn-redraw"
+								<button class="btn btn-lg btn-redraw"
 									@mousedown=${e => e.stopPropagation()}
 									@click=${() => this.#redraw()}>
 									${i18n.getMessage('gestureRecorderRedraw')}

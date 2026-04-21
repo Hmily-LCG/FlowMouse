@@ -35,9 +35,9 @@
 		"message": "Synchronizace nastavení přes účet %browserName%",
 		"description": "Sync status description"
 	},
-	"synced": {
-		"message": "Synchronizováno",
-		"description": "Synced"
+	"saved": {
+		"message": "Uloženo",
+		"description": "Saved"
 	},
 	"author": {
 		"message": "Autor",
@@ -66,6 +66,10 @@
 	"feedbackText": {
 		"message": "Máte problémy nebo návrhy? Nahlaste je prosím prostřednictvím <a href='mailto:Service@52pojie.cn'>E-mailu</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHubu</a> nebo <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Fóra</a>. Budeme se snažit o zlepšení co nejdříve!",
 		"description": "Feedback text"
+	},
+	"feedbackTextChrome": {
+		"message": "Máte problémy nebo návrhy? Nahlaste je prosím prostřednictvím <a href='https://chromewebstore.google.com/detail/fnldhkfidchnjiokpoemdhoejmaojkgp/support' target='_blank'>Podpory Internetového obchodu Chrome</a>, <a href='mailto:Service@52pojie.cn'>E-mailu</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHubu</a> nebo <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Fóra</a>. Budeme se snažit o zlepšení co nejdříve!",
+		"description": "Feedback text for Chrome browser"
 	},
 	"supportAndFeedback": {
 		"message": "Podpora a zpětná vazba",
@@ -125,11 +129,11 @@
 	},
 	"btnSide1Mouse": {
 		"message": "Boční tlačítko (Zpět)",
-		"description": "Mouse button 4 — the side button typically used for navigating back"
+		"description": "Mouse button 4 - the side button typically used for navigating back"
 	},
 	"btnSide2Mouse": {
 		"message": "Boční tlačítko (Vpřed)",
-		"description": "Mouse button 5 — the side button typically used for navigating forward"
+		"description": "Mouse button 5 - the side button typically used for navigating forward"
 	},
 	"btnPenRight": {
 		"message": "Pravé tlačítko stylusu",
@@ -195,6 +199,54 @@
 		"message": "Stín",
 		"description": "HUD shadow toggle"
 	},
+	"customCss": {
+		"message": "Vlastní CSS",
+		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
+	},
+	"customCssDesc": {
+		"message": "Nastavte vlastní CSS pro úpravu vlastního uživatelského rozhraní FlowMouse",
+		"description": "Description for the Custom CSS advanced setting"
+	},
+	"customCssConfigure": {
+		"message": "Konfigurovat",
+		"description": "Button label to open the Custom CSS editor dialog when no CSS is set"
+	},
+	"customCssEdit": {
+		"message": "Upravit",
+		"description": "Button label to open the Custom CSS editor dialog when CSS is already set"
+	},
+	"customCssEditorTitle": {
+		"message": "Editor vlastního CSS",
+		"description": "Title of the dedicated custom CSS editor page"
+	},
+	"customCssEditorHint": {
+		"message": "Styly jsou vloženy do každého Shadow DOM vytvořeného pomocí FlowMouse. Uložte stisknutím Ctrl+S.",
+		"description": "Hint shown above the editor textarea."
+	},
+	"customCssEditorPlaceholder": {
+		"message": "/* Zde zadejte vlastní CSS… */",
+		"description": "Placeholder inside the Custom CSS editor textarea"
+	},
+	"customCssEditorInsertSnippet": {
+		"message": "Příklad",
+		"description": "Button to append an example/starter CSS snippet to the editor"
+	},
+	"customCssEditorRevert": {
+		"message": "Zrušit změny",
+		"description": "Button that reverts the editor content back to the last saved value"
+	},
+	"customCssEditorSave": {
+		"message": "Uložit",
+		"description": "Save button in the Custom CSS editor"
+	},
+	"customCssEditorSaved": {
+		"message": "Uloženo",
+		"description": "Status message shown briefly after the user saves the custom CSS"
+	},
+	"customCssEditorDiscardConfirm": {
+		"message": "Zahodit neuložené úpravy a vrátit se k naposledy uloženému CSS?",
+		"description": "Confirmation dialog shown before reverting unsaved edits"
+	},
 	"text": {
 		"message": "Text",
 		"description": "Text"
@@ -255,6 +307,14 @@
 		"message": "Přetáhněte vybraný text pro vyhledávání",
 		"description": "Drag selected text to search"
 	},
+	"textDragIgnoreInput": {
+		"message": "Zakázat ve vstupních polích",
+		"description": "Option to disable text drag inside input boxes and textareas"
+	},
+	"textDragIgnoreInputDesc": {
+		"message": "Nespouštět přetažení textu v upravitelných oblastech, jako jsou vstupní pole a textové editory",
+		"description": "Description for text drag ignore input option"
+	},
 	"searchEngine": {
 		"message": "Vyhledávač",
 		"description": "Search engine"
@@ -267,6 +327,10 @@
 		"message": "Vlastní URL, použijte %s pro hledaný výraz",
 		"description": "Custom URL placeholder"
 	},
+	"customUrlPlaceholderHint": {
+		"message": "Musí obsahovat protokol (např. https://). Dostupné zástupné symboly: %placeholders%. Přidejte :raw pro přeskočení kódování URL, např. %example%",
+		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
+	},
 	"urlPlaceholderText": {
 		"message": "%s=Klíčové slovo",
 		"description": "Placeholder for text drag custom URL"
@@ -274,6 +338,14 @@
 	"urlPlaceholderImage": {
 		"message": "%s=URL obrázku",
 		"description": "Placeholder for image drag custom URL"
+	},
+	"searchEngine_google_translate": {
+		"message": "Překladač Google",
+		"description": "Google Translate search engine"
+	},
+	"searchEngine_bing_translate": {
+		"message": "Překladač Bing",
+		"description": "Bing Translate search engine"
 	},
 	"searchEngine_baidu": {
 		"message": "Baidu",
@@ -367,8 +439,16 @@
 		"message": "Resetovat",
 		"description": "Reset to default"
 	},
+	"duplicate": {
+		"message": "Duplikovat",
+		"description": "Generic duplicate button tooltip"
+	},
+	"delete": {
+		"message": "Smazat",
+		"description": "Generic delete button tooltip"
+	},
 	"autoSaved": {
-		"message": "✓ Automaticky uloženo",
+		"message": "Automaticky uloženo",
 		"description": "Auto-saved message"
 	},
 	"saveFailure": {
@@ -663,6 +743,10 @@
 		"message": "Kopírovat titulek stránky",
 		"description": "Copy page title"
 	},
+	"actionCopyTitleAndUrl": {
+		"message": "Kopírovat název stránky a URL",
+		"description": "Copy page title and URL"
+	},
 	"actionOpenDownloads": {
 		"message": "Otevřít stahování",
 		"description": "Open downloads page"
@@ -674,6 +758,10 @@
 	"actionOpenExtensions": {
 		"message": "Otevřít rozšíření",
 		"description": "Open extensions page"
+	},
+	"actionSaveAsMhtml": {
+		"message": "Uložit jako MHTML",
+		"description": "Save current page as MHTML file"
 	},
 	"actionPrintPage": {
 		"message": "Tisk stránky",
@@ -694,6 +782,14 @@
 	"actionTogglePinTab": {
 		"message": "Připnout/Odepnout aktuální kartu",
 		"description": "Toggle pin current tab"
+	},
+	"actionMoveTabToNewWindow": {
+		"message": "Přesunout kartu do nového okna",
+		"description": "Move current tab to a new window"
+	},
+	"actionSearchClipboard": {
+		"message": "Hledat ze schránky",
+		"description": "Search clipboard text using a search engine"
 	},
 	"showTrailOrigin": {
 		"message": "Zobrazit počáteční bod",
@@ -731,6 +827,10 @@
 		"message": "Další nastavení",
 		"description": "Section title for other/miscellaneous settings"
 	},
+	"styleSettings": {
+		"message": "Vzhled",
+		"description": "Section title for style/appearance settings (trail, HUD, etc.)"
+	},
 	"show": {
 		"message": "Zobrazit",
 		"description": "Show navigation menu"
@@ -760,7 +860,7 @@
 		"description": "Clear button"
 	},
 	"gestureAdded": {
-		"message": "✓ Gesto přidáno",
+		"message": "Gesto přidáno",
 		"description": "Gesture added success message"
 	},
 	"gestureRecorderTitle": {
@@ -816,16 +916,16 @@
 		"description": "Delete gesture confirmation"
 	},
 	"gestureDeleted": {
-		"message": "✓ Gesto smazáno",
+		"message": "Gesto smazáno",
 		"description": "Gesture deleted success message"
 	},
 	"enterCustomUrl": {
-		"message": "Zadejte URL (doporučujeme včetně protokolu jako https://, chrome://, atd.):",
+		"message": "URL",
 		"description": "Prompt for custom URL input"
 	},
-	"copyUrlIncludeTitle": {
-		"message": "Kopírovat také název stránky",
-		"description": "Checkbox label for including page title when copying URL"
+	"copyAsMarkdown": {
+		"message": "Kopírovat jako Markdown",
+		"description": "Checkbox label for copying as markdown format"
 	},
 	"invalidUrl": {
 		"message": "Zadejte prosím platnou URL (začínající na http:// nebo https://)",
@@ -956,27 +1056,27 @@
 		"description": "Features"
 	},
 	"aboutFeature1": {
-		"message": "🎯 16 výchozích gest + vlastní gesta",
+		"message": "16 výchozích gest + vlastní gesta",
 		"description": "Feature 1"
 	},
 	"aboutFeature2": {
-		"message": "🎨 Vizuální stopa gesta",
+		"message": "Vizuální stopa gesta",
 		"description": "Feature 2"
 	},
 	"aboutFeature3": {
-		"message": "🔍 Super přetahování textu/obrázků/odkazů",
+		"message": "Super přetahování textu/obrázků/odkazů",
 		"description": "Feature 3"
 	},
 	"aboutFeature4": {
-		"message": "🚫 Černá listina webů",
+		"message": "Černá listina webů",
 		"description": "Feature 4"
 	},
 	"aboutFeature5": {
-		"message": "☁️ Synchronizace účtu %browserName%",
+		"message": "Synchronizace účtu %browserName%",
 		"description": "Feature 5"
 	},
 	"aboutFeature6": {
-		"message": "🔒 Běží lokálně, bez sítě kromě synchronizace",
+		"message": "Běží lokálně, bez sítě kromě synchronizace",
 		"description": "Feature 6"
 	},
 	"tutorial": {
@@ -988,15 +1088,15 @@
 		"description": "Learn more link"
 	},
 	"badgeNoNetwork": {
-		"message": "🔒 Bez sítě kromě sync",
+		"message": "Bez sítě kromě sync",
 		"description": "No network privacy badge"
 	},
 	"badgeNoData": {
-		"message": "🚫 Žádný sběr dat",
+		"message": "Žádný sběr dat",
 		"description": "No data collection badge"
 	},
 	"badgeLocalRun": {
-		"message": "✅ Běží lokálně",
+		"message": "Běží lokálně",
 		"description": "Local run badge"
 	},
 	"newTabSettings": {
@@ -1091,6 +1191,10 @@
 		"message": "📋 Kopírovat text odkazu",
 		"description": "Copy link text"
 	},
+	"dragActionCopyLinkAndText": {
+		"message": "📋 Kopírovat text a odkaz",
+		"description": "Copy link text and URL"
+	},
 	"dragActionSaveImage": {
 		"message": "💾 Uložit obrázek",
 		"description": "Save image"
@@ -1111,6 +1215,10 @@
 		"message": "🔍 Vlastní hledání",
 		"description": "Custom search"
 	},
+	"dragActionSendCustomEvent": {
+		"message": "Odeslat vlastní událost",
+		"description": "Send custom DOM event on drag gesture"
+	},
 	"reducedMotionWarning": {
 		"message": "Systémové animace v %OS% jsou vypnuty, animace posouvání nemusí fungovat správně. Animace můžete povolit v nastavení systému %OS%.",
 		"description": "Warning message when system reduced motion is enabled"
@@ -1119,9 +1227,29 @@
 		"message": "Automaticky rozpoznat URL",
 		"description": "Auto detect URL checkbox label"
 	},
+	"autoDetectUrlTooltip": {
+		"message": "Pokud je text ve formátu odkazu, otevřít jej přímo místo hledání",
+		"description": "Tooltip for the auto detect URL checkbox"
+	},
 	"preferLink": {
 		"message": "Upřednostnit odkaz",
 		"description": "Prefer link checkbox label"
+	},
+	"customHudName": {
+		"message": "Název",
+		"description": "Placeholder for custom action name shown on HUD"
+	},
+	"customHudNameTooltip": {
+		"message": "Vlastní název zobrazený na obrazovce při provádění gesta",
+		"description": "Tooltip for the custom HUD name field"
+	},
+	"actionNoOptions": {
+		"message": "Tento příkaz nevyžaduje žádné nastavení.",
+		"description": "Placeholder shown in the action picker's detail panel when the selected action has no configurable settings"
+	},
+	"actionRequiredBadge": {
+		"message": "Povinné",
+		"description": "Badge shown next to fields that must be filled in (e.g., URL for Open URL)"
 	},
 	"menuNeedRefresh": {
 		"message": "FlowMouse není načten, klikněte pro obnovení",
@@ -1376,11 +1504,11 @@
 		"description": "Permission popup description for downloads"
 	},
 	"permissionDownloadsPageCaptureTitle": {
-		"message": "Uložit obrázek",
+		"message": "Uložit obsah",
 		"description": "Permission popup title for downloads and page capture"
 	},
 	"permissionDownloadsPageCaptureDesc": {
-		"message": "Pro ukládání obrázků potřebuje FlowMouse přístup ke stránkám a stahování.",
+		"message": "Pro ukládání obsahu potřebuje FlowMouse přístup ke stránkám a stahování.",
 		"description": "Permission popup description for downloads and page capture"
 	},
 	"permissionIncognitoTitle": {
@@ -1390,6 +1518,14 @@
 	"permissionIncognitoDesc": {
 		"message": "Chcete-li pracovat v anonymních oknech, musíte ručně povolit \"Povolit v anonymním režimu\" pro FlowMouse.",
 		"description": "Permission popup description for incognito"
+	},
+	"permissionClipboardReadTitle": {
+		"message": "Čtení ze schránky",
+		"description": "Permission popup title for clipboard read"
+	},
+	"permissionClipboardReadDesc": {
+		"message": "Chcete-li vložit obsah schránky, FlowMouse potřebuje oprávnění ke čtení vaší schránky.",
+		"description": "Permission popup description for clipboard read"
 	},
 	"openExtensionsSettings": {
 		"message": "Otevřít podrobnosti rozšíření",
@@ -1434,6 +1570,10 @@
 	"buttonOkay": {
 		"message": "OK",
 		"description": "Generic OK button"
+	},
+	"buttonConfirm": {
+		"message": "Potvrdit",
+		"description": "Generic Confirm button"
 	},
 	"buttonCancel": {
 		"message": "Zrušit",
@@ -1487,6 +1627,10 @@
 		"message": "Posunout dolů při podržení pravého tlačítka",
 		"description": "Wheel gesture: scroll down while holding right button"
 	},
+	"wheelGesture_wheelClickHoldingRight": {
+		"message": "Kliknutí prostředním tlačítkem při podržení pravého tlačítka",
+		"description": "Wheel gesture: wheel (middle) click while holding right button"
+	},
 	"specialGestures": {
 		"message": "Speciální gesta",
 		"description": "Special gestures section title"
@@ -1507,32 +1651,68 @@
 		"message": "Klepnutí pravým tlačítkem při podržení levého tlačítka",
 		"description": "Special gesture: right click while holding left button"
 	},
-	"actionChains": {
-		"message": "Řetězce příkazů",
-		"description": "Action chains section title"
-	},
 	"actionChainsDesc": {
-		"message": "Vytvářejte opakovaně použitelné sekvence příkazů, které se provádějí jedna po druhé",
+		"message": "Použijte řetězce příkazů k postupnému provádění více příkazů.",
 		"description": "Action chains section description"
 	},
 	"actionActionChain": {
 		"message": "Řetězec příkazů",
 		"description": "Action chain action name"
 	},
-	"actionCategoryChains": {
-		"message": "Řetězce příkazů",
-		"description": "Action category: action chains"
+	"actionCustomMenu": {
+		"message": "Vlastní nabídka",
+		"description": "Custom popup menu action name"
+	},
+	"customMenuDesc": {
+		"message": "Vytvořte vlastní vyskakovací nabídky s více akcemi.",
+		"description": "Custom menu section description"
+	},
+	"addMenu": {
+		"message": "Přidat nabídku",
+		"description": "Add menu button"
+	},
+	"menuNamePlaceholder": {
+		"message": "Vlastní nabídka",
+		"description": "Menu name input placeholder"
+	},
+	"menuItemCount": {
+		"message": "%count% položek",
+		"description": "Item count for menus, e.g. '3 items'"
+	},
+	"menuItemCountOne": {
+		"message": "%count% položka",
+		"description": "Item count for menus with exactly 1 item"
+	},
+	"addMenuItem": {
+		"message": "Přidat položku",
+		"description": "Add menu item button"
+	},
+	"addMenuSeparator": {
+		"message": "Přidat oddělovač",
+		"description": "Add separator to menu button"
+	},
+	"emptyMenuItems": {
+		"message": "Nebyly přidány žádné položky. Začněte kliknutím na „Přidat položku“.",
+		"description": "Empty menu items message"
+	},
+	"menuNotFound": {
+		"message": "(Menu nenalezeno)",
+		"description": "Menu not found label"
+	},
+	"deleteMenuConfirm": {
+		"message": "Smazat menu „%name%“?",
+		"description": "Delete menu confirmation"
+	},
+	"menuItemNumber": {
+		"message": "Položka %n%",
+		"description": "Menu item number label"
 	},
 	"addChain": {
 		"message": "Přidat řetězec",
 		"description": "Add chain button"
 	},
-	"addNewChain": {
-		"message": "Vytvořit nový řetězec...",
-		"description": "Action item to navigate to chain editor and create a new chain"
-	},
 	"chainNamePlaceholder": {
-		"message": "Můj řetězec příkazů",
+		"message": "Řetězec příkazů",
 		"description": "Chain name input placeholder"
 	},
 	"chainDelayUnit": {
@@ -1579,6 +1759,14 @@
 		"message": "Simulovat stisknutí klávesy",
 		"description": "Action to simulate a keyboard key press on the page"
 	},
+	"actionPasteClipboard": {
+		"message": "Vložit ze schránky",
+		"description": "Action to paste clipboard text at the gesture start position"
+	},
+	"pasteClipboardHint": {
+		"message": "Obsah schránky bude vložen do vstupního pole na <b>výchozí pozici gesta</b>.",
+		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
 	"simulateKeyPreset": {
 		"message": "Přednastavená klávesa",
 		"description": "Label for preset key dropdown in simulate key config"
@@ -1615,6 +1803,14 @@
 		"message": "Neplatný formát JSON",
 		"description": "Error message when event detail is not valid JSON"
 	},
+	"customEventIncludeGestureInfo": {
+		"message": "Zahrnout informace o gestech do %code%",
+		"description": "Checkbox label for including gesture context in custom event detail. %code% = detail.gesture"
+	},
+	"customEventConfigureBtn": {
+		"message": "Nastavení",
+		"description": "Label for the configure button of custom event action in drag gesture manager"
+	},
 	"customEventHint": {
 		"message": "Odešle %code% na %window%. Užitečné pro integraci s dalšími skripty.",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
@@ -1630,5 +1826,233 @@
 	"chainStepCountOne": {
 		"message": "Kroků: %count%",
 		"description": "Step count for unnamed chains with exactly 1 step"
+	},
+	"actionZoomIn": {
+		"message": "Přiblížit",
+		"description": "Zoom in on the current page"
+	},
+	"actionZoomOut": {
+		"message": "Oddálit",
+		"description": "Zoom out on the current page"
+	},
+	"actionResetZoom": {
+		"message": "Obnovit přiblížení",
+		"description": "Reset page zoom to default or a specified level"
+	},
+	"actionViewPageSource": {
+		"message": "Zobrazit zdrojový kód stránky",
+		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionPauseGesture": {
+		"message": "Pozastavit gesta do obnovení",
+		"description": "Temporarily disable all gestures on the current tab until page refresh"
+	},
+	"actionAreaSelect": {
+		"message": "Výběr oblasti",
+		"description": "Enter area select mode to drag-select links on the page and batch open them"
+	},
+	"areaSelectTitle": {
+		"message": "Výběr oblasti",
+		"description": "Label for the area select row in the popup"
+	},
+	"areaSelectModifierKey": {
+		"message": "Rychlý výběr oblasti",
+		"description": "Label for the modifier key dropdown in area select settings"
+	},
+	"areaSelectModifierKeyDesc": {
+		"message": "Podržte modifikační klávesu, poté klikněte levým tlačítkem a tažením rychle vyberte odkazy na stránce pro hromadné operace",
+		"description": "Description for the modifier key setting"
+	},
+	"areaSelectDisabled": {
+		"message": "Zakázáno",
+		"description": "Disabled option for the area select modifier key dropdown"
+	},
+	"areaSelectMouseDrag": {
+		"message": "Tažení myší",
+		"description": "Suffix label next to the modifier key dropdown"
+	},
+	"areaSelectTextUrl": {
+		"message": "Rozpoznávání textových URL",
+		"description": "Label for the text URL recognition toggle"
+	},
+	"areaSelectTextUrlDesc": {
+		"message": "Při výběru extrahovat i prosté textové URL (nehypertextové odkazy)",
+		"description": "Description for the text URL recognition toggle"
+	},
+	"areaSelectWarnThreshold": {
+		"message": "Upozornění na dávkovou operaci",
+		"description": "Label for the batch operation alert threshold input"
+	},
+	"areaSelectWarnThresholdDesc": {
+		"message": "Zobrazit potvrzení při dávkovém zpracování více než tohoto počtu položek, 0 pro deaktivaci",
+		"description": "Description for the batch operation alert threshold"
+	},
+	"areaSelectDelay": {
+		"message": "Interval operace",
+		"description": "Label for the operation interval input"
+	},
+	"areaSelectDelayDesc": {
+		"message": "Zpoždění mezi každým otevřením v dávkových operacích (s)",
+		"description": "Description for the operation interval setting"
+	},
+	"areaSelectHint": {
+		"message": "Tažením vyberte odkazy",
+		"description": "Hint text shown in the area select overlay"
+	},
+	"areaSelectOpen": {
+		"message": "Otevřít %count% odkazů",
+		"description": "Button text in the area select toolbar to batch open selected links"
+	},
+	"areaSelectOpenOne": {
+		"message": "Otevřít %count% odkaz",
+		"description": "Button text to open a single selected link (singular form)"
+	},
+	"areaSelectCopy": {
+		"message": "Kopírovat odkazy",
+		"description": "Button text to copy all selected link URLs to clipboard"
+	},
+	"areaSelectCancel": {
+		"message": "Zrušit",
+		"description": "Button text to cancel area select mode"
+	},
+	"areaSelectConfirm": {
+		"message": "Potvrdit",
+		"description": "Button text to confirm opening many links"
+	},
+	"areaSelectWarnTitle": {
+		"message": "Otevřít mnoho odkazů?",
+		"description": "Title of the warning modal when opening many links"
+	},
+	"areaSelectWarnMessage": {
+		"message": "Chystáte se otevřít %count% odkazů. To by mohlo zpomalit váš prohlížeč. Pokračovat?",
+		"description": "Body text of the warning modal"
+	},
+	"start": {
+		"message": "Start",
+		"description": "Button label to start an action (e.g. area select)"
+	},
+	"actionMenuShowTabs": {
+		"message": "Přepnout kartu",
+		"description": "Show a context menu listing all open tabs in the current window"
+	},
+	"actionMenuRecentlyClosed": {
+		"message": "Nedávno zavřené karty",
+		"description": "Show a context menu listing recently closed tabs for quick restore"
+	},
+	"recentlyClosedMaxItems": {
+		"message": "Max. položek",
+		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
+	},
+	"actionCategoryContextMenu": {
+		"message": "Vyskakovací nabídka",
+		"description": "Action category: context menu actions"
+	},
+	"zoomStepMode": {
+		"message": "Režim lupy",
+		"description": "Label for zoom mode selector: browser steps vs fixed increment"
+	},
+	"zoomStepModeBrowser": {
+		"message": "Použít úrovně lupy prohlížeče",
+		"description": "Option: follow Chrome's built-in zoom steps (25%, 33%, 50%, …, 500%)"
+	},
+	"zoomStepModeFixed": {
+		"message": "Pevný krok",
+		"description": "Option: zoom in/out by a configurable fixed percentage each time"
+	},
+	"zoomDelta": {
+		"message": "Velikost kroku",
+		"description": "Label for the zoom increment/decrement slider"
+	},
+	"resetZoomLevel": {
+		"message": "Obnovit na",
+		"description": "Label for the target zoom level when resetting zoom"
+	},
+	"resetZoomDefault": {
+		"message": "Výchozí nastavení prohlížeče",
+		"description": "Option: reset zoom to the browser's default zoom setting"
+	},
+	"resetZoomCustom": {
+		"message": "Vlastní hodnota",
+		"description": "Option: reset zoom to a user-specified custom zoom level"
+	},
+	"actionMenuShowBookmarks": {
+		"message": "Zobrazit záložky",
+		"description": "Show a context menu listing bookmarks from a selected folder"
+	},
+	"bookmarkFolder": {
+		"message": "Složka",
+		"description": "Label for selecting which bookmark folder to display"
+	},
+	"bookmarkGrantPermission": {
+		"message": "Udělit oprávnění k záložkám",
+		"description": "Button label to request bookmarks permission"
+	},
+	"ctxMenuSortOrder": {
+		"message": "Seřadit podle",
+		"description": "Label for context menu sort order dropdown"
+	},
+	"ctxMenuSortDefault": {
+		"message": "Výchozí",
+		"description": "Sort option: original API/insertion order"
+	},
+	"ctxMenuSortDefaultDesc": {
+		"message": "Výchozí (obráceně)",
+		"description": "Sort option: reverse of original API order"
+	},
+	"ctxMenuSortDateAddedAsc": {
+		"message": "Datum přidání (od nejstarších)",
+		"description": "Sort option: by date added ascending"
+	},
+	"ctxMenuSortDateAddedDesc": {
+		"message": "Datum přidání (od nejnovějších)",
+		"description": "Sort option: by date added descending"
+	},
+	"ctxMenuSortNameAsc": {
+		"message": "Název (vzestupně)",
+		"description": "Sort option: alphabetical ascending"
+	},
+	"ctxMenuSortNameDesc": {
+		"message": "Název (sestupně)",
+		"description": "Sort option: alphabetical descending"
+	},
+	"ctxMenuSortLastAccessAsc": {
+		"message": "Poslední přístup (od nejstarších)",
+		"description": "Sort option: by last access time ascending"
+	},
+	"ctxMenuSortLastAccessDesc": {
+		"message": "Poslední přístup (od nejnovějších)",
+		"description": "Sort option: by last access time descending"
+	},
+	"ctxMenuMaxItems": {
+		"message": "Max. počet",
+		"description": "Label for maximum number of items in context menu"
+	},
+	"ctxMenuMaxItemsUnlimited": {
+		"message": "Neomezeno",
+		"description": "Placeholder shown when max items is 0 (no limit)"
+	},
+	"ctxMenuScrollToBottom": {
+		"message": "Posunout dolů",
+		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuTimeDisplay": {
+		"message": "Zobrazit čas",
+		"description": "Label for time display mode dropdown in context menu"
+	},
+	"ctxMenuTimeNone": {
+		"message": "Nezobrazovat",
+		"description": "Time display option: hide time column"
+	},
+	"ctxMenuTimeLastAccess": {
+		"message": "Poslední přístup",
+		"description": "Time display option: show last access time"
+	},
+	"ctxMenuTimeClosedTime": {
+		"message": "Čas zavření",
+		"description": "Time display option: show when the tab was closed"
+	},
+	"ctxMenuTimeDateAdded": {
+		"message": "Datum přidání",
+		"description": "Time display option: show when the bookmark was added"
 	}
 }

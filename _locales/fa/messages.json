@@ -35,9 +35,9 @@
 		"message": "همگام‌سازی تنظیمات از طریق حساب %browserName%",
 		"description": "Sync status description"
 	},
-	"synced": {
-		"message": "همگام شده",
-		"description": "Synced"
+	"saved": {
+		"message": "ذخیره شده",
+		"description": "Saved"
 	},
 	"author": {
 		"message": "سازنده",
@@ -66,6 +66,10 @@
 	"feedbackText": {
 		"message": "مشکل یا پیشنهادی دارید؟ لطفاً از طریق <a href='mailto:Service@52pojie.cn'>ایمیل</a>، <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> یا <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>انجمن</a> به ما اطلاع دهید. ما در اسرع وقت آن را بهبود خواهیم داد!",
 		"description": "Feedback text"
+	},
+	"feedbackTextChrome": {
+		"message": "مشکل یا پیشنهادی دارید؟ لطفاً از طریق <a href='https://chromewebstore.google.com/detail/fnldhkfidchnjiokpoemdhoejmaojkgp/support' target='_blank'>پشتیبانی فروشگاه وب Chrome</a>، <a href='mailto:Service@52pojie.cn'>ایمیل</a>، <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> یا <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>انجمن</a> به ما اطلاع دهید. ما در اسرع وقت آن را بهبود خواهیم داد!",
+		"description": "Feedback text for Chrome browser"
 	},
 	"supportAndFeedback": {
 		"message": "پشتیبانی و بازخورد",
@@ -125,11 +129,11 @@
 	},
 	"btnSide1Mouse": {
 		"message": "دکمه کناری (عقب)",
-		"description": "Mouse button 4 — the side button typically used for navigating back"
+		"description": "Mouse button 4 - the side button typically used for navigating back"
 	},
 	"btnSide2Mouse": {
 		"message": "دکمه کناری (جلو)",
-		"description": "Mouse button 5 — the side button typically used for navigating forward"
+		"description": "Mouse button 5 - the side button typically used for navigating forward"
 	},
 	"btnPenRight": {
 		"message": "کلیک راست قلم",
@@ -195,6 +199,54 @@
 		"message": "سایه",
 		"description": "HUD shadow toggle"
 	},
+	"customCss": {
+		"message": "CSS سفارشی",
+		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
+	},
+	"customCssDesc": {
+		"message": "CSS سفارشی را برای تنظیم رابط کاربری خود FlowMouse تنظیم کنید",
+		"description": "Description for the Custom CSS advanced setting"
+	},
+	"customCssConfigure": {
+		"message": "پیکربندی",
+		"description": "Button label to open the Custom CSS editor dialog when no CSS is set"
+	},
+	"customCssEdit": {
+		"message": "ویرایش",
+		"description": "Button label to open the Custom CSS editor dialog when CSS is already set"
+	},
+	"customCssEditorTitle": {
+		"message": "ویرایشگر CSS سفارشی",
+		"description": "Title of the dedicated custom CSS editor page"
+	},
+	"customCssEditorHint": {
+		"message": "سبک‌ها در هر Shadow DOM که FlowMouse ایجاد می‌کند تزریق می‌شوند. برای ذخیره Ctrl+S را فشار دهید.",
+		"description": "Hint shown above the editor textarea."
+	},
+	"customCssEditorPlaceholder": {
+		"message": "/* کد CSS سفارشی خود را اینجا بنویسید… */",
+		"description": "Placeholder inside the Custom CSS editor textarea"
+	},
+	"customCssEditorInsertSnippet": {
+		"message": "مثال",
+		"description": "Button to append an example/starter CSS snippet to the editor"
+	},
+	"customCssEditorRevert": {
+		"message": "لغو تغییرات",
+		"description": "Button that reverts the editor content back to the last saved value"
+	},
+	"customCssEditorSave": {
+		"message": "ذخیره",
+		"description": "Save button in the Custom CSS editor"
+	},
+	"customCssEditorSaved": {
+		"message": "ذخیره شد",
+		"description": "Status message shown briefly after the user saves the custom CSS"
+	},
+	"customCssEditorDiscardConfirm": {
+		"message": "آیا می‌خواهید تغییرات ذخیره‌نشده خود را لغو کنید و به آخرین CSS ذخیره‌شده برگردید؟",
+		"description": "Confirmation dialog shown before reverting unsaved edits"
+	},
 	"text": {
 		"message": "متن",
 		"description": "Text"
@@ -255,6 +307,14 @@
 		"message": "متن انتخاب شده را برای جستجو بکشید",
 		"description": "Drag selected text to search"
 	},
+	"textDragIgnoreInput": {
+		"message": "غیرفعال کردن در فیلدهای ورودی",
+		"description": "Option to disable text drag inside input boxes and textareas"
+	},
+	"textDragIgnoreInputDesc": {
+		"message": "از کشیدن متن در نواحی قابل ویرایش مانند فیلدهای ورودی و ویرایشگرهای متن جلوگیری شود",
+		"description": "Description for text drag ignore input option"
+	},
 	"searchEngine": {
 		"message": "موتور جستجو",
 		"description": "Search engine"
@@ -267,6 +327,10 @@
 		"message": "آدرس سفارشی، از %s برای عبارت جستجو استفاده کنید",
 		"description": "Custom URL placeholder"
 	},
+	"customUrlPlaceholderHint": {
+		"message": "باید شامل پروتکل باشد (مانند https://). متغیرهای قابل استفاده: %placeholders%. برای نادیده گرفتن کدگذاری URL عبارت raw: را اضافه کنید، مانند: %example%",
+		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
+	},
 	"urlPlaceholderText": {
 		"message": "%s=کلمه کلیدی",
 		"description": "Placeholder for text drag custom URL"
@@ -274,6 +338,14 @@
 	"urlPlaceholderImage": {
 		"message": "%s=آدرس تصویر",
 		"description": "Placeholder for image drag custom URL"
+	},
+	"searchEngine_google_translate": {
+		"message": "مترجم گوگل",
+		"description": "Google Translate search engine"
+	},
+	"searchEngine_bing_translate": {
+		"message": "مترجم Bing",
+		"description": "Bing Translate search engine"
 	},
 	"searchEngine_baidu": {
 		"message": "Baidu",
@@ -367,8 +439,16 @@
 		"message": "بازنشانی",
 		"description": "Reset to default"
 	},
+	"duplicate": {
+		"message": "تکثیر",
+		"description": "Generic duplicate button tooltip"
+	},
+	"delete": {
+		"message": "حذف",
+		"description": "Generic delete button tooltip"
+	},
 	"autoSaved": {
-		"message": "✓ خودکار ذخیره شد",
+		"message": "خودکار ذخیره شد",
 		"description": "Auto-saved message"
 	},
 	"saveFailure": {
@@ -663,6 +743,10 @@
 		"message": "کپی عنوان صفحه",
 		"description": "Copy page title"
 	},
+	"actionCopyTitleAndUrl": {
+		"message": "کپی عنوان صفحه و نشانی وب",
+		"description": "Copy page title and URL"
+	},
 	"actionOpenDownloads": {
 		"message": "باز کردن دانلودها",
 		"description": "Open downloads page"
@@ -674,6 +758,10 @@
 	"actionOpenExtensions": {
 		"message": "باز کردن افزونه‌ها",
 		"description": "Open extensions page"
+	},
+	"actionSaveAsMhtml": {
+		"message": "ذخیره به عنوان MHTML",
+		"description": "Save current page as MHTML file"
 	},
 	"actionPrintPage": {
 		"message": "چاپ صفحه",
@@ -694,6 +782,14 @@
 	"actionTogglePinTab": {
 		"message": "سنجاق/برداشتن سنجاق تب جاری",
 		"description": "Toggle pin current tab"
+	},
+	"actionMoveTabToNewWindow": {
+		"message": "انتقال برگه به پنجره جدید",
+		"description": "Move current tab to a new window"
+	},
+	"actionSearchClipboard": {
+		"message": "جستجو از کلیپ‌بورد",
+		"description": "Search clipboard text using a search engine"
 	},
 	"showTrailOrigin": {
 		"message": "نمایش نقطه شروع",
@@ -731,6 +827,10 @@
 		"message": "سایر تنظیمات",
 		"description": "Section title for other/miscellaneous settings"
 	},
+	"styleSettings": {
+		"message": "ظاهر",
+		"description": "Section title for style/appearance settings (trail, HUD, etc.)"
+	},
 	"show": {
 		"message": "نمایش",
 		"description": "Show navigation menu"
@@ -760,7 +860,7 @@
 		"description": "Clear button"
 	},
 	"gestureAdded": {
-		"message": "✓ ژست افزوده شد",
+		"message": "ژست افزوده شد",
 		"description": "Gesture added success message"
 	},
 	"gestureRecorderTitle": {
@@ -816,16 +916,16 @@
 		"description": "Delete gesture confirmation"
 	},
 	"gestureDeleted": {
-		"message": "✓ ژست حذف شد",
+		"message": "ژست حذف شد",
 		"description": "Gesture deleted success message"
 	},
 	"enterCustomUrl": {
-		"message": "آدرس را وارد کنید (پیشنهاد می‌شود پروتکل را وارد کنید، مثلاً https:// یا chrome://):",
+		"message": "آدرس",
 		"description": "Prompt for custom URL input"
 	},
-	"copyUrlIncludeTitle": {
-		"message": "کپی عنوان صفحه نیز",
-		"description": "Checkbox label for including page title when copying URL"
+	"copyAsMarkdown": {
+		"message": "کپی به عنوان Markdown",
+		"description": "Checkbox label for copying as markdown format"
 	},
 	"invalidUrl": {
 		"message": "لطفاً یک آدرس معتبر وارد کنید (شروع با http:// یا https://)",
@@ -956,27 +1056,27 @@
 		"description": "Features"
 	},
 	"aboutFeature1": {
-		"message": "🎯 ۱۶ ژست پیش‌فرض + ژست‌های سفارشی",
+		"message": "۱۶ ژست پیش‌فرض + ژست‌های سفارشی",
 		"description": "Feature 1"
 	},
 	"aboutFeature2": {
-		"message": "🎨 بازخورد تصویری مسیر ژست",
+		"message": "بازخورد تصویری مسیر ژست",
 		"description": "Feature 2"
 	},
 	"aboutFeature3": {
-		"message": "🔍 کشیدن و رها کردن متن/تصویر/لینک (سوپر دراگ)",
+		"message": "کشیدن و رها کردن متن/تصویر/لینک (سوپر دراگ)",
 		"description": "Feature 3"
 	},
 	"aboutFeature4": {
-		"message": "🚫 لیست سیاه وب‌سایت‌ها",
+		"message": "لیست سیاه وب‌سایت‌ها",
 		"description": "Feature 4"
 	},
 	"aboutFeature5": {
-		"message": "☁️ همگام‌سازی حساب %browserName%",
+		"message": "همگام‌سازی حساب %browserName%",
 		"description": "Feature 5"
 	},
 	"aboutFeature6": {
-		"message": "🔒 اجرای کاملاً محلی، بدون شبکه (بجز همگام‌سازی)",
+		"message": "اجرای کاملاً محلی، بدون شبکه (بجز همگام‌سازی)",
 		"description": "Feature 6"
 	},
 	"tutorial": {
@@ -988,15 +1088,15 @@
 		"description": "Learn more link"
 	},
 	"badgeNoNetwork": {
-		"message": "🔒 بدون شبکه (بجز همگام‌سازی)",
+		"message": "بدون شبکه (بجز همگام‌سازی)",
 		"description": "No network privacy badge"
 	},
 	"badgeNoData": {
-		"message": "🚫 بدون جمع‌آوری داده",
+		"message": "بدون جمع‌آوری داده",
 		"description": "No data collection badge"
 	},
 	"badgeLocalRun": {
-		"message": "✅ اجرای محلی",
+		"message": "اجرای محلی",
 		"description": "Local run badge"
 	},
 	"newTabSettings": {
@@ -1091,6 +1191,10 @@
 		"message": "📋 کپی متن لینک",
 		"description": "Copy link text"
 	},
+	"dragActionCopyLinkAndText": {
+		"message": "📋 کپی متن و پیوند",
+		"description": "Copy link text and URL"
+	},
 	"dragActionSaveImage": {
 		"message": "💾 ذخیره تصویر",
 		"description": "Save image"
@@ -1111,6 +1215,10 @@
 		"message": "🔍 جستجوی سفارشی",
 		"description": "Custom search"
 	},
+	"dragActionSendCustomEvent": {
+		"message": "ارسال رویداد سفارشی",
+		"description": "Send custom DOM event on drag gesture"
+	},
 	"reducedMotionWarning": {
 		"message": "انیمیشن سیستم %OS% غیرفعال است، انیمیشن پیمایش ممکن است به درستی کار نکند. می‌توانید انیمیشن را در تنظیمات سیستم %OS% فعال کنید.",
 		"description": "Warning message when system reduced motion is enabled"
@@ -1119,9 +1227,29 @@
 		"message": "تشخیص خودکار لینک",
 		"description": "Auto detect URL checkbox label"
 	},
+	"autoDetectUrlTooltip": {
+		"message": "اگر متن در قالب یک پیوند است، به جای جستجو، آن را مستقیماً باز کنید",
+		"description": "Tooltip for the auto detect URL checkbox"
+	},
 	"preferLink": {
 		"message": "ترجیح لینک",
 		"description": "Prefer link checkbox label"
+	},
+	"customHudName": {
+		"message": "نام",
+		"description": "Placeholder for custom action name shown on HUD"
+	},
+	"customHudNameTooltip": {
+		"message": "نام سفارشی که هنگام انجام ژست روی صفحه نمایش داده می‌شود",
+		"description": "Tooltip for the custom HUD name field"
+	},
+	"actionNoOptions": {
+		"message": "این دستور به هیچ تنظیمی نیاز ندارد.",
+		"description": "Placeholder shown in the action picker's detail panel when the selected action has no configurable settings"
+	},
+	"actionRequiredBadge": {
+		"message": "الزامی",
+		"description": "Badge shown next to fields that must be filled in (e.g., URL for Open URL)"
 	},
 	"menuNeedRefresh": {
 		"message": "FlowMouse بارگذاری نشده، کلیک برای بازخوانی",
@@ -1376,11 +1504,11 @@
 		"description": "Permission popup description for downloads"
 	},
 	"permissionDownloadsPageCaptureTitle": {
-		"message": "ذخیره تصویر",
+		"message": "ذخیره محتوا",
 		"description": "Permission popup title for downloads and page capture"
 	},
 	"permissionDownloadsPageCaptureDesc": {
-		"message": "برای ذخیره تصاویر، FlowMouse به دسترسی به صفحات و دانلودها نیاز دارد.",
+		"message": "برای ذخیره محتوا، FlowMouse به دسترسی به صفحات و دانلودها نیاز دارد.",
 		"description": "Permission popup description for downloads and page capture"
 	},
 	"permissionIncognitoTitle": {
@@ -1390,6 +1518,14 @@
 	"permissionIncognitoDesc": {
 		"message": "برای کار در پنجره‌های ناشناس، باید به صورت دستی گزینه «اجازه دادن در حالت ناشناس» را برای FlowMouse فعال کنید.",
 		"description": "Permission popup description for incognito"
+	},
+	"permissionClipboardReadTitle": {
+		"message": "خواندن کلیپ‌بورد",
+		"description": "Permission popup title for clipboard read"
+	},
+	"permissionClipboardReadDesc": {
+		"message": "برای جای‌گذاری محتوای کلیپ‌بورد، FlowMouse به دسترسی برای خواندن کلیپ‌بورد شما نیاز دارد.",
+		"description": "Permission popup description for clipboard read"
 	},
 	"openExtensionsSettings": {
 		"message": "باز کردن جزئیات افزونه",
@@ -1434,6 +1570,10 @@
 	"buttonOkay": {
 		"message": "تأیید",
 		"description": "Generic OK button"
+	},
+	"buttonConfirm": {
+		"message": "تأیید",
+		"description": "Generic Confirm button"
 	},
 	"buttonCancel": {
 		"message": "لغو",
@@ -1487,6 +1627,10 @@
 		"message": "در حالی که دکمه راست را نگه داشته‌اید، به پایین پیمایش کنید",
 		"description": "Wheel gesture: scroll down while holding right button"
 	},
+	"wheelGesture_wheelClickHoldingRight": {
+		"message": "در حالی که دکمه راست را نگه داشته‌اید، با دکمه وسط کلیک کنید",
+		"description": "Wheel gesture: wheel (middle) click while holding right button"
+	},
 	"specialGestures": {
 		"message": "حرکات ویژه",
 		"description": "Special gestures section title"
@@ -1507,32 +1651,68 @@
 		"message": "کلیک راست در حالی که دکمه چپ را نگه داشته‌اید",
 		"description": "Special gesture: right click while holding left button"
 	},
-	"actionChains": {
-		"message": "زنجیره‌های فرمان",
-		"description": "Action chains section title"
-	},
 	"actionChainsDesc": {
-		"message": "دنباله‌های فرمان قابل استفاده مجدد ایجاد کنید که یکی پس از دیگری اجرا می‌شوند",
+		"message": "از زنجیره‌های فرمان برای اجرای چندین فرمان به ترتیب استفاده کنید.",
 		"description": "Action chains section description"
 	},
 	"actionActionChain": {
 		"message": "زنجیره فرمان",
 		"description": "Action chain action name"
 	},
-	"actionCategoryChains": {
-		"message": "زنجیره‌های فرمان",
-		"description": "Action category: action chains"
+	"actionCustomMenu": {
+		"message": "منوی سفارشی",
+		"description": "Custom popup menu action name"
+	},
+	"customMenuDesc": {
+		"message": "ایجاد منوهای بازشوی سفارشی با چندین اقدام.",
+		"description": "Custom menu section description"
+	},
+	"addMenu": {
+		"message": "افزودن منو",
+		"description": "Add menu button"
+	},
+	"menuNamePlaceholder": {
+		"message": "منوی سفارشی",
+		"description": "Menu name input placeholder"
+	},
+	"menuItemCount": {
+		"message": "%count% مورد",
+		"description": "Item count for menus, e.g. '3 items'"
+	},
+	"menuItemCountOne": {
+		"message": "%count% مورد",
+		"description": "Item count for menus with exactly 1 item"
+	},
+	"addMenuItem": {
+		"message": "افزودن مورد",
+		"description": "Add menu item button"
+	},
+	"addMenuSeparator": {
+		"message": "افزودن جداکننده",
+		"description": "Add separator to menu button"
+	},
+	"emptyMenuItems": {
+		"message": "موردی افزوده نشده است. برای شروع روی «افزودن مورد» کلیک کنید.",
+		"description": "Empty menu items message"
+	},
+	"menuNotFound": {
+		"message": "(منو پیدا نشد)",
+		"description": "Menu not found label"
+	},
+	"deleteMenuConfirm": {
+		"message": "منوی \"%name%\" حذف شود؟",
+		"description": "Delete menu confirmation"
+	},
+	"menuItemNumber": {
+		"message": "مورد %n%",
+		"description": "Menu item number label"
 	},
 	"addChain": {
 		"message": "افزودن زنجیره",
 		"description": "Add chain button"
 	},
-	"addNewChain": {
-		"message": "ایجاد زنجیره جدید...",
-		"description": "Action item to navigate to chain editor and create a new chain"
-	},
 	"chainNamePlaceholder": {
-		"message": "زنجیره فرمان من",
+		"message": "زنجیره فرمان",
 		"description": "Chain name input placeholder"
 	},
 	"chainDelayUnit": {
@@ -1579,6 +1759,14 @@
 		"message": "شبیه‌سازی فشار کلید",
 		"description": "Action to simulate a keyboard key press on the page"
 	},
+	"actionPasteClipboard": {
+		"message": "چسباندن از بریده‌دان",
+		"description": "Action to paste clipboard text at the gesture start position"
+	},
+	"pasteClipboardHint": {
+		"message": "محتوای کلیپ‌بورد در قسمت ورودی در <b>موقعیت شروع اشاره</b> جای‌گذاری می‌شود.",
+		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
 	"simulateKeyPreset": {
 		"message": "کلید از پیش تنظیم‌شده",
 		"description": "Label for preset key dropdown in simulate key config"
@@ -1615,6 +1803,14 @@
 		"message": "فرمت JSON نامعتبر است",
 		"description": "Error message when event detail is not valid JSON"
 	},
+	"customEventIncludeGestureInfo": {
+		"message": "شامل کردن اطلاعات ژست در %code%",
+		"description": "Checkbox label for including gesture context in custom event detail. %code% = detail.gesture"
+	},
+	"customEventConfigureBtn": {
+		"message": "تنظیمات",
+		"description": "Label for the configure button of custom event action in drag gesture manager"
+	},
 	"customEventHint": {
 		"message": "%code% را در %window% ارسال می‌کند. برای یکپارچه‌سازی با اسکریپت‌های دیگر مفید است.",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
@@ -1630,5 +1826,233 @@
 	"chainStepCountOne": {
 		"message": "%count% مرحله",
 		"description": "Step count for unnamed chains with exactly 1 step"
+	},
+	"actionZoomIn": {
+		"message": "بزرگ‌نمایی",
+		"description": "Zoom in on the current page"
+	},
+	"actionZoomOut": {
+		"message": "کوچک‌نمایی",
+		"description": "Zoom out on the current page"
+	},
+	"actionResetZoom": {
+		"message": "بازنشانی بزرگ‌نمایی",
+		"description": "Reset page zoom to default or a specified level"
+	},
+	"actionViewPageSource": {
+		"message": "مشاهده منبع صفحه",
+		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionPauseGesture": {
+		"message": "توقف ژست‌ها تا تازه‌سازی",
+		"description": "Temporarily disable all gestures on the current tab until page refresh"
+	},
+	"actionAreaSelect": {
+		"message": "انتخاب ناحیه",
+		"description": "Enter area select mode to drag-select links on the page and batch open them"
+	},
+	"areaSelectTitle": {
+		"message": "انتخاب ناحیه",
+		"description": "Label for the area select row in the popup"
+	},
+	"areaSelectModifierKey": {
+		"message": "انتخاب سریع ناحیه",
+		"description": "Label for the modifier key dropdown in area select settings"
+	},
+	"areaSelectModifierKeyDesc": {
+		"message": "کلید اصلاح‌گر را نگه دارید، سپس کلیک چپ کرده و بکشید تا پیوندهای صفحه را برای عملیات دسته‌ای به سرعت انتخاب کنید",
+		"description": "Description for the modifier key setting"
+	},
+	"areaSelectDisabled": {
+		"message": "غیرفعال",
+		"description": "Disabled option for the area select modifier key dropdown"
+	},
+	"areaSelectMouseDrag": {
+		"message": "کشیدن ماوس",
+		"description": "Suffix label next to the modifier key dropdown"
+	},
+	"areaSelectTextUrl": {
+		"message": "تشخیص URL متنی",
+		"description": "Label for the text URL recognition toggle"
+	},
+	"areaSelectTextUrlDesc": {
+		"message": "هنگام انتخاب، همچنین آدرس های وب متنی ساده (غیر لینک دار) را استخراج کنید",
+		"description": "Description for the text URL recognition toggle"
+	},
+	"areaSelectWarnThreshold": {
+		"message": "هشدار عملیات دسته‌ای",
+		"description": "Label for the batch operation alert threshold input"
+	},
+	"areaSelectWarnThresholdDesc": {
+		"message": "نمایش تأیید هنگام انجام عملیات دسته‌ای روی بیش از این تعداد مورد، 0 برای غیرفعال کردن",
+		"description": "Description for the batch operation alert threshold"
+	},
+	"areaSelectDelay": {
+		"message": "فاصله عملیات",
+		"description": "Label for the operation interval input"
+	},
+	"areaSelectDelayDesc": {
+		"message": "تاخیر بین هر بار باز کردن در عملیات دسته‌ای (ثانیه)",
+		"description": "Description for the operation interval setting"
+	},
+	"areaSelectHint": {
+		"message": "برای انتخاب پیوندها بکشید",
+		"description": "Hint text shown in the area select overlay"
+	},
+	"areaSelectOpen": {
+		"message": "باز کردن %count% پیوند",
+		"description": "Button text in the area select toolbar to batch open selected links"
+	},
+	"areaSelectOpenOne": {
+		"message": "باز کردن %count% پیوند",
+		"description": "Button text to open a single selected link (singular form)"
+	},
+	"areaSelectCopy": {
+		"message": "کپی کردن پیوندها",
+		"description": "Button text to copy all selected link URLs to clipboard"
+	},
+	"areaSelectCancel": {
+		"message": "لغو",
+		"description": "Button text to cancel area select mode"
+	},
+	"areaSelectConfirm": {
+		"message": "تأیید",
+		"description": "Button text to confirm opening many links"
+	},
+	"areaSelectWarnTitle": {
+		"message": "باز کردن پیوندهای زیاد؟",
+		"description": "Title of the warning modal when opening many links"
+	},
+	"areaSelectWarnMessage": {
+		"message": "شما در حال باز کردن %count% پیوند هستید. این ممکن است سرعت مرورگر شما را کاهش دهد. ادامه می‌دهید؟",
+		"description": "Body text of the warning modal"
+	},
+	"start": {
+		"message": "شروع",
+		"description": "Button label to start an action (e.g. area select)"
+	},
+	"actionMenuShowTabs": {
+		"message": "تغییر برگه",
+		"description": "Show a context menu listing all open tabs in the current window"
+	},
+	"actionMenuRecentlyClosed": {
+		"message": "برگه‌های اخیراً بسته شده",
+		"description": "Show a context menu listing recently closed tabs for quick restore"
+	},
+	"recentlyClosedMaxItems": {
+		"message": "حداکثر موارد",
+		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
+	},
+	"actionCategoryContextMenu": {
+		"message": "منوی پاپ‌آپ",
+		"description": "Action category: context menu actions"
+	},
+	"zoomStepMode": {
+		"message": "حالت بزرگ‌نمایی",
+		"description": "Label for zoom mode selector: browser steps vs fixed increment"
+	},
+	"zoomStepModeBrowser": {
+		"message": "استفاده از سطوح بزرگ‌نمایی مرورگر",
+		"description": "Option: follow Chrome's built-in zoom steps (25%, 33%, 50%, …, 500%)"
+	},
+	"zoomStepModeFixed": {
+		"message": "گام ثابت",
+		"description": "Option: zoom in/out by a configurable fixed percentage each time"
+	},
+	"zoomDelta": {
+		"message": "اندازه گام",
+		"description": "Label for the zoom increment/decrement slider"
+	},
+	"resetZoomLevel": {
+		"message": "بازنشانی به",
+		"description": "Label for the target zoom level when resetting zoom"
+	},
+	"resetZoomDefault": {
+		"message": "پیش‌فرض مرورگر",
+		"description": "Option: reset zoom to the browser's default zoom setting"
+	},
+	"resetZoomCustom": {
+		"message": "مقدار سفارشی",
+		"description": "Option: reset zoom to a user-specified custom zoom level"
+	},
+	"actionMenuShowBookmarks": {
+		"message": "نمایش نشانک‌ها",
+		"description": "Show a context menu listing bookmarks from a selected folder"
+	},
+	"bookmarkFolder": {
+		"message": "پوشه",
+		"description": "Label for selecting which bookmark folder to display"
+	},
+	"bookmarkGrantPermission": {
+		"message": "اعطای مجوز نشانک‌ها",
+		"description": "Button label to request bookmarks permission"
+	},
+	"ctxMenuSortOrder": {
+		"message": "مرتب‌سازی بر اساس",
+		"description": "Label for context menu sort order dropdown"
+	},
+	"ctxMenuSortDefault": {
+		"message": "پیش‌فرض",
+		"description": "Sort option: original API/insertion order"
+	},
+	"ctxMenuSortDefaultDesc": {
+		"message": "پیش‌فرض (معکوس)",
+		"description": "Sort option: reverse of original API order"
+	},
+	"ctxMenuSortDateAddedAsc": {
+		"message": "تاریخ افزودن (قدیمی‌ترین اول)",
+		"description": "Sort option: by date added ascending"
+	},
+	"ctxMenuSortDateAddedDesc": {
+		"message": "تاریخ افزودن (جدیدترین اول)",
+		"description": "Sort option: by date added descending"
+	},
+	"ctxMenuSortNameAsc": {
+		"message": "نام (صعودی)",
+		"description": "Sort option: alphabetical ascending"
+	},
+	"ctxMenuSortNameDesc": {
+		"message": "نام (نزولی)",
+		"description": "Sort option: alphabetical descending"
+	},
+	"ctxMenuSortLastAccessAsc": {
+		"message": "آخرین بازدید (قدیمی‌ترین اول)",
+		"description": "Sort option: by last access time ascending"
+	},
+	"ctxMenuSortLastAccessDesc": {
+		"message": "آخرین بازدید (جدیدترین اول)",
+		"description": "Sort option: by last access time descending"
+	},
+	"ctxMenuMaxItems": {
+		"message": "حداکثر تعداد",
+		"description": "Label for maximum number of items in context menu"
+	},
+	"ctxMenuMaxItemsUnlimited": {
+		"message": "نامحدود",
+		"description": "Placeholder shown when max items is 0 (no limit)"
+	},
+	"ctxMenuScrollToBottom": {
+		"message": "پیمایش به پایین",
+		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuTimeDisplay": {
+		"message": "نمایش زمان",
+		"description": "Label for time display mode dropdown in context menu"
+	},
+	"ctxMenuTimeNone": {
+		"message": "نشان داده نشود",
+		"description": "Time display option: hide time column"
+	},
+	"ctxMenuTimeLastAccess": {
+		"message": "آخرین دسترسی",
+		"description": "Time display option: show last access time"
+	},
+	"ctxMenuTimeClosedTime": {
+		"message": "زمان بسته‌شدن",
+		"description": "Time display option: show when the tab was closed"
+	},
+	"ctxMenuTimeDateAdded": {
+		"message": "تاریخ افزودن",
+		"description": "Time display option: show when the bookmark was added"
 	}
 }

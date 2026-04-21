@@ -35,9 +35,9 @@
 		"message": "Synchronizacja ustawień przez konto %browserName%",
 		"description": "Sync status description"
 	},
-	"synced": {
-		"message": "Zsynchronizowano",
-		"description": "Synced"
+	"saved": {
+		"message": "Zapisano",
+		"description": "Saved"
 	},
 	"author": {
 		"message": "Autor",
@@ -66,6 +66,10 @@
 	"feedbackText": {
 		"message": "Problemy lub sugestie? Zgłoś je przez <a href='mailto:Service@52pojie.cn'>E-mail</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> lub <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Forum</a>. Ulepszymy to tak szybko, jak to możliwe!",
 		"description": "Feedback text"
+	},
+	"feedbackTextChrome": {
+		"message": "Problemy lub sugestie? Zgłoś je przez <a href='https://chromewebstore.google.com/detail/fnldhkfidchnjiokpoemdhoejmaojkgp/support' target='_blank'>pomoc techniczną Chrome Web Store</a>, <a href='mailto:Service@52pojie.cn'>E-mail</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> lub <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Forum</a>. Ulepszymy to tak szybko, jak to możliwe!",
+		"description": "Feedback text for Chrome browser"
 	},
 	"supportAndFeedback": {
 		"message": "Wsparcie i opinie",
@@ -125,11 +129,11 @@
 	},
 	"btnSide1Mouse": {
 		"message": "Przycisk boczny (Wstecz)",
-		"description": "Mouse button 4 — the side button typically used for navigating back"
+		"description": "Mouse button 4 - the side button typically used for navigating back"
 	},
 	"btnSide2Mouse": {
 		"message": "Przycisk boczny (Dalej)",
-		"description": "Mouse button 5 — the side button typically used for navigating forward"
+		"description": "Mouse button 5 - the side button typically used for navigating forward"
 	},
 	"btnPenRight": {
 		"message": "Prawy przycisk rysika",
@@ -195,6 +199,54 @@
 		"message": "Cień",
 		"description": "HUD shadow toggle"
 	},
+	"customCss": {
+		"message": "Niestandardowy CSS",
+		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
+	},
+	"customCssDesc": {
+		"message": "Ustaw niestandardowy CSS, aby dostosować własny interfejs użytkownika FlowMouse",
+		"description": "Description for the Custom CSS advanced setting"
+	},
+	"customCssConfigure": {
+		"message": "Konfiguruj",
+		"description": "Button label to open the Custom CSS editor dialog when no CSS is set"
+	},
+	"customCssEdit": {
+		"message": "Edytuj",
+		"description": "Button label to open the Custom CSS editor dialog when CSS is already set"
+	},
+	"customCssEditorTitle": {
+		"message": "Edytor niestandardowego CSS",
+		"description": "Title of the dedicated custom CSS editor page"
+	},
+	"customCssEditorHint": {
+		"message": "Style są wstrzykiwane do każdego Shadow DOM tworzonego przez FlowMouse. Naciśnij Ctrl+S, aby zapisać.",
+		"description": "Hint shown above the editor textarea."
+	},
+	"customCssEditorPlaceholder": {
+		"message": "/* Wpisz swój niestandardowy CSS tutaj… */",
+		"description": "Placeholder inside the Custom CSS editor textarea"
+	},
+	"customCssEditorInsertSnippet": {
+		"message": "Przykład",
+		"description": "Button to append an example/starter CSS snippet to the editor"
+	},
+	"customCssEditorRevert": {
+		"message": "Cofnij",
+		"description": "Button that reverts the editor content back to the last saved value"
+	},
+	"customCssEditorSave": {
+		"message": "Zapisz",
+		"description": "Save button in the Custom CSS editor"
+	},
+	"customCssEditorSaved": {
+		"message": "Zapisano",
+		"description": "Status message shown briefly after the user saves the custom CSS"
+	},
+	"customCssEditorDiscardConfirm": {
+		"message": "Odrzucić niezapisane zmiany i przywrócić ostatnio zapisany CSS?",
+		"description": "Confirmation dialog shown before reverting unsaved edits"
+	},
 	"text": {
 		"message": "Tekst",
 		"description": "Text"
@@ -255,6 +307,14 @@
 		"message": "Przeciągnij zaznaczony tekst, aby wyszukać",
 		"description": "Drag selected text to search"
 	},
+	"textDragIgnoreInput": {
+		"message": "Wyłącz w polach wprowadzania",
+		"description": "Option to disable text drag inside input boxes and textareas"
+	},
+	"textDragIgnoreInputDesc": {
+		"message": "Nie uruchamiaj przeciągania tekstu w edytowalnych obszarach, takich jak pola tekstowe i edytory tekstu",
+		"description": "Description for text drag ignore input option"
+	},
 	"searchEngine": {
 		"message": "Wyszukiwarka",
 		"description": "Search engine"
@@ -267,6 +327,10 @@
 		"message": "Niestandardowy URL, użyj %s dla wyszukiwanego hasła",
 		"description": "Custom URL placeholder"
 	},
+	"customUrlPlaceholderHint": {
+		"message": "Musi zawierać protokół (np. https://). Dostępne zmienne: %placeholders%. Dodaj :raw, aby pominąć kodowanie URL, np. %example%",
+		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
+	},
 	"urlPlaceholderText": {
 		"message": "%s=Słowo kluczowe",
 		"description": "Placeholder for text drag custom URL"
@@ -274,6 +338,14 @@
 	"urlPlaceholderImage": {
 		"message": "%s=URL obrazu",
 		"description": "Placeholder for image drag custom URL"
+	},
+	"searchEngine_google_translate": {
+		"message": "Tłumacz Google",
+		"description": "Google Translate search engine"
+	},
+	"searchEngine_bing_translate": {
+		"message": "Tłumacz Bing",
+		"description": "Bing Translate search engine"
 	},
 	"searchEngine_baidu": {
 		"message": "Baidu",
@@ -367,8 +439,16 @@
 		"message": "Resetuj",
 		"description": "Reset to default"
 	},
+	"duplicate": {
+		"message": "Duplikuj",
+		"description": "Generic duplicate button tooltip"
+	},
+	"delete": {
+		"message": "Usuń",
+		"description": "Generic delete button tooltip"
+	},
 	"autoSaved": {
-		"message": "✓ Zapisano automatycznie",
+		"message": "Zapisano automatycznie",
 		"description": "Auto-saved message"
 	},
 	"saveFailure": {
@@ -663,6 +743,10 @@
 		"message": "Kopiuj tytuł strony",
 		"description": "Copy page title"
 	},
+	"actionCopyTitleAndUrl": {
+		"message": "Kopiuj tytuł strony i adres URL",
+		"description": "Copy page title and URL"
+	},
 	"actionOpenDownloads": {
 		"message": "Otwórz Pobrane",
 		"description": "Open downloads page"
@@ -674,6 +758,10 @@
 	"actionOpenExtensions": {
 		"message": "Otwórz Rozszerzenia",
 		"description": "Open extensions page"
+	},
+	"actionSaveAsMhtml": {
+		"message": "Zapisz jako MHTML",
+		"description": "Save current page as MHTML file"
 	},
 	"actionPrintPage": {
 		"message": "Drukuj stronę",
@@ -694,6 +782,14 @@
 	"actionTogglePinTab": {
 		"message": "Przypnij/Odepnij bieżącą kartę",
 		"description": "Toggle pin current tab"
+	},
+	"actionMoveTabToNewWindow": {
+		"message": "Przenieś kartę do nowego okna",
+		"description": "Move current tab to a new window"
+	},
+	"actionSearchClipboard": {
+		"message": "Szukaj ze schowka",
+		"description": "Search clipboard text using a search engine"
 	},
 	"showTrailOrigin": {
 		"message": "Pokaż punkt początkowy",
@@ -731,6 +827,10 @@
 		"message": "Inne ustawienia",
 		"description": "Section title for other/miscellaneous settings"
 	},
+	"styleSettings": {
+		"message": "Wygląd",
+		"description": "Section title for style/appearance settings (trail, HUD, etc.)"
+	},
 	"show": {
 		"message": "Pokaż",
 		"description": "Show navigation menu"
@@ -760,7 +860,7 @@
 		"description": "Clear button"
 	},
 	"gestureAdded": {
-		"message": "✓ Dodano gest",
+		"message": "Dodano gest",
 		"description": "Gesture added success message"
 	},
 	"gestureRecorderTitle": {
@@ -816,16 +916,16 @@
 		"description": "Delete gesture confirmation"
 	},
 	"gestureDeleted": {
-		"message": "✓ Usunięto gest",
+		"message": "Usunięto gest",
 		"description": "Gesture deleted success message"
 	},
 	"enterCustomUrl": {
-		"message": "Wpisz URL (sugerowane dodanie protokołu, np. https://, chrome:// itp.):",
+		"message": "URL",
 		"description": "Prompt for custom URL input"
 	},
-	"copyUrlIncludeTitle": {
-		"message": "Skopiuj również tytuł strony",
-		"description": "Checkbox label for including page title when copying URL"
+	"copyAsMarkdown": {
+		"message": "Kopiuj jako Markdown",
+		"description": "Checkbox label for copying as markdown format"
 	},
 	"invalidUrl": {
 		"message": "Proszę wprowadzić prawidłowy URL (zaczynający się od http:// lub https://)",
@@ -956,27 +1056,27 @@
 		"description": "Features"
 	},
 	"aboutFeature1": {
-		"message": "🎯 16 domyślnych gestów + gesty niestandardowe",
+		"message": "16 domyślnych gestów + gesty niestandardowe",
 		"description": "Feature 1"
 	},
 	"aboutFeature2": {
-		"message": "🎨 Wizualizacja śladu",
+		"message": "Wizualizacja śladu",
 		"description": "Feature 2"
 	},
 	"aboutFeature3": {
-		"message": "🔍 Super przeciąganie tekstu/obrazu/linku",
+		"message": "Super przeciąganie tekstu/obrazu/linku",
 		"description": "Feature 3"
 	},
 	"aboutFeature4": {
-		"message": "🚫 Czarna lista stron",
+		"message": "Czarna lista stron",
 		"description": "Feature 4"
 	},
 	"aboutFeature5": {
-		"message": "☁️ Synchronizacja konta %browserName%",
+		"message": "Synchronizacja konta %browserName%",
 		"description": "Feature 5"
 	},
 	"aboutFeature6": {
-		"message": "🔒 Działa lokalnie, brak sieci poza synchronizacją",
+		"message": "Działa lokalnie, brak sieci poza synchronizacją",
 		"description": "Feature 6"
 	},
 	"tutorial": {
@@ -988,15 +1088,15 @@
 		"description": "Learn more link"
 	},
 	"badgeNoNetwork": {
-		"message": "🔒 Brak sieci poza synchronizacją",
+		"message": "Brak sieci poza synchronizacją",
 		"description": "No network privacy badge"
 	},
 	"badgeNoData": {
-		"message": "🚫 Brak zbierania danych",
+		"message": "Brak zbierania danych",
 		"description": "No data collection badge"
 	},
 	"badgeLocalRun": {
-		"message": "✅ Działa lokalnie",
+		"message": "Działa lokalnie",
 		"description": "Local run badge"
 	},
 	"newTabSettings": {
@@ -1091,6 +1191,10 @@
 		"message": "📋 Kopiuj tekst linku",
 		"description": "Copy link text"
 	},
+	"dragActionCopyLinkAndText": {
+		"message": "📋 Kopiuj tekst i link",
+		"description": "Copy link text and URL"
+	},
 	"dragActionSaveImage": {
 		"message": "💾 Zapisz obraz",
 		"description": "Save image"
@@ -1111,6 +1215,10 @@
 		"message": "🔍 Wyszukiwanie niestandardowe",
 		"description": "Custom search"
 	},
+	"dragActionSendCustomEvent": {
+		"message": "Wyślij zdarzenie niestandardowe",
+		"description": "Send custom DOM event on drag gesture"
+	},
 	"reducedMotionWarning": {
 		"message": "Animacje systemowe %OS% są wyłączone, animacje przewijania mogą nie działać poprawnie. Możesz włączyć animacje w ustawieniach systemu %OS%.",
 		"description": "Warning message when system reduced motion is enabled"
@@ -1119,9 +1227,29 @@
 		"message": "Automatyczne wykrywanie URL",
 		"description": "Auto detect URL checkbox label"
 	},
+	"autoDetectUrlTooltip": {
+		"message": "Jeśli tekst ma format linku, otwórz go bezpośrednio zamiast wyszukiwać",
+		"description": "Tooltip for the auto detect URL checkbox"
+	},
 	"preferLink": {
 		"message": "Preferuj link",
 		"description": "Prefer link checkbox label"
+	},
+	"customHudName": {
+		"message": "Nazwa",
+		"description": "Placeholder for custom action name shown on HUD"
+	},
+	"customHudNameTooltip": {
+		"message": "Niestandardowa nazwa wyświetlana na ekranie podczas wykonywania gestu",
+		"description": "Tooltip for the custom HUD name field"
+	},
+	"actionNoOptions": {
+		"message": "To polecenie nie wymaga żadnych ustawień.",
+		"description": "Placeholder shown in the action picker's detail panel when the selected action has no configurable settings"
+	},
+	"actionRequiredBadge": {
+		"message": "Wymagane",
+		"description": "Badge shown next to fields that must be filled in (e.g., URL for Open URL)"
 	},
 	"menuNeedRefresh": {
 		"message": "FlowMouse nie załadowany, kliknij aby odświeżyć",
@@ -1376,11 +1504,11 @@
 		"description": "Permission popup description for downloads"
 	},
 	"permissionDownloadsPageCaptureTitle": {
-		"message": "Zapisz obraz",
+		"message": "Zapisz zawartość",
 		"description": "Permission popup title for downloads and page capture"
 	},
 	"permissionDownloadsPageCaptureDesc": {
-		"message": "Aby zapisywać obrazy, FlowMouse potrzebuje dostępu do stron i pobranych plików.",
+		"message": "Aby zapisywać zawartość, FlowMouse potrzebuje dostępu do stron i pobranych plików.",
 		"description": "Permission popup description for downloads and page capture"
 	},
 	"permissionIncognitoTitle": {
@@ -1390,6 +1518,14 @@
 	"permissionIncognitoDesc": {
 		"message": "Aby działać w oknach incognito, musisz ręcznie włączyć „Zezwalaj w trybie incognito” dla FlowMouse.",
 		"description": "Permission popup description for incognito"
+	},
+	"permissionClipboardReadTitle": {
+		"message": "Odczyt ze schowka",
+		"description": "Permission popup title for clipboard read"
+	},
+	"permissionClipboardReadDesc": {
+		"message": "Aby wkleić zawartość schowka, FlowMouse potrzebuje uprawnień do odczytu Twojego schowka.",
+		"description": "Permission popup description for clipboard read"
 	},
 	"openExtensionsSettings": {
 		"message": "Otwórz szczegóły rozszerzenia",
@@ -1434,6 +1570,10 @@
 	"buttonOkay": {
 		"message": "OK",
 		"description": "Generic OK button"
+	},
+	"buttonConfirm": {
+		"message": "Potwierdź",
+		"description": "Generic Confirm button"
 	},
 	"buttonCancel": {
 		"message": "Anuluj",
@@ -1487,6 +1627,10 @@
 		"message": "Przewiń w dół przytrzymując prawy przycisk",
 		"description": "Wheel gesture: scroll down while holding right button"
 	},
+	"wheelGesture_wheelClickHoldingRight": {
+		"message": "Kliknij środkowym przyciskiem przytrzymując prawy przycisk",
+		"description": "Wheel gesture: wheel (middle) click while holding right button"
+	},
 	"specialGestures": {
 		"message": "Specjalne gesty",
 		"description": "Special gestures section title"
@@ -1507,32 +1651,68 @@
 		"message": "Kliknięcie prawym przyciskiem myszy przy wciśniętym lewym",
 		"description": "Special gesture: right click while holding left button"
 	},
-	"actionChains": {
-		"message": "Łańcuchy poleceń",
-		"description": "Action chains section title"
-	},
 	"actionChainsDesc": {
-		"message": "Twórz sekwencje poleceń do wielokrotnego użytku, wykonywane jedna po drugiej",
+		"message": "Używaj łańcuchów poleceń, aby wykonywać wiele poleceń po kolei.",
 		"description": "Action chains section description"
 	},
 	"actionActionChain": {
 		"message": "Łańcuch poleceń",
 		"description": "Action chain action name"
 	},
-	"actionCategoryChains": {
-		"message": "Łańcuchy poleceń",
-		"description": "Action category: action chains"
+	"actionCustomMenu": {
+		"message": "Menu niestandardowe",
+		"description": "Custom popup menu action name"
+	},
+	"customMenuDesc": {
+		"message": "Twórz niestandardowe menu wyskakujące z wieloma akcjami.",
+		"description": "Custom menu section description"
+	},
+	"addMenu": {
+		"message": "Dodaj menu",
+		"description": "Add menu button"
+	},
+	"menuNamePlaceholder": {
+		"message": "Menu niestandardowe",
+		"description": "Menu name input placeholder"
+	},
+	"menuItemCount": {
+		"message": "%count% elementów",
+		"description": "Item count for menus, e.g. '3 items'"
+	},
+	"menuItemCountOne": {
+		"message": "%count% element",
+		"description": "Item count for menus with exactly 1 item"
+	},
+	"addMenuItem": {
+		"message": "Dodaj element",
+		"description": "Add menu item button"
+	},
+	"addMenuSeparator": {
+		"message": "Dodaj separator",
+		"description": "Add separator to menu button"
+	},
+	"emptyMenuItems": {
+		"message": "Nie dodano żadnych elementów. Kliknij „Dodaj element”, aby rozpocząć.",
+		"description": "Empty menu items message"
+	},
+	"menuNotFound": {
+		"message": "(Nie znaleziono menu)",
+		"description": "Menu not found label"
+	},
+	"deleteMenuConfirm": {
+		"message": "Czy usunąć menu „%name%”?",
+		"description": "Delete menu confirmation"
+	},
+	"menuItemNumber": {
+		"message": "Element %n%",
+		"description": "Menu item number label"
 	},
 	"addChain": {
 		"message": "Dodaj łańcuch",
 		"description": "Add chain button"
 	},
-	"addNewChain": {
-		"message": "Utwórz nowy łańcuch...",
-		"description": "Action item to navigate to chain editor and create a new chain"
-	},
 	"chainNamePlaceholder": {
-		"message": "Mój łańcuch poleceń",
+		"message": "Łańcuch poleceń",
 		"description": "Chain name input placeholder"
 	},
 	"chainDelayUnit": {
@@ -1579,6 +1759,14 @@
 		"message": "Symuluj naciśnięcie klawisza",
 		"description": "Action to simulate a keyboard key press on the page"
 	},
+	"actionPasteClipboard": {
+		"message": "Wklej ze schowka",
+		"description": "Action to paste clipboard text at the gesture start position"
+	},
+	"pasteClipboardHint": {
+		"message": "Skopiowana zawartość zostanie wklejona do pola wprowadzania w <b>pozycji początkowej gestu</b>.",
+		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
 	"simulateKeyPreset": {
 		"message": "Gotowy klawisz",
 		"description": "Label for preset key dropdown in simulate key config"
@@ -1615,6 +1803,14 @@
 		"message": "Nieprawidłowy format JSON",
 		"description": "Error message when event detail is not valid JSON"
 	},
+	"customEventIncludeGestureInfo": {
+		"message": "Uwzględnij informacje o gestach w %code%",
+		"description": "Checkbox label for including gesture context in custom event detail. %code% = detail.gesture"
+	},
+	"customEventConfigureBtn": {
+		"message": "Ustawienia",
+		"description": "Label for the configure button of custom event action in drag gesture manager"
+	},
 	"customEventHint": {
 		"message": "Wysyła %code% w %window%. Przydatne do integracji z innymi skryptami.",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
@@ -1630,5 +1826,233 @@
 	"chainStepCountOne": {
 		"message": "%count% krok",
 		"description": "Step count for unnamed chains with exactly 1 step"
+	},
+	"actionZoomIn": {
+		"message": "Powiększ",
+		"description": "Zoom in on the current page"
+	},
+	"actionZoomOut": {
+		"message": "Pomniejsz",
+		"description": "Zoom out on the current page"
+	},
+	"actionResetZoom": {
+		"message": "Zresetuj powiększenie",
+		"description": "Reset page zoom to default or a specified level"
+	},
+	"actionViewPageSource": {
+		"message": "Wyświetl źródło strony",
+		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionPauseGesture": {
+		"message": "Wstrzymaj gesty do odświeżenia",
+		"description": "Temporarily disable all gestures on the current tab until page refresh"
+	},
+	"actionAreaSelect": {
+		"message": "Zaznacz obszar",
+		"description": "Enter area select mode to drag-select links on the page and batch open them"
+	},
+	"areaSelectTitle": {
+		"message": "Zaznacz obszar",
+		"description": "Label for the area select row in the popup"
+	},
+	"areaSelectModifierKey": {
+		"message": "Szybkie zaznaczanie obszaru",
+		"description": "Label for the modifier key dropdown in area select settings"
+	},
+	"areaSelectModifierKeyDesc": {
+		"message": "Przytrzymaj klawisz modyfikujący, a następnie kliknij lewym przyciskiem myszy i przeciągnij, aby szybko zaznaczyć linki na stronie do operacji wsadowych",
+		"description": "Description for the modifier key setting"
+	},
+	"areaSelectDisabled": {
+		"message": "Wyłączone",
+		"description": "Disabled option for the area select modifier key dropdown"
+	},
+	"areaSelectMouseDrag": {
+		"message": "Przeciąganie myszą",
+		"description": "Suffix label next to the modifier key dropdown"
+	},
+	"areaSelectTextUrl": {
+		"message": "Rozpoznawanie adresów URL z tekstu",
+		"description": "Label for the text URL recognition toggle"
+	},
+	"areaSelectTextUrlDesc": {
+		"message": "Podczas zaznaczania wyodrębnij również adresy URL w postaci zwykłego tekstu (nie hiperłącza)",
+		"description": "Description for the text URL recognition toggle"
+	},
+	"areaSelectWarnThreshold": {
+		"message": "Ostrzeżenie o operacji zbiorczej",
+		"description": "Label for the batch operation alert threshold input"
+	},
+	"areaSelectWarnThresholdDesc": {
+		"message": "Pokaż potwierdzenie podczas operacji zbiorczej dla więcej niż tej liczby elementów, 0, aby wyłączyć",
+		"description": "Description for the batch operation alert threshold"
+	},
+	"areaSelectDelay": {
+		"message": "Interwał operacji",
+		"description": "Label for the operation interval input"
+	},
+	"areaSelectDelayDesc": {
+		"message": "Opóźnienie między każdym otwarciem w operacjach wsadowych (sekundy)",
+		"description": "Description for the operation interval setting"
+	},
+	"areaSelectHint": {
+		"message": "Przeciągnij, aby wybrać linki",
+		"description": "Hint text shown in the area select overlay"
+	},
+	"areaSelectOpen": {
+		"message": "Otwórz %count% linków",
+		"description": "Button text in the area select toolbar to batch open selected links"
+	},
+	"areaSelectOpenOne": {
+		"message": "Otwórz %count% link",
+		"description": "Button text to open a single selected link (singular form)"
+	},
+	"areaSelectCopy": {
+		"message": "Kopiuj linki",
+		"description": "Button text to copy all selected link URLs to clipboard"
+	},
+	"areaSelectCancel": {
+		"message": "Anuluj",
+		"description": "Button text to cancel area select mode"
+	},
+	"areaSelectConfirm": {
+		"message": "Potwierdź",
+		"description": "Button text to confirm opening many links"
+	},
+	"areaSelectWarnTitle": {
+		"message": "Otworzyć wiele linków?",
+		"description": "Title of the warning modal when opening many links"
+	},
+	"areaSelectWarnMessage": {
+		"message": "Zamierzasz otworzyć %count% linków. Może to spowolnić przeglądarkę. Kontynuować?",
+		"description": "Body text of the warning modal"
+	},
+	"start": {
+		"message": "Start",
+		"description": "Button label to start an action (e.g. area select)"
+	},
+	"actionMenuShowTabs": {
+		"message": "Przełącz kartę",
+		"description": "Show a context menu listing all open tabs in the current window"
+	},
+	"actionMenuRecentlyClosed": {
+		"message": "Ostatnio zamknięte karty",
+		"description": "Show a context menu listing recently closed tabs for quick restore"
+	},
+	"recentlyClosedMaxItems": {
+		"message": "Maks. elementów",
+		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
+	},
+	"actionCategoryContextMenu": {
+		"message": "Menu podręczne",
+		"description": "Action category: context menu actions"
+	},
+	"zoomStepMode": {
+		"message": "Tryb powiększania",
+		"description": "Label for zoom mode selector: browser steps vs fixed increment"
+	},
+	"zoomStepModeBrowser": {
+		"message": "Użyj poziomów przeglądarki",
+		"description": "Option: follow Chrome's built-in zoom steps (25%, 33%, 50%, …, 500%)"
+	},
+	"zoomStepModeFixed": {
+		"message": "Stały krok",
+		"description": "Option: zoom in/out by a configurable fixed percentage each time"
+	},
+	"zoomDelta": {
+		"message": "Wielkość kroku",
+		"description": "Label for the zoom increment/decrement slider"
+	},
+	"resetZoomLevel": {
+		"message": "Resetuj do",
+		"description": "Label for the target zoom level when resetting zoom"
+	},
+	"resetZoomDefault": {
+		"message": "Domyślne w przeglądarce",
+		"description": "Option: reset zoom to the browser's default zoom setting"
+	},
+	"resetZoomCustom": {
+		"message": "Wartość niestandardowa",
+		"description": "Option: reset zoom to a user-specified custom zoom level"
+	},
+	"actionMenuShowBookmarks": {
+		"message": "Pokaż zakładki",
+		"description": "Show a context menu listing bookmarks from a selected folder"
+	},
+	"bookmarkFolder": {
+		"message": "Folder",
+		"description": "Label for selecting which bookmark folder to display"
+	},
+	"bookmarkGrantPermission": {
+		"message": "Przyznaj uprawnienia do zakładek",
+		"description": "Button label to request bookmarks permission"
+	},
+	"ctxMenuSortOrder": {
+		"message": "Sortuj według",
+		"description": "Label for context menu sort order dropdown"
+	},
+	"ctxMenuSortDefault": {
+		"message": "Domyślne",
+		"description": "Sort option: original API/insertion order"
+	},
+	"ctxMenuSortDefaultDesc": {
+		"message": "Domyślne (odwrócone)",
+		"description": "Sort option: reverse of original API order"
+	},
+	"ctxMenuSortDateAddedAsc": {
+		"message": "Data dodania (od najstarszych)",
+		"description": "Sort option: by date added ascending"
+	},
+	"ctxMenuSortDateAddedDesc": {
+		"message": "Data dodania (od najnowszych)",
+		"description": "Sort option: by date added descending"
+	},
+	"ctxMenuSortNameAsc": {
+		"message": "Nazwa (rosnąco)",
+		"description": "Sort option: alphabetical ascending"
+	},
+	"ctxMenuSortNameDesc": {
+		"message": "Nazwa (malejąco)",
+		"description": "Sort option: alphabetical descending"
+	},
+	"ctxMenuSortLastAccessAsc": {
+		"message": "Ostatnio używane (od najstarszych)",
+		"description": "Sort option: by last access time ascending"
+	},
+	"ctxMenuSortLastAccessDesc": {
+		"message": "Ostatnio używane (od najnowszych)",
+		"description": "Sort option: by last access time descending"
+	},
+	"ctxMenuMaxItems": {
+		"message": "Maks. elementów",
+		"description": "Label for maximum number of items in context menu"
+	},
+	"ctxMenuMaxItemsUnlimited": {
+		"message": "Bez limitu",
+		"description": "Placeholder shown when max items is 0 (no limit)"
+	},
+	"ctxMenuScrollToBottom": {
+		"message": "Przewiń w dół",
+		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuTimeDisplay": {
+		"message": "Pokaż czas",
+		"description": "Label for time display mode dropdown in context menu"
+	},
+	"ctxMenuTimeNone": {
+		"message": "Nie pokazuj",
+		"description": "Time display option: hide time column"
+	},
+	"ctxMenuTimeLastAccess": {
+		"message": "Ostatni dostęp",
+		"description": "Time display option: show last access time"
+	},
+	"ctxMenuTimeClosedTime": {
+		"message": "Czas zamknięcia",
+		"description": "Time display option: show when the tab was closed"
+	},
+	"ctxMenuTimeDateAdded": {
+		"message": "Data dodania",
+		"description": "Time display option: show when the bookmark was added"
 	}
 }
