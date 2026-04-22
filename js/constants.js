@@ -91,6 +91,7 @@
 		refreshAllTabs: { hardReload: false },
 		newTab: { position: 'last', active: true },
 		openCustomUrl: { customUrl: '', position: 'last', active: true },
+		addToBookmarks: { folderId: '' },
 		copyTitleAndUrl: { asMarkdown: false },
 		scrollUp: { scrollDistance: 75, scrollSmoothness: 'auto', scrollAccel: 1, scrollAccelWindow: 500 },
 		scrollDown: { scrollDistance: 75, scrollSmoothness: 'auto', scrollAccel: 1, scrollAccelWindow: 500 },

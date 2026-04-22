@@ -1983,8 +1983,12 @@
 		"message": "Папка",
 		"description": "Label for selecting which bookmark folder to display"
 	},
+	"bookmarkFolderDefault": {
+		"message": "За замовчуванням",
+		"description": "Option label for using the browser's default bookmark location"
+	},
 	"bookmarkGrantPermission": {
-		"message": "Надати дозвіл на закладки",
+		"message": "(Надати доступ до закладок)",
 		"description": "Button label to request bookmarks permission"
 	},
 	"ctxMenuSortOrder": {

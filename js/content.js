@@ -632,7 +632,12 @@ window.ContentContextMenu = ContentContextMenu;
 
 		#save(el) {
 			if (!this.#originals.has(el)) {
-				this.#originals.set(el, { outline: el.style.outline, bg: el.style.backgroundColor });
+				this.#originals.set(el, {
+					outline: el.style.getPropertyValue('outline'),
+					outlinePriority: el.style.getPropertyPriority('outline'),
+					bg: el.style.getPropertyValue('background-color'),
+					bgPriority: el.style.getPropertyPriority('background-color'),
+				});
 				const bg = getComputedStyle(el).backgroundColor;
 				this.#hasBgCache.set(el, !!(bg && bg !== 'transparent' && bg !== 'rgba(0, 0, 0, 0)'));
 			}
@@ -642,16 +647,31 @@ window.ContentContextMenu = ContentContextMenu;
 			return this.#hasBgCache.get(el) || false;
 		}
 
+		#apply(el, outline, bg) {
+			el.style.setProperty('outline', outline, 'important');
+			if (!this.#hasBg(el)) el.style.setProperty('background-color', bg, 'important');
+		}
+
+		#restore(el, orig) {
+			if (orig.outline) el.style.setProperty('outline', orig.outline, orig.outlinePriority);
+			else el.style.removeProperty('outline');
+			if (orig.bg) el.style.setProperty('background-color', orig.bg, orig.bgPriority);
+			else el.style.removeProperty('background-color');
+		}
+
 		highlight(el) {
 			this.#save(el);
-			el.style.outline = HIGHLIGHT_OUTLINE;
-			if (!this.#hasBg(el)) el.style.backgroundColor = HIGHLIGHT_BG;
+			this.#apply(el, HIGHLIGHT_OUTLINE, HIGHLIGHT_BG);
 		}
 
 		unhighlight(el) {
 			const orig = this.#originals.get(el);
-			el.style.outline = orig ? orig.outline : '';
-			el.style.backgroundColor = orig ? orig.bg : '';
+			if (orig) {
+				this.#restore(el, orig);
+			} else {
+				el.style.removeProperty('outline');
+				el.style.removeProperty('background-color');
+			}
 		}
 
 		forget(el) {
@@ -661,19 +681,16 @@ window.ContentContextMenu = ContentContextMenu;
 
 		hoverHighlight(el) {
 			this.#save(el);
-			el.style.outline = HOVER_OUTLINE;
-			if (!this.#hasBg(el)) el.style.backgroundColor = HOVER_BG;
+			this.#apply(el, HOVER_OUTLINE, HOVER_BG);
 		}
 
 		hoverDeselect(el) {
-			el.style.outline = HOVER_DESELECT_OUTLINE;
-			if (!this.#hasBg(el)) el.style.backgroundColor = HOVER_DESELECT_BG;
+			this.#apply(el, HOVER_DESELECT_OUTLINE, HOVER_DESELECT_BG);
 		}
 
 		cleanup() {
 			for (const [el, orig] of this.#originals) {
-				el.style.outline = orig.outline;
-				el.style.backgroundColor = orig.bg;
+				this.#restore(el, orig);
 			}
 			this.#originals.clear();
 			this.#hasBgCache.clear();
@@ -1239,7 +1256,6 @@ window.ContentContextMenu = ContentContextMenu;
 			if (width > CLICK_THRESHOLD || height > CLICK_THRESHOLD) {
 				if (this.#rectEl.style.display !== 'block') {
 					this.#rectEl.style.display = 'block';
-					if (!this.#isIframe) this.#showToolbarActions();
 				}
 				this.#rectEl.style.left = left + 'px';
 				this.#rectEl.style.top = top + 'px';
@@ -1293,11 +1309,7 @@ window.ContentContextMenu = ContentContextMenu;
 
 			this.#highlighter.invalidateCache();
 			if (!this.#isIframe) {
-				this.#showToolbarActions();
 				this.#updateToolbarCount();
-				if (this.#highlighter.count === 0 && !Array.from(this.#frameLinks.values()).some(l => l.length > 0)) {
-					this.#showToolbarHint();
-				}
 			}
 			this.#reportSelection();
 
@@ -1499,6 +1511,8 @@ window.ContentContextMenu = ContentContextMenu;
 			this.#toolbar.openLabel.textContent = this.#msg(msgKey).replaceAll('%count%', String(count));
 			this.#toolbar.openBtn.disabled = count === 0;
 			this.#toolbar.copyBtn.disabled = count === 0;
+			if (count === 0) this.#showToolbarHint();
+			else this.#showToolbarActions();
 		}
 
 		#showToolbarActions() {
@@ -2374,6 +2388,12 @@ window.ContentContextMenu = ContentContextMenu;
 				operationInterval: SETTINGS.areaSelectDelay,
 				customCss: SETTINGS.customCss,
 			});
+			safeSendMessage({
+				action: 'areaSelect',
+				warnThreshold,
+				textUrl: SETTINGS.areaSelectTextUrl,
+				operationInterval: SETTINGS.areaSelectDelay,
+			});
 			e.preventDefault();
 			e.stopImmediatePropagation();
 		}, true);
@@ -3151,6 +3171,8 @@ window.ContentContextMenu = ContentContextMenu;
 					msg_obj.zoomDelta = Number(mergedConfig.zoomDelta) || 10;
 				} else if (action === 'resetZoom') {
 					msg_obj.resetZoomLevel = Number(mergedConfig.resetZoomLevel) || 0;
+				} else if (action === 'addToBookmarks') {
+					msg_obj.folderId = mergedConfig.folderId || '';
 				} else if (action === 'actionChain') {
 					const chainId = mergedConfig.chainId;
 					const chain = SETTINGS.actionChains?.[chainId];

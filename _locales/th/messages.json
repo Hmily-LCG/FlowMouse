@@ -1983,8 +1983,12 @@
 		"message": "โฟลเดอร์",
 		"description": "Label for selecting which bookmark folder to display"
 	},
+	"bookmarkFolderDefault": {
+		"message": "ค่าเริ่มต้นเบราว์เซอร์",
+		"description": "Option label for using the browser's default bookmark location"
+	},
 	"bookmarkGrantPermission": {
-		"message": "ให้สิทธิ์เข้าถึงบุ๊กมาร์ก",
+		"message": "(ให้สิทธิ์เข้าถึงบุ๊กมาร์ก)",
 		"description": "Button label to request bookmarks permission"
 	},
 	"ctxMenuSortOrder": {

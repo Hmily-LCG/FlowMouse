@@ -1983,8 +1983,12 @@
 		"message": "Mapa",
 		"description": "Label for selecting which bookmark folder to display"
 	},
+	"bookmarkFolderDefault": {
+		"message": "Zadano u pregledniku",
+		"description": "Option label for using the browser's default bookmark location"
+	},
 	"bookmarkGrantPermission": {
-		"message": "Dodijeli dopuštenje za knjižne oznake",
+		"message": "(Dodijeli dopuštenje za knjižne oznake)",
 		"description": "Button label to request bookmarks permission"
 	},
 	"ctxMenuSortOrder": {

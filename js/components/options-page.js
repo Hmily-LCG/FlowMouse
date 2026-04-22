@@ -640,13 +640,20 @@ class OptionsPage extends LitElement {
 								<span>${i18n.getMessage('areaSelectModifierKeyDesc')}</span>
 							</div>
 							<div style="display:flex;align-items:center;gap:8px;">
-								<select class="input-lg" .value=${this._settings.areaSelectModifierKey}
+								<select class="input-lg"
 									@change=${e => this.#updateSetting('areaSelectModifierKey', e.target.value)}>
-									<option value="disabled">${i18n.getMessage('areaSelectDisabled')}</option>
-									<option value="Shift">${i18n.getModifierKeyName('Shift')}</option>
-									<option value="Ctrl">${i18n.getModifierKeyName('Ctrl')}</option>
-									<option value="Alt">${i18n.getModifierKeyName('Alt')}</option>
-									<option value="Meta">${i18n.getModifierKeyName('Meta')}</option>
+									${(() => {
+										const current = this._settings.areaSelectModifierKey;
+										const isMac = i18n.platform === 'mac';
+										const isWin = i18n.platform === 'win';
+										const keys = ['disabled', 'Shift', 'Ctrl', 'Alt', 'Meta'].filter(k => {
+											if (k === current) return true;
+											if (isMac && k === 'Ctrl') return false;
+											if (isWin && k === 'Meta') return false;
+											return true;
+										});
+										return keys.map(k => html`<option value=${k} ?selected=${k === current}>${k === 'disabled' ? i18n.getMessage('areaSelectDisabled') : i18n.getModifierKeyName(k)}</option>`);
+									})()}
 								</select>
 								${this._settings.areaSelectModifierKey !== 'disabled' ? html`<span> + </span><span>${i18n.getMessage('areaSelectMouseDrag')}</span>` : ''}
 							</div>

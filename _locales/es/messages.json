@@ -1983,8 +1983,12 @@
 		"message": "Carpeta",
 		"description": "Label for selecting which bookmark folder to display"
 	},
+	"bookmarkFolderDefault": {
+		"message": "Predeterminado del navegador",
+		"description": "Option label for using the browser's default bookmark location"
+	},
 	"bookmarkGrantPermission": {
-		"message": "Conceder permiso de marcadores",
+		"message": "(Conceder acceso a los marcadores)",
 		"description": "Button label to request bookmarks permission"
 	},
 	"ctxMenuSortOrder": {

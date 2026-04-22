@@ -1983,8 +1983,12 @@
 		"message": "Thư mục",
 		"description": "Label for selecting which bookmark folder to display"
 	},
+	"bookmarkFolderDefault": {
+		"message": "Mặc định trình duyệt",
+		"description": "Option label for using the browser's default bookmark location"
+	},
 	"bookmarkGrantPermission": {
-		"message": "Cấp quyền Dấu trang",
+		"message": "(Cấp quyền truy cập Dấu trang)",
 		"description": "Button label to request bookmarks permission"
 	},
 	"ctxMenuSortOrder": {

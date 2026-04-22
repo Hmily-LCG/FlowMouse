@@ -1983,8 +1983,12 @@
 		"message": "Kansio",
 		"description": "Label for selecting which bookmark folder to display"
 	},
+	"bookmarkFolderDefault": {
+		"message": "Selaimen oletus",
+		"description": "Option label for using the browser's default bookmark location"
+	},
 	"bookmarkGrantPermission": {
-		"message": "Anna kirjanmerkkien käyttöoikeus",
+		"message": "(Anna kirjanmerkkien käyttöoikeus)",
 		"description": "Button label to request bookmarks permission"
 	},
 	"ctxMenuSortOrder": {

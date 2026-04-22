@@ -105,8 +105,7 @@ class ActionSelect extends LitElement {
 		value: { type: String, reflect: true },
 		config: { type: Object },
 		gestureLabel: { type: String, attribute: 'gesture-label' },
-		excludeChain: { type: Boolean, attribute: 'exclude-chain' },
-		excludeMenu: { type: Boolean, attribute: 'exclude-menu' },
+		context: { type: String, reflect: true },
 		allowCustomName: { type: Boolean, attribute: 'allow-custom-name' },
 		compact: { type: Boolean, reflect: true },
 		_open: { state: true },
@@ -669,8 +668,7 @@ class ActionSelect extends LitElement {
 		this.value = 'none';
 		this.config = {};
 		this.gestureLabel = '';
-		this.excludeChain = false;
-		this.excludeMenu = false;
+		this.context = 'gesture'; 
 		this.compact = false;
 		this._open = false;
 		this._search = '';
@@ -736,13 +734,14 @@ class ActionSelect extends LitElement {
 		const search = this._search.toLowerCase().trim();
 		const result = [];
 
+		const ctx = this.context;
 		for (const cat of ACTION_CATEGORIES) {
 			const items = [];
 			for (const action of cat.actions) {
 				if (!ACTION_KEYS[action]) continue;
-				if (action === 'actionChain' && this.excludeChain) continue;
-				if (action === 'customMenu' && this.excludeMenu) continue;
-				if (action === 'delay' && (!this.excludeChain || this.excludeMenu)) continue;
+				if (action === 'actionChain' && ctx === 'chain-step') continue;
+				if (action === 'customMenu' && (ctx === 'chain-step' || ctx === 'menu-item')) continue;
+				if (action === 'delay' && ctx !== 'chain-step') continue;
 				const label = window.i18n.getMessage(ACTION_KEYS[action]);
 				if (!search || label.toLowerCase().includes(search) || action.toLowerCase().includes(search)) {
 					items.push({ value: action, label });
@@ -1542,54 +1541,15 @@ class ActionSelect extends LitElement {
 			`;
 		}
 		if (action === 'menuShowBookmarks') {
-			const defaults = ACTION_DEFAULTS[action] || {};
-			const folderId = this._pendingConfig.folderId ?? defaults.folderId;
-
-			if (!this._bookmarkPermission) {
-				if (chrome.permissions) {
-					chrome.permissions.contains({ permissions: ['bookmarks'] }).then(granted => {
-						if (granted !== this._bookmarkPermission) {
-							this._bookmarkPermission = granted;
-							if (granted) this.#loadBookmarkFolders();
-							this.requestUpdate();
-						}
-					});
-				}
-			}
-
-			if (!this._bookmarkPermission) {
-				return html`
-					<div class="action-config-row" style="justify-content:center;">
-						<button type="button" class="btn btn-primary"
-							@click=${() => {
-								if (chrome.permissions) {
-									chrome.permissions.request({ permissions: ['bookmarks'] }).then(granted => {
-										this._bookmarkPermission = granted;
-										if (granted) this.#loadBookmarkFolders();
-										this.requestUpdate();
-									});
-								}
-							}}
-						>${window.i18n.getMessage('bookmarkGrantPermission')}</button>
-					</div>
-				`;
-			}
-
-			const folders = this._bookmarkFolders || [];
 			return html`
-				<div class="action-config-row">
-					<span class="action-config-label">${window.i18n.getMessage('bookmarkFolder')}</span>
-					<select class="action-config-select"
-						.value=${folderId}
-						@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, folderId: e.target.value }; this.requestUpdate(); }}
-					>
-						${folders.map(f => html`<option value=${f.id} ?selected=${f.id === folderId}>${'\u00A0\u00A0'.repeat(f.depth)}${f.title} (${f.linkCount})</option>`)}
-					</select>
-				</div>
+				${this.#renderBookmarkFolderSelect()}
 				${this.#renderMenuConfigRow()}
 				${this.#renderTimeDisplay()}
 				${this.#renderPositionSelect(true)}
 			`;
+		}
+		if (action === 'addToBookmarks') {
+			return this.#renderBookmarkFolderSelect({ allowDefault: true });
 		}
 		if (SCROLL_ACTIONS.includes(action)) {
 			const defaults = ACTION_DEFAULTS[action] || {};
@@ -1665,6 +1625,59 @@ class ActionSelect extends LitElement {
 			bubbles: true,
 			composed: false,
 		}));
+	}
+
+	#renderBookmarkFolderSelect({ allowDefault = false } = {}) {
+		const { ACTION_DEFAULTS } = window.GestureConstants;
+		const defaults = ACTION_DEFAULTS[this._pendingValue] || {};
+		const folderId = this._pendingConfig.folderId ?? defaults.folderId;
+
+		if (!this._bookmarkPermission && chrome.permissions) {
+			chrome.permissions.contains({ permissions: ['bookmarks'] }).then(granted => {
+				if (granted !== this._bookmarkPermission) {
+					this._bookmarkPermission = granted;
+					if (granted) this.#loadBookmarkFolders();
+					this.requestUpdate();
+				}
+			});
+		}
+
+		if (!this._bookmarkPermission) {
+			const requestPerm = (e) => {
+				e.preventDefault();
+				if (!chrome.permissions) return;
+				chrome.permissions.request({ permissions: ['bookmarks'] }).then(granted => {
+					this._bookmarkPermission = granted;
+					if (granted) this.#loadBookmarkFolders();
+					this.requestUpdate();
+				});
+			};
+			return html`
+				<div class="action-config-row">
+					<span class="action-config-label">${window.i18n.getMessage('bookmarkFolder')}</span>
+					<select class="action-config-select"
+						@mousedown=${requestPerm}
+						@keydown=${requestPerm}
+					>
+						<option>${window.i18n.getMessage('bookmarkGrantPermission')}</option>
+					</select>
+				</div>
+			`;
+		}
+
+		const folders = this._bookmarkFolders || [];
+		return html`
+			<div class="action-config-row">
+				<span class="action-config-label">${window.i18n.getMessage('bookmarkFolder')}</span>
+				<select class="action-config-select"
+					.value=${folderId}
+					@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, folderId: e.target.value }; this.requestUpdate(); }}
+				>
+					${allowDefault ? html`<option value="" ?selected=${!folderId}>${window.i18n.getMessage('bookmarkFolderDefault')}</option>` : ''}
+					${folders.map(f => html`<option value=${f.id} ?selected=${f.id === folderId}>${'\u00A0\u00A0'.repeat(f.depth)}${f.title} (${f.linkCount})</option>`)}
+				</select>
+			</div>
+		`;
 	}
 
 	#loadBookmarkFolders() {

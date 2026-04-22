@@ -331,8 +331,7 @@ class ChainPanel extends LitElement {
 				<div class="step-action">
 					<action-select
 						compact
-						exclude-chain
-						exclude-menu
+						context="chain-step"
 						.value=${step.action || 'none'}
 						.config=${step}
 						.gestureLabel=${label}

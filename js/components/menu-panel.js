@@ -356,7 +356,7 @@ class MenuPanel extends LitElement {
 					<action-select
 						compact
 						allow-custom-name
-						exclude-menu
+						context="menu-item"
 						.value=${item.action || 'none'}
 						.config=${item}
 						.gestureLabel=${label}

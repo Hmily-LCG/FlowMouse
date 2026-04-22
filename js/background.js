@@ -459,10 +459,19 @@ async function handleAction(request, sender) {
 			if (sender.tab) {
 				requestPermission(['bookmarks'], sender.tab.windowId).then(async (granted) => {
 					if (!granted) return;
-					await chrome.bookmarks.create({
+					const bookmark = {
 						title: sender.tab.title,
-						url: sender.tab.url
-					});
+						url: sender.tab.url,
+					};
+					if (request.folderId) bookmark.parentId = request.folderId;
+
+					const existing = (await chrome.bookmarks.search({ url: bookmark.url })).filter(b => b.url === bookmark.url);
+					const isDuplicate = bookmark.parentId
+						? existing.some(b => b.parentId === bookmark.parentId)
+						: existing.length > 0;
+					if (isDuplicate) return { success: true };
+
+					await chrome.bookmarks.create(bookmark);
 				});
 			}
 			return { success: true };
