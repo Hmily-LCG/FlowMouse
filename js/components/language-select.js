@@ -4,7 +4,7 @@ import { tooltip } from '../tooltip.js';
 
 class LanguageSelect extends LitElement {
 	static properties = {
-		value: { type: String, reflect: true },
+		value: { type: String },
 		_isOpen: { state: true },
 	};
 

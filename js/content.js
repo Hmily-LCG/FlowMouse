@@ -1837,9 +1837,10 @@ window.ContentContextMenu = ContentContextMenu;
 	function checkBlacklist(blacklist) {
 		if (blacklist.includes(currentDomain)) return true;
 		try {
-			const origins = location.ancestorOrigins;
-			if (origins && origins.length > 0) {
-				return blacklist.includes(new URL(origins[origins.length - 1]).hostname);
+			{
+				if (window.top !== window.self && document.referrer) {
+					return blacklist.includes(new URL(document.referrer).hostname);
+				}
 			}
 		} catch (e) {}
 		return false;
@@ -1848,45 +1849,34 @@ window.ContentContextMenu = ContentContextMenu;
 	let isBlacklisted = false;
 	let initGesturesCalled = false;
 
-	try {
-		if (chrome.storage && chrome.storage.sync) {
-			chrome.storage.sync.get({ blacklist: [] }, (items) => {
-				if (chrome.runtime.lastError) return; 
-				isBlacklisted = checkBlacklist(items.blacklist);
-				if (!isBlacklisted) {
-					initGestures();
-				}
-			});
-		} else {
+	chrome.storage.sync.get({ blacklist: [] }, (items) => {
+		if (chrome.runtime.lastError) {
+			console.error(chrome.runtime.lastError);
+			return;
+		}
+		isBlacklisted = checkBlacklist(items.blacklist);
+		if (!isBlacklisted) {
 			initGestures();
 		}
-	} catch (e) {
-		initGestures();
-	}
+	});
 
-	try {
-		if (chrome.storage && chrome.storage.onChanged) {
-			chrome.storage.onChanged.addListener((changes, namespace) => {
-				if (namespace === 'sync') {
-					if (changes.blacklist) {
-						const oldBlacklist = changes.blacklist.oldValue || [];
-						const newBlacklist = changes.blacklist.newValue || [];
-						const wasBlacklisted = checkBlacklist(oldBlacklist);
-						const nowBlacklisted = checkBlacklist(newBlacklist);
+	chrome.storage.onChanged.addListener((changes, namespace) => {
+		if (namespace === 'sync') {
+			if (changes.blacklist) {
+				const oldBlacklist = changes.blacklist.oldValue || [];
+				const newBlacklist = changes.blacklist.newValue || [];
+				const wasBlacklisted = checkBlacklist(oldBlacklist);
+				const nowBlacklisted = checkBlacklist(newBlacklist);
 
-						if (wasBlacklisted !== nowBlacklisted) {
-							isBlacklisted = nowBlacklisted;
-							if (nowBlacklisted === false && !initGesturesCalled) {
-								initGestures();
-							}
-						}
+				if (wasBlacklisted !== nowBlacklisted) {
+					isBlacklisted = nowBlacklisted;
+					if (nowBlacklisted === false && !initGesturesCalled) {
+						initGestures();
 					}
 				}
-			});
+			}
 		}
-	} catch (e) {
-	}
-
+	});
 
 	function initGestures() {
 		initGesturesCalled = true;
@@ -1914,9 +1904,7 @@ window.ContentContextMenu = ContentContextMenu;
 
 		async function safeSendMessage(message) {
 			try {
-				if (chrome.runtime && chrome.runtime.sendMessage) {
-					return await chrome.runtime.sendMessage(message);
-				}
+				return await chrome.runtime.sendMessage(message);
 			} catch (e) {
 			}
 		}
@@ -2031,160 +2019,150 @@ window.ContentContextMenu = ContentContextMenu;
 		}
 
 		function loadSettings() {
-			try {
-				if (!chrome.storage || !chrome.storage.sync) return;
-				chrome.storage.sync.get(null, async (items) => {
-					if (chrome.runtime.lastError) return; 
-					if (items) {
-						const { blacklist, ...otherSettings } = items;
-						SETTINGS = { ...SETTINGS, ...otherSettings };
-					}
+			chrome.storage.sync.get(null, async (items) => {
+				if (chrome.runtime.lastError) {
+					console.error(chrome.runtime.lastError);
+					return;
+				}
+				if (items) {
+					const { blacklist, ...otherSettings } = items;
+					SETTINGS = { ...SETTINGS, ...otherSettings };
+				}
 
-					SETTINGS.wheelGestures = {
-						...structuredClone(DEFAULT_SETTINGS.wheelGestures || {}),
-						...(SETTINGS.wheelGestures || {}),
-					};
-					SETTINGS.specialGestures = {
-						...structuredClone(DEFAULT_SETTINGS.specialGestures || {}),
-						...(SETTINGS.specialGestures || {}),
-					};
+				SETTINGS.wheelGestures = {
+					...structuredClone(DEFAULT_SETTINGS.wheelGestures || {}),
+					...(SETTINGS.wheelGestures || {}),
+				};
+				SETTINGS.specialGestures = {
+					...structuredClone(DEFAULT_SETTINGS.specialGestures || {}),
+					...(SETTINGS.specialGestures || {}),
+				};
 
-					await window.ContentI18n.loadLanguage(SETTINGS.language);
+				await window.ContentI18n.loadLanguage(SETTINGS.language);
 
-					SETTINGS.enableDrag = SETTINGS.enableTextDrag || SETTINGS.enableImageDrag || SETTINGS.enableLinkDrag;
+				SETTINGS.enableDrag = SETTINGS.enableTextDrag || SETTINGS.enableImageDrag || SETTINGS.enableLinkDrag;
 
-					if (window.GestureRecognizer && recognizer && recognizer.updateConfig) {
-						recognizer.updateConfig({
-							distanceThreshold: SETTINGS.distanceThreshold,
-							longGestureMultiplier: SETTINGS.gestureTurnTolerance
-						});
-					}
+				if (window.GestureRecognizer && recognizer && recognizer.updateConfig) {
+					recognizer.updateConfig({
+						distanceThreshold: SETTINGS.distanceThreshold,
+						longGestureMultiplier: SETTINGS.gestureTurnTolerance
+					});
+				}
 
-					if (SETTINGS.enableTrail || SETTINGS.enableHUD) {
-						const lang = window.ContentI18n.getHtmlLang();
-						const isRtl = window.ContentI18n.getDir() === 'rtl';
-						visualizer.updateSettings({
-							hudBgColor: SETTINGS.hudBgColor,
-							hudTextColor: SETTINGS.hudTextColor,
-							hudBlurRadius: SETTINGS.hudBlurRadius,
-							enableHudShadow: SETTINGS.enableHudShadow,
-							trailColor: SETTINGS.trailColor,
-							trailWidth: SETTINGS.trailWidth,
-							showTrailOrigin: SETTINGS.showTrailOrigin,
-							enableInputStabilization: SETTINGS.enableTrailSmooth,
-							enablePathInterpolation: SETTINGS.enableTrailSmooth,
-							customCss: SETTINGS.customCss,
-							lang,
-							isRtl
-						});
-						toaster.updateSettings({
-							hudBgColor: SETTINGS.hudBgColor,
-							hudTextColor: SETTINGS.hudTextColor,
-							hudBlurRadius: SETTINGS.hudBlurRadius,
-							customCss: SETTINGS.customCss,
-							lang,
-							isRtl
-						});
-						ctxMenu.updateSettings({ lang, isRtl, customCss: SETTINGS.customCss });
-					}
+				if (SETTINGS.enableTrail || SETTINGS.enableHUD) {
+					const lang = window.ContentI18n.getHtmlLang();
+					const isRtl = window.ContentI18n.getDir() === 'rtl';
+					visualizer.updateSettings({
+						hudBgColor: SETTINGS.hudBgColor,
+						hudTextColor: SETTINGS.hudTextColor,
+						hudBlurRadius: SETTINGS.hudBlurRadius,
+						enableHudShadow: SETTINGS.enableHudShadow,
+						trailColor: SETTINGS.trailColor,
+						trailWidth: SETTINGS.trailWidth,
+						showTrailOrigin: SETTINGS.showTrailOrigin,
+						enableInputStabilization: SETTINGS.enableTrailSmooth,
+						enablePathInterpolation: SETTINGS.enableTrailSmooth,
+						customCss: SETTINGS.customCss,
+						lang,
+						isRtl
+					});
+					toaster.updateSettings({
+						hudBgColor: SETTINGS.hudBgColor,
+						hudTextColor: SETTINGS.hudTextColor,
+						hudBlurRadius: SETTINGS.hudBlurRadius,
+						customCss: SETTINGS.customCss,
+						lang,
+						isRtl
+					});
+					ctxMenu.updateSettings({ lang, isRtl, customCss: SETTINGS.customCss });
+				}
 
-					eventManager.update();
-				});
-			} catch (e) {
-			}
+				eventManager.update();
+			});
 		}
 
-		try {
-			if (chrome.storage && chrome.storage.onChanged) {
-				chrome.storage.onChanged.addListener((changes, namespace) => {
-					if (namespace === 'sync') {
-						const keys = Object.keys(changes);
-						if (keys.length === 1 && keys[0] === 'blacklist') return;
+		chrome.storage.onChanged.addListener((changes, namespace) => {
+			if (namespace === 'sync') {
+				const keys = Object.keys(changes);
+				if (keys.length === 1 && keys[0] === 'blacklist') return;
 
-						loadSettings();
-					}
-				});
+				loadSettings();
 			}
-		} catch (e) {
-		}
+		});
 
 		loadSettings();
 
+		chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+			if (request.action === 'ping') {
+				sendResponse({ pong: true });
+				return;
+			}
 
-		try {
-			chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-				if (request.action === 'ping') {
-					sendResponse({ pong: true });
+			if (request.action === 'gestureStateUpdate') {
+				isRemoteGestureActive = request.active;
+			}
+
+			if (request.action === 'executeLocalAction' && !isIframe) {
+				if (!LOCAL_ACTIONS.has(request.stepAction)) {
+					sendResponse({ success: false });
 					return;
 				}
+				executeAction(request.stepAction, request.stepConfig)
+					.then(() => sendResponse({ success: true }))
+					.catch(() => sendResponse({ success: false }));
+				return true; 
+			}
 
-				if (request.action === 'gestureStateUpdate') {
-					isRemoteGestureActive = request.active;
+			if (request.action === 'gestureHudUpdate' && !isIframe) {
+				const d = request.data;
+				switch (d.type) {
+					case 'hide': visualizer.hide(); break;
+					case 'updateAction': visualizer.updateAction(d.arrows, d.texts); break;
 				}
+			}
 
-				if (request.action === 'executeLocalAction' && !isIframe) {
-					if (!LOCAL_ACTIONS.has(request.stepAction)) {
-						sendResponse({ success: false });
-						return;
-					}
-					executeAction(request.stepAction, request.stepConfig)
-						.then(() => sendResponse({ success: true }))
-						.catch(() => sendResponse({ success: false }));
-					return true; 
-				}
+			if (request.action === 'gestureScrollUpdate' && !isIframe) {
+				handleScroll(request.data.action, request.data.scrollConfig, true);
+			}
 
-				if (request.action === 'gestureHudUpdate' && !isIframe) {
-					const d = request.data;
-					switch (d.type) {
-						case 'hide': visualizer.hide(); break;
-						case 'updateAction': visualizer.updateAction(d.arrows, d.texts); break;
-					}
-				}
+			if (request.action === 'showDownloadError' && !isIframe) {
+				toaster.showToast(msg('downloadErrorHotlink'), { duration: 5000 });
+			}
 
-				if (request.action === 'gestureScrollUpdate' && !isIframe) {
-					handleScroll(request.data.action, request.data.scrollConfig, true);
+			if (request.action === 'areaSelectEnter') {
+				if (window.FlowMouseAreaSelect && !window.FlowMouseAreaSelect.isActive) {
+					const lang = window.ContentI18n.getHtmlLang();
+					const isRtl = window.ContentI18n.getDir() === 'rtl';
+					window.FlowMouseAreaSelect.enter(isIframe, request.warnThreshold, lang, isRtl, undefined, {
+						textUrl: request.textUrl,
+						operationInterval: request.operationInterval,
+						customCss: SETTINGS.customCss,
+					});
 				}
+			}
 
-				if (request.action === 'showDownloadError' && !isIframe) {
-					toaster.showToast(msg('downloadErrorHotlink'), { duration: 5000 });
+			if (request.action === 'areaSelectExit') {
+				if (window.FlowMouseAreaSelect) {
+					window.FlowMouseAreaSelect.exit();
 				}
+			}
 
-				if (request.action === 'areaSelectEnter') {
-					if (window.FlowMouseAreaSelect && !window.FlowMouseAreaSelect.isActive) {
-						const lang = window.ContentI18n.getHtmlLang();
-						const isRtl = window.ContentI18n.getDir() === 'rtl';
-						window.FlowMouseAreaSelect.enter(isIframe, request.warnThreshold, lang, isRtl, undefined, {
-							textUrl: request.textUrl,
-							operationInterval: request.operationInterval,
-							customCss: SETTINGS.customCss,
-						});
-					}
+			if (request.action === 'areaSelectUpdate' && !isIframe) {
+				if (window.FlowMouseAreaSelect) {
+					window.FlowMouseAreaSelect.updateFromFrame(request.frameId, request.links);
 				}
+			}
 
-				if (request.action === 'areaSelectExit') {
-					if (window.FlowMouseAreaSelect) {
-						window.FlowMouseAreaSelect.exit();
-					}
-				}
-
-				if (request.action === 'areaSelectUpdate' && !isIframe) {
-					if (window.FlowMouseAreaSelect) {
-						window.FlowMouseAreaSelect.updateFromFrame(request.frameId, request.links);
-					}
-				}
-
-				if (request.action === 'pauseGesture') {
-					isBlacklisted = true;
-					resetState();
-					eventManager.dispose();
-					visualizer.cleanup();
-					toaster.cleanup();
-					ctxMenu.close();
-					window.FlowMouseAreaSelect?.exit();
-				}
-			});
-		} catch (e) {
-		}
+			if (request.action === 'pauseGesture') {
+				isBlacklisted = true;
+				resetState();
+				eventManager.dispose();
+				visualizer.cleanup();
+				toaster.cleanup();
+				ctxMenu.close();
+				window.FlowMouseAreaSelect?.exit();
+			}
+		});
 
 		let gestureState = {
 			isRightButton: false,
@@ -3072,7 +3050,7 @@ window.ContentContextMenu = ContentContextMenu;
 							const items = result.tabs.map(tab => ({
 								label: tab.title ?? tab.url,
 								icon: tab.url ? getIcon(tab) : '',
-								time: td !== 'none' && tab.lastModified ? tab.lastModified * 1000 : undefined,
+								time: td !== 'none' && tab.lastModified ? (tab.lastModified) : undefined,
 								onClick: () => {
 									safeSendMessage({ action: 'restoreSession', sessionId: tab.sessionId });
 								}

@@ -102,12 +102,12 @@ const ACTION_CATEGORIES = [
 
 class ActionSelect extends LitElement {
 	static properties = {
-		value: { type: String, reflect: true },
+		value: { type: String },
 		config: { type: Object },
 		gestureLabel: { type: String, attribute: 'gesture-label' },
-		context: { type: String, reflect: true },
+		context: { type: String },
 		allowCustomName: { type: Boolean, attribute: 'allow-custom-name' },
-		compact: { type: Boolean, reflect: true },
+		compact: { type: Boolean },
 		_open: { state: true },
 		_search: { state: true },
 		_pendingValue: { state: true },

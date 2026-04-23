@@ -4,7 +4,7 @@ import { tooltip } from '../tooltip.js';
 
 class ColorPicker extends LitElement {
 	static properties = {
-		value: { type: String, reflect: true },
+		value: { type: String },
 		alpha: { type: Boolean },
 		defaultValue: { type: String, attribute: 'default-value' },
 		blurRadius: { type: Number, attribute: 'blur-radius' },

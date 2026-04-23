@@ -9,7 +9,7 @@ class FmContextMenu extends LitElement {
 	static properties = {
 		_items: { state: true },
 		_customCss: { state: true },
-		preview: { type: Boolean, reflect: true },
+		preview: { type: Boolean },
 		previewItems: { attribute: false },
 		previewCss: { attribute: false },
 	};
@@ -333,7 +333,7 @@ class FmContextMenu extends LitElement {
 					</li>
 				` : ''}
 				${this._items.map((item, i) => {
-					if (item === 'separator' || item?.type === 'separator') {
+					if (item === 'separator') {
 						return html`<li class="fm-ctx-sep" role="separator"></li>`;
 					}
 

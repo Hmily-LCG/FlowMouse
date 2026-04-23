@@ -502,7 +502,6 @@ class GestureOverlay {
 				backdrop-filter: blur(${blur}px);
 				user-select: none;
 			}
-			/* Arrows-only: symmetric padding */
 			.fm-gesture-hud.fm-gesture-hud--arrows-only {
 				padding-inline-end: 27px;
 			}

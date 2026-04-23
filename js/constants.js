@@ -14,7 +14,7 @@
 		'→↓': 'refresh',
 		'↓←': 'stopLoading',
 		'↓→': 'closeTab',
-		'←↑': 'menuRecentlyClosed',
+		'←↑': 'restoreTab',
 		'←↓': 'closeAllTabs',
 		'↑↓': 'scrollToBottom',
 		'↓↑': 'scrollToTop',
