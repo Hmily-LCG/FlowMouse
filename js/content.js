@@ -177,18 +177,18 @@
 	}
 
 	function checkScrollFeasibility(action, cursorX, cursorY) {
-		const tolerance = 1; 
+		const tolerance = 1;
 		const target = getScrollTarget(action, false, cursorX, cursorY);
 
 		const currentScrollTop = target.scrollTop;
 		const maxScrollTop = target.scrollHeight - target.clientHeight;
 
 		if (action === 'scrollUp' || action === 'scrollToTop') {
-			return currentScrollTop > tolerance; 
+			return currentScrollTop > tolerance;
 		} else if (action === 'scrollDown' || action === 'scrollToBottom') {
-			return currentScrollTop < maxScrollTop - tolerance; 
+			return currentScrollTop < maxScrollTop - tolerance;
 		}
-		return true; 
+		return true;
 	}
 
 	function resolveScrollSmoothness(value) {
@@ -199,10 +199,10 @@
 		return value;
 	}
 
-	const scrollGoals = new WeakMap(); 
+	const scrollGoals = new WeakMap();
 	let scrollRafId = null;
-	let scrollActiveTarget = null; 
-	let scrollVersion = 0; 
+	let scrollActiveTarget = null;
+	let scrollVersion = 0;
 
 	let scrollAccelLastTime = 0;
 	let scrollAccelCount = 0;
@@ -589,9 +589,9 @@ window.ContentContextMenu = ContentContextMenu;
 	const isFirefox = true;
 
 	const STATES = { INACTIVE: 0, WAITING: 1, SELECTING: 2 };
-	const CLICK_THRESHOLD = 2; 
-	const AUTO_SCROLL_ZONE = 5; 
-	const AUTO_SCROLL_SPEED = 8; 
+	const CLICK_THRESHOLD = 2;
+	const AUTO_SCROLL_ZONE = 5;
+	const AUTO_SCROLL_SPEED = 8;
 	const HIGHLIGHT_OUTLINE = '2px auto #4A90D9EE';
 	const HIGHLIGHT_BG = 'rgba(74, 144, 217, 0.12)';
 	const HOVER_OUTLINE = '2px auto #4A90D944';
@@ -627,8 +627,8 @@ window.ContentContextMenu = ContentContextMenu;
 	}
 
 	class LinkStyler {
-		#originals = new Map(); 
-		#hasBgCache = new Map(); 
+		#originals = new Map();
+		#hasBgCache = new Map();
 
 		#save(el) {
 			if (!this.#originals.has(el)) {
@@ -698,14 +698,14 @@ window.ContentContextMenu = ContentContextMenu;
 	}
 
 	class TextLinkStyler {
-		#highlight = null;   
+		#highlight = null;
 		#hoverHighlight = null;
 		#styleEl = null;
 		#initialized = false;
 
 		#init() {
 			if (this.#initialized) return;
-			if (typeof Highlight === 'undefined' || !CSS.highlights) return; 
+			if (typeof Highlight === 'undefined' || !CSS.highlights) return;
 			this.#initialized = true;
 
 			this.#styleEl = document instanceof XMLDocument
@@ -760,14 +760,14 @@ window.ContentContextMenu = ContentContextMenu;
 	class LinkHighlighter {
 		#elementStyler = new LinkStyler();
 		#textStyler = new TextLinkStyler();
-		#selected = new Set(); 
-		#preview = new Set(); 
+		#selected = new Set();
+		#preview = new Set();
 		#cache = null;
 		#cacheTime = 0;
 		#skipFixed = false;
 		#textLinks = true;
-		#textItemRegistry = new WeakMap(); 
-		#anchorMap = new Map(); 
+		#textItemRegistry = new WeakMap();
+		#anchorMap = new Map();
 		onFirstPreviewHit = null;
 
 		set skipFixed(v) { this.#skipFixed = v; this.#cache = null; }
@@ -1037,18 +1037,18 @@ window.ContentContextMenu = ContentContextMenu;
 
 	class AreaSelectManager {
 		#state = STATES.INACTIVE;
-		#host = null;      
-		#overlay = null;   
-		#rectEl = null;    
-		#toolbar = null;   
-		#modal = null;     
+		#host = null;
+		#overlay = null;
+		#rectEl = null;
+		#toolbar = null;
+		#modal = null;
 		#startX = 0;
 		#startY = 0;
 		#isIframe = false;
 		#warnThreshold = 15;
 		#operationInterval = 0;
-		#highlighter = null; 
-		#frameLinks = new Map(); 
+		#highlighter = null;
+		#frameLinks = new Map();
 		#autoScrollRAF = null;
 		#boundPointerDown = null;
 		#boundPointerMove = null;
@@ -1088,7 +1088,7 @@ window.ContentContextMenu = ContentContextMenu;
 			const needsDialog = !isIframe;
 			this.#host = new ShadowHost({ useDialog: needsDialog });
 			const topLayer = needsDialog && (document.fullscreenElement || document.querySelector(':modal')) ? 'modal' : 'popover';
-			if (!this.#host.init(lang, isRtl, { topLayer })) return; 
+			if (!this.#host.init(lang, isRtl, { topLayer })) return;
 			this.#host.setBuiltInCss(this.#css());
 			this.#host.setCustomCss(options?.customCss || '');
 
@@ -1418,7 +1418,7 @@ window.ContentContextMenu = ContentContextMenu;
 		}
 
 		#reportSelection() {
-			if (!this.#isIframe) return; 
+			if (!this.#isIframe) return;
 			const links = this.#highlighter ? this.#highlighter.links : [];
 			try {
 				if (chrome.runtime?.sendMessage) {
@@ -1833,7 +1833,7 @@ window.ContentContextMenu = ContentContextMenu;
 	const isEdgeDesktop = navigator.userAgent.includes('Edg/');
 
 	const currentDomain = location.hostname;
-	
+
 	function checkBlacklist(blacklist) {
 		if (blacklist.includes(currentDomain)) return true;
 		try {
@@ -2026,7 +2026,7 @@ window.ContentContextMenu = ContentContextMenu;
 				if (!pattern.startsWith(currentPattern)) continue;
 				if (pattern.length !== currentPattern.length + 1) continue;
 				const actionName = getActionName(pattern);
-				if (!actionName) continue; 
+				if (!actionName) continue;
 				suggestions.push({ pattern, actionName });
 			}
 
@@ -2144,7 +2144,7 @@ window.ContentContextMenu = ContentContextMenu;
 				executeAction(request.stepAction, request.stepConfig)
 					.then(() => sendResponse({ success: true }))
 					.catch(() => sendResponse({ success: false }));
-				return true; 
+				return true;
 			}
 
 			if (request.action === 'gestureHudUpdate' && !isIframe) {
@@ -2209,7 +2209,8 @@ window.ContentContextMenu = ContentContextMenu;
 			parentLink: null,
 			startTarget: null,
 			preventContextMenu: false,
-			skipFirstDragOver: false  
+			skipFirstDragOver: false,
+			overEditableTarget: false
 		};
 
 		function resetState() {
@@ -2224,6 +2225,7 @@ window.ContentContextMenu = ContentContextMenu;
 			gestureState.dragType = null;
 			gestureState.startTarget = null;
 			gestureState.skipFirstDragOver = false;
+			gestureState.overEditableTarget = false;
 		}
 
 		let isRemoteGestureActive = false;
@@ -2285,7 +2287,7 @@ window.ContentContextMenu = ContentContextMenu;
 
 		const isMacOrLinux = /Mac|Linux/i.test(navigator.platform);
 		let lastRightClickTime = 0;
-		const doubleClickDelay = 500; 
+		const doubleClickDelay = 500;
 
 		let macLinuxHintShown = false;
 
@@ -2370,7 +2372,7 @@ window.ContentContextMenu = ContentContextMenu;
 
 		eventManager.add(null, window, 'pointerdown', (e) => {
 			if (e.button === 0) {
-				lastPointerType = e.pointerType; 
+				lastPointerType = e.pointerType;
 			}
 			if (e.button === 2) {
 				rightButtonSeenOnPage = true;
@@ -2395,7 +2397,7 @@ window.ContentContextMenu = ContentContextMenu;
 			if (!areaSelectPending || e.pointerId !== areaSelectPending.pointerId) return;
 			const dx = e.clientX - areaSelectPending.x;
 			const dy = e.clientY - areaSelectPending.y;
-			if (dx * dx + dy * dy < 9) return; 
+			if (dx * dx + dy * dy < 9) return;
 			const pending = areaSelectPending;
 			areaSelectPending = null;
 			if (window.FlowMouseAreaSelect?.isActive) return;
@@ -2506,7 +2508,7 @@ window.ContentContextMenu = ContentContextMenu;
 						dcutoff: 1.0
 					});
 					visualizer.show();
-					
+
 					const preTrail = result.preActivationTrail || [{ x: recognizer.startX, y: recognizer.startY, timestamp: recognizer.startTimestamp }];
 					const merged = [...preTrail, ...currentPoints];
 					merged.sort((a, b) => a.timestamp - b.timestamp);
@@ -2625,7 +2627,7 @@ window.ContentContextMenu = ContentContextMenu;
 
 					if (shouldForce) {
 						target.setAttribute('draggable', 'true');
-						target.setAttribute('data-flowmouse-modified', 'true'); 
+						target.setAttribute('data-flowmouse-modified', 'true');
 						hasModified = true;
 					}
 				}
@@ -2645,9 +2647,23 @@ window.ContentContextMenu = ContentContextMenu;
 
 			const modified = document.querySelectorAll('[data-flowmouse-modified="true"]');
 			modified.forEach(el => {
-				el.setAttribute('draggable', 'false'); 
+				el.setAttribute('draggable', 'false');
 				el.removeAttribute('data-flowmouse-modified');
 			});
+		}
+
+		function isEditableDropTarget(node) {
+			if (!node) return false;
+			const el = node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement;
+			if (!el) return false;
+			const tag = el.tagName;
+			return tag === 'INPUT' || tag === 'TEXTAREA' || el.isContentEditable;
+		}
+
+		function shouldDeferToNativeDrop(node) {
+			return SETTINGS.textDragIgnoreInput
+				&& gestureState.dragType === 'text'
+				&& isEditableDropTarget(node);
 		}
 
 		eventManager.add(isDragEnabled, window, 'dragstart', (e) => {
@@ -2773,11 +2789,23 @@ window.ContentContextMenu = ContentContextMenu;
 				return;
 			}
 
+			if (shouldDeferToNativeDrop(e.composedPath()[0])) {
+				if (!gestureState.overEditableTarget) {
+					gestureState.overEditableTarget = true;
+					visualizer.hide();
+					if (SETTINGS.enableHUD) visualizer.updateAction('', []);
+				}
+				return;
+			}
+
+			const wasOverEditable = gestureState.overEditableTarget;
+			gestureState.overEditableTarget = false;
+
 			const result = recognizer.move(e.clientX, e.clientY, e.timeStamp);
 
 			const currentPoint = { x: e.clientX, y: e.clientY, timestamp: e.timeStamp };
 
-			if (result.activated) {
+			if (result.activated || (wasOverEditable && recognizer.isActive())) {
 				if (SETTINGS.enableTrail) {
 					visualizer.updateSettings({
 						minCutoff: 1.0,
@@ -2785,7 +2813,7 @@ window.ContentContextMenu = ContentContextMenu;
 						dcutoff: 1.0
 					});
 					visualizer.show();
-					
+
 					const preTrail = result.preActivationTrail || [{ x: recognizer.startX, y: recognizer.startY, timestamp: recognizer.startTimestamp }];
 					const merged = [...preTrail, currentPoint];
 					merged.sort((a, b) => a.timestamp - b.timestamp);
@@ -2802,7 +2830,7 @@ window.ContentContextMenu = ContentContextMenu;
 				e.stopImmediatePropagation();
 			}
 
-			if (result.directionChanged && SETTINGS.enableHUD) {
+			if ((result.directionChanged || wasOverEditable) && SETTINGS.enableHUD) {
 				const hints = getDragHints(gestureState.dragType, result.pattern, gestureState.selectedText, gestureState.parentLink);
 				visualizer.updateAction(hints.length > 0 ? result.pattern : '', hints);
 			}
@@ -2811,6 +2839,7 @@ window.ContentContextMenu = ContentContextMenu;
 		eventManager.add(isDragEnabled, window, 'dragenter', (e) => {
 			if (!gestureState.isDrag) return;
 			if (!recognizer.isActive()) return;
+			if (shouldDeferToNativeDrop(e.composedPath()[0])) return;
 			if (hasDragAction(gestureState.dragType, recognizer.getPattern())) {
 				e.preventDefault();
 				e.stopImmediatePropagation();
@@ -2834,6 +2863,7 @@ window.ContentContextMenu = ContentContextMenu;
 
 		eventManager.add(isDragEnabled, window, 'drop', (e) => {
 			try {
+				if (shouldDeferToNativeDrop(e.composedPath()[0])) return;
 				if (gestureState.isDrag && recognizer.isActive()) {
 					const pattern = recognizer.getPattern();
 					if (hasDragAction(gestureState.dragType, pattern)) {
@@ -3301,7 +3331,7 @@ window.ContentContextMenu = ContentContextMenu;
 					const target = resolveTabTarget(config, state);
 					if (target?.url) incognitoUrls.push(target.url);
 					else if (target?.query) incognitoQueries.push(target.query);
-					return !target; 
+					return !target;
 				});
 				if (incognitoUrls.length > 0 || incognitoQueries.length > 0) {
 					await safeSendMessage({ action: 'openIncognitoTabs', urls: incognitoUrls, queries: incognitoQueries });
@@ -3342,8 +3372,8 @@ window.ContentContextMenu = ContentContextMenu;
 						const file = dataTransfer.files[0];
 						const reader = new FileReader();
 						reader.onload = () => {
-							safeSendMessage({ 
-								action: 'saveImage', 
+							safeSendMessage({
+								action: 'saveImage',
 								url: reader.result,
 								filename: file.name
 							});
@@ -3392,8 +3422,8 @@ window.ContentContextMenu = ContentContextMenu;
 
 						waitForImageLoad(dragElement)
 							.then(() => {
-								safeSendMessage({ 
-									action: 'saveImage', 
+								safeSendMessage({
+									action: 'saveImage',
 									url: content,
 									origin: window.location.origin
 								});
