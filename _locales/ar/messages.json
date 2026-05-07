@@ -199,6 +199,10 @@
 		"message": "ظل",
 		"description": "HUD shadow toggle"
 	},
+	"showSuggestedGestures": {
+		"message": "تلميحات الإيماءات",
+		"description": "Show suggested gestures at bottom of screen"
+	},
 	"customCss": {
 		"message": "CSS مخصص",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -804,7 +808,7 @@
 		"description": "Gesture recognition distance"
 	},
 	"distanceThresholdDesc": {
-		"message": "أقل مسافة حركة للتعرف على الإيماءة",
+		"message": "أقل مسافة حركة للتعرف على الإيماءات والسحب",
 		"description": "Description for gesture recognition distance"
 	},
 	"distanceThresholdNotice": {
@@ -820,7 +824,7 @@
 		"description": "Description for gesture turn tolerance setting"
 	},
 	"advanced": {
-		"message": "وضع الخبير",
+		"message": "عرض الإعدادات المتقدمة",
 		"description": "Short label for per-section advanced toggle"
 	},
 	"otherSettings": {

@@ -199,6 +199,10 @@
 		"message": "छाया",
 		"description": "HUD shadow toggle"
 	},
+	"showSuggestedGestures": {
+		"message": "जेस्चर प्रॉम्प्ट",
+		"description": "Show suggested gestures at bottom of screen"
+	},
 	"customCss": {
 		"message": "कस्टम CSS",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -804,7 +808,7 @@
 		"description": "Gesture recognition distance"
 	},
 	"distanceThresholdDesc": {
-		"message": "इशारे को पहचानने के लिए न्यूनतम गति दूरी",
+		"message": "इशारे और ड्रैग को पहचानने के लिए न्यूनतम गति दूरी",
 		"description": "Description for gesture recognition distance"
 	},
 	"distanceThresholdNotice": {
@@ -820,7 +824,7 @@
 		"description": "Description for gesture turn tolerance setting"
 	},
 	"advanced": {
-		"message": "विशेषज्ञ मोड",
+		"message": "उन्नत सेटिंग दिखाएं",
 		"description": "Short label for per-section advanced toggle"
 	},
 	"otherSettings": {

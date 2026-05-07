@@ -199,6 +199,10 @@
 		"message": "Bóng",
 		"description": "HUD shadow toggle"
 	},
+	"showSuggestedGestures": {
+		"message": "Lời nhắc cử chỉ",
+		"description": "Show suggested gestures at bottom of screen"
+	},
 	"customCss": {
 		"message": "CSS tùy chỉnh",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -804,7 +808,7 @@
 		"description": "Gesture recognition distance"
 	},
 	"distanceThresholdDesc": {
-		"message": "Khoảng cách di chuyển tối thiểu để nhận dạng cử chỉ",
+		"message": "Khoảng cách di chuyển tối thiểu để nhận dạng cử chỉ và kéo thả",
 		"description": "Description for gesture recognition distance"
 	},
 	"distanceThresholdNotice": {
@@ -820,7 +824,7 @@
 		"description": "Description for gesture turn tolerance setting"
 	},
 	"advanced": {
-		"message": "Chế độ chuyên gia",
+		"message": "Hiển thị cài đặt nâng cao",
 		"description": "Short label for per-section advanced toggle"
 	},
 	"otherSettings": {

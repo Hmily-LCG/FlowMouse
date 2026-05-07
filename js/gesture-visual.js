@@ -375,6 +375,7 @@ class GestureOverlay {
 		this.ctx = null;
 		this.trail = [];
 		this.hud = null;
+		this.suggestHud = null; 
 
 		this.host = new ShadowHost();
 
@@ -463,6 +464,10 @@ class GestureOverlay {
 		this.updateHudStyle();
 		shadow.appendChild(this.hud);
 
+		this.suggestHud = this.host.createElement('div');
+		this.suggestHud.className = 'fm-gesture-suggest-hud';
+		shadow.appendChild(this.suggestHud);
+
 		void this.hud.offsetHeight;
 
 		window.addEventListener('resize', this.resizeHandler);
@@ -481,29 +486,41 @@ class GestureOverlay {
 		const shadow = this.settings.enableHudShadow ? '0 4px 15px rgba(0,0,0,0.3)' : 'none';
 
 		return `
+			:host {
+				--fm-hud-bg: ${bg};
+				--fm-hud-text: ${text};
+				--fm-hud-blur: ${blur}px;
+				--fm-hud-shadow: ${shadow};
+			}
 			.fm-gesture-hud {
 				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -40%);
-				background-color: ${bg};
-				color: ${text};
+				inset: 0;
+				margin: auto;
+				width: fit-content;
+				height: fit-content;
+				max-width: 80%;
+				background-color: var(--fm-hud-bg);
+				color: var(--fm-hud-text);
 				padding-inline: 27px 30px;
 				padding-block: 15px 16px;
-				border-radius: 10px;
+				border-radius: 14px;
 				font-size: 24px;
 				line-height: 32px;
 				font-weight: 600;
 				pointer-events: none;
 				opacity: 0;
-				transition: opacity 0.2s, transform 0.2s;
+				transition: opacity 0.10s, box-shadow 0.10s;
 				text-align: center;
-				box-shadow: ${shadow};
-				backdrop-filter: blur(${blur}px);
+				backdrop-filter: blur(var(--fm-hud-blur));
 				user-select: none;
 			}
-			.fm-gesture-hud.fm-gesture-hud--arrows-only {
+			.fm-gesture-hud.arrows-only {
 				padding-inline-end: 27px;
+			}
+			.fm-gesture-hud.visible {
+				opacity: 1;
+				box-shadow: var(--fm-hud-shadow);
+				transition-timing-function: ease-in;
 			}
 			.fm-gesture-hud-layout {
 				display: inline-flex;
@@ -519,9 +536,75 @@ class GestureOverlay {
 				display: flex;
 				flex-direction: column;
 				align-items: flex-start;
-				flex-shrink: 0;
-				white-space: nowrap;
 				gap: 4px;
+			}
+			.fm-gesture-hud-arrows:empty,
+			.fm-gesture-hud-texts:empty {
+				display: none;
+			}
+			.fm-gesture-hud-text {
+				overflow-wrap: anywhere;
+			}
+			.fm-gesture-suggest-hud {
+				position: absolute;
+				inset: auto 0 25px 0;
+				margin-inline: auto;
+				width: fit-content;
+				max-width: 80%;
+				padding: 10px 18px;
+				font-size: 14px;
+				line-height: 18px;
+				font-weight: 400;
+				color: #1d1d1f;
+				background-color: rgba(255, 255, 255, 0.92);
+				border-radius: 10px;
+				box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12), 0 0 0 0.5px rgba(0, 0, 0, 0.12);
+				backdrop-filter: blur(8px);
+				pointer-events: none;
+				user-select: none;
+				opacity: 0;
+				transition: opacity 0.10s;
+				text-align: center;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				gap: 2px 0;
+			}
+			.fm-gesture-suggest-hud.visible {
+				opacity: 1;
+				transition-timing-function: ease-in;
+			}
+			.fm-gesture-suggest-item {
+				display: inline-flex;
+				align-items: center;
+				gap: 6px;
+				white-space: nowrap;
+			}
+			.fm-gesture-suggest-arrows {
+				opacity: 0.8;
+				line-height: 18px;
+				transform: scale(1.1);
+			}
+			.fm-gesture-suggest-label {
+				opacity: 0.75;
+			}
+			.fm-gesture-suggest-divider {
+				width: 1px;
+				height: 14px;
+				background: rgba(0, 0, 0, 0.1);
+				margin: 0 13px;
+				flex-shrink: 0;
+				align-self: center;
+			}
+			@media (prefers-color-scheme: dark) {
+				.fm-gesture-suggest-hud {
+					color: #e5e5e7;
+					background-color: rgba(30, 30, 32, 0.9);
+					box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3), 0 0 0 0.5px rgba(255, 255, 255, 0.08);
+				}
+				.fm-gesture-suggest-divider {
+					background: rgba(255, 255, 255, 0.1);
+				}
 			}
 		`;
 	}
@@ -576,10 +659,8 @@ class GestureOverlay {
 			this.canvas.style.display = 'none';
 			this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 		}
-		if (this.hud) {
-			this.hud.style.opacity = '0';
-			this.hud.style.transform = 'translate(-50%, -40%)';
-		}
+		if (this.hud) this.hud.classList.remove('visible');
+		if (this.suggestHud) this.suggestHud.classList.remove('visible');
 		this.trail = [];
 
 		this._teardownTimer = setTimeout(() => {
@@ -601,6 +682,7 @@ class GestureOverlay {
 		this.ctx = null;
 		this.canvas = null;
 		this.hud = null;
+		this.suggestHud = null;
 	}
 
 	addPoint(x, y, timestamp = null) {
@@ -684,33 +766,48 @@ class GestureOverlay {
 		if (!Array.isArray(texts)) throw new TypeError('updateAction: texts must be an array');
 
 		if (!arrows && texts.length === 0) {
-			if (this.hud) this.hud.style.opacity = '0';
+			if (this.hud) this.hud.classList.remove('visible');
+			if (this.suggestHud) this.suggestHud.classList.remove('visible');
 			return;
 		}
 
 		if (!this.init()) return;
 
-		let innerHTML = '\u200B';
 		const hasText = texts.length > 0 && texts.some(t => t);
 
-		if (arrows && hasText) {
-			const arrowsHtml = window.GestureConstants.arrowsToSvg(arrows);
-			const textsHtml = texts.map(t => `<div class="fm-gesture-hud-text">${escapeHtml(t)}</div>`).join('');
+		const arrowsHtml = arrows ? '\u200B' + window.GestureConstants.arrowsToSvg(arrows) : '';
+		const textsHtml = hasText
+			? texts.map(t => `<div class="fm-gesture-hud-text">${escapeHtml(t)}</div>`).join('')
+			: '';
 
-			innerHTML += `<div class="fm-gesture-hud-layout">`
-				+ `<div class="fm-gesture-hud-arrows">${arrowsHtml}</div>`
-				+ `<div class="fm-gesture-hud-texts">${textsHtml}</div>`
-				+ `</div>`;
-		} else if (arrows) {
-			innerHTML += window.GestureConstants.arrowsToSvg(arrows);
-		} else {
-			innerHTML += texts.map(t => `<div class="fm-gesture-hud-text">${escapeHtml(t)}</div>`).join('');
-		}
+		const innerHTML = `<div class="fm-gesture-hud-layout">`
+			+ `<div class="fm-gesture-hud-arrows">${arrowsHtml}</div>`
+			+ `<div class="fm-gesture-hud-texts">${textsHtml}</div>`
+			+ `</div>`;
 
 		this.host.setHTML(this.hud, innerHTML);
-		this.hud.classList.toggle('fm-gesture-hud--arrows-only', !hasText);
-		this.hud.style.opacity = '1';
-		this.hud.style.transform = 'translate(-50%, -50%)';
+		this.hud.classList.toggle('arrows-only', !hasText);
+		this.hud.classList.add('visible');
+	}
+
+	updateSuggestedGestures(suggestions, currentPattern = '') {
+		if (!Array.isArray(suggestions)) throw new TypeError('updateSuggestedGestures: suggestions must be an array');
+
+		if (suggestions.length === 0) {
+			if (this.suggestHud) this.suggestHud.classList.remove('visible');
+			return;
+		}
+
+		if (!this.init()) return;
+
+		const itemsHtml = suggestions.map(s => {
+			const svg = `<span class="fm-gesture-suggest-arrows">${window.GestureConstants.arrowsToSvg(s.pattern)}</span>`;
+			const label = s.actionName ? `<span class="fm-gesture-suggest-label">${escapeHtml(s.actionName)}</span>` : '';
+			return `<span class="fm-gesture-suggest-item">${svg}${label}</span>`;
+		}).join('<span class="fm-gesture-suggest-divider"></span>');
+
+		this.host.setHTML(this.suggestHud, itemsHtml);
+		this.suggestHud.classList.add('visible');
 	}
 
 	#scheduleDraw() {
@@ -872,13 +969,18 @@ class ToastOverlay {
 		const blur = this.settings.hudBlurRadius ?? 5;
 
 		return `
+			:host {
+				--fm-toast-bg: ${bg};
+				--fm-toast-text: ${text};
+				--fm-toast-blur: ${blur}px;
+			}
 			.fm-toast {
 				position: fixed;
 				bottom: 18%;
 				left: 50%;
 				transform: translateX(-50%) translateY(12px);
-				background: ${bg};
-				color: ${text};
+				background: var(--fm-toast-bg);
+				color: var(--fm-toast-text);
 				padding: 10px 20px;
 				border-radius: 10px;
 				font-size: 13.5px;
@@ -890,7 +992,7 @@ class ToastOverlay {
 				opacity: 0;
 				transition: opacity 0.25s cubic-bezier(.4,0,.2,1),
 							transform 0.25s cubic-bezier(.4,0,.2,1);
-				backdrop-filter: blur(${blur}px);
+				backdrop-filter: blur(var(--fm-toast-blur));
 				pointer-events: none;
 				user-select: none;
 				z-index: 1;
@@ -910,7 +1012,6 @@ class ToastOverlay {
 	}
 
 	showToast(message, options = {}) {
-		console.log(message, options);
 		const { duration = 5000, onClick = null } = options;
 		if (!this.#ensureHost()) return () => {};
 

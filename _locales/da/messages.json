@@ -199,6 +199,10 @@
 		"message": "Skygge",
 		"description": "HUD shadow toggle"
 	},
+	"showSuggestedGestures": {
+		"message": "Gestus-prompter",
+		"description": "Show suggested gestures at bottom of screen"
+	},
 	"customCss": {
 		"message": "Brugerdefineret CSS",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -804,7 +808,7 @@
 		"description": "Gesture recognition distance"
 	},
 	"distanceThresholdDesc": {
-		"message": "Minimumsbevægelsesafstand for at genkende en gestus",
+		"message": "Minimumsbevægelsesafstand for at genkende en gestus og træk",
 		"description": "Description for gesture recognition distance"
 	},
 	"distanceThresholdNotice": {
@@ -820,7 +824,7 @@
 		"description": "Description for gesture turn tolerance setting"
 	},
 	"advanced": {
-		"message": "Ekspertilstand",
+		"message": "Vis avancerede indstillinger",
 		"description": "Short label for per-section advanced toggle"
 	},
 	"otherSettings": {

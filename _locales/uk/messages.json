@@ -199,6 +199,10 @@
 		"message": "Тінь",
 		"description": "HUD shadow toggle"
 	},
+	"showSuggestedGestures": {
+		"message": "Підказки жестів",
+		"description": "Show suggested gestures at bottom of screen"
+	},
 	"customCss": {
 		"message": "Спеціальний CSS",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -804,7 +808,7 @@
 		"description": "Gesture recognition distance"
 	},
 	"distanceThresholdDesc": {
-		"message": "Мінімальна відстань руху для розпізнавання жесту",
+		"message": "Мінімальна відстань руху для розпізнавання жесту та перетягування",
 		"description": "Description for gesture recognition distance"
 	},
 	"distanceThresholdNotice": {
@@ -820,7 +824,7 @@
 		"description": "Description for gesture turn tolerance setting"
 	},
 	"advanced": {
-		"message": "Режим експерта",
+		"message": "Показати додаткові налаштування",
 		"description": "Short label for per-section advanced toggle"
 	},
 	"otherSettings": {

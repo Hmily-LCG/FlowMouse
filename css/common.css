@@ -167,7 +167,7 @@ input[type="checkbox"] {
 	position: relative;
 	vertical-align: middle;
 	transition: background-color 0.1s ease, box-shadow 0.1s ease;
-	margin-right: 3px;
+	margin-inline-end: 3px;
 	outline: none;
 }
 

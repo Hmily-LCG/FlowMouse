@@ -199,6 +199,10 @@
 		"message": "سایه",
 		"description": "HUD shadow toggle"
 	},
+	"showSuggestedGestures": {
+		"message": "راهنمای ژست‌ها",
+		"description": "Show suggested gestures at bottom of screen"
+	},
 	"customCss": {
 		"message": "CSS سفارشی",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -804,7 +808,7 @@
 		"description": "Gesture recognition distance"
 	},
 	"distanceThresholdDesc": {
-		"message": "حداقل فاصله حرکت برای تشخیص ژست",
+		"message": "حداقل فاصله حرکت برای تشخیص ژست و کشیدن",
 		"description": "Description for gesture recognition distance"
 	},
 	"distanceThresholdNotice": {
@@ -820,7 +824,7 @@
 		"description": "Description for gesture turn tolerance setting"
 	},
 	"advanced": {
-		"message": "حالت متخصص",
+		"message": "نمایش تنظیمات پیشرفته",
 		"description": "Short label for per-section advanced toggle"
 	},
 	"otherSettings": {

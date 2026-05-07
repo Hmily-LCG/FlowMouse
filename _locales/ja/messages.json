@@ -199,6 +199,10 @@
 		"message": "影",
 		"description": "HUD shadow toggle"
 	},
+	"showSuggestedGestures": {
+		"message": "ジェスチャープロンプト",
+		"description": "Show suggested gestures at bottom of screen"
+	},
 	"customCss": {
 		"message": "カスタム CSS",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -804,7 +808,7 @@
 		"description": "Gesture recognition distance"
 	},
 	"distanceThresholdDesc": {
-		"message": "ジェスチャーを認識するための最小移動距離",
+		"message": "ジェスチャーおよびドラッグを認識するための最小移動距離",
 		"description": "Description for gesture recognition distance"
 	},
 	"distanceThresholdNotice": {
@@ -820,7 +824,7 @@
 		"description": "Description for gesture turn tolerance setting"
 	},
 	"advanced": {
-		"message": "エキスパートモード",
+		"message": "詳細設定を表示",
 		"description": "Short label for per-section advanced toggle"
 	},
 	"otherSettings": {

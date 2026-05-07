@@ -38,7 +38,7 @@ class PopupPage extends LitElement {
 			.header h1 {
 				font-size: 16px;
 				font-weight: 600;
-				margin-left: 8px;
+				margin-inline-start: 7px;
 			}
 
 			.logo-small {
@@ -55,7 +55,7 @@ class PopupPage extends LitElement {
 				margin-top: 1px;
 				padding: 1px 6px 2px;
 				border-radius: 5px;
-				margin-left: 8px;
+				margin-inline-start: 7px;
 			}
 
 			.header-settings {
@@ -119,6 +119,8 @@ class PopupPage extends LitElement {
 				overflow: hidden;
 				text-overflow: ellipsis;
 				white-space: nowrap;
+				padding-right: 4px;
+				margin-right: -4px;
 			}
 
 			.site-domain.blacklisted {
@@ -144,7 +146,7 @@ class PopupPage extends LitElement {
 			}
 
 			.toggle {
-			    margin-left: 5px;
+				margin-left: 5px;
 			}
 
 			.gestures-info {
@@ -396,7 +398,7 @@ class PopupPage extends LitElement {
 				}
 			</div>
 
-			<div class="status-row ${!this._gestureEnabled ? 'disabled-row' : ''}">
+			<div class="status-row">
 				<span class="status-label">${i18n.getMessage('popupTrail')}</span>
 				<label class="toggle">
 					<input type="checkbox" .checked=${this._enableTrail} @change=${this.#onTrailChange}>
@@ -404,7 +406,7 @@ class PopupPage extends LitElement {
 				</label>
 			</div>
 
-			<div class="status-row ${!this._gestureEnabled ? 'disabled-row' : ''}">
+			<div class="status-row">
 				<span class="status-label">${i18n.getMessage('popupHint')}</span>
 				<label class="toggle">
 					<input type="checkbox" .checked=${this._enableHUD} @change=${this.#onHUDChange}>

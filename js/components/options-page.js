@@ -306,6 +306,7 @@ class OptionsPage extends LitElement {
 		const showMacTextDragNotice = window.i18n.platform === 'mac';
 
 		const gestureEnabled = this._settings.enableGesture;
+		const dragEnabled = this._settings.enableTextDrag || this._settings.enableImageDrag || this._settings.enableLinkDrag;
 		const defaults = window.GestureConstants.DEFAULT_SETTINGS;
 
 		const distanceThresholdOutOfRange = this._settings.distanceThreshold < 10 || this._settings.distanceThreshold > 35;
@@ -368,7 +369,7 @@ class OptionsPage extends LitElement {
 
 						<div class="setting-row">
 							<div class="setting-label">
-								<span class="setting-title">${i18n.getMessage('showHint')}${this.#renderInlineReset(['enableHUD', 'hudBgColor', 'hudTextColor', 'hudBlurRadius', 'enableHudShadow'], { confirm: true })}</span>
+								<span class="setting-title">${i18n.getMessage('showHint')}${this.#renderInlineReset(['enableHUD', 'hudBgColor', 'hudTextColor', 'hudBlurRadius', 'enableHudShadow', 'enableSuggestedGestures'], { confirm: true })}</span>
 								<span>${i18n.getMessage('showHintDesc')}</span>
 							</div>
 							<label class="toggle">
@@ -412,6 +413,12 @@ class OptionsPage extends LitElement {
 									<label>
 										<input type="checkbox" id="enableHudShadow" .checked=${this._settings.enableHudShadow} @change=${e => this.#updateSetting('enableHudShadow', e.target.checked)}>
 										<span>${i18n.getMessage('hudShadow')}</span>
+									</label>
+								</div>
+								<div class="inline-setting-item">
+									<label>
+										<input type="checkbox" id="enableSuggestedGestures" .checked=${this._settings.enableSuggestedGestures !== false} @change=${e => this.#updateSetting('enableSuggestedGestures', e.target.checked)}>
+										<span>${i18n.getMessage('showSuggestedGestures')}</span>
 									</label>
 								</div>
 							</div>
@@ -484,7 +491,9 @@ class OptionsPage extends LitElement {
 							${(this._settings.gestureTriggerButtons?.side1 || this._settings.gestureTriggerButtons?.side2) ? html`
 								<div class="setting-notice"><span>${i18n.getMessage('triggerButtonDriverWarning')}</span></div>
 							` : ''}
+						</div>
 
+						<div class="setting-group" style="display:${(gestureEnabled || dragEnabled) ? 'block' : 'none'}">
 							<div class="setting-row advanced-setting">
 								<div class="setting-label">
 									<span class="setting-title">${i18n.getMessage('distanceThreshold')}${this.#renderInlineReset('distanceThreshold')}</span>
@@ -509,7 +518,9 @@ class OptionsPage extends LitElement {
 									<span>${Math.round((this._settings.gestureTurnTolerance) * 100)}%</span>
 								</div>
 							</div>
+						</div>
 
+						<div class="setting-group" style="display:${gestureEnabled ? 'block' : 'none'}">
 							<div id="gesture-customization-row">
 								<div class="setting-row">
 									<div class="setting-label">

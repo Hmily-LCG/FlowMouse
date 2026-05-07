@@ -199,6 +199,10 @@
 		"message": "Umbră",
 		"description": "HUD shadow toggle"
 	},
+	"showSuggestedGestures": {
+		"message": "Indicații gesturi",
+		"description": "Show suggested gestures at bottom of screen"
+	},
 	"customCss": {
 		"message": "CSS personalizat",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -804,7 +808,7 @@
 		"description": "Gesture recognition distance"
 	},
 	"distanceThresholdDesc": {
-		"message": "Distanța minimă de mișcare pentru a recunoaște un gest",
+		"message": "Distanța minimă de mișcare pentru a recunoaște un gest și tragerea",
 		"description": "Description for gesture recognition distance"
 	},
 	"distanceThresholdNotice": {
@@ -820,7 +824,7 @@
 		"description": "Description for gesture turn tolerance setting"
 	},
 	"advanced": {
-		"message": "Mod expert",
+		"message": "Afișează setările avansate",
 		"description": "Short label for per-section advanced toggle"
 	},
 	"otherSettings": {

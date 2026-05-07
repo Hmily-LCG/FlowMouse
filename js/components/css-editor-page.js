@@ -286,7 +286,12 @@ class CssEditorPage extends LitElement {
 
 		this._visualizer = new window.GestureOverlay();
 		this.#updateVisualizer();
-		this._visualizer.updateAction('→↓', [window.i18n.getMessage('actionRefresh')]);
+		this._visualizer.updateAction('→', [i18n.getMessage('actionForward')]);
+		this._visualizer.updateSuggestedGestures([
+			{ pattern: '→↑', actionName: i18n.getMessage('actionNewTab') },
+			{ pattern: '→←', actionName: i18n.getMessage('actionRestoreTab') },
+			{ pattern: '→↓', actionName: i18n.getMessage('actionRefresh') },
+		], '→');
 
 		const container = this._visualizer.host.container;
 		if (container) {

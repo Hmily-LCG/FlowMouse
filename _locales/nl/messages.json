@@ -199,6 +199,10 @@
 		"message": "Schaduw",
 		"description": "HUD shadow toggle"
 	},
+	"showSuggestedGestures": {
+		"message": "Gebaarprompts",
+		"description": "Show suggested gestures at bottom of screen"
+	},
 	"customCss": {
 		"message": "Aangepaste CSS",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -804,7 +808,7 @@
 		"description": "Gesture recognition distance"
 	},
 	"distanceThresholdDesc": {
-		"message": "Minimale bewegingsafstand om een gebaar te herkennen",
+		"message": "Minimale bewegingsafstand om een gebaar en slepen te herkennen",
 		"description": "Description for gesture recognition distance"
 	},
 	"distanceThresholdNotice": {
@@ -820,7 +824,7 @@
 		"description": "Description for gesture turn tolerance setting"
 	},
 	"advanced": {
-		"message": "Expertmodus",
+		"message": "Toon geavanceerde instellingen",
 		"description": "Short label for per-section advanced toggle"
 	},
 	"otherSettings": {

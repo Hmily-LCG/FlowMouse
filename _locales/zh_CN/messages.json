@@ -199,6 +199,10 @@
 		"message": "阴影",
 		"description": "HUD shadow toggle"
 	},
+	"showSuggestedGestures": {
+		"message": "手势提示",
+		"description": "Show suggested gestures at bottom of screen"
+	},
 	"customCss": {
 		"message": "自定义 CSS",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -804,7 +808,7 @@
 		"description": "Gesture recognition distance"
 	},
 	"distanceThresholdDesc": {
-		"message": "触发手势识别的最小移动距离",
+		"message": "触发手势及拖拽识别的最小移动距离",
 		"description": "Description for gesture recognition distance"
 	},
 	"distanceThresholdNotice": {
@@ -820,7 +824,7 @@
 		"description": "Description for gesture turn tolerance setting"
 	},
 	"advanced": {
-		"message": "专家模式",
+		"message": "显示高级设置",
 		"description": "Short label for per-section advanced toggle"
 	},
 	"otherSettings": {

@@ -909,6 +909,17 @@ chrome.runtime.onMessage.addListener(asyncMessageHandler(async (request, sender)
 }));
 
 chrome.runtime.onInstalled.addListener((details) => {
+	function compareVersions(a, b) {
+		const partsA = a.split('.').map(Number);
+		const partsB = b.split('.').map(Number);
+		for (let i = 0; i < Math.max(partsA.length, partsB.length); i++) {
+			const segA = partsA[i] || 0;
+			const segB = partsB[i] || 0;
+			if (segA !== segB) return segA > segB ? 1 : -1;
+		}
+		return 0;
+	}
+
 	if (details.reason === 'install') {
 		chrome.tabs.create({
 			url: chrome.runtime.getURL('pages/tutorial.html'),
@@ -1021,6 +1032,10 @@ chrome.runtime.onInstalled.addListener((details) => {
 
 		if (details.previousVersion.startsWith('1.2')) {
 			const isMacOrLinux = /Mac|Linux/i.test(navigator.platform);
+		}
+
+		if (compareVersions(details.previousVersion, '2.0.2') <= 0) {
+			chrome.storage.sync.set({ enableSuggestedGestures: false });
 		}
 
 		chrome.storage.sync.get(['mouseGestures', 'wheelGestures', 'specialGestures', 'actionChains'], (items) => {

@@ -199,6 +199,10 @@
 		"message": "Sjena",
 		"description": "HUD shadow toggle"
 	},
+	"showSuggestedGestures": {
+		"message": "Upute za geste",
+		"description": "Show suggested gestures at bottom of screen"
+	},
 	"customCss": {
 		"message": "Prilagođeni CSS",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -804,7 +808,7 @@
 		"description": "Gesture recognition distance"
 	},
 	"distanceThresholdDesc": {
-		"message": "Minimalna udaljenost pokreta za prepoznavanje geste",
+		"message": "Minimalna udaljenost pokreta za prepoznavanje geste i povlačenja",
 		"description": "Description for gesture recognition distance"
 	},
 	"distanceThresholdNotice": {
@@ -820,7 +824,7 @@
 		"description": "Description for gesture turn tolerance setting"
 	},
 	"advanced": {
-		"message": "Stručni način",
+		"message": "Prikaži napredne postavke",
 		"description": "Short label for per-section advanced toggle"
 	},
 	"otherSettings": {

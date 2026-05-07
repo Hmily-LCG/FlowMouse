@@ -199,6 +199,10 @@
 		"message": "Bayangan",
 		"description": "HUD shadow toggle"
 	},
+	"showSuggestedGestures": {
+		"message": "Prompt Gestur",
+		"description": "Show suggested gestures at bottom of screen"
+	},
 	"customCss": {
 		"message": "CSS Kustom",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -804,7 +808,7 @@
 		"description": "Gesture recognition distance"
 	},
 	"distanceThresholdDesc": {
-		"message": "Jarak gerakan minimum untuk mengenali isyarat",
+		"message": "Jarak gerakan minimum untuk mengenali isyarat dan seretan",
 		"description": "Description for gesture recognition distance"
 	},
 	"distanceThresholdNotice": {
@@ -820,7 +824,7 @@
 		"description": "Description for gesture turn tolerance setting"
 	},
 	"advanced": {
-		"message": "Mode Pakar",
+		"message": "Tampilkan pengaturan lanjutan",
 		"description": "Short label for per-section advanced toggle"
 	},
 	"otherSettings": {

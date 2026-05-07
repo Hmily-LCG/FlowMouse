@@ -199,6 +199,10 @@
 		"message": "그림자",
 		"description": "HUD shadow toggle"
 	},
+	"showSuggestedGestures": {
+		"message": "제스처 프롬프트",
+		"description": "Show suggested gestures at bottom of screen"
+	},
 	"customCss": {
 		"message": "사용자 지정 CSS",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -804,7 +808,7 @@
 		"description": "Gesture recognition distance"
 	},
 	"distanceThresholdDesc": {
-		"message": "제스처를 인식하기 위한 최소 이동 거리",
+		"message": "제스처 및 드래그를 인식하기 위한 최소 이동 거리",
 		"description": "Description for gesture recognition distance"
 	},
 	"distanceThresholdNotice": {
@@ -820,7 +824,7 @@
 		"description": "Description for gesture turn tolerance setting"
 	},
 	"advanced": {
-		"message": "전문가 모드",
+		"message": "고급 설정 표시",
 		"description": "Short label for per-section advanced toggle"
 	},
 	"otherSettings": {

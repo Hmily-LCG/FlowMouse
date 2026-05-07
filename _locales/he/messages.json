@@ -199,6 +199,10 @@
 		"message": "צל",
 		"description": "HUD shadow toggle"
 	},
+	"showSuggestedGestures": {
+		"message": "רמזים למחוות",
+		"description": "Show suggested gestures at bottom of screen"
+	},
 	"customCss": {
 		"message": "CSS מותאם אישית",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -804,7 +808,7 @@
 		"description": "Gesture recognition distance"
 	},
 	"distanceThresholdDesc": {
-		"message": "מרחק תנועה מינימלי לזיהוי מחווה",
+		"message": "מרחק תנועה מינימלי לזיהוי מחווה וגרירה",
 		"description": "Description for gesture recognition distance"
 	},
 	"distanceThresholdNotice": {
@@ -820,7 +824,7 @@
 		"description": "Description for gesture turn tolerance setting"
 	},
 	"advanced": {
-		"message": "מצב מומחה",
+		"message": "הצג הגדרות מתקדמות",
 		"description": "Short label for per-section advanced toggle"
 	},
 	"otherSettings": {

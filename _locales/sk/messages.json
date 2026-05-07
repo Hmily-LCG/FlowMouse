@@ -199,6 +199,10 @@
 		"message": "Tieň",
 		"description": "HUD shadow toggle"
 	},
+	"showSuggestedGestures": {
+		"message": "Tipy pre gestá",
+		"description": "Show suggested gestures at bottom of screen"
+	},
 	"customCss": {
 		"message": "Vlastné CSS",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -804,7 +808,7 @@
 		"description": "Gesture recognition distance"
 	},
 	"distanceThresholdDesc": {
-		"message": "Minimálna vzdialenosť pohybu na rozpoznanie gesta",
+		"message": "Minimálna vzdialenosť pohybu na rozpoznanie gesta a ťahania",
 		"description": "Description for gesture recognition distance"
 	},
 	"distanceThresholdNotice": {
@@ -820,7 +824,7 @@
 		"description": "Description for gesture turn tolerance setting"
 	},
 	"advanced": {
-		"message": "Expertný režim",
+		"message": "Zobraziť pokročilé nastavenia",
 		"description": "Short label for per-section advanced toggle"
 	},
 	"otherSettings": {

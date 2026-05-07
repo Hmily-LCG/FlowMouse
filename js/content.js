@@ -1837,10 +1837,9 @@ window.ContentContextMenu = ContentContextMenu;
 	function checkBlacklist(blacklist) {
 		if (blacklist.includes(currentDomain)) return true;
 		try {
-			{
-				if (window.top !== window.self && document.referrer) {
-					return blacklist.includes(new URL(document.referrer).hostname);
-				}
+			const origins = location.ancestorOrigins;
+			if (origins && origins.length > 0) {
+				return blacklist.includes(new URL(origins[origins.length - 1]).hostname);
 			}
 		} catch (e) {}
 		return false;
@@ -2018,6 +2017,41 @@ window.ContentContextMenu = ContentContextMenu;
 			return i18nKey ? msg(i18nKey) : '';
 		}
 
+		function getSuggestedGestures(currentPattern) {
+			const source = SETTINGS.enableGestureCustomization
+				? (SETTINGS.mouseGestures || {})
+				: DEFAULT_GESTURES;
+			const suggestions = [];
+			for (const pattern of Object.keys(source)) {
+				if (!pattern.startsWith(currentPattern)) continue;
+				if (pattern.length !== currentPattern.length + 1) continue;
+				const actionName = getActionName(pattern);
+				if (!actionName) continue; 
+				suggestions.push({ pattern, actionName });
+			}
+
+			const lastDir = currentPattern.slice(-1);
+			const isHorizontal = lastDir === '←' || lastDir === '→';
+			const isVertical = lastDir === '↑' || lastDir === '↓';
+
+			const getSortKey = (pattern) => {
+				const D = pattern[currentPattern.length];
+				if (isHorizontal) {
+					if (D === '↑') return 0;
+					if (D === '←' || D === '→') return 1;
+					if (D === '↓') return 2;
+				} else if (isVertical) {
+					if (D === '←') return 0;
+					if (D === '↑' || D === '↓') return 1;
+					if (D === '→') return 2;
+				}
+				return 3;
+			};
+
+			suggestions.sort((a, b) => getSortKey(a.pattern) - getSortKey(b.pattern));
+			return suggestions;
+		}
+
 		function loadSettings() {
 			chrome.storage.sync.get(null, async (items) => {
 				if (chrome.runtime.lastError) {
@@ -2118,6 +2152,7 @@ window.ContentContextMenu = ContentContextMenu;
 				switch (d.type) {
 					case 'hide': visualizer.hide(); break;
 					case 'updateAction': visualizer.updateAction(d.arrows, d.texts); break;
+					case 'updateSuggestedGestures': visualizer.updateSuggestedGestures(d.suggestions, d.currentPattern); break;
 				}
 			}
 
@@ -2205,6 +2240,14 @@ window.ContentContextMenu = ContentContextMenu;
 					safeSendMessage({ action: 'gestureHudUpdate', data: { type: 'updateAction', arrows, texts } });
 				} else {
 					super.updateAction(arrows, texts);
+				}
+			}
+
+			updateSuggestedGestures(suggestions, currentPattern) {
+				if (isIframe) {
+					safeSendMessage({ action: 'gestureHudUpdate', data: { type: 'updateSuggestedGestures', suggestions, currentPattern } });
+				} else {
+					super.updateSuggestedGestures(suggestions, currentPattern);
 				}
 			}
 
@@ -2478,6 +2521,10 @@ window.ContentContextMenu = ContentContextMenu;
 			if (result.directionChanged && SETTINGS.enableHUD) {
 				const actionName = getActionName(result.pattern);
 				visualizer.updateAction(result.pattern, actionName ? [actionName] : []);
+				if (SETTINGS.enableSuggestedGestures) {
+					const suggestions = getSuggestedGestures(result.pattern);
+					visualizer.updateSuggestedGestures(suggestions, result.pattern);
+				}
 			}
 		}, { capture: true });
 
