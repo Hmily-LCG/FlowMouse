@@ -80,5 +80,8 @@
                 ]
             }
         }
+    },
+    "commands": {
+        "_execute_action": {}
     }
 }
