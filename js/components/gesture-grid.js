@@ -1,11 +1,11 @@
 import { LitElement, html, css, unsafeHTML } from '../../js/lib/lit-all.min.js';
 import { commonStyles, optionStyles } from './shared-styles.js';
-import { icon } from '../icons.js'; 
+import { icon } from '../icons.js';
 import { tooltip } from '../tooltip.js';
 
 class GestureGrid extends LitElement {
 	static properties = {
-		mouseGestures: { type: Object },       
+		mouseGestures: { type: Object },
 		advancedMode: { type: Boolean, attribute: 'advanced-mode' },
 	};
 

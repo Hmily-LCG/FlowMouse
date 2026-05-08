@@ -99,7 +99,7 @@ export const SettingsStore = {
 
 		for (const [key, storageChange] of Object.entries(changes)) {
 			let newValue = storageChange.newValue;
-			
+
 			if (key === 'mouseGestures' && newValue) {
 				newValue = reorderMouseGestures(newValue);
 			}

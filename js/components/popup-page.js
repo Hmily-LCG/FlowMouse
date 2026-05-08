@@ -351,8 +351,6 @@ class PopupPage extends LitElement {
 		}
 		this._blacklist = Array.isArray(settings.blacklist) ? settings.blacklist : [];
 
-		window.i18n.applyTheme(settings.theme || 'auto', true);
-
 		await this.#loadCurrentSite();
 	}
 

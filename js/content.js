@@ -177,18 +177,18 @@
 	}
 
 	function checkScrollFeasibility(action, cursorX, cursorY) {
-		const tolerance = 1; 
+		const tolerance = 1;
 		const target = getScrollTarget(action, false, cursorX, cursorY);
 
 		const currentScrollTop = target.scrollTop;
 		const maxScrollTop = target.scrollHeight - target.clientHeight;
 
 		if (action === 'scrollUp' || action === 'scrollToTop') {
-			return currentScrollTop > tolerance; 
+			return currentScrollTop > tolerance;
 		} else if (action === 'scrollDown' || action === 'scrollToBottom') {
-			return currentScrollTop < maxScrollTop - tolerance; 
+			return currentScrollTop < maxScrollTop - tolerance;
 		}
-		return true; 
+		return true;
 	}
 
 	function resolveScrollSmoothness(value) {
@@ -199,10 +199,10 @@
 		return value;
 	}
 
-	const scrollGoals = new WeakMap(); 
+	const scrollGoals = new WeakMap();
 	let scrollRafId = null;
-	let scrollActiveTarget = null; 
-	let scrollVersion = 0; 
+	let scrollActiveTarget = null;
+	let scrollVersion = 0;
 
 	let scrollAccelLastTime = 0;
 	let scrollAccelCount = 0;
@@ -589,9 +589,9 @@ window.ContentContextMenu = ContentContextMenu;
 	const isFirefox = true;
 
 	const STATES = { INACTIVE: 0, WAITING: 1, SELECTING: 2 };
-	const CLICK_THRESHOLD = 2; 
-	const AUTO_SCROLL_ZONE = 5; 
-	const AUTO_SCROLL_SPEED = 8; 
+	const CLICK_THRESHOLD = 2;
+	const AUTO_SCROLL_ZONE = 5;
+	const AUTO_SCROLL_SPEED = 8;
 	const HIGHLIGHT_OUTLINE = '2px auto #4A90D9EE';
 	const HIGHLIGHT_BG = 'rgba(74, 144, 217, 0.12)';
 	const HOVER_OUTLINE = '2px auto #4A90D944';
@@ -627,8 +627,8 @@ window.ContentContextMenu = ContentContextMenu;
 	}
 
 	class LinkStyler {
-		#originals = new Map(); 
-		#hasBgCache = new Map(); 
+		#originals = new Map();
+		#hasBgCache = new Map();
 
 		#save(el) {
 			if (!this.#originals.has(el)) {
@@ -698,14 +698,14 @@ window.ContentContextMenu = ContentContextMenu;
 	}
 
 	class TextLinkStyler {
-		#highlight = null;   
+		#highlight = null;
 		#hoverHighlight = null;
 		#styleEl = null;
 		#initialized = false;
 
 		#init() {
 			if (this.#initialized) return;
-			if (typeof Highlight === 'undefined' || !CSS.highlights) return; 
+			if (typeof Highlight === 'undefined' || !CSS.highlights) return;
 			this.#initialized = true;
 
 			this.#styleEl = document instanceof XMLDocument
@@ -760,14 +760,14 @@ window.ContentContextMenu = ContentContextMenu;
 	class LinkHighlighter {
 		#elementStyler = new LinkStyler();
 		#textStyler = new TextLinkStyler();
-		#selected = new Set(); 
-		#preview = new Set(); 
+		#selected = new Set();
+		#preview = new Set();
 		#cache = null;
 		#cacheTime = 0;
 		#skipFixed = false;
 		#textLinks = true;
-		#textItemRegistry = new WeakMap(); 
-		#anchorMap = new Map(); 
+		#textItemRegistry = new WeakMap();
+		#anchorMap = new Map();
 		onFirstPreviewHit = null;
 
 		set skipFixed(v) { this.#skipFixed = v; this.#cache = null; }
@@ -1037,18 +1037,18 @@ window.ContentContextMenu = ContentContextMenu;
 
 	class AreaSelectManager {
 		#state = STATES.INACTIVE;
-		#host = null;      
-		#overlay = null;   
-		#rectEl = null;    
-		#toolbar = null;   
-		#modal = null;     
+		#host = null;
+		#overlay = null;
+		#rectEl = null;
+		#toolbar = null;
+		#modal = null;
 		#startX = 0;
 		#startY = 0;
 		#isIframe = false;
 		#warnThreshold = 15;
 		#operationInterval = 0;
-		#highlighter = null; 
-		#frameLinks = new Map(); 
+		#highlighter = null;
+		#frameLinks = new Map();
 		#autoScrollRAF = null;
 		#boundPointerDown = null;
 		#boundPointerMove = null;
@@ -1088,7 +1088,7 @@ window.ContentContextMenu = ContentContextMenu;
 			const needsDialog = !isIframe;
 			this.#host = new ShadowHost({ useDialog: needsDialog });
 			const topLayer = needsDialog && (document.fullscreenElement || document.querySelector(':modal')) ? 'modal' : 'popover';
-			if (!this.#host.init(lang, isRtl, { topLayer })) return; 
+			if (!this.#host.init(lang, isRtl, { topLayer })) return;
 			this.#host.setBuiltInCss(this.#css());
 			this.#host.setCustomCss(options?.customCss || '');
 
@@ -1202,7 +1202,7 @@ window.ContentContextMenu = ContentContextMenu;
 			this.#highlighter.skipFixed = false;
 			this.#highlighter.invalidateCache();
 
-			try { document.documentElement.setPointerCapture(e.pointerId); } catch {  }
+			try { document.documentElement.setPointerCapture(e.pointerId); } catch { }
 
 			e.preventDefault();
 			e.stopImmediatePropagation();
@@ -1274,7 +1274,7 @@ window.ContentContextMenu = ContentContextMenu;
 			if (this.#state !== STATES.SELECTING) return;
 			this.#cancelAutoScroll();
 
-			try { document.documentElement.releasePointerCapture(e.pointerId); } catch {  }
+			try { document.documentElement.releasePointerCapture(e.pointerId); } catch { }
 			this.#rectEl.style.display = 'none';
 
 			const svx = this.#startX - window.scrollX;
@@ -1329,7 +1329,7 @@ window.ContentContextMenu = ContentContextMenu;
 
 		#abandonCurrentRect() {
 			this.#cancelAutoScroll();
-			try { document.documentElement.releasePointerCapture(this.#lastPointerId); } catch {  }
+			try { document.documentElement.releasePointerCapture(this.#lastPointerId); } catch { }
 			this.#rectEl.style.display = 'none';
 			this.#highlighter.clearPreview();
 			this.#currentRect = null;
@@ -1414,11 +1414,11 @@ window.ContentContextMenu = ContentContextMenu;
 				if (chrome.runtime?.sendMessage) {
 					chrome.runtime.sendMessage({ action: 'areaSelectExit' }).catch(() => {});
 				}
-			} catch {  }
+			} catch { }
 		}
 
 		#reportSelection() {
-			if (!this.#isIframe) return; 
+			if (!this.#isIframe) return;
 			const links = this.#highlighter ? this.#highlighter.links : [];
 			try {
 				if (chrome.runtime?.sendMessage) {
@@ -1427,7 +1427,7 @@ window.ContentContextMenu = ContentContextMenu;
 						links,
 					}).catch(() => {});
 				}
-			} catch {  }
+			} catch { }
 		}
 
 
@@ -1564,7 +1564,7 @@ window.ContentContextMenu = ContentContextMenu;
 						operationInterval: this.#operationInterval,
 					}).catch(() => {});
 				}
-			} catch {  }
+			} catch { }
 			this.#broadcastExit();
 		}
 
@@ -1833,7 +1833,7 @@ window.ContentContextMenu = ContentContextMenu;
 	const isEdgeDesktop = navigator.userAgent.includes('Edg/');
 
 	const currentDomain = location.hostname;
-	
+
 	function checkBlacklist(blacklist) {
 		if (blacklist.includes(currentDomain)) return true;
 		try {
@@ -2026,7 +2026,7 @@ window.ContentContextMenu = ContentContextMenu;
 				if (!pattern.startsWith(currentPattern)) continue;
 				if (pattern.length !== currentPattern.length + 1) continue;
 				const actionName = getActionName(pattern);
-				if (!actionName) continue; 
+				if (!actionName) continue;
 				suggestions.push({ pattern, actionName });
 			}
 
@@ -2144,7 +2144,7 @@ window.ContentContextMenu = ContentContextMenu;
 				executeAction(request.stepAction, request.stepConfig)
 					.then(() => sendResponse({ success: true }))
 					.catch(() => sendResponse({ success: false }));
-				return true; 
+				return true;
 			}
 
 			if (request.action === 'gestureHudUpdate' && !isIframe) {
@@ -2209,7 +2209,7 @@ window.ContentContextMenu = ContentContextMenu;
 			parentLink: null,
 			startTarget: null,
 			preventContextMenu: false,
-			skipFirstDragOver: false  
+			skipFirstDragOver: false
 		};
 
 		function resetState() {
@@ -2285,7 +2285,7 @@ window.ContentContextMenu = ContentContextMenu;
 
 		const isMacOrLinux = /Mac|Linux/i.test(navigator.platform);
 		let lastRightClickTime = 0;
-		const doubleClickDelay = 500; 
+		const doubleClickDelay = 500;
 
 		let macLinuxHintShown = false;
 
@@ -2370,7 +2370,7 @@ window.ContentContextMenu = ContentContextMenu;
 
 		eventManager.add(null, window, 'pointerdown', (e) => {
 			if (e.button === 0) {
-				lastPointerType = e.pointerType; 
+				lastPointerType = e.pointerType;
 			}
 			if (e.button === 2) {
 				rightButtonSeenOnPage = true;
@@ -2395,7 +2395,7 @@ window.ContentContextMenu = ContentContextMenu;
 			if (!areaSelectPending || e.pointerId !== areaSelectPending.pointerId) return;
 			const dx = e.clientX - areaSelectPending.x;
 			const dy = e.clientY - areaSelectPending.y;
-			if (dx * dx + dy * dy < 9) return; 
+			if (dx * dx + dy * dy < 9) return;
 			const pending = areaSelectPending;
 			areaSelectPending = null;
 			if (window.FlowMouseAreaSelect?.isActive) return;
@@ -2506,7 +2506,7 @@ window.ContentContextMenu = ContentContextMenu;
 						dcutoff: 1.0
 					});
 					visualizer.show();
-					
+
 					const preTrail = result.preActivationTrail || [{ x: recognizer.startX, y: recognizer.startY, timestamp: recognizer.startTimestamp }];
 					const merged = [...preTrail, ...currentPoints];
 					merged.sort((a, b) => a.timestamp - b.timestamp);
@@ -2625,7 +2625,7 @@ window.ContentContextMenu = ContentContextMenu;
 
 					if (shouldForce) {
 						target.setAttribute('draggable', 'true');
-						target.setAttribute('data-flowmouse-modified', 'true'); 
+						target.setAttribute('data-flowmouse-modified', 'true');
 						hasModified = true;
 					}
 				}
@@ -2645,7 +2645,7 @@ window.ContentContextMenu = ContentContextMenu;
 
 			const modified = document.querySelectorAll('[data-flowmouse-modified="true"]');
 			modified.forEach(el => {
-				el.setAttribute('draggable', 'false'); 
+				el.setAttribute('draggable', 'false');
 				el.removeAttribute('data-flowmouse-modified');
 			});
 		}
@@ -2785,7 +2785,7 @@ window.ContentContextMenu = ContentContextMenu;
 						dcutoff: 1.0
 					});
 					visualizer.show();
-					
+
 					const preTrail = result.preActivationTrail || [{ x: recognizer.startX, y: recognizer.startY, timestamp: recognizer.startTimestamp }];
 					const merged = [...preTrail, currentPoint];
 					merged.sort((a, b) => a.timestamp - b.timestamp);
@@ -2966,7 +2966,7 @@ window.ContentContextMenu = ContentContextMenu;
 							try {
 								const detailStr = mergedConfig.eventDetail || '{}';
 								detail = JSON.parse(detailStr);
-							} catch {  }
+							} catch { }
 							if (mergedConfig.gestureInfo) {
 								detail.gesture = {
 									startX: cursor.startX,
@@ -3301,7 +3301,7 @@ window.ContentContextMenu = ContentContextMenu;
 					const target = resolveTabTarget(config, state);
 					if (target?.url) incognitoUrls.push(target.url);
 					else if (target?.query) incognitoQueries.push(target.query);
-					return !target; 
+					return !target;
 				});
 				if (incognitoUrls.length > 0 || incognitoQueries.length > 0) {
 					await safeSendMessage({ action: 'openIncognitoTabs', urls: incognitoUrls, queries: incognitoQueries });
@@ -3342,8 +3342,8 @@ window.ContentContextMenu = ContentContextMenu;
 						const file = dataTransfer.files[0];
 						const reader = new FileReader();
 						reader.onload = () => {
-							safeSendMessage({ 
-								action: 'saveImage', 
+							safeSendMessage({
+								action: 'saveImage',
 								url: reader.result,
 								filename: file.name
 							});
@@ -3392,8 +3392,8 @@ window.ContentContextMenu = ContentContextMenu;
 
 						waitForImageLoad(dragElement)
 							.then(() => {
-								safeSendMessage({ 
-									action: 'saveImage', 
+								safeSendMessage({
+									action: 'saveImage',
 									url: content,
 									origin: window.location.origin
 								});
@@ -3421,7 +3421,7 @@ window.ContentContextMenu = ContentContextMenu;
 						let detail = {};
 						try {
 							detail = JSON.parse(config.eventDetail || '{}');
-						} catch {  }
+						} catch { }
 						if (config.gestureInfo) {
 							detail.gesture = {
 								dragType,

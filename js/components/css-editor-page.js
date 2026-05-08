@@ -1,7 +1,7 @@
 import { LitElement, html, css, unsafeHTML } from '../../js/lib/lit-all.min.js';
 import { commonStyles, optionStyles } from './shared-styles.js';
 import { SettingsStore } from '../settings-store.js';
-import { icon, iconDataUri } from '../icons.js'; 
+import { icon, iconDataUri } from '../icons.js';
 
 function buildPreviewItems() {
 	return [
@@ -34,9 +34,9 @@ class CssEditorPage extends LitElement {
 	static properties = {
 		_ready:     { state: true },
 		_css:       { state: true },
-		_savedCss:  { state: true }, 
+		_savedCss:  { state: true },
 		_status:    { state: true },
-		_statusKind:{ state: true }, 
+		_statusKind:{ state: true },
 		_sampleItems: { state: true },
 	};
 

@@ -247,7 +247,7 @@ class LowPassFilter {
 		this.lastOut = alpha * value + (1.0 - alpha) * this.lastOut;
 		return this.lastOut;
 	}
-	
+
 	lastValue() { return this.lastOut; }
 	reset() { this.hasLast = false; }
 }
@@ -257,12 +257,12 @@ class OneEuroFilter {
 		this.minCutoff = minCutoff;
 		this.beta = beta;
 		this.dcutoff = dcutoff;
-		
+
 		this.xFilter = new LowPassFilter();
 		this.yFilter = new LowPassFilter();
 		this.dxFilter = new LowPassFilter();
 		this.dyFilter = new LowPassFilter();
-		
+
 		this.lastTime = null;
 		this.timeOffset = null;
 	}
@@ -284,7 +284,7 @@ class OneEuroFilter {
 
 	filter(x, y, timestamp = null) {
 		const now = performance.now();
-		
+
 		let effectiveTime;
 		if (timestamp != null) {
 			this.timeOffset = timestamp - now;
@@ -298,9 +298,9 @@ class OneEuroFilter {
 
 		if (this.lastTime === null) {
 			this.lastTime = effectiveTime;
-			return { 
-				x: this.xFilter.filter(x, 1), 
-				y: this.yFilter.filter(y, 1) 
+			return {
+				x: this.xFilter.filter(x, 1),
+				y: this.yFilter.filter(y, 1)
 			};
 		}
 
@@ -311,7 +311,7 @@ class OneEuroFilter {
 
 		const prevX = this.xFilter.lastValue();
 		const prevY = this.yFilter.lastValue();
-		
+
 		const dx = (x - prevX) * freq;
 		const dy = (y - prevY) * freq;
 
@@ -321,7 +321,7 @@ class OneEuroFilter {
 
 		const speed = Math.sqrt(edx * edx + edy * edy);
 		const cutoff = this.minCutoff + this.beta * speed;
-		
+
 		const posAlpha = this.alpha(cutoff, freq);
 		const newX = this.xFilter.filter(x, posAlpha);
 		const newY = this.yFilter.filter(y, posAlpha);
@@ -375,7 +375,7 @@ class GestureOverlay {
 		this.ctx = null;
 		this.trail = [];
 		this.hud = null;
-		this.suggestHud = null; 
+		this.suggestHud = null;
 
 		this.host = new ShadowHost();
 
@@ -398,12 +398,12 @@ class GestureOverlay {
 			enablePathInterpolation: true,
 
 			enableInputStabilization: true,
-			stabilizationCatchUpDelay: 25,      
-			stabilizationCatchUpThreshold: 0.5, 
+			stabilizationCatchUpDelay: 25,
+			stabilizationCatchUpThreshold: 0.5,
 
-			minCutoff: 1.0, 
-			beta: 0.007,    
-			dcutoff: 1.0,   
+			minCutoff: 1.0,
+			beta: 0.007,
+			dcutoff: 1.0,
 		};
 
 		this.lagTimer = null;

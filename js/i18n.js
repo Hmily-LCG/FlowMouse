@@ -8,9 +8,7 @@
 	let translations = {};
 	let currentLang = 'en';
 	let initPromise = null;
-
-	let currentThemePreference = 'auto';
-	let systemThemeMql = null;
+	let currentThemeSetting = null;
 
 	let platform = 'unknown';
 	let platformName = 'System';
@@ -167,8 +165,7 @@
 	}
 
 	function applyTheme(theme, skipSave = false) {
-		currentThemePreference = theme || 'auto';
-
+		currentThemeSetting = theme;
 		let actualTheme = theme;
 		if (theme === 'auto') {
 			actualTheme = getSystemTheme();
@@ -181,20 +178,13 @@
 			}
 		} catch (e) {
 		}
-
-		ensureSystemThemeListener();
 	}
 
-	function ensureSystemThemeListener() {
-		if (systemThemeMql || !window.matchMedia) return;
-		systemThemeMql = window.matchMedia('(prefers-color-scheme: dark)');
-
-		systemThemeMql.addEventListener('change', () => {
-			if (currentThemePreference === 'auto') {
-				applyTheme('auto', true);
-			}
-		});
-	}
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+		if (currentThemeSetting === 'auto') {
+			document.body.setAttribute('data-theme', getSystemTheme());
+		}
+	});
 
 	function getCurrentLanguage() {
 		return currentLang;

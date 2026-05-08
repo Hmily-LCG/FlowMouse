@@ -1,6 +1,6 @@
 import { LitElement, html, css, unsafeHTML } from '../../js/lib/lit-all.min.js';
 import { commonStyles, optionStyles } from './shared-styles.js';
-import { icons, icon } from '../icons.js'; 
+import { icons, icon } from '../icons.js';
 import { getChainLabel } from './chain-panel.js';
 import { getMenuLabel } from './menu-panel.js';
 import { tooltip } from '../tooltip.js';
@@ -668,7 +668,7 @@ class ActionSelect extends LitElement {
 		this.value = 'none';
 		this.config = {};
 		this.gestureLabel = '';
-		this.context = 'gesture'; 
+		this.context = 'gesture';
 		this.compact = false;
 		this._open = false;
 		this._search = '';
@@ -1335,7 +1335,7 @@ class ActionSelect extends LitElement {
 			if (keyValue && keyValue !== 'ArrowLeft' && keyValue !== 'ArrowRight') {
 				currentMods.push(keyValue);
 			} else if (keyValue === 'ArrowLeft' || keyValue === 'ArrowRight') {
-				currentMods.push(keyValue); 
+				currentMods.push(keyValue);
 			}
 			const displayKey = currentMods.length > 0 ? currentMods.join('+') : '—';
 
@@ -1701,7 +1701,7 @@ class ActionSelect extends LitElement {
 	}
 
 	#isValidJson(str) {
-		if (!str || str.trim() === '') return true; 
+		if (!str || str.trim() === '') return true;
 		try {
 			const parsed = JSON.parse(str);
 			return typeof parsed === 'object' && parsed !== null;

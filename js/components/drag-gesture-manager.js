@@ -1,14 +1,14 @@
 import { LitElement, html, css, unsafeCSS, unsafeHTML } from '../../js/lib/lit-all.min.js';
 import { commonStyles, optionStyles } from './shared-styles.js';
-import { icons, icon, iconUrl } from '../icons.js'; 
+import { icons, icon, iconUrl } from '../icons.js';
 import { tooltip } from '../tooltip.js';
 
 class DragGestureManager extends LitElement {
 
 	static properties = {
-		type: { type: String },       
-		dragGestures: { type: Array },    
-		advancedMode: { type: Boolean, attribute: 'advanced-mode' }, 
+		type: { type: String },
+		dragGestures: { type: Array },
+		advancedMode: { type: Boolean, attribute: 'advanced-mode' },
 	};
 
 	static styles = [

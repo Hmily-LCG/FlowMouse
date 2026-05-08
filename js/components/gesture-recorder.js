@@ -3,7 +3,7 @@ import { commonStyles } from './shared-styles.js';
 
 class GestureRecorder extends LitElement {
 	static properties = {
-		_state: { state: true },       
+		_state: { state: true },
 		_patternSvg: { state: true },
 		_pattern: { state: true },
 		_toast: { state: true },

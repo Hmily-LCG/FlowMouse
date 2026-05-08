@@ -1,6 +1,6 @@
 import { LitElement, html, css, unsafeHTML } from '../../js/lib/lit-all.min.js';
 import { commonStyles, optionStyles } from './shared-styles.js';
-import { icon } from '../icons.js'; 
+import { icon } from '../icons.js';
 
 class BlacklistManager extends LitElement {
 	static properties = {
@@ -36,8 +36,8 @@ class BlacklistManager extends LitElement {
 	render() {
 		return html`
 			<div class="blacklist-add">
-				<input 
-					type="text" 
+				<input
+					type="text"
 					id="blacklistInput"
 					class="input-lg"
 					placeholder="${window.i18n.getMessage('blacklistPlaceholder')}"

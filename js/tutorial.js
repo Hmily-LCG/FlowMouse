@@ -3,18 +3,18 @@
 
 	const TutorialState = {
 		currentStep: 0,
-		step1State: 'idle', 
+		step1State: 'idle',
 		step2Completed: new Set(),
 		step3Completed: new Set(),
 		gestureActive: false,
 		pattern: [],
 		stepTransitionCooldown: false,
-		step1Cooldown: false 
+		step1Cooldown: false
 	};
 
 	const CONFIG = {
 		DISTANCE_THRESHOLD: 30,
-		PATH_LENGTH: 230, 
+		PATH_LENGTH: 230,
 		REQUIRED_DRAG_DISTANCE: 150,
 		COOLDOWN_MS: 750
 	};
@@ -22,7 +22,7 @@
 	const isMacOrLinux = /Mac|Linux/i.test(navigator.platform);
 	const isMac = /Mac/i.test(navigator.platform);
 	let lastRightClickTime = 0;
-	const doubleClickDelay = 500; 
+	const doubleClickDelay = 500;
 
 	const elements = {
 		steps: document.querySelectorAll('.step-section'),
@@ -34,7 +34,7 @@
 		step1Mouse: document.getElementById('step1Mouse'),
 		step1RightBtn: document.getElementById('step1RightBtn'),
 		step1Instruction: document.getElementById('step1Instruction'),
-		pathFill: document.getElementById('pathFill'), 
+		pathFill: document.getElementById('pathFill'),
 		progressRect: document.getElementById('progressRect'),
 		practiceArea: document.querySelector('.practice-area'),
 
@@ -145,7 +145,7 @@
 		});
 
 		if (instant) {
-			void document.body.offsetHeight; 
+			void document.body.offsetHeight;
 			elements.steps.forEach(step => step.style.transition = '');
 		}
 
@@ -200,7 +200,7 @@
 		if (stepIndex === 4) {
 			if (window.Confetti) {
 				setTimeout(() => {
-					window.Confetti.startShower(4000); 
+					window.Confetti.startShower(4000);
 				}, 300);
 			}
 		} else {
@@ -433,7 +433,7 @@
 		if (recognizer.isActive()) {
 			e.preventDefault();
 			e.stopPropagation();
-			lastRightClickTime = 0; 
+			lastRightClickTime = 0;
 		}
 
 		visualizer.hide();
@@ -494,35 +494,35 @@
 			gestureKey = 'up';
 		} else if (pattern === '↓') {
 			card = elements.cardScroll;
-			animDirection = 'up'; 
+			animDirection = 'up';
 			gestureKey = 'scroll';
 		} else if (pattern === '↓→') {
 			card = elements.cardClose;
-			animDirection = null; 
+			animDirection = null;
 			gestureKey = 'close';
 		} else if (pattern === '→↑') {
 			card = elements.itemNewTab;
-			animDirection = 'exit'; 
+			animDirection = 'exit';
 			gestureKey = 'newTab';
 		} else if (pattern === '→↓') {
 			card = elements.itemRefresh;
-			animDirection = 'exit'; 
+			animDirection = 'exit';
 			gestureKey = 'refresh';
 		} else if (pattern === '↓↑') {
 			card = elements.itemScrollTop;
-			animDirection = 'down-big'; 
+			animDirection = 'down-big';
 			gestureKey = 'scrollToTop';
 		} else if (pattern === '↑↓') {
 			card = elements.itemScrollBottom;
-			animDirection = 'up-big'; 
+			animDirection = 'up-big';
 			gestureKey = 'scrollToBottom';
 		} else if (pattern === '↑←') {
 			card = elements.itemSwitchLeft;
-			animDirection = 'right'; 
+			animDirection = 'right';
 			gestureKey = 'switchLeft';
 		} else if (pattern === '↑→') {
 			card = elements.itemSwitchRight;
-			animDirection = 'left'; 
+			animDirection = 'left';
 			gestureKey = 'switchRight';
 		}
 
@@ -701,7 +701,7 @@
 
 			if (elements.step4Instruction) {
 				elements.step4Instruction.classList.remove('highlight-pulse');
-				void elements.step4Instruction.offsetWidth; 
+				void elements.step4Instruction.offsetWidth;
 				elements.step4Instruction.classList.add('highlight-pulse');
 			}
 		});
