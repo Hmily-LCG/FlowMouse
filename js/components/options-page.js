@@ -1,7 +1,7 @@
 import { LitElement, html, css, unsafeHTML, unsafeCSS, live } from '../../js/lib/lit-all.min.js';
 import { commonStyles, optionStyles } from './shared-styles.js';
 import { SettingsStore } from '../settings-store.js';
-import { icons, icon, iconUrl } from '../icons.js'; 
+import { icons, icon, iconUrl } from '../icons.js';
 import { tooltip } from '../tooltip.js';
 
 class OptionsPage extends LitElement {
@@ -148,7 +148,7 @@ class OptionsPage extends LitElement {
 				opacity: 1;
 				pointer-events: auto;
 			}
-			
+
 			.setting-warning, .setting-notice {
 				border-radius: 8px;
 				padding: 12px 16px;
@@ -836,7 +836,7 @@ class OptionsPage extends LitElement {
 					</div>
 
 				</div>
-				
+
 				<div class="section ${this._activeSection === 'support' ? 'active' : ''}" data-nav="support">
 					<h2><span class="section-icon">${unsafeHTML(icon('messageCircleMore', { strokeWidth: 2.3 }))}</span> <span>${i18n.getMessage('supportAndFeedback')}</span></h2>
 					<div class="section-body">

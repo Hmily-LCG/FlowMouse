@@ -1,6 +1,6 @@
 import { LitElement, html, css, unsafeHTML } from '../lib/lit-all.min.js';
 import { commonStyles, optionStyles } from './shared-styles.js';
-import { icon } from '../icons.js'; 
+import { icon } from '../icons.js';
 import { SettingsStore } from '../settings-store.js';
 import { tooltip } from '../tooltip.js';
 

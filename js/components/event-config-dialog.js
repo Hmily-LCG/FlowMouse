@@ -1,6 +1,6 @@
 import { LitElement, html, css, unsafeHTML } from '../../js/lib/lit-all.min.js';
 import { commonStyles, optionStyles } from './shared-styles.js';
-import { icons, icon } from '../icons.js'; 
+import { icons, icon } from '../icons.js';
 
 class EventConfigDialog extends LitElement {
 	static properties = {

@@ -1,5 +1,5 @@
 import { LitElement, html, css, unsafeHTML } from '../../js/lib/lit-all.min.js';
-import { icons } from '../icons.js'; 
+import { icons } from '../icons.js';
 import { tooltip } from '../tooltip.js';
 
 class LanguageSelect extends LitElement {

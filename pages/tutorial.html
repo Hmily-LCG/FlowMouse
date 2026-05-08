@@ -3,6 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
+	<link rel="icon" href="../icons/icon48.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>FlowMouse</title>
 	<style>
@@ -933,7 +934,7 @@
 		.icon-ext {
 			mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M216-135.869q-33.287 0-56.709-23.422-23.422-23.422-23.422-56.709v-172.304q37.609-2 63.218-28.424 25.608-26.424 25.608-63.272t-25.608-63.272q-25.609-26.424-63.218-28.424V-744q0-33.287 23.422-56.709 23.422-23.422 56.709-23.422h161.065q2.631-40.956 31.96-69.315 29.329-28.359 70.75-28.359t70.975 28.199q29.554 28.199 32.185 69.475H744q33.287 0 56.709 23.422 23.422 23.422 23.422 56.709v161.065q40.956 2.631 69.315 31.96 28.359 29.329 28.359 70.75t-28.199 70.975q-28.199 29.554-69.475 32.185V-216q0 33.287-23.422 56.709-23.422 23.422-56.709 23.422H216Zm2.87-83.001h522.26v-522.26H218.87v108.652q42.13 22.63 65.597 63.772 23.468 41.141 23.468 88.706 0 49.01-23.468 90.168Q261-348.674 218.87-327.283v108.413ZM480-480Z"/></svg>');
 		}
-		
+
 		.icon-pin {
 			mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m624-480 96 96v72H516v228l-36 36-36-36v-228H240v-72l96-96v-264h-48v-72h384v72h-48v264Zm-282 96h276l-66-66v-294H408v294l-66 66Zm138 0Z"/></svg>');
 			vertical-align: -4px;
@@ -954,7 +955,7 @@
 		<section class="step-section active" id="step0">
 			<h1 class="step-title" data-i18n="tutorialWelcomeTitle">Welcome to FlowMouse</h1>
 			<p class="step-subtitle" data-i18n="tutorialWelcomeSubtitle">Master mouse gestures in one minute</p>
-			
+
 			<div class="virtual-mouse-container">
 				<div class="virtual-mouse">
 					<div class="mouse-button mouse-left"></div>
@@ -962,7 +963,7 @@
 					<div class="mouse-wheel"></div>
 				</div>
 			</div>
-			
+
 			<p class="step-instruction" data-i18n="tutorialClickToStart">
 				Click the <span class="text-highlight">Right Mouse Button</span> to Start
 			</p>
@@ -971,7 +972,7 @@
 		<section class="step-section" id="step1">
 			<h1 class="step-title" id="step1Title" data-i18n="tutorialStep1Title" style="margin-top: 140px">The Basics</h1>
 			<p class="step-subtitle" id="step1Subtitle" data-i18n="tutorialStep1Subtitle">Learn the core gesture mechanic</p>
-			
+
 			<div class="virtual-mouse-container">
 				<div class="virtual-mouse" id="step1Mouse">
 					<div class="mouse-button mouse-left"></div>
@@ -979,16 +980,16 @@
 					<div class="mouse-wheel"></div>
 				</div>
 			</div>
-			
+
 			<p class="step-instruction" id="step1Instruction">
 				Press and <strong>Hold</strong> <span class="text-highlight">Right Mouse Button</span>
 			</p>
-			
+
 			<div class="practice-area">
 				<svg class="path-container" viewBox="0 0 270 80" style="overflow: visible;">
 					<defs>
 						<path id="arrow-path" d="M 20 40 L 250 40 M 236 22 L 260 40 L 236 58" />
-						
+
 						<filter id="glow-filter" x="-50%" y="-50%" width="200%" height="200%">
 							<feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="#4285f4" flood-opacity="0.6" />
 						</filter>
@@ -997,9 +998,9 @@
 							<rect id="progressRect" x="0" y="-50" width="0" height="200" fill="white" />
 						</mask>
 					</defs>
-					
+
 					<use href="#arrow-path" class="path-bg" />
-					
+
 					<use href="#arrow-path" class="path-fg" mask="url(#fill-mask)" />
 				</svg>
 			</div>
@@ -1008,7 +1009,7 @@
 		<section class="step-section" id="step2">
 			<h1 class="step-title" data-i18n="tutorialStep2Title" style="margin-top: 40px">FlowMouse Gestures</h1>
 			<p class="step-subtitle" data-i18n="tutorialStep2Subtitle">Hold <span class="text-highlight">Right Mouse Button</span> to perform gestures</p>
-			
+
 			<div class="cards-grid">
 				<div class="glass-card" id="cardForward">
 					<div class="card-icon">→</div>
@@ -1021,19 +1022,19 @@
 					<div class="card-name" data-i18n="actionBack">Back</div>
 					<div class="card-status" data-i18n="tutorialPending">Pending</div>
 				</div>
-				
+
 				<div class="glass-card" id="cardUp">
 					<div class="card-icon">↑</div>
 					<div class="card-name" data-i18n="actionScrollUp">Scroll Up</div>
 					<div class="card-status" data-i18n="tutorialPending">Pending</div>
 				</div>
-				
+
 				<div class="glass-card" id="cardScroll">
 					<div class="card-icon">↓</div>
 					<div class="card-name" data-i18n="actionScrollDown">Scroll Down</div>
 					<div class="card-status" data-i18n="tutorialPending">Pending</div>
 				</div>
-				
+
 				<div class="glass-card" id="cardClose">
 					<div class="card-icon">↓→</div>
 					<div class="card-name" data-i18n="actionCloseTab">Close Tab</div>
@@ -1067,7 +1068,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="setting-warning" id="macLinuxNotice" style="display: none;">
 				<span data-i18n="macLinuxContextMenuNotice"></span>
 			</div>
@@ -1082,7 +1083,7 @@
 		<section class="step-section" id="step3">
 			<h1 class="step-title" data-i18n="tutorialStep3Title" style="margin-top: 40px">Super Drag</h1>
 			<p class="step-subtitle" data-i18n="tutorialStep3Subtitle">Select text and drag it to search instantly</p>
-			
+
 			<div class="super-drag-instruction">
 				<div class="virtual-mouse-container" style="margin: 0;">
 					<div class="virtual-mouse" id="step3Mouse">
@@ -1102,7 +1103,7 @@
 					<div class="hint-desc" data-i18n="tutorialStep3HintDesc">Select text, then use <span class="text-highlight">Left Mouse Button</span> to drag <span class="svg-arrow">→</span> to search</div>
 				</div>
 			</div>
-			
+
 			<div class="step3-swap-container">
 				<div class="draggable-content-box step3-swap-item" id="textDragBox">
 					<div class="box-label" style="font-size: 1.2rem; margin-bottom: 15px;" data-i18n="tutorialStep3TextBoxLabel">
@@ -1134,7 +1135,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="setting-warning" id="macTextDragNotice" style="display: none;">
 				<span data-i18n="macTextDragNotice"></span>
 			</div>
@@ -1150,21 +1151,21 @@
 			<div class="completion-icon">🎉</div>
 			<h1 class="step-title" data-i18n="tutorialStep4Title">Congratulations!</h1>
 			<p class="step-subtitle" data-i18n="tutorialStep4Subtitle">You move with the flow now.</p>
-			
+
 			<div class="settings-drag-container">
 				<div id="step4Instruction" style="margin-bottom: 20px; color: var(--text-secondary); font-size: 1.1rem; transition: color 0.3s;" data-i18n="tutorialStep4Instruction">
 					Use <span class="text-highlight">Super Drag <span class="svg-arrow">→</span></span> on this link to open in a <span class="text-highlight">New Tab</span>
 				</div>
-				
+
 				<a class="settings-link" id="settingsLink" href="#" data-i18n="tutorialSettingsLink">
 					FlowMouse Settings
 				</a>
-				
+
 				<div class="settings-hint" data-i18n="tutorialSettingsHint" style="font-size: 1.1rem;">
 					Lots of powerful features waiting for you to explore!
 				</div>
 			</div>
-			
+
 			<div class="settings-hint" style="margin-top: 40px; opacity: 0.7; font-size: 0.85rem; display: none;" data-i18n="tutorialRefreshTip">
 				Tip: Tabs opened before installation need to be refreshed to use FlowMouse
 			</div>

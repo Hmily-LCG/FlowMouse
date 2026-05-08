@@ -1202,7 +1202,7 @@ window.ContentContextMenu = ContentContextMenu;
 			this.#highlighter.skipFixed = false;
 			this.#highlighter.invalidateCache();
 
-			try { document.documentElement.setPointerCapture(e.pointerId); } catch {  }
+			try { document.documentElement.setPointerCapture(e.pointerId); } catch { }
 
 			e.preventDefault();
 			e.stopImmediatePropagation();
@@ -1274,7 +1274,7 @@ window.ContentContextMenu = ContentContextMenu;
 			if (this.#state !== STATES.SELECTING) return;
 			this.#cancelAutoScroll();
 
-			try { document.documentElement.releasePointerCapture(e.pointerId); } catch {  }
+			try { document.documentElement.releasePointerCapture(e.pointerId); } catch { }
 			this.#rectEl.style.display = 'none';
 
 			const svx = this.#startX - window.scrollX;
@@ -1329,7 +1329,7 @@ window.ContentContextMenu = ContentContextMenu;
 
 		#abandonCurrentRect() {
 			this.#cancelAutoScroll();
-			try { document.documentElement.releasePointerCapture(this.#lastPointerId); } catch {  }
+			try { document.documentElement.releasePointerCapture(this.#lastPointerId); } catch { }
 			this.#rectEl.style.display = 'none';
 			this.#highlighter.clearPreview();
 			this.#currentRect = null;
@@ -1414,7 +1414,7 @@ window.ContentContextMenu = ContentContextMenu;
 				if (chrome.runtime?.sendMessage) {
 					chrome.runtime.sendMessage({ action: 'areaSelectExit' }).catch(() => {});
 				}
-			} catch {  }
+			} catch { }
 		}
 
 		#reportSelection() {
@@ -1427,7 +1427,7 @@ window.ContentContextMenu = ContentContextMenu;
 						links,
 					}).catch(() => {});
 				}
-			} catch {  }
+			} catch { }
 		}
 
 
@@ -1564,7 +1564,7 @@ window.ContentContextMenu = ContentContextMenu;
 						operationInterval: this.#operationInterval,
 					}).catch(() => {});
 				}
-			} catch {  }
+			} catch { }
 			this.#broadcastExit();
 		}
 
@@ -2996,7 +2996,7 @@ window.ContentContextMenu = ContentContextMenu;
 							try {
 								const detailStr = mergedConfig.eventDetail || '{}';
 								detail = JSON.parse(detailStr);
-							} catch {  }
+							} catch { }
 							if (mergedConfig.gestureInfo) {
 								detail.gesture = {
 									startX: cursor.startX,
@@ -3451,7 +3451,7 @@ window.ContentContextMenu = ContentContextMenu;
 						let detail = {};
 						try {
 							detail = JSON.parse(config.eventDetail || '{}');
-						} catch {  }
+						} catch { }
 						if (config.gestureInfo) {
 							detail.gesture = {
 								dragType,

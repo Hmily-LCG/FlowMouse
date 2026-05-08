@@ -1,7 +1,7 @@
 import { LitElement, html, css, unsafeHTML } from '../../js/lib/lit-all.min.js';
 import { commonStyles } from './shared-styles.js';
 import { SettingsStore } from '../settings-store.js';
-import { icons } from '../icons.js'; 
+import { icons } from '../icons.js';
 
 let fileSchemeAllowed = false;
 chrome.extension.isAllowedFileSchemeAccess().then(v => { fileSchemeAllowed = v; });
@@ -351,12 +351,6 @@ class PopupPage extends LitElement {
 		}
 		this._blacklist = Array.isArray(settings.blacklist) ? settings.blacklist : [];
 
-		let theme = settings.theme || 'auto';
-		if (theme === 'auto') {
-			theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-		}
-		document.body.setAttribute('data-theme', theme);
-
 		await this.#loadCurrentSite();
 	}
 
@@ -495,7 +489,7 @@ class PopupPage extends LitElement {
 			}
 			if (!label) {
 				const i18nKey = ACTION_SHORT_KEYS[action] || ACTION_KEYS[action];
-				if (!i18nKey) continue; 
+				if (!i18nKey) continue;
 				label = i18n.getMessage(i18nKey);
 			}
 			entries.push([pattern, label]);

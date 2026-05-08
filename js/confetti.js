@@ -8,12 +8,12 @@ class ConfettiSystem {
 		this.lastTime = 0;
 
 		this.colors = [
-			'#4285f4', 
-			'#34a853', 
-			'#ea4335', 
-			'#fbbc04', 
-			'#46ccdc', 
-			'#a061ec'  
+			'#4285f4',
+			'#34a853',
+			'#ea4335',
+			'#fbbc04',
+			'#46ccdc',
+			'#a061ec'
 		];
 
 		this.resizeHandler = this.resize.bind(this);
@@ -45,21 +45,21 @@ class ConfettiSystem {
 	}
 
 	createParticle(x, y) {
-		const isRibbon = Math.random() > 0.5; 
+		const isRibbon = Math.random() > 0.5;
 		return {
 			x: x,
 			y: y,
-			w: isRibbon ? Math.random() * 12 + 6 : Math.random() * 9 + 6, 
-			h: isRibbon ? Math.random() * 18 + 12 : Math.random() * 9 + 6, 
+			w: isRibbon ? Math.random() * 12 + 6 : Math.random() * 9 + 6,
+			h: isRibbon ? Math.random() * 18 + 12 : Math.random() * 9 + 6,
 			color: this.colors[Math.floor(Math.random() * this.colors.length)],
-			vx: (Math.random() - 0.5) * 4, 
-			vy: Math.random() * 2 + 1,      
+			vx: (Math.random() - 0.5) * 4,
+			vy: Math.random() * 2 + 1,
 			rotation: Math.random() * 360,
 			rotationSpeed: (Math.random() - 0.5) * 4,
-			tilt: Math.random() * 10,       
-			tiltSpeed: Math.random() * 0.1, 
-			friction: 0.98,                 
-			gravity: 0.05,                  
+			tilt: Math.random() * 10,
+			tiltSpeed: Math.random() * 0.1,
+			friction: 0.98,
+			gravity: 0.05,
 		};
 	}
 
@@ -70,7 +70,7 @@ class ConfettiSystem {
 
 		for (let i = 0; i < count; i++) {
 			const x = Math.random() * this.canvas.width;
-			const y = -Math.random() * 100 - 20; 
+			const y = -Math.random() * 100 - 20;
 			this.particles.push(this.createParticle(x, y));
 		}
 
@@ -106,7 +106,7 @@ class ConfettiSystem {
 
 		setTimeout(() => {
 			clearInterval(spawnInterval);
-			this.isActive = false; 
+			this.isActive = false;
 		}, duration);
 
 		if (!this.animationId) {
@@ -127,8 +127,8 @@ class ConfettiSystem {
 		if (!timestamp) timestamp = performance.now();
 		const deltaTime = timestamp - (this.lastTime || timestamp);
 		this.lastTime = timestamp;
-		
-		const timeScale = Math.min(deltaTime / 8.33, 4.0); 
+
+		const timeScale = Math.min(deltaTime / 8.33, 4.0);
 
 		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
@@ -137,10 +137,10 @@ class ConfettiSystem {
 
 			p.tilt += p.tiltSpeed * timeScale;
 			p.y += p.vy * timeScale;
-			p.x += (Math.sin(p.tilt) + p.vx) * timeScale; 
+			p.x += (Math.sin(p.tilt) + p.vx) * timeScale;
 			p.vx *= Math.pow(p.friction, timeScale);
 			p.vy += p.gravity * timeScale;
-			p.vy *= Math.pow(p.friction, timeScale); 
+			p.vy *= Math.pow(p.friction, timeScale);
 			p.rotation += p.rotationSpeed * timeScale;
 
 			if (p.y > this.canvas.height + 20) {

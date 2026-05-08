@@ -43,7 +43,7 @@ function asyncMessageHandler(asyncHandler) {
 		asyncHandler(message, sender)
 			.then(sendResponse)
 			.catch((error) => sendResponse({ success: false, error: error.message }));
-		return true; 
+		return true;
 	};
 }
 
@@ -171,7 +171,7 @@ async function handleAction(request, sender) {
 			if (sender.tab && request.incognito && !sender.tab.incognito) {
 				const granted = await requestPermission(['incognito'], sender.tab.windowId);
 				if (granted) {
-					await chrome.windows.create({ incognito: true, url: request.url }); 
+					await chrome.windows.create({ incognito: true, url: request.url });
 				}
 				return { success: true };
 			}
@@ -224,7 +224,7 @@ async function handleAction(request, sender) {
 				if (request.incognito && !sender.tab.incognito) {
 					const granted = await requestPermission(['incognito'], sender.tab.windowId);
 					if (granted) {
-						const newWin = await chrome.windows.create({ incognito: true }); 
+						const newWin = await chrome.windows.create({ incognito: true });
 						if (newWin && newWin.tabs && newWin.tabs.length > 0) {
 							await chrome.search.query({ text: request.query, tabId: newWin.tabs[0].id });
 						}
@@ -239,7 +239,7 @@ async function handleAction(request, sender) {
 					await chrome.search.query({ text: request.query, tabId: sender.tab.id });
 				} else {
 					const newTab = await createTabAtPosition(sender, position, {
-						url: 'about:blank', 
+						url: 'about:blank',
 						active,
 						openerTabId: sender.tab.id,
 					});
@@ -997,7 +997,7 @@ chrome.runtime.onInstalled.addListener((details) => {
 
 			const mouseGestures = {};
 			for (const [pattern, action] of Object.entries(merged)) {
-				if (action === null) continue; 
+				if (action === null) continue;
 				const entry = { action };
 				if (customGestureUrls[pattern]) entry.customUrl = customGestureUrls[pattern];
 				mouseGestures[pattern] = entry;
@@ -1016,14 +1016,14 @@ chrome.runtime.onInstalled.addListener((details) => {
 			}
 
 			if (items.enableAdvancedSettings === true) {
-				chrome.storage.sync.set({ 
-					sectionAdvanced: { basic: true, drag: true } 
+				chrome.storage.sync.set({
+					sectionAdvanced: { basic: true, drag: true }
 				}, () => {
 					chrome.storage.sync.remove(['enableAdvancedSettings']);
 				});
 			} else {
-				chrome.storage.sync.set({ 
-					sectionAdvanced: {} 
+				chrome.storage.sync.set({
+					sectionAdvanced: {}
 				}, () => {
 					chrome.storage.sync.remove(['enableAdvancedSettings']);
 				});
@@ -1210,10 +1210,10 @@ function updateBadge(tabId, status) {
 		chrome.action.setBadgeText({ tabId: tabId, text: '' });
 	} else if (status === 'restricted') {
 		chrome.action.setBadgeText({ tabId: tabId, text: '!' });
-		chrome.action.setBadgeBackgroundColor({ tabId: tabId, color: '#FFA500' }); 
+		chrome.action.setBadgeBackgroundColor({ tabId: tabId, color: '#FFA500' });
 	} else if (status === 'needRefresh') {
 		chrome.action.setBadgeText({ tabId: tabId, text: '!' });
-		chrome.action.setBadgeBackgroundColor({ tabId: tabId, color: '#4285f4' }); 
+		chrome.action.setBadgeBackgroundColor({ tabId: tabId, color: '#4285f4' });
 	}
 }
 

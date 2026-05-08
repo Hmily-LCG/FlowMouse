@@ -12,7 +12,7 @@ class GestureRecognizer {
 	#currentY = 0;
 	#pattern = [];
 	#points = [];
-	#segmentLength = 0; 
+	#segmentLength = 0;
 
 	constructor(config = {}) {
 		this.#distanceThreshold = config.distanceThreshold || 20;
@@ -62,11 +62,11 @@ class GestureRecognizer {
 		this.#points.push({ x, y, timestamp });
 
 		const result = {
-			activated: false,       
-			directionChanged: false, 
-			direction: null,        
+			activated: false,
+			directionChanged: false,
+			direction: null,
 			pattern: this.#pattern.join(''),
-			preActivationTrail: [],  
+			preActivationTrail: [],
 			totalDistance: 0,
 		};
 
@@ -83,9 +83,9 @@ class GestureRecognizer {
 			if (this.#distanceThreshold >= 10) {
 				let replayMultiplier = 0.7;
 				if (this.#distanceThreshold < 15) replayMultiplier = 0.8;
-				
+
 				const replayThreshold = this.#distanceThreshold * replayMultiplier;
-				
+
 				this.#pattern = [];
 				this.#anchorX = this.#startX;
 				this.#anchorY = this.#startY;

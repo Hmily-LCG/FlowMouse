@@ -8,6 +8,7 @@
 	let translations = {};
 	let currentLang = 'en';
 	let initPromise = null;
+	let currentThemeSetting = null;
 
 	let platform = 'unknown';
 	let platformName = 'System';
@@ -148,7 +149,7 @@
 					document.title = message;
 				}
 			}
-			
+
 			let i18nLoadStyle = document.getElementById('i18n-load-style');
 			if (i18nLoadStyle) {
 				i18nLoadStyle.remove();
@@ -164,12 +165,13 @@
 	}
 
 	function applyTheme(theme, skipSave = false) {
+		currentThemeSetting = theme;
 		let actualTheme = theme;
 		if (theme === 'auto') {
 			actualTheme = getSystemTheme();
 		}
 		document.body.setAttribute('data-theme', actualTheme || 'dark');
-		
+
 		try {
 			if (!skipSave) {
 				localStorage.setItem('flowmouse_theme', theme);
@@ -177,6 +179,12 @@
 		} catch (e) {
 		}
 	}
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+		if (currentThemeSetting === 'auto') {
+			document.body.setAttribute('data-theme', getSystemTheme());
+		}
+	});
 
 	function getCurrentLanguage() {
 		return currentLang;
@@ -225,7 +233,7 @@
 	function getBrowserInfo() {
 		const browserType = getBrowserType();
 		const browserConfig = browsers[browserType];
-		
+
 		return {
 			browserType,
 			name: browserConfig.name,
@@ -247,7 +255,7 @@
 		}
 
 		const items = await chrome.storage.sync.get({ language: 'auto', theme: 'auto' });
-		
+
 		if (items.theme !== cachedTheme) {
 			applyTheme(items.theme);
 		}
@@ -256,7 +264,7 @@
 		if (lang === 'auto') {
 			const uiLang = chrome.i18n.getUILanguage();
 			lang = uiLang.replace('-', '_');
-			
+
 			if (lang === 'zh') {
 				lang = 'zh_CN';
 			}
@@ -268,7 +276,7 @@
 			const baseLang = lang.split('_')[0];
 			loaded = await loadTranslations(baseLang);
 		}
-		
+
 		if (!loaded) {
 			loaded = await loadTranslations('en');
 		}
