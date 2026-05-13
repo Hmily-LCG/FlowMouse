@@ -319,6 +319,14 @@
 		"message": "Nie uruchamiaj przeciągania tekstu w edytowalnych obszarach, takich jak pola tekstowe i edytory tekstu",
 		"description": "Description for text drag ignore input option"
 	},
+	"dragDropOnInput": {
+		"message": "Ignoruj gest nad polami tekstowymi",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "Nie uruchamiaj gestu podczas upuszczania na pola tekstowe lub obszary edytowalne",
+		"description": "Description for drag drop on input option"
+	},
 	"searchEngine": {
 		"message": "Wyszukiwarka",
 		"description": "Search engine"

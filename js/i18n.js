@@ -182,7 +182,7 @@
 
 	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
 		if (currentThemeSetting === 'auto') {
-			document.body.setAttribute('data-theme', getSystemTheme());
+			applyTheme('auto', true);
 		}
 	});
 

@@ -319,6 +319,14 @@
 		"message": "Nespúšťať ťahanie textu v upraviteľných oblastiach, ako sú vstupné polia a textové editory",
 		"description": "Description for text drag ignore input option"
 	},
+	"dragDropOnInput": {
+		"message": "Potlačiť gesto nad textovými poľami",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "Nespúšťať gesto pri pustení do textových polí alebo upraviteľných oblastí",
+		"description": "Description for drag drop on input option"
+	},
 	"searchEngine": {
 		"message": "Vyhľadávač",
 		"description": "Search engine"

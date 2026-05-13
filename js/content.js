@@ -1962,6 +1962,13 @@ window.ContentContextMenu = ContentContextMenu;
 			return gestures.filter(g => g.direction === dir).map(g => ({ ...DRAG_ACTION_DEFAULTS[g.action], ...g }));
 		}
 
+		function isEditableTarget(e) {
+			const node = e.composedPath()[0];
+			const el = node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement;
+			const tag = el.tagName;
+			return tag === 'INPUT' || tag === 'TEXTAREA' || el.isContentEditable;
+		}
+
 		function hasDragAction(dragType, pattern) {
 			if (!pattern) return false;
 			const gestures = getGesturesForDragType(dragType);
@@ -2210,7 +2217,7 @@ window.ContentContextMenu = ContentContextMenu;
 			startTarget: null,
 			preventContextMenu: false,
 			skipFirstDragOver: false,
-			overEditableTarget: false
+			dropOnInputSuppressed: false
 		};
 
 		function resetState() {
@@ -2225,7 +2232,7 @@ window.ContentContextMenu = ContentContextMenu;
 			gestureState.dragType = null;
 			gestureState.startTarget = null;
 			gestureState.skipFirstDragOver = false;
-			gestureState.overEditableTarget = false;
+			gestureState.dropOnInputSuppressed = false;
 		}
 
 		let isRemoteGestureActive = false;
@@ -2652,20 +2659,6 @@ window.ContentContextMenu = ContentContextMenu;
 			});
 		}
 
-		function isEditableDropTarget(node) {
-			if (!node) return false;
-			const el = node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement;
-			if (!el) return false;
-			const tag = el.tagName;
-			return tag === 'INPUT' || tag === 'TEXTAREA' || el.isContentEditable;
-		}
-
-		function shouldDeferToNativeDrop(node) {
-			return SETTINGS.textDragIgnoreInput
-				&& gestureState.dragType === 'text'
-				&& isEditableDropTarget(node);
-		}
-
 		eventManager.add(isDragEnabled, window, 'dragstart', (e) => {
 			if (!isExtensionContextValid()) return;
 
@@ -2742,10 +2735,7 @@ window.ContentContextMenu = ContentContextMenu;
 			if (!dragContent && SETTINGS.enableTextDrag && isText) {
 				let skipDrag = false;
 				if (SETTINGS.textDragIgnoreInput) {
-					const node = e.composedPath()[0];
-					const target = node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement;
-					const tag = target.tagName;
-					skipDrag = tag === 'INPUT' || tag === 'TEXTAREA' || target.isContentEditable;
+					skipDrag = isEditableTarget(e);
 				}
 				if (!skipDrag) {
 					for (const el of path) {
@@ -2789,23 +2779,11 @@ window.ContentContextMenu = ContentContextMenu;
 				return;
 			}
 
-			if (shouldDeferToNativeDrop(e.composedPath()[0])) {
-				if (!gestureState.overEditableTarget) {
-					gestureState.overEditableTarget = true;
-					visualizer.hide();
-					if (SETTINGS.enableHUD) visualizer.updateAction('', []);
-				}
-				return;
-			}
-
-			const wasOverEditable = gestureState.overEditableTarget;
-			gestureState.overEditableTarget = false;
-
 			const result = recognizer.move(e.clientX, e.clientY, e.timeStamp);
 
 			const currentPoint = { x: e.clientX, y: e.clientY, timestamp: e.timeStamp };
 
-			if (result.activated || (wasOverEditable && recognizer.isActive())) {
+			if (result.activated) {
 				if (SETTINGS.enableTrail) {
 					visualizer.updateSettings({
 						minCutoff: 1.0,
@@ -2825,12 +2803,26 @@ window.ContentContextMenu = ContentContextMenu;
 
 			if (!recognizer.isActive()) return;
 
+			const dropOnInputEnabled = (gestureState.dragType === 'text' && SETTINGS.textDropIgnoreInput)
+				|| (gestureState.dragType === 'link' && SETTINGS.linkDropIgnoreInput);
+			if (dropOnInputEnabled && isEditableTarget(e)) {
+				if (!gestureState.dropOnInputSuppressed) {
+					gestureState.dropOnInputSuppressed = true;
+					visualizer.updateAction('', []);
+				}
+				return;
+			}
+			if (gestureState.dropOnInputSuppressed) {
+				gestureState.dropOnInputSuppressed = false;
+				result.directionChanged = true;
+			}
+
 			if (hasDragAction(gestureState.dragType, recognizer.getPattern())) {
 				e.preventDefault();
 				e.stopImmediatePropagation();
 			}
 
-			if ((result.directionChanged || wasOverEditable) && SETTINGS.enableHUD) {
+			if (result.directionChanged && SETTINGS.enableHUD) {
 				const hints = getDragHints(gestureState.dragType, result.pattern, gestureState.selectedText, gestureState.parentLink);
 				visualizer.updateAction(hints.length > 0 ? result.pattern : '', hints);
 			}
@@ -2839,7 +2831,7 @@ window.ContentContextMenu = ContentContextMenu;
 		eventManager.add(isDragEnabled, window, 'dragenter', (e) => {
 			if (!gestureState.isDrag) return;
 			if (!recognizer.isActive()) return;
-			if (shouldDeferToNativeDrop(e.composedPath()[0])) return;
+			if (gestureState.dropOnInputSuppressed) return;
 			if (hasDragAction(gestureState.dragType, recognizer.getPattern())) {
 				e.preventDefault();
 				e.stopImmediatePropagation();
@@ -2863,8 +2855,8 @@ window.ContentContextMenu = ContentContextMenu;
 
 		eventManager.add(isDragEnabled, window, 'drop', (e) => {
 			try {
-				if (shouldDeferToNativeDrop(e.composedPath()[0])) return;
 				if (gestureState.isDrag && recognizer.isActive()) {
+					if (gestureState.dropOnInputSuppressed) return;
 					const pattern = recognizer.getPattern();
 					if (hasDragAction(gestureState.dragType, pattern)) {
 						dropHandledAction = true;

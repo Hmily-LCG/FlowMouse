@@ -579,6 +579,13 @@ class OptionsPage extends LitElement {
 											<span class="help-icon" .tooltip=${tooltip(i18n.getMessage('textDragIgnoreInputDesc'))}>${unsafeHTML(icon('circleHelp', { size: 14 }))}</span>
 										</label>
 									</div>
+									<div class="inline-setting-item">
+										<label>
+											<input type="checkbox" id="textDropIgnoreInput" .checked=${this._settings.textDropIgnoreInput} @change=${e => this.#updateSetting('textDropIgnoreInput', e.target.checked)}>
+											<span>${i18n.getMessage('dragDropOnInput')}</span>
+											<span class="help-icon" .tooltip=${tooltip(i18n.getMessage('dragDropOnInputDesc'))}>${unsafeHTML(icon('circleHelp', { size: 14 }))}</span>
+										</label>
+									</div>
 								</div>
 							</div>
 							` : ''}
@@ -628,6 +635,19 @@ class OptionsPage extends LitElement {
 									<span class="slider"></span>
 								</label>
 							</div>
+							${this._settings.enableLinkDrag && this._settings.sectionAdvanced?.drag ? html`
+							<div class="sub-settings show" style="padding-block: 15px; margin-bottom: 10px;">
+								<div class="inline-settings">
+									<div class="inline-setting-item">
+										<label>
+											<input type="checkbox" id="linkDropIgnoreInput" .checked=${this._settings.linkDropIgnoreInput} @change=${e => this.#updateSetting('linkDropIgnoreInput', e.target.checked)}>
+											<span>${i18n.getMessage('dragDropOnInput')}</span>
+											<span class="help-icon" .tooltip=${tooltip(i18n.getMessage('dragDropOnInputDesc'))}>${unsafeHTML(icon('circleHelp', { size: 14 }))}</span>
+										</label>
+									</div>
+								</div>
+							</div>
+							` : ''}
 							<div class="sub-settings ${this._settings.enableLinkDrag ? 'show' : ''}">
 								<div class="drag-settings-section">
 									<drag-gesture-manager type="link" id="linkDragManager"

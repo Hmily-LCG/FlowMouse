@@ -319,6 +319,14 @@
 		"message": "Aktivera inte textdragning i redigerbara områden som inmatningsfält och textredigerare",
 		"description": "Description for text drag ignore input option"
 	},
+	"dragDropOnInput": {
+		"message": "Undertryck gest över inmatningsfält",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "Utlös inte gest när du släpper i inmatningsfält eller redigerbara områden",
+		"description": "Description for drag drop on input option"
+	},
 	"searchEngine": {
 		"message": "Sökmotor",
 		"description": "Search engine"

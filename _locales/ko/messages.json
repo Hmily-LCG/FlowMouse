@@ -319,6 +319,14 @@
 		"message": "입력 필드 및 텍스트 편집기와 같은 편집 가능한 영역에서 텍스트 드래그를 트리거하지 않음",
 		"description": "Description for text drag ignore input option"
 	},
+	"dragDropOnInput": {
+		"message": "입력 필드 위에서 제스처 차단",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "입력 필드나 편집 가능한 영역에 드롭할 때 제스처를 실행하지 않음",
+		"description": "Description for drag drop on input option"
+	},
 	"searchEngine": {
 		"message": "검색 엔진",
 		"description": "Search engine"

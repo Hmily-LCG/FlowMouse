@@ -319,6 +319,14 @@
 		"message": "Huwag paganahin ang pag-drag ng text sa mga nae-edit na area tulad ng mga input field at text editor",
 		"description": "Description for text drag ignore input option"
 	},
+	"dragDropOnInput": {
+		"message": "Pigilan ang galaw sa ibabaw ng mga input field",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "Huwag paganahin ang galaw kapag nag-drop sa mga input field o nae-edit na area",
+		"description": "Description for drag drop on input option"
+	},
 	"searchEngine": {
 		"message": "Search Engine",
 		"description": "Search engine"

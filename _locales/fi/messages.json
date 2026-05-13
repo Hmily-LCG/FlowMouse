@@ -319,6 +319,14 @@
 		"message": "Älä aktivoi tekstin siirtoa muokattavilla alueilla, kuten syöttökentissä ja tekstieditoreissa",
 		"description": "Description for text drag ignore input option"
 	},
+	"dragDropOnInput": {
+		"message": "Estä ele syöttökenttien päällä",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "Älä laukaise eletteä, kun pudotetaan syöttökenttiin tai muokattaville alueille",
+		"description": "Description for drag drop on input option"
+	},
 	"searchEngine": {
 		"message": "Hakukone",
 		"description": "Search engine"

@@ -319,6 +319,14 @@
 		"message": "Jangan mencetuskan seretan teks dalam kawasan yang boleh diedit seperti medan input dan penyunting teks",
 		"description": "Description for text drag ignore input option"
 	},
+	"dragDropOnInput": {
+		"message": "Sekat gerak isyarat pada medan input",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "Jangan cetuskan gerak isyarat apabila menjatuhkan ke dalam medan input atau kawasan yang boleh diedit",
+		"description": "Description for drag drop on input option"
+	},
 	"searchEngine": {
 		"message": "Enjin Carian",
 		"description": "Search engine"

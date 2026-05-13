@@ -319,6 +319,14 @@
 		"message": "Ne pas déclencher le glisser-déposer de texte dans les zones modifiables telles que les champs de saisie et les éditeurs de texte",
 		"description": "Description for text drag ignore input option"
 	},
+	"dragDropOnInput": {
+		"message": "Désactiver le geste sur les champs de saisie",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "Ne pas déclencher le geste lors du dépôt dans des champs de saisie ou des zones modifiables",
+		"description": "Description for drag drop on input option"
+	},
 	"searchEngine": {
 		"message": "Moteur de recherche",
 		"description": "Search engine"

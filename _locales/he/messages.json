@@ -319,6 +319,14 @@
 		"message": "אל תפעיל גרירת טקסט באזורים הניתנים לעריכה כגון שדות קלט ועורכי טקסט",
 		"description": "Description for text drag ignore input option"
 	},
+	"dragDropOnInput": {
+		"message": "השבת מחווה מעל שדות קלט",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "אל תפעיל מחווה בעת שחרור בשדות קלט או אזורים הניתנים לעריכה",
+		"description": "Description for drag drop on input option"
+	},
 	"searchEngine": {
 		"message": "מנוע חיפוש",
 		"description": "Search engine"

@@ -319,6 +319,14 @@
 		"message": "入力フィールドやテキストエディタなどの編集可能な領域でテキストのドラッグをトリガーしない",
 		"description": "Description for text drag ignore input option"
 	},
+	"dragDropOnInput": {
+		"message": "入力フィールド上でのジェスチャーを無効化",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "入力フィールドや編集可能な領域にドロップしたときはジェスチャーをトリガーしない",
+		"description": "Description for drag drop on input option"
+	},
 	"searchEngine": {
 		"message": "検索エンジン",
 		"description": "Search engine"

@@ -319,6 +319,14 @@
 		"message": "Не покрећите превлачење текста у областима за уређивање као што су поља за унос и уређивачи текста",
 		"description": "Description for text drag ignore input option"
 	},
+	"dragDropOnInput": {
+		"message": "Онемогући гест преко поља за унос",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "Не покрећи гест приликом отпуштања у поља за унос или подручја за уређивање",
+		"description": "Description for drag drop on input option"
+	},
 	"searchEngine": {
 		"message": "Претраживач",
 		"description": "Search engine"

@@ -319,6 +319,14 @@
 		"message": "Não acionar o arrasto de texto em áreas editáveis, como campos de entrada e editores de texto",
 		"description": "Description for text drag ignore input option"
 	},
+	"dragDropOnInput": {
+		"message": "Suprimir gesto em campos de entrada",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "Não acionar o gesto ao soltar em campos de entrada ou áreas editáveis",
+		"description": "Description for drag drop on input option"
+	},
 	"searchEngine": {
 		"message": "Mecanismo de Pesquisa",
 		"description": "Search engine"

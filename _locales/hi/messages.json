@@ -319,6 +319,14 @@
 		"message": "इनपुट फ़ील्ड और टेक्स्ट संपादकों जैसे संपादन योग्य क्षेत्रों के अंदर टेक्स्ट ड्रेग शुरू न करें",
 		"description": "Description for text drag ignore input option"
 	},
+	"dragDropOnInput": {
+		"message": "इनपुट फ़ील्ड पर जेस्चर रोकें",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "इनपुट फ़ील्ड या संपादन योग्य क्षेत्रों पर ड्रॉप करते समय जेस्चर ट्रिगर न करें",
+		"description": "Description for drag drop on input option"
+	},
 	"searchEngine": {
 		"message": "खोज इंजन",
 		"description": "Search engine"

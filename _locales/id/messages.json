@@ -319,6 +319,14 @@
 		"message": "Jangan aktifkan penarikan teks di area yang dapat diedit seperti kolom input dan editor teks",
 		"description": "Description for text drag ignore input option"
 	},
+	"dragDropOnInput": {
+		"message": "Cegah gestur di atas kolom input",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "Jangan picu gestur saat menjatuhkan ke kolom input atau area yang dapat diedit",
+		"description": "Description for drag drop on input option"
+	},
 	"searchEngine": {
 		"message": "Mesin Pencari",
 		"description": "Search engine"

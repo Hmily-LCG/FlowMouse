@@ -319,6 +319,14 @@
 		"message": "Nemojte aktivirati povlačenje teksta u područjima za uređivanje poput polja za unos i uređivača teksta",
 		"description": "Description for text drag ignore input option"
 	},
+	"dragDropOnInput": {
+		"message": "Spriječi gestu iznad polja za unos",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "Nemoj pokretati gestu prilikom ispuštanja u polja za unos ili područja za uređivanje",
+		"description": "Description for drag drop on input option"
+	},
 	"searchEngine": {
 		"message": "Tražilica",
 		"description": "Search engine"

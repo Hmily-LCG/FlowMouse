@@ -319,6 +319,14 @@
 		"message": "Не активувати перетягування тексту в редагованих областях, таких як поля вводу та текстові редактори",
 		"description": "Description for text drag ignore input option"
 	},
+	"dragDropOnInput": {
+		"message": "Вимкнути жест над полями введення",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "Не запускати жест під час перетягування в поля введення або області, що редагуються",
+		"description": "Description for drag drop on input option"
+	},
 	"searchEngine": {
 		"message": "Пошукова система",
 		"description": "Search engine"

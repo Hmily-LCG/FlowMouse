@@ -319,6 +319,14 @@
 		"message": "Non attivare il trascinamento del testo in aree modificabili come campi di input ed editor di testo",
 		"description": "Description for text drag ignore input option"
 	},
+	"dragDropOnInput": {
+		"message": "Disattiva il gesto sui campi di input",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "Non attivare il gesto quando si rilascia in campi di input o aree modificabili",
+		"description": "Description for drag drop on input option"
+	},
 	"searchEngine": {
 		"message": "Motore di Ricerca",
 		"description": "Search engine"

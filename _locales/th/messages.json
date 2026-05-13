@@ -319,6 +319,14 @@
 		"message": "ไม่ต้องเปิดใช้งานการลากข้อความในพื้นที่ที่สามารถแก้ไขได้ เช่น ช่องป้อนข้อมูลและตัวแก้ไขข้อความ",
 		"description": "Description for text drag ignore input option"
 	},
+	"dragDropOnInput": {
+		"message": "ระงับท่าทางสัมผัสบนช่องป้อนข้อมูล",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "ไม่ทริกเกอร์ท่าทางสัมผัสเมื่อวางลงในช่องป้อนข้อมูลหรือพื้นที่ที่แก้ไขได้",
+		"description": "Description for drag drop on input option"
+	},
 	"searchEngine": {
 		"message": "เครื่องมือค้นหา",
 		"description": "Search engine"

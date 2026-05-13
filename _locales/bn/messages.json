@@ -319,6 +319,14 @@
 		"message": "ইনপুট ক্ষেত্র এবং পাঠ্য সম্পাদকগুলির মতো সম্পাদনাযোগ্য অঞ্চলগুলির ভিতরে পাঠ্য টানানো ট্রিগার করবেন না",
 		"description": "Description for text drag ignore input option"
 	},
+	"dragDropOnInput": {
+		"message": "ইনপুট ফিল্ডে জেসচার বাতিল করুন",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "ইনপুট ফিল্ড বা এডিটযোগ্য এলাকায় ছাড়ার সময় জেসচার চালু করবেন না",
+		"description": "Description for drag drop on input option"
+	},
 	"searchEngine": {
 		"message": "সার্চ ইঞ্জিন",
 		"description": "Search engine"

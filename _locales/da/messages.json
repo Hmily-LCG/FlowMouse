@@ -319,6 +319,14 @@
 		"message": "Deaktiver teksttræk i redigerbare områder såsom inputfelter og tekstredigeringsprogrammer",
 		"description": "Description for text drag ignore input option"
 	},
+	"dragDropOnInput": {
+		"message": "Undertryk gestus over indtastningsfelter",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "Udløs ikke gestus, når der slippes i indtastningsfelter eller redigerbare områder",
+		"description": "Description for drag drop on input option"
+	},
 	"searchEngine": {
 		"message": "Søgemaskine",
 		"description": "Search engine"

@@ -319,6 +319,14 @@
 		"message": "Nu declanșați tragerea textului în zonele de editare, cum ar fi câmpurile de intrare și editoarele de text",
 		"description": "Description for text drag ignore input option"
 	},
+	"dragDropOnInput": {
+		"message": "Suprimă gestul peste câmpurile de introducere a textului",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "Nu declanșa gestul la fixarea pe câmpurile de introducere a textului sau în zonele editabile",
+		"description": "Description for drag drop on input option"
+	},
 	"searchEngine": {
 		"message": "Motor de Căutare",
 		"description": "Search engine"

@@ -319,6 +319,14 @@
 		"message": "在輸入框與文字編輯器等可編輯區域中不觸發文字拖曳",
 		"description": "Description for text drag ignore input option"
 	},
+	"dragDropOnInput": {
+		"message": "拖入輸入框時不觸發手勢",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "拖曳到輸入框或可編輯區域時不觸發手勢",
+		"description": "Description for drag drop on input option"
+	},
 	"searchEngine": {
 		"message": "搜尋引擎",
 		"description": "Search engine"

@@ -319,6 +319,14 @@
 		"message": "Textziehen in bearbeitbaren Bereichen wie Eingabefeldern und Texteditoren nicht auslösen",
 		"description": "Description for text drag ignore input option"
 	},
+	"dragDropOnInput": {
+		"message": "Gesten über Eingabefeldern unterdrücken",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "Geste nicht auslösen, wenn in Eingabefelder oder bearbeitbare Bereiche abgelegt wird",
+		"description": "Description for drag drop on input option"
+	},
 	"searchEngine": {
 		"message": "Suchmaschine",
 		"description": "Search engine"

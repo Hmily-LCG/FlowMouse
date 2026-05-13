@@ -319,6 +319,14 @@
 		"message": "Ikke aktiver teksttrekking i redigerbare områder som inndatafelt og tekstredigerere",
 		"description": "Description for text drag ignore input option"
 	},
+	"dragDropOnInput": {
+		"message": "Undertrykk gest over inndatafelt",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "Ikke utløs gest når du slipper i inndatafelt eller redigerbare områder",
+		"description": "Description for drag drop on input option"
+	},
 	"searchEngine": {
 		"message": "Søkemotor",
 		"description": "Search engine"

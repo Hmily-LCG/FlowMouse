@@ -319,6 +319,14 @@
 		"message": "عدم تنشيط سحب النص داخل المناطق القابلة للتحرير مثل حقول الإدخال ومحررات النصوص",
 		"description": "Description for text drag ignore input option"
 	},
+	"dragDropOnInput": {
+		"message": "إيقاف الإيماءات فوق حقول الإدخال",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "عدم تشغيل الإيماءة عند الإفلات في حقول الإدخال أو المناطق القابلة للتحرير",
+		"description": "Description for drag drop on input option"
+	},
 	"searchEngine": {
 		"message": "محرك البحث",
 		"description": "Search engine"

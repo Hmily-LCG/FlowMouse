@@ -319,6 +319,14 @@
 		"message": "Không kích hoạt kéo văn bản trong các vùng có thể chỉnh sửa như trường nhập và trình chỉnh sửa văn bản",
 		"description": "Description for text drag ignore input option"
 	},
+	"dragDropOnInput": {
+		"message": "Tắt cử chỉ trên các trường nhập liệu",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "Không kích hoạt cử chỉ khi thả vào các trường nhập liệu hoặc vùng có thể chỉnh sửa",
+		"description": "Description for drag drop on input option"
+	},
 	"searchEngine": {
 		"message": "Công cụ tìm kiếm",
 		"description": "Search engine"
