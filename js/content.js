@@ -2221,8 +2221,10 @@ window.ContentContextMenu = ContentContextMenu;
 		};
 
 		function resetState() {
-			visualizer.hide();
-			if (SETTINGS.enableHUD) visualizer.updateAction('', []);
+			if (!isIframe || recognizer.isActive()) {
+				visualizer.hide();
+				if (SETTINGS.enableHUD) visualizer.updateAction('', []);
+			}
 			recognizer.reset();
 			gestureState.isRightButton = false;
 			gestureState.gestureButton = null;
@@ -2332,6 +2334,13 @@ window.ContentContextMenu = ContentContextMenu;
 			resetState();
 		});
 
+		eventManager.add(null, window, 'pagehide', () => {
+			if (recognizer.isActive()) {
+				safeSendMessage({ action: 'gestureStateUpdate', active: false });
+				resetState();
+			}
+		});
+
 		eventManager.add(() => !isBlacklisted, window, 'contextmenu', (e) => {
 			if (!isExtensionContextValid()) return;
 
@@ -2372,6 +2381,9 @@ window.ContentContextMenu = ContentContextMenu;
 				if (gestureState.preventContextMenu || isRemoteGestureActive) {
 					e.preventDefault();
 					e.stopImmediatePropagation();
+					if (isRemoteGestureActive) {
+						safeSendMessage({ action: 'gestureStateUpdate', active: false });
+					}
 					return;
 				}
 			}
@@ -2803,9 +2815,9 @@ window.ContentContextMenu = ContentContextMenu;
 
 			if (!recognizer.isActive()) return;
 
-			const dropOnInputEnabled = (gestureState.dragType === 'text' && SETTINGS.textDropIgnoreInput)
+			const shouldIgnoreGestureOnInputDrop = (gestureState.dragType === 'text' && SETTINGS.textDropIgnoreInput)
 				|| (gestureState.dragType === 'link' && SETTINGS.linkDropIgnoreInput);
-			if (dropOnInputEnabled && isEditableTarget(e)) {
+			if (shouldIgnoreGestureOnInputDrop && isEditableTarget(e)) {
 				if (!gestureState.dropOnInputSuppressed) {
 					gestureState.dropOnInputSuppressed = true;
 					visualizer.updateAction('', []);
@@ -3198,7 +3210,10 @@ window.ContentContextMenu = ContentContextMenu;
 					msg_obj.keepWindow = !!mergedConfig.keepWindow;
 					msg_obj.afterClose = mergedConfig.afterClose || 'default';
 					msg_obj.skipPinned = !!mergedConfig.skipPinned;
-				} else if (action === 'closeOtherTabs' || action === 'closeLeftTabs' || action === 'closeRightTabs' || action === 'closeAllTabs') {
+				} else if (action === 'closeOtherTabs' || action === 'closeLeftTabs' || action === 'closeRightTabs') {
+					msg_obj.skipPinned = !!mergedConfig.skipPinned;
+					msg_obj.preserveTab = !!mergedConfig.preserveTab;
+				} else if (action === 'closeAllTabs') {
 					msg_obj.skipPinned = !!mergedConfig.skipPinned;
 				} else if (action === 'switchLeftTab' || action === 'switchRightTab') {
 					msg_obj.noWrap = !!mergedConfig.noWrap;
@@ -3210,6 +3225,8 @@ window.ContentContextMenu = ContentContextMenu;
 				} else if (action === 'newTab') {
 					msg_obj.position = mergedConfig.position || 'last';
 					msg_obj.active = mergedConfig.active !== false;
+				} else if (action === 'newWindow') {
+					msg_obj.focused = mergedConfig.focused !== false;
 				} else if (action === 'viewPageSource') {
 					msg_obj.position = mergedConfig.position || 'right';
 					msg_obj.active = mergedConfig.active !== false;

@@ -675,6 +675,10 @@
 		"message": "Не закрывать закрепленные вкладки",
 		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
+	"closeTabsPreserveTab": {
+		"message": "Сохранять вкладки (выгружать содержимое страницы)",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
 	"actionCloseOtherTabs": {
 		"message": "Закрыть другие вкладки",
 		"description": "Close other tabs"
@@ -718,6 +722,10 @@
 	"actionStopLoading": {
 		"message": "Остановить загрузку",
 		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "Остановить загрузку всех вкладок",
+		"description": "Stop loading all tabs in the current window"
 	},
 	"actionNewWindow": {
 		"message": "Новое окно",
@@ -1139,9 +1147,17 @@
 		"message": "Текущая вкладка",
 		"description": "Open in current tab"
 	},
+	"tabPositionNewWindow": {
+		"message": "Новое окно",
+		"description": "Open in a new browser window"
+	},
 	"newTabActive": {
 		"message": "Открыть на переднем плане",
 		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "Открыть на переднем плане",
+		"description": "Open window in foreground"
 	},
 	"openInIncognito": {
 		"message": "Инкогнито",

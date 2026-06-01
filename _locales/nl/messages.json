@@ -675,6 +675,10 @@
 		"message": "Vastgezette tabbladen niet sluiten",
 		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
+	"closeTabsPreserveTab": {
+		"message": "Tabbladen behouden (pagina-inhoud ontladen)",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
 	"actionCloseOtherTabs": {
 		"message": "Andere Tabbladen Sluiten",
 		"description": "Close other tabs"
@@ -718,6 +722,10 @@
 	"actionStopLoading": {
 		"message": "Laden Stoppen",
 		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "Laden van Alle Tabbladen Stoppen",
+		"description": "Stop loading all tabs in the current window"
 	},
 	"actionNewWindow": {
 		"message": "Nieuw Venster",
@@ -1139,9 +1147,17 @@
 		"message": "Huidig tabblad",
 		"description": "Open in current tab"
 	},
+	"tabPositionNewWindow": {
+		"message": "Nieuw venster",
+		"description": "Open in a new browser window"
+	},
 	"newTabActive": {
 		"message": "Open op voorgrond",
 		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "Open op voorgrond",
+		"description": "Open window in foreground"
 	},
 	"openInIncognito": {
 		"message": "Incognito",

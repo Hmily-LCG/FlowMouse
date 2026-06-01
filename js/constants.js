@@ -46,6 +46,7 @@
 		'refresh': 'actionRefresh',
 		'refreshAllTabs': 'actionRefreshAllTabs',
 		'stopLoading': 'actionStopLoading',
+		...({}),
 		'newWindow': 'actionNewWindow',
 		'newIncognito': 'actionNewIncognito',
 		'addToBookmarks': 'actionAddToBookmarks',
@@ -83,12 +84,13 @@
 
 	const ACTION_DEFAULTS = {
 		closeTab: { keepWindow: false, afterClose: 'default', skipPinned: false },
-		closeOtherTabs: { skipPinned: true },
-		closeLeftTabs: { skipPinned: true },
-		closeRightTabs: { skipPinned: true },
+		closeOtherTabs: { skipPinned: true, preserveTab: false },
+		closeLeftTabs: { skipPinned: true, preserveTab: false },
+		closeRightTabs: { skipPinned: true, preserveTab: false },
 		closeAllTabs: { skipPinned: true },
 		refresh: { hardReload: false },
 		refreshAllTabs: { hardReload: false },
+		newWindow: { focused: true },
 		newTab: { position: 'last', active: true },
 		openCustomUrl: { customUrl: '', position: 'last', active: true },
 		addToBookmarks: { folderId: '' },
@@ -141,7 +143,7 @@
 		'none': 'dragActionNone',
 		'search': 'dragActionSearch',
 		'copy': 'dragActionCopy',
-		'sendCustomEvent': 'dragActionSendCustomEvent'
+		'sendCustomEvent': 'dragActionSendCustomEvent',
 	};
 
 	const LINK_DRAG_ACTIONS = {
@@ -150,7 +152,7 @@
 		'copyLink': 'dragActionCopyLink',
 		'copyLinkText': 'dragActionCopyLinkText',
 		'copyLinkAndText': 'dragActionCopyLinkAndText',
-		'sendCustomEvent': 'dragActionSendCustomEvent'
+		'sendCustomEvent': 'dragActionSendCustomEvent',
 	};
 
 	const IMAGE_DRAG_ACTIONS = {
@@ -159,7 +161,7 @@
 		'saveImage': 'dragActionSaveImage',
 		'copyImageUrl': 'dragActionCopyImageUrl',
 		'imageSearch': 'dragActionImageSearch',
-		'sendCustomEvent': 'dragActionSendCustomEvent'
+		'sendCustomEvent': 'dragActionSendCustomEvent',
 	};
 
 	const DRAG_ACTION_DEFAULTS = {
@@ -175,7 +177,8 @@
 		'left': 'tabPositionLeft',
 		'first': 'tabPositionFirst',
 		'last': 'tabPositionLast',
-		'current': 'tabPositionCurrent'
+		'current': 'tabPositionCurrent',
+		'newWindow': 'tabPositionNewWindow',
 	};
 
 
@@ -280,7 +283,7 @@
 		'trace': {
 			name: 'Trace.moe',
 			url: 'https://trace.moe/?url='
-		}
+		},
 	};
 
 	const IMAGE_SEARCH_ENGINE_ORDER = {
@@ -350,14 +353,14 @@
 		blacklist: [],
 		enableBlacklistContextMenu: false,
 		navCollapsed: false,
-		lastSyncTime: null
+		lastSyncTime: null,
 	};
 
 	const ARROW_SVG = {
 		'↑': '<svg xmlns="http://www.w3.org/2000/svg" width="0.85em" height="0.85em" fill="currentColor" viewBox="5 3.5 6 9" style="vertical-align:-0.125em; margin:0.05em; display:inline"><path fill-rule="evenodd" d="M 8 12 a 0.5 0.5 0 0 0 0.5 -0.5 V 5.707 L 10.646 7.854 a 0.5 0.5 0 0 0 0.708 -0.708 l -3 -3 a 0.5 0.5 0 0 0 -0.708 0 l -3 3 a 0.5 0.5 0 0 0 0.708 0.708 L 7.5 5.707 V 11.5 A 0.5 0.5 0 0 0 8 12"/></svg>',
 		'↓': '<svg xmlns="http://www.w3.org/2000/svg" width="0.85em" height="0.85em" fill="currentColor" viewBox="5 3.5 6 9" style="vertical-align:-0.125em; margin:0.05em; display:inline"><path fill-rule="evenodd" d="M 8 4 a 0.5 0.5 0 0 1 0.5 0.5 v 5.793 L 10.646 8.146 a 0.5 0.5 0 0 1 0.708 0.708 l -3 3 a 0.5 0.5 0 0 1 -0.708 0 l -3 -3 a 0.5 0.5 0 0 1 0.708 -0.708 L 7.5 10.293 V 4.5 A 0.5 0.5 0 0 1 8 4"/></svg>',
 		'←': '<svg xmlns="http://www.w3.org/2000/svg" width="0.85em" height="0.85em" fill="currentColor" viewBox="3.5 5 9 6" style="vertical-align:-0.125em; margin:0.05em; display:inline"><path fill-rule="evenodd" d="M 12 8 a 0.5 0.5 0 0 0 -0.5 -0.5 H 5.707 L 7.854 5.354 a 0.5 0.5 0 1 0 -0.708 -0.708 l -3 3 a 0.5 0.5 0 0 0 0 0.708 l 3 3 a 0.5 0.5 0 0 0 0.708 -0.708 L 5.707 8.5 H 11.5 A 0.5 0.5 0 0 0 12 8"/></svg>',
-		'→': '<svg xmlns="http://www.w3.org/2000/svg" width="0.85em" height="0.85em" fill="currentColor" viewBox="3.5 5 9 6" style="vertical-align:-0.125em; margin:0.05em; display:inline"><path fill-rule="evenodd" d="M 4 8 a 0.5 0.5 0 0 1 0.5 -0.5 h 5.793 L 8.146 5.354 a 0.5 0.5 0 1 1 0.708 -0.708 l 3 3 a 0.5 0.5 0 0 1 0 0.708 l -3 3 a 0.5 0.5 0 0 1 -0.708 -0.708 L 10.293 8.5 H 4.5 A 0.5 0.5 0 0 1 4 8"/></svg>'
+		'→': '<svg xmlns="http://www.w3.org/2000/svg" width="0.85em" height="0.85em" fill="currentColor" viewBox="3.5 5 9 6" style="vertical-align:-0.125em; margin:0.05em; display:inline"><path fill-rule="evenodd" d="M 4 8 a 0.5 0.5 0 0 1 0.5 -0.5 h 5.793 L 8.146 5.354 a 0.5 0.5 0 1 1 0.708 -0.708 l 3 3 a 0.5 0.5 0 0 1 0 0.708 l -3 3 a 0.5 0.5 0 0 1 -0.708 -0.708 L 10.293 8.5 H 4.5 A 0.5 0.5 0 0 1 4 8"/></svg>',
 	};
 
 	const CORNER_SVG = {

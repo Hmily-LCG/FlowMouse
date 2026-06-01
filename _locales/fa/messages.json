@@ -675,6 +675,10 @@
 		"message": "برگه‌های سنجاق شده را نبند",
 		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
+	"closeTabsPreserveTab": {
+		"message": "حفظ برگه‌ها (خالی کردن محتوای صفحه)",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
 	"actionCloseOtherTabs": {
 		"message": "بستن سایر تب‌ها",
 		"description": "Close other tabs"
@@ -718,6 +722,10 @@
 	"actionStopLoading": {
 		"message": "توقف بارگذاری",
 		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "توقف بارگذاری همه تب‌ها",
+		"description": "Stop loading all tabs in the current window"
 	},
 	"actionNewWindow": {
 		"message": "پنجره جدید",
@@ -1139,9 +1147,17 @@
 		"message": "تب جاری",
 		"description": "Open in current tab"
 	},
+	"tabPositionNewWindow": {
+		"message": "پنجره جدید",
+		"description": "Open in a new browser window"
+	},
 	"newTabActive": {
 		"message": "باز شدن در پیش‌زمینه",
 		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "باز شدن در پیش‌زمینه",
+		"description": "Open window in foreground"
 	},
 	"openInIncognito": {
 		"message": "ناشناس",

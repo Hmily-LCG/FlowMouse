@@ -675,6 +675,10 @@
 		"message": "固定されたタブを閉じない",
 		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
+	"closeTabsPreserveTab": {
+		"message": "タブを保持（ページコンテンツを破棄）",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
 	"actionCloseOtherTabs": {
 		"message": "他のタブを閉じる",
 		"description": "Close other tabs"
@@ -718,6 +722,10 @@
 	"actionStopLoading": {
 		"message": "読み込み中止",
 		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "すべてのタブの読み込みを中止",
+		"description": "Stop loading all tabs in the current window"
 	},
 	"actionNewWindow": {
 		"message": "新しいウィンドウ",
@@ -1139,9 +1147,17 @@
 		"message": "現在のタブ",
 		"description": "Open in current tab"
 	},
+	"tabPositionNewWindow": {
+		"message": "新しいウィンドウ",
+		"description": "Open in a new browser window"
+	},
 	"newTabActive": {
 		"message": "最前面で開く",
 		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "最前面で開く",
+		"description": "Open window in foreground"
 	},
 	"openInIncognito": {
 		"message": "シークレット",

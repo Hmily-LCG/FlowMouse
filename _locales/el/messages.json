@@ -675,6 +675,10 @@
 		"message": "Μην κλείνετε τις καρφιτσωμένες καρτέλες",
 		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
+	"closeTabsPreserveTab": {
+		"message": "Διατήρηση καρτελών (αποφόρτωση περιεχομένου σελίδας)",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
 	"actionCloseOtherTabs": {
 		"message": "Κλείσιμο Άλλων Καρτελών",
 		"description": "Close other tabs"
@@ -718,6 +722,10 @@
 	"actionStopLoading": {
 		"message": "Διακοπή Φόρτωσης",
 		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "Διακοπή Φόρτωσης Όλων των Καρτελών",
+		"description": "Stop loading all tabs in the current window"
 	},
 	"actionNewWindow": {
 		"message": "Νέο Παράθυρο",
@@ -1139,9 +1147,17 @@
 		"message": "Τρέχουσα καρτέλα",
 		"description": "Open in current tab"
 	},
+	"tabPositionNewWindow": {
+		"message": "Νέο παράθυρο",
+		"description": "Open in a new browser window"
+	},
 	"newTabActive": {
 		"message": "Άνοιγμα στο προσκήνιο",
 		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "Άνοιγμα στο προσκήνιο",
+		"description": "Open window in foreground"
 	},
 	"openInIncognito": {
 		"message": "Ανώνυμη περιήγηση",

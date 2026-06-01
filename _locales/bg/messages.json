@@ -675,6 +675,10 @@
 		"message": "Не затваряйте фиксирани раздели",
 		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
+	"closeTabsPreserveTab": {
+		"message": "Запазване на разделите (освобождаване на съдържанието на страницата)",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
 	"actionCloseOtherTabs": {
 		"message": "Затваряне на други раздели",
 		"description": "Close other tabs"
@@ -718,6 +722,10 @@
 	"actionStopLoading": {
 		"message": "Спри зареждането",
 		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "Спри зареждането на всички раздели",
+		"description": "Stop loading all tabs in the current window"
 	},
 	"actionNewWindow": {
 		"message": "Нов прозорец",
@@ -1139,9 +1147,17 @@
 		"message": "Текущия раздел",
 		"description": "Open in current tab"
 	},
+	"tabPositionNewWindow": {
+		"message": "Нов прозорец",
+		"description": "Open in a new browser window"
+	},
 	"newTabActive": {
 		"message": "Отваряне на преден план",
 		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "Отваряне на преден план",
+		"description": "Open window in foreground"
 	},
 	"openInIncognito": {
 		"message": "Инкогнито",

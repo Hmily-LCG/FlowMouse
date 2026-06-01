@@ -675,6 +675,10 @@
 		"message": "Ne pas fermer les onglets épinglés",
 		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
+	"closeTabsPreserveTab": {
+		"message": "Conserver les onglets (décharger le contenu de la page)",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
 	"actionCloseOtherTabs": {
 		"message": "Fermer les autres onglets",
 		"description": "Close other tabs"
@@ -718,6 +722,10 @@
 	"actionStopLoading": {
 		"message": "Arrêter le chargement",
 		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "Arrêter le chargement de tous les onglets",
+		"description": "Stop loading all tabs in the current window"
 	},
 	"actionNewWindow": {
 		"message": "Nouvelle fenêtre",
@@ -1139,9 +1147,17 @@
 		"message": "Onglet actuel",
 		"description": "Open in current tab"
 	},
+	"tabPositionNewWindow": {
+		"message": "Nouvelle fenêtre",
+		"description": "Open in a new browser window"
+	},
 	"newTabActive": {
 		"message": "Ouvrir au premier plan",
 		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "Ouvrir au premier plan",
+		"description": "Open window in foreground"
 	},
 	"openInIncognito": {
 		"message": "Navigation privée",

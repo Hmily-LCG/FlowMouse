@@ -675,6 +675,10 @@
 		"message": "Não fechar guias fixadas",
 		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
+	"closeTabsPreserveTab": {
+		"message": "Manter guias (descarregar o conteúdo da página)",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
 	"actionCloseOtherTabs": {
 		"message": "Fechar Outras Abas",
 		"description": "Close other tabs"
@@ -718,6 +722,10 @@
 	"actionStopLoading": {
 		"message": "Parar Carregamento",
 		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "Parar Carregamento de Todas as Abas",
+		"description": "Stop loading all tabs in the current window"
 	},
 	"actionNewWindow": {
 		"message": "Nova Janela",
@@ -1139,9 +1147,17 @@
 		"message": "Aba atual",
 		"description": "Open in current tab"
 	},
+	"tabPositionNewWindow": {
+		"message": "Nova janela",
+		"description": "Open in a new browser window"
+	},
 	"newTabActive": {
 		"message": "Abrir em primeiro plano",
 		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "Abrir em primeiro plano",
+		"description": "Open window in foreground"
 	},
 	"openInIncognito": {
 		"message": "Anônimo",

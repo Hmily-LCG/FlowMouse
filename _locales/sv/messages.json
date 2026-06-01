@@ -675,6 +675,10 @@
 		"message": "Stäng inte fästa flikar",
 		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
+	"closeTabsPreserveTab": {
+		"message": "Behåll flikar (ta bort sidans innehåll från minnet)",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
 	"actionCloseOtherTabs": {
 		"message": "Stäng andra flikar",
 		"description": "Close other tabs"
@@ -718,6 +722,10 @@
 	"actionStopLoading": {
 		"message": "Avbryt laddning",
 		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "Avbryt laddning av alla flikar",
+		"description": "Stop loading all tabs in the current window"
 	},
 	"actionNewWindow": {
 		"message": "Nytt fönster",
@@ -1139,9 +1147,17 @@
 		"message": "Aktuell flik",
 		"description": "Open in current tab"
 	},
+	"tabPositionNewWindow": {
+		"message": "Nytt fönster",
+		"description": "Open in a new browser window"
+	},
 	"newTabActive": {
 		"message": "Öppna i förgrunden",
 		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "Öppna i förgrunden",
+		"description": "Open window in foreground"
 	},
 	"openInIncognito": {
 		"message": "Inkognito",

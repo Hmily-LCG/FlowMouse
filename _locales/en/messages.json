@@ -675,6 +675,10 @@
 		"message": "Do not close pinned tabs",
 		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
+	"closeTabsPreserveTab": {
+		"message": "Preserve tabs (unload page content)",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
 	"actionCloseOtherTabs": {
 		"message": "Close Other Tabs",
 		"description": "Close other tabs"
@@ -718,6 +722,10 @@
 	"actionStopLoading": {
 		"message": "Stop Loading",
 		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "Stop Loading All Tabs",
+		"description": "Stop loading all tabs in the current window"
 	},
 	"actionNewWindow": {
 		"message": "New Window",
@@ -1139,9 +1147,17 @@
 		"message": "Current tab",
 		"description": "Open in current tab"
 	},
+	"tabPositionNewWindow": {
+		"message": "New window",
+		"description": "Open in a new browser window"
+	},
 	"newTabActive": {
 		"message": "Open in foreground",
 		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "Open in foreground",
+		"description": "Open window in foreground"
 	},
 	"openInIncognito": {
 		"message": "Incognito",

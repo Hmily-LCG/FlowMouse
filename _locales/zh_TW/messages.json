@@ -675,6 +675,10 @@
 		"message": "不關閉已固定的分頁",
 		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
+	"closeTabsPreserveTab": {
+		"message": "保留分頁（關閉頁面內容）",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
 	"actionCloseOtherTabs": {
 		"message": "關閉其他分頁",
 		"description": "Close other tabs"
@@ -718,6 +722,10 @@
 	"actionStopLoading": {
 		"message": "停止載入",
 		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "停止所有分頁載入",
+		"description": "Stop loading all tabs in the current window"
 	},
 	"actionNewWindow": {
 		"message": "新視窗",
@@ -1139,9 +1147,17 @@
 		"message": "目前分頁",
 		"description": "Open in current tab"
 	},
+	"tabPositionNewWindow": {
+		"message": "新視窗",
+		"description": "Open in a new browser window"
+	},
 	"newTabActive": {
 		"message": "前景開啟",
 		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "前景開啟",
+		"description": "Open window in foreground"
 	},
 	"openInIncognito": {
 		"message": "無痕模式",

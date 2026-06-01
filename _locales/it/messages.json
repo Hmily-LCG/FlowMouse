@@ -675,6 +675,10 @@
 		"message": "Non chiudere le schede bloccate",
 		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
+	"closeTabsPreserveTab": {
+		"message": "Mantieni le schede (scarica il contenuto della pagina)",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
 	"actionCloseOtherTabs": {
 		"message": "Chiudi Altre Schede",
 		"description": "Close other tabs"
@@ -718,6 +722,10 @@
 	"actionStopLoading": {
 		"message": "Interrompi Caricamento",
 		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "Interrompi Caricamento di Tutte le Schede",
+		"description": "Stop loading all tabs in the current window"
 	},
 	"actionNewWindow": {
 		"message": "Nuova Finestra",
@@ -1139,9 +1147,17 @@
 		"message": "Scheda corrente",
 		"description": "Open in current tab"
 	},
+	"tabPositionNewWindow": {
+		"message": "Nuova finestra",
+		"description": "Open in a new browser window"
+	},
 	"newTabActive": {
 		"message": "Apri in primo piano",
 		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "Apri in primo piano",
+		"description": "Open window in foreground"
 	},
 	"openInIncognito": {
 		"message": "Incognito",

@@ -675,6 +675,10 @@
 		"message": "No cerrar pestañas fijadas",
 		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
+	"closeTabsPreserveTab": {
+		"message": "Conservar pestañas (descargar contenido de la página)",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
 	"actionCloseOtherTabs": {
 		"message": "Cerrar otras pestañas",
 		"description": "Close other tabs"
@@ -718,6 +722,10 @@
 	"actionStopLoading": {
 		"message": "Detener carga",
 		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "Detener carga de todas las pestañas",
+		"description": "Stop loading all tabs in the current window"
 	},
 	"actionNewWindow": {
 		"message": "Nueva ventana",
@@ -1139,9 +1147,17 @@
 		"message": "Pestaña actual",
 		"description": "Open in current tab"
 	},
+	"tabPositionNewWindow": {
+		"message": "Nueva ventana",
+		"description": "Open in a new browser window"
+	},
 	"newTabActive": {
 		"message": "Abrir en primer plano",
 		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "Abrir en primer plano",
+		"description": "Open window in foreground"
 	},
 	"openInIncognito": {
 		"message": "Incógnito",

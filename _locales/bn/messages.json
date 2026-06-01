@@ -675,6 +675,10 @@
 		"message": "পিন করা ট্যাব বন্ধ করবেন না",
 		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
+	"closeTabsPreserveTab": {
+		"message": "ট্যাবগুলি সংরক্ষণ করুন (পৃষ্ঠার বিষয়বস্তু আনলোড করুন)",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
 	"actionCloseOtherTabs": {
 		"message": "অন্যান্য ট্যাব বন্ধ করুন",
 		"description": "Close other tabs"
@@ -718,6 +722,10 @@
 	"actionStopLoading": {
 		"message": "লোডিং বন্ধ করুন",
 		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "সব ট্যাবের লোডিং বন্ধ করুন",
+		"description": "Stop loading all tabs in the current window"
 	},
 	"actionNewWindow": {
 		"message": "নতুন উইন্ডো",
@@ -1139,9 +1147,17 @@
 		"message": "বর্তমান ট্যাব",
 		"description": "Open in current tab"
 	},
+	"tabPositionNewWindow": {
+		"message": "নতুন উইন্ডো",
+		"description": "Open in a new browser window"
+	},
 	"newTabActive": {
 		"message": "সামনে খুলুন",
 		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "সামনে খুলুন",
+		"description": "Open window in foreground"
 	},
 	"openInIncognito": {
 		"message": "ইনকগনিটো",

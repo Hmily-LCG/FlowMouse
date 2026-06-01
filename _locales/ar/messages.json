@@ -675,6 +675,10 @@
 		"message": "لا تغلق علامات التبويب المثبتة",
 		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
+	"closeTabsPreserveTab": {
+		"message": "الاحتفاظ بعلامات التبويب (إلغاء تحميل محتوى الصفحة)",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
 	"actionCloseOtherTabs": {
 		"message": "إغلاق علامات التبويب الأخرى",
 		"description": "Close other tabs"
@@ -718,6 +722,10 @@
 	"actionStopLoading": {
 		"message": "إيقاف التحميل",
 		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "إيقاف تحميل جميع علامات التبويب",
+		"description": "Stop loading all tabs in the current window"
 	},
 	"actionNewWindow": {
 		"message": "نافذة جديدة",
@@ -1139,9 +1147,17 @@
 		"message": "علامة التبويب الحالية",
 		"description": "Open in current tab"
 	},
+	"tabPositionNewWindow": {
+		"message": "نافذة جديدة",
+		"description": "Open in a new browser window"
+	},
 	"newTabActive": {
 		"message": "فتح في المقدمة",
 		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "فتح في المقدمة",
+		"description": "Open window in foreground"
 	},
 	"openInIncognito": {
 		"message": "التصفح المتخفي",

@@ -675,6 +675,10 @@
 		"message": "Huwag isara ang mga naka-pin na tab",
 		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
+	"closeTabsPreserveTab": {
+		"message": "Panatilihin ang mga tab (i-unload ang nilalaman ng pahina)",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
 	"actionCloseOtherTabs": {
 		"message": "Isara ang Ibang mga Tab",
 		"description": "Close other tabs"
@@ -718,6 +722,10 @@
 	"actionStopLoading": {
 		"message": "Ihinto ang Pag-load",
 		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "Ihinto ang Pag-load ng Lahat ng Tab",
+		"description": "Stop loading all tabs in the current window"
 	},
 	"actionNewWindow": {
 		"message": "Bagong Window",
@@ -1139,9 +1147,17 @@
 		"message": "Kasalukuyang tab",
 		"description": "Open in current tab"
 	},
+	"tabPositionNewWindow": {
+		"message": "Bagong window",
+		"description": "Open in a new browser window"
+	},
 	"newTabActive": {
 		"message": "Buksan sa foreground",
 		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "Buksan sa foreground",
+		"description": "Open window in foreground"
 	},
 	"openInIncognito": {
 		"message": "Incognito",

@@ -675,6 +675,10 @@
 		"message": "Sabitlenmiş sekmeleri kapatma",
 		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
+	"closeTabsPreserveTab": {
+		"message": "Sekmeleri koru (sayfa içeriğini boşalt)",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
 	"actionCloseOtherTabs": {
 		"message": "Diğer Sekmeleri Kapat",
 		"description": "Close other tabs"
@@ -718,6 +722,10 @@
 	"actionStopLoading": {
 		"message": "Yüklemeyi Durdur",
 		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "Tüm Sekmelerin Yüklenmesini Durdur",
+		"description": "Stop loading all tabs in the current window"
 	},
 	"actionNewWindow": {
 		"message": "Yeni Pencere",
@@ -1139,9 +1147,17 @@
 		"message": "Geçerli sekme",
 		"description": "Open in current tab"
 	},
+	"tabPositionNewWindow": {
+		"message": "Yeni pencere",
+		"description": "Open in a new browser window"
+	},
 	"newTabActive": {
 		"message": "Ön planda aç",
 		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "Ön planda aç",
+		"description": "Open window in foreground"
 	},
 	"openInIncognito": {
 		"message": "Gizli",

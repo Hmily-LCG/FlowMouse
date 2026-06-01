@@ -42,6 +42,7 @@ const ACTION_ICONS = {
 	'refresh': 'refreshCw',
 	'refreshAllTabs': 'refreshCw',
 	'stopLoading': 'ban',
+	'stopAllLoading': 'ban',
 	'newWindow': 'appWindow',
 	'newIncognito': 'hatGlasses',
 	'addToBookmarks': 'star',
@@ -97,7 +98,7 @@ const ACTION_CATEGORIES = [
 	{ key: 'actionCategoryContextMenu', icon: 'menu', actions: ['menuShowTabs', 'menuRecentlyClosed', 'menuShowBookmarks', 'customMenu'] },
 	{ key: 'actionCategoryTabs', icon: 'panelTop', actions: ['newTab', 'closeTab', 'refresh', 'refreshAllTabs', 'switchLeftTab', 'switchRightTab', 'switchFirstTab', 'switchLastTab', 'closeOtherTabs', 'closeLeftTabs', 'closeRightTabs', 'closeAllTabs', 'restoreTab', 'duplicateTab', 'togglePinTab', 'moveTabToNewWindow'] },
 	{ key: 'actionCategoryWindow', icon: 'appWindow', actions: ['newWindow', 'newIncognito', 'toggleFullscreen', 'toggleMaximize', 'minimize', 'closeWindow', 'closeBrowser'] },
-	{ key: 'actionCategoryUtilities', icon: 'wrench', actions: ['addToBookmarks', 'copyUrl', 'copyTitle', 'copyTitleAndUrl', 'openCustomUrl', 'openDownloads', 'openHistory', 'openExtensions', 'zoomIn', 'zoomOut', 'resetZoom', 'toggleMuteTab', 'toggleMuteAllTabs', 'stopLoading', 'printPage', 'saveAsMhtml', 'viewPageSource', 'pasteClipboard', 'searchClipboard', 'pauseGesture', 'simulateKey', 'sendCustomEvent', 'areaSelect'] },
+	{ key: 'actionCategoryUtilities', icon: 'wrench', actions: ['addToBookmarks', 'copyUrl', 'copyTitle', 'copyTitleAndUrl', 'openCustomUrl', 'openDownloads', 'openHistory', 'openExtensions', 'zoomIn', 'zoomOut', 'resetZoom', 'toggleMuteTab', 'toggleMuteAllTabs', 'stopLoading', 'stopAllLoading', 'printPage', 'saveAsMhtml', 'viewPageSource', 'pasteClipboard', 'searchClipboard', 'pauseGesture', 'simulateKey', 'sendCustomEvent', 'areaSelect'] },
 ];
 
 class ActionSelect extends LitElement {
@@ -1028,11 +1029,12 @@ class ActionSelect extends LitElement {
 		return result;
 	}
 
-	#renderPositionSelect(showCurrent) {
+	#renderPositionSelect(showCurrent, showNewWindow) {
 		const action = this._pendingValue;
 		const defaults = window.GestureConstants.ACTION_DEFAULTS[action] || {};
 		const position = this._pendingConfig.position ?? defaults.position;
 		const active = this._pendingConfig.active ?? defaults.active;
+		const showActive = position !== 'current';
 		return html`
 			<div class="action-config-row">
 				<span class="action-config-label">${window.i18n.getMessage('newTabPosition')}</span>
@@ -1043,8 +1045,9 @@ class ActionSelect extends LitElement {
 					<option value="first" ?selected=${position === 'first'}>${window.i18n.getMessage('tabPositionFirst')}</option>
 					<option value="last" ?selected=${position === 'last'}>${window.i18n.getMessage('tabPositionLast')}</option>
 					${showCurrent ? html`<option value="current" ?selected=${position === 'current'}>${window.i18n.getMessage('tabPositionCurrent')}</option>` : ''}
+					${showNewWindow ? html`<option value="newWindow" ?selected=${position === 'newWindow'}>${window.i18n.getMessage('tabPositionNewWindow')}</option>` : ''}
 				</select>
-				${position !== 'current' ? html`
+				${showActive ? html`
 					<label class="action-config-checkbox">
 						<input type="checkbox"
 							.checked=${active}
@@ -1185,7 +1188,7 @@ class ActionSelect extends LitElement {
 					>
 					<div class="action-config-hint">${unsafeHTML(window.i18n.getMessage('customUrlPlaceholderHint').replace('%placeholders%', '<code>{tabUrl}</code> <code>{tabTitle}</code> <code>{tabDomain}</code>').replace('%example%', '<code>{tabUrl:raw}</code>'))}</div>
 				</div>
-				${this.#renderPositionSelect(true)}
+				${this.#renderPositionSelect(true, true)}
 			`;
 		}
 		if (action === 'closeTab') {
@@ -1224,6 +1227,8 @@ class ActionSelect extends LitElement {
 		if (action === 'closeOtherTabs' || action === 'closeLeftTabs' || action === 'closeRightTabs' || action === 'closeAllTabs') {
 			const defaults = ACTION_DEFAULTS[action] || {};
 			const skipPinnedChecked = this._pendingConfig.skipPinned ?? defaults.skipPinned;
+			const supportsPreserveTab = action !== 'closeAllTabs';
+			const preserveTabChecked = this._pendingConfig.preserveTab ?? defaults.preserveTab;
 			return html`
 				<label class="action-config-checkbox">
 					<input type="checkbox"
@@ -1232,6 +1237,15 @@ class ActionSelect extends LitElement {
 					>
 					<span>${window.i18n.getMessage('closeTabsSkipPinned')}</span>
 				</label>
+				${supportsPreserveTab ? html`
+				<label class="action-config-checkbox">
+					<input type="checkbox"
+						.checked=${preserveTabChecked}
+						@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, preserveTab: e.target.checked }; this.requestUpdate(); }}
+					>
+					<span>${window.i18n.getMessage('closeTabsPreserveTab')}</span>
+				</label>
+				` : ''}
 			`;
 		}
 		if (action === 'switchLeftTab' || action === 'switchRightTab') {
@@ -1282,10 +1296,23 @@ class ActionSelect extends LitElement {
 			`;
 		}
 		if (action === 'newTab') {
-			return this.#renderPositionSelect(false);
+			return this.#renderPositionSelect(false, false);
+		}
+		if (action === 'newWindow') {
+			const defaults = ACTION_DEFAULTS.newWindow || {};
+			const focusedChecked = this._pendingConfig.focused ?? defaults.focused;
+			return html`
+				<label class="action-config-checkbox">
+					<input type="checkbox"
+						.checked=${focusedChecked}
+						@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, focused: e.target.checked }; this.requestUpdate(); }}
+					>
+					<span>${window.i18n.getMessage('newWindowFocused')}</span>
+				</label>
+			`;
 		}
 		if (action === 'viewPageSource') {
-			return this.#renderPositionSelect(true);
+			return this.#renderPositionSelect(true, true);
 		}
 		if (action === 'copyTitleAndUrl') {
 			const defaults = ACTION_DEFAULTS.copyTitleAndUrl || {};
@@ -1467,7 +1494,7 @@ class ActionSelect extends LitElement {
 						</span>
 					</label>
 				</div>
-				${this.#renderPositionSelect(true)}
+				${this.#renderPositionSelect(true, true)}
 			`;
 		}
 		if (action === 'zoomIn' || action === 'zoomOut') {
@@ -1545,7 +1572,7 @@ class ActionSelect extends LitElement {
 				${this.#renderBookmarkFolderSelect()}
 				${this.#renderMenuConfigRow()}
 				${this.#renderTimeDisplay()}
-				${this.#renderPositionSelect(true)}
+				${this.#renderPositionSelect(true, true)}
 			`;
 		}
 		if (action === 'addToBookmarks') {

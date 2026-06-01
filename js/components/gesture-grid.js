@@ -136,6 +136,9 @@ class GestureGrid extends LitElement {
 					<button class="reset-btn" @click=${() => this.#handleReset(pattern)}
 						.tooltip=${tooltip(window.i18n.getMessage('resetToDefault'))}
 						style="display: ${isModified ? 'inline-flex' : 'none'}">${unsafeHTML(icon('rotateCcw', { size: 13, strokeWidth: 2.5 }))}</button>
+					<button class="delete-gesture-btn" @click=${() => this.#handleClear(pattern)}
+						.tooltip=${tooltip(window.i18n.getMessage('deleteGesture'))}
+						style="display: ${(!isModified && currentAction !== 'none') ? 'inline-flex' : 'none'}">${unsafeHTML(icon('x', { size: 14, strokeWidth: 2.5 }))}</button>
 				`}
 				<div class="gesture-pattern" title="${pattern} ${desc}">
 					${unsafeHTML(patternSvg)} <span class="gesture-desc">${desc}</span>
@@ -179,6 +182,19 @@ class GestureGrid extends LitElement {
 
 		const newMouseGestures = { ...(this.mouseGestures || {}) };
 		newMouseGestures[pattern] = { action: defaultAction };
+
+		this.mouseGestures = newMouseGestures;
+
+		this.dispatchEvent(new CustomEvent('gestures-change', {
+			detail: { mouseGestures: newMouseGestures },
+			bubbles: true,
+			composed: true,
+		}));
+	}
+
+	#handleClear(pattern) {
+		const newMouseGestures = { ...(this.mouseGestures || {}) };
+		newMouseGestures[pattern] = { action: 'none' };
 
 		this.mouseGestures = newMouseGestures;
 

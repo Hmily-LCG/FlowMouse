@@ -675,6 +675,10 @@
 		"message": "不关闭已固定的标签页",
 		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
+	"closeTabsPreserveTab": {
+		"message": "保留标签页（关闭页面内容）",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
 	"actionCloseOtherTabs": {
 		"message": "关闭其他标签页",
 		"description": "Close other tabs"
@@ -718,6 +722,10 @@
 	"actionStopLoading": {
 		"message": "停止加载",
 		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "停止所有标签页加载",
+		"description": "Stop loading all tabs in the current window"
 	},
 	"actionNewWindow": {
 		"message": "新建窗口",
@@ -1139,9 +1147,17 @@
 		"message": "当前标签页",
 		"description": "Open in current tab"
 	},
+	"tabPositionNewWindow": {
+		"message": "新窗口",
+		"description": "Open in a new browser window"
+	},
 	"newTabActive": {
 		"message": "前台打开",
 		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "前台打开",
+		"description": "Open window in foreground"
 	},
 	"openInIncognito": {
 		"message": "无痕模式",

@@ -675,6 +675,10 @@
 		"message": "Nie zamykaj przypiętych kart",
 		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
+	"closeTabsPreserveTab": {
+		"message": "Zachowaj karty (usuń zawartość strony z pamięci)",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
 	"actionCloseOtherTabs": {
 		"message": "Zamknij inne karty",
 		"description": "Close other tabs"
@@ -718,6 +722,10 @@
 	"actionStopLoading": {
 		"message": "Zatrzymaj ładowanie",
 		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "Zatrzymaj ładowanie wszystkich kart",
+		"description": "Stop loading all tabs in the current window"
 	},
 	"actionNewWindow": {
 		"message": "Nowe okno",
@@ -1139,9 +1147,17 @@
 		"message": "Bieżąca karta",
 		"description": "Open in current tab"
 	},
+	"tabPositionNewWindow": {
+		"message": "Nowe okno",
+		"description": "Open in a new browser window"
+	},
 	"newTabActive": {
 		"message": "Otwórz na pierwszym planie",
 		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "Otwórz na pierwszym planie",
+		"description": "Open window in foreground"
 	},
 	"openInIncognito": {
 		"message": "Incognito",

@@ -675,6 +675,10 @@
 		"message": "Не закривати закріплені вкладки",
 		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
+	"closeTabsPreserveTab": {
+		"message": "Зберігати вкладки (вивантажувати вміст сторінки)",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
 	"actionCloseOtherTabs": {
 		"message": "Закрити інші вкладки",
 		"description": "Close other tabs"
@@ -718,6 +722,10 @@
 	"actionStopLoading": {
 		"message": "Зупинити завантаження",
 		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "Зупинити завантаження всіх вкладок",
+		"description": "Stop loading all tabs in the current window"
 	},
 	"actionNewWindow": {
 		"message": "Нове вікно",
@@ -1139,9 +1147,17 @@
 		"message": "Поточна вкладка",
 		"description": "Open in current tab"
 	},
+	"tabPositionNewWindow": {
+		"message": "Нове вікно",
+		"description": "Open in a new browser window"
+	},
 	"newTabActive": {
 		"message": "Відкривати на передньому плані",
 		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "Відкривати на передньому плані",
+		"description": "Open window in foreground"
 	},
 	"openInIncognito": {
 		"message": "Інкогніто",

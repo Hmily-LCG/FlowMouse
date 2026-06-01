@@ -675,6 +675,10 @@
 		"message": "Jangan tutup tab yang disematkan",
 		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
+	"closeTabsPreserveTab": {
+		"message": "Pertahankan tab (kosongkan konten halaman)",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
 	"actionCloseOtherTabs": {
 		"message": "Tutup Tab Lain",
 		"description": "Close other tabs"
@@ -718,6 +722,10 @@
 	"actionStopLoading": {
 		"message": "Hentikan Pemuatan",
 		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "Hentikan Pemuatan Semua Tab",
+		"description": "Stop loading all tabs in the current window"
 	},
 	"actionNewWindow": {
 		"message": "Jendela Baru",
@@ -1139,9 +1147,17 @@
 		"message": "Tab saat ini",
 		"description": "Open in current tab"
 	},
+	"tabPositionNewWindow": {
+		"message": "Jendela baru",
+		"description": "Open in a new browser window"
+	},
 	"newTabActive": {
 		"message": "Buka di depan",
 		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "Buka di depan",
+		"description": "Open window in foreground"
 	},
 	"openInIncognito": {
 		"message": "Penyamaran",

@@ -675,6 +675,10 @@
 		"message": "ไม่ปิดแท็บที่ปักหมุดไว้",
 		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
+	"closeTabsPreserveTab": {
+		"message": "รักษาแท็บไว้ (ยกเลิกการโหลดเนื้อหาของหน้า)",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
 	"actionCloseOtherTabs": {
 		"message": "ปิดแท็บอื่น",
 		"description": "Close other tabs"
@@ -718,6 +722,10 @@
 	"actionStopLoading": {
 		"message": "หยุดโหลด",
 		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "หยุดโหลดทุกแท็บ",
+		"description": "Stop loading all tabs in the current window"
 	},
 	"actionNewWindow": {
 		"message": "หน้าต่างใหม่",
@@ -1139,9 +1147,17 @@
 		"message": "แท็บปัจจุบัน",
 		"description": "Open in current tab"
 	},
+	"tabPositionNewWindow": {
+		"message": "หน้าต่างใหม่",
+		"description": "Open in a new browser window"
+	},
 	"newTabActive": {
 		"message": "เปิดในเบื้องหน้า",
 		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "เปิดในเบื้องหน้า",
+		"description": "Open window in foreground"
 	},
 	"openInIncognito": {
 		"message": "ไม่ระบุตัวตน",

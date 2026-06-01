@@ -675,6 +675,10 @@
 		"message": "Không đóng các tab đã ghim",
 		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
+	"closeTabsPreserveTab": {
+		"message": "Giữ lại thẻ (hủy tải nội dung trang)",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
 	"actionCloseOtherTabs": {
 		"message": "Đóng các tab khác",
 		"description": "Close other tabs"
@@ -718,6 +722,10 @@
 	"actionStopLoading": {
 		"message": "Dừng tải",
 		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "Dừng tải tất cả các tab",
+		"description": "Stop loading all tabs in the current window"
 	},
 	"actionNewWindow": {
 		"message": "Cửa sổ mới",
@@ -1139,9 +1147,17 @@
 		"message": "Tab hiện tại",
 		"description": "Open in current tab"
 	},
+	"tabPositionNewWindow": {
+		"message": "Cửa sổ mới",
+		"description": "Open in a new browser window"
+	},
 	"newTabActive": {
 		"message": "Mở ở nền trước",
 		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "Mở ở nền trước",
+		"description": "Open window in foreground"
 	},
 	"openInIncognito": {
 		"message": "Ẩn danh",

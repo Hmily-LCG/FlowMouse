@@ -675,6 +675,10 @@
 		"message": "Не затварај закачене картице",
 		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
+	"closeTabsPreserveTab": {
+		"message": "Задржи картице (уклони садржај странице)",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
 	"actionCloseOtherTabs": {
 		"message": "Затвори остале картице",
 		"description": "Close other tabs"
@@ -718,6 +722,10 @@
 	"actionStopLoading": {
 		"message": "Заустави учитавање",
 		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "Заустави учитавање свих картица",
+		"description": "Stop loading all tabs in the current window"
 	},
 	"actionNewWindow": {
 		"message": "Нови прозор",
@@ -1139,9 +1147,17 @@
 		"message": "Тренутна картица",
 		"description": "Open in current tab"
 	},
+	"tabPositionNewWindow": {
+		"message": "Нови прозор",
+		"description": "Open in a new browser window"
+	},
 	"newTabActive": {
 		"message": "Отвори у првом плану",
 		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "Отвори у првом плану",
+		"description": "Open window in foreground"
 	},
 	"openInIncognito": {
 		"message": "Инкогнито",

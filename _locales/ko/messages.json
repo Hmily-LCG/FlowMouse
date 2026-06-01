@@ -675,6 +675,10 @@
 		"message": "고정된 탭 닫지 않기",
 		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
+	"closeTabsPreserveTab": {
+		"message": "탭 유지 (페이지 콘텐츠 언로드)",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
 	"actionCloseOtherTabs": {
 		"message": "다른 탭 닫기",
 		"description": "Close other tabs"
@@ -718,6 +722,10 @@
 	"actionStopLoading": {
 		"message": "로딩 중지",
 		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "모든 탭 로딩 중지",
+		"description": "Stop loading all tabs in the current window"
 	},
 	"actionNewWindow": {
 		"message": "새 창 열기",
@@ -1139,9 +1147,17 @@
 		"message": "현재 탭",
 		"description": "Open in current tab"
 	},
+	"tabPositionNewWindow": {
+		"message": "새 창",
+		"description": "Open in a new browser window"
+	},
 	"newTabActive": {
 		"message": "전경에서 열기",
 		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "전경에서 열기",
+		"description": "Open window in foreground"
 	},
 	"openInIncognito": {
 		"message": "시크릿 모드",

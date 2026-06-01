@@ -675,6 +675,10 @@
 		"message": "Ne zárja be a rögzített lapokat",
 		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
+	"closeTabsPreserveTab": {
+		"message": "Lapok megtartása (oldaltartalom ürítése)",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
 	"actionCloseOtherTabs": {
 		"message": "Más lapok bezárása",
 		"description": "Close other tabs"
@@ -718,6 +722,10 @@
 	"actionStopLoading": {
 		"message": "Betöltés leállítása",
 		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "Minden lap betöltésének leállítása",
+		"description": "Stop loading all tabs in the current window"
 	},
 	"actionNewWindow": {
 		"message": "Új ablak",
@@ -1139,9 +1147,17 @@
 		"message": "Jelenlegi lap",
 		"description": "Open in current tab"
 	},
+	"tabPositionNewWindow": {
+		"message": "Új ablak",
+		"description": "Open in a new browser window"
+	},
 	"newTabActive": {
 		"message": "Megnyitás előtérben",
 		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "Megnyitás előtérben",
+		"description": "Open window in foreground"
 	},
 	"openInIncognito": {
 		"message": "Inkognító",
