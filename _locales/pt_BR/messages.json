@@ -603,6 +603,14 @@
 		"message": "Avançar",
 		"description": "Go forward"
 	},
+	"actionUrlLevelUp": {
+		"message": "Subir um nível na URL",
+		"description": "Navigate to the parent directory of the current URL"
+	},
+	"actionUrlToRoot": {
+		"message": "Ir para a raiz da URL",
+		"description": "Navigate to the root of the current site"
+	},
 	"actionScrollUp": {
 		"message": "Rolar para Cima",
 		"description": "Scroll up"
@@ -710,6 +718,10 @@
 	"actionSwitchLastTab": {
 		"message": "Mudar para a Última Aba",
 		"description": "Switch to last tab"
+	},
+	"actionSwitchLastActiveTab": {
+		"message": "Alternar para a última guia ativa",
+		"description": "Switch to the most recently active tab"
 	},
 	"actionRefresh": {
 		"message": "Atualizar Aba Atual",
@@ -1783,6 +1795,10 @@
 		"message": "Enviar evento personalizado",
 		"description": "Action to dispatch a custom DOM event"
 	},
+	"actionSendExtensionMessage": {
+		"message": "Invocar outra extensão",
+		"description": "Action to send a custom message to another installed extension"
+	},
 	"actionSimulateKey": {
 		"message": "Simular pressionamento de tecla",
 		"description": "Action to simulate a keyboard key press on the page"
@@ -1794,6 +1810,22 @@
 	"pasteClipboardHint": {
 		"message": "O conteúdo da área de transferência será colado no campo de entrada na <b>posição inicial do gesto</b>.",
 		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
+	"actionPasteContent": {
+		"message": "Colar texto personalizado",
+		"description": "Action to paste a preset, user-specified text at the gesture start position"
+	},
+	"pasteContentLabel": {
+		"message": "Texto",
+		"description": "Label for the text field where the user enters the content to paste"
+	},
+	"pasteContentHint": {
+		"message": "O texto especificado será inserido no campo de entrada na <b>posição inicial do gesto</b>.",
+		"description": "Hint shown in action config when paste specified content is selected. Contains HTML."
+	},
+	"pasteContentSensitiveHint": {
+		"message": "Não é recomendado armazenar informações sensíveis como senhas aqui.",
+		"description": "Warning hint below the content field for the paste specified content action"
 	},
 	"simulateKeyPreset": {
 		"message": "Tecla predefinida",
@@ -1842,6 +1874,10 @@
 	"customEventHint": {
 		"message": "Despacha %code% em %window%. Útil para integração com outros scripts.",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
+	},
+	"sendExtensionMessageHint": {
+		"message": "Envia uma mensagem via %code% para outra extensão instalada. Útil para integração com outras extensões.",
+		"description": "Hint explaining how send-message-to-extension works. %code% = <code>chrome.runtime.sendMessage(...)</code>"
 	},
 	"delayDuration": {
 		"message": "Duração",

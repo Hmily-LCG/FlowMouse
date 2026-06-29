@@ -429,6 +429,13 @@ class ContentContextMenu {
 				background: rgba(255, 255, 255, 0.92);
 			}
 
+			@supports (corner-shape: superellipse(1.4)) {
+				.fm-ctx-frame {
+					corner-shape: superellipse(1.4);
+					border-radius: calc(8px * 1.4);
+				}
+			}
+
 			@media (prefers-color-scheme: dark) {
 				.fm-ctx-frame {
 					background: rgba(30, 30, 32, 0.95);
@@ -472,11 +479,13 @@ class ContentContextMenu {
 	#createMenuIframe(x, y, menuId, options) {
 		const host = new ShadowHost({ useDialog: true });
 		const topLayer = (document.fullscreenElement || document.querySelector(':modal')) ? 'modal' : 'popover';
-		if (!host.init(this.#settings.lang, this.#settings.isRtl, { topLayer })) {
+		if (!host.init(this.#settings.lang, this.#settings.isRtl, {
+			topLayer,
+			builtInCss: this.generateStyles(),
+			customCss: this.#settings.customCss,
+		})) {
 			return () => {};
 		}
-		host.setBuiltInCss(this.generateStyles());
-		host.setCustomCss(this.#settings.customCss);
 
 		const iframe = host.createElement('iframe');
 		iframe.className = 'fm-ctx-frame';
@@ -1088,9 +1097,11 @@ window.ContentContextMenu = ContentContextMenu;
 			const needsDialog = !isIframe;
 			this.#host = new ShadowHost({ useDialog: needsDialog });
 			const topLayer = needsDialog && (document.fullscreenElement || document.querySelector(':modal')) ? 'modal' : 'popover';
-			if (!this.#host.init(lang, isRtl, { topLayer })) return;
-			this.#host.setBuiltInCss(this.#css());
-			this.#host.setCustomCss(options?.customCss || '');
+			if (!this.#host.init(lang, isRtl, {
+				topLayer,
+				builtInCss: this.#css(),
+				customCss: options?.customCss,
+			})) return;
 
 			const shadow = this.#host.shadow;
 
@@ -1639,6 +1650,12 @@ window.ContentContextMenu = ContentContextMenu;
 					animation: fm-as-pop-up 0.18s cubic-bezier(0.2, 0.9, 0.3, 1.2);
 					pointer-events: auto;
 				}
+				@supports (corner-shape: superellipse(1.4)) {
+					.fm-as-toolbar {
+						corner-shape: superellipse(1.4);
+						border-radius: calc(10px * 1.4);
+					}
+				}
 				@keyframes fm-as-pop-up {
 					from { transform: translateY(12px); opacity: 0.5; }
 					to { transform: translateY(0); opacity: 1; }
@@ -1696,6 +1713,12 @@ window.ContentContextMenu = ContentContextMenu;
 					background: transparent;
 					color: #1d1d1f;
 					line-height: 16px;
+				}
+				@supports (corner-shape: superellipse(1.4)) {
+					.fm-as-btn {
+						corner-shape: superellipse(1.4);
+						border-radius: calc(7px * 1.4);
+					}
 				}
 				.fm-as-btn:disabled {
 					opacity: 0.4;
@@ -3062,6 +3085,15 @@ window.ContentContextMenu = ContentContextMenu;
 						} catch { }
 						break;
 					}
+					case 'pasteContent': {
+						try {
+							const content = mergedConfig.content || '';
+							if (!content) break;
+							if (startTarget) startTarget.focus();
+							document.execCommand('insertText', false, content);
+						} catch { }
+						break;
+					}
 					case 'searchClipboard': {
 						const permResult = await safeSendMessage({ action: 'requestPermission', permissions: ['clipboardRead'] });
 						if (!permResult?.granted) break;
@@ -3072,20 +3104,21 @@ window.ContentContextMenu = ContentContextMenu;
 						const customUrl = mergedConfig.url || '';
 						const position = mergedConfig.position || 'right';
 						const active = mergedConfig.active !== false;
+						const incognito = !!mergedConfig.incognito;
 						if (mergedConfig.autoDetectUrl) {
 							const detectedUrl = tryParseAsUrl(clipText, false);
 							if (detectedUrl) {
-								await safeSendMessage({ action: 'openTabAtPosition', url: detectedUrl, position, active });
+								await safeSendMessage({ action: 'openTabAtPosition', url: detectedUrl, position, active, incognito });
 								break;
 							}
 						}
 						if (engine === 'system') {
-							await safeSendMessage({ action: 'systemSearch', query: clipText, position, active });
+							await safeSendMessage({ action: 'systemSearch', query: clipText, position, active, incognito });
 						} else if (engine === 'custom' && customUrl) {
-							await safeSendMessage({ action: 'openTabAtPosition', url: customUrl.replace('%s', encodeURIComponent(clipText)), position, active });
+							await safeSendMessage({ action: 'openTabAtPosition', url: customUrl.replace('%s', encodeURIComponent(clipText)), position, active, incognito });
 						} else {
 							const searchUrl = (SEARCH_ENGINES[engine] || SEARCH_ENGINES['google']).url + encodeURIComponent(clipText);
-							await safeSendMessage({ action: 'openTabAtPosition', url: searchUrl, position, active });
+							await safeSendMessage({ action: 'openTabAtPosition', url: searchUrl, position, active, incognito });
 						}
 						break;
 					}
@@ -3155,13 +3188,14 @@ window.ContentContextMenu = ContentContextMenu;
 							const getIcon = (bm) => '';
 							const position = mergedConfig.position || 'right';
 							const active = mergedConfig.active !== false;
+							const incognito = !!mergedConfig.incognito;
 							const td = mergedConfig.timeDisplay || 'dateAdded';
 							const items = result.bookmarks.map(bm => ({
 								label: bm.title ?? bm.url,
 								icon: bm.url ? getIcon(bm) : '',
 								time: td === 'none' ? undefined : bm.date,
 								onClick: () => {
-									safeSendMessage({ action: 'openTabAtPosition', url: bm.url, position, active });
+									safeSendMessage({ action: 'openTabAtPosition', url: bm.url, position, active, incognito });
 								}
 							}));
 							ctxMenu.setItems(items);
@@ -3206,6 +3240,7 @@ window.ContentContextMenu = ContentContextMenu;
 					msg_obj.customUrl = rawUrl;
 					msg_obj.position = mergedConfig.position || 'last';
 					msg_obj.active = mergedConfig.active !== false;
+					msg_obj.incognito = !!mergedConfig.incognito;
 				} else if (action === 'closeTab') {
 					msg_obj.keepWindow = !!mergedConfig.keepWindow;
 					msg_obj.afterClose = mergedConfig.afterClose || 'default';
@@ -3249,6 +3284,9 @@ window.ContentContextMenu = ContentContextMenu;
 					msg_obj.warnThreshold = SETTINGS.areaSelectWarnThreshold;
 					msg_obj.textUrl = SETTINGS.areaSelectTextUrl;
 					msg_obj.operationInterval = SETTINGS.areaSelectDelay;
+				} else if (action === 'sendExtensionMessage') {
+					msg_obj.extensionId = mergedConfig.extensionId || '';
+					msg_obj.message = mergedConfig.message || '{}';
 				}
 				return await safeSendMessage(msg_obj);
 			}

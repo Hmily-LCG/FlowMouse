@@ -603,6 +603,14 @@
 		"message": "Dalej",
 		"description": "Go forward"
 	},
+	"actionUrlLevelUp": {
+		"message": "Poziom wyżej w URL",
+		"description": "Navigate to the parent directory of the current URL"
+	},
+	"actionUrlToRoot": {
+		"message": "Do głównego URL",
+		"description": "Navigate to the root of the current site"
+	},
 	"actionScrollUp": {
 		"message": "Przewiń w górę",
 		"description": "Scroll up"
@@ -710,6 +718,10 @@
 	"actionSwitchLastTab": {
 		"message": "Przełącz na ostatnią kartę",
 		"description": "Switch to last tab"
+	},
+	"actionSwitchLastActiveTab": {
+		"message": "Przełącz na ostatnio aktywną kartę",
+		"description": "Switch to the most recently active tab"
 	},
 	"actionRefresh": {
 		"message": "Odśwież bieżącą kartę",
@@ -1783,6 +1795,10 @@
 		"message": "Wyślij zdarzenie niestandardowe",
 		"description": "Action to dispatch a custom DOM event"
 	},
+	"actionSendExtensionMessage": {
+		"message": "Wywołaj inne rozszerzenie",
+		"description": "Action to send a custom message to another installed extension"
+	},
 	"actionSimulateKey": {
 		"message": "Symuluj naciśnięcie klawisza",
 		"description": "Action to simulate a keyboard key press on the page"
@@ -1794,6 +1810,22 @@
 	"pasteClipboardHint": {
 		"message": "Skopiowana zawartość zostanie wklejona do pola wprowadzania w <b>pozycji początkowej gestu</b>.",
 		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
+	"actionPasteContent": {
+		"message": "Wklej tekst niestandardowy",
+		"description": "Action to paste a preset, user-specified text at the gesture start position"
+	},
+	"pasteContentLabel": {
+		"message": "Tekst",
+		"description": "Label for the text field where the user enters the content to paste"
+	},
+	"pasteContentHint": {
+		"message": "Określony tekst zostanie wstawiony do pola wprowadzania w <b>pozycji początkowej gestu</b>.",
+		"description": "Hint shown in action config when paste specified content is selected. Contains HTML."
+	},
+	"pasteContentSensitiveHint": {
+		"message": "Nie zaleca się przechowywania tutaj poufnych informacji, takich jak hasła.",
+		"description": "Warning hint below the content field for the paste specified content action"
 	},
 	"simulateKeyPreset": {
 		"message": "Gotowy klawisz",
@@ -1842,6 +1874,10 @@
 	"customEventHint": {
 		"message": "Wysyła %code% w %window%. Przydatne do integracji z innymi skryptami.",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
+	},
+	"sendExtensionMessageHint": {
+		"message": "Wysyła wiadomość przez %code% do innego zainstalowanego rozszerzenia. Przydatne do integracji z innymi rozszerzeniami.",
+		"description": "Hint explaining how send-message-to-extension works. %code% = <code>chrome.runtime.sendMessage(...)</code>"
 	},
 	"delayDuration": {
 		"message": "Czas trwania",

@@ -603,6 +603,14 @@
 		"message": "進む",
 		"description": "Go forward"
 	},
+	"actionUrlLevelUp": {
+		"message": "URLの上の階層へ",
+		"description": "Navigate to the parent directory of the current URL"
+	},
+	"actionUrlToRoot": {
+		"message": "URLのルートへ",
+		"description": "Navigate to the root of the current site"
+	},
 	"actionScrollUp": {
 		"message": "上にスクロール",
 		"description": "Scroll up"
@@ -710,6 +718,10 @@
 	"actionSwitchLastTab": {
 		"message": "最後のタブに切り替え",
 		"description": "Switch to last tab"
+	},
+	"actionSwitchLastActiveTab": {
+		"message": "直前のタブに切り替え",
+		"description": "Switch to the most recently active tab"
 	},
 	"actionRefresh": {
 		"message": "現在のタブを更新",
@@ -1783,6 +1795,10 @@
 		"message": "カスタムイベントを送信",
 		"description": "Action to dispatch a custom DOM event"
 	},
+	"actionSendExtensionMessage": {
+		"message": "他の拡張機能を呼び出す",
+		"description": "Action to send a custom message to another installed extension"
+	},
 	"actionSimulateKey": {
 		"message": "キー入力をシミュレート",
 		"description": "Action to simulate a keyboard key press on the page"
@@ -1794,6 +1810,22 @@
 	"pasteClipboardHint": {
 		"message": "クリップボードの内容は、<b>ジェスチャーの開始位置</b>にある入力フィールドに貼り付けられます。",
 		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
+	"actionPasteContent": {
+		"message": "カスタムテキストを貼り付け",
+		"description": "Action to paste a preset, user-specified text at the gesture start position"
+	},
+	"pasteContentLabel": {
+		"message": "テキスト",
+		"description": "Label for the text field where the user enters the content to paste"
+	},
+	"pasteContentHint": {
+		"message": "指定されたテキストは、<b>ジェスチャーの開始位置</b>にある入力フィールドに挿入されます。",
+		"description": "Hint shown in action config when paste specified content is selected. Contains HTML."
+	},
+	"pasteContentSensitiveHint": {
+		"message": "パスワードなどの機密情報をここに保存することはお勧めしません。",
+		"description": "Warning hint below the content field for the paste specified content action"
 	},
 	"simulateKeyPreset": {
 		"message": "プリセットキー",
@@ -1842,6 +1874,10 @@
 	"customEventHint": {
 		"message": "%window% に %code% をディスパッチします。他のスクリプトとの統合に便利です。",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
+	},
+	"sendExtensionMessageHint": {
+		"message": "%code% を介して他のインストール済み拡張機能にメッセージを送信します。他の拡張機能との統合に便利です。",
+		"description": "Hint explaining how send-message-to-extension works. %code% = <code>chrome.runtime.sendMessage(...)</code>"
 	},
 	"delayDuration": {
 		"message": "期間",

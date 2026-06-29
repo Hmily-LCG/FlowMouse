@@ -603,6 +603,14 @@
 		"message": "İleri Git",
 		"description": "Go forward"
 	},
+	"actionUrlLevelUp": {
+		"message": "URL'de bir üst seviyeye çık",
+		"description": "Navigate to the parent directory of the current URL"
+	},
+	"actionUrlToRoot": {
+		"message": "Kök URL'ye git",
+		"description": "Navigate to the root of the current site"
+	},
 	"actionScrollUp": {
 		"message": "Yukarı Kaydır",
 		"description": "Scroll up"
@@ -710,6 +718,10 @@
 	"actionSwitchLastTab": {
 		"message": "Son Sekmeye Geç",
 		"description": "Switch to last tab"
+	},
+	"actionSwitchLastActiveTab": {
+		"message": "Son Etkin Sekmeye Geç",
+		"description": "Switch to the most recently active tab"
 	},
 	"actionRefresh": {
 		"message": "Geçerli Sekmeyi Yenile",
@@ -1783,6 +1795,10 @@
 		"message": "Özel Etkinlik Gönder",
 		"description": "Action to dispatch a custom DOM event"
 	},
+	"actionSendExtensionMessage": {
+		"message": "Başka bir uzantıyı çağır",
+		"description": "Action to send a custom message to another installed extension"
+	},
 	"actionSimulateKey": {
 		"message": "Tuş Basımını Simüle Et",
 		"description": "Action to simulate a keyboard key press on the page"
@@ -1794,6 +1810,22 @@
 	"pasteClipboardHint": {
 		"message": "Pano içeriği, <b>hareket başlangıç konumundaki</b> giriş alanına yapıştırılacaktır.",
 		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
+	"actionPasteContent": {
+		"message": "Özel Metin Yapıştır",
+		"description": "Action to paste a preset, user-specified text at the gesture start position"
+	},
+	"pasteContentLabel": {
+		"message": "Metin",
+		"description": "Label for the text field where the user enters the content to paste"
+	},
+	"pasteContentHint": {
+		"message": "Belirtilen metin, <b>hareket başlangıç konumundaki</b> giriş alanına eklenecektir.",
+		"description": "Hint shown in action config when paste specified content is selected. Contains HTML."
+	},
+	"pasteContentSensitiveHint": {
+		"message": "Parola gibi hassas bilgilerin burada saklanması önerilmez.",
+		"description": "Warning hint below the content field for the paste specified content action"
 	},
 	"simulateKeyPreset": {
 		"message": "Ön Ayarlı Tuş",
@@ -1842,6 +1874,10 @@
 	"customEventHint": {
 		"message": "%window% üzerinde %code% gönderir. Diğer komut dosyalarıyla entegrasyon için kullanışlıdır.",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
+	},
+	"sendExtensionMessageHint": {
+		"message": "%code% aracılığıyla yüklü başka bir uzantıya mesaj gönderir. Diğer uzantılarla entegrasyon için kullanışlıdır.",
+		"description": "Hint explaining how send-message-to-extension works. %code% = <code>chrome.runtime.sendMessage(...)</code>"
 	},
 	"delayDuration": {
 		"message": "Süre",

@@ -603,6 +603,14 @@
 		"message": "Gå frem",
 		"description": "Go forward"
 	},
+	"actionUrlLevelUp": {
+		"message": "Gå et niveau op i URL",
+		"description": "Navigate to the parent directory of the current URL"
+	},
+	"actionUrlToRoot": {
+		"message": "Til rod-URL",
+		"description": "Navigate to the root of the current site"
+	},
 	"actionScrollUp": {
 		"message": "Rul op",
 		"description": "Scroll up"
@@ -710,6 +718,10 @@
 	"actionSwitchLastTab": {
 		"message": "Skift til sidste fane",
 		"description": "Switch to last tab"
+	},
+	"actionSwitchLastActiveTab": {
+		"message": "Skift til senest aktive fane",
+		"description": "Switch to the most recently active tab"
 	},
 	"actionRefresh": {
 		"message": "Opdater aktuel fane",
@@ -1783,6 +1795,10 @@
 		"message": "Send tilpasset hændelse",
 		"description": "Action to dispatch a custom DOM event"
 	},
+	"actionSendExtensionMessage": {
+		"message": "Kald en anden udvidelse",
+		"description": "Action to send a custom message to another installed extension"
+	},
 	"actionSimulateKey": {
 		"message": "Simuler tastetryk",
 		"description": "Action to simulate a keyboard key press on the page"
@@ -1794,6 +1810,22 @@
 	"pasteClipboardHint": {
 		"message": "Udklipsholderens indhold vil blive indsat i indtastningsfeltet ved <b>gestussens startposition</b>.",
 		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
+	"actionPasteContent": {
+		"message": "Indsæt brugerdefineret tekst",
+		"description": "Action to paste a preset, user-specified text at the gesture start position"
+	},
+	"pasteContentLabel": {
+		"message": "Tekst",
+		"description": "Label for the text field where the user enters the content to paste"
+	},
+	"pasteContentHint": {
+		"message": "Den angivne tekst vil blive indsat i indtastningsfeltet ved <b>gestussens startposition</b>.",
+		"description": "Hint shown in action config when paste specified content is selected. Contains HTML."
+	},
+	"pasteContentSensitiveHint": {
+		"message": "Det anbefales ikke at gemme følsomme oplysninger som adgangskoder her.",
+		"description": "Warning hint below the content field for the paste specified content action"
 	},
 	"simulateKeyPreset": {
 		"message": "Forudindstillet tast",
@@ -1842,6 +1874,10 @@
 	"customEventHint": {
 		"message": "Sender %code% på %window%. Nyttigt til integration med andre scripts.",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
+	},
+	"sendExtensionMessageHint": {
+		"message": "Sender en besked via %code% til en anden installeret udvidelse. Nyttigt til integration med andre udvidelser.",
+		"description": "Hint explaining how send-message-to-extension works. %code% = <code>chrome.runtime.sendMessage(...)</code>"
 	},
 	"delayDuration": {
 		"message": "Varighed",

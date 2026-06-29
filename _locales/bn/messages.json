@@ -603,6 +603,14 @@
 		"message": "সামনে যান",
 		"description": "Go forward"
 	},
+	"actionUrlLevelUp": {
+		"message": "URL এর এক ধাপ উপরে",
+		"description": "Navigate to the parent directory of the current URL"
+	},
+	"actionUrlToRoot": {
+		"message": "মূল URL-এ যান",
+		"description": "Navigate to the root of the current site"
+	},
 	"actionScrollUp": {
 		"message": "উপরে স্ক্রল করুন",
 		"description": "Scroll up"
@@ -710,6 +718,10 @@
 	"actionSwitchLastTab": {
 		"message": "শেষ ট্যাবে যান",
 		"description": "Switch to last tab"
+	},
+	"actionSwitchLastActiveTab": {
+		"message": "সর্বশেষ সক্রিয় ট্যাবে যান",
+		"description": "Switch to the most recently active tab"
 	},
 	"actionRefresh": {
 		"message": "বর্তমান ট্যাব রিফ্রেশ করুন",
@@ -1783,6 +1795,10 @@
 		"message": "কাস্টম ইভেন্ট পাঠান",
 		"description": "Action to dispatch a custom DOM event"
 	},
+	"actionSendExtensionMessage": {
+		"message": "অন্য এক্সটেনশন আহ্বান করুন",
+		"description": "Action to send a custom message to another installed extension"
+	},
 	"actionSimulateKey": {
 		"message": "কী টিপা অনুকরণ করুন",
 		"description": "Action to simulate a keyboard key press on the page"
@@ -1794,6 +1810,22 @@
 	"pasteClipboardHint": {
 		"message": "<b>ভঙ্গির শুরুর স্থানে</b> ইনপুট ফিল্ডে ক্লিপবোর্ডের বিষয়বস্তু পেস্ট করা হবে।",
 		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
+	"actionPasteContent": {
+		"message": "কাস্টম টেক্সট পেস্ট করুন",
+		"description": "Action to paste a preset, user-specified text at the gesture start position"
+	},
+	"pasteContentLabel": {
+		"message": "টেক্সট",
+		"description": "Label for the text field where the user enters the content to paste"
+	},
+	"pasteContentHint": {
+		"message": "<b>ভঙ্গির শুরুর স্থানে</b> ইনপুট ফিল্ডে নির্দিষ্ট টেক্সট প্রবেশ করানো হবে।",
+		"description": "Hint shown in action config when paste specified content is selected. Contains HTML."
+	},
+	"pasteContentSensitiveHint": {
+		"message": "পাসওয়ার্ডের মতো সংবেদনশীল তথ্য এখানে সংরক্ষণ করার পরামর্শ দেওয়া হয় না।",
+		"description": "Warning hint below the content field for the paste specified content action"
 	},
 	"simulateKeyPreset": {
 		"message": "প্রিসেট কী",
@@ -1842,6 +1874,10 @@
 	"customEventHint": {
 		"message": "%window% এ %code% প্রেরণ করে। অন্যান্য স্ক্রিপ্টের সাথে একীকরণের জন্য দরকারী।",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
+	},
+	"sendExtensionMessageHint": {
+		"message": "%code% এর মাধ্যমে অন্য ইনস্টল করা এক্সটেনশনে একটি বার্তা পাঠায়। অন্যান্য এক্সটেনশনের সাথে একীকরণের জন্য দরকারী।",
+		"description": "Hint explaining how send-message-to-extension works. %code% = <code>chrome.runtime.sendMessage(...)</code>"
 	},
 	"delayDuration": {
 		"message": "সময়কাল",

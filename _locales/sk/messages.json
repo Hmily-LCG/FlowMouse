@@ -603,6 +603,14 @@
 		"message": "Dopredu",
 		"description": "Go forward"
 	},
+	"actionUrlLevelUp": {
+		"message": "O úroveň vyššie v URL",
+		"description": "Navigate to the parent directory of the current URL"
+	},
+	"actionUrlToRoot": {
+		"message": "Do koreňového adresára URL",
+		"description": "Navigate to the root of the current site"
+	},
 	"actionScrollUp": {
 		"message": "Posunúť hore",
 		"description": "Scroll up"
@@ -710,6 +718,10 @@
 	"actionSwitchLastTab": {
 		"message": "Prepnúť na poslednú kartu",
 		"description": "Switch to last tab"
+	},
+	"actionSwitchLastActiveTab": {
+		"message": "Prepnúť na poslednú aktívnu kartu",
+		"description": "Switch to the most recently active tab"
 	},
 	"actionRefresh": {
 		"message": "Obnoviť aktuálnu kartu",
@@ -1783,6 +1795,10 @@
 		"message": "Odoslať vlastnú udalosť",
 		"description": "Action to dispatch a custom DOM event"
 	},
+	"actionSendExtensionMessage": {
+		"message": "Vyvolať iné rozšírenie",
+		"description": "Action to send a custom message to another installed extension"
+	},
 	"actionSimulateKey": {
 		"message": "Simulovať stlačenie klávesu",
 		"description": "Action to simulate a keyboard key press on the page"
@@ -1794,6 +1810,22 @@
 	"pasteClipboardHint": {
 		"message": "Obsah schránky sa vloží do vstupného poľa na <b>východiskovej pozícii gesta</b>.",
 		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
+	"actionPasteContent": {
+		"message": "Vložiť vlastný text",
+		"description": "Action to paste a preset, user-specified text at the gesture start position"
+	},
+	"pasteContentLabel": {
+		"message": "Text",
+		"description": "Label for the text field where the user enters the content to paste"
+	},
+	"pasteContentHint": {
+		"message": "Zadaný text sa vloží do vstupného poľa na <b>východiskovej pozícii gesta</b>.",
+		"description": "Hint shown in action config when paste specified content is selected. Contains HTML."
+	},
+	"pasteContentSensitiveHint": {
+		"message": "Neodporúča sa tu ukladať citlivé informácie, ako napríklad heslá.",
+		"description": "Warning hint below the content field for the paste specified content action"
 	},
 	"simulateKeyPreset": {
 		"message": "Prednastavený kláves",
@@ -1842,6 +1874,10 @@
 	"customEventHint": {
 		"message": "Odošle %code% na %window%. Užitočné pre integráciu s inými skriptami.",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
+	},
+	"sendExtensionMessageHint": {
+		"message": "Odošle správu cez %code% do iného nainštalovaného rozšírenia. Užitočné pre integráciu s inými rozšíreniami.",
+		"description": "Hint explaining how send-message-to-extension works. %code% = <code>chrome.runtime.sendMessage(...)</code>"
 	},
 	"delayDuration": {
 		"message": "Trvanie",

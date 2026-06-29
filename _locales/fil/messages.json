@@ -603,6 +603,14 @@
 		"message": "Sulong",
 		"description": "Go forward"
 	},
+	"actionUrlLevelUp": {
+		"message": "Isang level pataas sa URL",
+		"description": "Navigate to the parent directory of the current URL"
+	},
+	"actionUrlToRoot": {
+		"message": "Sa root ng URL",
+		"description": "Navigate to the root of the current site"
+	},
 	"actionScrollUp": {
 		"message": "Mag-scroll Pataas",
 		"description": "Scroll up"
@@ -710,6 +718,10 @@
 	"actionSwitchLastTab": {
 		"message": "Lumipat sa Huling Tab",
 		"description": "Switch to last tab"
+	},
+	"actionSwitchLastActiveTab": {
+		"message": "Lumipat sa Huling Aktibong Tab",
+		"description": "Switch to the most recently active tab"
 	},
 	"actionRefresh": {
 		"message": "I-refresh ang Kasalukuyang Tab",
@@ -1783,6 +1795,10 @@
 		"message": "Magpadala ng Custom Event",
 		"description": "Action to dispatch a custom DOM event"
 	},
+	"actionSendExtensionMessage": {
+		"message": "Tawagin ang ibang extension",
+		"description": "Action to send a custom message to another installed extension"
+	},
 	"actionSimulateKey": {
 		"message": "Gayayahin ang pagpindot ng key",
 		"description": "Action to simulate a keyboard key press on the page"
@@ -1794,6 +1810,22 @@
 	"pasteClipboardHint": {
 		"message": "Ang nilalaman ng clipboard ay ididikit sa input field sa <b>panimulang posisyon ng kumpas</b>.",
 		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
+	"actionPasteContent": {
+		"message": "Idikit ang Custom na Teksto",
+		"description": "Action to paste a preset, user-specified text at the gesture start position"
+	},
+	"pasteContentLabel": {
+		"message": "Teksto",
+		"description": "Label for the text field where the user enters the content to paste"
+	},
+	"pasteContentHint": {
+		"message": "Ang tinukoy na teksto ay ilalagay sa input field sa <b>panimulang posisyon ng kumpas</b>.",
+		"description": "Hint shown in action config when paste specified content is selected. Contains HTML."
+	},
+	"pasteContentSensitiveHint": {
+		"message": "Hindi inirerekomenda na mag-imbak ng sensitibong impormasyon tulad ng mga password dito.",
+		"description": "Warning hint below the content field for the paste specified content action"
 	},
 	"simulateKeyPreset": {
 		"message": "Preset na Key",
@@ -1842,6 +1874,10 @@
 	"customEventHint": {
 		"message": "Nagpapadala ng %code% sa %window%. Kapaki-pakinabang para sa integration sa iba pang mga script.",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
+	},
+	"sendExtensionMessageHint": {
+		"message": "Nagpapadala ng mensahe sa pamamagitan ng %code% sa iba pang naka-install na extension. Kapaki-pakinabang para sa integration sa iba pang mga extension.",
+		"description": "Hint explaining how send-message-to-extension works. %code% = <code>chrome.runtime.sendMessage(...)</code>"
 	},
 	"delayDuration": {
 		"message": "Tagal",

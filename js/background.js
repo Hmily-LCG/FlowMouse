@@ -1,3 +1,5 @@
+const isEdge = navigator.userAgent.includes('Edg/') || navigator.userAgent.includes('EdgA/');
+
 const GLOBAL_MUTE_KEY = 'flowmouse_global_mute_state';
 
 const ctxMenuSessions = new Map();
@@ -53,7 +55,7 @@ function asyncMessageHandler(asyncHandler) {
 const CONTENT_ACTIONS = new Set([
 	'scrollUp', 'scrollDown', 'scrollToTop', 'scrollToBottom',
 	'stopLoading', 'copyUrl', 'copyTitle', 'copyTitleAndUrl', 'printPage', 'sendCustomEvent',
-	'simulateKey', 'pasteClipboard', 'searchClipboard',
+	'simulateKey', 'pasteClipboard', 'pasteContent', 'searchClipboard',
 	'menuShowTabs', 'menuRecentlyClosed', 'menuShowBookmarks',
 	'customMenu',
 ]);
@@ -74,8 +76,8 @@ async function createTabAtPosition(sender, position, extraOpts = {}) {
 	return await chrome.tabs.create(createOpts);
 }
 
-async function openInNewWindow(url, focused = true) {
-	const createOpts = { focused };
+async function openInNewWindow(url, focused = true, incognito = false) {
+	const createOpts = { focused, incognito };
 	if (url) createOpts.url = url;
 	const win = await chrome.windows.create(createOpts);
 	return win.tabs[0];
@@ -110,6 +112,25 @@ async function handleAction(request, sender) {
 		case 'forward':
 			if (sender.tab?.id) {
 				await chrome.tabs.goForward(sender.tab.id).catch(() => { });
+			}
+			return { success: true };
+
+		case 'urlLevelUp':
+			if (sender.tab?.id && sender.tab.url) {
+				const u = new URL(sender.tab.url);
+				const newPath = u.pathname.replace(/\/([^/]+)\/?$/, '');
+				if (newPath !== u.pathname) {
+					await chrome.tabs.update(sender.tab.id, { url: u.origin + newPath });
+				}
+			}
+			return { success: true };
+
+		case 'urlToRoot':
+			if (sender.tab?.id && sender.tab.url) {
+				const u = new URL(sender.tab.url);
+				if (u.pathname !== '/' || u.search || u.hash) {
+					await chrome.tabs.update(sender.tab.id, { url: u.origin });
+				}
 			}
 			return { success: true };
 
@@ -172,7 +193,7 @@ async function handleAction(request, sender) {
 			const active = request.active !== false;
 			const position = request.position || 'last';
 			if (position === 'newWindow') {
-				await openInNewWindow(undefined, active);
+				await openInNewWindow(undefined, active, sender.tab?.incognito);
 			} else {
 				await createTabAtPosition(sender, position, { active });
 			}
@@ -192,7 +213,7 @@ async function handleAction(request, sender) {
 			const active = request.active !== false;
 
 			if (position === 'newWindow') {
-				await openInNewWindow(request.url, active);
+				await openInNewWindow(request.url, active, sender.tab?.incognito);
 			} else if (position === 'current' && sender.tab) {
 				await chrome.tabs.update(sender.tab.id, { url: request.url, active });
 			} else {
@@ -249,7 +270,7 @@ async function handleAction(request, sender) {
 				const active = request.active !== false;
 
 				if (position === 'newWindow') {
-					const newTab = await openInNewWindow(undefined, active);
+					const newTab = await openInNewWindow(undefined, active, sender.tab?.incognito);
 					await chrome.search.query({ text: request.query, tabId: newTab.id });
 				} else if (position === 'current') {
 					await chrome.search.query({ text: request.query, tabId: sender.tab.id });
@@ -463,6 +484,18 @@ async function handleAction(request, sender) {
 			return { success: true };
 		}
 
+		case 'switchLastActiveTab': {
+			if (sender.tab) {
+				const tabs = (await chrome.tabs.query({ windowId: sender.tab.windowId, active: false }))
+					.filter(t => !t.hidden);
+				if (tabs.length > 0) {
+					const lastActiveTab = tabs.reduce((acc, cur) => acc.lastAccessed > cur.lastAccessed ? acc : cur);
+					await chrome.tabs.update(lastActiveTab.id, { active: true });
+				}
+			}
+			return { success: true };
+		}
+
 		case 'togglePinTab': {
 			if (sender.tab?.id) {
 				const tab = await chrome.tabs.get(sender.tab.id);
@@ -580,15 +613,35 @@ async function handleAction(request, sender) {
 					url = 'http://' + url;
 				}
 
+				if (sender.tab && request.incognito && !sender.tab.incognito) {
+					const granted = await requestPermission(['incognito'], sender.tab.windowId);
+					if (granted) {
+						await chrome.windows.create({ incognito: true, url });
+					}
+					return { success: true };
+				}
+
 				const pos = request.position || 'last';
 				const act = request.active !== false;
 				if (pos === 'newWindow') {
-					await openInNewWindow(url, act);
+					await openInNewWindow(url, act, sender.tab?.incognito);
 				} else if (pos === 'current' && sender.tab) {
 					await chrome.tabs.update(sender.tab.id, { url });
 				} else {
 					await createTabAtPosition(sender, pos, { url, active: act });
 				}
+			}
+			return { success: true };
+		}
+
+		case 'sendExtensionMessage': {
+			const targetId = (request.extensionId || '').trim();
+			if (targetId) {
+				let message = {};
+				try {
+					message = JSON.parse(request.message || '{}');
+				} catch { }
+				await chrome.runtime.sendMessage(targetId, message);
 			}
 			return { success: true };
 		}
@@ -607,7 +660,7 @@ async function handleAction(request, sender) {
 				const url = 'view-source:' + sender.tab.url;
 				const pos = request.position || 'right';
 				if (pos === 'newWindow') {
-					await openInNewWindow(url, request.active !== false);
+					await openInNewWindow(url, request.active !== false, sender.tab?.incognito);
 				} else if (pos === 'current' && sender.tab) {
 					await chrome.tabs.update(sender.tab.id, { url });
 				} else {

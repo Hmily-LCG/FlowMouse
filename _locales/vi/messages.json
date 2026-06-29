@@ -603,6 +603,14 @@
 		"message": "Đi tiếp",
 		"description": "Go forward"
 	},
+	"actionUrlLevelUp": {
+		"message": "Lên một cấp trong URL",
+		"description": "Navigate to the parent directory of the current URL"
+	},
+	"actionUrlToRoot": {
+		"message": "Đến URL gốc",
+		"description": "Navigate to the root of the current site"
+	},
 	"actionScrollUp": {
 		"message": "Cuộn lên",
 		"description": "Scroll up"
@@ -710,6 +718,10 @@
 	"actionSwitchLastTab": {
 		"message": "Chuyển sang tab cuối cùng",
 		"description": "Switch to last tab"
+	},
+	"actionSwitchLastActiveTab": {
+		"message": "Chuyển sang tab hoạt động gần nhất",
+		"description": "Switch to the most recently active tab"
 	},
 	"actionRefresh": {
 		"message": "Tải lại tab hiện tại",
@@ -1783,6 +1795,10 @@
 		"message": "Gửi sự kiện tùy chỉnh",
 		"description": "Action to dispatch a custom DOM event"
 	},
+	"actionSendExtensionMessage": {
+		"message": "Gọi một tiện ích khác",
+		"description": "Action to send a custom message to another installed extension"
+	},
 	"actionSimulateKey": {
 		"message": "Mô phỏng nhấn phím",
 		"description": "Action to simulate a keyboard key press on the page"
@@ -1794,6 +1810,22 @@
 	"pasteClipboardHint": {
 		"message": "Nội dung khay nhớ tạm sẽ được dán vào trường nhập liệu tại <b>vị trí bắt đầu cử chỉ</b>.",
 		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
+	"actionPasteContent": {
+		"message": "Dán văn bản tùy chỉnh",
+		"description": "Action to paste a preset, user-specified text at the gesture start position"
+	},
+	"pasteContentLabel": {
+		"message": "Văn bản",
+		"description": "Label for the text field where the user enters the content to paste"
+	},
+	"pasteContentHint": {
+		"message": "Văn bản được chỉ định sẽ được chèn vào trường nhập liệu tại <b>vị trí bắt đầu cử chỉ</b>.",
+		"description": "Hint shown in action config when paste specified content is selected. Contains HTML."
+	},
+	"pasteContentSensitiveHint": {
+		"message": "Không nên lưu trữ thông tin nhạy cảm như mật khẩu ở đây.",
+		"description": "Warning hint below the content field for the paste specified content action"
 	},
 	"simulateKeyPreset": {
 		"message": "Phím đặt trước",
@@ -1842,6 +1874,10 @@
 	"customEventHint": {
 		"message": "Gửi %code% trên %window%. Hữu ích cho việc tích hợp với các tập lệnh khác.",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
+	},
+	"sendExtensionMessageHint": {
+		"message": "Gửi tin nhắn qua %code% đến một tiện ích đã cài đặt khác. Hữu ích cho việc tích hợp với các tiện ích khác.",
+		"description": "Hint explaining how send-message-to-extension works. %code% = <code>chrome.runtime.sendMessage(...)</code>"
 	},
 	"delayDuration": {
 		"message": "Thời lượng",

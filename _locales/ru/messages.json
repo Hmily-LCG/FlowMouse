@@ -603,6 +603,14 @@
 		"message": "Вперед",
 		"description": "Go forward"
 	},
+	"actionUrlLevelUp": {
+		"message": "На уровень выше в URL",
+		"description": "Navigate to the parent directory of the current URL"
+	},
+	"actionUrlToRoot": {
+		"message": "В корень URL",
+		"description": "Navigate to the root of the current site"
+	},
 	"actionScrollUp": {
 		"message": "Прокрутка вверх",
 		"description": "Scroll up"
@@ -710,6 +718,10 @@
 	"actionSwitchLastTab": {
 		"message": "Переключить на последнюю вкладку",
 		"description": "Switch to last tab"
+	},
+	"actionSwitchLastActiveTab": {
+		"message": "Переключиться на последнюю активную вкладку",
+		"description": "Switch to the most recently active tab"
 	},
 	"actionRefresh": {
 		"message": "Обновить текущую вкладку",
@@ -1783,6 +1795,10 @@
 		"message": "Отправить пользовательское событие",
 		"description": "Action to dispatch a custom DOM event"
 	},
+	"actionSendExtensionMessage": {
+		"message": "Вызвать другое расширение",
+		"description": "Action to send a custom message to another installed extension"
+	},
 	"actionSimulateKey": {
 		"message": "Имитация нажатия клавиши",
 		"description": "Action to simulate a keyboard key press on the page"
@@ -1794,6 +1810,22 @@
 	"pasteClipboardHint": {
 		"message": "Содержимое буфера обмена будет вставлено в поле ввода в <b>начальной позиции жеста</b>.",
 		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
+	"actionPasteContent": {
+		"message": "Вставить пользовательский текст",
+		"description": "Action to paste a preset, user-specified text at the gesture start position"
+	},
+	"pasteContentLabel": {
+		"message": "Текст",
+		"description": "Label for the text field where the user enters the content to paste"
+	},
+	"pasteContentHint": {
+		"message": "Указанный текст будет вставлен в поле ввода в <b>начальной позиции жеста</b>.",
+		"description": "Hint shown in action config when paste specified content is selected. Contains HTML."
+	},
+	"pasteContentSensitiveHint": {
+		"message": "Не рекомендуется хранить здесь конфиденциальную информацию, например пароли.",
+		"description": "Warning hint below the content field for the paste specified content action"
 	},
 	"simulateKeyPreset": {
 		"message": "Предустановленная клавиша",
@@ -1842,6 +1874,10 @@
 	"customEventHint": {
 		"message": "Отправляет %code% в %window%. Полезно для интеграции с другими скриптами.",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
+	},
+	"sendExtensionMessageHint": {
+		"message": "Отправляет сообщение через %code% в другое установленное расширение. Полезно для интеграции с другими расширениями.",
+		"description": "Hint explaining how send-message-to-extension works. %code% = <code>chrome.runtime.sendMessage(...)</code>"
 	},
 	"delayDuration": {
 		"message": "Длительность",

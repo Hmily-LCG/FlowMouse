@@ -603,6 +603,14 @@
 		"message": "התקדם",
 		"description": "Go forward"
 	},
+	"actionUrlLevelUp": {
+		"message": "רמה אחת למעלה ב-URL",
+		"description": "Navigate to the parent directory of the current URL"
+	},
+	"actionUrlToRoot": {
+		"message": "לשורש ה-URL",
+		"description": "Navigate to the root of the current site"
+	},
 	"actionScrollUp": {
 		"message": "גלול למעלה",
 		"description": "Scroll up"
@@ -710,6 +718,10 @@
 	"actionSwitchLastTab": {
 		"message": "עבור לכרטיסייה האחרונה",
 		"description": "Switch to last tab"
+	},
+	"actionSwitchLastActiveTab": {
+		"message": "עבור לכרטיסייה הפעילה האחרונה",
+		"description": "Switch to the most recently active tab"
 	},
 	"actionRefresh": {
 		"message": "רענן כרטיסייה נוכחית",
@@ -1783,6 +1795,10 @@
 		"message": "שלח אירוע מותאם אישית",
 		"description": "Action to dispatch a custom DOM event"
 	},
+	"actionSendExtensionMessage": {
+		"message": "קרא לתוסף אחר",
+		"description": "Action to send a custom message to another installed extension"
+	},
 	"actionSimulateKey": {
 		"message": "הדמיית לחיצת מקש",
 		"description": "Action to simulate a keyboard key press on the page"
@@ -1794,6 +1810,22 @@
 	"pasteClipboardHint": {
 		"message": "תוכן הלוח יודבק בשדה הקלט ב<b>מיקום התחלת המחווה</b>.",
 		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
+	"actionPasteContent": {
+		"message": "הדבק טקסט מותאם אישית",
+		"description": "Action to paste a preset, user-specified text at the gesture start position"
+	},
+	"pasteContentLabel": {
+		"message": "טקסט",
+		"description": "Label for the text field where the user enters the content to paste"
+	},
+	"pasteContentHint": {
+		"message": "הטקסט שצוין יוכנס לשדה הקלט ב<b>מיקום התחלת המחווה</b>.",
+		"description": "Hint shown in action config when paste specified content is selected. Contains HTML."
+	},
+	"pasteContentSensitiveHint": {
+		"message": "לא מומלץ לאחסן מידע רגיש כגון סיסמאות כאן.",
+		"description": "Warning hint below the content field for the paste specified content action"
 	},
 	"simulateKeyPreset": {
 		"message": "מקש מוגדר מראש",
@@ -1842,6 +1874,10 @@
 	"customEventHint": {
 		"message": "שולח %code% אל %window%. שימושי לאינטגרציה עם סקריפטים אחרים.",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
+	},
+	"sendExtensionMessageHint": {
+		"message": "שולח הודעה באמצעות %code% לתוסף מותקן אחר. שימושי לאינטגרציה עם תוספים אחרים.",
+		"description": "Hint explaining how send-message-to-extension works. %code% = <code>chrome.runtime.sendMessage(...)</code>"
 	},
 	"delayDuration": {
 		"message": "משך זמן",

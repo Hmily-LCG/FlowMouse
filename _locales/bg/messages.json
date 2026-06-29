@@ -603,6 +603,14 @@
 		"message": "Напред",
 		"description": "Go forward"
 	},
+	"actionUrlLevelUp": {
+		"message": "Едно ниво нагоре в URL",
+		"description": "Navigate to the parent directory of the current URL"
+	},
+	"actionUrlToRoot": {
+		"message": "Към основния URL",
+		"description": "Navigate to the root of the current site"
+	},
 	"actionScrollUp": {
 		"message": "Превъртане нагоре",
 		"description": "Scroll up"
@@ -710,6 +718,10 @@
 	"actionSwitchLastTab": {
 		"message": "Превключване към последен раздел",
 		"description": "Switch to last tab"
+	},
+	"actionSwitchLastActiveTab": {
+		"message": "Превключване към последния активен раздел",
+		"description": "Switch to the most recently active tab"
 	},
 	"actionRefresh": {
 		"message": "Опресни текущия раздел",
@@ -1783,6 +1795,10 @@
 		"message": "Изпращане на персонализирано събитие",
 		"description": "Action to dispatch a custom DOM event"
 	},
+	"actionSendExtensionMessage": {
+		"message": "Извикване на друго разширение",
+		"description": "Action to send a custom message to another installed extension"
+	},
 	"actionSimulateKey": {
 		"message": "Симулиране на натискане на клавиш",
 		"description": "Action to simulate a keyboard key press on the page"
@@ -1794,6 +1810,22 @@
 	"pasteClipboardHint": {
 		"message": "Съдържанието на клипборда ще бъде поставено във входното поле на <b>началната позиция на жеста</b>.",
 		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
+	"actionPasteContent": {
+		"message": "Поставяне на персонализиран текст",
+		"description": "Action to paste a preset, user-specified text at the gesture start position"
+	},
+	"pasteContentLabel": {
+		"message": "Текст",
+		"description": "Label for the text field where the user enters the content to paste"
+	},
+	"pasteContentHint": {
+		"message": "Указаният текст ще бъде въведен във входното поле на <b>началната позиция на жеста</b>.",
+		"description": "Hint shown in action config when paste specified content is selected. Contains HTML."
+	},
+	"pasteContentSensitiveHint": {
+		"message": "Не се препоръчва да съхранявате чувствителна информация като пароли тук.",
+		"description": "Warning hint below the content field for the paste specified content action"
 	},
 	"simulateKeyPreset": {
 		"message": "Предварително зададен клавиш",
@@ -1842,6 +1874,10 @@
 	"customEventHint": {
 		"message": "Изпраща %code% на %window%. Полезно за интеграция с други скриптове.",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
+	},
+	"sendExtensionMessageHint": {
+		"message": "Изпраща съобщение чрез %code% до друго инсталирано разширение. Полезно за интеграция с други разширения.",
+		"description": "Hint explaining how send-message-to-extension works. %code% = <code>chrome.runtime.sendMessage(...)</code>"
 	},
 	"delayDuration": {
 		"message": "Продължителност",

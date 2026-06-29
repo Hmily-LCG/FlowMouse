@@ -311,17 +311,19 @@ class CssEditorPage extends LitElement {
 		if (!stage || this._ctxMenuHost) return;
 
 		const host = new window.ShadowHost();
-		if (!host.init(window.i18n.getHtmlLang(), window.i18n.getDir() === 'rtl')) return;
 
 		const frameCss = new window.ContentContextMenu().generateStyles();
-		host.setBuiltInCss(frameCss + `
+		const builtInCss = frameCss + `
 			fm-context-menu[preview] {
 				display: inline-block;
 				vertical-align: top;
 				overflow: hidden;
 			}
-		`);
-		host.setCustomCss(this._css);
+		`;
+		if (!host.init(window.i18n.getHtmlLang(), window.i18n.getDir() === 'rtl', {
+			builtInCss,
+			customCss: this._css,
+		})) return;
 
 		const wrapper = host.createElement('div');
 		wrapper.style.cssText = `

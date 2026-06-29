@@ -22,6 +22,8 @@ const ACTION_ICONS = {
 	'none': 'minus',
 	'back': 'arrowLeft',
 	'forward': 'arrowRight',
+	'urlLevelUp': 'arrowUp',
+	'urlToRoot': 'house',
 	'scrollUp': 'chevronUp',
 	'scrollDown': 'chevronDown',
 	'scrollToTop': 'chevronsUp',
@@ -39,6 +41,7 @@ const ACTION_ICONS = {
 	'switchRightTab': 'chevronRight',
 	'switchFirstTab': 'chevronsLeft',
 	'switchLastTab': 'chevronsRight',
+	'switchLastActiveTab': 'undo',
 	'refresh': 'refreshCw',
 	'refreshAllTabs': 'refreshCw',
 	'stopLoading': 'ban',
@@ -66,8 +69,10 @@ const ACTION_ICONS = {
 	'actionChain': 'workflow',
 	'delay': 'timer',
 	'sendCustomEvent': 'codeXml',
+	'sendExtensionMessage': 'puzzle',
 	'simulateKey': 'keyboard',
 	'pasteClipboard': 'clipboardPaste',
+	'pasteContent': 'clipboardType',
 	'searchClipboard': 'search',
 	'zoomIn': 'zoomIn',
 	'zoomOut': 'zoomOut',
@@ -94,11 +99,11 @@ const SCROLL_DISTANCE_ACTIONS = ['scrollUp', 'scrollDown'];
 
 const ACTION_CATEGORIES = [
 	{ key: '', actions: ['none', 'actionChain', 'delay'] },
-	{ key: 'actionCategoryNavigation', icon: 'compass', actions: ['back', 'forward', 'scrollUp', 'scrollDown', 'scrollToTop', 'scrollToBottom'] },
+	{ key: 'actionCategoryNavigation', icon: 'compass', actions: ['back', 'forward', 'urlLevelUp', 'urlToRoot', 'scrollUp', 'scrollDown', 'scrollToTop', 'scrollToBottom'] },
 	{ key: 'actionCategoryContextMenu', icon: 'menu', actions: ['menuShowTabs', 'menuRecentlyClosed', 'menuShowBookmarks', 'customMenu'] },
-	{ key: 'actionCategoryTabs', icon: 'panelTop', actions: ['newTab', 'closeTab', 'refresh', 'refreshAllTabs', 'switchLeftTab', 'switchRightTab', 'switchFirstTab', 'switchLastTab', 'closeOtherTabs', 'closeLeftTabs', 'closeRightTabs', 'closeAllTabs', 'restoreTab', 'duplicateTab', 'togglePinTab', 'moveTabToNewWindow'] },
+	{ key: 'actionCategoryTabs', icon: 'panelTop', actions: ['newTab', 'closeTab', 'refresh', 'refreshAllTabs', 'switchLeftTab', 'switchRightTab', 'switchFirstTab', 'switchLastTab', 'closeOtherTabs', 'closeLeftTabs', 'closeRightTabs', 'closeAllTabs', 'switchLastActiveTab', 'restoreTab', 'duplicateTab', 'togglePinTab', 'moveTabToNewWindow'] },
 	{ key: 'actionCategoryWindow', icon: 'appWindow', actions: ['newWindow', 'newIncognito', 'toggleFullscreen', 'toggleMaximize', 'minimize', 'closeWindow', 'closeBrowser'] },
-	{ key: 'actionCategoryUtilities', icon: 'wrench', actions: ['addToBookmarks', 'copyUrl', 'copyTitle', 'copyTitleAndUrl', 'openCustomUrl', 'openDownloads', 'openHistory', 'openExtensions', 'zoomIn', 'zoomOut', 'resetZoom', 'toggleMuteTab', 'toggleMuteAllTabs', 'stopLoading', 'stopAllLoading', 'printPage', 'saveAsMhtml', 'viewPageSource', 'pasteClipboard', 'searchClipboard', 'pauseGesture', 'simulateKey', 'sendCustomEvent', 'areaSelect'] },
+	{ key: 'actionCategoryUtilities', icon: 'wrench', actions: ['addToBookmarks', 'copyUrl', 'copyTitle', 'copyTitleAndUrl', 'openCustomUrl', 'openDownloads', 'openHistory', 'openExtensions', 'zoomIn', 'zoomOut', 'resetZoom', 'toggleMuteTab', 'toggleMuteAllTabs', 'stopLoading', 'stopAllLoading', 'printPage', 'saveAsMhtml', 'viewPageSource', 'pasteClipboard', 'pasteContent', 'searchClipboard', 'pauseGesture', 'simulateKey', 'sendCustomEvent', 'sendExtensionMessage', 'areaSelect'] },
 ];
 
 class ActionSelect extends LitElement {
@@ -706,6 +711,13 @@ class ActionSelect extends LitElement {
 				? `${baseLabel} (${url})`
 				: baseLabel;
 		}
+		if (val === 'pasteContent') {
+			const baseLabel = window.i18n.getMessage('actionPasteContent');
+			const content = (this.config?.content || '').replace(/\s+/g, ' ').trim();
+			return content
+				? `${baseLabel} (${content})`
+				: baseLabel;
+		}
 		if (val === 'actionChain') {
 			return getChainLabel(this.config?.chainId);
 		}
@@ -1029,16 +1041,18 @@ class ActionSelect extends LitElement {
 		return result;
 	}
 
-	#renderPositionSelect(showCurrent, showNewWindow) {
+	#renderPositionSelect(showCurrent, showNewWindow, showIncognito) {
 		const action = this._pendingValue;
 		const defaults = window.GestureConstants.ACTION_DEFAULTS[action] || {};
 		const position = this._pendingConfig.position ?? defaults.position;
 		const active = this._pendingConfig.active ?? defaults.active;
 		const showActive = position !== 'current';
+		const incognito = this._pendingConfig.incognito ?? defaults.incognito;
+		const dimStyle = (showIncognito && incognito) ? 'opacity: 0.5' : '';
 		return html`
 			<div class="action-config-row">
 				<span class="action-config-label">${window.i18n.getMessage('newTabPosition')}</span>
-				<select .value=${position}
+				<select style=${dimStyle} .value=${position}
 					@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, position: e.target.value }; this.requestUpdate(); }}>
 					<option value="right" ?selected=${position === 'right'}>${window.i18n.getMessage('tabPositionRight')}</option>
 					<option value="left" ?selected=${position === 'left'}>${window.i18n.getMessage('tabPositionLeft')}</option>
@@ -1048,7 +1062,7 @@ class ActionSelect extends LitElement {
 					${showNewWindow ? html`<option value="newWindow" ?selected=${position === 'newWindow'}>${window.i18n.getMessage('tabPositionNewWindow')}</option>` : ''}
 				</select>
 				${showActive ? html`
-					<label class="action-config-checkbox">
+					<label class="action-config-checkbox" style=${dimStyle}>
 						<input type="checkbox"
 							.checked=${active}
 							@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, active: e.target.checked }; this.requestUpdate(); }}
@@ -1057,6 +1071,17 @@ class ActionSelect extends LitElement {
 					</label>
 				` : ''}
 			</div>
+			${showIncognito ? html`
+				<div class="action-config-row">
+					<label class="action-config-checkbox">
+						<input type="checkbox"
+							.checked=${incognito}
+							@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, incognito: e.target.checked }; this.requestUpdate(); }}
+						>
+						<span>${window.i18n.getMessage('openInIncognito')}</span>
+					</label>
+				</div>
+			` : ''}
 		`;
 	}
 
@@ -1182,13 +1207,13 @@ class ActionSelect extends LitElement {
 					</label>
 					<input class="action-config-input" type="text"
 						placeholder="https://web.archive.org/web/{tabUrl:raw}"
-						maxlength="512"
+						maxlength="500"
 						.value=${this._pendingConfig.customUrl || ''}
 						@input=${(e) => { this._pendingConfig = { ...this._pendingConfig, customUrl: e.target.value }; }}
 					>
 					<div class="action-config-hint">${unsafeHTML(window.i18n.getMessage('customUrlPlaceholderHint').replace('%placeholders%', '<code>{tabUrl}</code> <code>{tabTitle}</code> <code>{tabDomain}</code>').replace('%example%', '<code>{tabUrl:raw}</code>'))}</div>
 				</div>
-				${this.#renderPositionSelect(true, true)}
+				${this.#renderPositionSelect(true, true, true)}
 			`;
 		}
 		if (action === 'closeTab') {
@@ -1296,7 +1321,7 @@ class ActionSelect extends LitElement {
 			`;
 		}
 		if (action === 'newTab') {
-			return this.#renderPositionSelect(false, false);
+			return this.#renderPositionSelect(false, false, false);
 		}
 		if (action === 'newWindow') {
 			const defaults = ACTION_DEFAULTS.newWindow || {};
@@ -1312,7 +1337,7 @@ class ActionSelect extends LitElement {
 			`;
 		}
 		if (action === 'viewPageSource') {
-			return this.#renderPositionSelect(true, true);
+			return this.#renderPositionSelect(true, true, false);
 		}
 		if (action === 'copyTitleAndUrl') {
 			const defaults = ACTION_DEFAULTS.copyTitleAndUrl || {};
@@ -1441,9 +1466,61 @@ class ActionSelect extends LitElement {
 				<div class="action-config-hint">${unsafeHTML(hint)}</div>
 			`;
 		}
+		if (action === 'sendExtensionMessage') {
+			const defaults = ACTION_DEFAULTS.sendExtensionMessage || {};
+			const extensionId = this._pendingConfig.extensionId ?? defaults.extensionId;
+			const message = this._pendingConfig.message ?? defaults.message;
+			const isValidJson = this.#isValidJson(message);
+			const hint = window.i18n.getMessage('sendExtensionMessageHint')
+				.replace('%code%', '<code>chrome.runtime.sendMessage(<b>extensionId</b>, <b>message</b>)</code>');
+			return html`
+				<div class="action-config-row">
+					<span class="action-config-label"><code>extensionId</code></span>
+					<input type="text" class="action-config-input"
+						placeholder="abcdefghijklmnopabcdefghijklmnop"
+						.value=${extensionId}
+						maxlength="64"
+						@input=${(e) => { this._pendingConfig = { ...this._pendingConfig, extensionId: e.target.value }; this.requestUpdate(); }}
+					>
+				</div>
+				<div class="action-config-row">
+					<span class="action-config-label"><code>message</code></span>
+					<textarea class="action-config-textarea ${isValidJson ? '' : 'invalid'}"
+						placeholder='{"key": "value"}'
+						rows="2"
+						.value=${message}
+						maxlength="500"
+						@input=${(e) => { this._pendingConfig = { ...this._pendingConfig, message: e.target.value }; this.requestUpdate(); }}
+					></textarea>
+				</div>
+				${!isValidJson ? html`
+					<div class="action-config-warning">${window.i18n.getMessage('customEventInvalidJson')}</div>
+				` : ''}
+				<div class="action-config-hint">${unsafeHTML(hint)}</div>
+			`;
+		}
 		if (action === 'pasteClipboard') {
 			return html`
 				<div class="action-config-info">${unsafeHTML(window.i18n.getMessage('pasteClipboardHint'))}</div>
+			`;
+		}
+		if (action === 'pasteContent') {
+			const content = this._pendingConfig.content ?? (ACTION_DEFAULTS.pasteContent?.content || '');
+			return html`
+				<div class="action-config-info">${unsafeHTML(window.i18n.getMessage('pasteContentHint'))}</div>
+				<div class="action-config-field">
+					<label class="action-config-label">
+						${window.i18n.getMessage('pasteContentLabel')}
+						<span class="required-badge">${window.i18n.getMessage('actionRequiredBadge')}</span>
+					</label>
+					<textarea class="action-config-textarea"
+						rows="3"
+						maxlength="500"
+						.value=${content}
+						@input=${(e) => { this._pendingConfig = { ...this._pendingConfig, content: e.target.value }; }}
+					></textarea>
+					<div class="action-config-hint">${unsafeHTML(window.i18n.getMessage('pasteContentSensitiveHint'))}</div>
+				</div>
 			`;
 		}
 		if (action === 'searchClipboard') {
@@ -1494,7 +1571,7 @@ class ActionSelect extends LitElement {
 						</span>
 					</label>
 				</div>
-				${this.#renderPositionSelect(true, true)}
+				${this.#renderPositionSelect(true, true, true)}
 			`;
 		}
 		if (action === 'zoomIn' || action === 'zoomOut') {
@@ -1572,7 +1649,7 @@ class ActionSelect extends LitElement {
 				${this.#renderBookmarkFolderSelect()}
 				${this.#renderMenuConfigRow()}
 				${this.#renderTimeDisplay()}
-				${this.#renderPositionSelect(true, true)}
+				${this.#renderPositionSelect(true, true, true)}
 			`;
 		}
 		if (action === 'addToBookmarks') {

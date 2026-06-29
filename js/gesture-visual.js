@@ -51,6 +51,9 @@ class ShadowHost {
 			return false;
 		}
 
+		if (options?.builtInCss !== undefined) this.setBuiltInCss(options.builtInCss);
+		if (options?.customCss !== undefined) this.setCustomCss(options.customCss);
+
 		this.#container = this.createElement('div');
 		this.#container.style.cssText = `
 			position: fixed;
@@ -117,14 +120,18 @@ class ShadowHost {
 	}
 
 	setBuiltInCss(cssText) {
-		this.#builtInCss = cssText || '';
+		const next = cssText || '';
+		if (next === this.#builtInCss) return;
+		this.#builtInCss = next;
 		if (this.#builtInCssStyle) {
 			this.#builtInCssStyle.textContent = this.#builtInCss;
 		}
 	}
 
 	setCustomCss(cssText) {
-		this.#customCss = cssText || '';
+		const next = cssText || '';
+		if (next === this.#customCss) return;
+		this.#customCss = next;
 		if (this.#customCssStyle) {
 			this.#customCssStyle.textContent = this.#customCss;
 		}
@@ -419,8 +426,10 @@ class GestureOverlay {
 	}
 
 	init() {
-		if (!this.host.init(this.settings.lang, this.settings.isRtl, { topLayer: 'popover' })) return false;
-		this.host.setCustomCss(this.settings.customCss);
+		if (!this.host.init(this.settings.lang, this.settings.isRtl, {
+			topLayer: 'popover',
+			customCss: this.settings.customCss,
+		})) return false;
 		if (this.canvas) return true;
 
 		const shadow = this.host.shadow;
@@ -514,6 +523,12 @@ class GestureOverlay {
 				backdrop-filter: blur(var(--fm-hud-blur));
 				user-select: none;
 			}
+			@supports (corner-shape: superellipse(1.4)) {
+				.fm-gesture-hud {
+					corner-shape: superellipse(1.4);
+					border-radius: calc(13px * 1.4);
+				}
+			}
 			.fm-gesture-hud.arrows-only {
 				padding-inline-end: 27px;
 			}
@@ -569,6 +584,12 @@ class GestureOverlay {
 				flex-wrap: wrap;
 				justify-content: center;
 				gap: 2px 0;
+			}
+			@supports (corner-shape: superellipse(1.4)) {
+				.fm-gesture-suggest-hud {
+					corner-shape: superellipse(1.4);
+					border-radius: calc(10px * 1.4);
+				}
 			}
 			.fm-gesture-suggest-hud.visible {
 				opacity: 1;
@@ -957,10 +978,11 @@ class ToastOverlay {
 		if (this.host.container && !this.host.isConnected) {
 			this.#teardown();
 		}
-		if (!this.host.init(this.settings.lang, this.settings.isRtl, { topLayer: 'popover' })) return false;
-		this.host.setCustomCss(this.settings.customCss);
-		this.host.setBuiltInCss(this.#generateStyles());
-		return true;
+		return this.host.init(this.settings.lang, this.settings.isRtl, {
+			topLayer: 'popover',
+			builtInCss: this.#generateStyles(),
+			customCss: this.settings.customCss,
+		});
 	}
 
 	#generateStyles() {

@@ -603,6 +603,14 @@
 		"message": "前进",
 		"description": "Go forward"
 	},
+	"actionUrlLevelUp": {
+		"message": "上一级 URL",
+		"description": "Navigate to the parent directory of the current URL"
+	},
+	"actionUrlToRoot": {
+		"message": "回到根 URL",
+		"description": "Navigate to the root of the current site"
+	},
 	"actionScrollUp": {
 		"message": "向上滚动",
 		"description": "Scroll up"
@@ -710,6 +718,10 @@
 	"actionSwitchLastTab": {
 		"message": "切换到最后一个标签页",
 		"description": "Switch to last tab"
+	},
+	"actionSwitchLastActiveTab": {
+		"message": "切换到上一个活动标签页",
+		"description": "Switch to the most recently active tab"
 	},
 	"actionRefresh": {
 		"message": "刷新当前标签页",
@@ -1783,6 +1795,10 @@
 		"message": "发送自定义事件",
 		"description": "Action to dispatch a custom DOM event"
 	},
+	"actionSendExtensionMessage": {
+		"message": "调用其他扩展程序",
+		"description": "Action to send a custom message to another installed extension"
+	},
 	"actionSimulateKey": {
 		"message": "模拟按键",
 		"description": "Action to simulate a keyboard key press on the page"
@@ -1794,6 +1810,22 @@
 	"pasteClipboardHint": {
 		"message": "剪贴板内容将粘贴到<b>手势起始位置</b>的输入框中。",
 		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
+	"actionPasteContent": {
+		"message": "粘贴自定义文本",
+		"description": "Action to paste a preset, user-specified text at the gesture start position"
+	},
+	"pasteContentLabel": {
+		"message": "文本",
+		"description": "Label for the text field where the user enters the content to paste"
+	},
+	"pasteContentHint": {
+		"message": "指定的文本将插入到<b>手势起始位置</b>的输入框中。",
+		"description": "Hint shown in action config when paste specified content is selected. Contains HTML."
+	},
+	"pasteContentSensitiveHint": {
+		"message": "不建议在此存储密码等敏感信息。",
+		"description": "Warning hint below the content field for the paste specified content action"
 	},
 	"simulateKeyPreset": {
 		"message": "预设按键",
@@ -1842,6 +1874,10 @@
 	"customEventHint": {
 		"message": "在 %window% 上触发 %code%，可用于与其他脚本集成。",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
+	},
+	"sendExtensionMessageHint": {
+		"message": "通过 %code% 向另一个已安装的扩展程序发送消息。可用于与其他扩展程序集成。",
+		"description": "Hint explaining how send-message-to-extension works. %code% = <code>chrome.runtime.sendMessage(...)</code>"
 	},
 	"delayDuration": {
 		"message": "时长",

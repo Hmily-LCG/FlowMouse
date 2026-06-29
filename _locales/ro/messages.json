@@ -603,6 +603,14 @@
 		"message": "Înainte",
 		"description": "Go forward"
 	},
+	"actionUrlLevelUp": {
+		"message": "Un nivel mai sus în URL",
+		"description": "Navigate to the parent directory of the current URL"
+	},
+	"actionUrlToRoot": {
+		"message": "La URL-ul principal",
+		"description": "Navigate to the root of the current site"
+	},
 	"actionScrollUp": {
 		"message": "Derulează Sus",
 		"description": "Scroll up"
@@ -710,6 +718,10 @@
 	"actionSwitchLastTab": {
 		"message": "Comută la Ultimul Tab",
 		"description": "Switch to last tab"
+	},
+	"actionSwitchLastActiveTab": {
+		"message": "Comută la ultima filă activă",
+		"description": "Switch to the most recently active tab"
 	},
 	"actionRefresh": {
 		"message": "Reîmprospătează Tab Curent",
@@ -1783,6 +1795,10 @@
 		"message": "Trimite eveniment personalizat",
 		"description": "Action to dispatch a custom DOM event"
 	},
+	"actionSendExtensionMessage": {
+		"message": "Invocă o altă extensie",
+		"description": "Action to send a custom message to another installed extension"
+	},
 	"actionSimulateKey": {
 		"message": "Simulează apăsarea unei taste",
 		"description": "Action to simulate a keyboard key press on the page"
@@ -1794,6 +1810,22 @@
 	"pasteClipboardHint": {
 		"message": "Conținutul clipboardului va fi lipit în câmpul de introducere la <b>poziția de început a gestului</b>.",
 		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
+	"actionPasteContent": {
+		"message": "Lipește text personalizat",
+		"description": "Action to paste a preset, user-specified text at the gesture start position"
+	},
+	"pasteContentLabel": {
+		"message": "Text",
+		"description": "Label for the text field where the user enters the content to paste"
+	},
+	"pasteContentHint": {
+		"message": "Textul specificat va fi inserat în câmpul de introducere la <b>poziția de început a gestului</b>.",
+		"description": "Hint shown in action config when paste specified content is selected. Contains HTML."
+	},
+	"pasteContentSensitiveHint": {
+		"message": "Nu se recomandă stocarea aici a informațiilor sensibile, cum ar fi parolele.",
+		"description": "Warning hint below the content field for the paste specified content action"
 	},
 	"simulateKeyPreset": {
 		"message": "Tastă presetată",
@@ -1842,6 +1874,10 @@
 	"customEventHint": {
 		"message": "Expediază %code% pe %window%. Util pentru integrarea cu alte scripturi.",
 		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
+	},
+	"sendExtensionMessageHint": {
+		"message": "Expediază un mesaj prin %code% către o altă extensie instalată. Util pentru integrarea cu alte extensii.",
+		"description": "Hint explaining how send-message-to-extension works. %code% = <code>chrome.runtime.sendMessage(...)</code>"
 	},
 	"delayDuration": {
 		"message": "Durată",
