@@ -1703,9 +1703,26 @@
 		"message": "Aangepast menu",
 		"description": "Custom popup menu action name"
 	},
+	"actionAddSiteToMenu": {
+		"message": "Huidige site aan menu toevoegen",
+		"description": "Add current site to menu action name"
+	},
+	"addSiteToMenuDesc": {
+		"message": "Voegt de huidige site toe aan de patronen van het geselecteerde menu.",
+		"description": "Add site to menu action config description"
+	},
 	"customMenuDesc": {
 		"message": "Maak aangepaste pop-upmenu's met meerdere acties.",
 		"description": "Custom menu section description"
+	},
+	"customMenuContextual": {
+		"message": "Menu kiezen op basis van huidige site"
+	},
+	"customMenuContextualHint": {
+		"message": "Opent het eerste menu waarvan de sitepatronen overeenkomen met de huidige pagina; configureer patronen in elk menu."
+	},
+	"customMenuContextualLabel": {
+		"message": "Dynamisch menu"
 	},
 	"addMenu": {
 		"message": "Menu toevoegen",
@@ -1746,6 +1763,18 @@
 	"menuItemNumber": {
 		"message": "Item %n%",
 		"description": "Menu item number label"
+	},
+	"menuPatternsTitle": {
+		"message": "Tonen op deze sites"
+	},
+	"menuPatternsHint": {
+		"message": "Leeg = overal (standaardmenu). Voeg een domein toe zoals github.com."
+	},
+	"menuPatternsAdd": {
+		"message": "Site toevoegen"
+	},
+	"menuPatternsPlaceholder": {
+		"message": "bijv. github.com"
 	},
 	"addChain": {
 		"message": "Reeks toevoegen",
@@ -2122,5 +2151,138 @@
 	"ctxMenuTimeDateAdded": {
 		"message": "Datum toegevoegd",
 		"description": "Time display option: show when the bookmark was added"
+	},
+	"actionSearchLink": {
+		"message": "Zoeklink openen",
+		"description": "Search link action name — opens a configured search link with the selected text"
+	},
+	"searchLinkSource": {
+		"message": "Bron"
+	},
+	"searchLinkEngine": {
+		"message": "Motor"
+	},
+	"searchLinkModeEngine": {
+		"message": "Zoekmachine"
+	},
+	"searchLinkModeInline": {
+		"message": "Eenmalige koppeling"
+	},
+	"searchLinkNew": {
+		"message": "Nieuw"
+	},
+	"searchLinkEdit": {
+		"message": "Bewerken"
+	},
+	"searchLinkNewInline": {
+		"message": "Eenmalige koppeling voor dit item"
+	},
+	"searchLinkNewSaved": {
+		"message": "Nieuwe opgeslagen zoekmachine"
+	},
+	"searchLinkEditException": {
+		"message": "Alleen dit item (uitzondering)"
+	},
+	"searchLinkEditGlobal": {
+		"message": "Zoekmachine bewerken voor alle toepassingen"
+	},
+	"moveUp": {
+		"message": "Omhoog verplaatsen",
+		"description": "Tooltip for moving an item up in a list"
+	},
+	"moveDown": {
+		"message": "Omlaag verplaatsen",
+		"description": "Tooltip for moving an item down in a list"
+	},
+	"engineFieldName": {
+		"message": "Naam"
+	},
+	"engineFieldUrl": {
+		"message": "URL (gebruik %s voor de selectie)"
+	},
+	"engineFieldPlus": {
+		"message": "Woorden samenvoegen met + (in plaats van %20)"
+	},
+	"engineFieldSlug": {
+		"message": "Gebruik een koppelteken-pad (slug)"
+	},
+	"engineFieldSuffix": {
+		"message": "URL-achtervoegsel"
+	},
+	"engineFieldClipboard": {
+		"message": "Klembordmodus: selectie kopiëren en pagina openen (geen zoekopdracht)"
+	},
+	"sectionSearchEngines": {
+		"message": "Zoekmachines"
+	},
+	"engineAddCustom": {
+		"message": "Zoekmachine toevoegen"
+	},
+	"engineEdit": {
+		"message": "Bewerken"
+	},
+	"engineDelete": {
+		"message": "Verwijderen"
+	},
+	"engineHide": {
+		"message": "Verbergen"
+	},
+	"engineShow": {
+		"message": "Weergeven"
+	},
+	"engineReset": {
+		"message": "Herstel naar standaard"
+	},
+	"engineBuiltinBadge": {
+		"message": "ingebouwd"
+	},
+	"engineHiddenBadge": {
+		"message": "verborgen"
+	},
+	"engineSave": {
+		"message": "Opslaan"
+	},
+	"engineCancel": {
+		"message": "Annuleren"
+	},
+	"transformFailed": {
+		"message": "Transformatie mislukt: %error%",
+		"description": "Toast shown when a search-link transform script fails; %error% is replaced with the error message"
+	},
+	"transformToggle": {
+		"message": "Aangepaste transformatie (JS)",
+		"description": "Checkbox/toggle label for enabling a custom JS transform on a search-link engine"
+	},
+	"transformCodeHint": {
+		"message": "`selection` en `clipboard` zijn beschikbaar. `return` de tekst die %s vervangt.",
+		"description": "Hint text shown near the transform code editor"
+	},
+	"transformClipboardOptIn": {
+		"message": "Klembordinhoud aan de functie verstrekken",
+		"description": "Checkbox label opting in to passing clipboard content to the transform function"
+	},
+	"transformRawResult": {
+		"message": "Standaardcodering vervangen (resultaat onbewerkt invoegen)",
+		"description": "Checkbox label to insert the transform result verbatim into the URL without encoding"
+	},
+	"transformRawResultNote": {
+		"message": "Je functie moet een geldig URL-onderdeel teruggeven; codering van %s, + en slug wordt overgeslagen.",
+		"description": "Note explaining that raw insertion skips %s/plus/slug encoding"
+	},
+	"transformSampleLabel": {
+		"message": "Testinvoer",
+		"description": "Label for the sample input used to test a transform"
+	},
+	"transformTestBtn": {
+		"message": "Testen",
+		"description": "Button that runs the transform against the sample input"
+	},
+	"transformIsolationNote": {
+		"message": "Wordt uitgevoerd in een geïsoleerde sandbox zonder toegang tot de pagina of de extensie.",
+		"description": "Note explaining that the transform runs sandboxed"
+	},
+	"transformHelp": {
+		"message": "Schrijf een functielichaam. De variabelen selection (de geselecteerde tekst) en clipboard zijn beschikbaar; geef de string terug die %s vervangt. Wordt uitgevoerd in een geïsoleerde sandbox met een time-out van ~1s — geen toegang tot de pagina of de extensie.",
+		"description": "Help tooltip explaining the custom JS transform function"
 	}
 }

@@ -1703,9 +1703,26 @@
 		"message": "Anpassad meny",
 		"description": "Custom popup menu action name"
 	},
+	"actionAddSiteToMenu": {
+		"message": "Lägg till aktuell webbplats i menyn",
+		"description": "Add current site to menu action name"
+	},
+	"addSiteToMenuDesc": {
+		"message": "Lägger till den aktuella webbplatsen i det valda menyns mönster.",
+		"description": "Add site to menu action config description"
+	},
 	"customMenuDesc": {
 		"message": "Skapa anpassade popup-menyer med flera åtgärder.",
 		"description": "Custom menu section description"
+	},
+	"customMenuContextual": {
+		"message": "Välj meny efter aktuell webbplats"
+	},
+	"customMenuContextualHint": {
+		"message": "Öppnar den första menyn vars webbplatsmönster matchar den aktuella sidan; konfigurera mönster i varje meny."
+	},
+	"customMenuContextualLabel": {
+		"message": "Dynamisk meny"
 	},
 	"addMenu": {
 		"message": "Lägg till meny",
@@ -1746,6 +1763,18 @@
 	"menuItemNumber": {
 		"message": "Objekt %n%",
 		"description": "Menu item number label"
+	},
+	"menuPatternsTitle": {
+		"message": "Visa på dessa webbplatser"
+	},
+	"menuPatternsHint": {
+		"message": "Tom = överallt (standardmeny). Lägg till en domän som github.com."
+	},
+	"menuPatternsAdd": {
+		"message": "Lägg till webbplats"
+	},
+	"menuPatternsPlaceholder": {
+		"message": "t.ex. github.com"
 	},
 	"addChain": {
 		"message": "Lägg till kedja",
@@ -2122,5 +2151,138 @@
 	"ctxMenuTimeDateAdded": {
 		"message": "Tillagt datum",
 		"description": "Time display option: show when the bookmark was added"
+	},
+	"actionSearchLink": {
+		"message": "Öppna söklänk",
+		"description": "Search link action name — opens a configured search link with the selected text"
+	},
+	"searchLinkSource": {
+		"message": "Källa"
+	},
+	"searchLinkEngine": {
+		"message": "Motor"
+	},
+	"searchLinkModeEngine": {
+		"message": "Sökmotor"
+	},
+	"searchLinkModeInline": {
+		"message": "Engångslänk"
+	},
+	"searchLinkNew": {
+		"message": "Ny"
+	},
+	"searchLinkEdit": {
+		"message": "Redigera"
+	},
+	"searchLinkNewInline": {
+		"message": "Engångslänk för denna post"
+	},
+	"searchLinkNewSaved": {
+		"message": "Ny sparad sökmotor"
+	},
+	"searchLinkEditException": {
+		"message": "Bara denna post (undantag)"
+	},
+	"searchLinkEditGlobal": {
+		"message": "Redigera sökmotorn för alla användningar"
+	},
+	"moveUp": {
+		"message": "Flytta upp",
+		"description": "Tooltip for moving an item up in a list"
+	},
+	"moveDown": {
+		"message": "Flytta ned",
+		"description": "Tooltip for moving an item down in a list"
+	},
+	"engineFieldName": {
+		"message": "Namn"
+	},
+	"engineFieldUrl": {
+		"message": "URL (använd %s för urvalet)"
+	},
+	"engineFieldPlus": {
+		"message": "Sammankoppla ord med + (istället för %20)"
+	},
+	"engineFieldSlug": {
+		"message": "Använd bindestreck-sökväg (slug)"
+	},
+	"engineFieldSuffix": {
+		"message": "URL-suffix"
+	},
+	"engineFieldClipboard": {
+		"message": "Urklippsläge: kopiera urval och öppna sidan (ingen fråga)"
+	},
+	"sectionSearchEngines": {
+		"message": "Sökmotorer"
+	},
+	"engineAddCustom": {
+		"message": "Lägg till sökmotor"
+	},
+	"engineEdit": {
+		"message": "Redigera"
+	},
+	"engineDelete": {
+		"message": "Ta bort"
+	},
+	"engineHide": {
+		"message": "Dölj"
+	},
+	"engineShow": {
+		"message": "Visa"
+	},
+	"engineReset": {
+		"message": "Återställ till standard"
+	},
+	"engineBuiltinBadge": {
+		"message": "inbyggd"
+	},
+	"engineHiddenBadge": {
+		"message": "dold"
+	},
+	"engineSave": {
+		"message": "Spara"
+	},
+	"engineCancel": {
+		"message": "Avbryt"
+	},
+	"transformFailed": {
+		"message": "Transformationen misslyckades: %error%",
+		"description": "Toast shown when a search-link transform script fails; %error% is replaced with the error message"
+	},
+	"transformToggle": {
+		"message": "Anpassad transformation (JS)",
+		"description": "Checkbox/toggle label for enabling a custom JS transform on a search-link engine"
+	},
+	"transformCodeHint": {
+		"message": "`selection` och `clipboard` är tillgängliga. `return` texten som ersätter %s.",
+		"description": "Hint text shown near the transform code editor"
+	},
+	"transformClipboardOptIn": {
+		"message": "Ge funktionen tillgång till urklippets innehåll",
+		"description": "Checkbox label opting in to passing clipboard content to the transform function"
+	},
+	"transformRawResult": {
+		"message": "Ersätt standardkodning (infoga resultat direkt)",
+		"description": "Checkbox label to insert the transform result verbatim into the URL without encoding"
+	},
+	"transformRawResultNote": {
+		"message": "Din funktion måste returnera en giltig URL-komponent; kodning av %s, + och slug hoppas över.",
+		"description": "Note explaining that raw insertion skips %s/plus/slug encoding"
+	},
+	"transformSampleLabel": {
+		"message": "Testindata",
+		"description": "Label for the sample input used to test a transform"
+	},
+	"transformTestBtn": {
+		"message": "Testa",
+		"description": "Button that runs the transform against the sample input"
+	},
+	"transformIsolationNote": {
+		"message": "Körs i en isolerad sandbox utan åtkomst till sidan eller tillägget.",
+		"description": "Note explaining that the transform runs sandboxed"
+	},
+	"transformHelp": {
+		"message": "Skriv ett funktionskropp. Variablerna selection (den markerade texten) och clipboard är tillgängliga; returnera strängen som ersätter %s. Körs i en isolerad sandlåda med en ~1s timeout — ingen åtkomst till sidan eller tillägget.",
+		"description": "Help tooltip explaining the custom JS transform function"
 	}
 }

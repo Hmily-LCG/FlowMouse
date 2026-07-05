@@ -1703,9 +1703,26 @@
 		"message": "自訂選單",
 		"description": "Custom popup menu action name"
 	},
+	"actionAddSiteToMenu": {
+		"message": "將目前網站新增至選單",
+		"description": "Add current site to menu action name"
+	},
+	"addSiteToMenuDesc": {
+		"message": "將目前網站新增至所選選單的模式中。",
+		"description": "Add site to menu action config description"
+	},
 	"customMenuDesc": {
 		"message": "建立包含多個動作的自訂彈出選單。",
 		"description": "Custom menu section description"
+	},
+	"customMenuContextual": {
+		"message": "依目前網站選擇選單"
+	},
+	"customMenuContextualHint": {
+		"message": "開啟第一個網站模式與目前頁面相符的選單；在每個選單中設定模式。"
+	},
+	"customMenuContextualLabel": {
+		"message": "動態選單"
 	},
 	"addMenu": {
 		"message": "新增選單",
@@ -1746,6 +1763,18 @@
 	"menuItemNumber": {
 		"message": "項目 %n%",
 		"description": "Menu item number label"
+	},
+	"menuPatternsTitle": {
+		"message": "在這些網站上顯示"
+	},
+	"menuPatternsHint": {
+		"message": "空白 = 所有地方（預設選單）。新增一個網域，例如 github.com。"
+	},
+	"menuPatternsAdd": {
+		"message": "新增網站"
+	},
+	"menuPatternsPlaceholder": {
+		"message": "例：github.com"
 	},
 	"addChain": {
 		"message": "新增命令鏈",
@@ -2122,5 +2151,138 @@
 	"ctxMenuTimeDateAdded": {
 		"message": "加入日期",
 		"description": "Time display option: show when the bookmark was added"
+	},
+	"actionSearchLink": {
+		"message": "開啟搜尋連結",
+		"description": "Search link action name — opens a configured search link with the selected text"
+	},
+	"searchLinkSource": {
+		"message": "來源"
+	},
+	"searchLinkEngine": {
+		"message": "引擎"
+	},
+	"searchLinkModeEngine": {
+		"message": "搜尋引擎"
+	},
+	"searchLinkModeInline": {
+		"message": "一次性連結"
+	},
+	"searchLinkNew": {
+		"message": "新建"
+	},
+	"searchLinkEdit": {
+		"message": "編輯"
+	},
+	"searchLinkNewInline": {
+		"message": "此條目的一次性連結"
+	},
+	"searchLinkNewSaved": {
+		"message": "新建儲存的搜尋引擎"
+	},
+	"searchLinkEditException": {
+		"message": "僅此條目（例外）"
+	},
+	"searchLinkEditGlobal": {
+		"message": "為所有使用編輯搜尋引擎"
+	},
+	"moveUp": {
+		"message": "上移",
+		"description": "Tooltip for moving an item up in a list"
+	},
+	"moveDown": {
+		"message": "下移",
+		"description": "Tooltip for moving an item down in a list"
+	},
+	"engineFieldName": {
+		"message": "名稱"
+	},
+	"engineFieldUrl": {
+		"message": "URL（用 %s 表示所選內容）"
+	},
+	"engineFieldPlus": {
+		"message": "用 + 連接詞語（代替 %20）"
+	},
+	"engineFieldSlug": {
+		"message": "使用連字符路徑（slug）"
+	},
+	"engineFieldSuffix": {
+		"message": "URL 後綴"
+	},
+	"engineFieldClipboard": {
+		"message": "剪貼簿模式：複製所選內容並開啟頁面（無搜尋詞）"
+	},
+	"sectionSearchEngines": {
+		"message": "搜尋引擎"
+	},
+	"engineAddCustom": {
+		"message": "新增搜尋引擎"
+	},
+	"engineEdit": {
+		"message": "編輯"
+	},
+	"engineDelete": {
+		"message": "刪除"
+	},
+	"engineHide": {
+		"message": "隱藏"
+	},
+	"engineShow": {
+		"message": "顯示"
+	},
+	"engineReset": {
+		"message": "還原預設值"
+	},
+	"engineBuiltinBadge": {
+		"message": "內建"
+	},
+	"engineHiddenBadge": {
+		"message": "已隱藏"
+	},
+	"engineSave": {
+		"message": "儲存"
+	},
+	"engineCancel": {
+		"message": "取消"
+	},
+	"transformFailed": {
+		"message": "轉換失敗：%error%",
+		"description": "Toast shown when a search-link transform script fails; %error% is replaced with the error message"
+	},
+	"transformToggle": {
+		"message": "自訂轉換 (JS)",
+		"description": "Checkbox/toggle label for enabling a custom JS transform on a search-link engine"
+	},
+	"transformCodeHint": {
+		"message": "可使用 `selection` 和 `clipboard`。`return` 用於替換 %s 的文字。",
+		"description": "Hint text shown near the transform code editor"
+	},
+	"transformClipboardOptIn": {
+		"message": "向函式提供剪貼簿內容",
+		"description": "Checkbox label opting in to passing clipboard content to the transform function"
+	},
+	"transformRawResult": {
+		"message": "取代預設編碼（原樣插入結果）",
+		"description": "Checkbox label to insert the transform result verbatim into the URL without encoding"
+	},
+	"transformRawResultNote": {
+		"message": "您的函式必須傳回有效的 URL 元件；%s、+ 及 slug 編碼將被略過。",
+		"description": "Note explaining that raw insertion skips %s/plus/slug encoding"
+	},
+	"transformSampleLabel": {
+		"message": "測試輸入",
+		"description": "Label for the sample input used to test a transform"
+	},
+	"transformTestBtn": {
+		"message": "測試",
+		"description": "Button that runs the transform against the sample input"
+	},
+	"transformIsolationNote": {
+		"message": "在獨立的沙盒中執行，無法存取頁面或擴充功能。",
+		"description": "Note explaining that the transform runs sandboxed"
+	},
+	"transformHelp": {
+		"message": "編寫函式主體。變數 selection（選取的文字）和 clipboard 可供使用；回傳替換 %s 的字串。在具有 ~1s 逾時的隔離沙盒中執行——無法存取頁面或擴充功能。",
+		"description": "Help tooltip explaining the custom JS transform function"
 	}
 }

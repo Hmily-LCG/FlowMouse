@@ -41,6 +41,7 @@ FlowMouse is a mouse gesture extension designed for ultimate smoothness. Seamles
 - <img src="./assets/icons/workflow.svg" width="16" height="16"> **Command chains:** Run multiple actions from a single gesture.
 - <img src="./assets/icons/sliders-horizontal.svg" width="16" height="16"> **Visual settings:** Configure gesture trail color, width, action hints, and more from a clean settings UI.
 - <img src="./assets/icons/book-open.svg" width="16" height="16"> **Tutorial:** Interactive guide on first install.
+- <img src="./assets/icons/globe.svg" width="16" height="16"> **Context-aware search menus:** Add search-engine entries (with icons) and custom links to any mouse menu; assign site patterns so the right menu opens automatically per site, and use the "Add current site to menu" gesture to register a site with one swipe.
 
 ## Default Gestures
 

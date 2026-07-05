@@ -1703,9 +1703,26 @@
 		"message": "カスタムメニュー",
 		"description": "Custom popup menu action name"
 	},
+	"actionAddSiteToMenu": {
+		"message": "現在のサイトをメニューに追加",
+		"description": "Add current site to menu action name"
+	},
+	"addSiteToMenuDesc": {
+		"message": "現在のサイトを選択したメニューのパターンに追加します。",
+		"description": "Add site to menu action config description"
+	},
 	"customMenuDesc": {
 		"message": "複数のアクションを含むカスタムポップアップメニューを作成します。",
 		"description": "Custom menu section description"
+	},
+	"customMenuContextual": {
+		"message": "現在のサイトに合わせてメニューを選択"
+	},
+	"customMenuContextualHint": {
+		"message": "サイトのパターンが現在のページに一致する最初のメニューを開きます。各メニューでパターンを設定してください。"
+	},
+	"customMenuContextualLabel": {
+		"message": "ダイナミックメニュー"
 	},
 	"addMenu": {
 		"message": "メニューを追加",
@@ -1746,6 +1763,18 @@
 	"menuItemNumber": {
 		"message": "アイテム %n%",
 		"description": "Menu item number label"
+	},
+	"menuPatternsTitle": {
+		"message": "これらのサイトで表示"
+	},
+	"menuPatternsHint": {
+		"message": "空 = すべてのページ（デフォルトメニュー）。github.com のようなドメインを追加してください。"
+	},
+	"menuPatternsAdd": {
+		"message": "サイトを追加"
+	},
+	"menuPatternsPlaceholder": {
+		"message": "例: github.com"
 	},
 	"addChain": {
 		"message": "チェーンを追加",
@@ -2122,5 +2151,138 @@
 	"ctxMenuTimeDateAdded": {
 		"message": "追加日時",
 		"description": "Time display option: show when the bookmark was added"
+	},
+	"actionSearchLink": {
+		"message": "検索リンクを開く",
+		"description": "Search link action name — opens a configured search link with the selected text"
+	},
+	"searchLinkSource": {
+		"message": "ソース"
+	},
+	"searchLinkEngine": {
+		"message": "エンジン"
+	},
+	"searchLinkModeEngine": {
+		"message": "検索エンジン"
+	},
+	"searchLinkModeInline": {
+		"message": "ワンタイムリンク"
+	},
+	"searchLinkNew": {
+		"message": "新規"
+	},
+	"searchLinkEdit": {
+		"message": "編集"
+	},
+	"searchLinkNewInline": {
+		"message": "このエントリ専用のワンタイムリンク"
+	},
+	"searchLinkNewSaved": {
+		"message": "新しい保存済み検索エンジン"
+	},
+	"searchLinkEditException": {
+		"message": "このエントリのみ（例外）"
+	},
+	"searchLinkEditGlobal": {
+		"message": "すべての使用箇所で検索エンジンを編集"
+	},
+	"moveUp": {
+		"message": "上に移動",
+		"description": "Tooltip for moving an item up in a list"
+	},
+	"moveDown": {
+		"message": "下に移動",
+		"description": "Tooltip for moving an item down in a list"
+	},
+	"engineFieldName": {
+		"message": "名前"
+	},
+	"engineFieldUrl": {
+		"message": "URL (選択テキストには %s を使用)"
+	},
+	"engineFieldPlus": {
+		"message": "単語を + で結合（%20 の代わり）"
+	},
+	"engineFieldSlug": {
+		"message": "ハイフンパス（スラッグ）を使用"
+	},
+	"engineFieldSuffix": {
+		"message": "URL サフィックス"
+	},
+	"engineFieldClipboard": {
+		"message": "クリップボードモード: 選択をコピーしてページを開く（クエリなし）"
+	},
+	"sectionSearchEngines": {
+		"message": "検索エンジン"
+	},
+	"engineAddCustom": {
+		"message": "検索エンジンを追加"
+	},
+	"engineEdit": {
+		"message": "編集"
+	},
+	"engineDelete": {
+		"message": "削除"
+	},
+	"engineHide": {
+		"message": "非表示"
+	},
+	"engineShow": {
+		"message": "表示"
+	},
+	"engineReset": {
+		"message": "デフォルトに戻す"
+	},
+	"engineBuiltinBadge": {
+		"message": "組み込み"
+	},
+	"engineHiddenBadge": {
+		"message": "非表示"
+	},
+	"engineSave": {
+		"message": "保存"
+	},
+	"engineCancel": {
+		"message": "キャンセル"
+	},
+	"transformFailed": {
+		"message": "変換に失敗しました: %error%",
+		"description": "Toast shown when a search-link transform script fails; %error% is replaced with the error message"
+	},
+	"transformToggle": {
+		"message": "カスタム変換 (JS)",
+		"description": "Checkbox/toggle label for enabling a custom JS transform on a search-link engine"
+	},
+	"transformCodeHint": {
+		"message": "`selection` と `clipboard` が利用できます。%s を置き換えるテキストを `return` してください。",
+		"description": "Hint text shown near the transform code editor"
+	},
+	"transformClipboardOptIn": {
+		"message": "クリップボードの内容を関数に渡す",
+		"description": "Checkbox label opting in to passing clipboard content to the transform function"
+	},
+	"transformRawResult": {
+		"message": "デフォルトのエンコードを置き換える（結果をそのまま挿入）",
+		"description": "Checkbox label to insert the transform result verbatim into the URL without encoding"
+	},
+	"transformRawResultNote": {
+		"message": "関数は有効な URL コンポーネントを返す必要があります。%s、+ および slug のエンコードはスキップされます。",
+		"description": "Note explaining that raw insertion skips %s/plus/slug encoding"
+	},
+	"transformSampleLabel": {
+		"message": "テスト入力",
+		"description": "Label for the sample input used to test a transform"
+	},
+	"transformTestBtn": {
+		"message": "テスト",
+		"description": "Button that runs the transform against the sample input"
+	},
+	"transformIsolationNote": {
+		"message": "ページや拡張機能にアクセスできない隔離されたサンドボックスで実行されます。",
+		"description": "Note explaining that the transform runs sandboxed"
+	},
+	"transformHelp": {
+		"message": "関数の本体を記述してください。変数 selection（選択されたテキスト）と clipboard が利用できます。%s を置き換える文字列を返してください。~1s のタイムアウトがある隔離されたサンドボックスで実行されます — ページや拡張機能へのアクセスはありません。",
+		"description": "Help tooltip explaining the custom JS transform function"
 	}
 }

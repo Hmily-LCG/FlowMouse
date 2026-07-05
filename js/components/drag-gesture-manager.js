@@ -2,6 +2,7 @@ import { LitElement, html, css, unsafeCSS, unsafeHTML } from '../../js/lib/lit-a
 import { commonStyles, optionStyles } from './shared-styles.js';
 import { icons, icon, iconUrl } from '../icons.js';
 import { tooltip } from '../tooltip.js';
+import { renderCatalogEngineOptions } from './engine-options.js';
 
 class DragGestureManager extends LitElement {
 
@@ -271,7 +272,7 @@ class DragGestureManager extends LitElement {
 
 								${(this.type === 'text' || this.type === 'image') ? html`
 									<select class="engine-select" style=${showEngine ? '' : 'display:none'}
-										.value=${engine}
+										.value=${this.type === 'image' ? window.FlowMouseEngineRegistry.normalizeImageEngineId(engine) : engine}
 										@change=${(e) => this.#handleEngineChange(index, e.target.value)}>
 										${this.#renderEngineOptions(engine)}
 									</select>
@@ -421,45 +422,11 @@ class DragGestureManager extends LitElement {
 	}
 
 	#renderSearchEngineOptions(current) {
-		const { SEARCH_ENGINES, SEARCH_ENGINE_ORDER } = window.GestureConstants;
-		const lang = window.i18n.getCurrentLanguage();
-		const order = SEARCH_ENGINE_ORDER[lang] || SEARCH_ENGINE_ORDER['default'];
-		const displayKeys = [...order];
-
-		if (current && current !== 'custom' && !displayKeys.includes(current) && SEARCH_ENGINES[current]) {
-			displayKeys.push(current);
-		}
-
-		return html`
-			${displayKeys.map(key => {
-			const engine = SEARCH_ENGINES[key];
-			if (!engine) return '';
-			const label = engine.i18nKey ? window.i18n.getMessage(engine.i18nKey) : engine.name;
-			return html`<option value=${key} ?selected=${current === key}>${label}</option>`;
-		})}
-			<option value="custom" ?selected=${current === 'custom'}>${window.i18n.getMessage('custom')}</option>
-		`;
+		return renderCatalogEngineOptions(current, 'text');
 	}
 
 	#renderImageSearchEngineOptions(current) {
-		const { IMAGE_SEARCH_ENGINES, IMAGE_SEARCH_ENGINE_ORDER } = window.GestureConstants;
-		const lang = window.i18n.getCurrentLanguage();
-		const order = IMAGE_SEARCH_ENGINE_ORDER[lang] || IMAGE_SEARCH_ENGINE_ORDER['default'];
-		const displayKeys = [...order];
-
-		if (current && current !== 'custom' && !displayKeys.includes(current) && IMAGE_SEARCH_ENGINES[current]) {
-			displayKeys.push(current);
-		}
-
-		return html`
-			${displayKeys.map(key => {
-			const engine = IMAGE_SEARCH_ENGINES[key];
-			if (!engine) return '';
-			const label = engine.i18nKey ? window.i18n.getMessage(engine.i18nKey) : engine.name;
-			return html`<option value=${key} ?selected=${current === key}>${label}</option>`;
-		})}
-			<option value="custom" ?selected=${current === 'custom'}>${window.i18n.getMessage('custom')}</option>
-		`;
+		return renderCatalogEngineOptions(current, 'image');
 	}
 
 	static #CUSTOM_NAME_FIELDS = ['customName', 'customNamePreferLink', 'customNameAutoDetectUrl'];

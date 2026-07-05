@@ -1703,9 +1703,26 @@
 		"message": "Pasadyang Menu",
 		"description": "Custom popup menu action name"
 	},
+	"actionAddSiteToMenu": {
+		"message": "Idagdag ang kasalukuyang site sa menu",
+		"description": "Add current site to menu action name"
+	},
+	"addSiteToMenuDesc": {
+		"message": "Idinadagdag ang kasalukuyang site sa mga pattern ng napiling menu.",
+		"description": "Add site to menu action config description"
+	},
 	"customMenuDesc": {
 		"message": "Lumikha ng mga pasadyang popup menu na may maraming aksyon.",
 		"description": "Custom menu section description"
+	},
+	"customMenuContextual": {
+		"message": "Pumili ng menu ayon sa kasalukuyang site"
+	},
+	"customMenuContextualHint": {
+		"message": "Nagbubukas ng unang menu na ang mga pattern ng site ay tugma sa kasalukuyang pahina; i-configure ang mga pattern sa bawat menu."
+	},
+	"customMenuContextualLabel": {
+		"message": "Dynamic na menu"
 	},
 	"addMenu": {
 		"message": "Magdagdag ng Menu",
@@ -1746,6 +1763,18 @@
 	"menuItemNumber": {
 		"message": "Item %n%",
 		"description": "Menu item number label"
+	},
+	"menuPatternsTitle": {
+		"message": "Ipakita sa mga site na ito"
+	},
+	"menuPatternsHint": {
+		"message": "Walang laman = saanman (default na menu). Magdagdag ng domain tulad ng github.com."
+	},
+	"menuPatternsAdd": {
+		"message": "Magdagdag ng site"
+	},
+	"menuPatternsPlaceholder": {
+		"message": "hal. github.com"
 	},
 	"addChain": {
 		"message": "Magdagdag ng Chain",
@@ -2122,5 +2151,138 @@
 	"ctxMenuTimeDateAdded": {
 		"message": "Petsang idinagdag",
 		"description": "Time display option: show when the bookmark was added"
+	},
+	"actionSearchLink": {
+		"message": "Buksan ang search link",
+		"description": "Search link action name — opens a configured search link with the selected text"
+	},
+	"searchLinkSource": {
+		"message": "Pinagmulan"
+	},
+	"searchLinkEngine": {
+		"message": "Engine"
+	},
+	"searchLinkModeEngine": {
+		"message": "Search engine"
+	},
+	"searchLinkModeInline": {
+		"message": "Isang beses na link"
+	},
+	"searchLinkNew": {
+		"message": "Bago"
+	},
+	"searchLinkEdit": {
+		"message": "I-edit"
+	},
+	"searchLinkNewInline": {
+		"message": "Isang beses na link para sa entry na ito"
+	},
+	"searchLinkNewSaved": {
+		"message": "Bagong naka-save na engine"
+	},
+	"searchLinkEditException": {
+		"message": "Entry na ito lamang (eksepsyon)"
+	},
+	"searchLinkEditGlobal": {
+		"message": "I-edit ang engine para sa lahat ng paggamit"
+	},
+	"moveUp": {
+		"message": "Ilipat pataas",
+		"description": "Tooltip for moving an item up in a list"
+	},
+	"moveDown": {
+		"message": "Ilipat pababa",
+		"description": "Tooltip for moving an item down in a list"
+	},
+	"engineFieldName": {
+		"message": "Pangalan"
+	},
+	"engineFieldUrl": {
+		"message": "URL (gamitin ang %s para sa seleksyon)"
+	},
+	"engineFieldPlus": {
+		"message": "Pagsamahin ang mga salita ng + (sa halip na %20)"
+	},
+	"engineFieldSlug": {
+		"message": "Gumamit ng hyphen na path (slug)"
+	},
+	"engineFieldSuffix": {
+		"message": "URL suffix"
+	},
+	"engineFieldClipboard": {
+		"message": "Clipboard mode: kopyahin ang seleksyon at buksan ang pahina (walang query)"
+	},
+	"sectionSearchEngines": {
+		"message": "Mga Search Engine"
+	},
+	"engineAddCustom": {
+		"message": "Magdagdag ng search engine"
+	},
+	"engineEdit": {
+		"message": "I-edit"
+	},
+	"engineDelete": {
+		"message": "Tanggalin"
+	},
+	"engineHide": {
+		"message": "Itago"
+	},
+	"engineShow": {
+		"message": "Ipakita"
+	},
+	"engineReset": {
+		"message": "I-reset sa default"
+	},
+	"engineBuiltinBadge": {
+		"message": "built-in"
+	},
+	"engineHiddenBadge": {
+		"message": "nakatago"
+	},
+	"engineSave": {
+		"message": "I-save"
+	},
+	"engineCancel": {
+		"message": "Kanselahin"
+	},
+	"transformFailed": {
+		"message": "Nabigo ang transform: %error%",
+		"description": "Toast shown when a search-link transform script fails; %error% is replaced with the error message"
+	},
+	"transformToggle": {
+		"message": "Custom na transform (JS)",
+		"description": "Checkbox/toggle label for enabling a custom JS transform on a search-link engine"
+	},
+	"transformCodeHint": {
+		"message": "Available ang `selection` at `clipboard`. I-`return` ang tekstong papalit sa %s.",
+		"description": "Hint text shown near the transform code editor"
+	},
+	"transformClipboardOptIn": {
+		"message": "Ibigay ang nilalaman ng clipboard sa function",
+		"description": "Checkbox label opting in to passing clipboard content to the transform function"
+	},
+	"transformRawResult": {
+		"message": "Palitan ang default na encoding (ipasok ang resulta nang walang pagbabago)",
+		"description": "Checkbox label to insert the transform result verbatim into the URL without encoding"
+	},
+	"transformRawResultNote": {
+		"message": "Ang iyong function ay dapat magbalik ng wastong URL component; nilalaktawan ang %s, + at slug encoding.",
+		"description": "Note explaining that raw insertion skips %s/plus/slug encoding"
+	},
+	"transformSampleLabel": {
+		"message": "Test na input",
+		"description": "Label for the sample input used to test a transform"
+	},
+	"transformTestBtn": {
+		"message": "Subukan",
+		"description": "Button that runs the transform against the sample input"
+	},
+	"transformIsolationNote": {
+		"message": "Tumatakbo sa isang isolated na sandbox na walang access sa pahina o extension.",
+		"description": "Note explaining that the transform runs sandboxed"
+	},
+	"transformHelp": {
+		"message": "Sumulat ng katawan ng function. Ang mga variable na selection (ang napiling teksto) at clipboard ay available; ibalik ang string na papalitan ng %s. Tumatakbo sa isang isolated na sandbox na may ~1s na timeout — walang access sa page o sa extension.",
+		"description": "Help tooltip explaining the custom JS transform function"
 	}
 }

@@ -1703,9 +1703,26 @@
 		"message": "맞춤 메뉴",
 		"description": "Custom popup menu action name"
 	},
+	"actionAddSiteToMenu": {
+		"message": "현재 사이트를 메뉴에 추가",
+		"description": "Add current site to menu action name"
+	},
+	"addSiteToMenuDesc": {
+		"message": "현재 사이트를 선택한 메뉴의 패턴에 추가합니다.",
+		"description": "Add site to menu action config description"
+	},
 	"customMenuDesc": {
 		"message": "여러 작업이 포함된 맞춤형 팝업 메뉴를 만듭니다.",
 		"description": "Custom menu section description"
+	},
+	"customMenuContextual": {
+		"message": "현재 사이트에 따라 메뉴 선택"
+	},
+	"customMenuContextualHint": {
+		"message": "사이트 패턴이 현재 페이지와 일치하는 첫 번째 메뉴를 엽니다. 각 메뉴에서 패턴을 설정하세요."
+	},
+	"customMenuContextualLabel": {
+		"message": "동적 메뉴"
 	},
 	"addMenu": {
 		"message": "메뉴 추가",
@@ -1746,6 +1763,18 @@
 	"menuItemNumber": {
 		"message": "항목 %n%",
 		"description": "Menu item number label"
+	},
+	"menuPatternsTitle": {
+		"message": "이 사이트에서 표시"
+	},
+	"menuPatternsHint": {
+		"message": "비워 두면 = 모든 곳(기본 메뉴). github.com 같은 도메인을 추가하세요."
+	},
+	"menuPatternsAdd": {
+		"message": "사이트 추가"
+	},
+	"menuPatternsPlaceholder": {
+		"message": "예: github.com"
 	},
 	"addChain": {
 		"message": "체인 추가",
@@ -2122,5 +2151,138 @@
 	"ctxMenuTimeDateAdded": {
 		"message": "추가한 날짜",
 		"description": "Time display option: show when the bookmark was added"
+	},
+	"actionSearchLink": {
+		"message": "검색 링크 열기",
+		"description": "Search link action name — opens a configured search link with the selected text"
+	},
+	"searchLinkSource": {
+		"message": "소스"
+	},
+	"searchLinkEngine": {
+		"message": "엔진"
+	},
+	"searchLinkModeEngine": {
+		"message": "검색 엔진"
+	},
+	"searchLinkModeInline": {
+		"message": "일회용 링크"
+	},
+	"searchLinkNew": {
+		"message": "새로 만들기"
+	},
+	"searchLinkEdit": {
+		"message": "편집"
+	},
+	"searchLinkNewInline": {
+		"message": "이 항목용 일회용 링크"
+	},
+	"searchLinkNewSaved": {
+		"message": "새 저장된 엔진"
+	},
+	"searchLinkEditException": {
+		"message": "이 항목만 (예외)"
+	},
+	"searchLinkEditGlobal": {
+		"message": "모든 사용처에서 엔진 편집"
+	},
+	"moveUp": {
+		"message": "위로 이동",
+		"description": "Tooltip for moving an item up in a list"
+	},
+	"moveDown": {
+		"message": "아래로 이동",
+		"description": "Tooltip for moving an item down in a list"
+	},
+	"engineFieldName": {
+		"message": "이름"
+	},
+	"engineFieldUrl": {
+		"message": "URL (선택 항목에 %s 사용)"
+	},
+	"engineFieldPlus": {
+		"message": "단어를 +로 연결 (%20 대신)"
+	},
+	"engineFieldSlug": {
+		"message": "하이픈 경로(slug) 사용"
+	},
+	"engineFieldSuffix": {
+		"message": "URL 접미사"
+	},
+	"engineFieldClipboard": {
+		"message": "클립보드 모드: 선택 항목을 복사하고 페이지 열기 (쿼리 없음)"
+	},
+	"sectionSearchEngines": {
+		"message": "검색 엔진"
+	},
+	"engineAddCustom": {
+		"message": "검색 엔진 추가"
+	},
+	"engineEdit": {
+		"message": "편집"
+	},
+	"engineDelete": {
+		"message": "삭제"
+	},
+	"engineHide": {
+		"message": "숨기기"
+	},
+	"engineShow": {
+		"message": "표시"
+	},
+	"engineReset": {
+		"message": "기본값으로 복원"
+	},
+	"engineBuiltinBadge": {
+		"message": "기본 제공"
+	},
+	"engineHiddenBadge": {
+		"message": "숨김"
+	},
+	"engineSave": {
+		"message": "저장"
+	},
+	"engineCancel": {
+		"message": "취소"
+	},
+	"transformFailed": {
+		"message": "변환 실패: %error%",
+		"description": "Toast shown when a search-link transform script fails; %error% is replaced with the error message"
+	},
+	"transformToggle": {
+		"message": "사용자 정의 변환 (JS)",
+		"description": "Checkbox/toggle label for enabling a custom JS transform on a search-link engine"
+	},
+	"transformCodeHint": {
+		"message": "`selection`과 `clipboard`를 사용할 수 있습니다. %s를 대체할 텍스트를 `return`하세요.",
+		"description": "Hint text shown near the transform code editor"
+	},
+	"transformClipboardOptIn": {
+		"message": "함수에 클립보드 내용 제공",
+		"description": "Checkbox label opting in to passing clipboard content to the transform function"
+	},
+	"transformRawResult": {
+		"message": "기본 인코딩 대체 (결과를 그대로 삽입)",
+		"description": "Checkbox label to insert the transform result verbatim into the URL without encoding"
+	},
+	"transformRawResultNote": {
+		"message": "함수는 유효한 URL 구성 요소를 반환해야 합니다. %s, + 및 slug 인코딩은 건너뜁니다.",
+		"description": "Note explaining that raw insertion skips %s/plus/slug encoding"
+	},
+	"transformSampleLabel": {
+		"message": "테스트 입력",
+		"description": "Label for the sample input used to test a transform"
+	},
+	"transformTestBtn": {
+		"message": "테스트",
+		"description": "Button that runs the transform against the sample input"
+	},
+	"transformIsolationNote": {
+		"message": "페이지나 확장 프로그램에 접근할 수 없는 격리된 샌드박스에서 실행됩니다.",
+		"description": "Note explaining that the transform runs sandboxed"
+	},
+	"transformHelp": {
+		"message": "함수 본문을 작성하세요. 변수 selection(선택된 텍스트)과 clipboard를 사용할 수 있습니다. %s를 대체할 문자열을 반환하세요. ~1s 타임아웃이 있는 격리된 샌드박스에서 실행됩니다 — 페이지나 확장 프로그램에 대한 접근은 없습니다.",
+		"description": "Help tooltip explaining the custom JS transform function"
 	}
 }

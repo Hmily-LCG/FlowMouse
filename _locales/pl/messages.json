@@ -1703,9 +1703,26 @@
 		"message": "Menu niestandardowe",
 		"description": "Custom popup menu action name"
 	},
+	"actionAddSiteToMenu": {
+		"message": "Dodaj bieżącą witrynę do menu",
+		"description": "Add current site to menu action name"
+	},
+	"addSiteToMenuDesc": {
+		"message": "Dodaje bieżącą witrynę do wzorców wybranego menu.",
+		"description": "Add site to menu action config description"
+	},
 	"customMenuDesc": {
 		"message": "Twórz niestandardowe menu wyskakujące z wieloma akcjami.",
 		"description": "Custom menu section description"
+	},
+	"customMenuContextual": {
+		"message": "Wybierz menu według bieżącej strony"
+	},
+	"customMenuContextualHint": {
+		"message": "Otwiera pierwsze menu, którego wzorce witryny pasują do bieżącej strony; skonfiguruj wzorce w każdym menu."
+	},
+	"customMenuContextualLabel": {
+		"message": "Menu dynamiczne"
 	},
 	"addMenu": {
 		"message": "Dodaj menu",
@@ -1746,6 +1763,18 @@
 	"menuItemNumber": {
 		"message": "Element %n%",
 		"description": "Menu item number label"
+	},
+	"menuPatternsTitle": {
+		"message": "Wyświetlaj na tych witrynach"
+	},
+	"menuPatternsHint": {
+		"message": "Puste = wszędzie (domyślne menu). Dodaj domenę jak github.com."
+	},
+	"menuPatternsAdd": {
+		"message": "Dodaj witrynę"
+	},
+	"menuPatternsPlaceholder": {
+		"message": "np. github.com"
 	},
 	"addChain": {
 		"message": "Dodaj łańcuch",
@@ -2122,5 +2151,138 @@
 	"ctxMenuTimeDateAdded": {
 		"message": "Data dodania",
 		"description": "Time display option: show when the bookmark was added"
+	},
+	"actionSearchLink": {
+		"message": "Otwórz link wyszukiwania",
+		"description": "Search link action name — opens a configured search link with the selected text"
+	},
+	"searchLinkSource": {
+		"message": "Źródło"
+	},
+	"searchLinkEngine": {
+		"message": "Silnik"
+	},
+	"searchLinkModeEngine": {
+		"message": "Wyszukiwarka"
+	},
+	"searchLinkModeInline": {
+		"message": "Jednorazowy link"
+	},
+	"searchLinkNew": {
+		"message": "Nowy"
+	},
+	"searchLinkEdit": {
+		"message": "Edytuj"
+	},
+	"searchLinkNewInline": {
+		"message": "Jednorazowy link dla tego wpisu"
+	},
+	"searchLinkNewSaved": {
+		"message": "Nowa zapisana wyszukiwarka"
+	},
+	"searchLinkEditException": {
+		"message": "Tylko ten wpis (wyjątek)"
+	},
+	"searchLinkEditGlobal": {
+		"message": "Edytuj wyszukiwarkę dla wszystkich użyć"
+	},
+	"moveUp": {
+		"message": "Przesuń w górę",
+		"description": "Tooltip for moving an item up in a list"
+	},
+	"moveDown": {
+		"message": "Przesuń w dół",
+		"description": "Tooltip for moving an item down in a list"
+	},
+	"engineFieldName": {
+		"message": "Nazwa"
+	},
+	"engineFieldUrl": {
+		"message": "URL (użyj %s dla zaznaczenia)"
+	},
+	"engineFieldPlus": {
+		"message": "Łącz słowa znakiem + (zamiast %20)"
+	},
+	"engineFieldSlug": {
+		"message": "Użyj ścieżki z myślnikami (slug)"
+	},
+	"engineFieldSuffix": {
+		"message": "Sufiks URL"
+	},
+	"engineFieldClipboard": {
+		"message": "Tryb schowka: skopiuj zaznaczenie i otwórz stronę (bez zapytania)"
+	},
+	"sectionSearchEngines": {
+		"message": "Wyszukiwarki"
+	},
+	"engineAddCustom": {
+		"message": "Dodaj wyszukiwarkę"
+	},
+	"engineEdit": {
+		"message": "Edytuj"
+	},
+	"engineDelete": {
+		"message": "Usuń"
+	},
+	"engineHide": {
+		"message": "Ukryj"
+	},
+	"engineShow": {
+		"message": "Pokaż"
+	},
+	"engineReset": {
+		"message": "Przywróć domyślne"
+	},
+	"engineBuiltinBadge": {
+		"message": "wbudowana"
+	},
+	"engineHiddenBadge": {
+		"message": "ukryta"
+	},
+	"engineSave": {
+		"message": "Zapisz"
+	},
+	"engineCancel": {
+		"message": "Anuluj"
+	},
+	"transformFailed": {
+		"message": "Transformacja nie powiodła się: %error%",
+		"description": "Toast shown when a search-link transform script fails; %error% is replaced with the error message"
+	},
+	"transformToggle": {
+		"message": "Niestandardowa transformacja (JS)",
+		"description": "Checkbox/toggle label for enabling a custom JS transform on a search-link engine"
+	},
+	"transformCodeHint": {
+		"message": "Dostępne: `selection` i `clipboard`. `return` tekst zastępujący %s.",
+		"description": "Hint text shown near the transform code editor"
+	},
+	"transformClipboardOptIn": {
+		"message": "Przekaż zawartość schowka do funkcji",
+		"description": "Checkbox label opting in to passing clipboard content to the transform function"
+	},
+	"transformRawResult": {
+		"message": "Zastąp domyślne kodowanie (wstaw wynik bez zmian)",
+		"description": "Checkbox label to insert the transform result verbatim into the URL without encoding"
+	},
+	"transformRawResultNote": {
+		"message": "Twoja funkcja musi zwrócić prawidłowy składnik URL; kodowanie %s, + i slug jest pomijane.",
+		"description": "Note explaining that raw insertion skips %s/plus/slug encoding"
+	},
+	"transformSampleLabel": {
+		"message": "Dane testowe",
+		"description": "Label for the sample input used to test a transform"
+	},
+	"transformTestBtn": {
+		"message": "Testuj",
+		"description": "Button that runs the transform against the sample input"
+	},
+	"transformIsolationNote": {
+		"message": "Działa w izolowanym sandboxie bez dostępu do strony ani rozszerzenia.",
+		"description": "Note explaining that the transform runs sandboxed"
+	},
+	"transformHelp": {
+		"message": "Napisz ciało funkcji. Zmienne selection (zaznaczony tekst) i clipboard są dostępne; zwróć ciąg znaków zastępujący %s. Działa w izolowanym sandboxie z limitem czasu ~1s — bez dostępu do strony ani rozszerzenia.",
+		"description": "Help tooltip explaining the custom JS transform function"
 	}
 }

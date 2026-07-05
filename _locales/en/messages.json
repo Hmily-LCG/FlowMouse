@@ -1703,9 +1703,33 @@
 		"message": "Custom Menu",
 		"description": "Custom popup menu action name"
 	},
+	"actionAddSiteToMenu": {
+		"message": "Add current site to menu",
+		"description": "Add current site to menu action name"
+	},
+	"addSiteToMenuDesc": {
+		"message": "Adds the current site to the selected menu's patterns.",
+		"description": "Add site to menu action config description"
+	},
+	"actionSearchLink": {
+		"message": "Open search link",
+		"description": "Search link action name — opens a configured search link with the selected text"
+	},
 	"customMenuDesc": {
 		"message": "Create custom popup menus with multiple actions.",
 		"description": "Custom menu section description"
+	},
+	"customMenuContextual": {
+		"message": "Pick menu by current site",
+		"description": "Checkbox label — when checked, FlowMouse picks the menu whose site patterns match the current page instead of using a fixed menu"
+	},
+	"customMenuContextualHint": {
+		"message": "Opens the first menu whose site patterns match the current page; configure patterns in each menu.",
+		"description": "Hint shown below the contextual checkbox when it is checked"
+	},
+	"customMenuContextualLabel": {
+		"message": "Dynamic menu",
+		"description": "Gesture-overview label shown for a custom-menu action in contextual mode (menu chosen by current site instead of a fixed menu)"
 	},
 	"addMenu": {
 		"message": "Add Menu",
@@ -1746,6 +1770,22 @@
 	"menuItemNumber": {
 		"message": "Item %n%",
 		"description": "Menu item number label"
+	},
+	"menuPatternsTitle": {
+		"message": "Show on these sites",
+		"description": "Label for the per-menu site-pattern editor"
+	},
+	"menuPatternsHint": {
+		"message": "Empty = everywhere (default menu). Add a domain like github.com.",
+		"description": "Hint below the site-pattern chip editor"
+	},
+	"menuPatternsAdd": {
+		"message": "Add site",
+		"description": "Button to add a site pattern chip"
+	},
+	"menuPatternsPlaceholder": {
+		"message": "e.g. github.com",
+		"description": "Placeholder for the site-pattern input"
 	},
 	"addChain": {
 		"message": "Add Chain",
@@ -2122,5 +2162,181 @@
 	"ctxMenuTimeDateAdded": {
 		"message": "Date added",
 		"description": "Time display option: show when the bookmark was added"
+	},
+	"searchLinkSource": {
+		"message": "Source",
+		"description": "Label for the search-link source select (catalog engine vs custom link)"
+	},
+	"searchLinkEngine": {
+		"message": "Engine",
+		"description": "Label for the catalog engine picker select"
+	},
+	"searchLinkModeEngine": {
+		"message": "Search engine",
+		"description": "Mode option: use a managed search engine for this menu item"
+	},
+	"searchLinkModeInline": {
+		"message": "One-off link",
+		"description": "Mode option: define a one-off inline search link for this menu item"
+	},
+	"searchLinkNew": {
+		"message": "New",
+		"description": "Button: create a new search engine or one-off link"
+	},
+	"searchLinkEdit": {
+		"message": "Edit",
+		"description": "Button: edit the selected search engine"
+	},
+	"searchLinkNewInline": {
+		"message": "One-off link for this entry",
+		"description": "Choice: define a one-off inline link used only by this menu item"
+	},
+	"searchLinkNewSaved": {
+		"message": "New saved engine",
+		"description": "Choice: create a new reusable saved search engine"
+	},
+	"searchLinkEditException": {
+		"message": "This entry only (exception)",
+		"description": "Choice: override the engine settings just for this menu item"
+	},
+	"searchLinkEditGlobal": {
+		"message": "Edit engine for all uses",
+		"description": "Choice: edit the engine globally so all uses are affected"
+	},
+	"moveUp": {
+		"message": "Move up",
+		"description": "Tooltip for moving an item up in a list"
+	},
+	"moveDown": {
+		"message": "Move down",
+		"description": "Tooltip for moving an item down in a list"
+	},
+	"engineFieldName": {
+		"message": "Name",
+		"description": "Label for the engine-fields name input"
+	},
+	"engineFieldUrl": {
+		"message": "URL (use %s for the selection)",
+		"description": "Label for the engine-fields URL input"
+	},
+	"engineFieldPlus": {
+		"message": "Join words with + (instead of %20)",
+		"description": "Label for the engine-fields plus checkbox"
+	},
+	"engineFieldSlug": {
+		"message": "Use a hyphen path (slug)",
+		"description": "Label for the engine-fields slug checkbox"
+	},
+	"engineFieldSuffix": {
+		"message": "URL suffix",
+		"description": "Label for the engine-fields suffix input"
+	},
+	"engineFieldClipboard": {
+		"message": "Clipboard mode: copy selection and open the page (no query)",
+		"description": "Label for the engine-fields clipboardMode checkbox"
+	},
+	"engineImageRawUrl": {
+		"message": "Insert image URL raw (no encoding)",
+		"description": "Checkbox in the image engine editor"
+	},
+	"sectionSearchEngines": {
+		"message": "Search Engines",
+		"description": "Nav/section label for the Search Engines options section"
+	},
+	"engineTypeText": {
+		"message": "Text",
+		"description": "Label for the text search-engine tab in the search-engines manager"
+	},
+	"engineTypeImage": {
+		"message": "Image",
+		"description": "Label for the image search-engine tab in the search-engines manager"
+	},
+	"engineLocalOnly": {
+		"message": "Local engines only",
+		"description": "Label for the toggle that hides hidden (regional) search engines from the manager list"
+	},
+	"engineAddCustom": {
+		"message": "Add search engine",
+		"description": "Button label to add a custom search engine"
+	},
+	"engineReorder": {
+		"message": "Drag to reorder",
+		"description": "Tooltip for the drag handle used to reorder engine rows"
+	},
+	"engineEdit": {
+		"message": "Edit",
+		"description": "Tooltip for the edit button on an engine row"
+	},
+	"engineDelete": {
+		"message": "Delete",
+		"description": "Tooltip for the delete button on a custom engine row"
+	},
+	"engineHide": {
+		"message": "Hide",
+		"description": "Tooltip for the hide button on a built-in engine row"
+	},
+	"engineShow": {
+		"message": "Show",
+		"description": "Tooltip for the show (un-hide) button on a hidden engine row"
+	},
+	"engineReset": {
+		"message": "Reset to default",
+		"description": "Tooltip for the reset button on a built-in engine that has overrides"
+	},
+	"engineBuiltinBadge": {
+		"message": "built-in",
+		"description": "Badge label shown on built-in search engine rows"
+	},
+	"engineHiddenBadge": {
+		"message": "hidden",
+		"description": "Badge label shown on hidden engine rows"
+	},
+	"engineSave": {
+		"message": "Save",
+		"description": "Save button label in the engine editor"
+	},
+	"engineCancel": {
+		"message": "Cancel",
+		"description": "Cancel button label in the engine editor"
+	},
+	"transformToggle": {
+		"message": "Custom transform (JS)",
+		"description": "Checkbox label enabling a custom JavaScript transform for a search engine"
+	},
+	"transformHelp": {
+		"message": "Write a function body. The variables selection (the selected text) and clipboard are available; return the string that replaces %s. Runs in an isolated sandbox with a ~1s timeout — no access to the page or the extension.",
+		"description": "Help tooltip explaining the custom JS transform function"
+	},
+	"transformCodeHint": {
+		"message": "`selection` and `clipboard` are available. `return` the text that replaces %s.",
+		"description": "Hint under the transform code textarea explaining the available variables"
+	},
+	"transformClipboardOptIn": {
+		"message": "Provide clipboard content to the function",
+		"description": "Checkbox label opting in to passing clipboard content to the transform function"
+	},
+	"transformRawResult": {
+		"message": "Replace default encoding (insert result raw)",
+		"description": "Checkbox label to insert the transform result verbatim into the URL without encoding"
+	},
+	"transformRawResultNote": {
+		"message": "Your function must return a valid URL component; %s, + and slug encoding are skipped.",
+		"description": "Note explaining that raw insertion skips %s/plus/slug encoding"
+	},
+	"transformSampleLabel": {
+		"message": "Test input",
+		"description": "Label for the sample input used to test a transform"
+	},
+	"transformTestBtn": {
+		"message": "Test",
+		"description": "Button that runs the transform against the sample input"
+	},
+	"transformIsolationNote": {
+		"message": "Runs in an isolated sandbox with no access to the page or the extension.",
+		"description": "Note explaining that the transform runs sandboxed"
+	},
+	"transformFailed": {
+		"message": "Transform failed: %error%",
+		"description": "Toast shown when a search-link transform script fails; %error% is replaced with the error message"
 	}
 }

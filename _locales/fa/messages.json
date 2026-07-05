@@ -1703,9 +1703,26 @@
 		"message": "منوی سفارشی",
 		"description": "Custom popup menu action name"
 	},
+	"actionAddSiteToMenu": {
+		"message": "افزودن سایت فعلی به منو",
+		"description": "Add current site to menu action name"
+	},
+	"addSiteToMenuDesc": {
+		"message": "سایت فعلی را به الگوهای منوی انتخابی اضافه می‌کند.",
+		"description": "Add site to menu action config description"
+	},
 	"customMenuDesc": {
 		"message": "ایجاد منوهای بازشوی سفارشی با چندین اقدام.",
 		"description": "Custom menu section description"
+	},
+	"customMenuContextual": {
+		"message": "انتخاب منو بر اساس سایت جاری"
+	},
+	"customMenuContextualHint": {
+		"message": "اولین منویی را باز می‌کند که الگوهای سایتش با صفحه جاری مطابقت دارند؛ الگوها را در هر منو تنظیم کنید."
+	},
+	"customMenuContextualLabel": {
+		"message": "منوی پویا"
 	},
 	"addMenu": {
 		"message": "افزودن منو",
@@ -1746,6 +1763,18 @@
 	"menuItemNumber": {
 		"message": "مورد %n%",
 		"description": "Menu item number label"
+	},
+	"menuPatternsTitle": {
+		"message": "نمایش در این سایت‌ها"
+	},
+	"menuPatternsHint": {
+		"message": "خالی = همه جا (منوی پیش‌فرض). یک دامنه مانند github.com اضافه کنید."
+	},
+	"menuPatternsAdd": {
+		"message": "افزودن سایت"
+	},
+	"menuPatternsPlaceholder": {
+		"message": "مثلاً github.com"
 	},
 	"addChain": {
 		"message": "افزودن زنجیره",
@@ -2122,5 +2151,138 @@
 	"ctxMenuTimeDateAdded": {
 		"message": "تاریخ افزودن",
 		"description": "Time display option: show when the bookmark was added"
+	},
+	"actionSearchLink": {
+		"message": "باز کردن پیوند جستجو",
+		"description": "Search link action name — opens a configured search link with the selected text"
+	},
+	"searchLinkSource": {
+		"message": "منبع"
+	},
+	"searchLinkEngine": {
+		"message": "موتور"
+	},
+	"searchLinkModeEngine": {
+		"message": "موتور جستجو"
+	},
+	"searchLinkModeInline": {
+		"message": "لینک یک‌باره"
+	},
+	"searchLinkNew": {
+		"message": "جدید"
+	},
+	"searchLinkEdit": {
+		"message": "ویرایش"
+	},
+	"searchLinkNewInline": {
+		"message": "لینک یک‌باره برای این مورد"
+	},
+	"searchLinkNewSaved": {
+		"message": "موتور جستجوی ذخیره‌شده جدید"
+	},
+	"searchLinkEditException": {
+		"message": "فقط این مورد (استثناء)"
+	},
+	"searchLinkEditGlobal": {
+		"message": "ویرایش موتور برای همه استفاده‌ها"
+	},
+	"moveUp": {
+		"message": "انتقال به بالا",
+		"description": "Tooltip for moving an item up in a list"
+	},
+	"moveDown": {
+		"message": "انتقال به پایین",
+		"description": "Tooltip for moving an item down in a list"
+	},
+	"engineFieldName": {
+		"message": "نام"
+	},
+	"engineFieldUrl": {
+		"message": "نشانی اینترنتی (از %s برای متن انتخاب‌شده استفاده کنید)"
+	},
+	"engineFieldPlus": {
+		"message": "اتصال کلمات با + (به جای %20)"
+	},
+	"engineFieldSlug": {
+		"message": "استفاده از مسیر خط‌تیره (slug)"
+	},
+	"engineFieldSuffix": {
+		"message": "پسوند URL"
+	},
+	"engineFieldClipboard": {
+		"message": "حالت کلیپ‌بورد: کپی انتخاب و باز کردن صفحه (بدون جستجو)"
+	},
+	"sectionSearchEngines": {
+		"message": "موتورهای جستجو"
+	},
+	"engineAddCustom": {
+		"message": "افزودن موتور جستجو"
+	},
+	"engineEdit": {
+		"message": "ویرایش"
+	},
+	"engineDelete": {
+		"message": "حذف"
+	},
+	"engineHide": {
+		"message": "مخفی کردن"
+	},
+	"engineShow": {
+		"message": "نمایش"
+	},
+	"engineReset": {
+		"message": "بازگشت به پیش‌فرض"
+	},
+	"engineBuiltinBadge": {
+		"message": "داخلی"
+	},
+	"engineHiddenBadge": {
+		"message": "مخفی"
+	},
+	"engineSave": {
+		"message": "ذخیره"
+	},
+	"engineCancel": {
+		"message": "لغو"
+	},
+	"transformFailed": {
+		"message": "تبدیل ناموفق بود: %error%",
+		"description": "Toast shown when a search-link transform script fails; %error% is replaced with the error message"
+	},
+	"transformToggle": {
+		"message": "تبدیل سفارشی (JS)",
+		"description": "Checkbox/toggle label for enabling a custom JS transform on a search-link engine"
+	},
+	"transformCodeHint": {
+		"message": "`selection` و `clipboard` در دسترس هستند. متنی که جایگزین %s می‌شود را `return` کنید.",
+		"description": "Hint text shown near the transform code editor"
+	},
+	"transformClipboardOptIn": {
+		"message": "محتوای کلیپ‌بورد را در اختیار تابع قرار دهید",
+		"description": "Checkbox label opting in to passing clipboard content to the transform function"
+	},
+	"transformRawResult": {
+		"message": "جایگزینی رمزگذاری پیش‌فرض (درج نتیجه به‌صورت خام)",
+		"description": "Checkbox label to insert the transform result verbatim into the URL without encoding"
+	},
+	"transformRawResultNote": {
+		"message": "تابع شما باید یک مؤلفه URL معتبر برگرداند؛ رمزگذاری %s، + و slug نادیده گرفته می‌شود.",
+		"description": "Note explaining that raw insertion skips %s/plus/slug encoding"
+	},
+	"transformSampleLabel": {
+		"message": "ورودی آزمایشی",
+		"description": "Label for the sample input used to test a transform"
+	},
+	"transformTestBtn": {
+		"message": "آزمایش",
+		"description": "Button that runs the transform against the sample input"
+	},
+	"transformIsolationNote": {
+		"message": "در یک محیط ایزوله بدون دسترسی به صفحه یا افزونه اجرا می‌شود.",
+		"description": "Note explaining that the transform runs sandboxed"
+	},
+	"transformHelp": {
+		"message": "یک بدنهٔ تابع بنویسید. متغیرهای selection (متن انتخاب‌شده) و clipboard در دسترس هستند؛ رشته‌ای را که جایگزین %s می‌شود بازگردانید. در یک محیط ایزوله با مهلت ~1s اجرا می‌شود — بدون دسترسی به صفحه یا افزونه.",
+		"description": "Help tooltip explaining the custom JS transform function"
 	}
 }

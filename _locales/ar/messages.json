@@ -1703,9 +1703,26 @@
 		"message": "قائمة مخصصة",
 		"description": "Custom popup menu action name"
 	},
+	"actionAddSiteToMenu": {
+		"message": "إضافة الموقع الحالي إلى القائمة",
+		"description": "Add current site to menu action name"
+	},
+	"addSiteToMenuDesc": {
+		"message": "يضيف الموقع الحالي إلى أنماط القائمة المختارة.",
+		"description": "Add site to menu action config description"
+	},
 	"customMenuDesc": {
 		"message": "إنشاء قوائم منبثقة مخصصة تتضمن إجراءات متعددة.",
 		"description": "Custom menu section description"
+	},
+	"customMenuContextual": {
+		"message": "اختيار القائمة حسب الموقع الحالي"
+	},
+	"customMenuContextualHint": {
+		"message": "يفتح أول قائمة تطابق أنماط موقعها الصفحةَ الحالية؛ قم بتكوين الأنماط في كل قائمة."
+	},
+	"customMenuContextualLabel": {
+		"message": "قائمة ديناميكية"
 	},
 	"addMenu": {
 		"message": "إضافة قائمة",
@@ -1746,6 +1763,18 @@
 	"menuItemNumber": {
 		"message": "العنصر %n%",
 		"description": "Menu item number label"
+	},
+	"menuPatternsTitle": {
+		"message": "عرض على هذه المواقع"
+	},
+	"menuPatternsHint": {
+		"message": "فارغ = في كل مكان (القائمة الافتراضية). أضف نطاقًا مثل github.com."
+	},
+	"menuPatternsAdd": {
+		"message": "إضافة موقع"
+	},
+	"menuPatternsPlaceholder": {
+		"message": "مثال: github.com"
 	},
 	"addChain": {
 		"message": "إضافة سلسلة",
@@ -2122,5 +2151,138 @@
 	"ctxMenuTimeDateAdded": {
 		"message": "تاريخ الإضافة",
 		"description": "Time display option: show when the bookmark was added"
+	},
+	"actionSearchLink": {
+		"message": "فتح رابط البحث",
+		"description": "Search link action name — opens a configured search link with the selected text"
+	},
+	"searchLinkSource": {
+		"message": "المصدر"
+	},
+	"searchLinkEngine": {
+		"message": "المحرك"
+	},
+	"searchLinkModeEngine": {
+		"message": "محرك البحث"
+	},
+	"searchLinkModeInline": {
+		"message": "رابط مخصص"
+	},
+	"searchLinkNew": {
+		"message": "جديد"
+	},
+	"searchLinkEdit": {
+		"message": "تعديل"
+	},
+	"searchLinkNewInline": {
+		"message": "رابط مخصص لهذا الإدخال"
+	},
+	"searchLinkNewSaved": {
+		"message": "محرك بحث محفوظ جديد"
+	},
+	"searchLinkEditException": {
+		"message": "هذا الإدخال فقط (استثناء)"
+	},
+	"searchLinkEditGlobal": {
+		"message": "تعديل المحرك لجميع الاستخدامات"
+	},
+	"moveUp": {
+		"message": "تحريك لأعلى",
+		"description": "Tooltip for moving an item up in a list"
+	},
+	"moveDown": {
+		"message": "تحريك لأسفل",
+		"description": "Tooltip for moving an item down in a list"
+	},
+	"engineFieldName": {
+		"message": "الاسم"
+	},
+	"engineFieldUrl": {
+		"message": "عنوان URL (استخدم %s للتحديد)"
+	},
+	"engineFieldPlus": {
+		"message": "ضم الكلمات بـ + (بدلاً من %20)"
+	},
+	"engineFieldSlug": {
+		"message": "استخدام مسار الواصلة (slug)"
+	},
+	"engineFieldSuffix": {
+		"message": "لاحقة URL"
+	},
+	"engineFieldClipboard": {
+		"message": "وضع الحافظة: نسخ النص المحدد وفتح الصفحة (بدون استعلام)"
+	},
+	"sectionSearchEngines": {
+		"message": "محركات البحث"
+	},
+	"engineAddCustom": {
+		"message": "إضافة محرك بحث"
+	},
+	"engineEdit": {
+		"message": "تعديل"
+	},
+	"engineDelete": {
+		"message": "حذف"
+	},
+	"engineHide": {
+		"message": "إخفاء"
+	},
+	"engineShow": {
+		"message": "إظهار"
+	},
+	"engineReset": {
+		"message": "استعادة الافتراضي"
+	},
+	"engineBuiltinBadge": {
+		"message": "مدمج"
+	},
+	"engineHiddenBadge": {
+		"message": "مخفي"
+	},
+	"engineSave": {
+		"message": "حفظ"
+	},
+	"engineCancel": {
+		"message": "إلغاء"
+	},
+	"transformFailed": {
+		"message": "فشل التحويل: %error%",
+		"description": "Toast shown when a search-link transform script fails; %error% is replaced with the error message"
+	},
+	"transformToggle": {
+		"message": "تحويل مخصص (JS)",
+		"description": "Checkbox/toggle label for enabling a custom JS transform on a search-link engine"
+	},
+	"transformCodeHint": {
+		"message": "`selection` و`clipboard` متاحتان. أعد `return` النص الذي يحل محل %s.",
+		"description": "Hint text shown near the transform code editor"
+	},
+	"transformClipboardOptIn": {
+		"message": "تزويد الدالة بمحتوى الحافظة",
+		"description": "Checkbox label opting in to passing clipboard content to the transform function"
+	},
+	"transformRawResult": {
+		"message": "استبدال الترميز الافتراضي (إدراج النتيجة كما هي)",
+		"description": "Checkbox label to insert the transform result verbatim into the URL without encoding"
+	},
+	"transformRawResultNote": {
+		"message": "يجب أن تُعيد دالتك مكوّن URL صالحاً؛ يتم تخطي ترميز %s و + والـ slug.",
+		"description": "Note explaining that raw insertion skips %s/plus/slug encoding"
+	},
+	"transformSampleLabel": {
+		"message": "إدخال تجريبي",
+		"description": "Label for the sample input used to test a transform"
+	},
+	"transformTestBtn": {
+		"message": "اختبار",
+		"description": "Button that runs the transform against the sample input"
+	},
+	"transformIsolationNote": {
+		"message": "يعمل في بيئة معزولة بدون وصول إلى الصفحة أو الامتداد.",
+		"description": "Note explaining that the transform runs sandboxed"
+	},
+	"transformHelp": {
+		"message": "اكتب جسم دالة. المتغيران selection (النص المحدد) و clipboard متاحان؛ أعِد السلسلة النصية التي تحل محل %s. يعمل في بيئة معزولة مع مهلة ~1s — بدون وصول إلى الصفحة أو الإضافة.",
+		"description": "Help tooltip explaining the custom JS transform function"
 	}
 }

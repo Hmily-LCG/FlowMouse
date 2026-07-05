@@ -4,6 +4,8 @@ import { icons, icon } from '../icons.js';
 import { getChainLabel } from './chain-panel.js';
 import { getMenuLabel } from './menu-panel.js';
 import { tooltip } from '../tooltip.js';
+import { SettingsStore } from '../settings-store.js';
+import { renderCatalogEngineOptions } from './engine-options.js';
 
 let modalOpenCount = 0;
 function lockBodyScroll() {
@@ -74,6 +76,7 @@ const ACTION_ICONS = {
 	'pasteClipboard': 'clipboardPaste',
 	'pasteContent': 'clipboardType',
 	'searchClipboard': 'search',
+	'searchLink': 'search',
 	'zoomIn': 'zoomIn',
 	'zoomOut': 'zoomOut',
 	'resetZoom': 'searchX',
@@ -100,10 +103,10 @@ const SCROLL_DISTANCE_ACTIONS = ['scrollUp', 'scrollDown'];
 const ACTION_CATEGORIES = [
 	{ key: '', actions: ['none', 'actionChain', 'delay'] },
 	{ key: 'actionCategoryNavigation', icon: 'compass', actions: ['back', 'forward', 'urlLevelUp', 'urlToRoot', 'scrollUp', 'scrollDown', 'scrollToTop', 'scrollToBottom'] },
-	{ key: 'actionCategoryContextMenu', icon: 'menu', actions: ['menuShowTabs', 'menuRecentlyClosed', 'menuShowBookmarks', 'customMenu'] },
+	{ key: 'actionCategoryContextMenu', icon: 'menu', actions: ['menuShowTabs', 'menuRecentlyClosed', 'menuShowBookmarks', 'customMenu', 'addSiteToMenu'] },
 	{ key: 'actionCategoryTabs', icon: 'panelTop', actions: ['newTab', 'closeTab', 'refresh', 'refreshAllTabs', 'switchLeftTab', 'switchRightTab', 'switchFirstTab', 'switchLastTab', 'closeOtherTabs', 'closeLeftTabs', 'closeRightTabs', 'closeAllTabs', 'switchLastActiveTab', 'restoreTab', 'duplicateTab', 'togglePinTab', 'moveTabToNewWindow'] },
 	{ key: 'actionCategoryWindow', icon: 'appWindow', actions: ['newWindow', 'newIncognito', 'toggleFullscreen', 'toggleMaximize', 'minimize', 'closeWindow', 'closeBrowser'] },
-	{ key: 'actionCategoryUtilities', icon: 'wrench', actions: ['addToBookmarks', 'copyUrl', 'copyTitle', 'copyTitleAndUrl', 'openCustomUrl', 'openDownloads', 'openHistory', 'openExtensions', 'zoomIn', 'zoomOut', 'resetZoom', 'toggleMuteTab', 'toggleMuteAllTabs', 'stopLoading', 'stopAllLoading', 'printPage', 'saveAsMhtml', 'viewPageSource', 'pasteClipboard', 'pasteContent', 'searchClipboard', 'pauseGesture', 'simulateKey', 'sendCustomEvent', 'sendExtensionMessage', 'areaSelect'] },
+	{ key: 'actionCategoryUtilities', icon: 'wrench', actions: ['addToBookmarks', 'copyUrl', 'copyTitle', 'copyTitleAndUrl', 'openCustomUrl', 'openDownloads', 'openHistory', 'openExtensions', 'zoomIn', 'zoomOut', 'resetZoom', 'toggleMuteTab', 'toggleMuteAllTabs', 'stopLoading', 'stopAllLoading', 'printPage', 'saveAsMhtml', 'viewPageSource', 'pasteClipboard', 'pasteContent', 'searchClipboard', 'searchLink', 'pauseGesture', 'simulateKey', 'sendCustomEvent', 'sendExtensionMessage', 'areaSelect'] },
 ];
 
 class ActionSelect extends LitElement {
@@ -119,6 +122,8 @@ class ActionSelect extends LitElement {
 		_pendingValue: { state: true },
 		_pendingConfig: { state: true },
 		_keyRecording: { state: true },
+		_searchLinkPanel: { state: true },
+		_searchLinkDraft: { state: true },
 	};
 
 	static styles = [
@@ -681,6 +686,8 @@ class ActionSelect extends LitElement {
 		this._pendingValue = 'none';
 		this._pendingConfig = {};
 		this._keyRecording = false;
+		this._searchLinkPanel = null;
+		this._searchLinkDraft = null;
 		this._onActionsUpdated = () => this.requestUpdate();
 	}
 
@@ -722,7 +729,20 @@ class ActionSelect extends LitElement {
 			return getChainLabel(this.config?.chainId);
 		}
 		if (val === 'customMenu') {
+			if (this.config?.contextual) return window.i18n.getMessage('customMenuContextualLabel');
 			return getMenuLabel(this.config?.menuId);
+		}
+		if (val === 'addSiteToMenu') {
+			return this.config?.customName || (this.config?.menuId ? getMenuLabel(this.config.menuId) : window.i18n.getMessage('actionAddSiteToMenu'));
+		}
+		if (val === 'searchLink') {
+			return this.config?.customName
+				|| (window.FlowMouseEngineRegistry.resolveMenuItemLink(
+					window.FlowMouseEngineCatalogApi.ENGINE_CATALOG,
+					SettingsStore.current.searchEngines,
+					this.config,
+				)?.name)
+				|| window.i18n.getMessage('actionSearchLink');
 		}
 		if (val === 'delay') {
 			const delayMs = this.config?.delayMs ?? window.GestureConstants.ACTION_DEFAULTS.delay.delayMs;
@@ -906,6 +926,9 @@ class ActionSelect extends LitElement {
 		this._search = '';
 		this._pendingValue = this.value;
 		this._pendingConfig = structuredClone(this.config || {});
+		this._searchLinkPanel = null;
+		this._searchLinkDraft = null;
+		this.__searchLinkEditMode = null;
 		lockBodyScroll();
 		this.updateComplete.then(() => {
 			this.shadowRoot.querySelector('.search-input')?.focus();
@@ -1039,6 +1062,358 @@ class ActionSelect extends LitElement {
 		const customName = (pendingConfig.customName || '').trim();
 		if (customName) result.customName = customName;
 		return result;
+	}
+
+	// ---- searchLink config (engine picker + inline new/edit) ----
+
+	get #searchEngines() {
+		return SettingsStore.current.searchEngines || { overrides: {}, hidden: [], custom: [], order: [] };
+	}
+
+	#searchLinkEngines() {
+		return window.FlowMouseEngineRegistry.resolveEngines(
+			window.FlowMouseEngineCatalogApi.ENGINE_CATALOG,
+			this.#searchEngines,
+			'text',
+		);
+	}
+
+	#searchLinkResolvedEngine() {
+		const id = this._pendingConfig?.engineId;
+		if (!id) return null;
+		return window.FlowMouseEngineRegistry.getEngineById(
+			window.FlowMouseEngineCatalogApi.ENGINE_CATALOG,
+			this.#searchEngines,
+			id,
+		) || null;
+	}
+
+	#searchLinkGenerateId() {
+		const existing = new Set((this.#searchEngines.custom || []).map(c => c.id));
+		let id;
+		do {
+			const uuid = crypto.randomUUID().replace(/-/g, '').slice(0, 10);
+			id = `engine_${uuid}`;
+		} while (existing.has(id));
+		return id;
+	}
+
+	#searchLinkCancelPanel() {
+		this._searchLinkPanel = null;
+		this._searchLinkDraft = null;
+		this.__searchLinkEditMode = null;
+	}
+
+	// Save a brand-new custom engine globally, then point this item at it.
+	#searchLinkSaveNewEngine() {
+		const draft = this._searchLinkDraft;
+		if (!draft) { this.#shakeModal(); return; }
+		const name = (draft.name || '').trim();
+		const url  = (draft.url  || '').trim();
+		if (!name || !url) { this.#shakeModal(); return; }
+		const se = this.#searchEngines;
+		const id = this.#searchLinkGenerateId();
+		const entry = {
+			id,
+			name,
+			url,
+			plus: !!draft.plus,
+			slug: !!draft.slug,
+			suffix: draft.suffix || '',
+			clipboardMode: !!draft.clipboardMode,
+			transformEnabled: !!draft.transformEnabled,
+			transformCode: draft.transformCode || '',
+			transformClipboard: !!draft.transformClipboard,
+			transformRawResult: !!draft.transformRawResult,
+		};
+		const next = { ...se, custom: [...(se.custom || []), entry] };
+		SettingsStore.save({ searchEngines: next });
+		window.dispatchEvent(new Event('action-catalog-changed'));
+		this._pendingConfig = { ...this._pendingConfig, engineId: id, exception: {}, name: '', url: '', plus: false, slug: false, suffix: '', clipboardMode: false, transformEnabled: false, transformCode: '', transformClipboard: false, transformRawResult: false };
+		this.#searchLinkCancelPanel();
+		this.requestUpdate();
+	}
+
+	// Edit the selected engine globally: built-in -> overrides[id], custom -> replace entry.
+	#searchLinkSaveGlobalEdit() {
+		const draft = this._searchLinkDraft;
+		const base = this.#searchLinkResolvedEngine();
+		if (!draft || !base) { this.#searchLinkCancelPanel(); return; }
+		const name = (draft.name || '').trim();
+		const url  = (draft.url  || '').trim();
+		if (!name || !url) { this.#shakeModal(); return; }
+		const se = this.#searchEngines;
+		const fields = {
+			name,
+			url,
+			plus: !!draft.plus,
+			slug: !!draft.slug,
+			suffix: draft.suffix || '',
+			clipboardMode: !!draft.clipboardMode,
+			transformEnabled: !!draft.transformEnabled,
+			transformCode: draft.transformCode || '',
+			transformClipboard: !!draft.transformClipboard,
+			transformRawResult: !!draft.transformRawResult,
+		};
+		let next;
+		if (base.builtin) {
+			const overrides = { ...(se.overrides || {}) };
+			overrides[base.id] = fields;
+			next = { ...se, overrides };
+		} else {
+			const custom = (se.custom || []).map(c => (c.id === base.id ? { id: base.id, ...fields } : c));
+			next = { ...se, custom };
+		}
+		SettingsStore.save({ searchEngines: next });
+		window.dispatchEvent(new Event('action-catalog-changed'));
+		// Editing the engine globally means no per-item exception is needed.
+		this._pendingConfig = { ...this._pendingConfig, exception: {} };
+		this.#searchLinkCancelPanel();
+		this.requestUpdate();
+	}
+
+	// For the exception editor: store only the fields that differ from the resolved engine.
+	#searchLinkApplyExceptionDiff(fields) {
+		const base = this.#searchLinkResolvedEngine();
+		if (!base) return;
+		const exception = {};
+		for (const key of ['name', 'url', 'plus', 'slug', 'suffix', 'clipboardMode', 'transformEnabled', 'transformCode', 'transformClipboard', 'transformRawResult']) {
+			const a = fields[key];
+			const b = base[key];
+			const changed = (typeof b === 'boolean') ? (!!a !== !!b) : ((a ?? '') !== (b ?? ''));
+			if (changed) exception[key] = a;
+		}
+		this._pendingConfig = { ...this._pendingConfig, exception };
+	}
+
+	#renderSearchLinkConfig() {
+		const i18n = window.i18n;
+		const engineId = this._pendingConfig?.engineId || '';
+		const isInline = !engineId;
+		const engines = this.#searchLinkEngines();
+		const panel = this._searchLinkPanel;
+
+		// Inline draft seeded from the current per-item inline fields.
+		const inlineDraft = {
+			name: this._pendingConfig?.name || '',
+			url: this._pendingConfig?.url || '',
+			plus: !!this._pendingConfig?.plus,
+			slug: !!this._pendingConfig?.slug,
+			suffix: this._pendingConfig?.suffix || '',
+			clipboardMode: !!this._pendingConfig?.clipboardMode,
+			transformEnabled: !!this._pendingConfig?.transformEnabled,
+			transformCode: this._pendingConfig?.transformCode || '',
+			transformClipboard: !!this._pendingConfig?.transformClipboard,
+			transformRawResult: !!this._pendingConfig?.transformRawResult,
+		};
+
+		const setInlineField = (detail) => {
+			this._pendingConfig = {
+				...this._pendingConfig,
+				name: detail.name,
+				url: detail.url,
+				plus: detail.plus,
+				slug: detail.slug,
+				suffix: detail.suffix,
+				clipboardMode: detail.clipboardMode,
+				transformEnabled: detail.transformEnabled,
+				transformCode: detail.transformCode,
+				transformClipboard: detail.transformClipboard,
+				transformRawResult: detail.transformRawResult,
+				engineId: '',
+				exception: {},
+			};
+		};
+
+		const modeRow = html`
+			<div class="action-config-row">
+				<span class="action-config-label">${i18n.getMessage('searchLinkSource')}</span>
+				<select class="action-config-select"
+					.value=${isInline ? 'inline' : 'engine'}
+					@change=${(e) => {
+						this.#searchLinkCancelPanel();
+						if (e.target.value === 'engine') {
+							const firstId = engines[0]?.id || '';
+							this._pendingConfig = { ...this._pendingConfig, engineId: firstId, exception: {} };
+						} else {
+							this._pendingConfig = { ...this._pendingConfig, engineId: '', exception: {} };
+						}
+						this.requestUpdate();
+					}}
+				>
+					<option value="engine" ?selected=${!isInline}>${i18n.getMessage('searchLinkModeEngine')}</option>
+					<option value="inline" ?selected=${isInline}>${i18n.getMessage('searchLinkModeInline')}</option>
+				</select>
+			</div>
+		`;
+
+		if (isInline) {
+			return html`
+				${modeRow}
+				<div class="action-config-field">
+					<engine-fields
+						.value=${inlineDraft}
+						@field-change=${(e) => { setInlineField(e.detail); this.requestUpdate(); }}
+					></engine-fields>
+				</div>
+				${this.#renderPositionSelect(true, true, true)}
+			`;
+		}
+
+		return html`
+			${modeRow}
+			<div class="action-config-row">
+				<span class="action-config-label">${i18n.getMessage('searchLinkEngine')}</span>
+				<select class="action-config-select"
+					.value=${engineId}
+					@change=${(e) => {
+						this.#searchLinkCancelPanel();
+						this._pendingConfig = { ...this._pendingConfig, engineId: e.target.value, exception: {} };
+						this.requestUpdate();
+					}}
+				>
+					${engines.map(eng => html`<option value=${eng.id} ?selected=${eng.id === engineId}>${eng.name || eng.id}</option>`)}
+				</select>
+			</div>
+			<div class="action-config-row">
+				<button class="btn btn-ghost" type="button"
+					@click=${() => { this._searchLinkPanel = (panel === 'new') ? null : 'new'; this._searchLinkDraft = null; this.requestUpdate(); }}>
+					${unsafeHTML(icon('plus', { size: 13, strokeWidth: 2.5 }))}
+					<span>${i18n.getMessage('searchLinkNew')}</span>
+				</button>
+				<button class="btn btn-ghost" type="button" ?disabled=${!engineId}
+					@click=${() => {
+						if (!engineId) return;
+						const base = this.#searchLinkResolvedEngine() || {};
+						this._searchLinkPanel = (panel === 'edit') ? null : 'edit';
+						this._searchLinkDraft = { name: base.name || '', url: base.url || '', plus: !!base.plus, slug: !!base.slug, suffix: base.suffix || '', clipboardMode: !!base.clipboardMode, transformEnabled: !!base.transformEnabled, transformCode: base.transformCode || '', transformClipboard: !!base.transformClipboard, transformRawResult: !!base.transformRawResult };
+						this.requestUpdate();
+					}}>
+					${unsafeHTML(icon('squarePen', { size: 13, strokeWidth: 2 }))}
+					<span>${i18n.getMessage('searchLinkEdit')}</span>
+				</button>
+			</div>
+			${panel === 'new' ? this.#renderSearchLinkNewPanel() : ''}
+			${panel === 'edit' ? this.#renderSearchLinkEditPanel() : ''}
+			${this.#renderPositionSelect(true, true, true)}
+		`;
+	}
+
+	#renderSearchLinkNewPanel() {
+		const i18n = window.i18n;
+		const draft = this._searchLinkDraft;
+		const inlineDraft = {
+			name: this._pendingConfig?.name || '',
+			url: this._pendingConfig?.url || '',
+			plus: !!this._pendingConfig?.plus,
+			slug: !!this._pendingConfig?.slug,
+			suffix: this._pendingConfig?.suffix || '',
+			clipboardMode: !!this._pendingConfig?.clipboardMode,
+			transformEnabled: !!this._pendingConfig?.transformEnabled,
+			transformCode: this._pendingConfig?.transformCode || '',
+			transformClipboard: !!this._pendingConfig?.transformClipboard,
+			transformRawResult: !!this._pendingConfig?.transformRawResult,
+		};
+		// `draft === null` => the "new" choice picker; otherwise the saved-engine editor.
+		if (draft === null) {
+			return html`
+				<div class="action-config-info">
+					<div class="action-config-row">
+						<button class="btn btn-ghost" type="button"
+							@click=${() => {
+								// Switch the whole editor to inline one-off mode (engineId falsy).
+								this._pendingConfig = { ...this._pendingConfig, engineId: '', exception: {} };
+								this.#searchLinkCancelPanel();
+								this.requestUpdate();
+							}}>
+							<span>${i18n.getMessage('searchLinkNewInline')}</span>
+						</button>
+						<button class="btn btn-ghost" type="button"
+							@click=${() => { this._searchLinkDraft = { name: '', url: '', plus: false, slug: false, suffix: '', clipboardMode: false }; this.requestUpdate(); }}>
+							<span>${i18n.getMessage('searchLinkNewSaved')}</span>
+						</button>
+					</div>
+				</div>
+			`;
+		}
+		return html`
+			<div class="action-config-field">
+				<label class="action-config-label">${i18n.getMessage('searchLinkNewSaved')}</label>
+				<engine-fields
+					.value=${draft}
+					@field-change=${(e) => { this._searchLinkDraft = { ...this._searchLinkDraft, ...e.detail }; }}
+				></engine-fields>
+				<div class="action-config-row" style="justify-content:flex-end;gap:8px;">
+					<button class="btn btn-ghost" type="button" @click=${() => { this.#searchLinkCancelPanel(); this.requestUpdate(); }}>${i18n.getMessage('engineCancel')}</button>
+					<button class="btn btn-primary" type="button" @click=${() => this.#searchLinkSaveNewEngine()}>${i18n.getMessage('engineSave')}</button>
+				</div>
+			</div>
+		`;
+	}
+
+	#renderSearchLinkEditPanel() {
+		const i18n = window.i18n;
+		const base = this.#searchLinkResolvedEngine();
+		if (!base) return '';
+		// Two-step: choose exception vs global, then show the engine-fields editor.
+		const mode = this.__searchLinkEditMode || 'choice';
+		if (mode === 'choice') {
+			return html`
+				<div class="action-config-info">
+					<div class="action-config-row">
+						<button class="btn btn-ghost" type="button"
+							@click=${() => {
+								const ex = this._pendingConfig?.exception || {};
+								this._searchLinkDraft = {
+									name: ex.name ?? base.name,
+									url: ex.url ?? base.url,
+									plus: ex.plus ?? base.plus,
+									slug: ex.slug ?? base.slug,
+									suffix: ex.suffix ?? base.suffix,
+									clipboardMode: ex.clipboardMode ?? base.clipboardMode,
+									transformEnabled: ex.transformEnabled ?? base.transformEnabled,
+									transformCode: ex.transformCode ?? base.transformCode,
+									transformClipboard: ex.transformClipboard ?? base.transformClipboard,
+									transformRawResult: ex.transformRawResult ?? base.transformRawResult,
+								};
+								this.__searchLinkEditMode = 'exception';
+								this.requestUpdate();
+							}}>
+							<span>${i18n.getMessage('searchLinkEditException')}</span>
+						</button>
+						<button class="btn btn-ghost" type="button"
+							@click=${() => {
+								this._searchLinkDraft = { name: base.name, url: base.url, plus: base.plus, slug: base.slug, suffix: base.suffix, clipboardMode: base.clipboardMode, transformEnabled: base.transformEnabled, transformCode: base.transformCode, transformClipboard: base.transformClipboard, transformRawResult: base.transformRawResult };
+								this.__searchLinkEditMode = 'global';
+								this.requestUpdate();
+							}}>
+							<span>${i18n.getMessage('searchLinkEditGlobal')}</span>
+						</button>
+					</div>
+				</div>
+			`;
+		}
+		const isException = mode === 'exception';
+		return html`
+			<div class="action-config-field">
+				<label class="action-config-label">${i18n.getMessage(isException ? 'searchLinkEditException' : 'searchLinkEditGlobal')}</label>
+				<engine-fields
+					.value=${this._searchLinkDraft}
+					@field-change=${(e) => {
+						this._searchLinkDraft = { ...this._searchLinkDraft, ...e.detail };
+						if (isException) { this.#searchLinkApplyExceptionDiff(this._searchLinkDraft); this.requestUpdate(); }
+					}}
+				></engine-fields>
+				<div class="action-config-row" style="justify-content:flex-end;gap:8px;">
+					<button class="btn btn-ghost" type="button" @click=${() => { this.__searchLinkEditMode = null; this.#searchLinkCancelPanel(); this.requestUpdate(); }}>${i18n.getMessage('engineCancel')}</button>
+					${isException ? html`
+						<button class="btn btn-primary" type="button" @click=${() => { this.__searchLinkEditMode = null; this.#searchLinkCancelPanel(); this.requestUpdate(); }}>${i18n.getMessage('engineSave')}</button>
+					` : html`
+						<button class="btn btn-primary" type="button" @click=${() => { this.__searchLinkEditMode = null; this.#searchLinkSaveGlobalEdit(); }}>${i18n.getMessage('engineSave')}</button>
+					`}
+				</div>
+			</div>
+		`;
 	}
 
 	#renderPositionSelect(showCurrent, showNewWindow, showIncognito) {
@@ -1190,13 +1565,36 @@ class ActionSelect extends LitElement {
 			`;
 		}
 		if (action === 'customMenu') {
+			const contextual = !!this._pendingConfig?.contextual;
 			return html`
 				<div class="action-config-info">${window.i18n.getMessage('customMenuDesc')}</div>
+				<div class="action-config-row">
+					<label class="action-config-checkbox">
+						<input type="checkbox"
+							.checked=${contextual}
+							@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, contextual: e.target.checked }; this.requestUpdate(); }}
+						>
+						<span>${window.i18n.getMessage('customMenuContextual')}</span>
+					</label>
+				</div>
+				${contextual ? html`<div class="action-config-info">${window.i18n.getMessage('customMenuContextualHint')}</div>` : ''}
 				<menu-panel
 					.selectedMenuId=${this._pendingConfig?.menuId || ''}
 					@menu-select=${this.#onMenuSelect}
 				></menu-panel>
 			`;
+		}
+		if (action === 'addSiteToMenu') {
+			return html`
+				<div class="action-config-info">${window.i18n.getMessage('addSiteToMenuDesc')}</div>
+				<menu-panel
+					.selectedMenuId=${this._pendingConfig?.menuId || ''}
+					@menu-select=${this.#onMenuSelect}
+				></menu-panel>
+			`;
+		}
+		if (action === 'searchLink') {
+			return this.#renderSearchLinkConfig();
 		}
 		if (action === 'openCustomUrl') {
 			return html`
@@ -1528,25 +1926,12 @@ class ActionSelect extends LitElement {
 			const engine = this._pendingConfig.engine ?? defaults.engine;
 			const url = this._pendingConfig.url ?? defaults.url;
 			const autoDetectUrl = this._pendingConfig.autoDetectUrl ?? defaults.autoDetectUrl;
-			const { SEARCH_ENGINES, SEARCH_ENGINE_ORDER } = window.GestureConstants;
-			const lang = window.i18n.getCurrentLanguage();
-			const order = SEARCH_ENGINE_ORDER[lang] || SEARCH_ENGINE_ORDER['default'];
-			const displayKeys = [...order];
-			if (engine && engine !== 'custom' && !displayKeys.includes(engine) && SEARCH_ENGINES[engine]) {
-				displayKeys.push(engine);
-			}
 			return html`
 				<div class="action-config-row">
 					<span class="action-config-label">${window.i18n.getMessage('searchEngine')}</span>
 					<select .value=${engine}
 						@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, engine: e.target.value }; this.requestUpdate(); }}>
-						${displayKeys.map(key => {
-							const eng = SEARCH_ENGINES[key];
-							if (!eng) return '';
-							const label = eng.i18nKey ? window.i18n.getMessage(eng.i18nKey) : eng.name;
-							return html`<option value=${key} ?selected=${engine === key}>${label}</option>`;
-						})}
-						<option value="custom" ?selected=${engine === 'custom'}>${window.i18n.getMessage('custom')}</option>
+						${renderCatalogEngineOptions(engine, 'text')}
 					</select>
 				</div>
 				${engine === 'custom' ? html`

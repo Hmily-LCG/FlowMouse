@@ -1,6 +1,18 @@
 ## FlowMouse Changelog
 
+### v2.3 (Unreleased)
+
+**New Features:**
+
+- **Context-aware search menus:** Custom mouse menus can now contain search-engine entries from a built-in catalog (displayed with icons) alongside custom search/link items; menus carry site patterns so the same gesture automatically opens the right menu per site (contextual mode); a new "Add current site to menu" gesture appends `*hostname*` to a menu's patterns, making it quick to assign a menu to the site you're currently visiting.
+  - **Editable Search Engines section:** The options page now has a top-level "Search Engines" section where you can add, edit, hide, reorder, and reset both built-in and custom search engines.
+  - **Clipboard-open mode:** A new per-engine option copies the selected text to the clipboard and opens the page without a query parameter — useful for services like Gemini that do not accept a `?q=` URL.
+  - **Custom JavaScript transform for search links:** Each search-link engine can now carry an optional JS snippet that receives the current `selection` (and optionally the `clipboard`) and returns the string substituted for `%s`. The snippet runs in an isolated sandbox with no access to the page or the extension, and can be tested against a sample input directly in the editor. An optional **"Replace default encoding"** toggle inserts the transform result verbatim into the URL, skipping `%s`, `+`, and slug encoding — useful when the function already returns a fully-formed URL component.
+- Search-engine selection for text drag and the clipboard-search action now uses the central search-engine catalog, so your custom engines, hidden state, and ordering apply there too. Regional search engines (Baidu, Yandex, Naver, etc.) are included but hidden by default.
+- Image search engines are now configurable in the "Search engines" page (Text/Image switch) — add custom reverse-image engines, reorder, hide, and give each an optional image-URL transform (e.g. thumbnail → original).
+
 ### v2.2 (2026-06-29)
+
 **New Features:**
 - New gestures:
   - **Switch to Last Active Tab**

@@ -1703,9 +1703,26 @@
 		"message": "Egendefinert meny",
 		"description": "Custom popup menu action name"
 	},
+	"actionAddSiteToMenu": {
+		"message": "Legg til gjeldende nettsted i menyen",
+		"description": "Add current site to menu action name"
+	},
+	"addSiteToMenuDesc": {
+		"message": "Legger til gjeldende nettsted i mønstrene til den valgte menyen.",
+		"description": "Add site to menu action config description"
+	},
 	"customMenuDesc": {
 		"message": "Opprett egendefinerte hurtigmenyer med flere handlinger.",
 		"description": "Custom menu section description"
+	},
+	"customMenuContextual": {
+		"message": "Velg meny etter gjeldende nettsted"
+	},
+	"customMenuContextualHint": {
+		"message": "Åpner den første menyen hvis nettstedsmønstre samsvarer med gjeldende side; konfigurer mønstre i hver meny."
+	},
+	"customMenuContextualLabel": {
+		"message": "Dynamisk meny"
 	},
 	"addMenu": {
 		"message": "Legg til meny",
@@ -1746,6 +1763,18 @@
 	"menuItemNumber": {
 		"message": "Element %n%",
 		"description": "Menu item number label"
+	},
+	"menuPatternsTitle": {
+		"message": "Vis på disse nettstedene"
+	},
+	"menuPatternsHint": {
+		"message": "Tom = overalt (standardmeny). Legg til et domene som github.com."
+	},
+	"menuPatternsAdd": {
+		"message": "Legg til nettsted"
+	},
+	"menuPatternsPlaceholder": {
+		"message": "f.eks. github.com"
 	},
 	"addChain": {
 		"message": "Legg til kjede",
@@ -2122,5 +2151,138 @@
 	"ctxMenuTimeDateAdded": {
 		"message": "Dato lagt til",
 		"description": "Time display option: show when the bookmark was added"
+	},
+	"actionSearchLink": {
+		"message": "Åpne søkelenke",
+		"description": "Search link action name — opens a configured search link with the selected text"
+	},
+	"searchLinkSource": {
+		"message": "Kilde"
+	},
+	"searchLinkEngine": {
+		"message": "Motor"
+	},
+	"searchLinkModeEngine": {
+		"message": "Søkemotor"
+	},
+	"searchLinkModeInline": {
+		"message": "Engangslenke"
+	},
+	"searchLinkNew": {
+		"message": "Ny"
+	},
+	"searchLinkEdit": {
+		"message": "Rediger"
+	},
+	"searchLinkNewInline": {
+		"message": "Engangslenke for dette oppslaget"
+	},
+	"searchLinkNewSaved": {
+		"message": "Ny lagret søkemotor"
+	},
+	"searchLinkEditException": {
+		"message": "Bare dette oppslaget (unntak)"
+	},
+	"searchLinkEditGlobal": {
+		"message": "Rediger søkemotor for alle brukstilfeller"
+	},
+	"moveUp": {
+		"message": "Flytt opp",
+		"description": "Tooltip for moving an item up in a list"
+	},
+	"moveDown": {
+		"message": "Flytt ned",
+		"description": "Tooltip for moving an item down in a list"
+	},
+	"engineFieldName": {
+		"message": "Navn"
+	},
+	"engineFieldUrl": {
+		"message": "URL (bruk %s for utvalget)"
+	},
+	"engineFieldPlus": {
+		"message": "Koble ord med + (i stedet for %20)"
+	},
+	"engineFieldSlug": {
+		"message": "Bruk en bindestrek-sti (slug)"
+	},
+	"engineFieldSuffix": {
+		"message": "URL-suffiks"
+	},
+	"engineFieldClipboard": {
+		"message": "Utklippstavlemodus: kopier utvalget og åpne siden (uten spørring)"
+	},
+	"sectionSearchEngines": {
+		"message": "Søkemotorer"
+	},
+	"engineAddCustom": {
+		"message": "Legg til søkemotor"
+	},
+	"engineEdit": {
+		"message": "Rediger"
+	},
+	"engineDelete": {
+		"message": "Slett"
+	},
+	"engineHide": {
+		"message": "Skjul"
+	},
+	"engineShow": {
+		"message": "Vis"
+	},
+	"engineReset": {
+		"message": "Tilbakestill til standard"
+	},
+	"engineBuiltinBadge": {
+		"message": "innebygd"
+	},
+	"engineHiddenBadge": {
+		"message": "skjult"
+	},
+	"engineSave": {
+		"message": "Lagre"
+	},
+	"engineCancel": {
+		"message": "Avbryt"
+	},
+	"transformFailed": {
+		"message": "Transformering mislyktes: %error%",
+		"description": "Toast shown when a search-link transform script fails; %error% is replaced with the error message"
+	},
+	"transformToggle": {
+		"message": "Egendefinert transformering (JS)",
+		"description": "Checkbox/toggle label for enabling a custom JS transform on a search-link engine"
+	},
+	"transformCodeHint": {
+		"message": "`selection` og `clipboard` er tilgjengelige. `return` teksten som erstatter %s.",
+		"description": "Hint text shown near the transform code editor"
+	},
+	"transformClipboardOptIn": {
+		"message": "Gi funksjonen tilgang til utklippstavlens innhold",
+		"description": "Checkbox label opting in to passing clipboard content to the transform function"
+	},
+	"transformRawResult": {
+		"message": "Erstatt standardkoding (sett inn resultat direkte)",
+		"description": "Checkbox label to insert the transform result verbatim into the URL without encoding"
+	},
+	"transformRawResultNote": {
+		"message": "Funksjonen din må returnere en gyldig URL-komponent; koding av %s, + og slug hoppes over.",
+		"description": "Note explaining that raw insertion skips %s/plus/slug encoding"
+	},
+	"transformSampleLabel": {
+		"message": "Testinndata",
+		"description": "Label for the sample input used to test a transform"
+	},
+	"transformTestBtn": {
+		"message": "Test",
+		"description": "Button that runs the transform against the sample input"
+	},
+	"transformIsolationNote": {
+		"message": "Kjører i en isolert sandkasse uten tilgang til siden eller utvidelsen.",
+		"description": "Note explaining that the transform runs sandboxed"
+	},
+	"transformHelp": {
+		"message": "Skriv en funksjonstekst. Variablene selection (den valgte teksten) og clipboard er tilgjengelige; returner strengen som erstatter %s. Kjører i en isolert sandkasse med ~1s tidsavbrudd — ingen tilgang til siden eller utvidelsen.",
+		"description": "Help tooltip explaining the custom JS transform function"
 	}
 }

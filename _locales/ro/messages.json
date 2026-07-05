@@ -1703,9 +1703,26 @@
 		"message": "Meniu personalizat",
 		"description": "Custom popup menu action name"
 	},
+	"actionAddSiteToMenu": {
+		"message": "Adaugă site-ul curent în meniu",
+		"description": "Add current site to menu action name"
+	},
+	"addSiteToMenuDesc": {
+		"message": "Adaugă site-ul curent la modelele meniului selectat.",
+		"description": "Add site to menu action config description"
+	},
 	"customMenuDesc": {
 		"message": "Creați meniuri pop-up personalizate cu mai multe acțiuni.",
 		"description": "Custom menu section description"
+	},
+	"customMenuContextual": {
+		"message": "Alegeți meniu după site-ul curent"
+	},
+	"customMenuContextualHint": {
+		"message": "Deschide primul meniu ale cărui modele de site corespund paginii curente; configurați modelele în fiecare meniu."
+	},
+	"customMenuContextualLabel": {
+		"message": "Meniu dinamic"
 	},
 	"addMenu": {
 		"message": "Adăugare meniu",
@@ -1746,6 +1763,18 @@
 	"menuItemNumber": {
 		"message": "Elementul %n%",
 		"description": "Menu item number label"
+	},
+	"menuPatternsTitle": {
+		"message": "Afișați pe aceste site-uri"
+	},
+	"menuPatternsHint": {
+		"message": "Gol = peste tot (meniu implicit). Adăugați un domeniu ca github.com."
+	},
+	"menuPatternsAdd": {
+		"message": "Adăugare site"
+	},
+	"menuPatternsPlaceholder": {
+		"message": "ex. github.com"
 	},
 	"addChain": {
 		"message": "Adăugați lanț",
@@ -2122,5 +2151,138 @@
 	"ctxMenuTimeDateAdded": {
 		"message": "Data adăugării",
 		"description": "Time display option: show when the bookmark was added"
+	},
+	"actionSearchLink": {
+		"message": "Deschide linkul de căutare",
+		"description": "Search link action name — opens a configured search link with the selected text"
+	},
+	"searchLinkSource": {
+		"message": "Sursă"
+	},
+	"searchLinkEngine": {
+		"message": "Motor"
+	},
+	"searchLinkModeEngine": {
+		"message": "Motor de căutare"
+	},
+	"searchLinkModeInline": {
+		"message": "Link unic"
+	},
+	"searchLinkNew": {
+		"message": "Nou"
+	},
+	"searchLinkEdit": {
+		"message": "Editare"
+	},
+	"searchLinkNewInline": {
+		"message": "Link unic pentru această intrare"
+	},
+	"searchLinkNewSaved": {
+		"message": "Motor de căutare nou salvat"
+	},
+	"searchLinkEditException": {
+		"message": "Numai această intrare (excepție)"
+	},
+	"searchLinkEditGlobal": {
+		"message": "Editare motor pentru toate utilizările"
+	},
+	"moveUp": {
+		"message": "Mută în sus",
+		"description": "Tooltip for moving an item up in a list"
+	},
+	"moveDown": {
+		"message": "Mută în jos",
+		"description": "Tooltip for moving an item down in a list"
+	},
+	"engineFieldName": {
+		"message": "Nume"
+	},
+	"engineFieldUrl": {
+		"message": "URL (folosiți %s pentru selecție)"
+	},
+	"engineFieldPlus": {
+		"message": "Unește cuvintele cu + (în loc de %20)"
+	},
+	"engineFieldSlug": {
+		"message": "Folosește o cale cu liniuță (slug)"
+	},
+	"engineFieldSuffix": {
+		"message": "Sufix URL"
+	},
+	"engineFieldClipboard": {
+		"message": "Mod clipboard: copiază selecția și deschide pagina (fără interogare)"
+	},
+	"sectionSearchEngines": {
+		"message": "Motoare de căutare"
+	},
+	"engineAddCustom": {
+		"message": "Adaugă motor de căutare"
+	},
+	"engineEdit": {
+		"message": "Editare"
+	},
+	"engineDelete": {
+		"message": "Șterge"
+	},
+	"engineHide": {
+		"message": "Ascundere"
+	},
+	"engineShow": {
+		"message": "Afișare"
+	},
+	"engineReset": {
+		"message": "Revin-o la implicit"
+	},
+	"engineBuiltinBadge": {
+		"message": "integrat"
+	},
+	"engineHiddenBadge": {
+		"message": "ascuns"
+	},
+	"engineSave": {
+		"message": "Salvează"
+	},
+	"engineCancel": {
+		"message": "Anulare"
+	},
+	"transformFailed": {
+		"message": "Transformarea a eșuat: %error%",
+		"description": "Toast shown when a search-link transform script fails; %error% is replaced with the error message"
+	},
+	"transformToggle": {
+		"message": "Transformare personalizată (JS)",
+		"description": "Checkbox/toggle label for enabling a custom JS transform on a search-link engine"
+	},
+	"transformCodeHint": {
+		"message": "`selection` și `clipboard` sunt disponibile. `return` textul care înlocuiește %s.",
+		"description": "Hint text shown near the transform code editor"
+	},
+	"transformClipboardOptIn": {
+		"message": "Furnizați conținutul clipboard-ului funcției",
+		"description": "Checkbox label opting in to passing clipboard content to the transform function"
+	},
+	"transformRawResult": {
+		"message": "Înlocuiește codificarea implicită (inserează rezultatul brut)",
+		"description": "Checkbox label to insert the transform result verbatim into the URL without encoding"
+	},
+	"transformRawResultNote": {
+		"message": "Funcția ta trebuie să returneze o componentă URL validă; codificarea %s, + și slug este omisă.",
+		"description": "Note explaining that raw insertion skips %s/plus/slug encoding"
+	},
+	"transformSampleLabel": {
+		"message": "Intrare de test",
+		"description": "Label for the sample input used to test a transform"
+	},
+	"transformTestBtn": {
+		"message": "Testează",
+		"description": "Button that runs the transform against the sample input"
+	},
+	"transformIsolationNote": {
+		"message": "Rulează într-un sandbox izolat fără acces la pagină sau extensie.",
+		"description": "Note explaining that the transform runs sandboxed"
+	},
+	"transformHelp": {
+		"message": "Scrieți corpul unei funcții. Variabilele selection (textul selectat) și clipboard sunt disponibile; returnați șirul care înlocuiește %s. Rulează într-un sandbox izolat cu un timeout de ~1s — fără acces la pagină sau la extensie.",
+		"description": "Help tooltip explaining the custom JS transform function"
 	}
 }

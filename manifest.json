@@ -13,7 +13,8 @@
         "contextMenus",
         "search",
         "scripting",
-        "favicon"
+        "favicon",
+        "offscreen"
     ],
     "optional_permissions": [
         "bookmarks",
@@ -40,6 +41,9 @@
                 "js/constants.js",
                 "js/gesture-visual.js",
                 "js/gesture-recognizer.js",
+                "js/search-url.js",
+                "js/search-engines-catalog.js",
+                "js/engine-registry.js",
                 "js/content.js"
             ],
             "run_at": "document_start",
@@ -59,6 +63,12 @@
         "16": "icons/icon16.png",
         "48": "icons/icon48.png",
         "128": "icons/icon128.png"
+    },
+    "sandbox": {
+        "pages": ["pages/transform-sandbox.html"]
+    },
+    "content_security_policy": {
+        "sandbox": "sandbox allow-scripts; script-src 'self' 'unsafe-eval' blob:; child-src blob:; worker-src blob:;"
     },
     "web_accessible_resources": [
         {

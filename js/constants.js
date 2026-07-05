@@ -76,6 +76,7 @@
 		'moveTabToNewWindow': 'actionMoveTabToNewWindow',
 		'actionChain': 'actionActionChain',
 		'customMenu': 'actionCustomMenu',
+		'addSiteToMenu': 'actionAddSiteToMenu',
 		'delay': 'actionDelay',
 		'sendCustomEvent': 'actionSendCustomEvent',
 		'sendExtensionMessage': 'actionSendExtensionMessage',
@@ -86,6 +87,7 @@
 		'zoomOut': 'actionZoomOut',
 		'resetZoom': 'actionResetZoom',
 		'searchClipboard': 'actionSearchClipboard',
+		'searchLink': 'actionSearchLink',
 		'viewPageSource': 'actionViewPageSource',
 		'pauseGesture': 'actionPauseGesture',
 		'areaSelect': 'actionAreaSelect',
@@ -118,7 +120,8 @@
 		switchFirstTab: { moveTab: false },
 		switchLastTab: { moveTab: false },
 		actionChain: { chainId: '' },
-		customMenu: { menuId: '' },
+		customMenu: { menuId: '', contextual: false },
+		addSiteToMenu: { menuId: '' },
 		delay: { delayMs: 500 },
 		sendCustomEvent: { eventType: 'flowmouse:gesture', eventDetail: '{}', gestureInfo: true },
 		sendExtensionMessage: { extensionId: '', message: '{}' },
@@ -126,6 +129,7 @@
 		pasteClipboard: {},
 		pasteContent: { content: '' },
 		searchClipboard: { engine: 'system', url: '', autoDetectUrl: true, position: 'right', active: true, incognito: false },
+		searchLink: { engineId: '', name: '', url: '', plus: false, slug: false, suffix: '', clipboardMode: false, transformEnabled: false, transformCode: '', transformClipboard: false, transformRawResult: false, exception: {}, position: 'right', active: true, incognito: false },
 		zoomIn: { zoomMode: 'browser', zoomDelta: 10 },
 		zoomOut: { zoomMode: 'browser', zoomDelta: 10 },
 		resetZoom: { resetZoomLevel: 0 },
@@ -138,7 +142,7 @@
 	const LOCAL_ACTIONS = new Set([
 		'none', 'scrollUp', 'scrollDown', 'scrollToTop', 'scrollToBottom',
 		'stopLoading', 'copyUrl', 'copyTitle', 'copyTitleAndUrl', 'printPage', 'sendCustomEvent', 'simulateKey',
-		'pasteClipboard', 'pasteContent', 'searchClipboard',
+		'pasteClipboard', 'pasteContent', 'searchClipboard', 'searchLink',
 		'menuShowTabs', 'menuRecentlyClosed', 'menuShowBookmarks',
 		'customMenu',
 	]);
@@ -183,7 +187,7 @@
 	const DRAG_ACTION_DEFAULTS = {
 		search:          { engine: 'system', url: '', autoDetectUrl: true, position: 'right', active: true, incognito: false },
 		openTab:         { position: 'right', active: true, incognito: false, preferLink: false },
-		imageSearch:     { engine: 'google', url: '', position: 'right', active: true, incognito: false },
+		imageSearch:     { engine: 'google-lens', url: '', position: 'right', active: true, incognito: false },
 		copyLinkAndText: { asMarkdown: false },
 		sendCustomEvent: { eventType: 'flowmouse:drag', eventDetail: '{}', gestureInfo: true },
 	};
@@ -197,115 +201,6 @@
 		'newWindow': 'tabPositionNewWindow',
 	};
 
-
-	const SEARCH_ENGINES = {
-		'system': {
-			name: 'Browser Default',
-			i18nKey: 'searchEngine_system'
-		},
-		'google': {
-			name: 'Google',
-			url: 'https://www.google.com/search?q='
-		},
-		'google_translate': {
-			name: 'Google Translate',
-			i18nKey: 'searchEngine_google_translate',
-			url: 'https://translate.google.com/?sl=auto&text='
-		},
-		'bing': {
-			name: 'Bing',
-			url: 'https://www.bing.com/search?q='
-		},
-		'bing_translate': {
-			name: 'Bing Translate',
-			i18nKey: 'searchEngine_bing_translate',
-			url: 'https://www.bing.com/translator/?text='
-		},
-		'baidu': {
-			name: 'Baidu',
-			i18nKey: 'searchEngine_baidu',
-			url: 'https://www.baidu.com/s?wd='
-		},
-		'360': {
-			name: '360 Search',
-			i18nKey: 'searchEngine_360',
-			url: 'https://www.so.com/s?q='
-		},
-		'duckduckgo': {
-			name: 'DuckDuckGo',
-			url: 'https://duckduckgo.com/?q='
-		},
-		'yahoo': {
-			name: 'Yahoo!',
-			url: 'https://search.yahoo.com/search?p='
-		},
-		'yahoo_jp': {
-			name: 'Yahoo! JAPAN',
-			url: 'https://search.yahoo.co.jp/search?p='
-		},
-		'yandex': {
-			name: 'Yandex',
-			i18nKey: 'searchEngine_yandex',
-			url: 'https://yandex.com/search/?text='
-		},
-		'naver': {
-			name: 'Naver',
-			url: 'https://search.naver.com/search.naver?query='
-		},
-		'seznam': {
-			name: 'Seznam',
-			url: 'https://search.seznam.cz/?q='
-		},
-	};
-
-	const SEARCH_ENGINE_ORDER = {
-		'default': ['system', 'google', 'google_translate', 'bing', 'bing_translate', 'duckduckgo', 'yahoo'],
-		'en': ['system', 'google', 'google_translate', 'bing', 'bing_translate', 'duckduckgo', 'yahoo', 'baidu', '360', 'yandex', 'naver', 'seznam', 'yahoo_jp'],
-		'zh_CN': ['system', 'google', 'google_translate', 'bing', 'bing_translate', 'baidu', '360', 'duckduckgo', 'yahoo'],
-
-		'cs': ['system', 'google', 'google_translate', 'seznam', 'bing', 'bing_translate', 'duckduckgo', 'yahoo'],
-		'ja': ['system', 'google', 'google_translate', 'yahoo_jp', 'bing', 'bing_translate', 'duckduckgo', 'yahoo'],
-		'ko': ['system', 'google', 'google_translate', 'naver', 'bing', 'bing_translate', 'duckduckgo', 'yahoo'],
-		'uk': ['system', 'google', 'google_translate', 'bing', 'bing_translate', 'duckduckgo', 'yahoo'],
-		'ru': ['system', 'google', 'google_translate', 'yandex', 'bing', 'bing_translate', 'duckduckgo', 'yahoo'],
-	};
-
-	const IMAGE_SEARCH_ENGINES = {
-		'google': {
-			name: 'Google Lens',
-			url: 'https://lens.google.com/uploadbyurl?url='
-		},
-		'bing': {
-			name: 'Bing',
-			url: 'https://www.bing.com/images/search?view=detailv2&iss=sbi&q=imgurl:'
-		},
-		'yandex': {
-			name: 'Yandex',
-			i18nKey: 'searchEngine_yandex',
-			url: 'https://yandex.com/images/search?rpt=imageview&url='
-		},
-		'tineye': {
-			name: 'TinEye',
-			url: 'https://www.tineye.com/search?url='
-		},
-		'saucenao': {
-			name: 'SauceNAO',
-			url: 'https://saucenao.com/search.php?db=999&url='
-		},
-		'iqdb': {
-			name: 'IQDB',
-			url: 'https://iqdb.org/?url='
-		},
-		'trace': {
-			name: 'Trace.moe',
-			url: 'https://trace.moe/?url='
-		},
-	};
-
-	const IMAGE_SEARCH_ENGINE_ORDER = {
-		'default': ['google', 'bing', 'tineye', 'yandex', 'saucenao', 'iqdb', 'trace'],
-		'uk': ['google', 'bing', 'tineye', 'saucenao', 'iqdb', 'trace'],
-	};
 
 	const DEFAULT_SETTINGS = {
 		theme: 'auto',
@@ -366,9 +261,11 @@
 		areaSelectDelay: 0.3,
 		actionChains: {},
 		customMenus: {},
+		searchEngines: { overrides: {}, hidden: [], custom: [], order: [] },
 		blacklist: [],
 		enableBlacklistContextMenu: false,
 		navCollapsed: false,
+		engineManagerLocalOnly: true,
 		lastSyncTime: null,
 	};
 
@@ -407,11 +304,6 @@
 		IMAGE_DRAG_ACTIONS,
 		DRAG_ACTION_DEFAULTS,
 		TAB_POSITIONS,
-
-		SEARCH_ENGINES,
-		SEARCH_ENGINE_ORDER,
-		IMAGE_SEARCH_ENGINES,
-		IMAGE_SEARCH_ENGINE_ORDER,
 
 		DEFAULT_SETTINGS,
 

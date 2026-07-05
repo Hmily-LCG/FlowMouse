@@ -1703,9 +1703,26 @@
 		"message": "เมนูกำหนดเอง",
 		"description": "Custom popup menu action name"
 	},
+	"actionAddSiteToMenu": {
+		"message": "เพิ่มเว็บไซต์ปัจจุบันลงในเมนู",
+		"description": "Add current site to menu action name"
+	},
+	"addSiteToMenuDesc": {
+		"message": "เพิ่มเว็บไซต์ปัจจุบันลงในรูปแบบของเมนูที่เลือก",
+		"description": "Add site to menu action config description"
+	},
 	"customMenuDesc": {
 		"message": "สร้างเมนูป๊อปอัปแบบกำหนดเองพร้อมการดำเนินการหลายอย่าง",
 		"description": "Custom menu section description"
+	},
+	"customMenuContextual": {
+		"message": "เลือกเมนูตามเว็บไซต์ปัจจุบัน"
+	},
+	"customMenuContextualHint": {
+		"message": "เปิดเมนูแรกที่รูปแบบเว็บไซต์ตรงกับหน้าปัจจุบัน กำหนดรูปแบบในแต่ละเมนู"
+	},
+	"customMenuContextualLabel": {
+		"message": "เมนูไดนามิก"
 	},
 	"addMenu": {
 		"message": "เพิ่มเมนู",
@@ -1746,6 +1763,18 @@
 	"menuItemNumber": {
 		"message": "รายการ %n%",
 		"description": "Menu item number label"
+	},
+	"menuPatternsTitle": {
+		"message": "แสดงบนเว็บไซต์เหล่านี้"
+	},
+	"menuPatternsHint": {
+		"message": "ว่าง = ทุกที่ (เมนูเริ่มต้น) เพิ่มโดเมนเช่น github.com"
+	},
+	"menuPatternsAdd": {
+		"message": "เพิ่มเว็บไซต์"
+	},
+	"menuPatternsPlaceholder": {
+		"message": "เช่น github.com"
 	},
 	"addChain": {
 		"message": "เพิ่มเชน",
@@ -2122,5 +2151,138 @@
 	"ctxMenuTimeDateAdded": {
 		"message": "วันที่เพิ่ม",
 		"description": "Time display option: show when the bookmark was added"
+	},
+	"actionSearchLink": {
+		"message": "เปิดลิงก์การค้นหา",
+		"description": "Search link action name — opens a configured search link with the selected text"
+	},
+	"searchLinkSource": {
+		"message": "แหล่งที่มา"
+	},
+	"searchLinkEngine": {
+		"message": "เครื่องมือ"
+	},
+	"searchLinkModeEngine": {
+		"message": "เครื่องมือค้นหา"
+	},
+	"searchLinkModeInline": {
+		"message": "ลิงก์ครั้งเดียว"
+	},
+	"searchLinkNew": {
+		"message": "ใหม่"
+	},
+	"searchLinkEdit": {
+		"message": "แก้ไข"
+	},
+	"searchLinkNewInline": {
+		"message": "ลิงก์ครั้งเดียวสำหรับรายการนี้"
+	},
+	"searchLinkNewSaved": {
+		"message": "เครื่องมือค้นหาที่บันทึกใหม่"
+	},
+	"searchLinkEditException": {
+		"message": "เฉพาะรายการนี้ (ข้อยกเว้น)"
+	},
+	"searchLinkEditGlobal": {
+		"message": "แก้ไขเครื่องมือสำหรับการใช้งานทั้งหมด"
+	},
+	"moveUp": {
+		"message": "เลื่อนขึ้น",
+		"description": "Tooltip for moving an item up in a list"
+	},
+	"moveDown": {
+		"message": "เลื่อนลง",
+		"description": "Tooltip for moving an item down in a list"
+	},
+	"engineFieldName": {
+		"message": "ชื่อ"
+	},
+	"engineFieldUrl": {
+		"message": "URL (ใช้ %s สำหรับข้อความที่เลือก)"
+	},
+	"engineFieldPlus": {
+		"message": "เชื่อมคำด้วย + (แทน %20)"
+	},
+	"engineFieldSlug": {
+		"message": "ใช้เส้นทางยัติภังค์ (slug)"
+	},
+	"engineFieldSuffix": {
+		"message": "ส่วนต่อท้าย URL"
+	},
+	"engineFieldClipboard": {
+		"message": "โหมดคลิปบอร์ด: คัดลอกที่เลือกและเปิดหน้า (ไม่มีคำค้น)"
+	},
+	"sectionSearchEngines": {
+		"message": "เครื่องมือค้นหา"
+	},
+	"engineAddCustom": {
+		"message": "เพิ่มเครื่องมือค้นหา"
+	},
+	"engineEdit": {
+		"message": "แก้ไข"
+	},
+	"engineDelete": {
+		"message": "ลบ"
+	},
+	"engineHide": {
+		"message": "ซ่อน"
+	},
+	"engineShow": {
+		"message": "แสดง"
+	},
+	"engineReset": {
+		"message": "คืนค่าเริ่มต้น"
+	},
+	"engineBuiltinBadge": {
+		"message": "ในตัว"
+	},
+	"engineHiddenBadge": {
+		"message": "ซ่อนอยู่"
+	},
+	"engineSave": {
+		"message": "บันทึก"
+	},
+	"engineCancel": {
+		"message": "ยกเลิก"
+	},
+	"transformFailed": {
+		"message": "การแปลงล้มเหลว: %error%",
+		"description": "Toast shown when a search-link transform script fails; %error% is replaced with the error message"
+	},
+	"transformToggle": {
+		"message": "การแปลงแบบกำหนดเอง (JS)",
+		"description": "Checkbox/toggle label for enabling a custom JS transform on a search-link engine"
+	},
+	"transformCodeHint": {
+		"message": "`selection` และ `clipboard` พร้อมใช้งาน `return` ข้อความที่แทนที่ %s",
+		"description": "Hint text shown near the transform code editor"
+	},
+	"transformClipboardOptIn": {
+		"message": "ส่งเนื้อหาคลิปบอร์ดให้ฟังก์ชัน",
+		"description": "Checkbox label opting in to passing clipboard content to the transform function"
+	},
+	"transformRawResult": {
+		"message": "แทนที่การเข้ารหัสเริ่มต้น (แทรกผลลัพธ์แบบดิบ)",
+		"description": "Checkbox label to insert the transform result verbatim into the URL without encoding"
+	},
+	"transformRawResultNote": {
+		"message": "ฟังก์ชันของคุณต้องคืนค่าส่วนประกอบ URL ที่ถูกต้อง การเข้ารหัส %s, + และ slug จะถูกข้ามไป",
+		"description": "Note explaining that raw insertion skips %s/plus/slug encoding"
+	},
+	"transformSampleLabel": {
+		"message": "ข้อมูลทดสอบ",
+		"description": "Label for the sample input used to test a transform"
+	},
+	"transformTestBtn": {
+		"message": "ทดสอบ",
+		"description": "Button that runs the transform against the sample input"
+	},
+	"transformIsolationNote": {
+		"message": "ทำงานในแซนด์บ็อกซ์แบบแยกส่วนโดยไม่มีสิทธิ์เข้าถึงหน้าเว็บหรือส่วนขยาย",
+		"description": "Note explaining that the transform runs sandboxed"
+	},
+	"transformHelp": {
+		"message": "เขียนเนื้อหาฟังก์ชัน ตัวแปร selection (ข้อความที่เลือก) และ clipboard พร้อมใช้งาน ให้คืนค่าสตริงที่แทนที่ %s ทำงานในแซนด์บ็อกซ์ที่แยกออกมาพร้อม timeout ~1s — ไม่สามารถเข้าถึงหน้าเว็บหรือส่วนขยายได้",
+		"description": "Help tooltip explaining the custom JS transform function"
 	}
 }

@@ -1703,9 +1703,26 @@
 		"message": "Benutzerdefiniertes Menü",
 		"description": "Custom popup menu action name"
 	},
+	"actionAddSiteToMenu": {
+		"message": "Aktuelle Website zum Menü hinzufügen",
+		"description": "Add current site to menu action name"
+	},
+	"addSiteToMenuDesc": {
+		"message": "Fügt die aktuelle Website zu den Mustern des ausgewählten Menüs hinzu.",
+		"description": "Add site to menu action config description"
+	},
 	"customMenuDesc": {
 		"message": "Erstellen Sie benutzerdefinierte Popup-Menüs mit mehreren Aktionen.",
 		"description": "Custom menu section description"
+	},
+	"customMenuContextual": {
+		"message": "Menü nach aktueller Website wählen"
+	},
+	"customMenuContextualHint": {
+		"message": "Öffnet das erste Menü, dessen Website-Muster zur aktuellen Seite passen; Muster in jedem Menü konfigurieren."
+	},
+	"customMenuContextualLabel": {
+		"message": "Dynamisches Menü"
 	},
 	"addMenu": {
 		"message": "Menü hinzufügen",
@@ -1746,6 +1763,18 @@
 	"menuItemNumber": {
 		"message": "Element %n%",
 		"description": "Menu item number label"
+	},
+	"menuPatternsTitle": {
+		"message": "Auf diesen Websites anzeigen"
+	},
+	"menuPatternsHint": {
+		"message": "Leer = überall (Standardmenü). Fügen Sie eine Domain wie github.com hinzu."
+	},
+	"menuPatternsAdd": {
+		"message": "Website hinzufügen"
+	},
+	"menuPatternsPlaceholder": {
+		"message": "z. B. github.com"
 	},
 	"addChain": {
 		"message": "Kette hinzufügen",
@@ -2122,5 +2151,153 @@
 	"ctxMenuTimeDateAdded": {
 		"message": "Hinzufügedatum",
 		"description": "Time display option: show when the bookmark was added"
+	},
+	"actionSearchLink": {
+		"message": "Such-Link öffnen",
+		"description": "Search link action name — opens a configured search link with the selected text"
+	},
+	"searchLinkSource": {
+		"message": "Quelle"
+	},
+	"searchLinkEngine": {
+		"message": "Suchmaschine"
+	},
+	"searchLinkModeEngine": {
+		"message": "Suchmaschine"
+	},
+	"searchLinkModeInline": {
+		"message": "Einmaliger Link"
+	},
+	"searchLinkNew": {
+		"message": "Neu"
+	},
+	"searchLinkEdit": {
+		"message": "Bearbeiten"
+	},
+	"searchLinkNewInline": {
+		"message": "Einmaliger Link für diesen Eintrag"
+	},
+	"searchLinkNewSaved": {
+		"message": "Neue gespeicherte Suchmaschine"
+	},
+	"searchLinkEditException": {
+		"message": "Nur dieser Eintrag (Ausnahme)"
+	},
+	"searchLinkEditGlobal": {
+		"message": "Suchmaschine für alle Verwendungen bearbeiten"
+	},
+	"moveUp": {
+		"message": "Nach oben verschieben",
+		"description": "Tooltip for moving an item up in a list"
+	},
+	"moveDown": {
+		"message": "Nach unten verschieben",
+		"description": "Tooltip for moving an item down in a list"
+	},
+	"engineFieldName": {
+		"message": "Name"
+	},
+	"engineFieldUrl": {
+		"message": "URL (%s für den markierten Text)"
+	},
+	"engineFieldPlus": {
+		"message": "Wörter mit + verbinden (statt %20)"
+	},
+	"engineFieldSlug": {
+		"message": "Bindestrich-Pfad (Slug) verwenden"
+	},
+	"engineFieldSuffix": {
+		"message": "URL-Suffix"
+	},
+	"engineFieldClipboard": {
+		"message": "Zwischenablage-Modus: Auswahl kopieren und Seite öffnen (keine Suchanfrage)"
+	},
+	"engineImageRawUrl": {
+		"message": "Bild-URL roh einfügen (kein Encoding)"
+	},
+	"sectionSearchEngines": {
+		"message": "Suchmaschinen"
+	},
+	"engineTypeText": {
+		"message": "Text"
+	},
+	"engineTypeImage": {
+		"message": "Bild"
+	},
+	"engineLocalOnly": {
+		"message": "Nur lokale Suchmaschinen"
+	},
+	"engineAddCustom": {
+		"message": "Suchmaschine hinzufügen"
+	},
+	"engineReorder": {
+		"message": "Zum Sortieren ziehen"
+	},
+	"engineEdit": {
+		"message": "Bearbeiten"
+	},
+	"engineDelete": {
+		"message": "Löschen"
+	},
+	"engineHide": {
+		"message": "Ausblenden"
+	},
+	"engineShow": {
+		"message": "Anzeigen"
+	},
+	"engineReset": {
+		"message": "Auf Standard zurücksetzen"
+	},
+	"engineBuiltinBadge": {
+		"message": "integriert"
+	},
+	"engineHiddenBadge": {
+		"message": "ausgeblendet"
+	},
+	"engineSave": {
+		"message": "Speichern"
+	},
+	"engineCancel": {
+		"message": "Abbrechen"
+	},
+	"transformFailed": {
+		"message": "Transformation fehlgeschlagen: %error%",
+		"description": "Toast shown when a search-link transform script fails; %error% is replaced with the error message"
+	},
+	"transformToggle": {
+		"message": "Benutzerdefinierte Transformation (JS)",
+		"description": "Checkbox/toggle label for enabling a custom JS transform on a search-link engine"
+	},
+	"transformCodeHint": {
+		"message": "`selection` und `clipboard` sind verfügbar. `return` den Text, der %s ersetzt.",
+		"description": "Hint text shown near the transform code editor"
+	},
+	"transformClipboardOptIn": {
+		"message": "Zwischenablageinhalt der Funktion bereitstellen",
+		"description": "Checkbox label opting in to passing clipboard content to the transform function"
+	},
+	"transformRawResult": {
+		"message": "Standardkodierung ersetzen (Ergebnis unverändert einfügen)",
+		"description": "Checkbox label to insert the transform result verbatim into the URL without encoding"
+	},
+	"transformRawResultNote": {
+		"message": "Ihre Funktion muss eine gültige URL-Komponente zurückgeben; %s-, +- und Slug-Kodierung werden übersprungen.",
+		"description": "Note explaining that raw insertion skips %s/plus/slug encoding"
+	},
+	"transformSampleLabel": {
+		"message": "Testeingabe",
+		"description": "Label for the sample input used to test a transform"
+	},
+	"transformTestBtn": {
+		"message": "Testen",
+		"description": "Button that runs the transform against the sample input"
+	},
+	"transformIsolationNote": {
+		"message": "Läuft in einer isolierten Sandbox ohne Zugriff auf die Seite oder die Erweiterung.",
+		"description": "Note explaining that the transform runs sandboxed"
+	},
+	"transformHelp": {
+		"message": "Schreiben Sie einen Funktionsrumpf. Die Variablen selection (der markierte Text) und clipboard stehen zur Verfügung; geben Sie die Zeichenkette zurück, die %s ersetzt. Läuft in einer isolierten Sandbox mit ~1s Timeout – kein Zugriff auf die Seite oder die Erweiterung.",
+		"description": "Help tooltip explaining the custom JS transform function"
 	}
 }

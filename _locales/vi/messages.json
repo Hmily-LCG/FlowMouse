@@ -1703,9 +1703,26 @@
 		"message": "Menu tùy chỉnh",
 		"description": "Custom popup menu action name"
 	},
+	"actionAddSiteToMenu": {
+		"message": "Thêm trang web hiện tại vào menu",
+		"description": "Add current site to menu action name"
+	},
+	"addSiteToMenuDesc": {
+		"message": "Thêm trang web hiện tại vào các mẫu của menu đã chọn.",
+		"description": "Add site to menu action config description"
+	},
 	"customMenuDesc": {
 		"message": "Tạo menu bật lên tùy chỉnh với nhiều hành động.",
 		"description": "Custom menu section description"
+	},
+	"customMenuContextual": {
+		"message": "Chọn menu theo trang web hiện tại"
+	},
+	"customMenuContextualHint": {
+		"message": "Mở menu đầu tiên có mẫu trang web khớp với trang hiện tại; cấu hình mẫu trong từng menu."
+	},
+	"customMenuContextualLabel": {
+		"message": "Menu động"
 	},
 	"addMenu": {
 		"message": "Thêm menu",
@@ -1746,6 +1763,18 @@
 	"menuItemNumber": {
 		"message": "Mục %n%",
 		"description": "Menu item number label"
+	},
+	"menuPatternsTitle": {
+		"message": "Hiển thị trên các trang web này"
+	},
+	"menuPatternsHint": {
+		"message": "Trống = mọi nơi (menu mặc định). Thêm tên miền như github.com."
+	},
+	"menuPatternsAdd": {
+		"message": "Thêm trang web"
+	},
+	"menuPatternsPlaceholder": {
+		"message": "vd. github.com"
 	},
 	"addChain": {
 		"message": "Thêm chuỗi",
@@ -2122,5 +2151,138 @@
 	"ctxMenuTimeDateAdded": {
 		"message": "Ngày thêm",
 		"description": "Time display option: show when the bookmark was added"
+	},
+	"actionSearchLink": {
+		"message": "Mở liên kết tìm kiếm",
+		"description": "Search link action name — opens a configured search link with the selected text"
+	},
+	"searchLinkSource": {
+		"message": "Nguồn"
+	},
+	"searchLinkEngine": {
+		"message": "Công cụ"
+	},
+	"searchLinkModeEngine": {
+		"message": "Công cụ tìm kiếm"
+	},
+	"searchLinkModeInline": {
+		"message": "Liên kết một lần"
+	},
+	"searchLinkNew": {
+		"message": "Mới"
+	},
+	"searchLinkEdit": {
+		"message": "Chỉnh sửa"
+	},
+	"searchLinkNewInline": {
+		"message": "Liên kết một lần cho mục này"
+	},
+	"searchLinkNewSaved": {
+		"message": "Công cụ tìm kiếm đã lưu mới"
+	},
+	"searchLinkEditException": {
+		"message": "Chỉ mục này (ngoại lệ)"
+	},
+	"searchLinkEditGlobal": {
+		"message": "Chỉnh sửa công cụ cho tất cả các mục sử dụng"
+	},
+	"moveUp": {
+		"message": "Di chuyển lên",
+		"description": "Tooltip for moving an item up in a list"
+	},
+	"moveDown": {
+		"message": "Di chuyển xuống",
+		"description": "Tooltip for moving an item down in a list"
+	},
+	"engineFieldName": {
+		"message": "Tên"
+	},
+	"engineFieldUrl": {
+		"message": "URL (dùng %s cho văn bản được chọn)"
+	},
+	"engineFieldPlus": {
+		"message": "Nối các từ bằng + (thay vì %20)"
+	},
+	"engineFieldSlug": {
+		"message": "Dùng đường dẫn gạch nối (slug)"
+	},
+	"engineFieldSuffix": {
+		"message": "Hậu tố URL"
+	},
+	"engineFieldClipboard": {
+		"message": "Chế độ clipboard: sao chép lựa chọn và mở trang (không có truy vấn)"
+	},
+	"sectionSearchEngines": {
+		"message": "Công cụ tìm kiếm"
+	},
+	"engineAddCustom": {
+		"message": "Thêm công cụ tìm kiếm"
+	},
+	"engineEdit": {
+		"message": "Chỉnh sửa"
+	},
+	"engineDelete": {
+		"message": "Xóa"
+	},
+	"engineHide": {
+		"message": "Ẩn"
+	},
+	"engineShow": {
+		"message": "Hiển thị"
+	},
+	"engineReset": {
+		"message": "Khôi phục về mặc định"
+	},
+	"engineBuiltinBadge": {
+		"message": "tích hợp sẵn"
+	},
+	"engineHiddenBadge": {
+		"message": "đã ẩn"
+	},
+	"engineSave": {
+		"message": "Lưu"
+	},
+	"engineCancel": {
+		"message": "Hủy"
+	},
+	"transformFailed": {
+		"message": "Chuyển đổi thất bại: %error%",
+		"description": "Toast shown when a search-link transform script fails; %error% is replaced with the error message"
+	},
+	"transformToggle": {
+		"message": "Chuyển đổi tùy chỉnh (JS)",
+		"description": "Checkbox/toggle label for enabling a custom JS transform on a search-link engine"
+	},
+	"transformCodeHint": {
+		"message": "`selection` và `clipboard` có sẵn. `return` văn bản thay thế %s.",
+		"description": "Hint text shown near the transform code editor"
+	},
+	"transformClipboardOptIn": {
+		"message": "Cung cấp nội dung clipboard cho hàm",
+		"description": "Checkbox label opting in to passing clipboard content to the transform function"
+	},
+	"transformRawResult": {
+		"message": "Thay thế mã hóa mặc định (chèn kết quả thô)",
+		"description": "Checkbox label to insert the transform result verbatim into the URL without encoding"
+	},
+	"transformRawResultNote": {
+		"message": "Hàm của bạn phải trả về một thành phần URL hợp lệ; mã hóa %s, + và slug bị bỏ qua.",
+		"description": "Note explaining that raw insertion skips %s/plus/slug encoding"
+	},
+	"transformSampleLabel": {
+		"message": "Đầu vào thử nghiệm",
+		"description": "Label for the sample input used to test a transform"
+	},
+	"transformTestBtn": {
+		"message": "Thử nghiệm",
+		"description": "Button that runs the transform against the sample input"
+	},
+	"transformIsolationNote": {
+		"message": "Chạy trong hộp cát cô lập, không có quyền truy cập vào trang hoặc tiện ích mở rộng.",
+		"description": "Note explaining that the transform runs sandboxed"
+	},
+	"transformHelp": {
+		"message": "Viết thân hàm. Các biến selection (văn bản đã chọn) và clipboard có sẵn; trả về chuỗi thay thế %s. Chạy trong hộp cát cô lập với thời gian chờ ~1s — không có quyền truy cập vào trang hoặc tiện ích mở rộng.",
+		"description": "Help tooltip explaining the custom JS transform function"
 	}
 }

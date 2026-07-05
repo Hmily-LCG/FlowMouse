@@ -1703,9 +1703,26 @@
 		"message": "কাস্টম মেনু",
 		"description": "Custom popup menu action name"
 	},
+	"actionAddSiteToMenu": {
+		"message": "বর্তমান সাইট মেনুতে যোগ করুন",
+		"description": "Add current site to menu action name"
+	},
+	"addSiteToMenuDesc": {
+		"message": "বর্তমান সাইটটি নির্বাচিত মেনুর প্যাটার্নে যোগ করে।",
+		"description": "Add site to menu action config description"
+	},
 	"customMenuDesc": {
 		"message": "একাধিক অ্যাকশন সহ কাস্টম পপআপ মেনু তৈরি করুন।",
 		"description": "Custom menu section description"
+	},
+	"customMenuContextual": {
+		"message": "বর্তমান সাইট অনুযায়ী মেনু বেছে নিন"
+	},
+	"customMenuContextualHint": {
+		"message": "যে মেনুর সাইট প্যাটার্ন বর্তমান পৃষ্ঠার সাথে মেলে সেটি খোলে; প্রতিটি মেনুতে প্যাটার্ন কনফিগার করুন।"
+	},
+	"customMenuContextualLabel": {
+		"message": "গতিশীল মেনু"
 	},
 	"addMenu": {
 		"message": "মেনু যোগ করুন",
@@ -1746,6 +1763,18 @@
 	"menuItemNumber": {
 		"message": "আইটেম %n%",
 		"description": "Menu item number label"
+	},
+	"menuPatternsTitle": {
+		"message": "এই সাইটগুলোতে দেখান"
+	},
+	"menuPatternsHint": {
+		"message": "খালি = সর্বত্র (ডিফল্ট মেনু)। github.com-এর মতো একটি ডোমেইন যোগ করুন।"
+	},
+	"menuPatternsAdd": {
+		"message": "সাইট যোগ করুন"
+	},
+	"menuPatternsPlaceholder": {
+		"message": "যেমন github.com"
 	},
 	"addChain": {
 		"message": "চেইন যোগ করুন",
@@ -2122,5 +2151,138 @@
 	"ctxMenuTimeDateAdded": {
 		"message": "যোগ করা তারিখ",
 		"description": "Time display option: show when the bookmark was added"
+	},
+	"actionSearchLink": {
+		"message": "অনুসন্ধান লিংক খুলুন",
+		"description": "Search link action name — opens a configured search link with the selected text"
+	},
+	"searchLinkSource": {
+		"message": "উৎস"
+	},
+	"searchLinkEngine": {
+		"message": "ইঞ্জিন"
+	},
+	"searchLinkModeEngine": {
+		"message": "সার্চ ইঞ্জিন"
+	},
+	"searchLinkModeInline": {
+		"message": "এককালীন লিঙ্ক"
+	},
+	"searchLinkNew": {
+		"message": "নতুন"
+	},
+	"searchLinkEdit": {
+		"message": "সম্পাদনা করুন"
+	},
+	"searchLinkNewInline": {
+		"message": "এই এন্ট্রির জন্য এককালীন লিঙ্ক"
+	},
+	"searchLinkNewSaved": {
+		"message": "নতুন সংরক্ষিত ইঞ্জিন"
+	},
+	"searchLinkEditException": {
+		"message": "শুধুমাত্র এই এন্ট্রি (ব্যতিক্রম)"
+	},
+	"searchLinkEditGlobal": {
+		"message": "সব ব্যবহারের জন্য ইঞ্জিন সম্পাদনা করুন"
+	},
+	"moveUp": {
+		"message": "উপরে সরান",
+		"description": "Tooltip for moving an item up in a list"
+	},
+	"moveDown": {
+		"message": "নিচে সরান",
+		"description": "Tooltip for moving an item down in a list"
+	},
+	"engineFieldName": {
+		"message": "নাম"
+	},
+	"engineFieldUrl": {
+		"message": "URL (নির্বাচনের জন্য %s ব্যবহার করুন)"
+	},
+	"engineFieldPlus": {
+		"message": "শব্দগুলো + দিয়ে যুক্ত করুন (%20-এর পরিবর্তে)"
+	},
+	"engineFieldSlug": {
+		"message": "হাইফেন পথ (slug) ব্যবহার করুন"
+	},
+	"engineFieldSuffix": {
+		"message": "URL প্রত্যয়"
+	},
+	"engineFieldClipboard": {
+		"message": "ক্লিপবোর্ড মোড: নির্বাচন কপি করুন এবং পেজ খুলুন (কোনো কোয়েরি ছাড়া)"
+	},
+	"sectionSearchEngines": {
+		"message": "সার্চ ইঞ্জিন"
+	},
+	"engineAddCustom": {
+		"message": "সার্চ ইঞ্জিন যোগ করুন"
+	},
+	"engineEdit": {
+		"message": "সম্পাদনা করুন"
+	},
+	"engineDelete": {
+		"message": "মুছুন"
+	},
+	"engineHide": {
+		"message": "লুকান"
+	},
+	"engineShow": {
+		"message": "দেখান"
+	},
+	"engineReset": {
+		"message": "ডিফল্টে রিসেট করুন"
+	},
+	"engineBuiltinBadge": {
+		"message": "অন্তর্নির্মিত"
+	},
+	"engineHiddenBadge": {
+		"message": "লুকানো"
+	},
+	"engineSave": {
+		"message": "সেভ করুন"
+	},
+	"engineCancel": {
+		"message": "বাতিল"
+	},
+	"transformFailed": {
+		"message": "রূপান্তর ব্যর্থ হয়েছে: %error%",
+		"description": "Toast shown when a search-link transform script fails; %error% is replaced with the error message"
+	},
+	"transformToggle": {
+		"message": "কাস্টম রূপান্তর (JS)",
+		"description": "Checkbox/toggle label for enabling a custom JS transform on a search-link engine"
+	},
+	"transformCodeHint": {
+		"message": "`selection` ও `clipboard` পাওয়া যাচ্ছে। যে টেক্সট %s-কে প্রতিস্থাপন করবে তা `return` করুন।",
+		"description": "Hint text shown near the transform code editor"
+	},
+	"transformClipboardOptIn": {
+		"message": "ফাংশনে ক্লিপবোর্ডের বিষয়বস্তু সরবরাহ করুন",
+		"description": "Checkbox label opting in to passing clipboard content to the transform function"
+	},
+	"transformRawResult": {
+		"message": "ডিফল্ট এনকোডিং প্রতিস্থাপন করুন (ফলাফল যেমন আছে তেমন ঢোকান)",
+		"description": "Checkbox label to insert the transform result verbatim into the URL without encoding"
+	},
+	"transformRawResultNote": {
+		"message": "আপনার ফাংশনটিকে একটি বৈধ URL উপাদান রিটার্ন করতে হবে; %s, + এবং slug এনকোডিং এড়িয়ে যাওয়া হয়।",
+		"description": "Note explaining that raw insertion skips %s/plus/slug encoding"
+	},
+	"transformSampleLabel": {
+		"message": "পরীক্ষার ইনপুট",
+		"description": "Label for the sample input used to test a transform"
+	},
+	"transformTestBtn": {
+		"message": "পরীক্ষা",
+		"description": "Button that runs the transform against the sample input"
+	},
+	"transformIsolationNote": {
+		"message": "পৃষ্ঠা বা এক্সটেনশনে অ্যাক্সেস ছাড়াই একটি বিচ্ছিন্ন স্যান্ডবক্সে চলে।",
+		"description": "Note explaining that the transform runs sandboxed"
+	},
+	"transformHelp": {
+		"message": "একটি ফাংশন বডি লিখুন। চলক selection (নির্বাচিত পাঠ্য) এবং clipboard উপলব্ধ; %s-এর জায়গায় যে স্ট্রিং প্রতিস্থাপিত হবে তা ফেরত দিন। ~1s টাইমআউট সহ একটি বিচ্ছিন্ন স্যান্ডবক্সে চলে — পৃষ্ঠা বা এক্সটেনশনে কোনো অ্যাক্সেস নেই।",
+		"description": "Help tooltip explaining the custom JS transform function"
 	}
 }

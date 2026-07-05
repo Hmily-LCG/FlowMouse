@@ -3064,6 +3064,37 @@ window.ContentContextMenu = ContentContextMenu;
 			}
 		});
 
+		function faviconFor(url) {
+			try { return `/_favicon/?pageUrl=${encodeURIComponent(url)}&size=32`; } catch { return ''; }
+		}
+		function resolveSearchLink(cfg) {
+			const catalog = window.FlowMouseEngineCatalogApi ? window.FlowMouseEngineCatalogApi.ENGINE_CATALOG : [];
+			const se = SETTINGS.searchEngines || {};
+			const link = window.FlowMouseEngineRegistry.resolveMenuItemLink(catalog, se, cfg);
+			if (!link) return null;
+			let icon = '';
+			if (cfg.engineId) {
+				const b = window.FlowMouseEngineCatalogApi ? window.FlowMouseEngineCatalogApi.getEngine(cfg.engineId) : null;
+				icon = (b && b.icon) ? b.icon : faviconFor(link.url);
+			} else {
+				icon = faviconFor(link.url);
+			}
+			return { ...link, icon };
+		}
+		function resolveContextualMenuId(menus) {
+			// First menu (in object order) whose patterns match the current URL; else first with empty patterns.
+			const url = location.href;
+			const entries = Object.entries(menus || {});
+			for (const [id, m] of entries) {
+				const pats = m?.patterns || [];
+				if (pats.length && window.FlowMouseSearchUrl.matchesPatterns(url, pats)) return id;
+			}
+			for (const [id, m] of entries) {
+				if (!m?.patterns || m.patterns.length === 0) return id;
+			}
+			return null;
+		}
+
 		async function executeAction(action, config = {}, cursor = {}, startTarget = null, useActiveTab = false) {
 			if (!action || action === 'none') return false;
 			if (!isExtensionContextValid()) return false;
@@ -3183,12 +3214,10 @@ window.ContentContextMenu = ContentContextMenu;
 						if (!permResult?.granted) break;
 						const clipText = (await navigator.clipboard.readText() || '').trim();
 						if (!clipText) break;
-						const { SEARCH_ENGINES } = window.GestureConstants;
-						const engine = mergedConfig.engine || 'system';
-						const customUrl = mergedConfig.url || '';
 						const position = mergedConfig.position || 'right';
 						const active = mergedConfig.active !== false;
 						const incognito = !!mergedConfig.incognito;
+						// autoDetectUrl: keep existing tryParseAsUrl logic (more thorough than buildSearchUrl's looksLikeUrl)
 						if (mergedConfig.autoDetectUrl) {
 							const detectedUrl = tryParseAsUrl(clipText, false);
 							if (detectedUrl) {
@@ -3196,12 +3225,67 @@ window.ContentContextMenu = ContentContextMenu;
 								break;
 							}
 						}
-						if (engine === 'system') {
+						// delegate engine/custom/system URL construction to pure function (autoDetectUrl already handled above)
+						const catalog = window.FlowMouseEngineCatalogApi ? window.FlowMouseEngineCatalogApi.ENGINE_CATALOG : [];
+						const se = SETTINGS.searchEngines || {};
+						const resolved = window.FlowMouseSearchUrl.resolveSearchConfig(catalog, se, { ...mergedConfig, autoDetectUrl: false });
+						const url = window.FlowMouseSearchUrl.buildSearchUrl(resolved, clipText, {});
+						if (url === null) {
 							await safeSendMessage({ action: 'systemSearch', query: clipText, position, active, incognito });
-						} else if (engine === 'custom' && customUrl) {
-							await safeSendMessage({ action: 'openTabAtPosition', url: customUrl.replace('%s', encodeURIComponent(clipText)), position, active, incognito });
 						} else {
-							const searchUrl = (SEARCH_ENGINES[engine] || SEARCH_ENGINES['google']).url + encodeURIComponent(clipText);
+							await safeSendMessage({ action: 'openTabAtPosition', url, position, active, incognito });
+						}
+						break;
+					}
+					case 'searchLink': {
+						const cfg = mergedConfig;
+						const link = resolveSearchLink(cfg);
+						if (!link) break;
+						let text = (typeof cfg.__selectionText === 'string'
+							? cfg.__selectionText
+							: (window.getSelection()?.toString() || '')).trim();
+						const position = cfg.position || 'right';
+						const active = cfg.active !== false;
+						const incognito = !!cfg.incognito;
+						if (window.FlowMouseEngineRegistry.isClipboardLink(link)) {
+							if (text) copyText(text);
+							await safeSendMessage({ action: 'openTabAtPosition', url: link.url, position, active, incognito });
+							break;
+						}
+						if (link.transformEnabled && link.transformCode) {
+							let clip = '';
+							if (link.transformClipboard) {
+								const granted = await safeSendMessage({ action: 'requestPermission', permissions: ['clipboardRead'] });
+								if (granted && granted.granted) {
+									try { clip = (await navigator.clipboard.readText()) || ''; } catch (e) { clip = ''; }
+								}
+							}
+							const res = await safeSendMessage({ action: 'runTransform', code: link.transformCode, selection: text, clipboard: clip });
+							if (!res || !res.ok) {
+								const emsg = (res && res.error) || 'error';
+								if (typeof toaster !== 'undefined' && toaster && toaster.showToast) {
+									toaster.showToast(msg('transformFailed').replace('%error%', emsg), { duration: 4000 });
+								} else {
+									console.warn('[FlowMouse] search-link transform failed:', emsg);
+								}
+								break;
+							}
+							text = res.result;
+							if (link.transformRawResult) link.rawTerm = true;
+						}
+						// A catalog entry (engineId) is always a search; a custom link with %s is a search.
+						// A custom link without %s is a fixed link → open directly, ignoring any selection.
+						const isFixedLink = !cfg.engineId && !!cfg.url && !cfg.url.includes('%s');
+						if (isFixedLink) {
+							const fixedUrl = window.FlowMouseSearchUrl.buildSearchUrl({ ...link }, '', {});
+							await safeSendMessage({ action: 'openTabAtPosition', url: fixedUrl, position, active, incognito });
+							break;
+						}
+						if (!text) break;
+						const searchUrl = window.FlowMouseSearchUrl.buildSearchUrl(link, text, {});
+						if (searchUrl === null) {
+							await safeSendMessage({ action: 'systemSearch', query: text, position, active, incognito });
+						} else {
 							await safeSendMessage({ action: 'openTabAtPosition', url: searchUrl, position, active, incognito });
 						}
 						break;
@@ -3289,10 +3373,13 @@ window.ContentContextMenu = ContentContextMenu;
 						break;
 					}
 					case 'customMenu': {
-						const menuId = mergedConfig.menuId;
+						const menuId = mergedConfig.contextual
+							? resolveContextualMenuId(SETTINGS.customMenus)
+							: mergedConfig.menuId;
 						const menuDef = SETTINGS.customMenus?.[menuId];
 						const menuItems = menuDef?.items;
 						if (!menuItems) break;
+						const menuSelectionText = (window.getSelection()?.toString() || '').trim();
 						ctxMenu.prepare(cursor.endX, cursor.endY);
 						const items = menuItems
 							.filter(it => it === 'separator' || (it.action && it.action !== 'none'))
@@ -3302,6 +3389,19 @@ window.ContentContextMenu = ContentContextMenu;
 								if (!label && it.action === 'actionChain') {
 									const chain = SETTINGS.actionChains?.[it.chainId];
 									label = chain?.name || msg(ACTION_KEYS[it.action]);
+								}
+								if (it.action === 'searchLink') {
+									const rl = resolveSearchLink({ ...(ACTION_DEFAULTS['searchLink'] || {}), ...it });
+									label = it.customName || rl?.name || msg(ACTION_KEYS['searchLink']);
+									return {
+										label,
+										icon: rl ? rl.icon : '',
+										onClick: () => {
+											const itemConfig = { ...(ACTION_DEFAULTS[it.action] || {}), ...it };
+											itemConfig.__selectionText = menuSelectionText;
+											executeAction(it.action, itemConfig, cursor, startTarget);
+										}
+									};
 								}
 								if (!label) label = msg(ACTION_KEYS[it.action]) || it.action;
 								return {
@@ -3371,6 +3471,8 @@ window.ContentContextMenu = ContentContextMenu;
 				} else if (action === 'sendExtensionMessage') {
 					msg_obj.extensionId = mergedConfig.extensionId || '';
 					msg_obj.message = mergedConfig.message || '{}';
+				} else if (action === 'addSiteToMenu') {
+					msg_obj.menuId = mergedConfig.menuId;
 				}
 				return await safeSendMessage(msg_obj);
 			}
@@ -3394,10 +3496,7 @@ window.ContentContextMenu = ContentContextMenu;
 		}
 
 		function resolveTabTarget(config, state) {
-			const { SEARCH_ENGINES, IMAGE_SEARCH_ENGINES } = window.GestureConstants;
 			const { selectedText: content, dragType, parentLink } = state;
-			const engine = config.engine;
-			const customUrl = config.url;
 
 			switch (config.action) {
 				case 'search': {
@@ -3405,16 +3504,15 @@ window.ContentContextMenu = ContentContextMenu;
 						const url = tryParseAsUrl(content, false);
 						if (url) return { url };
 					}
-					if (engine === 'system') return { query: content };
-					if (engine === 'custom' && customUrl) return { url: customUrl.replace('%s', encodeURIComponent(content)) };
-					return { url: (SEARCH_ENGINES[engine] || SEARCH_ENGINES['google']).url + encodeURIComponent(content) };
+					const catalog = window.FlowMouseEngineCatalogApi ? window.FlowMouseEngineCatalogApi.ENGINE_CATALOG : [];
+					const se = SETTINGS.searchEngines || {};
+					const resolved = window.FlowMouseSearchUrl.resolveSearchConfig(catalog, se, { ...config, autoDetectUrl: false });
+					const url = window.FlowMouseSearchUrl.buildSearchUrl(resolved, content, {});
+					if (url === null) return { query: content };
+					return { url };
 				}
 				case 'openTab':
 					return { url: (dragType === 'image' && config.preferLink === true && parentLink) ? parentLink : content };
-				case 'imageSearch': {
-					if (engine === 'custom' && customUrl) return { url: customUrl.replace('%s', encodeURIComponent(content)) };
-					return { url: (IMAGE_SEARCH_ENGINES[engine] || IMAGE_SEARCH_ENGINES['google']).url + encodeURIComponent(content) };
-				}
 				default:
 					return null;
 			}
@@ -3574,10 +3672,31 @@ window.ContentContextMenu = ContentContextMenu;
 					break;
 
 				case 'imageSearch': {
-					const target = resolveTabTarget(config, state);
-					if (target?.url) {
-						await safeSendMessage({ action: 'openTabAtPosition', url: target.url, position, active, incognito });
+					const catalog = window.FlowMouseEngineCatalogApi ? window.FlowMouseEngineCatalogApi.ENGINE_CATALOG : [];
+					const se = SETTINGS.searchEngines || {};
+					const engineId = window.FlowMouseEngineRegistry.normalizeImageEngineId(config.engine);
+					let imgUrl = content;
+					let cfgForBuild;
+					if (engineId === 'custom') {
+						cfgForBuild = { engine: 'custom', url: config.url || '' };
+					} else {
+						const eng = window.FlowMouseEngineRegistry.getEngineById(catalog, se, engineId);
+						if (!eng) break;
+						if (eng.transformEnabled && eng.transformCode) {
+							const res = await safeSendMessage({ action: 'runTransform', code: eng.transformCode, selection: imgUrl, clipboard: '' });
+							if (!res || !res.ok) {
+								const emsg = (res && res.error) || 'error';
+								if (typeof toaster !== 'undefined' && toaster && toaster.showToast) {
+									toaster.showToast(msg('transformFailed').replace('%error%', emsg), { duration: 4000 });
+								} else { console.warn('[FlowMouse] image-search transform failed:', emsg); }
+								break;
+							}
+							imgUrl = res.result;
+						}
+						cfgForBuild = { engine: 'custom', url: eng.url, plus: eng.plus, slug: eng.slug, suffix: eng.suffix, rawTerm: eng.rawResult };
 					}
+					const url = window.FlowMouseSearchUrl.buildSearchUrl(cfgForBuild, imgUrl, {});
+					if (url) await safeSendMessage({ action: 'openTabAtPosition', url, position, active, incognito });
 					break;
 				}
 

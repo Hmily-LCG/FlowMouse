@@ -1,3 +1,5 @@
+importScripts('menu-patterns.js');
+
 const isEdge = navigator.userAgent.includes('Edg/') || navigator.userAgent.includes('EdgA/');
 
 const GLOBAL_MUTE_KEY = 'flowmouse_global_mute_state';
@@ -55,7 +57,7 @@ function asyncMessageHandler(asyncHandler) {
 const CONTENT_ACTIONS = new Set([
 	'scrollUp', 'scrollDown', 'scrollToTop', 'scrollToBottom',
 	'stopLoading', 'copyUrl', 'copyTitle', 'copyTitleAndUrl', 'printPage', 'sendCustomEvent',
-	'simulateKey', 'pasteClipboard', 'pasteContent', 'searchClipboard',
+	'simulateKey', 'pasteClipboard', 'pasteContent', 'searchClipboard', 'searchLink',
 	'menuShowTabs', 'menuRecentlyClosed', 'menuShowBookmarks',
 	'customMenu',
 ]);
@@ -100,6 +102,33 @@ function replaceUrlPlaceholders(template, tab) {
 		return mod ? val : encodeURIComponent(val);
 	});
 }
+
+let _offscreenCreating = null;
+
+async function ensureOffscreen() {
+	if (!chrome.offscreen) {
+		throw new Error('chrome.offscreen API is not available in this browser');
+	}
+	if (await chrome.offscreen.hasDocument()) {
+		return;
+	}
+	if (_offscreenCreating) {
+		return _offscreenCreating;
+	}
+	_offscreenCreating = chrome.offscreen.createDocument({
+		url: 'pages/offscreen.html',
+		reasons: ['IFRAME_SCRIPTING'],
+		justification: 'Run user-defined search-link transform scripts in an isolated sandbox',
+	}).catch((e) => {
+		// Swallow benign "only one offscreen document" race error
+		if (!e?.message?.includes('single offscreen document')) throw e;
+	}).finally(() => {
+		_offscreenCreating = null;
+	});
+	return _offscreenCreating;
+}
+
+let _transformIdCounter = 0;
 
 async function handleAction(request, sender) {
 	switch (request.action) {
@@ -774,6 +803,16 @@ async function handleAction(request, sender) {
 			const granted = await requestPermission(request.permissions, sender.tab?.windowId ?? null);
 			return { success: true, granted };
 
+		case 'addSiteToMenu': {
+			const menuId = request.menuId;
+			const url = sender.tab?.url;
+			if (!menuId || !url) return { success: false };
+			const cur = await new Promise(res => chrome.storage.sync.get(['customMenus'], items => res(items.customMenus || {})));
+			const { menus, added } = self.FlowMouseMenuPatterns.addSiteToMenuPatterns(cur, menuId, url);
+			if (added) await chrome.storage.sync.set({ customMenus: menus });
+			return { success: true, added };
+		}
+
 		case 'gestureStateUpdate':
 			if (sender.tab?.id) {
 				await chrome.tabs.sendMessage(sender.tab.id, {
@@ -1016,6 +1055,34 @@ async function handleAction(request, sender) {
 			if (session) session.setItems(null);
 			ctxMenuSessions.delete(request.menuId);
 			return { success: true };
+		}
+
+		case 'runTransform': {
+			if (typeof request.code !== 'string') {
+				return { ok: false, error: 'no code' };
+			}
+			await ensureOffscreen();
+			const transformId = 'ft-' + (++_transformIdCounter);
+			const replyPromise = new Promise((resolve) => {
+				const timeout = setTimeout(() => {
+					resolve({ ok: false, error: 'timeout' });
+				}, 1500);
+				chrome.runtime.sendMessage({
+					target: 'offscreen',
+					type: 'fm-transform',
+					id: transformId,
+					code: request.code,
+					selection: request.selection || '',
+					clipboard: request.clipboard || '',
+				}).then((reply) => {
+					clearTimeout(timeout);
+					resolve(reply ?? { ok: false, error: 'no reply' });
+				}).catch((e) => {
+					clearTimeout(timeout);
+					resolve({ ok: false, error: String(e?.message || e) });
+				});
+			});
+			return replyPromise;
 		}
 
 		case 'actionChain': {

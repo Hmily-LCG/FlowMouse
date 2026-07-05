@@ -1703,9 +1703,26 @@
 		"message": "Egyéni menü",
 		"description": "Custom popup menu action name"
 	},
+	"actionAddSiteToMenu": {
+		"message": "Jelenlegi webhely hozzáadása a menühöz",
+		"description": "Add current site to menu action name"
+	},
+	"addSiteToMenuDesc": {
+		"message": "Hozzáadja a jelenlegi webhelyet a kiválasztott menü mintáihoz.",
+		"description": "Add site to menu action config description"
+	},
 	"customMenuDesc": {
 		"message": "Hozzon létre egyéni felugró menüket több művelettel.",
 		"description": "Custom menu section description"
+	},
+	"customMenuContextual": {
+		"message": "Menü kiválasztása az aktuális webhely szerint"
+	},
+	"customMenuContextualHint": {
+		"message": "Megnyitja az első menüt, amelynek webhelymintái egyeznek az aktuális oldallal; minden menüben konfigurálja a mintákat."
+	},
+	"customMenuContextualLabel": {
+		"message": "Dinamikus menü"
 	},
 	"addMenu": {
 		"message": "Menü hozzáadása",
@@ -1746,6 +1763,18 @@
 	"menuItemNumber": {
 		"message": "%n%. elem",
 		"description": "Menu item number label"
+	},
+	"menuPatternsTitle": {
+		"message": "Megjelenítés ezeken a webhelyeken"
+	},
+	"menuPatternsHint": {
+		"message": "Üres = mindenhol (alapértelmezett menü). Adjon hozzá egy domaint, például: github.com."
+	},
+	"menuPatternsAdd": {
+		"message": "Webhely hozzáadása"
+	},
+	"menuPatternsPlaceholder": {
+		"message": "pl. github.com"
 	},
 	"addChain": {
 		"message": "Lánc hozzáadása",
@@ -2122,5 +2151,138 @@
 	"ctxMenuTimeDateAdded": {
 		"message": "Hozzáadás dátuma",
 		"description": "Time display option: show when the bookmark was added"
+	},
+	"actionSearchLink": {
+		"message": "Keresési hivatkozás megnyitása",
+		"description": "Search link action name — opens a configured search link with the selected text"
+	},
+	"searchLinkSource": {
+		"message": "Forrás"
+	},
+	"searchLinkEngine": {
+		"message": "Motor"
+	},
+	"searchLinkModeEngine": {
+		"message": "Keresőmotor"
+	},
+	"searchLinkModeInline": {
+		"message": "Egyszeri hivatkozás"
+	},
+	"searchLinkNew": {
+		"message": "Új"
+	},
+	"searchLinkEdit": {
+		"message": "Szerkesztés"
+	},
+	"searchLinkNewInline": {
+		"message": "Egyszeri hivatkozás ehhez a bejegyzéshez"
+	},
+	"searchLinkNewSaved": {
+		"message": "Új mentett keresőmotor"
+	},
+	"searchLinkEditException": {
+		"message": "Csak ez a bejegyzés (kivétel)"
+	},
+	"searchLinkEditGlobal": {
+		"message": "Keresőmotor szerkesztése minden használatnál"
+	},
+	"moveUp": {
+		"message": "Feljebb mozgatás",
+		"description": "Tooltip for moving an item up in a list"
+	},
+	"moveDown": {
+		"message": "Lejjebb mozgatás",
+		"description": "Tooltip for moving an item down in a list"
+	},
+	"engineFieldName": {
+		"message": "Név"
+	},
+	"engineFieldUrl": {
+		"message": "URL (a kijelöléshez használja: %s)"
+	},
+	"engineFieldPlus": {
+		"message": "Szavak összekapcsolása + jellel (%20 helyett)"
+	},
+	"engineFieldSlug": {
+		"message": "Kötőjeles elérési út (slug) használata"
+	},
+	"engineFieldSuffix": {
+		"message": "URL-utótag"
+	},
+	"engineFieldClipboard": {
+		"message": "Vágólap mód: kijelölés másolása és az oldal megnyitása (lekérdezés nélkül)"
+	},
+	"sectionSearchEngines": {
+		"message": "Keresőmotorok"
+	},
+	"engineAddCustom": {
+		"message": "Keresőmotor hozzáadása"
+	},
+	"engineEdit": {
+		"message": "Szerkesztés"
+	},
+	"engineDelete": {
+		"message": "Törlés"
+	},
+	"engineHide": {
+		"message": "Elrejtés"
+	},
+	"engineShow": {
+		"message": "Megjelenítés"
+	},
+	"engineReset": {
+		"message": "Visszaállítás alapértelmezettre"
+	},
+	"engineBuiltinBadge": {
+		"message": "beépített"
+	},
+	"engineHiddenBadge": {
+		"message": "rejtett"
+	},
+	"engineSave": {
+		"message": "Mentés"
+	},
+	"engineCancel": {
+		"message": "Mégse"
+	},
+	"transformFailed": {
+		"message": "Az átalakítás sikertelen: %error%",
+		"description": "Toast shown when a search-link transform script fails; %error% is replaced with the error message"
+	},
+	"transformToggle": {
+		"message": "Egyéni átalakítás (JS)",
+		"description": "Checkbox/toggle label for enabling a custom JS transform on a search-link engine"
+	},
+	"transformCodeHint": {
+		"message": "Elérhető: `selection` és `clipboard`. `return` a %s helyére kerülő szöveget.",
+		"description": "Hint text shown near the transform code editor"
+	},
+	"transformClipboardOptIn": {
+		"message": "Vágólap tartalmának átadása a függvénynek",
+		"description": "Checkbox label opting in to passing clipboard content to the transform function"
+	},
+	"transformRawResult": {
+		"message": "Alapértelmezett kódolás cseréje (eredmény nyers beillesztése)",
+		"description": "Checkbox label to insert the transform result verbatim into the URL without encoding"
+	},
+	"transformRawResultNote": {
+		"message": "A függvényének érvényes URL-összetevőt kell visszaadnia; a %s, a + és a slug kódolása ki van hagyva.",
+		"description": "Note explaining that raw insertion skips %s/plus/slug encoding"
+	},
+	"transformSampleLabel": {
+		"message": "Tesztbemenet",
+		"description": "Label for the sample input used to test a transform"
+	},
+	"transformTestBtn": {
+		"message": "Tesztelés",
+		"description": "Button that runs the transform against the sample input"
+	},
+	"transformIsolationNote": {
+		"message": "Izolált sandboxban fut, az oldalhoz vagy a kiterjesztéshez való hozzáférés nélkül.",
+		"description": "Note explaining that the transform runs sandboxed"
+	},
+	"transformHelp": {
+		"message": "Írjon egy függvénytörzset. A selection (a kijelölt szöveg) és a clipboard változók elérhetők; adja vissza a %s helyére kerülő karakterláncot. Elkülönített sandboxban fut, ~1s időkorláttal — nincs hozzáférés az oldalhoz vagy a bővítményhez.",
+		"description": "Help tooltip explaining the custom JS transform function"
 	}
 }

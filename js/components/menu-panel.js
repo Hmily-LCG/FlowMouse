@@ -189,6 +189,62 @@ class MenuPanel extends LitElement {
 				height: 1px;
 				background: var(--border-color);
 			}
+
+			.patterns-field {
+				display: flex;
+				flex-direction: column;
+				gap: 9px;
+			}
+			.patterns-label {
+				font-size: 12px;
+				font-weight: 600;
+				color: var(--text-secondary);
+			}
+			.patterns-chips {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 6px;
+			}
+			.pattern-chip {
+				display: inline-flex;
+				align-items: center;
+				gap: 4px;
+				padding: 2px 8px 2px 10px;
+				border-radius: 12px;
+				background: var(--accent-color, #5b8dee);
+				color: #fff;
+				font-size: 12px;
+				line-height: 1.6;
+			}
+			.pattern-chip-remove {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				background: transparent;
+				border: none;
+				color: rgba(255,255,255,0.8);
+				cursor: pointer;
+				padding: 0 2px;
+				font-size: 14px;
+				line-height: 1;
+				border-radius: 50%;
+				transition: color 0.12s;
+			}
+			.pattern-chip-remove:hover {
+				color: #fff;
+			}
+			.patterns-add-row {
+				display: flex;
+				gap: 6px;
+			}
+			.patterns-add-row input {
+				flex: 1;
+				min-width: 0;
+			}
+			.patterns-hint {
+				font-size: 11px;
+				color: var(--text-muted);
+			}
 		`,
 	];
 
@@ -239,6 +295,7 @@ class MenuPanel extends LitElement {
 		return html`
 			${this.#renderSelectorRow(entries, activeId)}
 			${this.#renderNameField(activeId, activeMenu)}
+			${this.#renderPatternsSection(activeId, activeMenu)}
 			${this.#renderItemsSection(activeId, activeMenu)}
 		`;
 	}
@@ -288,6 +345,48 @@ class MenuPanel extends LitElement {
 					maxlength="80"
 					@change=${(e) => this.#updateMenu(activeId, { name: e.target.value })}
 				>
+			</div>
+		`;
+	}
+
+	#renderPatternsSection(activeId, menu) {
+		const i18n = window.i18n;
+		const patterns = menu.patterns || [];
+		const onKeydown = (e) => {
+			if (e.key === 'Enter') {
+				this.#addPattern(activeId, e.target.value);
+				e.target.value = '';
+			}
+		};
+		const onAdd = (e) => {
+			const input = e.target.closest('.patterns-add-row').querySelector('input');
+			this.#addPattern(activeId, input.value);
+			input.value = '';
+		};
+		return html`
+			<div class="patterns-field">
+				<span class="patterns-label">${i18n.getMessage('menuPatternsTitle')}</span>
+				${patterns.length > 0 ? html`
+					<div class="patterns-chips">
+						${patterns.map(p => html`
+							<span class="pattern-chip">
+								${p}
+								<button class="pattern-chip-remove" type="button"
+									@click=${() => this.#removePattern(activeId, p)}>×</button>
+							</span>
+						`)}
+					</div>
+				` : ''}
+				<div class="patterns-add-row">
+					<input type="text"
+						placeholder=${i18n.getMessage('menuPatternsPlaceholder')}
+						@keydown=${onKeydown}
+					>
+					<button class="btn btn-ghost" type="button" @click=${onAdd}>
+						${i18n.getMessage('menuPatternsAdd')}
+					</button>
+				</div>
+				<span class="patterns-hint">${i18n.getMessage('menuPatternsHint')}</span>
 			</div>
 		`;
 	}
@@ -410,7 +509,7 @@ class MenuPanel extends LitElement {
 		const menus = { ...this.customMenus };
 		const existingCount = Object.keys(menus).length;
 		const defaultName = `${window.i18n.getMessage('menuNamePlaceholder')} ${existingCount + 1}`;
-		menus[id] = { name: defaultName, items: [] };
+		menus[id] = { name: defaultName, items: [], patterns: [] };
 		this.#applyMenus(menus, id);
 	}
 
@@ -442,7 +541,7 @@ class MenuPanel extends LitElement {
 		if (!nextId) {
 			nextId = this.#generateIdFrom(menus);
 			const defaultName = `${i18n.getMessage('menuNamePlaceholder')} 1`;
-			menus[nextId] = { name: defaultName, items: [] };
+			menus[nextId] = { name: defaultName, items: [], patterns: [] };
 		}
 		this.#applyMenus(menus, nextId);
 	}
@@ -461,6 +560,20 @@ class MenuPanel extends LitElement {
 		const menus = { ...this.customMenus };
 		menus[id] = { ...menus[id], ...patch };
 		this.#applyMenus(menus, id);
+	}
+
+	#addPattern(menuId, raw) {
+		const text = (raw || '').trim();
+		if (!text) return;
+		const pattern = text.includes('*') ? text : `*${text}*`;
+		const cur = this.customMenus[menuId]?.patterns || [];
+		if (cur.includes(pattern)) return;
+		this.#updateMenu(menuId, { patterns: [...cur, pattern] });
+	}
+
+	#removePattern(menuId, pattern) {
+		const cur = this.customMenus[menuId]?.patterns || [];
+		this.#updateMenu(menuId, { patterns: cur.filter(p => p !== pattern) });
 	}
 
 	#selectMenu(id) {

@@ -1703,9 +1703,26 @@
 		"message": "कस्टम मेनू",
 		"description": "Custom popup menu action name"
 	},
+	"actionAddSiteToMenu": {
+		"message": "वर्तमान साइट को मेनू में जोड़ें",
+		"description": "Add current site to menu action name"
+	},
+	"addSiteToMenuDesc": {
+		"message": "वर्तमान साइट को चुने हुए मेनू के पैटर्न में जोड़ता है।",
+		"description": "Add site to menu action config description"
+	},
 	"customMenuDesc": {
 		"message": "कई कार्रवाइयों के साथ कस्टम पॉपअप मेनू बनाएँ।",
 		"description": "Custom menu section description"
+	},
+	"customMenuContextual": {
+		"message": "वर्तमान साइट के अनुसार मेनू चुनें"
+	},
+	"customMenuContextualHint": {
+		"message": "पहला मेनू खोलता है जिसके साइट पैटर्न वर्तमान पृष्ठ से मेल खाते हैं; प्रत्येक मेनू में पैटर्न कॉन्फ़िगर करें।"
+	},
+	"customMenuContextualLabel": {
+		"message": "गतिशील मेनू"
 	},
 	"addMenu": {
 		"message": "मेनू जोड़ें",
@@ -1746,6 +1763,18 @@
 	"menuItemNumber": {
 		"message": "आइटम %n%",
 		"description": "Menu item number label"
+	},
+	"menuPatternsTitle": {
+		"message": "इन साइटों पर दिखाएं"
+	},
+	"menuPatternsHint": {
+		"message": "खाली = हर जगह (डिफ़ॉल्ट मेनू)। github.com जैसा कोई डोमेन जोड़ें।"
+	},
+	"menuPatternsAdd": {
+		"message": "साइट जोड़ें"
+	},
+	"menuPatternsPlaceholder": {
+		"message": "उदा. github.com"
 	},
 	"addChain": {
 		"message": "शृंखला जोड़ें",
@@ -2122,5 +2151,138 @@
 	"ctxMenuTimeDateAdded": {
 		"message": "जोड़े जाने की तारीख",
 		"description": "Time display option: show when the bookmark was added"
+	},
+	"actionSearchLink": {
+		"message": "खोज लिंक खोलें",
+		"description": "Search link action name — opens a configured search link with the selected text"
+	},
+	"searchLinkSource": {
+		"message": "स्रोत"
+	},
+	"searchLinkEngine": {
+		"message": "इंजन"
+	},
+	"searchLinkModeEngine": {
+		"message": "खोज इंजन"
+	},
+	"searchLinkModeInline": {
+		"message": "एकल लिंक"
+	},
+	"searchLinkNew": {
+		"message": "नया"
+	},
+	"searchLinkEdit": {
+		"message": "संपादित करें"
+	},
+	"searchLinkNewInline": {
+		"message": "इस प्रविष्टि के लिए एकल लिंक"
+	},
+	"searchLinkNewSaved": {
+		"message": "नया सहेजा गया इंजन"
+	},
+	"searchLinkEditException": {
+		"message": "केवल यह प्रविष्टि (अपवाद)"
+	},
+	"searchLinkEditGlobal": {
+		"message": "सभी उपयोगों के लिए इंजन संपादित करें"
+	},
+	"moveUp": {
+		"message": "ऊपर ले जाएँ",
+		"description": "Tooltip for moving an item up in a list"
+	},
+	"moveDown": {
+		"message": "नीचे ले जाएँ",
+		"description": "Tooltip for moving an item down in a list"
+	},
+	"engineFieldName": {
+		"message": "नाम"
+	},
+	"engineFieldUrl": {
+		"message": "URL (चयन के लिए %s उपयोग करें)"
+	},
+	"engineFieldPlus": {
+		"message": "शब्दों को + से जोड़ें (%20 की जगह)"
+	},
+	"engineFieldSlug": {
+		"message": "हाइफन पथ (slug) उपयोग करें"
+	},
+	"engineFieldSuffix": {
+		"message": "URL प्रत्यय"
+	},
+	"engineFieldClipboard": {
+		"message": "क्लिपबोर्ड मोड: चयन कॉपी करें और पेज खोलें (कोई क्वेरी नहीं)"
+	},
+	"sectionSearchEngines": {
+		"message": "खोज इंजन"
+	},
+	"engineAddCustom": {
+		"message": "खोज इंजन जोड़ें"
+	},
+	"engineEdit": {
+		"message": "संपादित करें"
+	},
+	"engineDelete": {
+		"message": "हटाएं"
+	},
+	"engineHide": {
+		"message": "छिपाएं"
+	},
+	"engineShow": {
+		"message": "दिखाएं"
+	},
+	"engineReset": {
+		"message": "डिफ़ॉल्ट पर रीसेट करें"
+	},
+	"engineBuiltinBadge": {
+		"message": "अंतर्निहित"
+	},
+	"engineHiddenBadge": {
+		"message": "छुपा हुआ"
+	},
+	"engineSave": {
+		"message": "सहेजें"
+	},
+	"engineCancel": {
+		"message": "रद्द करें"
+	},
+	"transformFailed": {
+		"message": "ट्रांसफ़ॉर्म विफल: %error%",
+		"description": "Toast shown when a search-link transform script fails; %error% is replaced with the error message"
+	},
+	"transformToggle": {
+		"message": "कस्टम ट्रांसफ़ॉर्म (JS)",
+		"description": "Checkbox/toggle label for enabling a custom JS transform on a search-link engine"
+	},
+	"transformCodeHint": {
+		"message": "`selection` और `clipboard` उपलब्ध हैं। वह टेक्स्ट `return` करें जो %s को प्रतिस्थापित करे।",
+		"description": "Hint text shown near the transform code editor"
+	},
+	"transformClipboardOptIn": {
+		"message": "फ़ंक्शन को क्लिपबोर्ड सामग्री प्रदान करें",
+		"description": "Checkbox label opting in to passing clipboard content to the transform function"
+	},
+	"transformRawResult": {
+		"message": "डिफ़ॉल्ट एन्कोडिंग बदलें (परिणाम को यथावत डालें)",
+		"description": "Checkbox label to insert the transform result verbatim into the URL without encoding"
+	},
+	"transformRawResultNote": {
+		"message": "आपके फ़ंक्शन को एक मान्य URL घटक लौटाना होगा; %s, + और slug एन्कोडिंग छोड़ दी जाती है।",
+		"description": "Note explaining that raw insertion skips %s/plus/slug encoding"
+	},
+	"transformSampleLabel": {
+		"message": "परीक्षण इनपुट",
+		"description": "Label for the sample input used to test a transform"
+	},
+	"transformTestBtn": {
+		"message": "परीक्षण",
+		"description": "Button that runs the transform against the sample input"
+	},
+	"transformIsolationNote": {
+		"message": "पेज या एक्सटेंशन तक पहुँच के बिना एक अलग सैंडबॉक्स में चलता है।",
+		"description": "Note explaining that the transform runs sandboxed"
+	},
+	"transformHelp": {
+		"message": "एक फ़ंक्शन बॉडी लिखें। चर selection (चयनित टेक्स्ट) और clipboard उपलब्ध हैं; वह स्ट्रिंग लौटाएं जो %s की जगह लेती है। ~1s टाइमआउट के साथ एक पृथक सैंडबॉक्स में चलती है — पृष्ठ या एक्सटेंशन तक कोई पहुंच नहीं।",
+		"description": "Help tooltip explaining the custom JS transform function"
 	}
 }

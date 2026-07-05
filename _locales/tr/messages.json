@@ -1703,9 +1703,26 @@
 		"message": "Özel Menü",
 		"description": "Custom popup menu action name"
 	},
+	"actionAddSiteToMenu": {
+		"message": "Geçerli siteyi menüye ekle",
+		"description": "Add current site to menu action name"
+	},
+	"addSiteToMenuDesc": {
+		"message": "Geçerli siteyi seçili menünün kalıplarına ekler.",
+		"description": "Add site to menu action config description"
+	},
 	"customMenuDesc": {
 		"message": "Birden fazla eylem içeren özel açılır menüler oluşturun.",
 		"description": "Custom menu section description"
+	},
+	"customMenuContextual": {
+		"message": "Geçerli siteye göre menü seç"
+	},
+	"customMenuContextualHint": {
+		"message": "Site kalıpları geçerli sayfayla eşleşen ilk menüyü açar; her menüde kalıpları yapılandırın."
+	},
+	"customMenuContextualLabel": {
+		"message": "Dinamik menü"
 	},
 	"addMenu": {
 		"message": "Menü Ekle",
@@ -1746,6 +1763,18 @@
 	"menuItemNumber": {
 		"message": "Öğe %n%",
 		"description": "Menu item number label"
+	},
+	"menuPatternsTitle": {
+		"message": "Bu sitelerde göster"
+	},
+	"menuPatternsHint": {
+		"message": "Boş = her yerde (varsayılan menü). github.com gibi bir alan adı ekleyin."
+	},
+	"menuPatternsAdd": {
+		"message": "Site ekle"
+	},
+	"menuPatternsPlaceholder": {
+		"message": "ör. github.com"
 	},
 	"addChain": {
 		"message": "Zincir Ekle",
@@ -2122,5 +2151,138 @@
 	"ctxMenuTimeDateAdded": {
 		"message": "Eklenme tarihi",
 		"description": "Time display option: show when the bookmark was added"
+	},
+	"actionSearchLink": {
+		"message": "Arama bağlantısını aç",
+		"description": "Search link action name — opens a configured search link with the selected text"
+	},
+	"searchLinkSource": {
+		"message": "Kaynak"
+	},
+	"searchLinkEngine": {
+		"message": "Motor"
+	},
+	"searchLinkModeEngine": {
+		"message": "Arama motoru"
+	},
+	"searchLinkModeInline": {
+		"message": "Tek seferlik bağlantı"
+	},
+	"searchLinkNew": {
+		"message": "Yeni"
+	},
+	"searchLinkEdit": {
+		"message": "Düzenle"
+	},
+	"searchLinkNewInline": {
+		"message": "Bu giriş için tek seferlik bağlantı"
+	},
+	"searchLinkNewSaved": {
+		"message": "Yeni kayıtlı arama motoru"
+	},
+	"searchLinkEditException": {
+		"message": "Yalnızca bu giriş (istisna)"
+	},
+	"searchLinkEditGlobal": {
+		"message": "Motoru tüm kullanımlar için düzenle"
+	},
+	"moveUp": {
+		"message": "Yukarı taşı",
+		"description": "Tooltip for moving an item up in a list"
+	},
+	"moveDown": {
+		"message": "Aşağı taşı",
+		"description": "Tooltip for moving an item down in a list"
+	},
+	"engineFieldName": {
+		"message": "Ad"
+	},
+	"engineFieldUrl": {
+		"message": "URL (seçim için %s kullanın)"
+	},
+	"engineFieldPlus": {
+		"message": "Kelimeleri + ile birleştir (%20 yerine)"
+	},
+	"engineFieldSlug": {
+		"message": "Kısa çizgili yol (slug) kullan"
+	},
+	"engineFieldSuffix": {
+		"message": "URL son eki"
+	},
+	"engineFieldClipboard": {
+		"message": "Pano modu: seçimi kopyala ve sayfayı aç (sorgu yok)"
+	},
+	"sectionSearchEngines": {
+		"message": "Arama Motorları"
+	},
+	"engineAddCustom": {
+		"message": "Arama motoru ekle"
+	},
+	"engineEdit": {
+		"message": "Düzenle"
+	},
+	"engineDelete": {
+		"message": "Sil"
+	},
+	"engineHide": {
+		"message": "Gizle"
+	},
+	"engineShow": {
+		"message": "Göster"
+	},
+	"engineReset": {
+		"message": "Varsayılana sıfırla"
+	},
+	"engineBuiltinBadge": {
+		"message": "yerleşik"
+	},
+	"engineHiddenBadge": {
+		"message": "gizli"
+	},
+	"engineSave": {
+		"message": "Kaydet"
+	},
+	"engineCancel": {
+		"message": "İptal"
+	},
+	"transformFailed": {
+		"message": "Dönüşüm başarısız: %error%",
+		"description": "Toast shown when a search-link transform script fails; %error% is replaced with the error message"
+	},
+	"transformToggle": {
+		"message": "Özel dönüşüm (JS)",
+		"description": "Checkbox/toggle label for enabling a custom JS transform on a search-link engine"
+	},
+	"transformCodeHint": {
+		"message": "`selection` ve `clipboard` mevcuttur. %s'in yerine geçecek metni `return` edin.",
+		"description": "Hint text shown near the transform code editor"
+	},
+	"transformClipboardOptIn": {
+		"message": "Pano içeriğini işleve sağla",
+		"description": "Checkbox label opting in to passing clipboard content to the transform function"
+	},
+	"transformRawResult": {
+		"message": "Varsayılan kodlamayı değiştir (sonucu ham olarak ekle)",
+		"description": "Checkbox label to insert the transform result verbatim into the URL without encoding"
+	},
+	"transformRawResultNote": {
+		"message": "Fonksiyonunuz geçerli bir URL bileşeni döndürmelidir; %s, + ve slug kodlaması atlanır.",
+		"description": "Note explaining that raw insertion skips %s/plus/slug encoding"
+	},
+	"transformSampleLabel": {
+		"message": "Test girişi",
+		"description": "Label for the sample input used to test a transform"
+	},
+	"transformTestBtn": {
+		"message": "Test",
+		"description": "Button that runs the transform against the sample input"
+	},
+	"transformIsolationNote": {
+		"message": "Sayfaya veya uzantıya erişimi olmayan yalıtılmış bir korumalı alanda çalışır.",
+		"description": "Note explaining that the transform runs sandboxed"
+	},
+	"transformHelp": {
+		"message": "Bir fonksiyon gövdesi yazın. selection (seçilen metin) ve clipboard değişkenleri kullanılabilir; %s ile değiştirilecek dizeyi döndürün. ~1s zaman aşımıyla izole bir sandbox içinde çalışır — sayfaya veya uzantıya erişim yoktur.",
+		"description": "Help tooltip explaining the custom JS transform function"
 	}
 }

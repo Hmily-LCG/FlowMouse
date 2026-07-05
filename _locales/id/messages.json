@@ -1703,9 +1703,26 @@
 		"message": "Menu Kustom",
 		"description": "Custom popup menu action name"
 	},
+	"actionAddSiteToMenu": {
+		"message": "Tambahkan situs saat ini ke menu",
+		"description": "Add current site to menu action name"
+	},
+	"addSiteToMenuDesc": {
+		"message": "Menambahkan situs saat ini ke pola menu yang dipilih.",
+		"description": "Add site to menu action config description"
+	},
 	"customMenuDesc": {
 		"message": "Buat menu sembulan kustom dengan beberapa tindakan.",
 		"description": "Custom menu section description"
+	},
+	"customMenuContextual": {
+		"message": "Pilih menu berdasarkan situs saat ini"
+	},
+	"customMenuContextualHint": {
+		"message": "Membuka menu pertama yang pola situsnya cocok dengan halaman saat ini; konfigurasikan pola di setiap menu."
+	},
+	"customMenuContextualLabel": {
+		"message": "Menu dinamis"
 	},
 	"addMenu": {
 		"message": "Tambah Menu",
@@ -1746,6 +1763,18 @@
 	"menuItemNumber": {
 		"message": "Item %n%",
 		"description": "Menu item number label"
+	},
+	"menuPatternsTitle": {
+		"message": "Tampilkan di situs-situs ini"
+	},
+	"menuPatternsHint": {
+		"message": "Kosong = di mana saja (menu default). Tambahkan domain seperti github.com."
+	},
+	"menuPatternsAdd": {
+		"message": "Tambah situs"
+	},
+	"menuPatternsPlaceholder": {
+		"message": "mis. github.com"
 	},
 	"addChain": {
 		"message": "Tambah Rantai",
@@ -2122,5 +2151,138 @@
 	"ctxMenuTimeDateAdded": {
 		"message": "Tanggal ditambahkan",
 		"description": "Time display option: show when the bookmark was added"
+	},
+	"actionSearchLink": {
+		"message": "Buka tautan pencarian",
+		"description": "Search link action name — opens a configured search link with the selected text"
+	},
+	"searchLinkSource": {
+		"message": "Sumber"
+	},
+	"searchLinkEngine": {
+		"message": "Mesin"
+	},
+	"searchLinkModeEngine": {
+		"message": "Mesin pencari"
+	},
+	"searchLinkModeInline": {
+		"message": "Tautan sekali pakai"
+	},
+	"searchLinkNew": {
+		"message": "Baru"
+	},
+	"searchLinkEdit": {
+		"message": "Edit"
+	},
+	"searchLinkNewInline": {
+		"message": "Tautan sekali pakai untuk entri ini"
+	},
+	"searchLinkNewSaved": {
+		"message": "Mesin pencari tersimpan baru"
+	},
+	"searchLinkEditException": {
+		"message": "Hanya entri ini (pengecualian)"
+	},
+	"searchLinkEditGlobal": {
+		"message": "Edit mesin untuk semua penggunaan"
+	},
+	"moveUp": {
+		"message": "Pindah ke atas",
+		"description": "Tooltip for moving an item up in a list"
+	},
+	"moveDown": {
+		"message": "Pindah ke bawah",
+		"description": "Tooltip for moving an item down in a list"
+	},
+	"engineFieldName": {
+		"message": "Nama"
+	},
+	"engineFieldUrl": {
+		"message": "URL (gunakan %s untuk teks yang dipilih)"
+	},
+	"engineFieldPlus": {
+		"message": "Gabungkan kata dengan + (bukan %20)"
+	},
+	"engineFieldSlug": {
+		"message": "Gunakan jalur dengan tanda hubung (slug)"
+	},
+	"engineFieldSuffix": {
+		"message": "Akhiran URL"
+	},
+	"engineFieldClipboard": {
+		"message": "Mode clipboard: salin teks pilihan dan buka halaman (tanpa kueri)"
+	},
+	"sectionSearchEngines": {
+		"message": "Mesin Pencari"
+	},
+	"engineAddCustom": {
+		"message": "Tambah mesin pencari"
+	},
+	"engineEdit": {
+		"message": "Edit"
+	},
+	"engineDelete": {
+		"message": "Hapus"
+	},
+	"engineHide": {
+		"message": "Sembunyikan"
+	},
+	"engineShow": {
+		"message": "Tampilkan"
+	},
+	"engineReset": {
+		"message": "Atur ulang ke default"
+	},
+	"engineBuiltinBadge": {
+		"message": "bawaan"
+	},
+	"engineHiddenBadge": {
+		"message": "tersembunyi"
+	},
+	"engineSave": {
+		"message": "Simpan"
+	},
+	"engineCancel": {
+		"message": "Batal"
+	},
+	"transformFailed": {
+		"message": "Transformasi gagal: %error%",
+		"description": "Toast shown when a search-link transform script fails; %error% is replaced with the error message"
+	},
+	"transformToggle": {
+		"message": "Transformasi kustom (JS)",
+		"description": "Checkbox/toggle label for enabling a custom JS transform on a search-link engine"
+	},
+	"transformCodeHint": {
+		"message": "`selection` dan `clipboard` tersedia. `return` teks yang menggantikan %s.",
+		"description": "Hint text shown near the transform code editor"
+	},
+	"transformClipboardOptIn": {
+		"message": "Berikan konten clipboard ke fungsi",
+		"description": "Checkbox label opting in to passing clipboard content to the transform function"
+	},
+	"transformRawResult": {
+		"message": "Ganti enkoding default (masukkan hasil apa adanya)",
+		"description": "Checkbox label to insert the transform result verbatim into the URL without encoding"
+	},
+	"transformRawResultNote": {
+		"message": "Fungsi Anda harus mengembalikan komponen URL yang valid; enkoding %s, + dan slug dilewati.",
+		"description": "Note explaining that raw insertion skips %s/plus/slug encoding"
+	},
+	"transformSampleLabel": {
+		"message": "Input uji",
+		"description": "Label for the sample input used to test a transform"
+	},
+	"transformTestBtn": {
+		"message": "Uji",
+		"description": "Button that runs the transform against the sample input"
+	},
+	"transformIsolationNote": {
+		"message": "Berjalan di sandbox terisolasi tanpa akses ke halaman atau ekstensi.",
+		"description": "Note explaining that the transform runs sandboxed"
+	},
+	"transformHelp": {
+		"message": "Tulis isi fungsi. Variabel selection (teks yang dipilih) dan clipboard tersedia; kembalikan string yang menggantikan %s. Berjalan di sandbox yang terisolasi dengan batas waktu ~1s — tidak ada akses ke halaman atau ekstensi.",
+		"description": "Help tooltip explaining the custom JS transform function"
 	}
 }

@@ -1703,9 +1703,26 @@
 		"message": "Προσαρμοσμένο μενού",
 		"description": "Custom popup menu action name"
 	},
+	"actionAddSiteToMenu": {
+		"message": "Προσθήκη τρέχοντος ιστότοπου στο μενού",
+		"description": "Add current site to menu action name"
+	},
+	"addSiteToMenuDesc": {
+		"message": "Προσθέτει τον τρέχοντα ιστότοπο στα μοτίβα του επιλεγμένου μενού.",
+		"description": "Add site to menu action config description"
+	},
 	"customMenuDesc": {
 		"message": "Δημιουργήστε προσαρμοσμένα αναδυόμενα μενού με πολλές ενέργειες.",
 		"description": "Custom menu section description"
+	},
+	"customMenuContextual": {
+		"message": "Επιλογή μενού βάσει τρέχοντος ιστότοπου"
+	},
+	"customMenuContextualHint": {
+		"message": "Ανοίγει το πρώτο μενού του οποίου τα μοτίβα ιστότοπου ταιριάζουν με την τρέχουσα σελίδα· διαμορφώστε τα μοτίβα σε κάθε μενού."
+	},
+	"customMenuContextualLabel": {
+		"message": "Δυναμικό μενού"
 	},
 	"addMenu": {
 		"message": "Προσθήκη μενού",
@@ -1746,6 +1763,18 @@
 	"menuItemNumber": {
 		"message": "Στοιχείο %n%",
 		"description": "Menu item number label"
+	},
+	"menuPatternsTitle": {
+		"message": "Εμφάνιση σε αυτούς τους ιστότοπους"
+	},
+	"menuPatternsHint": {
+		"message": "Κενό = παντού (προεπιλεγμένο μενού). Προσθέστε έναν τομέα όπως github.com."
+	},
+	"menuPatternsAdd": {
+		"message": "Προσθήκη ιστότοπου"
+	},
+	"menuPatternsPlaceholder": {
+		"message": "π.χ. github.com"
 	},
 	"addChain": {
 		"message": "Προσθήκη αλυσίδας",
@@ -2122,5 +2151,138 @@
 	"ctxMenuTimeDateAdded": {
 		"message": "Ημερομηνία προσθήκης",
 		"description": "Time display option: show when the bookmark was added"
+	},
+	"actionSearchLink": {
+		"message": "Άνοιγμα συνδέσμου αναζήτησης",
+		"description": "Search link action name — opens a configured search link with the selected text"
+	},
+	"searchLinkSource": {
+		"message": "Πηγή"
+	},
+	"searchLinkEngine": {
+		"message": "Μηχανή"
+	},
+	"searchLinkModeEngine": {
+		"message": "Μηχανή αναζήτησης"
+	},
+	"searchLinkModeInline": {
+		"message": "Εφάπαξ σύνδεσμος"
+	},
+	"searchLinkNew": {
+		"message": "Νέο"
+	},
+	"searchLinkEdit": {
+		"message": "Επεξεργασία"
+	},
+	"searchLinkNewInline": {
+		"message": "Εφάπαξ σύνδεσμος για αυτή την καταχώρηση"
+	},
+	"searchLinkNewSaved": {
+		"message": "Νέα αποθηκευμένη μηχανή αναζήτησης"
+	},
+	"searchLinkEditException": {
+		"message": "Μόνο αυτή η καταχώρηση (εξαίρεση)"
+	},
+	"searchLinkEditGlobal": {
+		"message": "Επεξεργασία μηχανής για όλες τις χρήσεις"
+	},
+	"moveUp": {
+		"message": "Μετακίνηση πάνω",
+		"description": "Tooltip for moving an item up in a list"
+	},
+	"moveDown": {
+		"message": "Μετακίνηση κάτω",
+		"description": "Tooltip for moving an item down in a list"
+	},
+	"engineFieldName": {
+		"message": "Όνομα"
+	},
+	"engineFieldUrl": {
+		"message": "URL (χρησιμοποιήστε %s για την επιλογή)"
+	},
+	"engineFieldPlus": {
+		"message": "Σύνδεση λέξεων με + (αντί για %20)"
+	},
+	"engineFieldSlug": {
+		"message": "Χρήση διαδρομής με ενωτικά (slug)"
+	},
+	"engineFieldSuffix": {
+		"message": "Επίθημα URL"
+	},
+	"engineFieldClipboard": {
+		"message": "Λειτουργία πρόχειρου: αντιγραφή επιλογής και άνοιγμα σελίδας (χωρίς ερώτημα)"
+	},
+	"sectionSearchEngines": {
+		"message": "Μηχανές αναζήτησης"
+	},
+	"engineAddCustom": {
+		"message": "Προσθήκη μηχανής αναζήτησης"
+	},
+	"engineEdit": {
+		"message": "Επεξεργασία"
+	},
+	"engineDelete": {
+		"message": "Διαγραφή"
+	},
+	"engineHide": {
+		"message": "Απόκρυψη"
+	},
+	"engineShow": {
+		"message": "Εμφάνιση"
+	},
+	"engineReset": {
+		"message": "Επαναφορά στην προεπιλογή"
+	},
+	"engineBuiltinBadge": {
+		"message": "ενσωματωμένη"
+	},
+	"engineHiddenBadge": {
+		"message": "κρυφή"
+	},
+	"engineSave": {
+		"message": "Αποθήκευση"
+	},
+	"engineCancel": {
+		"message": "Ακύρωση"
+	},
+	"transformFailed": {
+		"message": "Η μετατροπή απέτυχε: %error%",
+		"description": "Toast shown when a search-link transform script fails; %error% is replaced with the error message"
+	},
+	"transformToggle": {
+		"message": "Προσαρμοσμένη μετατροπή (JS)",
+		"description": "Checkbox/toggle label for enabling a custom JS transform on a search-link engine"
+	},
+	"transformCodeHint": {
+		"message": "Διαθέσιμα: `selection` και `clipboard`. `return` το κείμενο που αντικαθιστά το %s.",
+		"description": "Hint text shown near the transform code editor"
+	},
+	"transformClipboardOptIn": {
+		"message": "Παροχή περιεχομένου πρόχειρου στη συνάρτηση",
+		"description": "Checkbox label opting in to passing clipboard content to the transform function"
+	},
+	"transformRawResult": {
+		"message": "Αντικατάσταση προεπιλεγμένης κωδικοποίησης (εισαγωγή αποτελέσματος ως έχει)",
+		"description": "Checkbox label to insert the transform result verbatim into the URL without encoding"
+	},
+	"transformRawResultNote": {
+		"message": "Η συνάρτησή σας πρέπει να επιστρέφει ένα έγκυρο στοιχείο URL· η κωδικοποίηση %s, + και slug παραλείπεται.",
+		"description": "Note explaining that raw insertion skips %s/plus/slug encoding"
+	},
+	"transformSampleLabel": {
+		"message": "Δοκιμαστική είσοδος",
+		"description": "Label for the sample input used to test a transform"
+	},
+	"transformTestBtn": {
+		"message": "Δοκιμή",
+		"description": "Button that runs the transform against the sample input"
+	},
+	"transformIsolationNote": {
+		"message": "Εκτελείται σε απομονωμένο sandbox χωρίς πρόσβαση στη σελίδα ή την επέκταση.",
+		"description": "Note explaining that the transform runs sandboxed"
+	},
+	"transformHelp": {
+		"message": "Γράψτε ένα σώμα συνάρτησης. Οι μεταβλητές selection (το επιλεγμένο κείμενο) και clipboard είναι διαθέσιμες· επιστρέψτε τη συμβολοσειρά που αντικαθιστά το %s. Εκτελείται σε ένα απομονωμένο sandbox με χρονικό όριο ~1s — χωρίς πρόσβαση στη σελίδα ή την επέκταση.",
+		"description": "Help tooltip explaining the custom JS transform function"
 	}
 }

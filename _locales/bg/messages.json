@@ -1703,9 +1703,26 @@
 		"message": "Персонализирано меню",
 		"description": "Custom popup menu action name"
 	},
+	"actionAddSiteToMenu": {
+		"message": "Добавяне на текущия сайт към менюто",
+		"description": "Add current site to menu action name"
+	},
+	"addSiteToMenuDesc": {
+		"message": "Добавя текущия сайт към шаблоните на избраното меню.",
+		"description": "Add site to menu action config description"
+	},
 	"customMenuDesc": {
 		"message": "Създавайте персонализирани изскачащи менюта с множество действия.",
 		"description": "Custom menu section description"
+	},
+	"customMenuContextual": {
+		"message": "Избор на меню по текущия сайт"
+	},
+	"customMenuContextualHint": {
+		"message": "Отваря първото меню, чиито шаблони за сайт съвпадат с текущата страница; конфигурирайте шаблоните в всяко меню."
+	},
+	"customMenuContextualLabel": {
+		"message": "Динамично меню"
 	},
 	"addMenu": {
 		"message": "Добавяне на меню",
@@ -1746,6 +1763,18 @@
 	"menuItemNumber": {
 		"message": "Елемент %n%",
 		"description": "Menu item number label"
+	},
+	"menuPatternsTitle": {
+		"message": "Показвай на тези сайтове"
+	},
+	"menuPatternsHint": {
+		"message": "Празно = навсякъде (меню по подразбиране). Добавете домейн като github.com."
+	},
+	"menuPatternsAdd": {
+		"message": "Добавяне на сайт"
+	},
+	"menuPatternsPlaceholder": {
+		"message": "напр. github.com"
 	},
 	"addChain": {
 		"message": "Добавяне на верига",
@@ -2122,5 +2151,138 @@
 	"ctxMenuTimeDateAdded": {
 		"message": "Дата на добавяне",
 		"description": "Time display option: show when the bookmark was added"
+	},
+	"actionSearchLink": {
+		"message": "Отвори търсещата връзка",
+		"description": "Search link action name — opens a configured search link with the selected text"
+	},
+	"searchLinkSource": {
+		"message": "Източник"
+	},
+	"searchLinkEngine": {
+		"message": "Търсачка"
+	},
+	"searchLinkModeEngine": {
+		"message": "Търсачка"
+	},
+	"searchLinkModeInline": {
+		"message": "Единичен линк"
+	},
+	"searchLinkNew": {
+		"message": "Ново"
+	},
+	"searchLinkEdit": {
+		"message": "Редактиране"
+	},
+	"searchLinkNewInline": {
+		"message": "Единичен линк за този запис"
+	},
+	"searchLinkNewSaved": {
+		"message": "Нова запазена търсачка"
+	},
+	"searchLinkEditException": {
+		"message": "Само този запис (изключение)"
+	},
+	"searchLinkEditGlobal": {
+		"message": "Редактиране на търсачката за всички употреби"
+	},
+	"moveUp": {
+		"message": "Премести нагоре",
+		"description": "Tooltip for moving an item up in a list"
+	},
+	"moveDown": {
+		"message": "Премести надолу",
+		"description": "Tooltip for moving an item down in a list"
+	},
+	"engineFieldName": {
+		"message": "Име"
+	},
+	"engineFieldUrl": {
+		"message": "URL адрес (използвайте %s за избора)"
+	},
+	"engineFieldPlus": {
+		"message": "Обединяване на думите с + (вместо %20)"
+	},
+	"engineFieldSlug": {
+		"message": "Използвай тире-разделен път (slug)"
+	},
+	"engineFieldSuffix": {
+		"message": "Суфикс на URL"
+	},
+	"engineFieldClipboard": {
+		"message": "Режим на клипборда: копирай избора и отвори страницата (без заявка)"
+	},
+	"sectionSearchEngines": {
+		"message": "Търсачки"
+	},
+	"engineAddCustom": {
+		"message": "Добавяне на търсачка"
+	},
+	"engineEdit": {
+		"message": "Редактиране"
+	},
+	"engineDelete": {
+		"message": "Изтриване"
+	},
+	"engineHide": {
+		"message": "Скриване"
+	},
+	"engineShow": {
+		"message": "Показване"
+	},
+	"engineReset": {
+		"message": "Нулиране по подразбиране"
+	},
+	"engineBuiltinBadge": {
+		"message": "вграден"
+	},
+	"engineHiddenBadge": {
+		"message": "скрит"
+	},
+	"engineSave": {
+		"message": "Запазване"
+	},
+	"engineCancel": {
+		"message": "Отказ"
+	},
+	"transformFailed": {
+		"message": "Трансформацията е неуспешна: %error%",
+		"description": "Toast shown when a search-link transform script fails; %error% is replaced with the error message"
+	},
+	"transformToggle": {
+		"message": "Персонализирана трансформация (JS)",
+		"description": "Checkbox/toggle label for enabling a custom JS transform on a search-link engine"
+	},
+	"transformCodeHint": {
+		"message": "`selection` и `clipboard` са налични. `return` текстът, заменящ %s.",
+		"description": "Hint text shown near the transform code editor"
+	},
+	"transformClipboardOptIn": {
+		"message": "Предостави съдържанието на клипборда на функцията",
+		"description": "Checkbox label opting in to passing clipboard content to the transform function"
+	},
+	"transformRawResult": {
+		"message": "Замени стандартното кодиране (вмъкни резултата без промяна)",
+		"description": "Checkbox label to insert the transform result verbatim into the URL without encoding"
+	},
+	"transformRawResultNote": {
+		"message": "Функцията ви трябва да връща валиден URL компонент; кодирането на %s, + и slug се пропуска.",
+		"description": "Note explaining that raw insertion skips %s/plus/slug encoding"
+	},
+	"transformSampleLabel": {
+		"message": "Тестов вход",
+		"description": "Label for the sample input used to test a transform"
+	},
+	"transformTestBtn": {
+		"message": "Тест",
+		"description": "Button that runs the transform against the sample input"
+	},
+	"transformIsolationNote": {
+		"message": "Изпълнява се в изолирана среда без достъп до страницата или разширението.",
+		"description": "Note explaining that the transform runs sandboxed"
+	},
+	"transformHelp": {
+		"message": "Напишете тяло на функция. Променливите selection (избраният текст) и clipboard са достъпни; върнете низа, който замества %s. Изпълнява се в изолирана среда с таймаут ~1s — без достъп до страницата или разширението.",
+		"description": "Help tooltip explaining the custom JS transform function"
 	}
 }
