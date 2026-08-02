@@ -1,6 +1,24 @@
 ## FlowMouse Changelog
 
+### v2.3 (2026-08-03)
+
+**New Features:**
+- New gestures:
+  - Scroll Left
+  - Scroll Right
+  - Scroll to Left Edge
+  - Scroll to Right Edge
+- Support adjusting scroll animation duration
+
+**Interface & General Improvements:**
+- Fixed an issue where the popup menu failed to open on certain websites (e.g., SteamDB)
+- Fixed an issue with incorrect color rendering in the popup menu on certain websites
+- Minor improvements to settings interface
+- Other minor improvements
+
+
 ### v2.2 (2026-06-29)
+
 **New Features:**
 - New gestures:
   - **Switch to Last Active Tab**
