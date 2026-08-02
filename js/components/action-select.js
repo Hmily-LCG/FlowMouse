@@ -26,8 +26,12 @@ const ACTION_ICONS = {
 	'urlToRoot': 'house',
 	'scrollUp': 'chevronUp',
 	'scrollDown': 'chevronDown',
+	'scrollLeft': 'chevronLeft',
+	'scrollRight': 'chevronRight',
 	'scrollToTop': 'chevronsUp',
 	'scrollToBottom': 'chevronsDown',
+	'scrollToLeftEdge': 'chevronsLeft',
+	'scrollToRightEdge': 'chevronsRight',
 	'closeTab': 'x',
 	'closeWindow': 'squareX',
 	'closeBrowser': 'circleX',
@@ -93,13 +97,13 @@ const SCROLL_SMOOTHNESS = {
 	'none': 'smoothnessNone',
 };
 
-const SCROLL_ACTIONS = ['scrollUp', 'scrollDown', 'scrollToTop', 'scrollToBottom'];
+const SCROLL_ACTIONS = ['scrollUp', 'scrollDown', 'scrollLeft', 'scrollRight', 'scrollToTop', 'scrollToBottom', 'scrollToLeftEdge', 'scrollToRightEdge'];
 
-const SCROLL_DISTANCE_ACTIONS = ['scrollUp', 'scrollDown'];
+const SCROLL_DISTANCE_ACTIONS = ['scrollUp', 'scrollDown', 'scrollLeft', 'scrollRight'];
 
 const ACTION_CATEGORIES = [
 	{ key: '', actions: ['none', 'actionChain', 'delay'] },
-	{ key: 'actionCategoryNavigation', icon: 'compass', actions: ['back', 'forward', 'urlLevelUp', 'urlToRoot', 'scrollUp', 'scrollDown', 'scrollToTop', 'scrollToBottom'] },
+	{ key: 'actionCategoryNavigation', icon: 'compass', actions: ['back', 'forward', 'urlLevelUp', 'urlToRoot', 'scrollUp', 'scrollDown', 'scrollLeft', 'scrollRight', 'scrollToTop', 'scrollToBottom', 'scrollToLeftEdge', 'scrollToRightEdge'] },
 	{ key: 'actionCategoryContextMenu', icon: 'menu', actions: ['menuShowTabs', 'menuRecentlyClosed', 'menuShowBookmarks', 'customMenu'] },
 	{ key: 'actionCategoryTabs', icon: 'panelTop', actions: ['newTab', 'closeTab', 'refresh', 'refreshAllTabs', 'switchLeftTab', 'switchRightTab', 'switchFirstTab', 'switchLastTab', 'closeOtherTabs', 'closeLeftTabs', 'closeRightTabs', 'closeAllTabs', 'switchLastActiveTab', 'restoreTab', 'duplicateTab', 'togglePinTab', 'moveTabToNewWindow'] },
 	{ key: 'actionCategoryWindow', icon: 'appWindow', actions: ['newWindow', 'newIncognito', 'toggleFullscreen', 'toggleMaximize', 'minimize', 'closeWindow', 'closeBrowser'] },
@@ -540,6 +544,9 @@ class ActionSelect extends LitElement {
 			.action-config-field.disabled {
 				opacity: 0.4;
 				pointer-events: none;
+			}
+			.action-config-row.disabled .help-icon {
+				pointer-events: auto;
 			}
 			.action-config-row > .action-config-label {
 				flex-basis: 100%;
@@ -1665,6 +1672,9 @@ class ActionSelect extends LitElement {
 			const currentSmoothness = this._pendingConfig.scrollSmoothness || smoothnessDefault;
 			const currentAcceleration = this._pendingConfig.scrollAccel ?? accelerationDefault;
 			const currentAccelWindow = this._pendingConfig.scrollAccelWindow ?? accelWindowDefault;
+			const currentDuration = this._pendingConfig.scrollDuration ?? defaults.scrollDuration ?? 500;
+			const autoResolved = window.matchMedia('(prefers-reduced-motion: no-preference)').matches ? 'system' : 'smooth';
+			const durationDisabled = (currentSmoothness === 'auto' ? autoResolved : currentSmoothness) !== 'smooth';
 			const showWarning = currentSmoothness === 'system'
 				&& window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -1705,11 +1715,27 @@ class ActionSelect extends LitElement {
 					<span class="action-config-label">${window.i18n.getMessage('scrollSmoothness')}</span>
 					<select .value=${currentSmoothness}
 						@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, scrollSmoothness: e.target.value }; this.requestUpdate(); }}>
-						${Object.entries(SCROLL_SMOOTHNESS).map(([value, i18nKey]) => html`
-							<option value=${value} ?selected=${value === currentSmoothness}>${window.i18n.getMessage(i18nKey)}</option>
+						${Object.keys(SCROLL_SMOOTHNESS).map((value) => html`
+							<option value=${value} ?selected=${value === currentSmoothness}>${window.i18n.getMessage(SCROLL_SMOOTHNESS[value])}${value === 'auto' ? ` (${window.i18n.getMessage(SCROLL_SMOOTHNESS[autoResolved])})` : ''}</option>
 						`)}
 					</select>
 				</div>
+				${currentSmoothness !== 'none' ? html`
+					<div class="action-config-row ${durationDisabled ? 'disabled' : ''}">
+						<span class="action-config-label">${window.i18n.getMessage('scrollDuration')}
+						${durationDisabled ? html`<span class="help-icon"
+							.tooltip=${tooltip(window.i18n.getMessage('scrollDurationDisabledTooltip'))}>
+							${unsafeHTML(icon('circleHelp', { size: 14 }))}
+						</span>` : ''}</span>
+						<div class="slider-control">
+							<input type="range" min="50" max="1500" step="50"
+								.value=${String(currentDuration)}
+								@input=${(e) => { this._pendingConfig = { ...this._pendingConfig, scrollDuration: Number(e.target.value) }; this.requestUpdate(); }}
+							>
+							<span>${currentDuration}ms</span>
+						</div>
+					</div>
+				` : ''}
 				${showWarning ? html`
 					<div class="action-config-warning">
 						${window.i18n.getMessage('reducedMotionWarning').replace(/%OS%/g, window.i18n.platformName)}

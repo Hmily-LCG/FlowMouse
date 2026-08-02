@@ -287,6 +287,14 @@
 		"message": "Animasyon Yok",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "Animasyon Süresi",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "Sistem kaydırması kullanılırken kullanılamaz",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "Sürekli kaydırma çarpanı",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "Aşağı Kaydır",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "Sola Kaydır",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "Sağa Kaydır",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "En Üste Kaydır",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "En Alta Kaydır",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "En Sola Kaydır",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "En Sağa Kaydır",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "Sekmeyi Kapat",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "Örneğin, %browserName%'in dahili ayarları, geçmişi, indirilenleri vb. Bu sayfalar, temel tarayıcı işlevlerini ve kullanıcı gizlilik verilerini içerdiğinden sıkı bir şekilde korunmaktadır.",
+		"message": "Örneğin, %browserName%'in dahili ayarları, geçmişi, indirilenleri, hata sayfaları vb. Bu sayfalar, temel tarayıcı işlevlerini ve kullanıcı gizlilik verilerini içerdiğinden sıkı bir şekilde korunmaktadır.",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {

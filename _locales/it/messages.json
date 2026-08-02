@@ -287,6 +287,14 @@
 		"message": "Nessuna animazione",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "Durata dell'animazione",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "Non disponibile quando si utilizza lo scorrimento di sistema",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "Moltiplicatore di scorrimento continuo",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "Scorri Giù",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "Scorri a Sinistra",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "Scorri a Destra",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "Vai all'inizio",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "Vai alla fine",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "Scorri all'estremità sinistra",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "Scorri all'estremità destra",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "Chiudi Scheda",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "Ad esempio, le impostazioni interne, la cronologia, i download, ecc. di %browserName%. Queste pagine coinvolgono funzioni principali del browser e dati sulla privacy dell'utente, quindi sono rigorosamente protette.",
+		"message": "Ad esempio, le impostazioni interne, la cronologia, i download, le pagine di errore, ecc. di %browserName%. Queste pagine coinvolgono funzioni principali del browser e dati sulla privacy dell'utente, quindi sono rigorosamente protette.",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {

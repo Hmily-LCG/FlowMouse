@@ -287,6 +287,14 @@
 		"message": "Ingen animering",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "Animationslängd",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "Ej tillgängligt när du använder systemrullning",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "Multiplikator för kontinuerlig rullning",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "Rulla ner",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "Rulla åt vänster",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "Rulla åt höger",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "Rulla till toppen",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "Rulla till botten",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "Rulla till vänsterkant",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "Rulla till högerkant",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "Stäng flik",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "Till exempel %browserName%s interna inställningar, historik, nedladdningar etc. Dessa sidor involverar kärnfunktioner i webbläsaren och användarintegritetsdata, så de är strikt skyddade.",
+		"message": "Till exempel %browserName%s interna inställningar, historik, nedladdningar, felsidor etc. Dessa sidor involverar kärnfunktioner i webbläsaren och användarintegritetsdata, så de är strikt skyddade.",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {

@@ -53,7 +53,7 @@ function asyncMessageHandler(asyncHandler) {
 }
 
 const CONTENT_ACTIONS = new Set([
-	'scrollUp', 'scrollDown', 'scrollToTop', 'scrollToBottom',
+	'scrollUp', 'scrollDown', 'scrollLeft', 'scrollRight', 'scrollToTop', 'scrollToBottom', 'scrollToLeftEdge', 'scrollToRightEdge',
 	'stopLoading', 'copyUrl', 'copyTitle', 'copyTitleAndUrl', 'printPage', 'sendCustomEvent',
 	'simulateKey', 'pasteClipboard', 'pasteContent', 'searchClipboard',
 	'menuShowTabs', 'menuRecentlyClosed', 'menuShowBookmarks',
@@ -768,7 +768,6 @@ async function handleAction(request, sender) {
 					if (i > 0 && interval > 0) {
 						await new Promise(r => setTimeout(r, interval));
 					}
-					try { await chrome.tabs.get(openerTabId); } catch { break; }
 					await chrome.tabs.create({
 						url: urls[i],
 						active: false,

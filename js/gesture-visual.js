@@ -70,6 +70,7 @@ class ShadowHost {
 			border: 0 !important;
 			overflow: visible !important;
 			opacity: 1 !important;
+			color-scheme: normal !important;
 		`;
 
 		this.setLang(lang, isRtl);

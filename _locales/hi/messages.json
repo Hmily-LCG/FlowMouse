@@ -287,6 +287,14 @@
 		"message": "कोई एनीमेशन नहीं",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "एनिमेशन अवधि",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "सिस्टम स्क्रॉलिंग का उपयोग करते समय अनुपलब्ध",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "लगातार स्क्रॉल गुणक",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "नीचे स्क्रॉल करें",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "बाएँ स्क्रॉल करें",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "दाएँ स्क्रॉल करें",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "शीर्ष पर स्क्रॉल करें",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "नीचे तक स्क्रॉल करें",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "सबसे बाएँ किनारे पर स्क्रॉल करें",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "सबसे दाएँ किनारे पर स्क्रॉल करें",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "टैब बंद करें",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "उदाहरण के लिए, %browserName% की आंतरिक सेटिंग्स, इतिहास, डाउनलोड आदि। इन पृष्ठों में मुख्य ब्राउज़र कार्य और उपयोगकर्ता गोपनीयता डेटा शामिल हैं, इसलिए वे सख्ती से सुरक्षित हैं।",
+		"message": "उदाहरण के लिए, %browserName% की आंतरिक सेटिंग्स, इतिहास, डाउनलोड, त्रुटि पृष्ठ आदि। इन पृष्ठों में मुख्य ब्राउज़र कार्य और उपयोगकर्ता गोपनीयता डेटा शामिल हैं, इसलिए वे सख्ती से सुरक्षित हैं।",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {

@@ -287,6 +287,14 @@
 		"message": "Bez animace",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "Délka animace",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "Nedostupné při používání systémového posouvání",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "Násobič souvislého posouvání",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "Posunout dolů",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "Posunout doleva",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "Posunout doprava",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "Posunout na začátek",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "Posunout na konec",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "Posunout úplně doleva",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "Posunout úplně doprava",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "Zavřít kartu",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "Například interní nastavení, historie, stahování atd. prohlížeče %browserName%. Tyto stránky zahrnují základní funkce prohlížeče a údaje o soukromí uživatelů, proto jsou přísně chráněny.",
+		"message": "Například interní nastavení, historie, stahování, chybové stránky atd. prohlížeče %browserName%. Tyto stránky zahrnují základní funkce prohlížeče a údaje o soukromí uživatelů, proto jsou přísně chráněny.",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {

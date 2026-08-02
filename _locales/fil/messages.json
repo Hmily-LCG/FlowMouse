@@ -287,6 +287,14 @@
 		"message": "Walang animation",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "Tagal ng Animasyon",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "Hindi available kapag gumagamit ng system scrolling",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "Multiplier ng tuluy-tuloy na pag-scroll",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "Mag-scroll Pababa",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "Mag-scroll Pakaliwa",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "Mag-scroll Pakanan",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "Mag-scroll sa Tuktok",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "Mag-scroll sa Ilalim",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "Mag-scroll sa Kaliwang Dulo",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "Mag-scroll sa Kanang Dulo",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "Isara ang Tab",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "Halimbawa, ang mga internal na setting, kasaysayan, mga download, atbp. ng %browserName%. Ang mga pahinang ito ay kinasasangkutan ng mga pangunahing function ng browser at data ng privacy ng user, kaya mahigpit silang protektado.",
+		"message": "Halimbawa, ang mga internal na setting, kasaysayan, mga download, mga page ng error, atbp. ng %browserName%. Ang mga pahinang ito ay kinasasangkutan ng mga pangunahing function ng browser at data ng privacy ng user, kaya mahigpit silang protektado.",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {

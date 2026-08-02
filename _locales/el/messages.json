@@ -287,6 +287,14 @@
 		"message": "Χωρίς κίνηση",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "Διάρκεια κινούμενης εικόνας",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "Μη διαθέσιμο κατά τη χρήση της κύλισης συστήματος",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "Πολλαπλασιαστής συνεχούς κύλισης",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "Κύλιση Κάτω",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "Κύλιση Αριστερά",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "Κύλιση Δεξιά",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "Κύλιση στην Κορυφή",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "Κύλιση στο Τέλος",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "Κύλιση στο αριστερό άκρο",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "Κύλιση στο δεξιό άκρο",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "Κλείσιμο Καρτέλας",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "Για παράδειγμα, οι εσωτερικές ρυθμίσεις, το ιστορικό, οι λήψεις κ.λπ. του %browserName%. Αυτές οι σελίδες αφορούν βασικές λειτουργίες του προγράμματος περιήγησης και δεδομένα απορρήτου των χρηστών, επομένως προστατεύονται αυστηρά.",
+		"message": "Για παράδειγμα, οι εσωτερικές ρυθμίσεις, το ιστορικό, οι λήψεις, οι σελίδες σφαλμάτων κ.λπ. του %browserName%. Αυτές οι σελίδες αφορούν βασικές λειτουργίες του προγράμματος περιήγησης και δεδομένα απορρήτου των χρηστών, επομένως προστατεύονται αυστηρά.",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {

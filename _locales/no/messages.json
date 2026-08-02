@@ -287,6 +287,14 @@
 		"message": "Ingen animasjon",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "Animasjonsvarighet",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "Ikke tilgjengelig ved bruk av systemrulling",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "Multiplikator for kontinuerlig rulling",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "Rull ned",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "Rull til venstre",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "Rull til høyre",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "Rull til toppen",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "Rull til bunnen",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "Rull helt til venstre",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "Rull helt til høyre",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "Lukk fane",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "For eksempel %browserName%s interne innstillinger, logg, nedlastinger osv. Disse sidene involverer kjernefunksjoner i nettleseren og personverndata, så de er strengt beskyttet.",
+		"message": "For eksempel %browserName%s interne innstillinger, logg, nedlastinger, feilsider osv. Disse sidene involverer kjernefunksjoner i nettleseren og personverndata, så de er strengt beskyttet.",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {

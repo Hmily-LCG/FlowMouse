@@ -287,6 +287,14 @@
 		"message": "Sin animación",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "Duración de la animación",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "No disponible al usar el desplazamiento del sistema",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "Multiplicador de desplazamiento continuo",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "Desplazar abajo",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "Desplazar a la izquierda",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "Desplazar a la derecha",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "Desplazar al principio",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "Desplazar al final",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "Desplazar al extremo izquierdo",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "Desplazar al extremo derecho",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "Cerrar pestaña",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "Por ejemplo, la configuración interna, el historial, las descargas, etc. de %browserName%. Estas páginas implican funciones centrales del navegador y datos privados del usuario, por lo que están estrictamente protegidas.",
+		"message": "Por ejemplo, la configuración interna, el historial, las descargas, las páginas de error, etc. de %browserName%. Estas páginas implican funciones centrales del navegador y datos privados del usuario, por lo que están estrictamente protegidas.",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {

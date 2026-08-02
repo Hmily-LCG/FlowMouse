@@ -287,6 +287,14 @@
 		"message": "Keine Animation",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "Animationsdauer",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "Beim Systemscrollen nicht verfügbar",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "Multiplikator für kontinuierliches Scrollen",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "Nach unten scrollen",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "Nach links scrollen",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "Nach rechts scrollen",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "Zum Anfang scrollen",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "Zum Ende scrollen",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "Ganz nach links scrollen",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "Ganz nach rechts scrollen",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "Tab schließen",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "Zum Beispiel %browserName%s interne Einstellungen, Verlauf, Downloads usw. Diese Seiten betreffen Kernfunktionen des Browsers und Datenschutzdaten der Benutzer, daher sind sie streng geschützt.",
+		"message": "Zum Beispiel %browserName%s interne Einstellungen, Verlauf, Downloads, Fehlerseiten usw. Diese Seiten betreffen Kernfunktionen des Browsers und Datenschutzdaten der Benutzer, daher sind sie streng geschützt.",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {

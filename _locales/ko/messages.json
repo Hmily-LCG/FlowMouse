@@ -287,6 +287,14 @@
 		"message": "애니메이션 끄기",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "애니메이션 시간",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "시스템 스크롤 사용 시 사용할 수 없음",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "연속 스크롤 배율",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "아래로 스크롤",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "왼쪽으로 스크롤",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "오른쪽으로 스크롤",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "맨 위로 스크롤",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "맨 아래로 스크롤",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "맨 왼쪽으로 스크롤",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "맨 오른쪽으로 스크롤",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "탭 닫기",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "예를 들어, %browserName%의 내부 설정, 방문 기록, 다운로드 등입니다. 이 페이지들은 브라우저 핵심 기능과 사용자 개인 정보를 포함하므로 엄격하게 보호됩니다.",
+		"message": "예를 들어, %browserName%의 내부 설정, 방문 기록, 다운로드, 오류 페이지 등입니다. 이 페이지들은 브라우저 핵심 기능과 사용자 개인 정보를 포함하므로 엄격하게 보호됩니다.",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {

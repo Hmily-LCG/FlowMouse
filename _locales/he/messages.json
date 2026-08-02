@@ -287,6 +287,14 @@
 		"message": "ללא אנימציה",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "משך אנימציה",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "לא זמין בעת שימוש בגלילת מערכת",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "מכפיל גלילה רציפה",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "גלול למטה",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "גלול שמאלה",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "גלול ימינה",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "גלול לראש הדף",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "גלול לתחתית",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "גלול לקצה השמאלי",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "גלול לקצה הימני",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "סגור כרטיסייה",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "לדוגמה, הגדרות פנימיות, היסטוריה, הורדות וכו' של %browserName%. דפים אלו נוגעים לפונקציות ליבה של הדפדפן ולנתוני פרטיות של המשתמש, ולכן הם מוגנים בקפידה.",
+		"message": "לדוגמה, הגדרות פנימיות, היסטוריה, הורדות, דפי שגיאה וכו' של %browserName%. דפים אלו נוגעים לפונקציות ליבה של הדפדפן ולנתוני פרטיות של המשתמש, ולכן הם מוגנים בקפידה.",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {

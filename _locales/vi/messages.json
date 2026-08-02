@@ -287,6 +287,14 @@
 		"message": "Không có hoạt ảnh",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "Thời lượng ảnh động",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "Không khả dụng khi sử dụng cuộn hệ thống",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "Hệ số cuộn liên tục",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "Cuộn xuống",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "Cuộn sang trái",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "Cuộn sang phải",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "Cuộn lên đầu trang",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "Cuộn xuống cuối trang",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "Cuộn sang tận cùng bên trái",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "Cuộn sang tận cùng bên phải",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "Đóng tab",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "Ví dụ: cài đặt nội bộ, lịch sử, tải xuống, v.v. của %browserName%. Những trang này liên quan đến các chức năng cốt lõi của trình duyệt và dữ liệu riêng tư của người dùng, vì vậy chúng được bảo vệ nghiêm ngặt.",
+		"message": "Ví dụ: cài đặt nội bộ, lịch sử, tải xuống, trang lỗi, v.v. của %browserName%. Những trang này liên quan đến các chức năng cốt lõi của trình duyệt và dữ liệu riêng tư của người dùng, vì vậy chúng được bảo vệ nghiêm ngặt.",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {

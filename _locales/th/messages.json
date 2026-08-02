@@ -287,6 +287,14 @@
 		"message": "ไม่มีภาพเคลื่อนไหว",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "ระยะเวลาภาพเคลื่อนไหว",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "ไม่สามารถใช้งานได้เมื่อใช้การเลื่อนของระบบ",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "ตัวคูณการเลื่อนอย่างต่อเนื่อง",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "เลื่อนลง",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "เลื่อนไปทางซ้าย",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "เลื่อนไปทางขวา",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "เลื่อนไปบนสุด",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "เลื่อนไปล่างสุด",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "เลื่อนไปซ้ายสุด",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "เลื่อนไปขวาสุด",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "ปิดแท็บ",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "ตัวอย่างเช่น การตั้งค่าภายในของ %browserName% ประวัติการเข้าชม การดาวน์โหลด ฯลฯ หน้าเหล่านี้เกี่ยวข้องกับฟังก์ชันหลักของเบราว์เซอร์และข้อมูลความเป็นส่วนตัวของผู้ใช้ จึงได้รับการป้องกันอย่างเข้มงวด",
+		"message": "ตัวอย่างเช่น การตั้งค่าภายในของ %browserName% ประวัติการเข้าชม การดาวน์โหลด หน้าข้อผิดพลาด ฯลฯ หน้าเหล่านี้เกี่ยวข้องกับฟังก์ชันหลักของเบราว์เซอร์และข้อมูลความเป็นส่วนตัวของผู้ใช้ จึงได้รับการป้องกันอย่างเข้มงวด",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {

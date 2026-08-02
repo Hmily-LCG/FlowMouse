@@ -287,6 +287,14 @@
 		"message": "Nincs animáció",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "Animáció időtartama",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "Nem érhető el a rendszergörgetés használatakor",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "Folyamatos görgetés szorzója",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "Görgetés le",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "Görgetés balra",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "Görgetés jobbra",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "Görgetés a tetejére",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "Görgetés az aljára",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "Görgetés a bal szélre",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "Görgetés a jobb szélre",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "Lap bezárása",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "Például a(z) %browserName% belső beállításai, előzményei, letöltései stb. Ezek az oldalak alapvető böngészőfunkciókat és felhasználói adatvédelmi adatokat érintenek, ezért szigorúan védettek.",
+		"message": "Például a(z) %browserName% belső beállításai, előzményei, letöltései, hibaoldalai stb. Ezek az oldalak alapvető böngészőfunkciókat és felhasználói adatvédelmi adatokat érintenek, ezért szigorúan védettek.",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {

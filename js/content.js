@@ -134,13 +134,29 @@
 		return document.scrollingElement || document.documentElement;
 	}
 
+	const SCROLL_ACTIONS = {
+		scrollUp: { axis: 'y', dir: -1 },
+		scrollDown: { axis: 'y', dir: 1 },
+		scrollLeft: { axis: 'x', dir: -1 },
+		scrollRight: { axis: 'x', dir: 1 },
+		scrollToTop: { axis: 'y', dir: -1, toEdge: true },
+		scrollToBottom: { axis: 'y', dir: 1, toEdge: true },
+		scrollToLeftEdge: { axis: 'x', dir: -1, toEdge: true },
+		scrollToRightEdge: { axis: 'x', dir: 1, toEdge: true },
+	};
+
+	const AXES = {
+		x: { pos: 'scrollLeft', size: 'clientWidth', scrollSize: 'scrollWidth', overflow: 'overflowX', to: 'left' },
+		y: { pos: 'scrollTop', size: 'clientHeight', scrollSize: 'scrollHeight', overflow: 'overflowY', to: 'top' },
+	};
+
 	function hasScrollRoom(el, action) {
-		const max = el.scrollHeight - el.clientHeight;
+		const { axis, dir } = SCROLL_ACTIONS[action];
+		const ax = AXES[axis];
+		const max = el[ax.scrollSize] - el[ax.size];
 		if (max <= 1) return false;
-		const top = el.scrollTop;
-		if (action === 'scrollUp' || action === 'scrollToTop') return top > 1;
-		if (action === 'scrollDown' || action === 'scrollToBottom') return top < max - 1;
-		return true;
+		const pos = el[ax.pos];
+		return dir < 0 ? pos > 1 : pos < max - 1;
 	}
 
 	function deepElementFromPoint(x, y) {
@@ -164,10 +180,11 @@
 		if (forceTargetWindow) return root;
 
 		if (cursorX != null && cursorY != null) {
+			const overflowProp = AXES[SCROLL_ACTIONS[action].axis].overflow;
 			let el = deepElementFromPoint(cursorX, cursorY);
 			while (el && el !== root && el !== document.body) {
-				const s = window.getComputedStyle(el);
-				if ((s.overflowY === 'auto' || s.overflowY === 'scroll') && hasScrollRoom(el, action)) {
+				const o = window.getComputedStyle(el)[overflowProp];
+				if ((o === 'auto' || o === 'scroll') && hasScrollRoom(el, action)) {
 					return el;
 				}
 				el = parentAcrossShadow(el);
@@ -177,18 +194,8 @@
 	}
 
 	function checkScrollFeasibility(action, cursorX, cursorY) {
-		const tolerance = 1;
-		const target = getScrollTarget(action, false, cursorX, cursorY);
-
-		const currentScrollTop = target.scrollTop;
-		const maxScrollTop = target.scrollHeight - target.clientHeight;
-
-		if (action === 'scrollUp' || action === 'scrollToTop') {
-			return currentScrollTop > tolerance;
-		} else if (action === 'scrollDown' || action === 'scrollToBottom') {
-			return currentScrollTop < maxScrollTop - tolerance;
-		}
-		return true;
+		if (!SCROLL_ACTIONS[action]) throw new Error(`Not a scroll action: ${action}`);
+		return hasScrollRoom(getScrollTarget(action, false, cursorX, cursorY), action);
 	}
 
 	function resolveScrollSmoothness(value) {
@@ -228,21 +235,22 @@
 		stopScrollListeners();
 	}
 
-	function easeScrollTo(target, goalY, unclampedGoalY) {
+	function easeScrollTo(target, axis, goal, unclampedGoal, baseDuration = 500) {
 		scrollActiveTarget = target;
 
-		const startY = target.scrollTop;
-		if (startY === goalY) {
+		const ax = AXES[axis];
+		const start = target[ax.pos];
+		if (start === goal) {
 			scrollActiveTarget = null;
 			return;
 		}
 
-		const deltaY = goalY - startY;
+		const delta = goal - start;
 		const startTime = performance.now();
 
-		const realDist = Math.abs(deltaY);
-		const unclampedDist = Math.abs(unclampedGoalY - startY);
-		let duration = 500;
+		const realDist = Math.abs(delta);
+		const unclampedDist = Math.abs(unclampedGoal - start);
+		let duration = baseDuration;
 		if (unclampedDist > 0 && realDist < unclampedDist) {
 			duration = Math.max(16, duration * (realDist / unclampedDist));
 		}
@@ -252,7 +260,7 @@
 		function step(now) {
 			const elapsed = now - startTime;
 			if (elapsed >= duration) {
-				target.scrollTo({ top: goalY, behavior: 'instant' });
+				target.scrollTo({ [ax.to]: goal, behavior: 'instant' });
 				scrollRafId = null;
 				scrollActiveTarget = null;
 				scrollGoals.delete(target);
@@ -260,8 +268,7 @@
 				return;
 			}
 			const ease = 1 - Math.pow(1 - elapsed / duration, 3);
-			const y = startY + deltaY * ease;
-			target.scrollTo({ top: y, behavior: 'instant' });
+			target.scrollTo({ [ax.to]: start + delta * ease, behavior: 'instant' });
 			scrollRafId = requestAnimationFrame(step);
 		}
 
@@ -269,16 +276,20 @@
 	}
 
 	function handleScroll(action, scrollConfig, forceTargetWindow = false, cursorX, cursorY) {
+		const meta = SCROLL_ACTIONS[action];
+		if (!meta) return;
+		const ax = AXES[meta.axis];
 		const target = getScrollTarget(action, forceTargetWindow, cursorX, cursorY);
 		const smoothness = resolveScrollSmoothness(scrollConfig.scrollSmoothness);
 
-		const curY = target.scrollTop;
-		const maxY = target.scrollHeight - target.clientHeight;
+		const cur = target[ax.pos];
+		const max = target[ax.scrollSize] - target[ax.size];
 
-		let goalY, unclampedGoalY;
-		if (action === 'scrollUp' || action === 'scrollDown') {
-			const containerHeight = target.clientHeight;
-			let delta = containerHeight * (scrollConfig.scrollDistance / 100) * (action === 'scrollUp' ? -1 : 1);
+		let goal, unclampedGoal;
+		if (meta.toEdge) {
+			goal = unclampedGoal = meta.dir < 0 ? 0 : max;
+		} else {
+			let delta = target[ax.size] * (scrollConfig.scrollDistance / 100) * meta.dir;
 
 			const accel = scrollConfig.scrollAccel ?? 1;
 			const accelWindow = scrollConfig.scrollAccelWindow ?? 400;
@@ -296,25 +307,19 @@
 				}
 			}
 
-			unclampedGoalY = (scrollGoals.get(target) ?? curY) + delta;
-			goalY = Math.max(0, Math.min(unclampedGoalY, maxY));
-		} else if (action === 'scrollToTop') {
-			goalY = unclampedGoalY = 0;
-		} else if (action === 'scrollToBottom') {
-			goalY = unclampedGoalY = maxY;
-		} else {
-			return;
+			unclampedGoal = (scrollGoals.get(target)?.[meta.axis] ?? cur) + delta;
+			goal = Math.max(0, Math.min(unclampedGoal, max));
 		}
 
 		cancelEaseScroll();
-		scrollGoals.set(target, goalY);
-		if (curY === goalY) return;
+		scrollGoals.set(target, { [meta.axis]: goal });
+		if (cur === goal) return;
 
 		if (smoothness === 'none') {
 			scrollGoals.delete(target);
-			target.scrollTo({ top: goalY, behavior: 'instant' });
+			target.scrollTo({ [ax.to]: goal, behavior: 'instant' });
 		} else if (smoothness === 'system') {
-			target.scrollTo({ top: goalY, behavior: 'smooth' });
+			target.scrollTo({ [ax.to]: goal, behavior: 'smooth' });
 			const version = ++scrollVersion;
 			const eventTarget = target === getRoot() ? document : target;
 			eventTarget.addEventListener('scrollend', () => {
@@ -323,7 +328,7 @@
 				}
 			}, { once: true });
 		} else {
-			easeScrollTo(target, goalY, unclampedGoalY);
+			easeScrollTo(target, meta.axis, goal, unclampedGoal, scrollConfig.scrollDuration ?? 500);
 		}
 	}
 
@@ -489,6 +494,7 @@ class ContentContextMenu {
 
 		const iframe = host.createElement('iframe');
 		iframe.className = 'fm-ctx-frame';
+		if (window.crossOriginIsolated) iframe.credentialless = true;
 		iframe.style.cssText = `
 			position: fixed;
 			border: 0;
@@ -2990,12 +2996,16 @@ window.ContentContextMenu = ContentContextMenu;
 			const mergedConfig = { ...defaults, ...config };
 
 			if (LOCAL_ACTIONS.has(action)) {
-				const scrollConfig = { scrollDistance: mergedConfig.scrollDistance, scrollSmoothness: mergedConfig.scrollSmoothness, scrollAccel: mergedConfig.scrollAccel, scrollAccelWindow: mergedConfig.scrollAccelWindow };
+				const scrollConfig = { scrollDistance: mergedConfig.scrollDistance, scrollSmoothness: mergedConfig.scrollSmoothness, scrollDuration: mergedConfig.scrollDuration, scrollAccel: mergedConfig.scrollAccel, scrollAccelWindow: mergedConfig.scrollAccelWindow };
 				switch (action) {
 					case 'scrollUp':
 					case 'scrollDown':
+					case 'scrollLeft':
+					case 'scrollRight':
 					case 'scrollToTop':
 					case 'scrollToBottom':
+					case 'scrollToLeftEdge':
+					case 'scrollToRightEdge':
 						if (isIframe && !checkScrollFeasibility(action, cursor.startX, cursor.startY)) {
 							safeSendMessage({ action: 'gestureScrollUpdate', data: { action, scrollConfig } });
 							break;

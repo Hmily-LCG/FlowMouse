@@ -287,6 +287,14 @@
 		"message": "Fără animație",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "Durata animației",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "Indisponibil când se utilizează derularea sistemului",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "Multiplicator de derulare continuă",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "Derulează Jos",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "Derulează Stânga",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "Derulează Dreapta",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "Derulează la Început",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "Derulează la Sfârșit",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "Derulează la marginea stângă",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "Derulează la marginea dreaptă",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "Închide Tab",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "De exemplu, setările interne, istoricul, descărcările, etc. ale %browserName%. Aceste pagini implică funcții de bază ale browserului și date de confidențialitate ale utilizatorului, fiind astfel strict protejate.",
+		"message": "De exemplu, setările interne, istoricul, descărcările, paginile de eroare, etc. ale %browserName%. Aceste pagini implică funcții de bază ale browserului și date de confidențialitate ale utilizatorului, fiind astfel strict protejate.",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {

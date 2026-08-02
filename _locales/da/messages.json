@@ -287,6 +287,14 @@
 		"message": "Ingen animation",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "Animationsvarighed",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "Ikke tilgængelig, når du bruger systemrulning",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "Multiplikator for kontinuerlig rulning",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "Rul ned",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "Rul til venstre",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "Rul til højre",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "Rul til toppen",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "Rul til bunden",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "Rul helt til venstre",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "Rul helt til højre",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "Luk fane",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "For eksempel %browserName%s interne indstillinger, historik, overførsler osv. Disse sider involverer centrale browserfunktioner og brugerdata, så de er strengt beskyttede.",
+		"message": "For eksempel %browserName%s interne indstillinger, historik, overførsler, fejlsider osv. Disse sider involverer centrale browserfunktioner og brugerdata, så de er strengt beskyttede.",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {

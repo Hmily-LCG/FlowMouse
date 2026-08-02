@@ -287,6 +287,14 @@
 		"message": "Tiada animasi",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "Tempoh Animasi",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "Tidak tersedia semasa menggunakan penatalan sistem",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "Pengganda tatalan berterusan",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "Tatal Ke Bawah",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "Tatal Ke Kiri",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "Tatal Ke Kanan",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "Tatal ke Atas",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "Tatal ke Bawah",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "Tatal ke Hujung Kiri",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "Tatal ke Hujung Kanan",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "Tutup Tab",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "Sebagai contoh, tetapan dalaman, sejarah, muat turun, dll. bagi %browserName%. Halaman ini melibatkan fungsi teras penyemak imbas dan data privasi pengguna, jadi ia dilindungi dengan ketat.",
+		"message": "Sebagai contoh, tetapan dalaman, sejarah, muat turun, halaman ralat, dll. bagi %browserName%. Halaman ini melibatkan fungsi teras penyemak imbas dan data privasi pengguna, jadi ia dilindungi dengan ketat.",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {

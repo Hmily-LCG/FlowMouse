@@ -287,6 +287,14 @@
 		"message": "關閉動畫",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "動畫時長",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "使用系統捲動時無法使用",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "連續捲動距離倍率",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "向下捲動",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "向左捲動",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "向右捲動",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "捲動至頂端",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "捲動至底端",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "捲動至最左側",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "捲動至最右側",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "關閉分頁",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "例如 %browserName% 的內部設定、歷史紀錄、下載管理等頁面。這些頁面涉及瀏覽器核心功能與使用者隱私資料，因此被嚴格保護。",
+		"message": "例如 %browserName% 的內部設定、歷史紀錄、下載管理、錯誤頁等頁面。這些頁面涉及瀏覽器核心功能與使用者隱私資料，因此被嚴格保護。",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {

@@ -95,6 +95,10 @@ html[lang="ja"] body {
 	font-variant-east-asian: proportional-width;
 }
 
+html[lang="ko"] body {
+	word-break: keep-all;
+}
+
 .toggle {
 	position: relative;
 	width: 45px;

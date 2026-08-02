@@ -287,6 +287,14 @@
 		"message": "Nonaktifkan Animasi",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "Durasi Animasi",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "Tidak tersedia saat menggunakan pengguliran sistem",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "Pengganda gulir berkelanjutan",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "Gulir ke Bawah",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "Gulir ke Kiri",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "Gulir ke Kanan",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "Gulir ke Paling Atas",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "Gulir ke Paling Bawah",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "Gulir ke Ujung Kiri",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "Gulir ke Ujung Kanan",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "Tutup Tab",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "Misalnya, pengaturan internal, riwayat, unduhan, dll. dari %browserName%. Halaman-halaman ini melibatkan fungsi inti browser dan data privasi pengguna, sehingga dilindungi dengan ketat.",
+		"message": "Misalnya, pengaturan internal, riwayat, unduhan, halaman kesalahan, dll. dari %browserName%. Halaman-halaman ini melibatkan fungsi inti browser dan data privasi pengguna, sehingga dilindungi dengan ketat.",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {

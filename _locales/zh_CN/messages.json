@@ -287,6 +287,14 @@
 		"message": "关闭动画",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "动画时长",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "使用系统滚动时不可用",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "连续滚动距离倍率",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "向下滚动",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "向左滚动",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "向右滚动",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "滚动到顶部",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "滚动到底部",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "滚动到最左侧",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "滚动到最右侧",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "关闭标签页",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "例如 %browserName% 的内部设置、历史记录、下载管理等页面。这些页面涉及浏览器核心功能与用户隐私数据，因此被严格保护。",
+		"message": "例如 %browserName% 的内部设置、历史记录、下载管理、错误页等页面。这些页面涉及浏览器核心功能与用户隐私数据，因此被严格保护。",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {

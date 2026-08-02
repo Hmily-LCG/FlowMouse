@@ -287,6 +287,14 @@
 		"message": "Brak animacji",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "Czas trwania animacji",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "Niedostępne podczas korzystania z przewijania systemowego",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "Mnożnik ciągłego przewijania",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "Przewiń w dół",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "Przewiń w lewo",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "Przewiń w prawo",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "Przewiń na górę",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "Przewiń na dół",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "Przewiń do lewej krawędzi",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "Przewiń do prawej krawędzi",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "Zamknij kartę",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "Na przykład wewnętrzne ustawienia, historia, pobieranie itp. w %browserName%. Strony te dotyczą kluczowych funkcji przeglądarki i danych prywatności użytkownika, dlatego są ściśle chronione.",
+		"message": "Na przykład wewnętrzne ustawienia, historia, pobieranie, strony błędów itp. w %browserName%. Strony te dotyczą kluczowych funkcji przeglądarki i danych prywatności użytkownika, dlatego są ściśle chronione.",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {

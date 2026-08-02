@@ -287,6 +287,14 @@
 		"message": "Без анімації",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "Тривалість анімації",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "Недоступно під час системного прокручування",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "Множник безперервного прокручування",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "Прокрутка вниз",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "Прокрутка вліво",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "Прокрутка вправо",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "Прокрутка до верху",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "Прокрутка до низу",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "Прокрутка до лівого краю",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "Прокрутка до правого краю",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "Закрити вкладку",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "Наприклад, внутрішні налаштування, історія, завантаження %browserName% тощо. Ці сторінки стосуються основних функцій браузера та конфіденційних даних користувача, тому вони суворо захищені.",
+		"message": "Наприклад, внутрішні налаштування, історія, завантаження, сторінки помилок %browserName% тощо. Ці сторінки стосуються основних функцій браузера та конфіденційних даних користувача, тому вони суворо захищені.",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {
