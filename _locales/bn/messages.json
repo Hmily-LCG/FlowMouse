@@ -287,6 +287,14 @@
 		"message": "কোন অ্যানিমেশন নেই",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "অ্যানিমেশনের সময়কাল",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "সিস্টেম স্ক্রোলিং ব্যবহার করার সময় অনুপলব্ধ",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "ক্রমাগত স্ক্রোল গুণক",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "নিচে স্ক্রল করুন",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "বামে স্ক্রল করুন",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "ডানে স্ক্রল করুন",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "সবার উপরে স্ক্রল করুন",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "সবার নিচে স্ক্রল করুন",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "একদম বামে স্ক্রল করুন",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "একদম ডানে স্ক্রল করুন",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "ট্যাব বন্ধ করুন",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "উদাহরণস্বরূপ, %browserName%-এর অভ্যন্তরীণ সেটিংস, ইতিহাস, ডাউনলোড ইত্যাদি। এই পৃষ্ঠাগুলি ব্রাউজারের মূল ফাংশন এবং ব্যবহারকারীর গোপনীয়তা ডেটা জড়িত, তাই এগুলি কঠোরভাবে সুরক্ষিত।",
+		"message": "উদাহরণস্বরূপ, %browserName%-এর অভ্যন্তরীণ সেটিংস, ইতিহাস, ডাউনলোড, ত্রুটি পৃষ্ঠাগুলি ইত্যাদি। এই পৃষ্ঠাগুলি ব্রাউজারের মূল ফাংশন এবং ব্যবহারকারীর গোপনীয়তা ডেটা জড়িত, তাই এগুলি কঠোরভাবে সুরক্ষিত।",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {

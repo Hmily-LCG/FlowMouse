@@ -287,6 +287,14 @@
 		"message": "Без анимације",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "Трајање анимације",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "Није доступно при коришћењу системског помицања",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "Множилац непрекидног померања",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "Скролуј доле",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "Скролуј лево",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "Скролуј десно",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "Скролуј на врх",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "Скролуј на дно",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "Скролуј до леве ивице",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "Скролуј до десне ивице",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "Затвори картицу",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "На пример, интерна подешавања, историја, преузимања, итд. прегледача %browserName%. Ове странице укључују основне функције прегледача и податке о приватности корисника, стога су строго заштићене.",
+		"message": "На пример, интерна подешавања, историја, преузимања, странице са грешкама, итд. прегледача %browserName%. Ове странице укључују основне функције прегледача и податке о приватности корисника, стога су строго заштићене.",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {

@@ -287,6 +287,14 @@
 		"message": "بدون حركة",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "مدة الحركة",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "غير متوفر عند استخدام تمرير النظام",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "مضاعف التمرير المستمر",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "تمرير لأسفل",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "تمرير لليسار",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "تمرير لليمين",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "تمرير إلى الأعلى",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "تمرير إلى الأسفل",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "تمرير إلى أقصى اليسار",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "تمرير إلى أقصى اليمين",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "إغلاق علامة التبويب",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "على سبيل المثال، الإعدادات الداخلية لـ %browserName%، والسجل، والتنزيلات، وما إلى ذلك. تتضمن هذه الصفحات وظائف المتصفح الأساسية وبيانات خصوصية المستخدم، لذا فهي محمية بصرامة.",
+		"message": "على سبيل المثال، الإعدادات الداخلية لـ %browserName%، والسجل، والتنزيلات، وصفحات الخطأ، وما إلى ذلك. تتضمن هذه الصفحات وظائف المتصفح الأساسية وبيانات خصوصية المستخدم، لذا فهي محمية بصرامة.",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {

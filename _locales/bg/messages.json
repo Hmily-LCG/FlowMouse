@@ -287,6 +287,14 @@
 		"message": "Без анимация",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "Продължителност на анимацията",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "Не е налично при използване на системно превъртане",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "Множител за непрекъснато превъртане",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "Превъртане надолу",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "Превъртане наляво",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "Превъртане надясно",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "Превъртане до върха",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "Превъртане до дъното",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "Превъртане до най-лявата част",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "Превъртане до най-дясната част",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "Затвори раздела",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "Например, вътрешните настройки, историята, изтеглянията и др. на %browserName%. Тези страници засягат основни функции на браузъра и данни за поверителността на потребителите, така че са строго защитени.",
+		"message": "Например, вътрешните настройки, историята, изтеглянията, страниците за грешки и др. на %browserName%. Тези страници засягат основни функции на браузъра и данни за поверителността на потребителите, така че са строго защитени.",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {

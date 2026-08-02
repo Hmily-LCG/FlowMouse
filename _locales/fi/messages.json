@@ -287,6 +287,14 @@
 		"message": "Ei animaatiota",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "Animaation kesto",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "Ei käytettävissä järjestelmän vieritystä käytettäessä",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "Jatkuvan vierityksen kerroin",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "Vieritä alas",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "Vieritä vasemmalle",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "Vieritä oikealle",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "Vieritä alkuun",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "Vieritä loppuun",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "Vieritä vasempaan reunaan",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "Vieritä oikeaan reunaan",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "Sulje välilehti",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "Esimerkiksi %browserName%:n sisäiset asetukset, historia, lataukset jne. Nämä sivut liittyvät selaimen ydintoimintoihin ja käyttäjän yksityisyystietoihin, joten ne on suojattu tiukasti.",
+		"message": "Esimerkiksi %browserName%:n sisäiset asetukset, historia, lataukset, virhesivut jne. Nämä sivut liittyvät selaimen ydintoimintoihin ja käyttäjän yksityisyystietoihin, joten ne on suojattu tiukasti.",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {

@@ -287,6 +287,14 @@
 		"message": "アニメーションなし",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "アニメーションの時間",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "システムスクロール使用時は無効です",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "連続スクロール倍率",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "下にスクロール",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "左にスクロール",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "右にスクロール",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "最上部にスクロール",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "最下部にスクロール",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "左端にスクロール",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "右端にスクロール",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "タブを閉じる",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "例えば、%browserName% の内部設定、履歴、ダウンロードなどです。これらのページはブラウザのコア機能とユーザーのプライバシーデータに関わるため、厳重に保護されています。",
+		"message": "例えば、%browserName% の内部設定、履歴、ダウンロード、エラーページなどです。これらのページはブラウザのコア機能とユーザーのプライバシーデータに関わるため、厳重に保護されています。",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {
@@ -1940,7 +1964,7 @@
 		"description": "Label for the text URL recognition toggle"
 	},
 	"areaSelectTextUrlDesc": {
-		"message": "範囲選択時にプレーンテキストのURL（ハイパーリンク以外）も抽出する",
+		"message": "範囲選択時にプレーンテキストのURL（ハイパーリンク以外）も抽出します",
 		"description": "Description for the text URL recognition toggle"
 	},
 	"areaSelectWarnThreshold": {
@@ -1956,7 +1980,7 @@
 		"description": "Label for the operation interval input"
 	},
 	"areaSelectDelayDesc": {
-		"message": "一括処理での各開く操作間の遅延（秒）",
+		"message": "一括で開く際の間隔（秒）",
 		"description": "Description for the operation interval setting"
 	},
 	"areaSelectHint": {

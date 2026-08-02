@@ -174,6 +174,7 @@ class FmContextMenu extends LitElement {
 	}
 
 	#readCachedCustomCss() {
+		if (window.credentialless) return '';
 		try {
 			return localStorage.getItem(CUSTOM_CSS_CACHE_KEY) || '';
 		} catch {
@@ -182,6 +183,7 @@ class FmContextMenu extends LitElement {
 	}
 
 	#writeCachedCustomCss(value) {
+		if (window.credentialless) return;
 		try {
 			if (value) {
 				localStorage.setItem(CUSTOM_CSS_CACHE_KEY, value);

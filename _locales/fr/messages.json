@@ -287,6 +287,14 @@
 		"message": "Pas d'animation",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "Durée de l'animation",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "Indisponible lors de l'utilisation du défilement du système",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "Multiplicateur de défilement continu",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "Défiler vers le bas",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "Défiler vers la gauche",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "Défiler vers la droite",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "Défiler tout en haut",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "Défiler tout en bas",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "Défiler à l'extrême gauche",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "Défiler à l'extrême droite",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "Fermer l'onglet",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "Par exemple, les paramètres internes, l'historique, les téléchargements, etc. de %browserName%. Ces pages impliquent des fonctions essentielles du navigateur et des données privées de l'utilisateur, elles sont donc strictement protégées.",
+		"message": "Par exemple, les paramètres internes, l'historique, les téléchargements, les pages d'erreur, etc. de %browserName%. Ces pages impliquent des fonctions essentielles du navigateur et des données privées de l'utilisateur, elles sont donc strictement protégées.",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {

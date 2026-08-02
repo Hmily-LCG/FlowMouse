@@ -287,6 +287,14 @@
 		"message": "Geen animatie",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "Animatieduur",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "Niet beschikbaar bij gebruik van systeemscrollen",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "Vermenigvuldiger voor continu scrollen",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "Omlaag Scrollen",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "Naar Links Scrollen",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "Naar Rechts Scrollen",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "Scroll naar Boven",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "Scroll naar Beneden",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "Scroll naar uiterst links",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "Scroll naar uiterst rechts",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "Tabblad Sluiten",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "Bijvoorbeeld de interne instellingen, geschiedenis, downloads, enz. van %browserName%. Deze pagina's betreffen kernfuncties van de browser en privacygegevens van de gebruiker, en worden daarom strikt beschermd.",
+		"message": "Bijvoorbeeld de interne instellingen, geschiedenis, downloads, foutpagina's, enz. van %browserName%. Deze pagina's betreffen kernfuncties van de browser en privacygegevens van de gebruiker, en worden daarom strikt beschermd.",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {

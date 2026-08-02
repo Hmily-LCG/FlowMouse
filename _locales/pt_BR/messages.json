@@ -287,6 +287,14 @@
 		"message": "Sem animação",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "Duração da animação",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "Indisponível ao usar a rolagem do sistema",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "Multiplicador de rolagem contínua",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "Rolar para Baixo",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "Rolar para a Esquerda",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "Rolar para a Direita",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "Rolar para o Topo",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "Rolar para o Final",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "Rolar para a Extremidade Esquerda",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "Rolar para a Extremidade Direita",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "Fechar Aba",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "Por exemplo, configurações internas, histórico, downloads, etc. do %browserName%. Essas páginas envolvem funções principais do navegador e dados de privacidade do usuário, por isso são estritamente protegidas.",
+		"message": "Por exemplo, configurações internas, histórico, downloads, páginas de erro, etc. do %browserName%. Essas páginas envolvem funções principais do navegador e dados de privacidade do usuário, por isso são estritamente protegidas.",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {

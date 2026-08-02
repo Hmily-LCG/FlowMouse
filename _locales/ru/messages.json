@@ -287,6 +287,14 @@
 		"message": "Без анимации",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "Длительность анимации",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "Недоступно при системной прокрутке",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "Множитель непрерывной прокрутки",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "Прокрутка вниз",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "Прокрутка влево",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "Прокрутка вправо",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "Прокрутка в начало",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "Прокрутка в конец",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "Прокрутка к левому краю",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "Прокрутка к правому краю",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "Закрыть вкладку",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "Например, внутренние настройки, история, загрузки %browserName% и т. д. Эти страницы затрагивают основные функции браузера и конфиденциальные данные пользователя, поэтому они строго защищены.",
+		"message": "Например, внутренние настройки, история, загрузки, страницы ошибок %browserName% и т. д. Эти страницы затрагивают основные функции браузера и конфиденциальные данные пользователя, поэтому они строго защищены.",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {

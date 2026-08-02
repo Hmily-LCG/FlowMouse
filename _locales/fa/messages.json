@@ -287,6 +287,14 @@
 		"message": "بدون انیمیشن",
 		"description": "No scroll animation"
 	},
+	"scrollDuration": {
+		"message": "مدت زمان انیمیشن",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "هنگام استفاده از پیمایش سیستم در دسترس نیست",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
 	"scrollAccel": {
 		"message": "ضریب اسکرول پیوسته",
 		"description": "Speed multiplier applied when scrolling consecutively"
@@ -619,6 +627,14 @@
 		"message": "پیمایش به پایین",
 		"description": "Scroll down"
 	},
+	"actionScrollLeft": {
+		"message": "پیمایش به چپ",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "پیمایش به راست",
+		"description": "Scroll right"
+	},
 	"actionScrollToTop": {
 		"message": "پیمایش به ابتدا",
 		"description": "Scroll to top"
@@ -626,6 +642,14 @@
 	"actionScrollToBottom": {
 		"message": "پیمایش به انتها",
 		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "پیمایش به منتهی الیه سمت چپ",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "پیمایش به منتهی الیه سمت راست",
+		"description": "Scroll to the rightmost position"
 	},
 	"actionCloseTab": {
 		"message": "بستن تب",
@@ -1336,7 +1360,7 @@
 		"description": "Internal page title"
 	},
 	"restrictedInternalDesc": {
-		"message": "به عنوان مثال، تنظیمات داخلی، تاریخچه، دانلودها و غیره در %browserName%. این صفحات شامل عملکردهای اصلی مرورگر و داده‌های حریم خصوصی کاربران هستند، بنابراین به شدت محافظت می‌شوند.",
+		"message": "به عنوان مثال، تنظیمات داخلی، تاریخچه، دانلودها، صفحات خطا و غیره در %browserName%. این صفحات شامل عملکردهای اصلی مرورگر و داده‌های حریم خصوصی کاربران هستند، بنابراین به شدت محافظت می‌شوند.",
 		"description": "Internal page description"
 	},
 	"restrictedFile": {
