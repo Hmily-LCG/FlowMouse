@@ -276,7 +276,7 @@ async function handleAction(request, sender) {
 					await chrome.search.query({ text: request.query, tabId: sender.tab.id });
 				} else {
 					const newTab = await createTabAtPosition(sender, position, {
-						url: undefined,
+						url: 'about:blank',
 						active,
 						openerTabId: sender.tab.id,
 					});
