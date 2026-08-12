@@ -1,0 +1,2150 @@
+{
+	"extName": {
+		"message": "FlowMouse - מחוות עכבר",
+		"description": "Extension name"
+	},
+	"extNameShort": {
+		"message": "FlowMouse",
+		"description": "Short extension name for popup"
+	},
+	"extDescription": {
+		"message": "תוסף מחוות עכבר בקוד פתוח המתמקד בפרטיות וחוויה חלקה. מחוות חלקות, תמיכה בגרירת-על.",
+		"description": "Extension description"
+	},
+	"theme": {
+		"message": "ערכת נושא",
+		"description": "Theme"
+	},
+	"themeDark": {
+		"message": "כהה",
+		"description": "Dark theme"
+	},
+	"themeLight": {
+		"message": "בהירה",
+		"description": "Light theme"
+	},
+	"themeAuto": {
+		"message": "לפי המערכת",
+		"description": "Auto theme - follow system"
+	},
+	"syncStatus": {
+		"message": "סטטוס סנכרון",
+		"description": "Sync status"
+	},
+	"syncStatusDesc": {
+		"message": "סנכרון הגדרות דרך חשבון %browserName%",
+		"description": "Sync status description"
+	},
+	"saved": {
+		"message": "נשמר",
+		"description": "Saved"
+	},
+	"author": {
+		"message": "מחבר",
+		"description": "Author"
+	},
+	"privacyNote": {
+		"message": " רץ מקומית, ללא גישה לרשת למעט סנכרון, ללא איסוף נתונים",
+		"description": "Privacy note in footer"
+	},
+	"supportUsText": {
+		"message": "נהנים מ-FlowMouse? אנא דרגו אותנו 5 כוכבים ב-%appStoreInfo% כדי לתמוך בנו!",
+		"description": "Rating text"
+	},
+	"storeNameChrome": {
+		"message": "חנות האינטרנט של Chrome",
+		"description": "Chrome Web Store name"
+	},
+	"storeNameEdge": {
+		"message": "הרחבות Edge",
+		"description": "Edge Add-ons name"
+	},
+	"storeNameFirefox": {
+		"message": "תוספות Firefox",
+		"description": "Firefox Add-ons name"
+	},
+	"feedbackText": {
+		"message": "בעיות או הצעות? אנא דווחו דרך <a href='mailto:Service@52pojie.cn'>אימייל</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> או <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>הפורום</a>. אנו נשפר זאת בהקדם!",
+		"description": "Feedback text"
+	},
+	"feedbackTextChrome": {
+		"message": "בעיות או הצעות? אנא דווחו דרך <a href='https://chromewebstore.google.com/detail/fnldhkfidchnjiokpoemdhoejmaojkgp/support' target='_blank'>התמיכה של חנות האינטרנט של Chrome</a>, <a href='mailto:Service@52pojie.cn'>אימייל</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> או <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>הפורום</a>. אנו נשפר זאת בהקדם!",
+		"description": "Feedback text for Chrome browser"
+	},
+	"supportAndFeedback": {
+		"message": "תמיכה ומשוב",
+		"description": "Support and Feedback section title"
+	},
+	"feedbackTitle": {
+		"message": "משוב והצעות",
+		"description": "Feedback row title"
+	},
+	"supportUsTitle": {
+		"message": "תמכו בנו",
+		"description": "Rating row title"
+	},
+	"backToSettings": {
+		"message": "חזרה להגדרות",
+		"description": "Back to settings link"
+	},
+	"settings": {
+		"message": "הגדרות",
+		"description": "Settings"
+	},
+	"moreSettings": {
+		"message": "הגדרות נוספות",
+		"description": "More settings button in popup"
+	},
+	"version": {
+		"message": "גרסה",
+		"description": "Version"
+	},
+	"basicSettings": {
+		"message": "הגדרות מחווה",
+		"description": "Gesture settings section"
+	},
+	"enableGesture": {
+		"message": "הפעל מחוות",
+		"description": "Enable gesture feature"
+	},
+	"enableGestureDesc": {
+		"message": "החזק את הלחצן הימני והזז את העכבר לביצוע מחוות בקלות",
+		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
+	},
+	"gestureTriggerButtons": {
+		"message": "כפתורי הפעלה",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "בחר אילו כפתורי עכבר יכולים להפעיל מחוות",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "לחצן ימני",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "לחצן אמצעי",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "לחצן צדדי (אחורה)",
+		"description": "Mouse button 4 - the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "לחצן צדדי (קדימה)",
+		"description": "Mouse button 5 - the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "לחצן ימני של עט סטיילוס",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "ייתכן שחלק מלחצני ההפעלה לא יעבדו כראוי בהתאם לחומרה או להגדרות מנהל ההתקן (דרייבר) שלך. לדוגמה, בעכברי Logitech ייתכן שיהיה צורך להשבית את הסימון \"גלילה אופקית\" (Horizontal Scrolling) במנהל ההתקן כדי להשתמש בלחצני הצד עבור מחוות.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
+	"macLinuxContextMenuNotice": {
+		"message": "עקב מגבלות מערכת, כאשר מחוות לחיצה ימנית מופעלות, לחיצה כפולה ימנית נדרשת לפתיחת התפריט ב-macOS / Linux.",
+		"description": "Notice for macOS / Linux users about double right-click for context menu"
+	},
+	"macLinuxDoubleClickHint": {
+		"message": "כדי לפתוח את תפריט ההקשר, לחץ פעמיים על לחצן העכבר הימני. (מידע נוסף)",
+		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
+	},
+	"edgeGestureConflictNotice": {
+		"message": "לـ %browserName% יש תכונות מחוות מובנות. כדי להשתמש במחוות של FlowMouse, נא <a href=\"#\" class=\"edge-gesture-link\">להשבית את המחוות המובנות</a> בהגדרות %browserName%.",
+		"description": "Notice for Edge users about built-in gesture conflict"
+	},
+	"macTextDragNotice": {
+		"message": "עקב התנהגות macOS, בעת גרירת טקסט, יש לבחור תחילה את הטקסט, לאחר מכן ללחוץ ולהחזיק את הכפתור השמאלי בתוך האזור הנבחר ולהמתין רגע לפני הגרירה. אחרת, פונקציית הגרירה עלולה לא לפעול.",
+		"description": "Notice for macOS users about text drag behavior"
+	},
+	"showTrail": {
+		"message": "הצג שובל מחווה",
+		"description": "Show gesture trail"
+	},
+	"showTrailDesc": {
+		"message": "הצג קו שובל בעת ביצוע מחוות",
+		"description": "Show trail line when performing gestures"
+	},
+	"showHint": {
+		"message": "הצג רמז פעולה",
+		"description": "Show action hint"
+	},
+	"showHintDesc": {
+		"message": "הצג את פעולת המחווה הנוכחית במרכז המסך",
+		"description": "Show current gesture action in center of screen"
+	},
+	"color": {
+		"message": "צבע",
+		"description": "Color"
+	},
+	"width": {
+		"message": "רוחב",
+		"description": "Width/thickness"
+	},
+	"background": {
+		"message": "רקע",
+		"description": "Background"
+	},
+	"opacity": {
+		"message": "אטימות",
+		"description": "Opacity"
+	},
+	"blur": {
+		"message": "טשטוש",
+		"description": "Blur radius"
+	},
+	"hudShadow": {
+		"message": "צל",
+		"description": "HUD shadow toggle"
+	},
+	"showSuggestedGestures": {
+		"message": "רמזים למחוות",
+		"description": "Show suggested gestures at bottom of screen"
+	},
+	"customCss": {
+		"message": "CSS מותאם אישית",
+		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
+	},
+	"customCssDesc": {
+		"message": "הגדר CSS מותאם אישית כדי לשנות את ממשק המשתמש של FlowMouse",
+		"description": "Description for the Custom CSS advanced setting"
+	},
+	"customCssConfigure": {
+		"message": "הגדר",
+		"description": "Button label to open the Custom CSS editor dialog when no CSS is set"
+	},
+	"customCssEdit": {
+		"message": "ערוך",
+		"description": "Button label to open the Custom CSS editor dialog when CSS is already set"
+	},
+	"customCssEditorTitle": {
+		"message": "עורך CSS מותאם אישית",
+		"description": "Title of the dedicated custom CSS editor page"
+	},
+	"customCssEditorHint": {
+		"message": "הסגנונות מוזרקים לכל Shadow DOM שנוצר על ידי FlowMouse. הקש Ctrl+S כדי לשמור.",
+		"description": "Hint shown above the editor textarea."
+	},
+	"customCssEditorPlaceholder": {
+		"message": "/* כתוב את ה-CSS המותאם אישית שלך כאן… */",
+		"description": "Placeholder inside the Custom CSS editor textarea"
+	},
+	"customCssEditorInsertSnippet": {
+		"message": "דוגמה",
+		"description": "Button to append an example/starter CSS snippet to the editor"
+	},
+	"customCssEditorRevert": {
+		"message": "החזר",
+		"description": "Button that reverts the editor content back to the last saved value"
+	},
+	"customCssEditorSave": {
+		"message": "שמור",
+		"description": "Save button in the Custom CSS editor"
+	},
+	"customCssEditorSaved": {
+		"message": "נשמר",
+		"description": "Status message shown briefly after the user saves the custom CSS"
+	},
+	"customCssEditorDiscardConfirm": {
+		"message": "למחוק את העריכות שלא נשמרו ולחזור ל-CSS האחרון שנשמר?",
+		"description": "Confirmation dialog shown before reverting unsaved edits"
+	},
+	"text": {
+		"message": "טקסט",
+		"description": "Text"
+	},
+	"scrollAmount": {
+		"message": "מרחק גלילה",
+		"description": "Scroll amount"
+	},
+	"scrollAmountDesc": {
+		"message": "מרחק גלילה למחוות מעלה/מטה (% מגובה החלון)",
+		"description": "Scroll distance for up/down gestures"
+	},
+	"scrollSmoothness": {
+		"message": "חלקות גלילה",
+		"description": "Scroll smoothness"
+	},
+	"scrollSmoothnessDesc": {
+		"message": "אפקט אנימציית גלילה למחוות מעלה/מטה",
+		"description": "Scroll smoothness description"
+	},
+	"smoothnessAuto": {
+		"message": "אוטומטי",
+		"description": "Auto scroll smoothness - uses system if animation enabled, otherwise smooth"
+	},
+	"smoothnessSystem": {
+		"message": "מערכת (ביצועים גבוהים)",
+		"description": "System scroll smoothness"
+	},
+	"smoothnessCustom": {
+		"message": "חלק",
+		"description": "Custom smooth scrolling"
+	},
+	"smoothnessNone": {
+		"message": "ללא אנימציה",
+		"description": "No scroll animation"
+	},
+	"scrollDuration": {
+		"message": "משך אנימציה",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "לא זמין בעת שימוש בגלילת מערכת",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
+	"scrollAccel": {
+		"message": "מכפיל גלילה רציפה",
+		"description": "Speed multiplier applied when scrolling consecutively"
+	},
+	"scrollAccelOff": {
+		"message": "כבוי",
+		"description": "Scroll acceleration disabled"
+	},
+	"scrollAccelWindow": {
+		"message": "פסק זמן בין גלילות רצופות",
+		"description": "Max time (ms) between scrolls to count as consecutive"
+	},
+	"dragFeatures": {
+		"message": "תכונות גרירה",
+		"description": "Drag features section"
+	},
+	"textDragSearch": {
+		"message": "גרירת טקסט",
+		"description": "Text drag"
+	},
+	"textDragSearchDesc": {
+		"message": "גרור טקסט מסומן לחיפוש",
+		"description": "Drag selected text to search"
+	},
+	"textDragIgnoreInput": {
+		"message": "השבת בשדות קלט",
+		"description": "Option to disable text drag inside input boxes and textareas"
+	},
+	"textDragIgnoreInputDesc": {
+		"message": "אל תפעיל גרירת טקסט באזורים הניתנים לעריכה כגון שדות קלט ועורכי טקסט",
+		"description": "Description for text drag ignore input option"
+	},
+	"dragDropOnInput": {
+		"message": "השבת מחווה מעל שדות קלט",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "אל תפעיל מחווה בעת שחרור בשדות קלט או אזורים הניתנים לעריכה",
+		"description": "Description for drag drop on input option"
+	},
+	"searchEngine": {
+		"message": "מנוע חיפוש",
+		"description": "Search engine"
+	},
+	"custom": {
+		"message": "מותאם אישית",
+		"description": "Custom"
+	},
+	"customUrlPlaceholder": {
+		"message": "כתובת מותאמת אישית, השתמש ב-%s עבור מונח החיפוש",
+		"description": "Custom URL placeholder"
+	},
+	"customUrlPlaceholderHint": {
+		"message": "חובה לכלול פרוטוקול (למשל https://). מצייני מיקום זמינים: %placeholders%. הוסף :raw כדי לדלג על קידוד URL, למשל %example%",
+		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
+	},
+	"urlPlaceholderText": {
+		"message": "%s=מילת חיפוש",
+		"description": "Placeholder for text drag custom URL"
+	},
+	"urlPlaceholderImage": {
+		"message": "%s=כתובת התמונה",
+		"description": "Placeholder for image drag custom URL"
+	},
+	"searchEngine_google_translate": {
+		"message": "Google Translate",
+		"description": "Google Translate search engine"
+	},
+	"searchEngine_bing_translate": {
+		"message": "מתרגם Bing",
+		"description": "Bing Translate search engine"
+	},
+	"searchEngine_baidu": {
+		"message": "Baidu",
+		"description": "Baidu search engine"
+	},
+	"searchEngine_360": {
+		"message": "360 Search",
+		"description": "360 search engine"
+	},
+	"searchEngine_yandex": {
+		"message": "Yandex",
+		"description": "Yandex search engine"
+	},
+	"searchEngine_system": {
+		"message": "ברירת מחדל של הדפדפן",
+		"description": "System default search engine"
+	},
+	"imageDrag": {
+		"message": "גרירת תמונה",
+		"description": "Image drag"
+	},
+	"imageDragDesc": {
+		"message": "גרור תמונה לפתיחה בכרטיסייה חדשה",
+		"description": "Drag image to open in new tab"
+	},
+	"linkDrag": {
+		"message": "גרירת קישור",
+		"description": "Link drag"
+	},
+	"linkDragDesc": {
+		"message": "גרור קישור לפתיחה בכרטיסייה חדשה",
+		"description": "Drag link to open in new tab"
+	},
+	"enableCustomGestures": {
+		"message": "מחוות מותאמות אישית",
+		"description": "Enable custom gestures"
+	},
+	"enableCustomGesturesDesc": {
+		"message": "הצג והתאם אישית כל פעולת מחווה",
+		"description": "View and customize each gesture action"
+	},
+	"gestureAutoSaveHint": {
+		"message": "טיפ: שינויים נשמרים אוטומטית.",
+		"description": "Hint about auto-save"
+	},
+	"blacklist": {
+		"message": "רשימה שחורה של אתרים",
+		"description": "Website blacklist"
+	},
+	"blacklistPlaceholder": {
+		"message": "הזן דומיין, למשל example.com, לחץ Enter להוספה",
+		"description": "Blacklist input placeholder"
+	},
+	"add": {
+		"message": "הוסף",
+		"description": "Add button"
+	},
+	"emptyBlacklist": {
+		"message": "אין אתרים ברשימה השחורה. הזן דומיין למעלה להוספה.",
+		"description": "Empty blacklist message"
+	},
+	"enableBlacklistContextMenu": {
+		"message": "מתג מחוות בתפריט ההקשר",
+		"description": "Setting title for blacklist context menu toggle"
+	},
+	"enableBlacklistContextMenuDesc": {
+		"message": "הצג אפשרות להשבית/להפעיל מחוות בתפריט ההקשר",
+		"description": "Setting description for blacklist context menu toggle"
+	},
+	"menuAddToBlacklist": {
+		"message": "השבת מחוות באתר זה",
+		"description": "Context menu title for adding current site to blacklist"
+	},
+	"menuRemoveFromBlacklist": {
+		"message": "הפעל מחוות באתר זה",
+		"description": "Context menu title for removing current site from blacklist"
+	},
+	"dataManagement": {
+		"message": "ניהול נתונים",
+		"description": "Data management section"
+	},
+	"export": {
+		"message": "ייצוא",
+		"description": "Export settings"
+	},
+	"import": {
+		"message": "ייבוא",
+		"description": "Import settings"
+	},
+	"reset": {
+		"message": "איפוס",
+		"description": "Reset to default"
+	},
+	"duplicate": {
+		"message": "שכפל",
+		"description": "Generic duplicate button tooltip"
+	},
+	"delete": {
+		"message": "מחק",
+		"description": "Generic delete button tooltip"
+	},
+	"autoSaved": {
+		"message": "נשמר אוטומטית",
+		"description": "Auto-saved message"
+	},
+	"saveFailure": {
+		"message": "השמירה נכשלה",
+		"description": "Save failure message"
+	},
+	"resetConfirm": {
+		"message": "האם אתה בטוח שברצונך לאפס את כל ההגדרות לברירת מחדל?",
+		"description": "Reset confirmation"
+	},
+	"resetDone": {
+		"message": "ההגדרות אופסו לברירת מחדל",
+		"description": "Reset done message"
+	},
+	"exportDone": {
+		"message": "ההגדרות יוצאו",
+		"description": "Export done message"
+	},
+	"importDone": {
+		"message": "ההגדרות יובאו",
+		"description": "Import done message"
+	},
+	"importConfirm": {
+		"message": "הייבוא ידרוס את ההגדרות הנוכחיות שלך. יש לייבא קובצי תצורה רק ממקורות מהימנים.\n\nלהמשיך?",
+		"description": "Import confirmation warning"
+	},
+	"importFailed": {
+		"message": "ייבוא נכשל: קובץ תצורה לא תקין",
+		"description": "Import failed message"
+	},
+	"importFailedSyncError": {
+		"message": "הייבוא נכשל: שגיאת סנכרון, נא לבדוק את סטטוס הדפדפן",
+		"description": "Import failed sync error message"
+	},
+	"invalidDomain": {
+		"message": "אנא הזן דומיין חוקי",
+		"description": "Invalid domain message"
+	},
+	"domainExists": {
+		"message": "הדומיין כבר קיים ברשימה השחורה",
+		"description": "Domain already in blacklist"
+	},
+	"about": {
+		"message": "אודות",
+		"description": "About section"
+	},
+	"language": {
+		"message": "שפה",
+		"description": "Language"
+	},
+	"languageAuto": {
+		"message": "לפי המערכת",
+		"description": "Follow system language"
+	},
+	"privacyFriendly": {
+		"message": "ידידותי לפרטיות",
+		"description": "Privacy friendly"
+	},
+	"localOnly": {
+		"message": "מקומי בלבד",
+		"description": "Local only"
+	},
+	"autoSave": {
+		"message": "שמירה אוטומטית",
+		"description": "Auto save"
+	},
+	"gestureDesc_L": {
+		"message": "שמאלה",
+		"description": "Gesture description for ←"
+	},
+	"gestureDesc_R": {
+		"message": "ימינה",
+		"description": "Gesture description for →"
+	},
+	"gestureDesc_U": {
+		"message": "למעלה",
+		"description": "Gesture description for ↑"
+	},
+	"gestureDesc_D": {
+		"message": "למטה",
+		"description": "Gesture description for ↓"
+	},
+	"gestureDesc_DR": {
+		"message": "למטה ואז ימינה",
+		"description": "Gesture description for ↓→"
+	},
+	"gestureDesc_LU": {
+		"message": "שמאלה ואז למעלה",
+		"description": "Gesture description for ←↑"
+	},
+	"gestureDesc_RU": {
+		"message": "ימינה ואז למעלה",
+		"description": "Gesture description for →↑"
+	},
+	"gestureDesc_RD": {
+		"message": "ימינה ואז למטה",
+		"description": "Gesture description for →↓"
+	},
+	"gestureDesc_UL": {
+		"message": "למעלה ואז שמאלה",
+		"description": "Gesture description for ↑←"
+	},
+	"gestureDesc_UR": {
+		"message": "למעלה ואז ימינה",
+		"description": "Gesture description for ↑→"
+	},
+	"gestureDesc_DL": {
+		"message": "למטה ואז שמאלה",
+		"description": "Gesture description for ↓←"
+	},
+	"gestureDesc_LD": {
+		"message": "שמאלה ואז למטה",
+		"description": "Gesture description for ←↓"
+	},
+	"gestureDesc_UD": {
+		"message": "למעלה ואז למטה",
+		"description": "Gesture description for ↑↓"
+	},
+	"gestureDesc_DU": {
+		"message": "למטה ואז למעלה",
+		"description": "Gesture description for ↓↑"
+	},
+	"gestureDesc_LR": {
+		"message": "שמאלה ואז ימינה",
+		"description": "Gesture description for ←→"
+	},
+	"gestureDesc_RL": {
+		"message": "ימינה ואז שמאלה",
+		"description": "Gesture description for →←"
+	},
+	"actionNone": {
+		"message": "ללא",
+		"description": "No action"
+	},
+	"actionBack": {
+		"message": "חזור",
+		"description": "Go back"
+	},
+	"actionForward": {
+		"message": "התקדם",
+		"description": "Go forward"
+	},
+	"actionUrlLevelUp": {
+		"message": "רמה אחת למעלה ב-URL",
+		"description": "Navigate to the parent directory of the current URL"
+	},
+	"actionUrlToRoot": {
+		"message": "לשורש ה-URL",
+		"description": "Navigate to the root of the current site"
+	},
+	"actionScrollUp": {
+		"message": "גלול למעלה",
+		"description": "Scroll up"
+	},
+	"actionScrollDown": {
+		"message": "גלול למטה",
+		"description": "Scroll down"
+	},
+	"actionScrollLeft": {
+		"message": "גלול שמאלה",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "גלול ימינה",
+		"description": "Scroll right"
+	},
+	"actionScrollToTop": {
+		"message": "גלול לראש הדף",
+		"description": "Scroll to top"
+	},
+	"actionScrollToBottom": {
+		"message": "גלול לתחתית",
+		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "גלול לקצה השמאלי",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "גלול לקצה הימני",
+		"description": "Scroll to the rightmost position"
+	},
+	"actionCloseTab": {
+		"message": "סגור כרטיסייה",
+		"description": "Close tab"
+	},
+	"closeTabKeepWindow": {
+		"message": "אם זו הכרטיסייה האחרונה, השאר את החלון פתוח",
+		"description": "Checkbox label for closeTab action config"
+	},
+	"closeTabAfterClose": {
+		"message": "לאחר סגירה",
+		"description": "Label for closeTab afterClose config"
+	},
+	"closeTabAfterCloseDefault": {
+		"message": "ברירת מחדל של הדפדפן",
+		"description": "Option for closeTab afterClose config - let browser decide"
+	},
+	"closeTabAfterCloseLeft": {
+		"message": "עבור לכרטיסייה משמאל",
+		"description": "Option for closeTab afterClose config - switch to left tab"
+	},
+	"closeTabAfterCloseRight": {
+		"message": "עבור לכרטיסייה מימין",
+		"description": "Option for closeTab afterClose config - switch to right tab"
+	},
+	"switchTabNoWrap": {
+		"message": "ללא מעבר מחזורי",
+		"description": "Checkbox label for switchLeftTab/switchRightTab action config"
+	},
+	"switchTabMoveTab": {
+		"message": "העבר כרטיסייה נוכחית",
+		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
+	},
+	"refreshHardReload": {
+		"message": "רענון קשיח (עוקף מטמון)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
+	"actionCloseBrowser": {
+		"message": "סגור דפדפן",
+		"description": "Close browser"
+	},
+	"actionCloseWindow": {
+		"message": "סגור חלון",
+		"description": "Close current window"
+	},
+	"actionRestoreTab": {
+		"message": "שחזר כרטיסייה סגורה",
+		"description": "Restore closed tab"
+	},
+	"actionNewTab": {
+		"message": "כרטיסייה חדשה",
+		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "אל תסגור כרטיסיות נעוצות",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
+	},
+	"closeTabsPreserveTab": {
+		"message": "השאר כרטיסיות (פרוק את תוכן הדף)",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
+	"actionCloseOtherTabs": {
+		"message": "סגור כרטיסיות אחרות",
+		"description": "Close other tabs"
+	},
+	"actionCloseLeftTabs": {
+		"message": "סגור כרטיסיות משמאל",
+		"description": "Close tabs to the left"
+	},
+	"actionCloseRightTabs": {
+		"message": "סגור כרטיסיות מימין",
+		"description": "Close tabs to the right"
+	},
+	"actionCloseAllTabs": {
+		"message": "סגור את כל הכרטיסיות",
+		"description": "Close all tabs"
+	},
+	"actionSwitchLeftTab": {
+		"message": "עבור לכרטיסייה משמאל",
+		"description": "Switch to left tab"
+	},
+	"actionSwitchRightTab": {
+		"message": "עבור לכרטיסייה מימין",
+		"description": "Switch to right tab"
+	},
+	"actionSwitchFirstTab": {
+		"message": "עבור לכרטיסייה הראשונה",
+		"description": "Switch to first tab"
+	},
+	"actionSwitchLastTab": {
+		"message": "עבור לכרטיסייה האחרונה",
+		"description": "Switch to last tab"
+	},
+	"actionSwitchLastActiveTab": {
+		"message": "עבור לכרטיסייה הפעילה האחרונה",
+		"description": "Switch to the most recently active tab"
+	},
+	"actionRefresh": {
+		"message": "רענן כרטיסייה נוכחית",
+		"description": "Refresh current tab"
+	},
+	"actionRefreshAllTabs": {
+		"message": "רענן את כל הכרטיסיות",
+		"description": "Refresh all tabs"
+	},
+	"actionStopLoading": {
+		"message": "עצור טעינה",
+		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "עצור טעינת כל הכרטיסיות",
+		"description": "Stop loading all tabs in the current window"
+	},
+	"actionNewWindow": {
+		"message": "חלון חדש",
+		"description": "New window"
+	},
+	"actionNewIncognito": {
+		"message": "חלון גלישה בסתר חדש",
+		"description": "New incognito window"
+	},
+	"actionAddToBookmarks": {
+		"message": "הוסף לסימניות",
+		"description": "Add to bookmarks"
+	},
+	"actionToggleFullscreen": {
+		"message": "החלף מצב מסך מלא",
+		"description": "Toggle fullscreen"
+	},
+	"actionToggleMaximize": {
+		"message": "הגדל/שחזר חלון",
+		"description": "Toggle window maximize"
+	},
+	"actionMinimize": {
+		"message": "מזער חלון",
+		"description": "Minimize window"
+	},
+	"actionOpenCustomUrl": {
+		"message": "פתח כתובת מותאמת אישית",
+		"description": "Open custom URL"
+	},
+	"actionCopyUrl": {
+		"message": "העתק כתובת נוכחית",
+		"description": "Copy current URL"
+	},
+	"actionCopyTitle": {
+		"message": "העתק כותרת דף",
+		"description": "Copy page title"
+	},
+	"actionCopyTitleAndUrl": {
+		"message": "העתק את כותרת הדף ואת כתובת ה-URL",
+		"description": "Copy page title and URL"
+	},
+	"actionOpenDownloads": {
+		"message": "פתח הורדות",
+		"description": "Open downloads page"
+	},
+	"actionOpenHistory": {
+		"message": "פתח היסטוריה",
+		"description": "Open history page"
+	},
+	"actionOpenExtensions": {
+		"message": "פתח תוספים",
+		"description": "Open extensions page"
+	},
+	"actionSaveAsMhtml": {
+		"message": "שמירה כ-MHTML",
+		"description": "Save current page as MHTML file"
+	},
+	"actionPrintPage": {
+		"message": "הדפס דף",
+		"description": "Print page"
+	},
+	"actionDuplicateTab": {
+		"message": "שכפל כרטיסייה",
+		"description": "Duplicate current tab"
+	},
+	"actionToggleMuteTab": {
+		"message": "השתק/בטל השתקה לכרטיסייה נוכחית",
+		"description": "Toggle mute current tab"
+	},
+	"actionToggleMuteAllTabs": {
+		"message": "השתק/בטל השתקה לכל הכרטיסיות",
+		"description": "Toggle mute all tabs"
+	},
+	"actionTogglePinTab": {
+		"message": "הצמד/בטל הצמדה לכרטיסייה נוכחית",
+		"description": "Toggle pin current tab"
+	},
+	"actionMoveTabToNewWindow": {
+		"message": "העבר כרטיסייה לחלון חדש",
+		"description": "Move current tab to a new window"
+	},
+	"actionSearchClipboard": {
+		"message": "חיפוש מהלוח",
+		"description": "Search clipboard text using a search engine"
+	},
+	"showTrailOrigin": {
+		"message": "הצג נקודת התחלה",
+		"description": "Show trail origin point"
+	},
+	"enableTrailSmooth": {
+		"message": "החלקת שובל",
+		"description": "Enable trail smoothing for gesture visualization"
+	},
+	"distanceThreshold": {
+		"message": "מרחק זיהוי מחוות",
+		"description": "Gesture recognition distance"
+	},
+	"distanceThresholdDesc": {
+		"message": "מרחק תנועה מינימלי לזיהוי מחווה וגרירה",
+		"description": "Description for gesture recognition distance"
+	},
+	"distanceThresholdNotice": {
+		"message": "טיפ: מומלץ להגדיר ערך בין 15-30 לזיהוי אופטימלי.",
+		"description": "Warning when distance threshold is too small or too large"
+	},
+	"gestureTurnTolerance": {
+		"message": "סיבולת סיבוב מחוות",
+		"description": "Turn tolerance for detecting direction changes in long gestures"
+	},
+	"gestureTurnToleranceDesc": {
+		"message": "ערכים גבוהים יותר מפחיתים סיבובים מקריים אך דורשים תנועות ארוכות יותר כדי לשנות כיוון",
+		"description": "Description for gesture turn tolerance setting"
+	},
+	"advanced": {
+		"message": "הצג הגדרות מתקדמות",
+		"description": "Short label for per-section advanced toggle"
+	},
+	"otherSettings": {
+		"message": "הגדרות אחרות",
+		"description": "Section title for other/miscellaneous settings"
+	},
+	"styleSettings": {
+		"message": "מראה",
+		"description": "Section title for style/appearance settings (trail, HUD, etc.)"
+	},
+	"show": {
+		"message": "הצג",
+		"description": "Show navigation menu"
+	},
+	"hide": {
+		"message": "הסתר",
+		"description": "Hide navigation menu"
+	},
+	"urlFormatError": {
+		"message": "אנא הזן כתובת מלאה המתחילה ב-http:// או https://",
+		"description": "URL format error message"
+	},
+	"resetToDefault": {
+		"message": "אפס לברירת מחדל",
+		"description": "Reset gesture to default action"
+	},
+	"resetToDefaultConfirm": {
+		"message": "האם לאפס הגדרות אלה לערכי ברירת מחדל?",
+		"description": "Confirmation dialog for resetting settings"
+	},
+	"addCustomGesture": {
+		"message": "הוסף מחווה מותאמת אישית",
+		"description": "Add custom gesture section title"
+	},
+	"clear": {
+		"message": "נקה",
+		"description": "Clear button"
+	},
+	"gestureAdded": {
+		"message": "המחווה נוספה",
+		"description": "Gesture added success message"
+	},
+	"gestureRecorderTitle": {
+		"message": "צייר מחווה",
+		"description": "Gesture recorder full-screen title"
+	},
+	"gestureRecorderDesc": {
+		"message": "החזק את %button% וצייר תבנית מחווה",
+		"description": "Gesture recorder instruction, %button% is replaced with the mouse button name"
+	},
+	"gestureRecorderEsc": {
+		"message": "ביטול",
+		"description": "Gesture recorder cancel button label"
+	},
+	"gestureRecorderRecording": {
+		"message": "מקליט…",
+		"description": "Gesture recorder recording indicator"
+	},
+	"gestureRecorderResult": {
+		"message": "מחווה מוקלטת",
+		"description": "Gesture recorder result label"
+	},
+	"gestureRecorderConfirm": {
+		"message": "אישור",
+		"description": "Gesture recorder confirm button"
+	},
+	"gestureRecorderRedraw": {
+		"message": "צייר מחדש",
+		"description": "Gesture recorder redraw button"
+	},
+	"gestureRecorderBanned": {
+		"message": "המחווה %pattern% כבר קיימת",
+		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"rightButton": {
+		"message": "לחצן עכבר ימני",
+		"description": "Right mouse button name"
+	},
+	"leftButton": {
+		"message": "לחצן עכבר שמאלי",
+		"description": "Left mouse button name"
+	},
+	"customGesture": {
+		"message": "מותאם אישית",
+		"description": "Label for custom gestures"
+	},
+	"deleteGesture": {
+		"message": "מחק מחווה",
+		"description": "Delete gesture button tooltip"
+	},
+	"deleteGestureConfirm": {
+		"message": "למחוק את המחווה %pattern%?",
+		"description": "Delete gesture confirmation"
+	},
+	"gestureDeleted": {
+		"message": "המחווה נמחקה",
+		"description": "Gesture deleted success message"
+	},
+	"enterCustomUrl": {
+		"message": "כתובת",
+		"description": "Prompt for custom URL input"
+	},
+	"copyAsMarkdown": {
+		"message": "העתק כ-Markdown",
+		"description": "Checkbox label for copying as markdown format"
+	},
+	"invalidUrl": {
+		"message": "אנא הזן כתובת חוקית (מתחילה ב-http:// או https://)",
+		"description": "Invalid URL error message"
+	},
+	"popupTrail": {
+		"message": "שובל מחווה",
+		"description": "Gesture trail in popup"
+	},
+	"popupHint": {
+		"message": "רמז פעולה",
+		"description": "Action hint in popup"
+	},
+	"popupCommonGestures": {
+		"message": "מחוות נפוצות",
+		"description": "Common gestures"
+	},
+	"popupCurrentSite": {
+		"message": "אתר נוכחי",
+		"description": "Current site"
+	},
+	"popupRestricted": {
+		"message": "דף מוגבל",
+		"description": "Restricted page"
+	},
+	"popupDisabled": {
+		"message": "מושבת",
+		"description": "Disabled"
+	},
+	"popupAddBlacklist": {
+		"message": "הוסף לרשימה שחורה",
+		"description": "Add to blacklist"
+	},
+	"popupRemoveBlacklist": {
+		"message": "הסר מרשימה שחורה",
+		"description": "Remove from blacklist"
+	},
+	"popupNotAvailable": {
+		"message": "לא זמין",
+		"description": "Not available"
+	},
+	"popupBack": {
+		"message": "חזור",
+		"description": "Back - short"
+	},
+	"popupForward": {
+		"message": "התקדם",
+		"description": "Forward - short"
+	},
+	"popupScrollUp": {
+		"message": "מעלה",
+		"description": "Scroll up - short"
+	},
+	"popupScrollDown": {
+		"message": "מטה",
+		"description": "Scroll down - short"
+	},
+	"popupClose": {
+		"message": "סגור",
+		"description": "Close Tab - short"
+	},
+	"popupRestore": {
+		"message": "שחזר",
+		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "כרטיסייה שמאלית",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "כרטיסייה ימנית",
+		"description": "Switch Right Tab - short"
+	},
+	"dragSearchText": {
+		"message": "🔍 גרירה לחיפוש",
+		"description": "Drag search hint"
+	},
+	"dragOpenImage": {
+		"message": "🖼️ פתח תמונה",
+		"description": "Drag open image hint"
+	},
+	"dragOpenLink": {
+		"message": "🔗 פתח קישור",
+		"description": "Drag open link hint"
+	},
+	"aboutTitle": {
+		"message": "אודות FlowMouse",
+		"description": "About title"
+	},
+	"aboutTitleShort": {
+		"message": "אודות",
+		"description": "Short About title "
+	},
+	"aboutAuthor": {
+		"message": "מחבר",
+		"description": "Author"
+	},
+	"aboutWebsite": {
+		"message": "אתר",
+		"description": "Website"
+	},
+	"aboutOpenSource": {
+		"message": "GitHub",
+		"description": "GitHub link"
+	},
+	"aboutEmail": {
+		"message": "אימייל",
+		"description": "Email"
+	},
+	"aboutPrivacy": {
+		"message": "הצהרת פרטיות",
+		"description": "Privacy statement"
+	},
+	"aboutPrivacyText": {
+		"message": "תוסף זה הוא פרויקט קוד פתוח עם קוד המאוחסן ב-GitHub. תרומות וסקירת קוד מתקבלות בברכה. כל עיבוד הנתונים נעשה באופן מקומי במכשיר שלך. התוסף עצמו אינו יוצר חיבורי רשת ואין לו שרתים אחוריים, כך שהוא אינו אוסף או מעלה נתוני משתמש לשרתים חיצוניים. ההגדרות השמורות שלך מוצפנות ומסונכרנות בין המכשירים המחוברים שלך באמצעות שירות הסנכרון המובנה של דפדפן %browserName%. תהליך זה נשלט לחלוטין על ידי הדפדפן ופועל בהתאם להגדרות הפרטיות והסנכרון של הדפדפן שלך.",
+		"description": "Privacy statement text"
+	},
+	"aboutCredits": {
+		"message": "תודות",
+		"description": "Credits"
+	},
+	"aboutCreditsText": {
+		"message": "תודה לדפדפן Microsoft Edge ולתוסף crxMouse על ההשראה לעיצוב.\nתודה לקהילת 52pojie.cn ולמשתמשים על המשוב וההצעות!",
+		"description": "Credits text"
+	},
+	"aboutFeatures": {
+		"message": "תכונות",
+		"description": "Features"
+	},
+	"aboutFeature1": {
+		"message": "16 מחוות ברירת מחדל + מחוות מותאמות אישית",
+		"description": "Feature 1"
+	},
+	"aboutFeature2": {
+		"message": "משוב שובל חזותי",
+		"description": "Feature 2"
+	},
+	"aboutFeature3": {
+		"message": "גרירת-על של טקסט/תמונה/קישור",
+		"description": "Feature 3"
+	},
+	"aboutFeature4": {
+		"message": "רשימה שחורה של אתרים",
+		"description": "Feature 4"
+	},
+	"aboutFeature5": {
+		"message": "סנכרון חשבון %browserName%",
+		"description": "Feature 5"
+	},
+	"aboutFeature6": {
+		"message": "רץ מקומית, ללא רשת למעט סנכרון",
+		"description": "Feature 6"
+	},
+	"tutorial": {
+		"message": "מדריך",
+		"description": "Tutorial link"
+	},
+	"learnMore": {
+		"message": "למידע נוסף",
+		"description": "Learn more link"
+	},
+	"badgeNoNetwork": {
+		"message": "ללא רשת למעט סנכרון",
+		"description": "No network privacy badge"
+	},
+	"badgeNoData": {
+		"message": "ללא איסוף נתונים",
+		"description": "No data collection badge"
+	},
+	"badgeLocalRun": {
+		"message": "רץ מקומית",
+		"description": "Local run badge"
+	},
+	"newTabSettings": {
+		"message": "הגדרות כרטיסייה חדשה",
+		"description": "New tab open settings"
+	},
+	"newTabPosition": {
+		"message": "מיקום פתיחה",
+		"description": "New tab position"
+	},
+	"tabPositionRight": {
+		"message": "מימין לכרטיסייה הנוכחית",
+		"description": "Right of current tab"
+	},
+	"tabPositionLeft": {
+		"message": "משמאל לכרטיסייה הנוכחית",
+		"description": "Left of current tab"
+	},
+	"tabPositionFirst": {
+		"message": "כרטיסייה ראשונה",
+		"description": "First tab (leftmost)"
+	},
+	"tabPositionLast": {
+		"message": "כרטיסייה אחרונה",
+		"description": "Last tab (rightmost)"
+	},
+	"tabPositionCurrent": {
+		"message": "כרטיסייה נוכחית",
+		"description": "Open in current tab"
+	},
+	"tabPositionNewWindow": {
+		"message": "חלון חדש",
+		"description": "Open in a new browser window"
+	},
+	"newTabActive": {
+		"message": "פתח בחזית",
+		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "פתח בחזית",
+		"description": "Open window in foreground"
+	},
+	"openInIncognito": {
+		"message": "גלישה בסתר",
+		"description": "Open in incognito checkbox"
+	},
+	"textDragGestures": {
+		"message": "מחוות גרירת טקסט",
+		"description": "Text drag gestures"
+	},
+	"linkDragGestures": {
+		"message": "מחוות גרירת קישור",
+		"description": "Link drag gestures"
+	},
+	"imageDragGestures": {
+		"message": "מחוות גרירת תמונה",
+		"description": "Image drag gestures"
+	},
+	"direction": {
+		"message": "כיוון",
+		"description": "Direction column header"
+	},
+	"action": {
+		"message": "פקודה",
+		"description": "Action column header"
+	},
+	"imageSearchUrl": {
+		"message": "כתובת חיפוש תמונה (%s = כתובת התמונה)",
+		"description": "Image search URL input"
+	},
+	"dragActionNone": {
+		"message": "ללא",
+		"description": "No action"
+	},
+	"dragActionSearch": {
+		"message": "🔍 מנוע חיפוש",
+		"description": "Search action"
+	},
+	"dragActionCopy": {
+		"message": "📋 העתק",
+		"description": "Copy action"
+	},
+	"dragActionOpenTab": {
+		"message": "📑 פתח בכרטיסייה חדשה",
+		"description": "Open in new tab"
+	},
+	"dragActionOpenTabLink": {
+		"message": "🔗 פתח קישור",
+		"description": "Open link in new tab"
+	},
+	"dragActionOpenTabImage": {
+		"message": "🖼️ פתח תמונה",
+		"description": "Open image in new tab"
+	},
+	"dragActionCopyLink": {
+		"message": "📋 העתק קישור",
+		"description": "Copy link"
+	},
+	"dragActionCopyLinkText": {
+		"message": "📋 העתק טקסט של קישור",
+		"description": "Copy link text"
+	},
+	"dragActionCopyLinkAndText": {
+		"message": "📋 העתק טקסט וקישור",
+		"description": "Copy link text and URL"
+	},
+	"dragActionSaveImage": {
+		"message": "💾 שמור תמונה",
+		"description": "Save image"
+	},
+	"dragActionCopyImage": {
+		"message": "🖼️ העתק תמונה",
+		"description": "Copy image"
+	},
+	"dragActionCopyImageUrl": {
+		"message": "📋 העתק כתובת תמונה",
+		"description": "Copy image URL"
+	},
+	"dragActionImageSearch": {
+		"message": "🔍 חיפוש תמונה",
+		"description": "Image search"
+	},
+	"dragActionCustomSearch": {
+		"message": "🔍 חיפוש מותאם אישית",
+		"description": "Custom search"
+	},
+	"dragActionSendCustomEvent": {
+		"message": "שלח אירוע מותאם אישית",
+		"description": "Send custom DOM event on drag gesture"
+	},
+	"reducedMotionWarning": {
+		"message": "אנימציות מערכת %OS% מושבתות, אנימציית גלילה עלולה לא לפעול כראוי. ניתן להפעיל אנימציות בהגדרות מערכת %OS%.",
+		"description": "Warning message when system reduced motion is enabled"
+	},
+	"autoDetectUrl": {
+		"message": "זיהוי אוטומטי של קישורים",
+		"description": "Auto detect URL checkbox label"
+	},
+	"autoDetectUrlTooltip": {
+		"message": "אם הטקסט הוא בפורמט של קישור, פתח אותו ישירות במקום לחפש",
+		"description": "Tooltip for the auto detect URL checkbox"
+	},
+	"preferLink": {
+		"message": "העדף קישורים",
+		"description": "Prefer link checkbox label"
+	},
+	"customHudName": {
+		"message": "שם",
+		"description": "Placeholder for custom action name shown on HUD"
+	},
+	"customHudNameTooltip": {
+		"message": "שם מותאם אישית המוצג על המסך בעת ביצוע המחווה",
+		"description": "Tooltip for the custom HUD name field"
+	},
+	"actionNoOptions": {
+		"message": "פקודה זו אינה דורשת הגדרות.",
+		"description": "Placeholder shown in the action picker's detail panel when the selected action has no configurable settings"
+	},
+	"actionRequiredBadge": {
+		"message": "נדרש",
+		"description": "Badge shown next to fields that must be filled in (e.g., URL for Open URL)"
+	},
+	"menuNeedRefresh": {
+		"message": "FlowMouse לא נטען, לחץ לרענון",
+		"description": "Context menu title for pages needing refresh"
+	},
+	"menuRestricted": {
+		"message": "FlowMouse לא זמין, למד מדוע",
+		"description": "Context menu title for restricted pages"
+	},
+	"showRestrictedNotice": {
+		"message": "התראת דף מוגבל",
+		"description": "Setting title for restricted page notice"
+	},
+	"showRestrictedNoticeDesc": {
+		"message": "הצג התראה בתפריט לחצן ימני בדפים בהם מחוות אינן זמינות",
+		"description": "Setting description for restricted page notice"
+	},
+	"restrictedPagesDetailsTitle": {
+		"message": "עקב מדיניות אבטחה של הדפדפן, תוספים אינם יכולים לפעול בסוגי דפים מסוימים.",
+		"description": "Collapsible details title"
+	},
+	"showMoreHint": {
+		"message": " (הצג פרטים)",
+		"description": "Hint to show more details"
+	},
+	"restrictedNewTab": {
+		"message": "דף כרטיסייה חדשה",
+		"description": "New tab page title"
+	},
+	"restrictedNewTabDesc": {
+		"message": "דף כרטיסייה חדשה של הדפדפן הוא דף מערכת מוגן. תוספים אינם יכולים להזריק סקריפטים או לשנות תוכן כאן.",
+		"description": "New tab page description"
+	},
+	"restrictedStore": {
+		"message": "חנויות תוספים רשמיות",
+		"description": "Store page title"
+	},
+	"restrictedStoreDesc": {
+		"message": "לדוגמה %storeInfo% וכו'. דפדפנים מונעים מתוספים לפעול בדפים אלו להגנה על פעילות החנות.",
+		"description": "Store page description"
+	},
+	"restrictedInternal": {
+		"message": "דפים פנימיים של הדפדפן (%browserProtocol%)",
+		"description": "Internal page title"
+	},
+	"restrictedInternalDesc": {
+		"message": "לדוגמה, הגדרות פנימיות, היסטוריה, הורדות, דפי שגיאה וכו' של %browserName%. דפים אלו נוגעים לפונקציות ליבה של הדפדפן ולנתוני פרטיות של המשתמש, ולכן הם מוגנים בקפידה.",
+		"description": "Internal page description"
+	},
+	"restrictedFile": {
+		"message": "דפי קבצים מקומיים (file://)",
+		"description": "File page title"
+	},
+	"restrictedFileDesc": {
+		"message": "קבצי html, pdf וכו' מקומיים שנפתחו דרך פרוטוקול file://. עקב מגבלות אבטחה (מניעת גישה של תוספים זדוניים למערכת הקבצים), תוספים אינם יכולים לפעול בדפים אלו.",
+		"description": "File page description"
+	},
+	"restrictedViewSource": {
+		"message": "דפי צפייה במקור (view-source:)",
+		"description": "View source page title"
+	},
+	"restrictedViewSourceDesc": {
+		"message": "מציג קוד המקור של הדפדפן הוא גם דף מערכת מוגן. תוספים אינם יכולים לפעול כאן.",
+		"description": "View source page description"
+	},
+	"restrictedOther": {
+		"message": "דפים מושפעים פחות נפוצים אחרים אינם רשומים בנפרד.",
+		"description": "Other restricted pages note"
+	},
+	"popupNeedRefresh": {
+		"message": "תוסף לא נטען",
+		"description": "Popup title when content script not loaded"
+	},
+	"popupNeedRefreshDesc": {
+		"message": "דף זה נפתח לפני שהתוסף הותקן/עודכן. רענן כדי להפעיל מחוות.",
+		"description": "Popup description when content script not loaded"
+	},
+	"popupRefreshBtn": {
+		"message": "רענן דף",
+		"description": "Popup refresh button text"
+	},
+	"popupRestrictedTitle": {
+		"message": "מחוות אינן זמינות",
+		"description": "Popup title for restricted pages"
+	},
+	"popupRestrictedDesc": {
+		"message": "דף זה אינו יכול להשתמש במחוות עקב מגבלות אבטחה של הדפדפן.",
+		"description": "Popup description for restricted pages"
+	},
+	"popupLearnMore": {
+		"message": "למידע נוסף",
+		"description": "Popup learn more button text"
+	},
+	"tutorialPending": {
+		"message": "נסה כעת",
+		"description": "Tutorial pending status"
+	},
+	"tutorialCompleted": {
+		"message": "בוצע",
+		"description": "Tutorial completed status"
+	},
+	"tutorialClickToStart": {
+		"message": "לחץ על <span class=\"text-highlight\">לחצן ימני</span> כדי להתחיל",
+		"description": "Tutorial Step 0 instruction"
+	},
+	"tutorialWelcomeTitle": {
+		"message": "ברוכים הבאים ל-FlowMouse",
+		"description": "Tutorial welcome title"
+	},
+	"tutorialWelcomeSubtitle": {
+		"message": "שלטו ביסודות תוך 30 שניות לגלישה חלקה ואינטואיטיבית",
+		"description": "Tutorial welcome subtitle"
+	},
+	"tutorialStep1Title": {
+		"message": "היסודות",
+		"description": "Tutorial Step 1 title"
+	},
+	"tutorialStep1Subtitle": {
+		"message": "למדו את מנגנון המחווה הבסיסי",
+		"description": "Tutorial Step 1 subtitle"
+	},
+	"tutorialStep1InstructionIdle": {
+		"message": "לחץ ו<strong>החזק</strong> <span class=\"text-highlight\">לחצן ימני</span>",
+		"description": "Tutorial Step 1 instruction idle"
+	},
+	"tutorialStep1InstructionPressing": {
+		"message": "<strong>מצוין!</strong> כעת גרור <strong>%arrow% ימינה</strong>",
+		"description": "Tutorial Step 1 instruction pressing"
+	},
+	"tutorialStep1InstructionDragging": {
+		"message": "המשך לגרור...",
+		"description": "Tutorial Step 1 instruction dragging"
+	},
+	"tutorialStep1InstructionReleasing": {
+		"message": "<strong>נהדר!</strong> כעת שחרר!",
+		"description": "Tutorial Step 1 instruction releasing"
+	},
+	"tutorialStep2Title": {
+		"message": "מחוות FlowMouse",
+		"description": "Tutorial Step 2 title"
+	},
+	"tutorialStep2Subtitle": {
+		"message": "החזק <span class=\"text-highlight\">לחצן ימני</span> לביצוע מחוות",
+		"description": "Tutorial Step 2 subtitle"
+	},
+	"tutorialStep2Footer": {
+		"message": "<strong>מחוות נוספות</strong> ו<strong>התאמה אישית מלאה</strong> זמינות בהגדרות.",
+		"description": "Footer note for step 2 discovery banner"
+	},
+	"tutorialStep2DiscoveryHeader": {
+		"message": "מחוות נוספות",
+		"description": "Header for step 2 discovery banner"
+	},
+	"tutorialStep3DiscoveryHeader": {
+		"message": "תכונות גרירת-על נוספות",
+		"description": "Header for step 3 discovery banner"
+	},
+	"tutorialStep3TextSearch": {
+		"message": "טקסט <span class=\"svg-arrow\">→</span> חיפוש",
+		"description": "Text drag search discovery item"
+	},
+	"tutorialStep3LinkOpen": {
+		"message": "קישור <span class=\"svg-arrow\">→</span> פתח בכרטיסייה חדשה",
+		"description": "Link drag open discovery item"
+	},
+	"tutorialStep3ImageOpen": {
+		"message": "תמונה <span class=\"svg-arrow\">→</span> פתח בכרטיסייה חדשה",
+		"description": "Image drag open discovery item"
+	},
+	"tutorialStep3Footer": {
+		"message": "<strong>פעולות גרירה נוספות</strong> ו<strong>התאמה אישית מלאה</strong> זמינות במצב הגדרות מתקדמות",
+		"description": "Footer for step 3 discovery banner"
+	},
+	"tutorialContinue": {
+		"message": "המשך",
+		"description": "Tutorial continue button"
+	},
+	"tutorialStep3Title": {
+		"message": "גרירת-על",
+		"description": "Tutorial Step 3 title"
+	},
+	"tutorialStep3Subtitle": {
+		"message": "החזק <span class=\"text-highlight\">לחצן שמאלי</span> וגרור <span class=\"svg-arrow\">→</span> לביצוע פעולות במהירות",
+		"description": "Tutorial Step 3 subtitle"
+	},
+	"tutorialStep3HintTitle": {
+		"message": "חיפוש טקסט מסומן",
+		"description": "Tutorial Step 3 hint title"
+	},
+	"tutorialStep3HintDesc": {
+		"message": "בחר טקסט, ואז השתמש ב<span class=\"text-highlight\">לחצן שמאלי</span> וגרור <span class=\"svg-arrow\">→</span> לחיפוש",
+		"description": "Tutorial Step 3 hint description. Note: Must drag to right. Use SVG arrow instead of text for direction."
+	},
+	"tutorialStep3TextBoxLabel": {
+		"message": "נסה זאת עם הטקסט למטה!",
+		"description": "Tutorial Step 3 text box label"
+	},
+	"tutorialStep3SelectableText": {
+		"message": "FlowMouse גרירת-על",
+		"description": "Tutorial Step 3 selectable text"
+	},
+	"tutorialStep4Title": {
+		"message": "ברכות!",
+		"description": "Tutorial Step 4 title"
+	},
+	"tutorialStep4Subtitle": {
+		"message": "אתם זורמים עם הזרם כעת.",
+		"description": "Tutorial Step 4 subtitle"
+	},
+	"tutorialStep4Instruction": {
+		"message": "השתמש ב<span class=\"text-highlight\">גרירת-על <span class=\"svg-arrow\">→</span></span> על קישור זה לפתיחה ב<span class=\"text-highlight\">כרטיסייה חדשה</span>",
+		"description": "Tutorial Step 4 instruction. Note: Must drag to right. Use SVG arrow instead of text for direction."
+	},
+	"tutorialSettingsLink": {
+		"message": "הגדרות FlowMouse",
+		"description": "Tutorial settings link"
+	},
+	"tutorialSettingsHint": {
+		"message": "המון תכונות חזקות מחכות לכם!",
+		"description": "Tutorial settings hint"
+	},
+	"tutorialWrongDirection": {
+		"message": "כיוון שגוי! גרור %arrow% ימינה",
+		"description": "Tutorial wrong direction error"
+	},
+	"tutorialEarlyRelease": {
+		"message": "שוחרר מוקדם מדי! המשך לגרור.",
+		"description": "Tutorial early release error"
+	},
+	"tutorialDragWrongButton": {
+		"message": "השתמש ב<span class=\"text-highlight\">לחצן שמאלי</span> לגרירה",
+		"description": "Tutorial drag wrong button error"
+	},
+	"tutorialRefreshTip": {
+		"message": "טיפ: כרטיסיות שנפתחו לפני ההתקנה דורשות <span class=\"text-highlight\">רענון</span> כדי להשתמש ב-FlowMouse",
+		"description": "Tip about refreshing tabs"
+	},
+	"permissionBookmarksTitle": {
+		"message": "ניהול סימניות",
+		"description": "Permission popup title for bookmarks"
+	},
+	"permissionBookmarksDesc": {
+		"message": "להוספת דפים לסימניות, FlowMouse צריך גישה לסימניות שלך.",
+		"description": "Permission popup description for bookmarks"
+	},
+	"permissionDownloadsTitle": {
+		"message": "ניהול הורדות",
+		"description": "Permission popup title for downloads"
+	},
+	"permissionDownloadsDesc": {
+		"message": "לשמירת תמונות, FlowMouse צריך גישה להורדות שלך.",
+		"description": "Permission popup description for downloads"
+	},
+	"permissionDownloadsPageCaptureTitle": {
+		"message": "שמור תוכן",
+		"description": "Permission popup title for downloads and page capture"
+	},
+	"permissionDownloadsPageCaptureDesc": {
+		"message": "לשמירת תוכן, FlowMouse צריך גישה לדפים ולהורדות.",
+		"description": "Permission popup description for downloads and page capture"
+	},
+	"permissionIncognitoTitle": {
+		"message": "אפשר במצב גלישה בסתר",
+		"description": "Permission popup title for incognito"
+	},
+	"permissionIncognitoDesc": {
+		"message": "כדי לפעול בחלונות גלישה בסתר, עליך להפעיל ידנית את 'אפשר במצב גלישה בסתר' עבור FlowMouse.",
+		"description": "Permission popup description for incognito"
+	},
+	"permissionClipboardReadTitle": {
+		"message": "קרא לוח",
+		"description": "Permission popup title for clipboard read"
+	},
+	"permissionClipboardReadDesc": {
+		"message": "כדי להדביק תוכן מהלוח, FlowMouse זקוק לגישה כדי לקרוא את הלוח שלך.",
+		"description": "Permission popup description for clipboard read"
+	},
+	"openExtensionsSettings": {
+		"message": "פתח את פרטי התוסף",
+		"description": "Button to open extension details page"
+	},
+	"permissionFirefoxIncognitoTitle": {
+		"message": "הפעל בחלונות פרטיים",
+		"description": "Permission popup title for Firefox private browsing"
+	},
+	"permissionFirefoxIncognitoDesc": {
+		"message": "כדי לפעול בחלונות פרטיים, עליך להפעיל ידנית את 'הפעל בחלונות פרטיים' עבור FlowMouse במנהל התוספות.",
+		"description": "Permission popup description for Firefox private browsing"
+	},
+	"grantPermission": {
+		"message": "אשר גישה",
+		"description": "Grant permission button"
+	},
+	"grantPermissionCancel": {
+		"message": "ביטול",
+		"description": "Cancel button"
+	},
+	"permissionTitle": {
+		"message": "הרשאת FlowMouse",
+		"description": "Generic permission window title"
+	},
+	"tutorialPinHint": {
+		"message": "לחץ על<span class='icon-ext'></span><b>תוספים</b>, ו<span class='icon-pin'></span><b>הצמד</b> את FlowMouse לגישה קלה!",
+		"description": "Hint to pin the extension in tutorial step 4. Do not add space around icon."
+	},
+	"downloadErrorHotlink": {
+		"message": "שמירת התמונה נכשלה. ייתכן שבאתר יש הגנת קישור חם (hotlink). אנא לחץ לחיצה ימנית על התמונה ובחר \"שמור תמונה בשם...\"",
+		"description": "Toast message when image download fails due to hotlink protection"
+	},
+	"saveImageLoadError": {
+		"message": "שמירת תמונה נכשלה: טעינת התמונה נכשלה",
+		"description": "Toast message when image fails to load before saving"
+	},
+	"saveImageTimeout": {
+		"message": "שמירת תמונה נכשלה: תם הזמן הקצוב לטעינה",
+		"description": "Toast message when image loading times out"
+	},
+	"buttonOkay": {
+		"message": "אישור",
+		"description": "Generic OK button"
+	},
+	"buttonConfirm": {
+		"message": "אישור",
+		"description": "Generic Confirm button"
+	},
+	"buttonCancel": {
+		"message": "ביטול",
+		"description": "Generic Cancel button"
+	},
+	"buttonClose": {
+		"message": "סגור",
+		"description": "Generic Close button"
+	},
+	"searchActions": {
+		"message": "חפש פקודות...",
+		"description": "Placeholder for action search input in action picker"
+	},
+	"actionCategoryNavigation": {
+		"message": "ניווט",
+		"description": "Action category: navigation"
+	},
+	"actionCategoryTabs": {
+		"message": "כרטיסיות",
+		"description": "Action category: tabs"
+	},
+	"actionCategoryWindow": {
+		"message": "חלון",
+		"description": "Action category: window"
+	},
+	"actionCategoryUtilities": {
+		"message": "כלים",
+		"description": "Action category: utilities"
+	},
+	"noResults": {
+		"message": "אין תוצאות",
+		"description": "No search results found"
+	},
+	"wheelGestures": {
+		"message": "מחוות גלגלת העכבר",
+		"description": "Mouse wheel gestures section title"
+	},
+	"enableWheelGestures": {
+		"message": "הפעל מחוות גלגלת עכבר",
+		"description": "Enable mouse wheel gestures"
+	},
+	"enableWheelGesturesDesc": {
+		"message": "בצע פעולות שונות במהירות באמצעות גלגלת העכבר",
+		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelGesture_scrollUpHoldingRight": {
+		"message": "גלול מעלה תוך כדי לחיצה על הכפתור הימני",
+		"description": "Wheel gesture: scroll up while holding right button"
+	},
+	"wheelGesture_scrollDownHoldingRight": {
+		"message": "גלול מטה תוך כדי לחיצה על הכפתור הימני",
+		"description": "Wheel gesture: scroll down while holding right button"
+	},
+	"wheelGesture_wheelClickHoldingRight": {
+		"message": "לחיצה על הלחצן האמצעי תוך כדי לחיצה על הכפתור הימני",
+		"description": "Wheel gesture: wheel (middle) click while holding right button"
+	},
+	"specialGestures": {
+		"message": "מחוות מיוחדות",
+		"description": "Special gestures section title"
+	},
+	"enableSpecialGestures": {
+		"message": "הפעל מחוות מיוחדות",
+		"description": "Enable special gestures"
+	},
+	"enableSpecialGesturesDesc": {
+		"message": "בצע פעולות על ידי לחיצה על כפתור עכבר אחד תוך החזקת הכפתור השני",
+		"description": "Enable special gestures description"
+	},
+	"specialGesture_leftClickHoldingRight": {
+		"message": "לחיצה שמאלית תוך כדי החזקת הלחצן הימני",
+		"description": "Special gesture: left click while holding right button"
+	},
+	"specialGesture_rightClickHoldingLeft": {
+		"message": "לחיצה ימנית תוך כדי החזקת הלחצן השמאלי",
+		"description": "Special gesture: right click while holding left button"
+	},
+	"actionChainsDesc": {
+		"message": "השתמש בשרשראות פקודות כדי לבצע מספר פקודות ברצף.",
+		"description": "Action chains section description"
+	},
+	"actionActionChain": {
+		"message": "שרשרת פקודות",
+		"description": "Action chain action name"
+	},
+	"actionCustomMenu": {
+		"message": "תפריט מותאם אישית",
+		"description": "Custom popup menu action name"
+	},
+	"customMenuDesc": {
+		"message": "צור תפריטים קופצים מותאמים אישית עם מספר פעולות.",
+		"description": "Custom menu section description"
+	},
+	"addMenu": {
+		"message": "הוסף תפריט",
+		"description": "Add menu button"
+	},
+	"menuNamePlaceholder": {
+		"message": "תפריט מותאם אישית",
+		"description": "Menu name input placeholder"
+	},
+	"menuItemCount": {
+		"message": "%count% פריטים",
+		"description": "Item count for menus, e.g. '3 items'"
+	},
+	"menuItemCountOne": {
+		"message": "%count% פריט",
+		"description": "Item count for menus with exactly 1 item"
+	},
+	"addMenuItem": {
+		"message": "הוסף פריט",
+		"description": "Add menu item button"
+	},
+	"addMenuSeparator": {
+		"message": "הוסף מפריד",
+		"description": "Add separator to menu button"
+	},
+	"emptyMenuItems": {
+		"message": "לא נוספו פריטים. לחץ על \"הוסף פריט\" כדי להתחיל.",
+		"description": "Empty menu items message"
+	},
+	"menuNotFound": {
+		"message": "(תפריט לא נמצא)",
+		"description": "Menu not found label"
+	},
+	"deleteMenuConfirm": {
+		"message": "למחוק את התפריט \"%name%\"?",
+		"description": "Delete menu confirmation"
+	},
+	"menuItemNumber": {
+		"message": "פריט %n%",
+		"description": "Menu item number label"
+	},
+	"addChain": {
+		"message": "הוספת שרשרת",
+		"description": "Add chain button"
+	},
+	"chainNamePlaceholder": {
+		"message": "שרשרת פקודות",
+		"description": "Chain name input placeholder"
+	},
+	"chainDelayUnit": {
+		"message": "אלפיות שנייה",
+		"description": "Milliseconds unit for chain delay"
+	},
+	"addStep": {
+		"message": "הוספת שלב",
+		"description": "Add step button"
+	},
+	"emptyChainSteps": {
+		"message": "לא נוספו שלבים. לחץ על \"הוספת שלב\" כדי להתחיל.",
+		"description": "Empty chain steps message in expanded body"
+	},
+	"emptyChainStepsShort": {
+		"message": "לא נוספו שלבים",
+		"description": "Short empty chain steps message for summary"
+	},
+	"noChains": {
+		"message": "עדיין אין שרשראות פקודות. לחץ על \"הוספת שרשרת\" כדי ליצור אחת.",
+		"description": "No chains message"
+	},
+	"chainNotFound": {
+		"message": "(השרשרת לא נמצאה)",
+		"description": "Chain not found label"
+	},
+	"deleteChainConfirm": {
+		"message": "האם למחוק את השרשרת \"%name%\"?",
+		"description": "Delete chain confirmation"
+	},
+	"stepNumber": {
+		"message": "שלב %n%",
+		"description": "Step number label"
+	},
+	"actionDelay": {
+		"message": "השהייה",
+		"description": "Delay action name for chain steps"
+	},
+	"actionSendCustomEvent": {
+		"message": "שלח אירוע מותאם אישית",
+		"description": "Action to dispatch a custom DOM event"
+	},
+	"actionSendExtensionMessage": {
+		"message": "קרא לתוסף אחר",
+		"description": "Action to send a custom message to another installed extension"
+	},
+	"actionSimulateKey": {
+		"message": "הדמיית לחיצת מקש",
+		"description": "Action to simulate a keyboard key press on the page"
+	},
+	"actionPasteClipboard": {
+		"message": "הדבק מהלוח",
+		"description": "Action to paste clipboard text at the gesture start position"
+	},
+	"pasteClipboardHint": {
+		"message": "תוכן הלוח יודבק בשדה הקלט ב<b>מיקום התחלת המחווה</b>.",
+		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
+	"actionPasteContent": {
+		"message": "הדבק טקסט מותאם אישית",
+		"description": "Action to paste a preset, user-specified text at the gesture start position"
+	},
+	"pasteContentLabel": {
+		"message": "טקסט",
+		"description": "Label for the text field where the user enters the content to paste"
+	},
+	"pasteContentHint": {
+		"message": "הטקסט שצוין יוכנס לשדה הקלט ב<b>מיקום התחלת המחווה</b>.",
+		"description": "Hint shown in action config when paste specified content is selected. Contains HTML."
+	},
+	"pasteContentSensitiveHint": {
+		"message": "לא מומלץ לאחסן מידע רגיש כגון סיסמאות כאן.",
+		"description": "Warning hint below the content field for the paste specified content action"
+	},
+	"simulateKeyPreset": {
+		"message": "מקש מוגדר מראש",
+		"description": "Label for preset key dropdown in simulate key config"
+	},
+	"simulateKeyPresetLeft": {
+		"message": "← חץ שמאלה (דף קודם)",
+		"description": "Preset: ArrowLeft key"
+	},
+	"simulateKeyPresetRight": {
+		"message": "→ חץ ימינה (דף הבא)",
+		"description": "Preset: ArrowRight key"
+	},
+	"simulateKeyPresetCustom": {
+		"message": "מקש מותאם אישית",
+		"description": "Preset: Custom key option"
+	},
+	"simulateKeyRecordBtn": {
+		"message": "הקלט מקש",
+		"description": "Button to start recording a key press"
+	},
+	"simulateKeyRecording": {
+		"message": "לחץ על מקש...",
+		"description": "Recording state text"
+	},
+	"simulateKeyManualInput": {
+		"message": "מקש נוכחי",
+		"description": "Label for current key display in simulate key config"
+	},
+	"simulateKeyHint": {
+		"message": "תכונה זו שולחת אירועי מקלדת רק לדף הנוכחי, ומשמשת לרוב לניווט בדפים (← הקודם / → הבא). היא לא תפעיל קיצורי דרך של הדפדפן (לדוגמה, Ctrl+R לא ירענן את הדף). בנוסף, עקב מגבלות של מסגרת האתר, ייתכן שהאירועים המדומים לא ייתפסו על ידי כל הרכיבים המותאמים אישית או שדות הקלט.",
+		"description": "Hint text for simulate key feature"
+	},
+	"customEventInvalidJson": {
+		"message": "פורמט JSON לא תקין",
+		"description": "Error message when event detail is not valid JSON"
+	},
+	"customEventIncludeGestureInfo": {
+		"message": "כלול מידע על מחוות ב-%code%",
+		"description": "Checkbox label for including gesture context in custom event detail. %code% = detail.gesture"
+	},
+	"customEventConfigureBtn": {
+		"message": "הגדרות",
+		"description": "Label for the configure button of custom event action in drag gesture manager"
+	},
+	"customEventHint": {
+		"message": "שולח %code% אל %window%. שימושי לאינטגרציה עם סקריפטים אחרים.",
+		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
+	},
+	"sendExtensionMessageHint": {
+		"message": "שולח הודעה באמצעות %code% לתוסף מותקן אחר. שימושי לאינטגרציה עם תוספים אחרים.",
+		"description": "Hint explaining how send-message-to-extension works. %code% = <code>chrome.runtime.sendMessage(...)</code>"
+	},
+	"delayDuration": {
+		"message": "משך זמן",
+		"description": "Delay duration label"
+	},
+	"chainStepCount": {
+		"message": "%count% שלבים",
+		"description": "Step count for unnamed chains, e.g. '3 steps'"
+	},
+	"chainStepCountOne": {
+		"message": "שלב %count%",
+		"description": "Step count for unnamed chains with exactly 1 step"
+	},
+	"actionZoomIn": {
+		"message": "התקרב",
+		"description": "Zoom in on the current page"
+	},
+	"actionZoomOut": {
+		"message": "התרחק",
+		"description": "Zoom out on the current page"
+	},
+	"actionResetZoom": {
+		"message": "איפוס זום",
+		"description": "Reset page zoom to default or a specified level"
+	},
+	"actionViewPageSource": {
+		"message": "הצגת מקור הדף",
+		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionPauseGesture": {
+		"message": "השהה מחוות עד לרענון",
+		"description": "Temporarily disable all gestures on the current tab until page refresh"
+	},
+	"actionAreaSelect": {
+		"message": "בחירת אזור",
+		"description": "Enter area select mode to drag-select links on the page and batch open them"
+	},
+	"areaSelectTitle": {
+		"message": "בחירת אזור",
+		"description": "Label for the area select row in the popup"
+	},
+	"areaSelectModifierKey": {
+		"message": "בחירת אזור מהירה",
+		"description": "Label for the modifier key dropdown in area select settings"
+	},
+	"areaSelectModifierKeyDesc": {
+		"message": "החזק את מקש ההחלפה, ולאחר מכן לחץ לחיצה שמאלית וגרור כדי לבחור במהירות קישורים בדף לפעולות אצווה",
+		"description": "Description for the modifier key setting"
+	},
+	"areaSelectDisabled": {
+		"message": "מושבת",
+		"description": "Disabled option for the area select modifier key dropdown"
+	},
+	"areaSelectMouseDrag": {
+		"message": "גרירת עכבר",
+		"description": "Suffix label next to the modifier key dropdown"
+	},
+	"areaSelectTextUrl": {
+		"message": "זיהוי כתובות אתרים בטקסט",
+		"description": "Label for the text URL recognition toggle"
+	},
+	"areaSelectTextUrlDesc": {
+		"message": "חלץ גם כתובות אתרים בטקסט פשוט (לא היפר-קישורים) בעת בחירה",
+		"description": "Description for the text URL recognition toggle"
+	},
+	"areaSelectWarnThreshold": {
+		"message": "התראת פעולת אצווה",
+		"description": "Label for the batch operation alert threshold input"
+	},
+	"areaSelectWarnThresholdDesc": {
+		"message": "הצג אישור בעת הפעלת אצווה של יותר ממספר זה של פריטים, 0 כדי להשבית",
+		"description": "Description for the batch operation alert threshold"
+	},
+	"areaSelectDelay": {
+		"message": "מרווח פעולה",
+		"description": "Label for the operation interval input"
+	},
+	"areaSelectDelayDesc": {
+		"message": "השהייה בין כל פתיחה בפעולות אצווה (שניות)",
+		"description": "Description for the operation interval setting"
+	},
+	"areaSelectHint": {
+		"message": "גרור לבחירת קישורים",
+		"description": "Hint text shown in the area select overlay"
+	},
+	"areaSelectOpen": {
+		"message": "פתח %count% קישורים",
+		"description": "Button text in the area select toolbar to batch open selected links"
+	},
+	"areaSelectOpenOne": {
+		"message": "פתח %count% קישור",
+		"description": "Button text to open a single selected link (singular form)"
+	},
+	"areaSelectCopy": {
+		"message": "העתק קישורים",
+		"description": "Button text to copy all selected link URLs to clipboard"
+	},
+	"areaSelectCancel": {
+		"message": "ביטול",
+		"description": "Button text to cancel area select mode"
+	},
+	"areaSelectConfirm": {
+		"message": "אישור",
+		"description": "Button text to confirm opening many links"
+	},
+	"areaSelectWarnTitle": {
+		"message": "לפתוח קישורים רבים?",
+		"description": "Title of the warning modal when opening many links"
+	},
+	"areaSelectWarnMessage": {
+		"message": "אתה עומד לפתוח %count% קישורים. זה עלול להאט את הדפדפן שלך. להמשיך?",
+		"description": "Body text of the warning modal"
+	},
+	"start": {
+		"message": "התחל",
+		"description": "Button label to start an action (e.g. area select)"
+	},
+	"actionMenuShowTabs": {
+		"message": "החלף כרטיסייה",
+		"description": "Show a context menu listing all open tabs in the current window"
+	},
+	"actionMenuRecentlyClosed": {
+		"message": "כרטיסיות שנסגרו לאחרונה",
+		"description": "Show a context menu listing recently closed tabs for quick restore"
+	},
+	"recentlyClosedMaxItems": {
+		"message": "מספר פריטים מרבי",
+		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
+	},
+	"actionCategoryContextMenu": {
+		"message": "תפריט מוקפץ",
+		"description": "Action category: context menu actions"
+	},
+	"zoomStepMode": {
+		"message": "מצב זום",
+		"description": "Label for zoom mode selector: browser steps vs fixed increment"
+	},
+	"zoomStepModeBrowser": {
+		"message": "השתמש ברמות זום של הדפדפן",
+		"description": "Option: follow Chrome's built-in zoom steps (25%, 33%, 50%, …, 500%)"
+	},
+	"zoomStepModeFixed": {
+		"message": "גודל צעד קבוע",
+		"description": "Option: zoom in/out by a configurable fixed percentage each time"
+	},
+	"zoomDelta": {
+		"message": "גודל צעד",
+		"description": "Label for the zoom increment/decrement slider"
+	},
+	"resetZoomLevel": {
+		"message": "איפוס ל-",
+		"description": "Label for the target zoom level when resetting zoom"
+	},
+	"resetZoomDefault": {
+		"message": "ברירת המחדל של הדפדפן",
+		"description": "Option: reset zoom to the browser's default zoom setting"
+	},
+	"resetZoomCustom": {
+		"message": "ערך מותאם אישית",
+		"description": "Option: reset zoom to a user-specified custom zoom level"
+	},
+	"actionMenuShowBookmarks": {
+		"message": "הצג סימניות",
+		"description": "Show a context menu listing bookmarks from a selected folder"
+	},
+	"bookmarkFolder": {
+		"message": "תיקייה",
+		"description": "Label for selecting which bookmark folder to display"
+	},
+	"bookmarkFolderDefault": {
+		"message": "ברירת מחדל של הדפדפן",
+		"description": "Option label for using the browser's default bookmark location"
+	},
+	"bookmarkGrantPermission": {
+		"message": "(הענק הרשאת סימניות)",
+		"description": "Button label to request bookmarks permission"
+	},
+	"ctxMenuSortOrder": {
+		"message": "מיין לפי",
+		"description": "Label for context menu sort order dropdown"
+	},
+	"ctxMenuSortDefault": {
+		"message": "ברירת מחדל",
+		"description": "Sort option: original API/insertion order"
+	},
+	"ctxMenuSortDefaultDesc": {
+		"message": "ברירת מחדל (הפוך)",
+		"description": "Sort option: reverse of original API order"
+	},
+	"ctxMenuSortDateAddedAsc": {
+		"message": "תאריך הוספה (הישן ביותר קודם)",
+		"description": "Sort option: by date added ascending"
+	},
+	"ctxMenuSortDateAddedDesc": {
+		"message": "תאריך הוספה (החדש ביותר קודם)",
+		"description": "Sort option: by date added descending"
+	},
+	"ctxMenuSortNameAsc": {
+		"message": "שם (סדר עולה)",
+		"description": "Sort option: alphabetical ascending"
+	},
+	"ctxMenuSortNameDesc": {
+		"message": "שם (סדר יורד)",
+		"description": "Sort option: alphabetical descending"
+	},
+	"ctxMenuSortLastAccessAsc": {
+		"message": "גישה אחרונה (הישן ביותר קודם)",
+		"description": "Sort option: by last access time ascending"
+	},
+	"ctxMenuSortLastAccessDesc": {
+		"message": "גישה אחרונה (החדש ביותר קודם)",
+		"description": "Sort option: by last access time descending"
+	},
+	"ctxMenuMaxItems": {
+		"message": "מספר מרבי",
+		"description": "Label for maximum number of items in context menu"
+	},
+	"ctxMenuMaxItemsUnlimited": {
+		"message": "ללא הגבלה",
+		"description": "Placeholder shown when max items is 0 (no limit)"
+	},
+	"ctxMenuScrollToBottom": {
+		"message": "לגלול למטה",
+		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuTimeDisplay": {
+		"message": "הצג זמן",
+		"description": "Label for time display mode dropdown in context menu"
+	},
+	"ctxMenuTimeNone": {
+		"message": "אל תציג",
+		"description": "Time display option: hide time column"
+	},
+	"ctxMenuTimeLastAccess": {
+		"message": "גישה אחרונה",
+		"description": "Time display option: show last access time"
+	},
+	"ctxMenuTimeClosedTime": {
+		"message": "זמן סגירה",
+		"description": "Time display option: show when the tab was closed"
+	},
+	"ctxMenuTimeDateAdded": {
+		"message": "תאריך הוספה",
+		"description": "Time display option: show when the bookmark was added"
+	}
+}

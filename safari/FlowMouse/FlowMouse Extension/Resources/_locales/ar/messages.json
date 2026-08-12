@@ -1,0 +1,2150 @@
+{
+	"extName": {
+		"message": "FlowMouse - إيماءات الماوس",
+		"description": "Extension name"
+	},
+	"extNameShort": {
+		"message": "FlowMouse",
+		"description": "Short extension name for popup"
+	},
+	"extDescription": {
+		"message": "إضافة إيماءات الماوس مفتوحة المصدر تركز على الخصوصية والتجربة السلسة. إيماءات ناعمة، دعم السحب الفائق.",
+		"description": "Extension description"
+	},
+	"theme": {
+		"message": "السمة",
+		"description": "Theme"
+	},
+	"themeDark": {
+		"message": "داكن",
+		"description": "Dark theme"
+	},
+	"themeLight": {
+		"message": "فاتح",
+		"description": "Light theme"
+	},
+	"themeAuto": {
+		"message": "متابعة النظام",
+		"description": "Auto theme - follow system"
+	},
+	"syncStatus": {
+		"message": "حالة المزامنة",
+		"description": "Sync status"
+	},
+	"syncStatusDesc": {
+		"message": "مزامنة الإعدادات عبر حساب %browserName%",
+		"description": "Sync status description"
+	},
+	"saved": {
+		"message": "تم الحفظ",
+		"description": "Saved"
+	},
+	"author": {
+		"message": "المؤلف",
+		"description": "Author"
+	},
+	"privacyNote": {
+		"message": " يعمل محليًا، لا وصول للشبكة باستثناء المزامنة، لا جمع للبيانات",
+		"description": "Privacy note in footer"
+	},
+	"supportUsText": {
+		"message": "هل تستمتع بـ FlowMouse؟ يرجى إعطائنا تقييم 5 نجوم في %appStoreInfo% لدعمنا!",
+		"description": "Rating text"
+	},
+	"storeNameChrome": {
+		"message": "سوق Chrome الإلكتروني",
+		"description": "Chrome Web Store name"
+	},
+	"storeNameEdge": {
+		"message": "وظائف Edge الإضافية",
+		"description": "Edge Add-ons name"
+	},
+	"storeNameFirefox": {
+		"message": "إضافات Firefox",
+		"description": "Firefox Add-ons name"
+	},
+	"feedbackText": {
+		"message": "مشاكل أو اقتراحات؟ يرجى الإبلاغ عبر <a href='mailto:Service@52pojie.cn'>البريد الإلكتروني</a>، <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> أو <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>المنتدى</a>. سنقوم بتحسينه في أقرب وقت ممكن!",
+		"description": "Feedback text"
+	},
+	"feedbackTextChrome": {
+		"message": "مشاكل أو اقتراحات؟ يرجى الإبلاغ عبر <a href='https://chromewebstore.google.com/detail/fnldhkfidchnjiokpoemdhoejmaojkgp/support' target='_blank'>دعم سوق Chrome الإلكتروني</a>، <a href='mailto:Service@52pojie.cn'>البريد الإلكتروني</a>، <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> أو <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>المنتدى</a>. سنقوم بتحسينه في أقرب وقت ممكن!",
+		"description": "Feedback text for Chrome browser"
+	},
+	"supportAndFeedback": {
+		"message": "الدعم والتعليقات",
+		"description": "Support and Feedback section title"
+	},
+	"feedbackTitle": {
+		"message": "التعليقات والاقتراحات",
+		"description": "Feedback row title"
+	},
+	"supportUsTitle": {
+		"message": "ادعمنا",
+		"description": "Rating row title"
+	},
+	"backToSettings": {
+		"message": "العودة إلى الإعدادات",
+		"description": "Back to settings link"
+	},
+	"settings": {
+		"message": "الإعدادات",
+		"description": "Settings"
+	},
+	"moreSettings": {
+		"message": "المزيد من الإعدادات",
+		"description": "More settings button in popup"
+	},
+	"version": {
+		"message": "الإصدار",
+		"description": "Version"
+	},
+	"basicSettings": {
+		"message": "إعدادات الإيماءات",
+		"description": "Gesture settings section"
+	},
+	"enableGesture": {
+		"message": "تفعيل الإيماءات",
+		"description": "Enable gesture feature"
+	},
+	"enableGestureDesc": {
+		"message": "اضغط باستمرار على زر الماوس الأيمن وحرك الماوس لتنفيذ الإيماءات بسهولة",
+		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
+	},
+	"gestureTriggerButtons": {
+		"message": "أزرار التشغيل",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "حدد أزرار الماوس التي يمكنها تشغيل الإيماءات",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "الزر الأيمن",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "الزر الأوسط",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "الزر الجانبي (للخلف)",
+		"description": "Mouse button 4 - the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "الزر الجانبي (للأمام)",
+		"description": "Mouse button 5 - the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "الزر الأيمن للقلم",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "قد لا تعمل بعض أزرار التشغيل بشكل صحيح بناءً على إعدادات الأجهزة أو برامج التشغيل الخاصة بك. على سبيل المثال، قد تتطلب أجهزة ماوس Logitech تعطيل \"التمرير الأفقي\" في برنامج التشغيل لاستخدام الأزرار الجانبية للإيماءات.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
+	"macLinuxContextMenuNotice": {
+		"message": "بسبب قيود النظام، عند تمكين إيماءات النقر بزر الماوس الأيمن، يلزم النقر المزدوج السريع بزر الماوس الأيمن لفتح قائمة السياق على macOS / Linux.",
+		"description": "Notice for macOS / Linux users about double right-click for context menu"
+	},
+	"macLinuxDoubleClickHint": {
+		"message": "لفتح قائمة السياق، انقر نقرًا مزدوجًا بزر الماوس الأيمن. (مزيد من المعلومات)",
+		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
+	},
+	"edgeGestureConflictNotice": {
+		"message": "يحتوي %browserName% على ميزات إيماءات مدمجة. لاستخدام إيماءات FlowMouse، يرجى <a href=\"#\" class=\"edge-gesture-link\">تعطيل الإيماءات المدمجة</a> في إعدادات %browserName%.",
+		"description": "Notice for Edge users about built-in gesture conflict"
+	},
+	"macTextDragNotice": {
+		"message": "بسبب سلوك macOS، عند سحب النص، حدد النص أولاً، ثم اضغط باستمرار على الزر الأيسر داخل المنطقة المحددة وتوقف قليلاً قبل السحب. وإلا، قد لا تعمل وظيفة السحب.",
+		"description": "Notice for macOS users about text drag behavior"
+	},
+	"showTrail": {
+		"message": "إظهار مسار الإيماءة",
+		"description": "Show gesture trail"
+	},
+	"showTrailDesc": {
+		"message": "عرض خط المسار عند تنفيذ الإيماءات",
+		"description": "Show trail line when performing gestures"
+	},
+	"showHint": {
+		"message": "إظهار تلميح الإجراء",
+		"description": "Show action hint"
+	},
+	"showHintDesc": {
+		"message": "عرض إجراء الإيماءة الحالي في وسط الشاشة",
+		"description": "Show current gesture action in center of screen"
+	},
+	"color": {
+		"message": "اللون",
+		"description": "Color"
+	},
+	"width": {
+		"message": "العرض",
+		"description": "Width/thickness"
+	},
+	"background": {
+		"message": "الخلفية",
+		"description": "Background"
+	},
+	"opacity": {
+		"message": "الشفافية",
+		"description": "Opacity"
+	},
+	"blur": {
+		"message": "ضبابية",
+		"description": "Blur radius"
+	},
+	"hudShadow": {
+		"message": "ظل",
+		"description": "HUD shadow toggle"
+	},
+	"showSuggestedGestures": {
+		"message": "تلميحات الإيماءات",
+		"description": "Show suggested gestures at bottom of screen"
+	},
+	"customCss": {
+		"message": "CSS مخصص",
+		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
+	},
+	"customCssDesc": {
+		"message": "قم بتعيين CSS مخصص لتعديل واجهة FlowMouse",
+		"description": "Description for the Custom CSS advanced setting"
+	},
+	"customCssConfigure": {
+		"message": "تكوين",
+		"description": "Button label to open the Custom CSS editor dialog when no CSS is set"
+	},
+	"customCssEdit": {
+		"message": "تعديل",
+		"description": "Button label to open the Custom CSS editor dialog when CSS is already set"
+	},
+	"customCssEditorTitle": {
+		"message": "محرر CSS مخصص",
+		"description": "Title of the dedicated custom CSS editor page"
+	},
+	"customCssEditorHint": {
+		"message": "يتم إدخال الأنماط في كل Shadow DOM يتم إنشاؤه بواسطة FlowMouse. اضغط على Ctrl+S للحفظ.",
+		"description": "Hint shown above the editor textarea."
+	},
+	"customCssEditorPlaceholder": {
+		"message": "/* اكتب CSS المخصص الخاص بك هنا… */",
+		"description": "Placeholder inside the Custom CSS editor textarea"
+	},
+	"customCssEditorInsertSnippet": {
+		"message": "مثال",
+		"description": "Button to append an example/starter CSS snippet to the editor"
+	},
+	"customCssEditorRevert": {
+		"message": "تراجع",
+		"description": "Button that reverts the editor content back to the last saved value"
+	},
+	"customCssEditorSave": {
+		"message": "حفظ",
+		"description": "Save button in the Custom CSS editor"
+	},
+	"customCssEditorSaved": {
+		"message": "تم الحفظ",
+		"description": "Status message shown briefly after the user saves the custom CSS"
+	},
+	"customCssEditorDiscardConfirm": {
+		"message": "هل تريد تجاهل تعديلاتك غير المحفوظة والعودة إلى آخر CSS تم حفظه؟",
+		"description": "Confirmation dialog shown before reverting unsaved edits"
+	},
+	"text": {
+		"message": "النص",
+		"description": "Text"
+	},
+	"scrollAmount": {
+		"message": "مسافة التمرير",
+		"description": "Scroll amount"
+	},
+	"scrollAmountDesc": {
+		"message": "مسافة التمرير للإيماءات لأعلى/لأسفل (نسبة مئوية من ارتفاع النافذة)",
+		"description": "Scroll distance for up/down gestures"
+	},
+	"scrollSmoothness": {
+		"message": "سلاسة التمرير",
+		"description": "Scroll smoothness"
+	},
+	"scrollSmoothnessDesc": {
+		"message": "تأثير حركة التمرير للإيماءات لأعلى/لأسفل",
+		"description": "Scroll smoothness description"
+	},
+	"smoothnessAuto": {
+		"message": "تلقائي",
+		"description": "Auto scroll smoothness - uses system if animation enabled, otherwise smooth"
+	},
+	"smoothnessSystem": {
+		"message": "النظام (أداء عالي)",
+		"description": "System scroll smoothness"
+	},
+	"smoothnessCustom": {
+		"message": "سلس",
+		"description": "Custom smooth scrolling"
+	},
+	"smoothnessNone": {
+		"message": "بدون حركة",
+		"description": "No scroll animation"
+	},
+	"scrollDuration": {
+		"message": "مدة الحركة",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "غير متوفر عند استخدام تمرير النظام",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
+	"scrollAccel": {
+		"message": "مضاعف التمرير المستمر",
+		"description": "Speed multiplier applied when scrolling consecutively"
+	},
+	"scrollAccelOff": {
+		"message": "إيقاف",
+		"description": "Scroll acceleration disabled"
+	},
+	"scrollAccelWindow": {
+		"message": "مهلة التمرير المتتالي",
+		"description": "Max time (ms) between scrolls to count as consecutive"
+	},
+	"dragFeatures": {
+		"message": "ميزات السحب",
+		"description": "Drag features section"
+	},
+	"textDragSearch": {
+		"message": "سحب النص",
+		"description": "Text drag"
+	},
+	"textDragSearchDesc": {
+		"message": "سحب النص المحدد للبحث",
+		"description": "Drag selected text to search"
+	},
+	"textDragIgnoreInput": {
+		"message": "تعطيل في حقول الإدخال",
+		"description": "Option to disable text drag inside input boxes and textareas"
+	},
+	"textDragIgnoreInputDesc": {
+		"message": "عدم تنشيط سحب النص داخل المناطق القابلة للتحرير مثل حقول الإدخال ومحررات النصوص",
+		"description": "Description for text drag ignore input option"
+	},
+	"dragDropOnInput": {
+		"message": "إيقاف الإيماءات فوق حقول الإدخال",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "عدم تشغيل الإيماءة عند الإفلات في حقول الإدخال أو المناطق القابلة للتحرير",
+		"description": "Description for drag drop on input option"
+	},
+	"searchEngine": {
+		"message": "محرك البحث",
+		"description": "Search engine"
+	},
+	"custom": {
+		"message": "مخصص",
+		"description": "Custom"
+	},
+	"customUrlPlaceholder": {
+		"message": "عنوان URL مخصص، استخدم %s لمصطلح البحث",
+		"description": "Custom URL placeholder"
+	},
+	"customUrlPlaceholderHint": {
+		"message": "يجب تضمين البروتوكول (مثل https://). العناصر النائبة المتاحة: %placeholders%. أضف :raw لتخطي ترميز URL، مثل: %example%",
+		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
+	},
+	"urlPlaceholderText": {
+		"message": "%s=كلمة البحث",
+		"description": "Placeholder for text drag custom URL"
+	},
+	"urlPlaceholderImage": {
+		"message": "%s=رابط الصورة",
+		"description": "Placeholder for image drag custom URL"
+	},
+	"searchEngine_google_translate": {
+		"message": "ترجمة Google",
+		"description": "Google Translate search engine"
+	},
+	"searchEngine_bing_translate": {
+		"message": "مترجم Bing",
+		"description": "Bing Translate search engine"
+	},
+	"searchEngine_baidu": {
+		"message": "Baidu",
+		"description": "Baidu search engine"
+	},
+	"searchEngine_360": {
+		"message": "بحث 360",
+		"description": "360 search engine"
+	},
+	"searchEngine_yandex": {
+		"message": "Yandex",
+		"description": "Yandex search engine"
+	},
+	"searchEngine_system": {
+		"message": "افتراضي المتصفح",
+		"description": "System default search engine"
+	},
+	"imageDrag": {
+		"message": "سحب الصورة",
+		"description": "Image drag"
+	},
+	"imageDragDesc": {
+		"message": "سحب الصورة لفتحها في علامة تبويب جديدة",
+		"description": "Drag image to open in new tab"
+	},
+	"linkDrag": {
+		"message": "سحب الرابط",
+		"description": "Link drag"
+	},
+	"linkDragDesc": {
+		"message": "سحب الرابط لفتحه في علامة تبويب جديدة",
+		"description": "Drag link to open in new tab"
+	},
+	"enableCustomGestures": {
+		"message": "إيماءات مخصصة",
+		"description": "Enable custom gestures"
+	},
+	"enableCustomGesturesDesc": {
+		"message": "عرض وتخصيص كل إجراء إيماءة",
+		"description": "View and customize each gesture action"
+	},
+	"gestureAutoSaveHint": {
+		"message": "تلميح: يتم حفظ التغييرات تلقائيًا.",
+		"description": "Hint about auto-save"
+	},
+	"blacklist": {
+		"message": "القائمة السوداء للمواقع",
+		"description": "Website blacklist"
+	},
+	"blacklistPlaceholder": {
+		"message": "أدخل النطاق، مثل example.com، واضغط Enter للإضافة",
+		"description": "Blacklist input placeholder"
+	},
+	"add": {
+		"message": "إضافة",
+		"description": "Add button"
+	},
+	"emptyBlacklist": {
+		"message": "لا توجد مواقع في القائمة السوداء. أدخل نطاقًا أعلاه للإضافة.",
+		"description": "Empty blacklist message"
+	},
+	"enableBlacklistContextMenu": {
+		"message": "تبديل الإيماءات من قائمة السياق",
+		"description": "Setting title for blacklist context menu toggle"
+	},
+	"enableBlacklistContextMenuDesc": {
+		"message": "إظهار خيار لتعطيل/تمكين الإيماءات في قائمة السياق",
+		"description": "Setting description for blacklist context menu toggle"
+	},
+	"menuAddToBlacklist": {
+		"message": "تعطيل الإيماءات في هذا الموقع",
+		"description": "Context menu title for adding current site to blacklist"
+	},
+	"menuRemoveFromBlacklist": {
+		"message": "تمكين الإيماءات في هذا الموقع",
+		"description": "Context menu title for removing current site from blacklist"
+	},
+	"dataManagement": {
+		"message": "إدارة البيانات",
+		"description": "Data management section"
+	},
+	"export": {
+		"message": "تصدير",
+		"description": "Export settings"
+	},
+	"import": {
+		"message": "استيراد",
+		"description": "Import settings"
+	},
+	"reset": {
+		"message": "إعادة تعيين",
+		"description": "Reset to default"
+	},
+	"duplicate": {
+		"message": "تكرار",
+		"description": "Generic duplicate button tooltip"
+	},
+	"delete": {
+		"message": "حذف",
+		"description": "Generic delete button tooltip"
+	},
+	"autoSaved": {
+		"message": "تم الحفظ تلقائيًا",
+		"description": "Auto-saved message"
+	},
+	"saveFailure": {
+		"message": "فشل الحفظ",
+		"description": "Save failure message"
+	},
+	"resetConfirm": {
+		"message": "هل أنت متأكد أنك تريد إعادة تعيين جميع الإعدادات إلى الوضع الافتراضي؟",
+		"description": "Reset confirmation"
+	},
+	"resetDone": {
+		"message": "تمت إعادة تعيين الإعدادات إلى الوضع الافتراضي",
+		"description": "Reset done message"
+	},
+	"exportDone": {
+		"message": "تم تصدير الإعدادات",
+		"description": "Export done message"
+	},
+	"importDone": {
+		"message": "تم استيراد الإعدادات",
+		"description": "Import done message"
+	},
+	"importConfirm": {
+		"message": "سيؤدي الاستيراد إلى الكتابة فوق إعداداتك الحالية. يرجى استيراد ملفات التكوين من مصادر موثوقة فقط.\n\nهل تريد المتابعة؟",
+		"description": "Import confirmation warning"
+	},
+	"importFailed": {
+		"message": "فشل الاستيراد: ملف تكوين غير صالح",
+		"description": "Import failed message"
+	},
+	"importFailedSyncError": {
+		"message": "فشل الاستيراد: خطأ في المزامنة، يرجى التحقق من حالة المتصفح",
+		"description": "Import failed sync error message"
+	},
+	"invalidDomain": {
+		"message": "يرجى إدخال نطاق صالح",
+		"description": "Invalid domain message"
+	},
+	"domainExists": {
+		"message": "النطاق موجود بالفعل في القائمة السوداء",
+		"description": "Domain already in blacklist"
+	},
+	"about": {
+		"message": "حول",
+		"description": "About section"
+	},
+	"language": {
+		"message": "اللغة",
+		"description": "Language"
+	},
+	"languageAuto": {
+		"message": "متابعة النظام",
+		"description": "Follow system language"
+	},
+	"privacyFriendly": {
+		"message": "صديق للخصوصية",
+		"description": "Privacy friendly"
+	},
+	"localOnly": {
+		"message": "محلي فقط",
+		"description": "Local only"
+	},
+	"autoSave": {
+		"message": "حفظ تلقائي",
+		"description": "Auto save"
+	},
+	"gestureDesc_L": {
+		"message": "يسار",
+		"description": "Gesture description for ←"
+	},
+	"gestureDesc_R": {
+		"message": "يمين",
+		"description": "Gesture description for →"
+	},
+	"gestureDesc_U": {
+		"message": "أعلى",
+		"description": "Gesture description for ↑"
+	},
+	"gestureDesc_D": {
+		"message": "أسفل",
+		"description": "Gesture description for ↓"
+	},
+	"gestureDesc_DR": {
+		"message": "أسفل ثم يمين",
+		"description": "Gesture description for ↓→"
+	},
+	"gestureDesc_LU": {
+		"message": "يسار ثم أعلى",
+		"description": "Gesture description for ←↑"
+	},
+	"gestureDesc_RU": {
+		"message": "يمين ثم أعلى",
+		"description": "Gesture description for →↑"
+	},
+	"gestureDesc_RD": {
+		"message": "يمين ثم أسفل",
+		"description": "Gesture description for →↓"
+	},
+	"gestureDesc_UL": {
+		"message": "أعلى ثم يسار",
+		"description": "Gesture description for ↑←"
+	},
+	"gestureDesc_UR": {
+		"message": "أعلى ثم يمين",
+		"description": "Gesture description for ↑→"
+	},
+	"gestureDesc_DL": {
+		"message": "أسفل ثم يسار",
+		"description": "Gesture description for ↓←"
+	},
+	"gestureDesc_LD": {
+		"message": "يسار ثم أسفل",
+		"description": "Gesture description for ←↓"
+	},
+	"gestureDesc_UD": {
+		"message": "أعلى ثم أسفل",
+		"description": "Gesture description for ↑↓"
+	},
+	"gestureDesc_DU": {
+		"message": "أسفل ثم أعلى",
+		"description": "Gesture description for ↓↑"
+	},
+	"gestureDesc_LR": {
+		"message": "يسار ثم يمين",
+		"description": "Gesture description for ←→"
+	},
+	"gestureDesc_RL": {
+		"message": "يمين ثم يسار",
+		"description": "Gesture description for →←"
+	},
+	"actionNone": {
+		"message": "لا شيء",
+		"description": "No action"
+	},
+	"actionBack": {
+		"message": "رجوع",
+		"description": "Go back"
+	},
+	"actionForward": {
+		"message": "للأمام",
+		"description": "Go forward"
+	},
+	"actionUrlLevelUp": {
+		"message": "الانتقال إلى مستوى أعلى في URL",
+		"description": "Navigate to the parent directory of the current URL"
+	},
+	"actionUrlToRoot": {
+		"message": "الانتقال إلى جذر URL",
+		"description": "Navigate to the root of the current site"
+	},
+	"actionScrollUp": {
+		"message": "تمرير لأعلى",
+		"description": "Scroll up"
+	},
+	"actionScrollDown": {
+		"message": "تمرير لأسفل",
+		"description": "Scroll down"
+	},
+	"actionScrollLeft": {
+		"message": "تمرير لليسار",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "تمرير لليمين",
+		"description": "Scroll right"
+	},
+	"actionScrollToTop": {
+		"message": "تمرير إلى الأعلى",
+		"description": "Scroll to top"
+	},
+	"actionScrollToBottom": {
+		"message": "تمرير إلى الأسفل",
+		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "تمرير إلى أقصى اليسار",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "تمرير إلى أقصى اليمين",
+		"description": "Scroll to the rightmost position"
+	},
+	"actionCloseTab": {
+		"message": "إغلاق علامة التبويب",
+		"description": "Close tab"
+	},
+	"closeTabKeepWindow": {
+		"message": "إذا كانت هذه آخر علامة تبويب، أبقِ النافذة مفتوحة",
+		"description": "Checkbox label for closeTab action config"
+	},
+	"closeTabAfterClose": {
+		"message": "بعد الإغلاق",
+		"description": "Label for closeTab afterClose config"
+	},
+	"closeTabAfterCloseDefault": {
+		"message": "افتراضي المتصفح",
+		"description": "Option for closeTab afterClose config - let browser decide"
+	},
+	"closeTabAfterCloseLeft": {
+		"message": "التبديل إلى علامة التبويب اليسرى",
+		"description": "Option for closeTab afterClose config - switch to left tab"
+	},
+	"closeTabAfterCloseRight": {
+		"message": "التبديل إلى علامة التبويب اليمنى",
+		"description": "Option for closeTab afterClose config - switch to right tab"
+	},
+	"switchTabNoWrap": {
+		"message": "عدم الانتقال الدائري",
+		"description": "Checkbox label for switchLeftTab/switchRightTab action config"
+	},
+	"switchTabMoveTab": {
+		"message": "نقل علامة التبويب الحالية",
+		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
+	},
+	"refreshHardReload": {
+		"message": "إعادة تحميل قسري (تجاوز ذاكرة التخزين المؤقت)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
+	"actionCloseBrowser": {
+		"message": "إغلاق المتصفح",
+		"description": "Close browser"
+	},
+	"actionCloseWindow": {
+		"message": "إغلاق النافذة",
+		"description": "Close current window"
+	},
+	"actionRestoreTab": {
+		"message": "استعادة علامة التبويب المغلقة",
+		"description": "Restore closed tab"
+	},
+	"actionNewTab": {
+		"message": "علامة تبويب جديدة",
+		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "لا تغلق علامات التبويب المثبتة",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
+	},
+	"closeTabsPreserveTab": {
+		"message": "الاحتفاظ بعلامات التبويب (إلغاء تحميل محتوى الصفحة)",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
+	"actionCloseOtherTabs": {
+		"message": "إغلاق علامات التبويب الأخرى",
+		"description": "Close other tabs"
+	},
+	"actionCloseLeftTabs": {
+		"message": "إغلاق علامات التبويب إلى اليسار",
+		"description": "Close tabs to the left"
+	},
+	"actionCloseRightTabs": {
+		"message": "إغلاق علامات التبويب إلى اليمين",
+		"description": "Close tabs to the right"
+	},
+	"actionCloseAllTabs": {
+		"message": "إغلاق جميع علامات التبويب",
+		"description": "Close all tabs"
+	},
+	"actionSwitchLeftTab": {
+		"message": "التبديل إلى علامة التبويب اليسرى",
+		"description": "Switch to left tab"
+	},
+	"actionSwitchRightTab": {
+		"message": "التبديل إلى علامة التبويب اليمنى",
+		"description": "Switch to right tab"
+	},
+	"actionSwitchFirstTab": {
+		"message": "التبديل إلى علامة التبويب الأولى",
+		"description": "Switch to first tab"
+	},
+	"actionSwitchLastTab": {
+		"message": "التبديل إلى علامة التبويب الأخيرة",
+		"description": "Switch to last tab"
+	},
+	"actionSwitchLastActiveTab": {
+		"message": "التبديل إلى علامة التبويب النشطة الأخيرة",
+		"description": "Switch to the most recently active tab"
+	},
+	"actionRefresh": {
+		"message": "تحديث علامة التبويب الحالية",
+		"description": "Refresh current tab"
+	},
+	"actionRefreshAllTabs": {
+		"message": "تحديث جميع علامات التبويب",
+		"description": "Refresh all tabs"
+	},
+	"actionStopLoading": {
+		"message": "إيقاف التحميل",
+		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "إيقاف تحميل جميع علامات التبويب",
+		"description": "Stop loading all tabs in the current window"
+	},
+	"actionNewWindow": {
+		"message": "نافذة جديدة",
+		"description": "New window"
+	},
+	"actionNewIncognito": {
+		"message": "نافذة التصفح المتخفي جديدة",
+		"description": "New incognito window"
+	},
+	"actionAddToBookmarks": {
+		"message": "إضافة إلى الإشارات المرجعية",
+		"description": "Add to bookmarks"
+	},
+	"actionToggleFullscreen": {
+		"message": "تبديل ملء الشاشة",
+		"description": "Toggle fullscreen"
+	},
+	"actionToggleMaximize": {
+		"message": "تبديل التكبير / الاستعادة",
+		"description": "Toggle window maximize"
+	},
+	"actionMinimize": {
+		"message": "تصغير النافذة",
+		"description": "Minimize window"
+	},
+	"actionOpenCustomUrl": {
+		"message": "فتح عنوان URL مخصص",
+		"description": "Open custom URL"
+	},
+	"actionCopyUrl": {
+		"message": "نسخ عنوان URL الحالي",
+		"description": "Copy current URL"
+	},
+	"actionCopyTitle": {
+		"message": "نسخ عنوان الصفحة",
+		"description": "Copy page title"
+	},
+	"actionCopyTitleAndUrl": {
+		"message": "نسخ عنوان الصفحة وعنوان URL",
+		"description": "Copy page title and URL"
+	},
+	"actionOpenDownloads": {
+		"message": "فتح التنزيلات",
+		"description": "Open downloads page"
+	},
+	"actionOpenHistory": {
+		"message": "فتح السجل",
+		"description": "Open history page"
+	},
+	"actionOpenExtensions": {
+		"message": "فتح الإضافات",
+		"description": "Open extensions page"
+	},
+	"actionSaveAsMhtml": {
+		"message": "حفظ بتنسيق MHTML",
+		"description": "Save current page as MHTML file"
+	},
+	"actionPrintPage": {
+		"message": "طباعة الصفحة",
+		"description": "Print page"
+	},
+	"actionDuplicateTab": {
+		"message": "تكرار علامة التبويب",
+		"description": "Duplicate current tab"
+	},
+	"actionToggleMuteTab": {
+		"message": "كتم / إلغاء كتم علامة التبويب الحالية",
+		"description": "Toggle mute current tab"
+	},
+	"actionToggleMuteAllTabs": {
+		"message": "كتم / إلغاء كتم جميع علامات التبويب",
+		"description": "Toggle mute all tabs"
+	},
+	"actionTogglePinTab": {
+		"message": "تثبيت / إلغاء تثبيت علامة التبويب الحالية",
+		"description": "Toggle pin current tab"
+	},
+	"actionMoveTabToNewWindow": {
+		"message": "نقل علامة التبويب إلى نافذة جديدة",
+		"description": "Move current tab to a new window"
+	},
+	"actionSearchClipboard": {
+		"message": "البحث عبر الحافظة",
+		"description": "Search clipboard text using a search engine"
+	},
+	"showTrailOrigin": {
+		"message": "إظهار نقطة الأصل",
+		"description": "Show trail origin point"
+	},
+	"enableTrailSmooth": {
+		"message": "تنعيم المسار",
+		"description": "Enable trail smoothing for gesture visualization"
+	},
+	"distanceThreshold": {
+		"message": "مسافة التعرف على الإيماءات",
+		"description": "Gesture recognition distance"
+	},
+	"distanceThresholdDesc": {
+		"message": "أقل مسافة حركة للتعرف على الإيماءات والسحب",
+		"description": "Description for gesture recognition distance"
+	},
+	"distanceThresholdNotice": {
+		"message": "تلميح: يوصى بقيمة بين 15-30 للحصول على أفضل نتائج التعرف.",
+		"description": "Warning when distance threshold is too small or too large"
+	},
+	"gestureTurnTolerance": {
+		"message": "تسامح دوران الإيماءة",
+		"description": "Turn tolerance for detecting direction changes in long gestures"
+	},
+	"gestureTurnToleranceDesc": {
+		"message": "القيم الأعلى تقلل من الانعطافات العرضية ولكنها تتطلب حركات أطول لتغيير الاتجاه",
+		"description": "Description for gesture turn tolerance setting"
+	},
+	"advanced": {
+		"message": "عرض الإعدادات المتقدمة",
+		"description": "Short label for per-section advanced toggle"
+	},
+	"otherSettings": {
+		"message": "إعدادات أخرى",
+		"description": "Section title for other/miscellaneous settings"
+	},
+	"styleSettings": {
+		"message": "المظهر",
+		"description": "Section title for style/appearance settings (trail, HUD, etc.)"
+	},
+	"show": {
+		"message": "إظهار",
+		"description": "Show navigation menu"
+	},
+	"hide": {
+		"message": "إخفاء",
+		"description": "Hide navigation menu"
+	},
+	"urlFormatError": {
+		"message": "يرجى إدخال عنوان URL كامل يبدأ بـ http:// أو https://",
+		"description": "URL format error message"
+	},
+	"resetToDefault": {
+		"message": "استعادة الافتراضي",
+		"description": "Reset gesture to default action"
+	},
+	"resetToDefaultConfirm": {
+		"message": "هل تريد إعادة تعيين هذه الإعدادات إلى القيم الافتراضية؟",
+		"description": "Confirmation dialog for resetting settings"
+	},
+	"addCustomGesture": {
+		"message": "إضافة إيماءة مخصصة",
+		"description": "Add custom gesture section title"
+	},
+	"clear": {
+		"message": "مسح",
+		"description": "Clear button"
+	},
+	"gestureAdded": {
+		"message": "تمت إضافة الإيماءة",
+		"description": "Gesture added success message"
+	},
+	"gestureRecorderTitle": {
+		"message": "رسم إيماءة",
+		"description": "Gesture recorder full-screen title"
+	},
+	"gestureRecorderDesc": {
+		"message": "استمر في الضغط على %button% وارسم نمط إيماءة",
+		"description": "Gesture recorder instruction, %button% is replaced with the mouse button name"
+	},
+	"gestureRecorderEsc": {
+		"message": "إلغاء",
+		"description": "Gesture recorder cancel button label"
+	},
+	"gestureRecorderRecording": {
+		"message": "جاري التسجيل…",
+		"description": "Gesture recorder recording indicator"
+	},
+	"gestureRecorderResult": {
+		"message": "الإيماءة المسجلة",
+		"description": "Gesture recorder result label"
+	},
+	"gestureRecorderConfirm": {
+		"message": "تأكيد",
+		"description": "Gesture recorder confirm button"
+	},
+	"gestureRecorderRedraw": {
+		"message": "إعادة الرسم",
+		"description": "Gesture recorder redraw button"
+	},
+	"gestureRecorderBanned": {
+		"message": "الإيماءة %pattern% موجودة بالفعل",
+		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"rightButton": {
+		"message": "زر الفأرة الأيمن",
+		"description": "Right mouse button name"
+	},
+	"leftButton": {
+		"message": "زر الفأرة الأيسر",
+		"description": "Left mouse button name"
+	},
+	"customGesture": {
+		"message": "مخصص",
+		"description": "Label for custom gestures"
+	},
+	"deleteGesture": {
+		"message": "حذف الإيماءة",
+		"description": "Delete gesture button tooltip"
+	},
+	"deleteGestureConfirm": {
+		"message": "هل تريد حذف الإيماءة %pattern%؟",
+		"description": "Delete gesture confirmation"
+	},
+	"gestureDeleted": {
+		"message": "تم حذف الإيماءة",
+		"description": "Gesture deleted success message"
+	},
+	"enterCustomUrl": {
+		"message": "عنوان URL",
+		"description": "Prompt for custom URL input"
+	},
+	"copyAsMarkdown": {
+		"message": "النسخ بتنسيق Markdown",
+		"description": "Checkbox label for copying as markdown format"
+	},
+	"invalidUrl": {
+		"message": "يرجى إدخال عنوان URL صالح (يبدأ بـ http:// أو https://)",
+		"description": "Invalid URL error message"
+	},
+	"popupTrail": {
+		"message": "مسار الإيماءة",
+		"description": "Gesture trail in popup"
+	},
+	"popupHint": {
+		"message": "تلميح الإجراء",
+		"description": "Action hint in popup"
+	},
+	"popupCommonGestures": {
+		"message": "الإيماءات الشائعة",
+		"description": "Common gestures"
+	},
+	"popupCurrentSite": {
+		"message": "الموقع الحالي",
+		"description": "Current site"
+	},
+	"popupRestricted": {
+		"message": "صفحة مقيدة",
+		"description": "Restricted page"
+	},
+	"popupDisabled": {
+		"message": "معطل",
+		"description": "Disabled"
+	},
+	"popupAddBlacklist": {
+		"message": "إضافة إلى القائمة السوداء",
+		"description": "Add to blacklist"
+	},
+	"popupRemoveBlacklist": {
+		"message": "إزالة من القائمة السوداء",
+		"description": "Remove from blacklist"
+	},
+	"popupNotAvailable": {
+		"message": "غير متاح",
+		"description": "Not available"
+	},
+	"popupBack": {
+		"message": "رجوع",
+		"description": "Back - short"
+	},
+	"popupForward": {
+		"message": "للأمام",
+		"description": "Forward - short"
+	},
+	"popupScrollUp": {
+		"message": "أعلى",
+		"description": "Scroll up - short"
+	},
+	"popupScrollDown": {
+		"message": "أسفل",
+		"description": "Scroll down - short"
+	},
+	"popupClose": {
+		"message": "إغلاق",
+		"description": "Close Tab - short"
+	},
+	"popupRestore": {
+		"message": "استعادة",
+		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "التبويب الأيسر",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "التبويب الأيمن",
+		"description": "Switch Right Tab - short"
+	},
+	"dragSearchText": {
+		"message": "🔍 البحث بالسحب",
+		"description": "Drag search hint"
+	},
+	"dragOpenImage": {
+		"message": "🖼️ فتح الصورة",
+		"description": "Drag open image hint"
+	},
+	"dragOpenLink": {
+		"message": "🔗 فتح الرابط",
+		"description": "Drag open link hint"
+	},
+	"aboutTitle": {
+		"message": "حول FlowMouse",
+		"description": "About title"
+	},
+	"aboutTitleShort": {
+		"message": "حول",
+		"description": "Short About title "
+	},
+	"aboutAuthor": {
+		"message": "المؤلف",
+		"description": "Author"
+	},
+	"aboutWebsite": {
+		"message": "الموقع الإلكتروني",
+		"description": "Website"
+	},
+	"aboutOpenSource": {
+		"message": "GitHub",
+		"description": "GitHub link"
+	},
+	"aboutEmail": {
+		"message": "البريد الإلكتروني",
+		"description": "Email"
+	},
+	"aboutPrivacy": {
+		"message": "بيان الخصوصية",
+		"description": "Privacy statement"
+	},
+	"aboutPrivacyText": {
+		"message": "هذه الإضافة هي مشروع مفتوح المصدر مع رمز مستضاف على GitHub. المساهمات ومراجعة الكود مرحب بها. تتم معالجة جميع البيانات محليًا على جهازك. الإضافة نفسها لا تنشئ أي اتصالات شبكية وليس لديها خوادم خلفية، لذلك لا تقوم بجمع أو تحميل أي بيانات مستخدم إلى خوادم خارجية. يتم تشفير إعداداتك المحفوظة ومزامنتها بين أجهزتك التي تم تسجيل الدخول إليها عبر خدمة المزامنة المدمجة في متصفح %browserName%. تخضع هذه العملية بالكامل لسيطرة المتصفح وتتبع إعدادات الخصوصية والمزامنة الخاصة بمتصفحك.",
+		"description": "Privacy statement text"
+	},
+	"aboutCredits": {
+		"message": "شكر وتقدير",
+		"description": "Credits"
+	},
+	"aboutCreditsText": {
+		"message": "شكرًا لمتصفح Microsoft Edge وإضافة crxMouse للإلهام في التصميم.\nشكرًا لمجتمع 52pojie.cn والمستخدمين على التعليقات والاقتراحات!",
+		"description": "Credits text"
+	},
+	"aboutFeatures": {
+		"message": "الميزات",
+		"description": "Features"
+	},
+	"aboutFeature1": {
+		"message": "16 إيماءة افتراضية + إيماءات مخصصة",
+		"description": "Feature 1"
+	},
+	"aboutFeature2": {
+		"message": "رد فعل بصري للمسار",
+		"description": "Feature 2"
+	},
+	"aboutFeature3": {
+		"message": "Super Drag للنص/الصورة/الرابط",
+		"description": "Feature 3"
+	},
+	"aboutFeature4": {
+		"message": "القائمة السوداء للمواقع",
+		"description": "Feature 4"
+	},
+	"aboutFeature5": {
+		"message": "مزامنة حساب %browserName%",
+		"description": "Feature 5"
+	},
+	"aboutFeature6": {
+		"message": "يعمل محليًا، لا وصول للشبكة باستثناء المزامنة",
+		"description": "Feature 6"
+	},
+	"tutorial": {
+		"message": "دليل تعليمي",
+		"description": "Tutorial link"
+	},
+	"learnMore": {
+		"message": "اعرف المزيد",
+		"description": "Learn more link"
+	},
+	"badgeNoNetwork": {
+		"message": "لا شبكة باستثناء المزامنة",
+		"description": "No network privacy badge"
+	},
+	"badgeNoData": {
+		"message": "لا جمع للبيانات",
+		"description": "No data collection badge"
+	},
+	"badgeLocalRun": {
+		"message": "يعمل محليًا",
+		"description": "Local run badge"
+	},
+	"newTabSettings": {
+		"message": "إعدادات علامة التبويب الجديدة",
+		"description": "New tab open settings"
+	},
+	"newTabPosition": {
+		"message": "الموضع",
+		"description": "New tab position"
+	},
+	"tabPositionRight": {
+		"message": "يمين علامة التبويب الحالية",
+		"description": "Right of current tab"
+	},
+	"tabPositionLeft": {
+		"message": "يسار علامة التبويب الحالية",
+		"description": "Left of current tab"
+	},
+	"tabPositionFirst": {
+		"message": "علامة التبويب الأولى (أقصى اليسار)",
+		"description": "First tab (leftmost)"
+	},
+	"tabPositionLast": {
+		"message": "علامة التبويب الأخيرة (أقصى اليمين)",
+		"description": "Last tab (rightmost)"
+	},
+	"tabPositionCurrent": {
+		"message": "علامة التبويب الحالية",
+		"description": "Open in current tab"
+	},
+	"tabPositionNewWindow": {
+		"message": "نافذة جديدة",
+		"description": "Open in a new browser window"
+	},
+	"newTabActive": {
+		"message": "فتح في المقدمة",
+		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "فتح في المقدمة",
+		"description": "Open window in foreground"
+	},
+	"openInIncognito": {
+		"message": "التصفح المتخفي",
+		"description": "Open in incognito checkbox"
+	},
+	"textDragGestures": {
+		"message": "إيماءات سحب النص",
+		"description": "Text drag gestures"
+	},
+	"linkDragGestures": {
+		"message": "إيماءات سحب الرابط",
+		"description": "Link drag gestures"
+	},
+	"imageDragGestures": {
+		"message": "إيماءات سحب الصورة",
+		"description": "Image drag gestures"
+	},
+	"direction": {
+		"message": "الاتجاه",
+		"description": "Direction column header"
+	},
+	"action": {
+		"message": "الأمر",
+		"description": "Action column header"
+	},
+	"imageSearchUrl": {
+		"message": "URL البحث عن الصور (%s = URL الصورة)",
+		"description": "Image search URL input"
+	},
+	"dragActionNone": {
+		"message": "لا شيء",
+		"description": "No action"
+	},
+	"dragActionSearch": {
+		"message": "🔍 محرك البحث",
+		"description": "Search action"
+	},
+	"dragActionCopy": {
+		"message": "📋 نسخ",
+		"description": "Copy action"
+	},
+	"dragActionOpenTab": {
+		"message": "📑 فتح في علامة تبويب جديدة",
+		"description": "Open in new tab"
+	},
+	"dragActionOpenTabLink": {
+		"message": "🔗 فتح الرابط",
+		"description": "Open link in new tab"
+	},
+	"dragActionOpenTabImage": {
+		"message": "🖼️ فتح الصورة",
+		"description": "Open image in new tab"
+	},
+	"dragActionCopyLink": {
+		"message": "📋 نسخ الرابط",
+		"description": "Copy link"
+	},
+	"dragActionCopyLinkText": {
+		"message": "📋 نسخ نص الرابط",
+		"description": "Copy link text"
+	},
+	"dragActionCopyLinkAndText": {
+		"message": "📋 نسخ النص والرابط",
+		"description": "Copy link text and URL"
+	},
+	"dragActionSaveImage": {
+		"message": "💾 حفظ الصورة",
+		"description": "Save image"
+	},
+	"dragActionCopyImage": {
+		"message": "🖼️ نسخ الصورة",
+		"description": "Copy image"
+	},
+	"dragActionCopyImageUrl": {
+		"message": "📋 نسخ عنوان URL للصورة",
+		"description": "Copy image URL"
+	},
+	"dragActionImageSearch": {
+		"message": "🔍 بحث بالصورة",
+		"description": "Image search"
+	},
+	"dragActionCustomSearch": {
+		"message": "🔍 بحث مخصص",
+		"description": "Custom search"
+	},
+	"dragActionSendCustomEvent": {
+		"message": "إرسال حدث مخصص",
+		"description": "Send custom DOM event on drag gesture"
+	},
+	"reducedMotionWarning": {
+		"message": "تم تعطيل الرسوم المتحركة للنظام في %OS%، قد لا تعمل رسوم التمرير بشكل صحيح. يمكنك تمكين الرسوم المتحركة في إعدادات نظام %OS%.",
+		"description": "Warning message when system reduced motion is enabled"
+	},
+	"autoDetectUrl": {
+		"message": "كشف تلقائي لعنوان URL",
+		"description": "Auto detect URL checkbox label"
+	},
+	"autoDetectUrlTooltip": {
+		"message": "إذا كان النص بتنسيق رابط، فافتحه مباشرة بدلاً من البحث",
+		"description": "Tooltip for the auto detect URL checkbox"
+	},
+	"preferLink": {
+		"message": "تفضيل الرابط",
+		"description": "Prefer link checkbox label"
+	},
+	"customHudName": {
+		"message": "اسم",
+		"description": "Placeholder for custom action name shown on HUD"
+	},
+	"customHudNameTooltip": {
+		"message": "اسم مخصص يُعرض على الشاشة عند تنفيذ الإيماءة",
+		"description": "Tooltip for the custom HUD name field"
+	},
+	"actionNoOptions": {
+		"message": "هذا الأمر لا يتطلب أي إعدادات.",
+		"description": "Placeholder shown in the action picker's detail panel when the selected action has no configurable settings"
+	},
+	"actionRequiredBadge": {
+		"message": "مطلوب",
+		"description": "Badge shown next to fields that must be filled in (e.g., URL for Open URL)"
+	},
+	"menuNeedRefresh": {
+		"message": "لم يتم تحميل FlowMouse، انقر للتحديث",
+		"description": "Context menu title for pages needing refresh"
+	},
+	"menuRestricted": {
+		"message": "FlowMouse غير متوفر، تعرف على السبب",
+		"description": "Context menu title for restricted pages"
+	},
+	"showRestrictedNotice": {
+		"message": "إشعار الصفحة المقيدة",
+		"description": "Setting title for restricted page notice"
+	},
+	"showRestrictedNoticeDesc": {
+		"message": "عرض إشعار قائمة السياق في الصفحات التي لا تتوفر فيها الإيماءات",
+		"description": "Setting description for restricted page notice"
+	},
+	"restrictedPagesDetailsTitle": {
+		"message": "بسبب سياسات أمان المتصفح، لا يمكن تشغيل الإضافات على أنواع معينة من الصفحات.",
+		"description": "Collapsible details title"
+	},
+	"showMoreHint": {
+		"message": " (إظهار التفاصيل)",
+		"description": "Hint to show more details"
+	},
+	"restrictedNewTab": {
+		"message": "صفحة علامة تبويب جديدة",
+		"description": "New tab page title"
+	},
+	"restrictedNewTabDesc": {
+		"message": "تعد صفحة علامة التبويب الجديدة الافتراضية للمتصفح نظام صفحة محمية. لا يمكن للإضافات إدخال نصوص برمجية أو تعديل المحتوى هنا.",
+		"description": "New tab page description"
+	},
+	"restrictedStore": {
+		"message": "متاجر الإضافات الرسمية",
+		"description": "Store page title"
+	},
+	"restrictedStoreDesc": {
+		"message": "على سبيل المثال %storeInfo%، إلخ. تمنع المتصفحات الإضافات من العمل على هذه الصفحات لحماية التشغيل العادي للمتجر.",
+		"description": "Store page description"
+	},
+	"restrictedInternal": {
+		"message": "الصفحات الداخلية للمتصفح (%browserProtocol%)",
+		"description": "Internal page title"
+	},
+	"restrictedInternalDesc": {
+		"message": "على سبيل المثال، الإعدادات الداخلية لـ %browserName%، والسجل، والتنزيلات، وصفحات الخطأ، وما إلى ذلك. تتضمن هذه الصفحات وظائف المتصفح الأساسية وبيانات خصوصية المستخدم، لذا فهي محمية بصرامة.",
+		"description": "Internal page description"
+	},
+	"restrictedFile": {
+		"message": "صفحات الملفات المحلية (file://)",
+		"description": "File page title"
+	},
+	"restrictedFileDesc": {
+		"message": "لملفات html، وpdf وما إلى ذلك المحلية المفتوحة عبر بروتوكول file://. بسبب قيود الأمان (لمنع الإضافات الضارة من الوصول إلى نظام الملفات المحلي)، لا يمكن للإضافات العمل على هذه الصفحات.",
+		"description": "File page description"
+	},
+	"restrictedViewSource": {
+		"message": "صفحات عرض المصدر (view-source:)",
+		"description": "View source page title"
+	},
+	"restrictedViewSourceDesc": {
+		"message": "يعد عارض كود المصدر للمتصفح أيضًا صفحة نظام محمية. لا يمكن للإضافات العمل هنا.",
+		"description": "View source page description"
+	},
+	"restrictedOther": {
+		"message": "الصفحات الأخرى المتأثرة الأقل شيوعًا غير مدرجة بشكل منفصل.",
+		"description": "Other restricted pages note"
+	},
+	"popupNeedRefresh": {
+		"message": "الامتداد غير محمل",
+		"description": "Popup title when content script not loaded"
+	},
+	"popupNeedRefreshDesc": {
+		"message": "تم فتح هذه الصفحة قبل تثبيت/تحديث الامتداد. قم بالتحديث لتمكين الإيماءات.",
+		"description": "Popup description when content script not loaded"
+	},
+	"popupRefreshBtn": {
+		"message": "تحديث الصفحة",
+		"description": "Popup refresh button text"
+	},
+	"popupRestrictedTitle": {
+		"message": "الإيماءات غير متوفرة",
+		"description": "Popup title for restricted pages"
+	},
+	"popupRestrictedDesc": {
+		"message": "لا يمكن لهذه الصفحة استخدام الإيماءات بسبب قيود أمان المتصفح.",
+		"description": "Popup description for restricted pages"
+	},
+	"popupLearnMore": {
+		"message": "اعرف المزيد",
+		"description": "Popup learn more button text"
+	},
+	"tutorialPending": {
+		"message": "جرب الآن",
+		"description": "Tutorial pending status"
+	},
+	"tutorialCompleted": {
+		"message": "تم",
+		"description": "Tutorial completed status"
+	},
+	"tutorialClickToStart": {
+		"message": "انقر بـ <span class=\"text-highlight\">زر الماوس الأيمن</span> للبدء",
+		"description": "Tutorial Step 0 instruction"
+	},
+	"tutorialWelcomeTitle": {
+		"message": "مرحبًا بك في FlowMouse",
+		"description": "Tutorial welcome title"
+	},
+	"tutorialWelcomeSubtitle": {
+		"message": "أتقن الأساسيات في 30 ثانية لتصفح أكثر سلاسة وبديهية",
+		"description": "Tutorial welcome subtitle"
+	},
+	"tutorialStep1Title": {
+		"message": "الأساسيات",
+		"description": "Tutorial Step 1 title"
+	},
+	"tutorialStep1Subtitle": {
+		"message": "تعلم آلية الإيماءة الأساسية",
+		"description": "Tutorial Step 1 subtitle"
+	},
+	"tutorialStep1InstructionIdle": {
+		"message": "اضغط مع <strong>الاستمرار</strong> على <span class=\"text-highlight\">زر الماوس الأيمن</span>",
+		"description": "Tutorial Step 1 instruction idle"
+	},
+	"tutorialStep1InstructionPressing": {
+		"message": "<strong>ممتاز!</strong> الآن اسحب <strong>%arrow% يمينًا</strong>",
+		"description": "Tutorial Step 1 instruction pressing"
+	},
+	"tutorialStep1InstructionDragging": {
+		"message": "واصل السحب...",
+		"description": "Tutorial Step 1 instruction dragging"
+	},
+	"tutorialStep1InstructionReleasing": {
+		"message": "<strong>رائع!</strong> الآن حرر الزر!",
+		"description": "Tutorial Step 1 instruction releasing"
+	},
+	"tutorialStep2Title": {
+		"message": "إيماءات FlowMouse",
+		"description": "Tutorial Step 2 title"
+	},
+	"tutorialStep2Subtitle": {
+		"message": "اضغط باستمرار على <span class=\"text-highlight\">زر الماوس الأيمن</span> لتنفيذ الإيماءات",
+		"description": "Tutorial Step 2 subtitle"
+	},
+	"tutorialStep2Footer": {
+		"message": "<strong>المزيد من الإيماءات</strong> و <strong>التخصيص الكامل</strong> متوفر في الإعدادات.",
+		"description": "Footer note for step 2 discovery banner"
+	},
+	"tutorialStep2DiscoveryHeader": {
+		"message": "المزيد من الإيماءات",
+		"description": "Header for step 2 discovery banner"
+	},
+	"tutorialStep3DiscoveryHeader": {
+		"message": "المزيد من ميزات Super Drag",
+		"description": "Header for step 3 discovery banner"
+	},
+	"tutorialStep3TextSearch": {
+		"message": "نص <span class=\"svg-arrow\">→</span> بحث",
+		"description": "Text drag search discovery item"
+	},
+	"tutorialStep3LinkOpen": {
+		"message": "رابط <span class=\"svg-arrow\">→</span> فتح في علامة تبويب جديدة",
+		"description": "Link drag open discovery item"
+	},
+	"tutorialStep3ImageOpen": {
+		"message": "صورة <span class=\"svg-arrow\">→</span> فتح في علامة تبويب جديدة",
+		"description": "Image drag open discovery item"
+	},
+	"tutorialStep3Footer": {
+		"message": "<strong>المزيد من إجراءات السحب</strong> و <strong>التخصيص الكامل</strong> متوفر في وضع الإعدادات المتقدمة",
+		"description": "Footer for step 3 discovery banner"
+	},
+	"tutorialContinue": {
+		"message": "متابعة",
+		"description": "Tutorial continue button"
+	},
+	"tutorialStep3Title": {
+		"message": "Super Drag",
+		"description": "Tutorial Step 3 title"
+	},
+	"tutorialStep3Subtitle": {
+		"message": "اضغط باستمرار على <span class=\"text-highlight\">زر الماوس الأيسر</span> واسحب <span class=\"svg-arrow\">→</span> لتنفيذ الإجراءات بسرعة",
+		"description": "Tutorial Step 3 subtitle"
+	},
+	"tutorialStep3HintTitle": {
+		"message": "بحث تحديد النص",
+		"description": "Tutorial Step 3 hint title"
+	},
+	"tutorialStep3HintDesc": {
+		"message": "حدد النص، ثم استخدم <span class=\"text-highlight\">زر الماوس الأيسر</span> للسحب <span class=\"svg-arrow\">→</span> للبحث",
+		"description": "Tutorial Step 3 hint description. Note: Must drag to right. Use SVG arrow instead of text for direction."
+	},
+	"tutorialStep3TextBoxLabel": {
+		"message": "جربها مع النص أدناه!",
+		"description": "Tutorial Step 3 text box label"
+	},
+	"tutorialStep3SelectableText": {
+		"message": "FlowMouse Super Drag",
+		"description": "Tutorial Step 3 selectable text"
+	},
+	"tutorialStep4Title": {
+		"message": "تهانينا!",
+		"description": "Tutorial Step 4 title"
+	},
+	"tutorialStep4Subtitle": {
+		"message": "أنت تتحرك مع التدفق الآن.",
+		"description": "Tutorial Step 4 subtitle"
+	},
+	"tutorialStep4Instruction": {
+		"message": "استخدم <span class=\"text-highlight\">Super Drag <span class=\"svg-arrow\">→</span></span> على هذا الرابط لفتحه في <span class=\"text-highlight\">علامة تبويب جديدة</span>",
+		"description": "Tutorial Step 4 instruction. Note: Must drag to right. Use SVG arrow instead of text for direction."
+	},
+	"tutorialSettingsLink": {
+		"message": "إعدادات FlowMouse",
+		"description": "Tutorial settings link"
+	},
+	"tutorialSettingsHint": {
+		"message": "العديد من الميزات القوية بانتظارك لاستكشافها!",
+		"description": "Tutorial settings hint"
+	},
+	"tutorialWrongDirection": {
+		"message": "اتجاه خاطئ! اسحب %arrow% يمينًا",
+		"description": "Tutorial wrong direction error"
+	},
+	"tutorialEarlyRelease": {
+		"message": "تم التحرير مبكرًا جدًا! واصل السحب.",
+		"description": "Tutorial early release error"
+	},
+	"tutorialDragWrongButton": {
+		"message": "استخدم <span class=\"text-highlight\">زر الماوس الأيسر</span> للسحب",
+		"description": "Tutorial drag wrong button error"
+	},
+	"tutorialRefreshTip": {
+		"message": "تلميح: تحتاج علامات التبويب المفتوحة قبل التثبيت إلى <span class=\"text-highlight\">التحديث</span> لاستخدام FlowMouse",
+		"description": "Tip about refreshing tabs"
+	},
+	"permissionBookmarksTitle": {
+		"message": "إدارة الإشارات المرجعية",
+		"description": "Permission popup title for bookmarks"
+	},
+	"permissionBookmarksDesc": {
+		"message": "لإضافة صفحات إلى إشاراتك المرجعية، يحتاج FlowMouse إلى الوصول للإشارات المرجعية.",
+		"description": "Permission popup description for bookmarks"
+	},
+	"permissionDownloadsTitle": {
+		"message": "إدارة التنزيلات",
+		"description": "Permission popup title for downloads"
+	},
+	"permissionDownloadsDesc": {
+		"message": "لحفظ الصور، يحتاج FlowMouse إلى الوصول للتنزيلات.",
+		"description": "Permission popup description for downloads"
+	},
+	"permissionDownloadsPageCaptureTitle": {
+		"message": "حفظ المحتوى",
+		"description": "Permission popup title for downloads and page capture"
+	},
+	"permissionDownloadsPageCaptureDesc": {
+		"message": "لحفظ المحتوى، يحتاج FlowMouse إلى الوصول إلى الصفحات والتنزيلات.",
+		"description": "Permission popup description for downloads and page capture"
+	},
+	"permissionIncognitoTitle": {
+		"message": "السماح بالعمل في وضع التصفح المتخفي",
+		"description": "Permission popup title for incognito"
+	},
+	"permissionIncognitoDesc": {
+		"message": "للعمل في نوافذ التصفح المتخفي، يلزمك تمكين \"السماح بالعمل في وضع التصفح المتخفي\" يدويًا لـ FlowMouse.",
+		"description": "Permission popup description for incognito"
+	},
+	"permissionClipboardReadTitle": {
+		"message": "قراءة الحافظة",
+		"description": "Permission popup title for clipboard read"
+	},
+	"permissionClipboardReadDesc": {
+		"message": "للصق محتوى الحافظة، يحتاج FlowMouse إلى إذن لقراءة الحافظة.",
+		"description": "Permission popup description for clipboard read"
+	},
+	"openExtensionsSettings": {
+		"message": "فتح تفاصيل الإضافة",
+		"description": "Button to open extension details page"
+	},
+	"permissionFirefoxIncognitoTitle": {
+		"message": "التشغيل في النوافذ الخاصة",
+		"description": "Permission popup title for Firefox private browsing"
+	},
+	"permissionFirefoxIncognitoDesc": {
+		"message": "للعمل في النوافذ الخاصة، يتعين عليك تمكين \"التشغيل في النوافذ الخاصة\" يدويًا لـ FlowMouse في مدير الإضافات.",
+		"description": "Permission popup description for Firefox private browsing"
+	},
+	"grantPermission": {
+		"message": "منح الإذن",
+		"description": "Grant permission button"
+	},
+	"grantPermissionCancel": {
+		"message": "إلغاء",
+		"description": "Cancel button"
+	},
+	"permissionTitle": {
+		"message": "إذن FlowMouse",
+		"description": "Generic permission window title"
+	},
+	"tutorialPinHint": {
+		"message": "انقر على<span class='icon-ext'></span><b>الإضافات</b>، و<span class='icon-pin'></span><b>ثبت</b> FlowMouse لسهولة الوصول!",
+		"description": "Hint to pin the extension in tutorial step 4. Do not add space around icon."
+	},
+	"downloadErrorHotlink": {
+		"message": "فشل حفظ الصورة. قد يحتوي الموقع على حماية من الارتباط الساخن. يرجى النقر بزر الماوس الأيمن على الصورة وتحديد \"حفظ الصورة باسم...\"",
+		"description": "Toast message when image download fails due to hotlink protection"
+	},
+	"saveImageLoadError": {
+		"message": "فشل حفظ الصورة: فشل تحميل الصورة",
+		"description": "Toast message when image fails to load before saving"
+	},
+	"saveImageTimeout": {
+		"message": "فشل حفظ الصورة: انتهت مهلة التحميل",
+		"description": "Toast message when image loading times out"
+	},
+	"buttonOkay": {
+		"message": "حسنا",
+		"description": "Generic OK button"
+	},
+	"buttonConfirm": {
+		"message": "تأكيد",
+		"description": "Generic Confirm button"
+	},
+	"buttonCancel": {
+		"message": "إلغاء",
+		"description": "Generic Cancel button"
+	},
+	"buttonClose": {
+		"message": "إغلاق",
+		"description": "Generic Close button"
+	},
+	"searchActions": {
+		"message": "البحث عن الأوامر...",
+		"description": "Placeholder for action search input in action picker"
+	},
+	"actionCategoryNavigation": {
+		"message": "التنقل",
+		"description": "Action category: navigation"
+	},
+	"actionCategoryTabs": {
+		"message": "علامات التبويب",
+		"description": "Action category: tabs"
+	},
+	"actionCategoryWindow": {
+		"message": "النافذة",
+		"description": "Action category: window"
+	},
+	"actionCategoryUtilities": {
+		"message": "الأدوات",
+		"description": "Action category: utilities"
+	},
+	"noResults": {
+		"message": "لا توجد نتائج",
+		"description": "No search results found"
+	},
+	"wheelGestures": {
+		"message": "إيماءات عجلة الماوس",
+		"description": "Mouse wheel gestures section title"
+	},
+	"enableWheelGestures": {
+		"message": "تمكين إيماءات عجلة الماوس",
+		"description": "Enable mouse wheel gestures"
+	},
+	"enableWheelGesturesDesc": {
+		"message": "تنفيذ إجراءات مختلفة بسرعة باستخدام عجلة الماوس",
+		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelGesture_scrollUpHoldingRight": {
+		"message": "التمرير لأعلى مع الاستمرار على الزر الأيمن",
+		"description": "Wheel gesture: scroll up while holding right button"
+	},
+	"wheelGesture_scrollDownHoldingRight": {
+		"message": "التمرير لأسفل مع الاستمرار على الزر الأيمن",
+		"description": "Wheel gesture: scroll down while holding right button"
+	},
+	"wheelGesture_wheelClickHoldingRight": {
+		"message": "النقر على الزر الأوسط مع الاستمرار على الزر الأيمن",
+		"description": "Wheel gesture: wheel (middle) click while holding right button"
+	},
+	"specialGestures": {
+		"message": "إيماءات خاصة",
+		"description": "Special gestures section title"
+	},
+	"enableSpecialGestures": {
+		"message": "تمكين الإيماءات الخاصة",
+		"description": "Enable special gestures"
+	},
+	"enableSpecialGesturesDesc": {
+		"message": "تنفيذ الإجراءات عن طريق النقر على زر الماوس أثناء الضغط على الآخر",
+		"description": "Enable special gestures description"
+	},
+	"specialGesture_leftClickHoldingRight": {
+		"message": "انقر بزر الماوس الأيسر مع الاستمرار في الضغط على الزر الأيمن",
+		"description": "Special gesture: left click while holding right button"
+	},
+	"specialGesture_rightClickHoldingLeft": {
+		"message": "انقر بزر الماوس الأيمن مع الاستمرار في الضغط على الزر الأيسر",
+		"description": "Special gesture: right click while holding left button"
+	},
+	"actionChainsDesc": {
+		"message": "استخدم سلاسل الأوامر لتنفيذ أوامر متعددة بالتسلسل.",
+		"description": "Action chains section description"
+	},
+	"actionActionChain": {
+		"message": "سلسلة أوامر",
+		"description": "Action chain action name"
+	},
+	"actionCustomMenu": {
+		"message": "قائمة مخصصة",
+		"description": "Custom popup menu action name"
+	},
+	"customMenuDesc": {
+		"message": "إنشاء قوائم منبثقة مخصصة تتضمن إجراءات متعددة.",
+		"description": "Custom menu section description"
+	},
+	"addMenu": {
+		"message": "إضافة قائمة",
+		"description": "Add menu button"
+	},
+	"menuNamePlaceholder": {
+		"message": "قائمة مخصصة",
+		"description": "Menu name input placeholder"
+	},
+	"menuItemCount": {
+		"message": "%count% عناصر",
+		"description": "Item count for menus, e.g. '3 items'"
+	},
+	"menuItemCountOne": {
+		"message": "%count% عنصر",
+		"description": "Item count for menus with exactly 1 item"
+	},
+	"addMenuItem": {
+		"message": "إضافة عنصر",
+		"description": "Add menu item button"
+	},
+	"addMenuSeparator": {
+		"message": "إضافة فاصل",
+		"description": "Add separator to menu button"
+	},
+	"emptyMenuItems": {
+		"message": "لا توجد عناصر. انقر على \"إضافة عنصر\" للبدء.",
+		"description": "Empty menu items message"
+	},
+	"menuNotFound": {
+		"message": "(القائمة غير موجودة)",
+		"description": "Menu not found label"
+	},
+	"deleteMenuConfirm": {
+		"message": "هل تريد حذف القائمة \"%name%\"؟",
+		"description": "Delete menu confirmation"
+	},
+	"menuItemNumber": {
+		"message": "العنصر %n%",
+		"description": "Menu item number label"
+	},
+	"addChain": {
+		"message": "إضافة سلسلة",
+		"description": "Add chain button"
+	},
+	"chainNamePlaceholder": {
+		"message": "سلسلة الأوامر",
+		"description": "Chain name input placeholder"
+	},
+	"chainDelayUnit": {
+		"message": "ملي ثانية",
+		"description": "Milliseconds unit for chain delay"
+	},
+	"addStep": {
+		"message": "إضافة خطوة",
+		"description": "Add step button"
+	},
+	"emptyChainSteps": {
+		"message": "لم تتم إضافة أي خطوات. انقر على \"إضافة خطوة\" للبدء.",
+		"description": "Empty chain steps message in expanded body"
+	},
+	"emptyChainStepsShort": {
+		"message": "لم تتم إضافة أي خطوات",
+		"description": "Short empty chain steps message for summary"
+	},
+	"noChains": {
+		"message": "لا توجد سلاسل أوامر بعد. انقر على \"إضافة سلسلة\" لإنشاء واحدة.",
+		"description": "No chains message"
+	},
+	"chainNotFound": {
+		"message": "(لم يتم العثور على السلسلة)",
+		"description": "Chain not found label"
+	},
+	"deleteChainConfirm": {
+		"message": "هل تريد حذف السلسلة \"%name%\"؟",
+		"description": "Delete chain confirmation"
+	},
+	"stepNumber": {
+		"message": "خطوة %n%",
+		"description": "Step number label"
+	},
+	"actionDelay": {
+		"message": "تأخير",
+		"description": "Delay action name for chain steps"
+	},
+	"actionSendCustomEvent": {
+		"message": "إرسال حدث مخصص",
+		"description": "Action to dispatch a custom DOM event"
+	},
+	"actionSendExtensionMessage": {
+		"message": "استدعاء إضافة أخرى",
+		"description": "Action to send a custom message to another installed extension"
+	},
+	"actionSimulateKey": {
+		"message": "محاكاة الضغط على مفتاح",
+		"description": "Action to simulate a keyboard key press on the page"
+	},
+	"actionPasteClipboard": {
+		"message": "لصق من الحافظة",
+		"description": "Action to paste clipboard text at the gesture start position"
+	},
+	"pasteClipboardHint": {
+		"message": "سيتم لصق محتوى الحافظة في حقل الإدخال عند <b>موضع بدء الإيماءة</b>.",
+		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
+	"actionPasteContent": {
+		"message": "لصق نص مخصص",
+		"description": "Action to paste a preset, user-specified text at the gesture start position"
+	},
+	"pasteContentLabel": {
+		"message": "النص",
+		"description": "Label for the text field where the user enters the content to paste"
+	},
+	"pasteContentHint": {
+		"message": "سيتم إدراج النص المحدد في حقل الإدخال عند <b>موضع بدء الإيماءة</b>.",
+		"description": "Hint shown in action config when paste specified content is selected. Contains HTML."
+	},
+	"pasteContentSensitiveHint": {
+		"message": "لا يُنصح بتخزين معلومات حساسة مثل كلمات المرور هنا.",
+		"description": "Warning hint below the content field for the paste specified content action"
+	},
+	"simulateKeyPreset": {
+		"message": "مفتاح مضبوط مسبقًا",
+		"description": "Label for preset key dropdown in simulate key config"
+	},
+	"simulateKeyPresetLeft": {
+		"message": "← سهم لليسار (الصفحة السابقة)",
+		"description": "Preset: ArrowLeft key"
+	},
+	"simulateKeyPresetRight": {
+		"message": "→ سهم لليمين (الصفحة التالية)",
+		"description": "Preset: ArrowRight key"
+	},
+	"simulateKeyPresetCustom": {
+		"message": "مفتاح مخصص",
+		"description": "Preset: Custom key option"
+	},
+	"simulateKeyRecordBtn": {
+		"message": "تسجيل مفتاح",
+		"description": "Button to start recording a key press"
+	},
+	"simulateKeyRecording": {
+		"message": "اضغط على أي مفتاح...",
+		"description": "Recording state text"
+	},
+	"simulateKeyManualInput": {
+		"message": "المفتاح الحالي",
+		"description": "Label for current key display in simulate key config"
+	},
+	"simulateKeyHint": {
+		"message": "ترسل هذه الميزة أحداث لوحة المفاتيح إلى الصفحة الحالية فقط، وتُستخدم عادةً للتنقل بين الصفحات (← السابق / → التالي). لن تقوم بتشغيل اختصارات المتصفح (على سبيل المثال، لن يؤدي Ctrl+R إلى تحديث الصفحة). بالإضافة إلى ذلك، وبسبب قيود إطار عمل الموقع، قد لا يتم التقاط الأحداث التي تمت محاكاتها بواسطة جميع المكونات المخصصة أو حقول الإدخال.",
+		"description": "Hint text for simulate key feature"
+	},
+	"customEventInvalidJson": {
+		"message": "تنسيق JSON غير صالح",
+		"description": "Error message when event detail is not valid JSON"
+	},
+	"customEventIncludeGestureInfo": {
+		"message": "تضمين معلومات الإيماءات في %code%",
+		"description": "Checkbox label for including gesture context in custom event detail. %code% = detail.gesture"
+	},
+	"customEventConfigureBtn": {
+		"message": "الإعدادات",
+		"description": "Label for the configure button of custom event action in drag gesture manager"
+	},
+	"customEventHint": {
+		"message": "يرسل %code% على %window%. مفيد للتكامل مع السكربتات الأخرى.",
+		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
+	},
+	"sendExtensionMessageHint": {
+		"message": "يرسل رسالة عبر %code% إلى إضافة أخرى مثبتة. مفيد للتكامل مع الإضافات الأخرى.",
+		"description": "Hint explaining how send-message-to-extension works. %code% = <code>chrome.runtime.sendMessage(...)</code>"
+	},
+	"delayDuration": {
+		"message": "المدة",
+		"description": "Delay duration label"
+	},
+	"chainStepCount": {
+		"message": "%count% خطوات",
+		"description": "Step count for unnamed chains, e.g. '3 steps'"
+	},
+	"chainStepCountOne": {
+		"message": "%count% خطوة",
+		"description": "Step count for unnamed chains with exactly 1 step"
+	},
+	"actionZoomIn": {
+		"message": "تكبير الصفحة",
+		"description": "Zoom in on the current page"
+	},
+	"actionZoomOut": {
+		"message": "تصغير الصفحة",
+		"description": "Zoom out on the current page"
+	},
+	"actionResetZoom": {
+		"message": "إعادة ضبط التكبير",
+		"description": "Reset page zoom to default or a specified level"
+	},
+	"actionViewPageSource": {
+		"message": "عرض مصدر الصفحة",
+		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionPauseGesture": {
+		"message": "إيقاف الإيماءات حتى التحديث",
+		"description": "Temporarily disable all gestures on the current tab until page refresh"
+	},
+	"actionAreaSelect": {
+		"message": "تحديد المنطقة",
+		"description": "Enter area select mode to drag-select links on the page and batch open them"
+	},
+	"areaSelectTitle": {
+		"message": "تحديد المنطقة",
+		"description": "Label for the area select row in the popup"
+	},
+	"areaSelectModifierKey": {
+		"message": "تحديد سريع للمنطقة",
+		"description": "Label for the modifier key dropdown in area select settings"
+	},
+	"areaSelectModifierKeyDesc": {
+		"message": "استمر في الضغط على مفتاح التعديل، ثم انقر بزر الماوس الأيسر واسحب لتحديد الروابط على الصفحة بسرعة لإجراء عمليات مجمعة",
+		"description": "Description for the modifier key setting"
+	},
+	"areaSelectDisabled": {
+		"message": "معطل",
+		"description": "Disabled option for the area select modifier key dropdown"
+	},
+	"areaSelectMouseDrag": {
+		"message": "سحب الماوس",
+		"description": "Suffix label next to the modifier key dropdown"
+	},
+	"areaSelectTextUrl": {
+		"message": "التعرف على رابط النص",
+		"description": "Label for the text URL recognition toggle"
+	},
+	"areaSelectTextUrlDesc": {
+		"message": "استخراج روابط النص العادي (غير التشعبية) عند التحديد أيضًا",
+		"description": "Description for the text URL recognition toggle"
+	},
+	"areaSelectWarnThreshold": {
+		"message": "تنبيه العملية المجمعة",
+		"description": "Label for the batch operation alert threshold input"
+	},
+	"areaSelectWarnThresholdDesc": {
+		"message": "إظهار تأكيد عند تشغيل أكثر من هذا العدد من العناصر بشكل مجمع، 0 للتعطيل",
+		"description": "Description for the batch operation alert threshold"
+	},
+	"areaSelectDelay": {
+		"message": "فاصل العملية",
+		"description": "Label for the operation interval input"
+	},
+	"areaSelectDelayDesc": {
+		"message": "التأخير بين كل عملية فتح في العمليات المجمعة (ثانية)",
+		"description": "Description for the operation interval setting"
+	},
+	"areaSelectHint": {
+		"message": "اسحب لتحديد الروابط",
+		"description": "Hint text shown in the area select overlay"
+	},
+	"areaSelectOpen": {
+		"message": "فتح %count% من الروابط",
+		"description": "Button text in the area select toolbar to batch open selected links"
+	},
+	"areaSelectOpenOne": {
+		"message": "فتح %count% رابط",
+		"description": "Button text to open a single selected link (singular form)"
+	},
+	"areaSelectCopy": {
+		"message": "نسخ الروابط",
+		"description": "Button text to copy all selected link URLs to clipboard"
+	},
+	"areaSelectCancel": {
+		"message": "إلغاء",
+		"description": "Button text to cancel area select mode"
+	},
+	"areaSelectConfirm": {
+		"message": "تأكيد",
+		"description": "Button text to confirm opening many links"
+	},
+	"areaSelectWarnTitle": {
+		"message": "فتح العديد من الروابط؟",
+		"description": "Title of the warning modal when opening many links"
+	},
+	"areaSelectWarnMessage": {
+		"message": "أنت على وشك فتح %count% من الروابط. قد يؤدي ذلك إلى إبطاء المتصفح. هل تريد المتابعة؟",
+		"description": "Body text of the warning modal"
+	},
+	"start": {
+		"message": "البدء",
+		"description": "Button label to start an action (e.g. area select)"
+	},
+	"actionMenuShowTabs": {
+		"message": "تبديل علامة التبويب",
+		"description": "Show a context menu listing all open tabs in the current window"
+	},
+	"actionMenuRecentlyClosed": {
+		"message": "علامات التبويب المغلقة مؤخرًا",
+		"description": "Show a context menu listing recently closed tabs for quick restore"
+	},
+	"recentlyClosedMaxItems": {
+		"message": "الحد الأقصى للعناصر",
+		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
+	},
+	"actionCategoryContextMenu": {
+		"message": "قائمة منبثقة",
+		"description": "Action category: context menu actions"
+	},
+	"zoomStepMode": {
+		"message": "وضع التكبير/التصغير",
+		"description": "Label for zoom mode selector: browser steps vs fixed increment"
+	},
+	"zoomStepModeBrowser": {
+		"message": "استخدام مستويات تكبير المتصفح",
+		"description": "Option: follow Chrome's built-in zoom steps (25%, 33%, 50%, …, 500%)"
+	},
+	"zoomStepModeFixed": {
+		"message": "خطوة ثابتة",
+		"description": "Option: zoom in/out by a configurable fixed percentage each time"
+	},
+	"zoomDelta": {
+		"message": "حجم الخطوة",
+		"description": "Label for the zoom increment/decrement slider"
+	},
+	"resetZoomLevel": {
+		"message": "إعادة التعيين إلى",
+		"description": "Label for the target zoom level when resetting zoom"
+	},
+	"resetZoomDefault": {
+		"message": "الإعداد الافتراضي للمتصفح",
+		"description": "Option: reset zoom to the browser's default zoom setting"
+	},
+	"resetZoomCustom": {
+		"message": "قيمة مخصصة",
+		"description": "Option: reset zoom to a user-specified custom zoom level"
+	},
+	"actionMenuShowBookmarks": {
+		"message": "عرض الإشارات المرجعية",
+		"description": "Show a context menu listing bookmarks from a selected folder"
+	},
+	"bookmarkFolder": {
+		"message": "المجلد",
+		"description": "Label for selecting which bookmark folder to display"
+	},
+	"bookmarkFolderDefault": {
+		"message": "افتراضي المتصفح",
+		"description": "Option label for using the browser's default bookmark location"
+	},
+	"bookmarkGrantPermission": {
+		"message": "(منح إذن الإشارات المرجعية)",
+		"description": "Button label to request bookmarks permission"
+	},
+	"ctxMenuSortOrder": {
+		"message": "ترتيب حسب",
+		"description": "Label for context menu sort order dropdown"
+	},
+	"ctxMenuSortDefault": {
+		"message": "افتراضي",
+		"description": "Sort option: original API/insertion order"
+	},
+	"ctxMenuSortDefaultDesc": {
+		"message": "افتراضي (معكوس)",
+		"description": "Sort option: reverse of original API order"
+	},
+	"ctxMenuSortDateAddedAsc": {
+		"message": "تاريخ الإضافة (الأقدم أولاً)",
+		"description": "Sort option: by date added ascending"
+	},
+	"ctxMenuSortDateAddedDesc": {
+		"message": "تاريخ الإضافة (الأحدث أولاً)",
+		"description": "Sort option: by date added descending"
+	},
+	"ctxMenuSortNameAsc": {
+		"message": "الاسم (تصاعدي)",
+		"description": "Sort option: alphabetical ascending"
+	},
+	"ctxMenuSortNameDesc": {
+		"message": "الاسم (تنازلي)",
+		"description": "Sort option: alphabetical descending"
+	},
+	"ctxMenuSortLastAccessAsc": {
+		"message": "آخر وصول (الأقدم أولاً)",
+		"description": "Sort option: by last access time ascending"
+	},
+	"ctxMenuSortLastAccessDesc": {
+		"message": "آخر وصول (الأحدث أولاً)",
+		"description": "Sort option: by last access time descending"
+	},
+	"ctxMenuMaxItems": {
+		"message": "أقصى عدد",
+		"description": "Label for maximum number of items in context menu"
+	},
+	"ctxMenuMaxItemsUnlimited": {
+		"message": "غير محدود",
+		"description": "Placeholder shown when max items is 0 (no limit)"
+	},
+	"ctxMenuScrollToBottom": {
+		"message": "التمرير إلى الأسفل",
+		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuTimeDisplay": {
+		"message": "عرض الوقت",
+		"description": "Label for time display mode dropdown in context menu"
+	},
+	"ctxMenuTimeNone": {
+		"message": "عدم العرض",
+		"description": "Time display option: hide time column"
+	},
+	"ctxMenuTimeLastAccess": {
+		"message": "آخر وصول",
+		"description": "Time display option: show last access time"
+	},
+	"ctxMenuTimeClosedTime": {
+		"message": "وقت الإغلاق",
+		"description": "Time display option: show when the tab was closed"
+	},
+	"ctxMenuTimeDateAdded": {
+		"message": "تاريخ الإضافة",
+		"description": "Time display option: show when the bookmark was added"
+	}
+}

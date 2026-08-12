@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="../icons/icon48.png">
+	<link rel="modulepreload" href="../js/lib/lit-all.min.js">
+	<link rel="modulepreload" href="../js/icons.js">
+	<title>FlowMouse</title>
+	<link rel="stylesheet" href="../css/common.css">
+	<style>
+		:root {
+			--bg-primary: #111114;
+			--bg-secondary: rgba(255, 255, 255, 0.055);
+			--border-color: rgba(255, 255, 255, 0.12);
+		}
+
+		[data-theme="light"] {
+			--bg-primary: #f5f7fa;
+			--bg-secondary: rgba(0, 0, 0, 0.03);
+			--text-primary: #333;
+			--badge-bg: rgba(0, 0, 0, 0.33);
+			--border-color: rgba(0, 0, 0, 0.1);
+		}
+
+		body {
+			width: 280px;
+			padding: 13px 15px 15px;
+			min-height: auto;
+		}
+	</style>
+	<style id="i18n-load-style">
+		[data-i18n], [data-i18n-placeholder], [data-i18n-title], select {
+			visibility: hidden;
+		}
+	</style>
+</head>
+
+<body>
+	<popup-page></popup-page>
+
+	<script src="../js/browser-compat.js"></script>
+	<script src="../js/i18n.js"></script>
+	<script src="../js/constants.js"></script>
+	<script type="module" src="../js/components/popup-page.js"></script>
+</body>
+
+</html>

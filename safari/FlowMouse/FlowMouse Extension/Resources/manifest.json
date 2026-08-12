@@ -1,0 +1,76 @@
+{
+    "manifest_version": 3,
+    "name": "__MSG_extName__",
+    "version": "2.3",
+    "author": "Hmily[LCG] & Coxxs",
+    "description": "__MSG_extDescription__",
+    "default_locale": "en",
+    "minimum_chrome_version": "109",
+    "permissions": [
+        "tabs",
+        "sessions",
+        "storage",
+        "contextMenus",
+        "search",
+        "scripting",
+        "favicon"
+    ],
+    "optional_permissions": [
+        "bookmarks",
+        "clipboardRead",
+        "downloads",
+        "pageCapture"
+    ],
+    "options_ui": {
+        "page": "pages/options.html",
+        "open_in_tab": true
+    },
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "background": {
+        "service_worker": "js/background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "js/browser-compat.js",
+                "js/constants.js",
+                "js/gesture-visual.js",
+                "js/gesture-recognizer.js",
+                "js/content.js"
+            ],
+            "run_at": "document_start",
+            "all_frames": true,
+            "match_origin_as_fallback": true
+        }
+    ],
+    "action": {
+        "default_popup": "pages/popup.html",
+        "default_icon": {
+            "16": "icons/icon16.png",
+            "48": "icons/icon48.png",
+            "128": "icons/icon128.png"
+        }
+    },
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "_locales/*/messages.json",
+                "pages/context-menu.html"
+            ],
+            "matches": [
+                "<all_urls>"
+            ],
+            "use_dynamic_url": true
+        }
+    ]
+}

@@ -1,0 +1,2150 @@
+{
+	"extName": {
+		"message": "FlowMouse - Hiirieleet",
+		"description": "Extension name"
+	},
+	"extNameShort": {
+		"message": "FlowMouse",
+		"description": "Short extension name for popup"
+	},
+	"extDescription": {
+		"message": "Avoimen lähdekoodin hiirielelaajennus, joka keskittyy yksityisyyteen ja sujuvaan käyttökokemukseen. Sujuvat ja herkästi reagoivat eleet, Super Drag -tuki.",
+		"description": "Extension description"
+	},
+	"theme": {
+		"message": "Teema",
+		"description": "Theme"
+	},
+	"themeDark": {
+		"message": "Tumma",
+		"description": "Dark theme"
+	},
+	"themeLight": {
+		"message": "Vaalea",
+		"description": "Light theme"
+	},
+	"themeAuto": {
+		"message": "Järjestelmän mukaan",
+		"description": "Auto theme - follow system"
+	},
+	"syncStatus": {
+		"message": "Synkronoinnin tila",
+		"description": "Sync status"
+	},
+	"syncStatusDesc": {
+		"message": "Asetusten synkronointi %browserName%-tilin kautta",
+		"description": "Sync status description"
+	},
+	"saved": {
+		"message": "Tallennettu",
+		"description": "Saved"
+	},
+	"author": {
+		"message": "Tekijä",
+		"description": "Author"
+	},
+	"privacyNote": {
+		"message": " Toimii paikallisesti, ei verkkoyhteyttä paitsi synkronointi, ei tiedonkeruuta",
+		"description": "Privacy note in footer"
+	},
+	"supportUsText": {
+		"message": "Pidätkö FlowMousesta? Anna meille 5 tähteä %appStoreInfo% tukeaksesi meitä!",
+		"description": "Rating text"
+	},
+	"storeNameChrome": {
+		"message": "Chrome Web Store",
+		"description": "Chrome Web Store name"
+	},
+	"storeNameEdge": {
+		"message": "Edge-laajennukset",
+		"description": "Edge Add-ons name"
+	},
+	"storeNameFirefox": {
+		"message": "Firefox-laajennukset",
+		"description": "Firefox Add-ons name"
+	},
+	"feedbackText": {
+		"message": "Ongelmia tai ehdotuksia? Ilmoita <a href='mailto:Service@52pojie.cn'>sähköpostitse</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHubissa</a> tai <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>foorumilla</a>. Parannamme sitä mahdollisimman pian!",
+		"description": "Feedback text"
+	},
+	"feedbackTextChrome": {
+		"message": "Ongelmia tai ehdotuksia? Ilmoita <a href='https://chromewebstore.google.com/detail/fnldhkfidchnjiokpoemdhoejmaojkgp/support' target='_blank'>Chrome Web Storen tuen kautta</a>, <a href='mailto:Service@52pojie.cn'>sähköpostitse</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHubissa</a> tai <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>foorumilla</a>. Parannamme sitä mahdollisimman pian!",
+		"description": "Feedback text for Chrome browser"
+	},
+	"supportAndFeedback": {
+		"message": "Tuki ja palaute",
+		"description": "Support and Feedback section title"
+	},
+	"feedbackTitle": {
+		"message": "Palaute ja ehdotukset",
+		"description": "Feedback row title"
+	},
+	"supportUsTitle": {
+		"message": "Tue meitä",
+		"description": "Rating row title"
+	},
+	"backToSettings": {
+		"message": "Takaisin asetuksiin",
+		"description": "Back to settings link"
+	},
+	"settings": {
+		"message": "Asetukset",
+		"description": "Settings"
+	},
+	"moreSettings": {
+		"message": "Lisää asetuksia",
+		"description": "More settings button in popup"
+	},
+	"version": {
+		"message": "Versio",
+		"description": "Version"
+	},
+	"basicSettings": {
+		"message": "Eleasetukset",
+		"description": "Gesture settings section"
+	},
+	"enableGesture": {
+		"message": "Ota eleet käyttöön",
+		"description": "Enable gesture feature"
+	},
+	"enableGestureDesc": {
+		"message": "Pidä hiiren oikeaa painiketta painettuna ja liikuta hiirtä suorittaaksesi eleitä helposti",
+		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
+	},
+	"gestureTriggerButtons": {
+		"message": "Laukaisupainikkeet",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "Valitse, mitkä hiiren painikkeet voivat laukaista eleitä",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "Oikea painike",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "Keskipainike",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "Sivupainike (Taakse)",
+		"description": "Mouse button 4 - the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "Sivupainike (Eteenpäin)",
+		"description": "Mouse button 5 - the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "Kynän oikea painike",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "Jotkin liipaisinpainikkeet eivät ehkä toimi oikein laitteistostasi tai ohjainasetuksistasi riippuen. Esimerkiksi Logitech-hiiret voivat vaatia \"Vaakasuuntaisen vierityksen\" (Horizontal Scrolling) poistamista käytöstä ohjaimessa, jotta sivupainikkeita voidaan käyttää eleisiin.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
+	"macLinuxContextMenuNotice": {
+		"message": "Järjestelmärajoitusten vuoksi, kun oikean painikkeen eleet ovat käytössä, kontekstivalikon avaaminen vaatii kaksoisnapsautuksen oikealla painikkeella macOS:ssä / Linuxissa.",
+		"description": "Notice for macOS / Linux users about double right-click for context menu"
+	},
+	"macLinuxDoubleClickHint": {
+		"message": "Avaa kontekstivalikko kaksoisnapsauttamalla hiiren kakkospainikkeella. (Lue lisää)",
+		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
+	},
+	"edgeGestureConflictNotice": {
+		"message": "%browserName%:ssa on sisäänrakennettuja eletoimintoja. Jos haluat käyttää FlowMouse-eleitä, <a href=\"#\" class=\"edge-gesture-link\">poista sisäänrakennetut eleet käytöstä</a> %browserName%-asetuksissa.",
+		"description": "Notice for Edge users about built-in gesture conflict"
+	},
+	"macTextDragNotice": {
+		"message": "macOS:n toiminnasta johtuen, kun vedät tekstiä, valitse ensin teksti, paina ja pidä sitten vasenta painiketta painettuna valitulla alueella ja pidä pieni tauko ennen vetämistä. Muuten vetotoiminto ei ehkä käynnisty.",
+		"description": "Notice for macOS users about text drag behavior"
+	},
+	"showTrail": {
+		"message": "Näytä elejälki",
+		"description": "Show gesture trail"
+	},
+	"showTrailDesc": {
+		"message": "Näytä jälkiviiva eleitä tehtäessä",
+		"description": "Show trail line when performing gestures"
+	},
+	"showHint": {
+		"message": "Näytä toimintovihje",
+		"description": "Show action hint"
+	},
+	"showHintDesc": {
+		"message": "Näytä nykyinen eletoiminto näytön keskellä",
+		"description": "Show current gesture action in center of screen"
+	},
+	"color": {
+		"message": "Väri",
+		"description": "Color"
+	},
+	"width": {
+		"message": "Leveys",
+		"description": "Width/thickness"
+	},
+	"background": {
+		"message": "Tausta",
+		"description": "Background"
+	},
+	"opacity": {
+		"message": "Läpinäkyvyys",
+		"description": "Opacity"
+	},
+	"blur": {
+		"message": "Sumennus",
+		"description": "Blur radius"
+	},
+	"hudShadow": {
+		"message": "Varjo",
+		"description": "HUD shadow toggle"
+	},
+	"showSuggestedGestures": {
+		"message": "Elekehotteet",
+		"description": "Show suggested gestures at bottom of screen"
+	},
+	"customCss": {
+		"message": "Mukautettu CSS",
+		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
+	},
+	"customCssDesc": {
+		"message": "Aseta mukautettu CSS säätääksesi FlowMousen omaa käyttöliittymää",
+		"description": "Description for the Custom CSS advanced setting"
+	},
+	"customCssConfigure": {
+		"message": "Määritä",
+		"description": "Button label to open the Custom CSS editor dialog when no CSS is set"
+	},
+	"customCssEdit": {
+		"message": "Muokkaa",
+		"description": "Button label to open the Custom CSS editor dialog when CSS is already set"
+	},
+	"customCssEditorTitle": {
+		"message": "Oman CSS:n muokkain",
+		"description": "Title of the dedicated custom CSS editor page"
+	},
+	"customCssEditorHint": {
+		"message": "Tyylit injektoidaan jokaiseen FlowMousen luomaan Shadow DOMiin. Tallenna painamalla Ctrl+S.",
+		"description": "Hint shown above the editor textarea."
+	},
+	"customCssEditorPlaceholder": {
+		"message": "/* Kirjoita mukautettu CSS tähän… */",
+		"description": "Placeholder inside the Custom CSS editor textarea"
+	},
+	"customCssEditorInsertSnippet": {
+		"message": "Esimerkki",
+		"description": "Button to append an example/starter CSS snippet to the editor"
+	},
+	"customCssEditorRevert": {
+		"message": "Peruuta",
+		"description": "Button that reverts the editor content back to the last saved value"
+	},
+	"customCssEditorSave": {
+		"message": "Tallenna",
+		"description": "Save button in the Custom CSS editor"
+	},
+	"customCssEditorSaved": {
+		"message": "Tallennettu",
+		"description": "Status message shown briefly after the user saves the custom CSS"
+	},
+	"customCssEditorDiscardConfirm": {
+		"message": "Hylätäänkö tallentamattomat muokkaukset ja palataan viimeksi tallennettuun CSS:ään?",
+		"description": "Confirmation dialog shown before reverting unsaved edits"
+	},
+	"text": {
+		"message": "Teksti",
+		"description": "Text"
+	},
+	"scrollAmount": {
+		"message": "Vieritysetäisyys",
+		"description": "Scroll amount"
+	},
+	"scrollAmountDesc": {
+		"message": "Vieritysetäisyys ylös/alas-eleille (% ikkunan korkeudesta)",
+		"description": "Scroll distance for up/down gestures"
+	},
+	"scrollSmoothness": {
+		"message": "Vierityksen pehmeys",
+		"description": "Scroll smoothness"
+	},
+	"scrollSmoothnessDesc": {
+		"message": "Vieritysanimaatioefekti ylös/alas-eleille",
+		"description": "Scroll smoothness description"
+	},
+	"smoothnessAuto": {
+		"message": "Automaattinen",
+		"description": "Auto scroll smoothness - uses system if animation enabled, otherwise smooth"
+	},
+	"smoothnessSystem": {
+		"message": "Järjestelmä (Korkea suorituskyky)",
+		"description": "System scroll smoothness"
+	},
+	"smoothnessCustom": {
+		"message": "Pehmeä",
+		"description": "Custom smooth scrolling"
+	},
+	"smoothnessNone": {
+		"message": "Ei animaatiota",
+		"description": "No scroll animation"
+	},
+	"scrollDuration": {
+		"message": "Animaation kesto",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "Ei käytettävissä järjestelmän vieritystä käytettäessä",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
+	"scrollAccel": {
+		"message": "Jatkuvan vierityksen kerroin",
+		"description": "Speed multiplier applied when scrolling consecutively"
+	},
+	"scrollAccelOff": {
+		"message": "Pois",
+		"description": "Scroll acceleration disabled"
+	},
+	"scrollAccelWindow": {
+		"message": "Peräkkäisen vierityksen aikaraja",
+		"description": "Max time (ms) between scrolls to count as consecutive"
+	},
+	"dragFeatures": {
+		"message": "Raahaustoiminnot",
+		"description": "Drag features section"
+	},
+	"textDragSearch": {
+		"message": "Tekstin raahaus",
+		"description": "Text drag"
+	},
+	"textDragSearchDesc": {
+		"message": "Vedä valittua tekstiä hakeaksesi",
+		"description": "Drag selected text to search"
+	},
+	"textDragIgnoreInput": {
+		"message": "Poista käytöstä syöttökentissä",
+		"description": "Option to disable text drag inside input boxes and textareas"
+	},
+	"textDragIgnoreInputDesc": {
+		"message": "Älä aktivoi tekstin siirtoa muokattavilla alueilla, kuten syöttökentissä ja tekstieditoreissa",
+		"description": "Description for text drag ignore input option"
+	},
+	"dragDropOnInput": {
+		"message": "Estä ele syöttökenttien päällä",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "Älä laukaise eletteä, kun pudotetaan syöttökenttiin tai muokattaville alueille",
+		"description": "Description for drag drop on input option"
+	},
+	"searchEngine": {
+		"message": "Hakukone",
+		"description": "Search engine"
+	},
+	"custom": {
+		"message": "Mukautettu",
+		"description": "Custom"
+	},
+	"customUrlPlaceholder": {
+		"message": "Mukautettu URL, käytä %s hakusanalle",
+		"description": "Custom URL placeholder"
+	},
+	"customUrlPlaceholderHint": {
+		"message": "On sisällettävä protokolla (esim. https://). Käytettävissä olevat paikkamerkit: %placeholders%. Lisää :raw ohittaaksesi URL-koodauksen, esim. %example%",
+		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
+	},
+	"urlPlaceholderText": {
+		"message": "%s=Hakusana",
+		"description": "Placeholder for text drag custom URL"
+	},
+	"urlPlaceholderImage": {
+		"message": "%s=Kuvan URL",
+		"description": "Placeholder for image drag custom URL"
+	},
+	"searchEngine_google_translate": {
+		"message": "Google Kääntäjä",
+		"description": "Google Translate search engine"
+	},
+	"searchEngine_bing_translate": {
+		"message": "Bing-kääntäjä",
+		"description": "Bing Translate search engine"
+	},
+	"searchEngine_baidu": {
+		"message": "Baidu",
+		"description": "Baidu search engine"
+	},
+	"searchEngine_360": {
+		"message": "360 Search",
+		"description": "360 search engine"
+	},
+	"searchEngine_yandex": {
+		"message": "Yandex",
+		"description": "Yandex search engine"
+	},
+	"searchEngine_system": {
+		"message": "Selaimen oletus",
+		"description": "System default search engine"
+	},
+	"imageDrag": {
+		"message": "Kuvan raahaus",
+		"description": "Image drag"
+	},
+	"imageDragDesc": {
+		"message": "Vedä kuva avataksesi uudessa välilehdessä",
+		"description": "Drag image to open in new tab"
+	},
+	"linkDrag": {
+		"message": "Linkin raahaus",
+		"description": "Link drag"
+	},
+	"linkDragDesc": {
+		"message": "Vedä linkki avataksesi uudessa välilehdessä",
+		"description": "Drag link to open in new tab"
+	},
+	"enableCustomGestures": {
+		"message": "Mukautetut eleet",
+		"description": "Enable custom gestures"
+	},
+	"enableCustomGesturesDesc": {
+		"message": "Näytä ja mukauta kunkin eleen toiminnot",
+		"description": "View and customize each gesture action"
+	},
+	"gestureAutoSaveHint": {
+		"message": "Vihje: Muutokset tallennetaan automaattisesti.",
+		"description": "Hint about auto-save"
+	},
+	"blacklist": {
+		"message": "Sivustojen musta lista",
+		"description": "Website blacklist"
+	},
+	"blacklistPlaceholder": {
+		"message": "Kirjoita verkkotunnus, esim. example.com, paina Enter lisätäksesi",
+		"description": "Blacklist input placeholder"
+	},
+	"add": {
+		"message": "Lisää",
+		"description": "Add button"
+	},
+	"emptyBlacklist": {
+		"message": "Ei mustalla listalla olevia sivustoja. Kirjoita verkkotunnus yllä lisätäksesi.",
+		"description": "Empty blacklist message"
+	},
+	"enableBlacklistContextMenu": {
+		"message": "Eleiden kytkin kontekstivalikossa",
+		"description": "Setting title for blacklist context menu toggle"
+	},
+	"enableBlacklistContextMenuDesc": {
+		"message": "Näytä vaihtoehto eleiden poistamiseksi/ottamiseksi käyttöön kontekstivalikossa",
+		"description": "Setting description for blacklist context menu toggle"
+	},
+	"menuAddToBlacklist": {
+		"message": "Poista eleet käytöstä tällä sivustolla",
+		"description": "Context menu title for adding current site to blacklist"
+	},
+	"menuRemoveFromBlacklist": {
+		"message": "Ota eleet käyttöön tällä sivustolla",
+		"description": "Context menu title for removing current site from blacklist"
+	},
+	"dataManagement": {
+		"message": "Tiedonhallinta",
+		"description": "Data management section"
+	},
+	"export": {
+		"message": "Vie",
+		"description": "Export settings"
+	},
+	"import": {
+		"message": "Tuo",
+		"description": "Import settings"
+	},
+	"reset": {
+		"message": "Palauta",
+		"description": "Reset to default"
+	},
+	"duplicate": {
+		"message": "Monista",
+		"description": "Generic duplicate button tooltip"
+	},
+	"delete": {
+		"message": "Poista",
+		"description": "Generic delete button tooltip"
+	},
+	"autoSaved": {
+		"message": "Automaattisesti tallennettu",
+		"description": "Auto-saved message"
+	},
+	"saveFailure": {
+		"message": "Tallennus epäonnistui",
+		"description": "Save failure message"
+	},
+	"resetConfirm": {
+		"message": "Oletko varma, että haluat palauttaa kaikki asetukset oletusarvoihin?",
+		"description": "Reset confirmation"
+	},
+	"resetDone": {
+		"message": "Asetukset palautettu oletusarvoihin",
+		"description": "Reset done message"
+	},
+	"exportDone": {
+		"message": "Asetukset viety",
+		"description": "Export done message"
+	},
+	"importDone": {
+		"message": "Asetukset tuotu",
+		"description": "Import done message"
+	},
+	"importConfirm": {
+		"message": "Tuonti korvaa nykyiset asetuksesi. Tuo asetustiedostoja vain luotettavista lähteistä.\n\nJatketaanko?",
+		"description": "Import confirmation warning"
+	},
+	"importFailed": {
+		"message": "Tuonti epäonnistui: Virheellinen asetustiedosto",
+		"description": "Import failed message"
+	},
+	"importFailedSyncError": {
+		"message": "Tuonti epäonnistui: Synkronointivirhe, tarkista selaimen tila",
+		"description": "Import failed sync error message"
+	},
+	"invalidDomain": {
+		"message": "Anna kelvollinen verkkotunnus",
+		"description": "Invalid domain message"
+	},
+	"domainExists": {
+		"message": "Verkkotunnus on jo mustalla listalla",
+		"description": "Domain already in blacklist"
+	},
+	"about": {
+		"message": "Tietoja",
+		"description": "About section"
+	},
+	"language": {
+		"message": "Kieli",
+		"description": "Language"
+	},
+	"languageAuto": {
+		"message": "Järjestelmän mukaan",
+		"description": "Follow system language"
+	},
+	"privacyFriendly": {
+		"message": "Yksityisyysystävällinen",
+		"description": "Privacy friendly"
+	},
+	"localOnly": {
+		"message": "Vain paikallinen",
+		"description": "Local only"
+	},
+	"autoSave": {
+		"message": "Automaattinen tallennus",
+		"description": "Auto save"
+	},
+	"gestureDesc_L": {
+		"message": "Vasen",
+		"description": "Gesture description for ←"
+	},
+	"gestureDesc_R": {
+		"message": "Oikea",
+		"description": "Gesture description for →"
+	},
+	"gestureDesc_U": {
+		"message": "Ylös",
+		"description": "Gesture description for ↑"
+	},
+	"gestureDesc_D": {
+		"message": "Alas",
+		"description": "Gesture description for ↓"
+	},
+	"gestureDesc_DR": {
+		"message": "Alas sitten oikealle",
+		"description": "Gesture description for ↓→"
+	},
+	"gestureDesc_LU": {
+		"message": "Vasen sitten ylös",
+		"description": "Gesture description for ←↑"
+	},
+	"gestureDesc_RU": {
+		"message": "Oikea sitten ylös",
+		"description": "Gesture description for →↑"
+	},
+	"gestureDesc_RD": {
+		"message": "Oikea sitten alas",
+		"description": "Gesture description for →↓"
+	},
+	"gestureDesc_UL": {
+		"message": "Ylös sitten vasemmalle",
+		"description": "Gesture description for ↑←"
+	},
+	"gestureDesc_UR": {
+		"message": "Ylös sitten oikealle",
+		"description": "Gesture description for ↑→"
+	},
+	"gestureDesc_DL": {
+		"message": "Alas sitten vasemmalle",
+		"description": "Gesture description for ↓←"
+	},
+	"gestureDesc_LD": {
+		"message": "Vasen sitten alas",
+		"description": "Gesture description for ←↓"
+	},
+	"gestureDesc_UD": {
+		"message": "Ylös sitten alas",
+		"description": "Gesture description for ↑↓"
+	},
+	"gestureDesc_DU": {
+		"message": "Alas sitten ylös",
+		"description": "Gesture description for ↓↑"
+	},
+	"gestureDesc_LR": {
+		"message": "Vasen sitten oikealle",
+		"description": "Gesture description for ←→"
+	},
+	"gestureDesc_RL": {
+		"message": "Oikea sitten vasemmalle",
+		"description": "Gesture description for →←"
+	},
+	"actionNone": {
+		"message": "Ei mitään",
+		"description": "No action"
+	},
+	"actionBack": {
+		"message": "Siirry takaisin",
+		"description": "Go back"
+	},
+	"actionForward": {
+		"message": "Siirry eteenpäin",
+		"description": "Go forward"
+	},
+	"actionUrlLevelUp": {
+		"message": "Siirry taso ylöspäin URL-osoitteessa",
+		"description": "Navigate to the parent directory of the current URL"
+	},
+	"actionUrlToRoot": {
+		"message": "Siirry juuri-URL-osoitteeseen",
+		"description": "Navigate to the root of the current site"
+	},
+	"actionScrollUp": {
+		"message": "Vieritä ylös",
+		"description": "Scroll up"
+	},
+	"actionScrollDown": {
+		"message": "Vieritä alas",
+		"description": "Scroll down"
+	},
+	"actionScrollLeft": {
+		"message": "Vieritä vasemmalle",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "Vieritä oikealle",
+		"description": "Scroll right"
+	},
+	"actionScrollToTop": {
+		"message": "Vieritä alkuun",
+		"description": "Scroll to top"
+	},
+	"actionScrollToBottom": {
+		"message": "Vieritä loppuun",
+		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "Vieritä vasempaan reunaan",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "Vieritä oikeaan reunaan",
+		"description": "Scroll to the rightmost position"
+	},
+	"actionCloseTab": {
+		"message": "Sulje välilehti",
+		"description": "Close tab"
+	},
+	"closeTabKeepWindow": {
+		"message": "Jos tämä on viimeinen välilehti, pidä ikkuna auki",
+		"description": "Checkbox label for closeTab action config"
+	},
+	"closeTabAfterClose": {
+		"message": "Sulkemisen jälkeen",
+		"description": "Label for closeTab afterClose config"
+	},
+	"closeTabAfterCloseDefault": {
+		"message": "Selaimen oletus",
+		"description": "Option for closeTab afterClose config - let browser decide"
+	},
+	"closeTabAfterCloseLeft": {
+		"message": "Vaihda vasempaan välilehteen",
+		"description": "Option for closeTab afterClose config - switch to left tab"
+	},
+	"closeTabAfterCloseRight": {
+		"message": "Vaihda oikeaan välilehteen",
+		"description": "Option for closeTab afterClose config - switch to right tab"
+	},
+	"switchTabNoWrap": {
+		"message": "Ei syklistä vaihtoa",
+		"description": "Checkbox label for switchLeftTab/switchRightTab action config"
+	},
+	"switchTabMoveTab": {
+		"message": "Siirrä nykyistä välilehteä",
+		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
+	},
+	"refreshHardReload": {
+		"message": "Kova uudelleenlataus (ohita välimuisti)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
+	"actionCloseBrowser": {
+		"message": "Sulje selain",
+		"description": "Close browser"
+	},
+	"actionCloseWindow": {
+		"message": "Sulje ikkuna",
+		"description": "Close current window"
+	},
+	"actionRestoreTab": {
+		"message": "Palauta suljettu välilehti",
+		"description": "Restore closed tab"
+	},
+	"actionNewTab": {
+		"message": "Uusi välilehti",
+		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "Älä sulje kiinnitettyjä välilehtiä",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
+	},
+	"closeTabsPreserveTab": {
+		"message": "Säilytä välilehdet (poista sivun sisältö muistista)",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
+	"actionCloseOtherTabs": {
+		"message": "Sulje muut välilehdet",
+		"description": "Close other tabs"
+	},
+	"actionCloseLeftTabs": {
+		"message": "Sulje välilehdet vasemmalta",
+		"description": "Close tabs to the left"
+	},
+	"actionCloseRightTabs": {
+		"message": "Sulje välilehdet oikealta",
+		"description": "Close tabs to the right"
+	},
+	"actionCloseAllTabs": {
+		"message": "Sulje kaikki välilehdet",
+		"description": "Close all tabs"
+	},
+	"actionSwitchLeftTab": {
+		"message": "Vaihda vasempaan välilehteen",
+		"description": "Switch to left tab"
+	},
+	"actionSwitchRightTab": {
+		"message": "Vaihda oikeaan välilehteen",
+		"description": "Switch to right tab"
+	},
+	"actionSwitchFirstTab": {
+		"message": "Vaihda ensimmäiseen välilehteen",
+		"description": "Switch to first tab"
+	},
+	"actionSwitchLastTab": {
+		"message": "Vaihda viimeiseen välilehteen",
+		"description": "Switch to last tab"
+	},
+	"actionSwitchLastActiveTab": {
+		"message": "Siirry viimeksi aktiiviseen välilehteen",
+		"description": "Switch to the most recently active tab"
+	},
+	"actionRefresh": {
+		"message": "Päivitä nykyinen välilehti",
+		"description": "Refresh current tab"
+	},
+	"actionRefreshAllTabs": {
+		"message": "Päivitä kaikki välilehdet",
+		"description": "Refresh all tabs"
+	},
+	"actionStopLoading": {
+		"message": "Pysäytä lataus",
+		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "Pysäytä kaikkien välilehtien lataus",
+		"description": "Stop loading all tabs in the current window"
+	},
+	"actionNewWindow": {
+		"message": "Uusi ikkuna",
+		"description": "New window"
+	},
+	"actionNewIncognito": {
+		"message": "Uusi incognito-ikkuna",
+		"description": "New incognito window"
+	},
+	"actionAddToBookmarks": {
+		"message": "Lisää kirjanmerkkeihin",
+		"description": "Add to bookmarks"
+	},
+	"actionToggleFullscreen": {
+		"message": "Vaihda koko näyttöön",
+		"description": "Toggle fullscreen"
+	},
+	"actionToggleMaximize": {
+		"message": "Vaihda maksimointi/palautus",
+		"description": "Toggle window maximize"
+	},
+	"actionMinimize": {
+		"message": "Pienennä ikkuna",
+		"description": "Minimize window"
+	},
+	"actionOpenCustomUrl": {
+		"message": "Avaa mukautettu URL",
+		"description": "Open custom URL"
+	},
+	"actionCopyUrl": {
+		"message": "Kopioi nykyinen URL",
+		"description": "Copy current URL"
+	},
+	"actionCopyTitle": {
+		"message": "Kopioi sivun otsikko",
+		"description": "Copy page title"
+	},
+	"actionCopyTitleAndUrl": {
+		"message": "Kopioi sivun otsikko ja URL",
+		"description": "Copy page title and URL"
+	},
+	"actionOpenDownloads": {
+		"message": "Avaa lataukset",
+		"description": "Open downloads page"
+	},
+	"actionOpenHistory": {
+		"message": "Avaa historia",
+		"description": "Open history page"
+	},
+	"actionOpenExtensions": {
+		"message": "Avaa laajennukset",
+		"description": "Open extensions page"
+	},
+	"actionSaveAsMhtml": {
+		"message": "Tallenna MHTML-muodossa",
+		"description": "Save current page as MHTML file"
+	},
+	"actionPrintPage": {
+		"message": "Tulosta sivu",
+		"description": "Print page"
+	},
+	"actionDuplicateTab": {
+		"message": "Monista välilehti",
+		"description": "Duplicate current tab"
+	},
+	"actionToggleMuteTab": {
+		"message": "Mykistä/poista mykistys (nykyinen)",
+		"description": "Toggle mute current tab"
+	},
+	"actionToggleMuteAllTabs": {
+		"message": "Mykistä/poista mykistys (kaikki)",
+		"description": "Toggle mute all tabs"
+	},
+	"actionTogglePinTab": {
+		"message": "Kiinnitä/irrota (nykyinen)",
+		"description": "Toggle pin current tab"
+	},
+	"actionMoveTabToNewWindow": {
+		"message": "Siirrä välilehti uuteen ikkunaan",
+		"description": "Move current tab to a new window"
+	},
+	"actionSearchClipboard": {
+		"message": "Hae leikepöydältä",
+		"description": "Search clipboard text using a search engine"
+	},
+	"showTrailOrigin": {
+		"message": "Näytä aloituspiste",
+		"description": "Show trail origin point"
+	},
+	"enableTrailSmooth": {
+		"message": "Jäljen tasoitus",
+		"description": "Enable trail smoothing for gesture visualization"
+	},
+	"distanceThreshold": {
+		"message": "Eleentunnistusetäisyys",
+		"description": "Gesture recognition distance"
+	},
+	"distanceThresholdDesc": {
+		"message": "Vähimmäisliike-etäisyys eleen ja raahauksen tunnistamiseksi",
+		"description": "Description for gesture recognition distance"
+	},
+	"distanceThresholdNotice": {
+		"message": "Vinkki: Arvo välillä 15-30 on suositeltava parhaan tunnistuksen saavuttamiseksi.",
+		"description": "Warning when distance threshold is too small or too large"
+	},
+	"gestureTurnTolerance": {
+		"message": "Eleiden käännöstoleranssi",
+		"description": "Turn tolerance for detecting direction changes in long gestures"
+	},
+	"gestureTurnToleranceDesc": {
+		"message": "Suuremmat arvot vähentävät tahattomia käännöksiä, mutta vaativat pidempiä liikkeitä suunnan muuttamiseksi",
+		"description": "Description for gesture turn tolerance setting"
+	},
+	"advanced": {
+		"message": "Näytä lisäasetukset",
+		"description": "Short label for per-section advanced toggle"
+	},
+	"otherSettings": {
+		"message": "Muut asetukset",
+		"description": "Section title for other/miscellaneous settings"
+	},
+	"styleSettings": {
+		"message": "Ulkoasu",
+		"description": "Section title for style/appearance settings (trail, HUD, etc.)"
+	},
+	"show": {
+		"message": "Näytä",
+		"description": "Show navigation menu"
+	},
+	"hide": {
+		"message": "Piilota",
+		"description": "Hide navigation menu"
+	},
+	"urlFormatError": {
+		"message": "Anna koko URL-osoite, joka alkaa http:// tai https://",
+		"description": "URL format error message"
+	},
+	"resetToDefault": {
+		"message": "Palauta oletusarvoon",
+		"description": "Reset gesture to default action"
+	},
+	"resetToDefaultConfirm": {
+		"message": "Palautetaanko nämä asetukset oletusarvoihin?",
+		"description": "Confirmation dialog for resetting settings"
+	},
+	"addCustomGesture": {
+		"message": "Lisää mukautettu ele",
+		"description": "Add custom gesture section title"
+	},
+	"clear": {
+		"message": "Tyhjennä",
+		"description": "Clear button"
+	},
+	"gestureAdded": {
+		"message": "Ele lisätty",
+		"description": "Gesture added success message"
+	},
+	"gestureRecorderTitle": {
+		"message": "Piirrä ele",
+		"description": "Gesture recorder full-screen title"
+	},
+	"gestureRecorderDesc": {
+		"message": "Pidä %button% painettuna ja piirrä elekuvio",
+		"description": "Gesture recorder instruction, %button% is replaced with the mouse button name"
+	},
+	"gestureRecorderEsc": {
+		"message": "Peruuta",
+		"description": "Gesture recorder cancel button label"
+	},
+	"gestureRecorderRecording": {
+		"message": "Tallennetaan…",
+		"description": "Gesture recorder recording indicator"
+	},
+	"gestureRecorderResult": {
+		"message": "Tallennettu ele",
+		"description": "Gesture recorder result label"
+	},
+	"gestureRecorderConfirm": {
+		"message": "Vahvista",
+		"description": "Gesture recorder confirm button"
+	},
+	"gestureRecorderRedraw": {
+		"message": "Piirrä uudelleen",
+		"description": "Gesture recorder redraw button"
+	},
+	"gestureRecorderBanned": {
+		"message": "Ele %pattern% on jo olemassa",
+		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"rightButton": {
+		"message": "Hiiren oikea painike",
+		"description": "Right mouse button name"
+	},
+	"leftButton": {
+		"message": "Hiiren vasen painike",
+		"description": "Left mouse button name"
+	},
+	"customGesture": {
+		"message": "Mukautettu",
+		"description": "Label for custom gestures"
+	},
+	"deleteGesture": {
+		"message": "Poista ele",
+		"description": "Delete gesture button tooltip"
+	},
+	"deleteGestureConfirm": {
+		"message": "Poistetaanko ele %pattern%?",
+		"description": "Delete gesture confirmation"
+	},
+	"gestureDeleted": {
+		"message": "Ele poistettu",
+		"description": "Gesture deleted success message"
+	},
+	"enterCustomUrl": {
+		"message": "URL",
+		"description": "Prompt for custom URL input"
+	},
+	"copyAsMarkdown": {
+		"message": "Kopioi Markdownina",
+		"description": "Checkbox label for copying as markdown format"
+	},
+	"invalidUrl": {
+		"message": "Anna kelvollinen URL (joka alkaa http:// tai https://)",
+		"description": "Invalid URL error message"
+	},
+	"popupTrail": {
+		"message": "Elejälki",
+		"description": "Gesture trail in popup"
+	},
+	"popupHint": {
+		"message": "Toimintovihje",
+		"description": "Action hint in popup"
+	},
+	"popupCommonGestures": {
+		"message": "Yleiset eleet",
+		"description": "Common gestures"
+	},
+	"popupCurrentSite": {
+		"message": "Nykyinen sivusto",
+		"description": "Current site"
+	},
+	"popupRestricted": {
+		"message": "Rajoitettu sivu",
+		"description": "Restricted page"
+	},
+	"popupDisabled": {
+		"message": "Ei käytössä",
+		"description": "Disabled"
+	},
+	"popupAddBlacklist": {
+		"message": "Lisää mustalle listalle",
+		"description": "Add to blacklist"
+	},
+	"popupRemoveBlacklist": {
+		"message": "Poista mustalta listalta",
+		"description": "Remove from blacklist"
+	},
+	"popupNotAvailable": {
+		"message": "Ei saatavilla",
+		"description": "Not available"
+	},
+	"popupBack": {
+		"message": "Takaisin",
+		"description": "Back - short"
+	},
+	"popupForward": {
+		"message": "Eteen",
+		"description": "Forward - short"
+	},
+	"popupScrollUp": {
+		"message": "Ylös",
+		"description": "Scroll up - short"
+	},
+	"popupScrollDown": {
+		"message": "Alas",
+		"description": "Scroll down - short"
+	},
+	"popupClose": {
+		"message": "Sulje",
+		"description": "Close Tab - short"
+	},
+	"popupRestore": {
+		"message": "Palauta",
+		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "Vasen välilehti",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "Oikea välilehti",
+		"description": "Switch Right Tab - short"
+	},
+	"dragSearchText": {
+		"message": "🔍 Raahaushaku",
+		"description": "Drag search hint"
+	},
+	"dragOpenImage": {
+		"message": "🖼️ Avaa kuva",
+		"description": "Drag open image hint"
+	},
+	"dragOpenLink": {
+		"message": "🔗 Avaa linkki",
+		"description": "Drag open link hint"
+	},
+	"aboutTitle": {
+		"message": "Tietoja FlowMousesta",
+		"description": "About title"
+	},
+	"aboutTitleShort": {
+		"message": "Tietoja",
+		"description": "Short About title "
+	},
+	"aboutAuthor": {
+		"message": "Tekijä",
+		"description": "Author"
+	},
+	"aboutWebsite": {
+		"message": "Verkkosivusto",
+		"description": "Website"
+	},
+	"aboutOpenSource": {
+		"message": "GitHub",
+		"description": "GitHub link"
+	},
+	"aboutEmail": {
+		"message": "Sähköposti",
+		"description": "Email"
+	},
+	"aboutPrivacy": {
+		"message": "Tietosuojaseloste",
+		"description": "Privacy statement"
+	},
+	"aboutPrivacyText": {
+		"message": "Tämä laajennus on avoimen lähdekoodin projekti, jonka koodi sijaitsee GitHubissa. Osallistuminen ja koodin tarkistus ovat tervetulleita. Kaikki tietojenkäsittely tapahtuu paikallisesti laitteellasi. Laajennus itsessään ei muodosta verkkoyhteyksiä eikä sillä ole taustapalvelimia, joten se ei kerää tai lähetä käyttäjätietoja ulkoisille palvelimille. Tallennetut asetuksesi on salattu ja synkronoitu kirjautuneiden laitteiden välillä %browserName%-selaimen sisäänrakennetun synkronointipalvelun kautta. Tätä prosessia hallitsee täysin selain ja se noudattaa selaimesi yksityisyys- ja synkronointiasetuksia.",
+		"description": "Privacy statement text"
+	},
+	"aboutCredits": {
+		"message": "Kiitokset",
+		"description": "Credits"
+	},
+	"aboutCreditsText": {
+		"message": "Kiitos Microsoft Edge -selaimelle ja crxMouse-laajennukselle suunnitteluinspiraatiosta.\nKiitos 52pojie.cn-yhteisölle ja käyttäjille palautteesta ja ehdotuksista!",
+		"description": "Credits text"
+	},
+	"aboutFeatures": {
+		"message": "Ominaisuudet",
+		"description": "Features"
+	},
+	"aboutFeature1": {
+		"message": "16 oletuselettä + mukautetut eleet",
+		"description": "Feature 1"
+	},
+	"aboutFeature2": {
+		"message": "Visuaalinen jälkipalaute",
+		"description": "Feature 2"
+	},
+	"aboutFeature3": {
+		"message": "Tekstin/kuvan/linkin Super Drag",
+		"description": "Feature 3"
+	},
+	"aboutFeature4": {
+		"message": "Sivustojen musta lista",
+		"description": "Feature 4"
+	},
+	"aboutFeature5": {
+		"message": "%browserName%-tilin synkronointi",
+		"description": "Feature 5"
+	},
+	"aboutFeature6": {
+		"message": "Toimii paikallisesti, ei verkkoa paitsi synkronointi",
+		"description": "Feature 6"
+	},
+	"tutorial": {
+		"message": "Käyttöopas",
+		"description": "Tutorial link"
+	},
+	"learnMore": {
+		"message": "Lue lisää",
+		"description": "Learn more link"
+	},
+	"badgeNoNetwork": {
+		"message": "Ei verkkoa paitsi synkronointi",
+		"description": "No network privacy badge"
+	},
+	"badgeNoData": {
+		"message": "Ei tiedonkeruuta",
+		"description": "No data collection badge"
+	},
+	"badgeLocalRun": {
+		"message": "Toimii paikallisesti",
+		"description": "Local run badge"
+	},
+	"newTabSettings": {
+		"message": "Uuden välilehden asetukset",
+		"description": "New tab open settings"
+	},
+	"newTabPosition": {
+		"message": "Sijainti",
+		"description": "New tab position"
+	},
+	"tabPositionRight": {
+		"message": "Nykyisen välilehden oikealla",
+		"description": "Right of current tab"
+	},
+	"tabPositionLeft": {
+		"message": "Nykyisen välilehden vasemmalla",
+		"description": "Left of current tab"
+	},
+	"tabPositionFirst": {
+		"message": "Ensimmäinen välilehti (vasemmanpuoleisin)",
+		"description": "First tab (leftmost)"
+	},
+	"tabPositionLast": {
+		"message": "Viimeinen välilehti (oikeanpuoleisin)",
+		"description": "Last tab (rightmost)"
+	},
+	"tabPositionCurrent": {
+		"message": "Nykyinen välilehti",
+		"description": "Open in current tab"
+	},
+	"tabPositionNewWindow": {
+		"message": "Uusi ikkuna",
+		"description": "Open in a new browser window"
+	},
+	"newTabActive": {
+		"message": "Avaa etualalla",
+		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "Avaa etualalla",
+		"description": "Open window in foreground"
+	},
+	"openInIncognito": {
+		"message": "Incognito",
+		"description": "Open in incognito checkbox"
+	},
+	"textDragGestures": {
+		"message": "Tekstin raahauseleet",
+		"description": "Text drag gestures"
+	},
+	"linkDragGestures": {
+		"message": "Linkin raahauseleet",
+		"description": "Link drag gestures"
+	},
+	"imageDragGestures": {
+		"message": "Kuvan raahauseleet",
+		"description": "Image drag gestures"
+	},
+	"direction": {
+		"message": "Suunta",
+		"description": "Direction column header"
+	},
+	"action": {
+		"message": "Komento",
+		"description": "Action column header"
+	},
+	"imageSearchUrl": {
+		"message": "Kuvan haku-URL (%s = kuvan URL)",
+		"description": "Image search URL input"
+	},
+	"dragActionNone": {
+		"message": "Ei mitään",
+		"description": "No action"
+	},
+	"dragActionSearch": {
+		"message": "🔍 Hakukone",
+		"description": "Search action"
+	},
+	"dragActionCopy": {
+		"message": "📋 Kopioi",
+		"description": "Copy action"
+	},
+	"dragActionOpenTab": {
+		"message": "📑 Avaa uudessa välilehdessä",
+		"description": "Open in new tab"
+	},
+	"dragActionOpenTabLink": {
+		"message": "🔗 Avaa linkki",
+		"description": "Open link in new tab"
+	},
+	"dragActionOpenTabImage": {
+		"message": "🖼️ Avaa kuva",
+		"description": "Open image in new tab"
+	},
+	"dragActionCopyLink": {
+		"message": "📋 Kopioi linkki",
+		"description": "Copy link"
+	},
+	"dragActionCopyLinkText": {
+		"message": "📋 Kopioi linkin teksti",
+		"description": "Copy link text"
+	},
+	"dragActionCopyLinkAndText": {
+		"message": "📋 Kopioi teksti ja linkki",
+		"description": "Copy link text and URL"
+	},
+	"dragActionSaveImage": {
+		"message": "💾 Tallenna kuva",
+		"description": "Save image"
+	},
+	"dragActionCopyImage": {
+		"message": "🖼️ Kopioi kuva",
+		"description": "Copy image"
+	},
+	"dragActionCopyImageUrl": {
+		"message": "📋 Kopioi kuvan URL",
+		"description": "Copy image URL"
+	},
+	"dragActionImageSearch": {
+		"message": "🔍 Kuvahaku",
+		"description": "Image search"
+	},
+	"dragActionCustomSearch": {
+		"message": "🔍 Mukautettu haku",
+		"description": "Custom search"
+	},
+	"dragActionSendCustomEvent": {
+		"message": "Lähetä mukautettu tapahtuma",
+		"description": "Send custom DOM event on drag gesture"
+	},
+	"reducedMotionWarning": {
+		"message": "%OS%-järjestelmän animaatiot on poistettu käytöstä, vieritysanimaatio ei ehkä toimi oikein. Voit ottaa animaatiot käyttöön %OS%:n järjestelmäasetuksista.",
+		"description": "Warning message when system reduced motion is enabled"
+	},
+	"autoDetectUrl": {
+		"message": "Tunnista URL automaattisesti",
+		"description": "Auto detect URL checkbox label"
+	},
+	"autoDetectUrlTooltip": {
+		"message": "Jos teksti on linkkimuotoinen, avaa se suoraan etsimisen sijaan",
+		"description": "Tooltip for the auto detect URL checkbox"
+	},
+	"preferLink": {
+		"message": "Suosi linkkiä",
+		"description": "Prefer link checkbox label"
+	},
+	"customHudName": {
+		"message": "Nimi",
+		"description": "Placeholder for custom action name shown on HUD"
+	},
+	"customHudNameTooltip": {
+		"message": "Mukautettu nimi, joka näkyy näytöllä eleen suorittamisen aikana",
+		"description": "Tooltip for the custom HUD name field"
+	},
+	"actionNoOptions": {
+		"message": "Tämä komento ei vaadi asetuksia.",
+		"description": "Placeholder shown in the action picker's detail panel when the selected action has no configurable settings"
+	},
+	"actionRequiredBadge": {
+		"message": "Pakollinen",
+		"description": "Badge shown next to fields that must be filled in (e.g., URL for Open URL)"
+	},
+	"menuNeedRefresh": {
+		"message": "FlowMouse ei latautunut, päivitä napsauttamalla",
+		"description": "Context menu title for pages needing refresh"
+	},
+	"menuRestricted": {
+		"message": "FlowMouse ei käytettävissä, lue miksi",
+		"description": "Context menu title for restricted pages"
+	},
+	"showRestrictedNotice": {
+		"message": "Rajoitetun sivun ilmoitus",
+		"description": "Setting title for restricted page notice"
+	},
+	"showRestrictedNoticeDesc": {
+		"message": "Näytä kontekstivalikon ilmoitus sivuilla, joilla eleet eivät ole käytettävissä",
+		"description": "Setting description for restricted page notice"
+	},
+	"restrictedPagesDetailsTitle": {
+		"message": "Selaimen turvallisuuskäytäntöjen vuoksi laajennukset eivät voi toimia tietyntyyppisillä sivuilla.",
+		"description": "Collapsible details title"
+	},
+	"showMoreHint": {
+		"message": " (Näytä tiedot)",
+		"description": "Hint to show more details"
+	},
+	"restrictedNewTab": {
+		"message": "Uusi välilehti",
+		"description": "New tab page title"
+	},
+	"restrictedNewTabDesc": {
+		"message": "Selaimen oletusarvoinen uusi välilehti on suojattu järjestelmäsivu. Laajennukset eivät voi suorittaa komentosarjoja tai muokata sisältöä täällä.",
+		"description": "New tab page description"
+	},
+	"restrictedStore": {
+		"message": "Viralliset laajennuskaupat",
+		"description": "Store page title"
+	},
+	"restrictedStoreDesc": {
+		"message": "Esimerkiksi %storeInfo% jne. Selaimet estävät laajennusten toiminnan näillä sivuilla kaupan normaalin toiminnan suojaamiseksi.",
+		"description": "Store page description"
+	},
+	"restrictedInternal": {
+		"message": "Selaimen sisäiset sivut (%browserProtocol%)",
+		"description": "Internal page title"
+	},
+	"restrictedInternalDesc": {
+		"message": "Esimerkiksi %browserName%:n sisäiset asetukset, historia, lataukset, virhesivut jne. Nämä sivut liittyvät selaimen ydintoimintoihin ja käyttäjän yksityisyystietoihin, joten ne on suojattu tiukasti.",
+		"description": "Internal page description"
+	},
+	"restrictedFile": {
+		"message": "Paikalliset tiedostosivut (file://)",
+		"description": "File page title"
+	},
+	"restrictedFileDesc": {
+		"message": "Paikalliset html, pdf jne. tiedostot, jotka avataan file://-protokollalla. Turvallisuusrajoitusten vuoksi (pahantahtoisten laajennusten estämiseksi pääsemästä paikalliseen tiedostojärjestelmään) laajennukset eivät toimi näillä sivuilla.",
+		"description": "File page description"
+	},
+	"restrictedViewSource": {
+		"message": "Näytä lähdekoodisivut (view-source:)",
+		"description": "View source page title"
+	},
+	"restrictedViewSourceDesc": {
+		"message": "Selaimen lähdekoodin katseluohjelma on myös suojattu järjestelmäsivu. Laajennukset eivät voi toimia täällä.",
+		"description": "View source page description"
+	},
+	"restrictedOther": {
+		"message": "Muita harvinaisempia vaikutuksen alaisia sivuja ei ole lueteltu erikseen.",
+		"description": "Other restricted pages note"
+	},
+	"popupNeedRefresh": {
+		"message": "Laajennus ei latautunut",
+		"description": "Popup title when content script not loaded"
+	},
+	"popupNeedRefreshDesc": {
+		"message": "Tämä sivu avattiin ennen laajennuksen asentamista/päivittämistä. Päivitä ottaaksesi eleet käyttöön.",
+		"description": "Popup description when content script not loaded"
+	},
+	"popupRefreshBtn": {
+		"message": "Päivitä sivu",
+		"description": "Popup refresh button text"
+	},
+	"popupRestrictedTitle": {
+		"message": "Eleet eivät käytettävissä",
+		"description": "Popup title for restricted pages"
+	},
+	"popupRestrictedDesc": {
+		"message": "Tällä sivulla ei voi käyttää eleitä selaimen turvallisuusrajoitusten vuoksi.",
+		"description": "Popup description for restricted pages"
+	},
+	"popupLearnMore": {
+		"message": "Lue lisää",
+		"description": "Popup learn more button text"
+	},
+	"tutorialPending": {
+		"message": "Kokeile nyt",
+		"description": "Tutorial pending status"
+	},
+	"tutorialCompleted": {
+		"message": "Valmis",
+		"description": "Tutorial completed status"
+	},
+	"tutorialClickToStart": {
+		"message": "Napsauta <span class=\"text-highlight\">hiiren oikealla painikkeella</span> aloittaaksesi",
+		"description": "Tutorial Step 0 instruction"
+	},
+	"tutorialWelcomeTitle": {
+		"message": "Tervetuloa FlowMouseen",
+		"description": "Tutorial welcome title"
+	},
+	"tutorialWelcomeSubtitle": {
+		"message": "Opi perusteet 30 sekunnissa sujuvan ja intuitiivisen selailun varmistamiseksi",
+		"description": "Tutorial welcome subtitle"
+	},
+	"tutorialStep1Title": {
+		"message": "Perusteet",
+		"description": "Tutorial Step 1 title"
+	},
+	"tutorialStep1Subtitle": {
+		"message": "Opi elemekaniikan ydin",
+		"description": "Tutorial Step 1 subtitle"
+	},
+	"tutorialStep1InstructionIdle": {
+		"message": "Paina ja <strong>pidä</strong> <span class=\"text-highlight\">hiiren oikeaa painiketta</span>",
+		"description": "Tutorial Step 1 instruction idle"
+	},
+	"tutorialStep1InstructionPressing": {
+		"message": "<strong>Erinomaista!</strong> Vedä nyt <strong>%arrow% oikealle</strong>",
+		"description": "Tutorial Step 1 instruction pressing"
+	},
+	"tutorialStep1InstructionDragging": {
+		"message": "Jatka vetämistä...",
+		"description": "Tutorial Step 1 instruction dragging"
+	},
+	"tutorialStep1InstructionReleasing": {
+		"message": "<strong>Hienoa!</strong> Vapauta nyt!",
+		"description": "Tutorial Step 1 instruction releasing"
+	},
+	"tutorialStep2Title": {
+		"message": "FlowMouse-eleet",
+		"description": "Tutorial Step 2 title"
+	},
+	"tutorialStep2Subtitle": {
+		"message": "Pidä <span class=\"text-highlight\">hiiren oikeaa painiketta</span> painettuna suorittaaksesi eleitä",
+		"description": "Tutorial Step 2 subtitle"
+	},
+	"tutorialStep2Footer": {
+		"message": "<strong>Lisää eleitä</strong> ja <strong>täydellinen mukautus</strong> saatavilla asetuksissa.",
+		"description": "Footer note for step 2 discovery banner"
+	},
+	"tutorialStep2DiscoveryHeader": {
+		"message": "Lisää eleitä",
+		"description": "Header for step 2 discovery banner"
+	},
+	"tutorialStep3DiscoveryHeader": {
+		"message": "Lisää Super Drag -ominaisuuksia",
+		"description": "Header for step 3 discovery banner"
+	},
+	"tutorialStep3TextSearch": {
+		"message": "Teksti <span class=\"svg-arrow\">→</span> Haku",
+		"description": "Text drag search discovery item"
+	},
+	"tutorialStep3LinkOpen": {
+		"message": "Linkki <span class=\"svg-arrow\">→</span> Avaa uudessa välilehdessä",
+		"description": "Link drag open discovery item"
+	},
+	"tutorialStep3ImageOpen": {
+		"message": "Kuva <span class=\"svg-arrow\">→</span> Avaa uudessa välilehdessä",
+		"description": "Image drag open discovery item"
+	},
+	"tutorialStep3Footer": {
+		"message": "<strong>Lisää raahaustoimintoja</strong> ja <strong>täydellinen mukautus</strong> saatavilla lisäasetustilassa",
+		"description": "Footer for step 3 discovery banner"
+	},
+	"tutorialContinue": {
+		"message": "Jatka",
+		"description": "Tutorial continue button"
+	},
+	"tutorialStep3Title": {
+		"message": "Super Drag",
+		"description": "Tutorial Step 3 title"
+	},
+	"tutorialStep3Subtitle": {
+		"message": "Pidä <span class=\"text-highlight\">hiiren vasenta painiketta</span> ja vedä <span class=\"svg-arrow\">→</span> suorittaaksesi toimintoja nopeasti",
+		"description": "Tutorial Step 3 subtitle"
+	},
+	"tutorialStep3HintTitle": {
+		"message": "Tekstin valintahaku",
+		"description": "Tutorial Step 3 hint title"
+	},
+	"tutorialStep3HintDesc": {
+		"message": "Valitse teksti, ja vedä sitten <span class=\"text-highlight\">hiiren vasemmalla painikkeella</span> <span class=\"svg-arrow\">→</span> hakeaksesi",
+		"description": "Tutorial Step 3 hint description. Note: Must drag to right. Use SVG arrow instead of text for direction."
+	},
+	"tutorialStep3TextBoxLabel": {
+		"message": "Kokeile alla olevalla tekstillä!",
+		"description": "Tutorial Step 3 text box label"
+	},
+	"tutorialStep3SelectableText": {
+		"message": "FlowMouse Super Drag",
+		"description": "Tutorial Step 3 selectable text"
+	},
+	"tutorialStep4Title": {
+		"message": "Onnittelut!",
+		"description": "Tutorial Step 4 title"
+	},
+	"tutorialStep4Subtitle": {
+		"message": "Liikut nyt virran mukana.",
+		"description": "Tutorial Step 4 subtitle"
+	},
+	"tutorialStep4Instruction": {
+		"message": "Käytä <span class=\"text-highlight\">Super Dragia <span class=\"svg-arrow\">→</span></span> tässä linkissä avataksesi sen <span class=\"text-highlight\">uudessa välilehdessä</span>",
+		"description": "Tutorial Step 4 instruction. Note: Must drag to right. Use SVG arrow instead of text for direction."
+	},
+	"tutorialSettingsLink": {
+		"message": "FlowMouse-asetukset",
+		"description": "Tutorial settings link"
+	},
+	"tutorialSettingsHint": {
+		"message": "Paljon tehokkaita ominaisuuksia odottaa tutustumistasi!",
+		"description": "Tutorial settings hint"
+	},
+	"tutorialWrongDirection": {
+		"message": "Väärä suunta! Vedä %arrow% oikealle",
+		"description": "Tutorial wrong direction error"
+	},
+	"tutorialEarlyRelease": {
+		"message": "Vapautettu liian aikaisin! Jatka vetämistä.",
+		"description": "Tutorial early release error"
+	},
+	"tutorialDragWrongButton": {
+		"message": "Käytä <span class=\"text-highlight\">hiiren vasenta painiketta</span> vetämiseen",
+		"description": "Tutorial drag wrong button error"
+	},
+	"tutorialRefreshTip": {
+		"message": "Vihje: Välilehdet, jotka on avattu ennen asennusta, on <span class=\"text-highlight\">päivitettävä</span> FlowMousen käyttämiseksi",
+		"description": "Tip about refreshing tabs"
+	},
+	"permissionBookmarksTitle": {
+		"message": "Hallitse kirjanmerkkejä",
+		"description": "Permission popup title for bookmarks"
+	},
+	"permissionBookmarksDesc": {
+		"message": "Jotta sivuja voidaan lisätä kirjanmerkkeihin, FlowMouse tarvitsee pääsyn kirjanmerkkeihisi.",
+		"description": "Permission popup description for bookmarks"
+	},
+	"permissionDownloadsTitle": {
+		"message": "Hallitse latauksia",
+		"description": "Permission popup title for downloads"
+	},
+	"permissionDownloadsDesc": {
+		"message": "Kuvien tallentamiseksi FlowMouse tarvitsee pääsyn latauksiisi.",
+		"description": "Permission popup description for downloads"
+	},
+	"permissionDownloadsPageCaptureTitle": {
+		"message": "Tallenna sisältö",
+		"description": "Permission popup title for downloads and page capture"
+	},
+	"permissionDownloadsPageCaptureDesc": {
+		"message": "Sisällön tallentamiseksi FlowMouse tarvitsee pääsyn sivuihin ja latauksiin.",
+		"description": "Permission popup description for downloads and page capture"
+	},
+	"permissionIncognitoTitle": {
+		"message": "Salli incognito-tilassa",
+		"description": "Permission popup title for incognito"
+	},
+	"permissionIncognitoDesc": {
+		"message": "Toimiaksesi incognito-ikkunoissa, sinun on otettava manuaalisesti käyttöön \"Salli incognito-tilassa\" FlowMouse-laajennukselle.",
+		"description": "Permission popup description for incognito"
+	},
+	"permissionClipboardReadTitle": {
+		"message": "Lue leikepöytä",
+		"description": "Permission popup title for clipboard read"
+	},
+	"permissionClipboardReadDesc": {
+		"message": "Jos haluat liittää leikepöydän sisällön, FlowMouse tarvitsee oikeuden lukea leikepöytääsi.",
+		"description": "Permission popup description for clipboard read"
+	},
+	"openExtensionsSettings": {
+		"message": "Avaa laajennuksen tiedot",
+		"description": "Button to open extension details page"
+	},
+	"permissionFirefoxIncognitoTitle": {
+		"message": "Suorita yksityisissä ikkunoissa",
+		"description": "Permission popup title for Firefox private browsing"
+	},
+	"permissionFirefoxIncognitoDesc": {
+		"message": "Toimiaksesi yksityisissä ikkunoissa sinun on otettava manuaalisesti käyttöön \"Suorita yksityisissä ikkunoissa\" FlowMouse-laajennukselle Lisäosien hallinnassa.",
+		"description": "Permission popup description for Firefox private browsing"
+	},
+	"grantPermission": {
+		"message": "Myönnä lupa",
+		"description": "Grant permission button"
+	},
+	"grantPermissionCancel": {
+		"message": "Peruuta",
+		"description": "Cancel button"
+	},
+	"permissionTitle": {
+		"message": "FlowMouse-lupa",
+		"description": "Generic permission window title"
+	},
+	"tutorialPinHint": {
+		"message": "Napsauta<span class='icon-ext'></span><b>Laajennukset</b> ja<span class='icon-pin'></span><b>Kiinnitä</b> FlowMouse helpottaaksesi käyttöä!",
+		"description": "Hint to pin the extension in tutorial step 4. Do not add space around icon."
+	},
+	"downloadErrorHotlink": {
+		"message": "Kuvan tallentaminen epäonnistui. Sivustolla saattaa olla suoralinkityksen esto (hotlink). Napsauta kuvaa hiiren kakkospainikkeella ja valitse ”Tallenna kuva nimellä...”",
+		"description": "Toast message when image download fails due to hotlink protection"
+	},
+	"saveImageLoadError": {
+		"message": "Kuvan tallennus epäonnistui: Kuvan lataus epäonnistui",
+		"description": "Toast message when image fails to load before saving"
+	},
+	"saveImageTimeout": {
+		"message": "Kuvan tallennus epäonnistui: Latauksen aikakatkaisu",
+		"description": "Toast message when image loading times out"
+	},
+	"buttonOkay": {
+		"message": "OK",
+		"description": "Generic OK button"
+	},
+	"buttonConfirm": {
+		"message": "Vahvista",
+		"description": "Generic Confirm button"
+	},
+	"buttonCancel": {
+		"message": "Peruuta",
+		"description": "Generic Cancel button"
+	},
+	"buttonClose": {
+		"message": "Sulje",
+		"description": "Generic Close button"
+	},
+	"searchActions": {
+		"message": "Etsi komentoja...",
+		"description": "Placeholder for action search input in action picker"
+	},
+	"actionCategoryNavigation": {
+		"message": "Navigointi",
+		"description": "Action category: navigation"
+	},
+	"actionCategoryTabs": {
+		"message": "Välilehdet",
+		"description": "Action category: tabs"
+	},
+	"actionCategoryWindow": {
+		"message": "Ikkuna",
+		"description": "Action category: window"
+	},
+	"actionCategoryUtilities": {
+		"message": "Työkalut",
+		"description": "Action category: utilities"
+	},
+	"noResults": {
+		"message": "Ei tuloksia",
+		"description": "No search results found"
+	},
+	"wheelGestures": {
+		"message": "Hiiren rullan eleet",
+		"description": "Mouse wheel gestures section title"
+	},
+	"enableWheelGestures": {
+		"message": "Ota hiiren rullan eleet käyttöön",
+		"description": "Enable mouse wheel gestures"
+	},
+	"enableWheelGesturesDesc": {
+		"message": "Suorita eri toimintoja nopeasti hiiren rullalla",
+		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelGesture_scrollUpHoldingRight": {
+		"message": "Vieritä ylös pitämällä oikeata painiketta painettuna",
+		"description": "Wheel gesture: scroll up while holding right button"
+	},
+	"wheelGesture_scrollDownHoldingRight": {
+		"message": "Vieritä alas pitämällä oikeata painiketta painettuna",
+		"description": "Wheel gesture: scroll down while holding right button"
+	},
+	"wheelGesture_wheelClickHoldingRight": {
+		"message": "Napsauta keskipainiketta pitämällä oikeata painiketta painettuna",
+		"description": "Wheel gesture: wheel (middle) click while holding right button"
+	},
+	"specialGestures": {
+		"message": "Erikoiseleet",
+		"description": "Special gestures section title"
+	},
+	"enableSpecialGestures": {
+		"message": "Ota erikoiseleet käyttöön",
+		"description": "Enable special gestures"
+	},
+	"enableSpecialGesturesDesc": {
+		"message": "Suorita toimintoja napsauttamalla toista hiiren painiketta samalla kun pidät toista painettuna",
+		"description": "Enable special gestures description"
+	},
+	"specialGesture_leftClickHoldingRight": {
+		"message": "Vasen napsautus pitäen oikeaa painiketta painettuna",
+		"description": "Special gesture: left click while holding right button"
+	},
+	"specialGesture_rightClickHoldingLeft": {
+		"message": "Oikea napsautus pitäen vasenta painiketta painettuna",
+		"description": "Special gesture: right click while holding left button"
+	},
+	"actionChainsDesc": {
+		"message": "Käytä komentoketjuja suorittaaksesi useita komentoja peräkkäin.",
+		"description": "Action chains section description"
+	},
+	"actionActionChain": {
+		"message": "Komentoketju",
+		"description": "Action chain action name"
+	},
+	"actionCustomMenu": {
+		"message": "Mukautettu valikko",
+		"description": "Custom popup menu action name"
+	},
+	"customMenuDesc": {
+		"message": "Luo mukautettuja ponnahdusvalikkoja, joissa on useita toimintoja.",
+		"description": "Custom menu section description"
+	},
+	"addMenu": {
+		"message": "Lisää valikko",
+		"description": "Add menu button"
+	},
+	"menuNamePlaceholder": {
+		"message": "Mukautettu valikko",
+		"description": "Menu name input placeholder"
+	},
+	"menuItemCount": {
+		"message": "%count% kohdetta",
+		"description": "Item count for menus, e.g. '3 items'"
+	},
+	"menuItemCountOne": {
+		"message": "%count% kohde",
+		"description": "Item count for menus with exactly 1 item"
+	},
+	"addMenuItem": {
+		"message": "Lisää kohde",
+		"description": "Add menu item button"
+	},
+	"addMenuSeparator": {
+		"message": "Lisää erotin",
+		"description": "Add separator to menu button"
+	},
+	"emptyMenuItems": {
+		"message": "Kohteita ei ole lisätty. Aloita napsauttamalla \"Lisää kohde\".",
+		"description": "Empty menu items message"
+	},
+	"menuNotFound": {
+		"message": "(Valikkoa ei löytynyt)",
+		"description": "Menu not found label"
+	},
+	"deleteMenuConfirm": {
+		"message": "Poistetaanko valikko \"%name%\"?",
+		"description": "Delete menu confirmation"
+	},
+	"menuItemNumber": {
+		"message": "Kohde %n%",
+		"description": "Menu item number label"
+	},
+	"addChain": {
+		"message": "Lisää ketju",
+		"description": "Add chain button"
+	},
+	"chainNamePlaceholder": {
+		"message": "Komentoketju",
+		"description": "Chain name input placeholder"
+	},
+	"chainDelayUnit": {
+		"message": "ms",
+		"description": "Milliseconds unit for chain delay"
+	},
+	"addStep": {
+		"message": "Lisää vaihe",
+		"description": "Add step button"
+	},
+	"emptyChainSteps": {
+		"message": "Vaiheita ei ole lisätty. Aloita napsauttamalla \"Lisää vaihe\".",
+		"description": "Empty chain steps message in expanded body"
+	},
+	"emptyChainStepsShort": {
+		"message": "Ei lisättyjä vaiheita",
+		"description": "Short empty chain steps message for summary"
+	},
+	"noChains": {
+		"message": "Ei vielä komentoketjuja. Luo sellainen napsauttamalla \"Lisää ketju\".",
+		"description": "No chains message"
+	},
+	"chainNotFound": {
+		"message": "(Ketjua ei löytynyt)",
+		"description": "Chain not found label"
+	},
+	"deleteChainConfirm": {
+		"message": "Poistetaanko ketju \"%name%\"?",
+		"description": "Delete chain confirmation"
+	},
+	"stepNumber": {
+		"message": "Vaihe %n%",
+		"description": "Step number label"
+	},
+	"actionDelay": {
+		"message": "Viive",
+		"description": "Delay action name for chain steps"
+	},
+	"actionSendCustomEvent": {
+		"message": "Lähetä mukautettu tapahtuma",
+		"description": "Action to dispatch a custom DOM event"
+	},
+	"actionSendExtensionMessage": {
+		"message": "Kutsu toista laajennusta",
+		"description": "Action to send a custom message to another installed extension"
+	},
+	"actionSimulateKey": {
+		"message": "Simuloi näppäimen painallusta",
+		"description": "Action to simulate a keyboard key press on the page"
+	},
+	"actionPasteClipboard": {
+		"message": "Liitä leikepöydältä",
+		"description": "Action to paste clipboard text at the gesture start position"
+	},
+	"pasteClipboardHint": {
+		"message": "Leikepöydän sisältö liitetään syöttökenttään <b>eleen aloituskohtaan</b>.",
+		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
+	"actionPasteContent": {
+		"message": "Liitä mukautettu teksti",
+		"description": "Action to paste a preset, user-specified text at the gesture start position"
+	},
+	"pasteContentLabel": {
+		"message": "Teksti",
+		"description": "Label for the text field where the user enters the content to paste"
+	},
+	"pasteContentHint": {
+		"message": "Määritetty teksti lisätään syöttökenttään <b>eleen aloituskohtaan</b>.",
+		"description": "Hint shown in action config when paste specified content is selected. Contains HTML."
+	},
+	"pasteContentSensitiveHint": {
+		"message": "Ei ole suositeltavaa tallentaa arkaluonteisia tietoja, kuten salasanoja, tänne.",
+		"description": "Warning hint below the content field for the paste specified content action"
+	},
+	"simulateKeyPreset": {
+		"message": "Esiasetettu näppäin",
+		"description": "Label for preset key dropdown in simulate key config"
+	},
+	"simulateKeyPresetLeft": {
+		"message": "← Vasen nuoli (Edellinen sivu)",
+		"description": "Preset: ArrowLeft key"
+	},
+	"simulateKeyPresetRight": {
+		"message": "→ Oikea nuoli (Seuraava sivu)",
+		"description": "Preset: ArrowRight key"
+	},
+	"simulateKeyPresetCustom": {
+		"message": "Mukautettu näppäin",
+		"description": "Preset: Custom key option"
+	},
+	"simulateKeyRecordBtn": {
+		"message": "Tallenna näppäin",
+		"description": "Button to start recording a key press"
+	},
+	"simulateKeyRecording": {
+		"message": "Paina näppäintä...",
+		"description": "Recording state text"
+	},
+	"simulateKeyManualInput": {
+		"message": "Nykyinen näppäin",
+		"description": "Label for current key display in simulate key config"
+	},
+	"simulateKeyHint": {
+		"message": "Tämä ominaisuus lähettää näppäimistötapahtumia vain nykyiselle sivulle, ja sitä käytetään yleensä sivulla liikkumiseen (← edellinen / → seuraava). Se EI käynnistä selaimen pikanäppäimiä (esim. Ctrl+R ei päivitä sivua). Verkkosivuston kehyksen rajoitusten vuoksi kaikki mukautetut komponentit tai syöttökentät eivät välttämättä sieppaa simuloituja tapahtumia.",
+		"description": "Hint text for simulate key feature"
+	},
+	"customEventInvalidJson": {
+		"message": "Virheellinen JSON-muoto",
+		"description": "Error message when event detail is not valid JSON"
+	},
+	"customEventIncludeGestureInfo": {
+		"message": "Sisällytä eleen tiedot kohteeseen %code%",
+		"description": "Checkbox label for including gesture context in custom event detail. %code% = detail.gesture"
+	},
+	"customEventConfigureBtn": {
+		"message": "Asetukset",
+		"description": "Label for the configure button of custom event action in drag gesture manager"
+	},
+	"customEventHint": {
+		"message": "Lähettää tapahtuman %code% kohteeseen %window%. Hyödyllinen integroidessa muihin skripteihin.",
+		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
+	},
+	"sendExtensionMessageHint": {
+		"message": "Lähettää viestin %code%-koodilla toiselle asennetulle laajennukselle. Hyödyllinen integroidessa muihin laajennuksiin.",
+		"description": "Hint explaining how send-message-to-extension works. %code% = <code>chrome.runtime.sendMessage(...)</code>"
+	},
+	"delayDuration": {
+		"message": "Kesto",
+		"description": "Delay duration label"
+	},
+	"chainStepCount": {
+		"message": "%count% vaihetta",
+		"description": "Step count for unnamed chains, e.g. '3 steps'"
+	},
+	"chainStepCountOne": {
+		"message": "%count% vaihe",
+		"description": "Step count for unnamed chains with exactly 1 step"
+	},
+	"actionZoomIn": {
+		"message": "Lähennä",
+		"description": "Zoom in on the current page"
+	},
+	"actionZoomOut": {
+		"message": "Loitonna",
+		"description": "Zoom out on the current page"
+	},
+	"actionResetZoom": {
+		"message": "Nollaa zoomaus",
+		"description": "Reset page zoom to default or a specified level"
+	},
+	"actionViewPageSource": {
+		"message": "Näytä sivun lähdekoodi",
+		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionPauseGesture": {
+		"message": "Tauota eleet päivitykseen asti",
+		"description": "Temporarily disable all gestures on the current tab until page refresh"
+	},
+	"actionAreaSelect": {
+		"message": "Alueen valinta",
+		"description": "Enter area select mode to drag-select links on the page and batch open them"
+	},
+	"areaSelectTitle": {
+		"message": "Alueen valinta",
+		"description": "Label for the area select row in the popup"
+	},
+	"areaSelectModifierKey": {
+		"message": "Pika alueen valinta",
+		"description": "Label for the modifier key dropdown in area select settings"
+	},
+	"areaSelectModifierKeyDesc": {
+		"message": "Pidä muokkausnäppäintä painettuna, napsauta hiiren vasenta painiketta ja vedä valitaksesi sivun linkit nopeasti erätoimintoja varten",
+		"description": "Description for the modifier key setting"
+	},
+	"areaSelectDisabled": {
+		"message": "Poissa käytöstä",
+		"description": "Disabled option for the area select modifier key dropdown"
+	},
+	"areaSelectMouseDrag": {
+		"message": "Hiiren veto",
+		"description": "Suffix label next to the modifier key dropdown"
+	},
+	"areaSelectTextUrl": {
+		"message": "Tekstin URL-tunnistus",
+		"description": "Label for the text URL recognition toggle"
+	},
+	"areaSelectTextUrlDesc": {
+		"message": "Pura myös pelkän tekstin URL-osoitteet (ei-hyperlinkit) valittaessa",
+		"description": "Description for the text URL recognition toggle"
+	},
+	"areaSelectWarnThreshold": {
+		"message": "Erätoiminnon varoitus",
+		"description": "Label for the batch operation alert threshold input"
+	},
+	"areaSelectWarnThresholdDesc": {
+		"message": "Näytä vahvistus, kun eräkäsitellään enemmän kuin tämä määrä kohteita, 0 poistaa käytöstä",
+		"description": "Description for the batch operation alert threshold"
+	},
+	"areaSelectDelay": {
+		"message": "Toimintaväli",
+		"description": "Label for the operation interval input"
+	},
+	"areaSelectDelayDesc": {
+		"message": "Viive jokaisen avaamisen välillä erätoiminnoissa (sekuntia)",
+		"description": "Description for the operation interval setting"
+	},
+	"areaSelectHint": {
+		"message": "Valitse linkit vetämällä",
+		"description": "Hint text shown in the area select overlay"
+	},
+	"areaSelectOpen": {
+		"message": "Avaa %count% linkkiä",
+		"description": "Button text in the area select toolbar to batch open selected links"
+	},
+	"areaSelectOpenOne": {
+		"message": "Avaa %count% linkki",
+		"description": "Button text to open a single selected link (singular form)"
+	},
+	"areaSelectCopy": {
+		"message": "Kopioi linkit",
+		"description": "Button text to copy all selected link URLs to clipboard"
+	},
+	"areaSelectCancel": {
+		"message": "Peruuta",
+		"description": "Button text to cancel area select mode"
+	},
+	"areaSelectConfirm": {
+		"message": "Vahvista",
+		"description": "Button text to confirm opening many links"
+	},
+	"areaSelectWarnTitle": {
+		"message": "Avaa monta linkkiä?",
+		"description": "Title of the warning modal when opening many links"
+	},
+	"areaSelectWarnMessage": {
+		"message": "Olet avaamassa %count% linkkiä. Tämä voi hidastaa selainta. Jatketaanko?",
+		"description": "Body text of the warning modal"
+	},
+	"start": {
+		"message": "Aloita",
+		"description": "Button label to start an action (e.g. area select)"
+	},
+	"actionMenuShowTabs": {
+		"message": "Vaihda välilehteä",
+		"description": "Show a context menu listing all open tabs in the current window"
+	},
+	"actionMenuRecentlyClosed": {
+		"message": "Äskettäin suljetut välilehdet",
+		"description": "Show a context menu listing recently closed tabs for quick restore"
+	},
+	"recentlyClosedMaxItems": {
+		"message": "Enimmäismäärä",
+		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
+	},
+	"actionCategoryContextMenu": {
+		"message": "Ponnahdusvalikko",
+		"description": "Action category: context menu actions"
+	},
+	"zoomStepMode": {
+		"message": "Zoomaustila",
+		"description": "Label for zoom mode selector: browser steps vs fixed increment"
+	},
+	"zoomStepModeBrowser": {
+		"message": "Käytä selaimen zoomaustasoja",
+		"description": "Option: follow Chrome's built-in zoom steps (25%, 33%, 50%, …, 500%)"
+	},
+	"zoomStepModeFixed": {
+		"message": "Kiinteä askel",
+		"description": "Option: zoom in/out by a configurable fixed percentage each time"
+	},
+	"zoomDelta": {
+		"message": "Askeleen koko",
+		"description": "Label for the zoom increment/decrement slider"
+	},
+	"resetZoomLevel": {
+		"message": "Palauta arvoon",
+		"description": "Label for the target zoom level when resetting zoom"
+	},
+	"resetZoomDefault": {
+		"message": "Selaimen oletus",
+		"description": "Option: reset zoom to the browser's default zoom setting"
+	},
+	"resetZoomCustom": {
+		"message": "Oma arvo",
+		"description": "Option: reset zoom to a user-specified custom zoom level"
+	},
+	"actionMenuShowBookmarks": {
+		"message": "Näytä kirjanmerkit",
+		"description": "Show a context menu listing bookmarks from a selected folder"
+	},
+	"bookmarkFolder": {
+		"message": "Kansio",
+		"description": "Label for selecting which bookmark folder to display"
+	},
+	"bookmarkFolderDefault": {
+		"message": "Selaimen oletus",
+		"description": "Option label for using the browser's default bookmark location"
+	},
+	"bookmarkGrantPermission": {
+		"message": "(Anna kirjanmerkkien käyttöoikeus)",
+		"description": "Button label to request bookmarks permission"
+	},
+	"ctxMenuSortOrder": {
+		"message": "Lajitteluperuste",
+		"description": "Label for context menu sort order dropdown"
+	},
+	"ctxMenuSortDefault": {
+		"message": "Oletus",
+		"description": "Sort option: original API/insertion order"
+	},
+	"ctxMenuSortDefaultDesc": {
+		"message": "Oletus (käänteinen)",
+		"description": "Sort option: reverse of original API order"
+	},
+	"ctxMenuSortDateAddedAsc": {
+		"message": "Lisäyspäivä (vanhimmat ensin)",
+		"description": "Sort option: by date added ascending"
+	},
+	"ctxMenuSortDateAddedDesc": {
+		"message": "Lisäyspäivä (uusimmat ensin)",
+		"description": "Sort option: by date added descending"
+	},
+	"ctxMenuSortNameAsc": {
+		"message": "Nimi (nouseva)",
+		"description": "Sort option: alphabetical ascending"
+	},
+	"ctxMenuSortNameDesc": {
+		"message": "Nimi (laskeva)",
+		"description": "Sort option: alphabetical descending"
+	},
+	"ctxMenuSortLastAccessAsc": {
+		"message": "Viimeksi käytetty (vanhimmat ensin)",
+		"description": "Sort option: by last access time ascending"
+	},
+	"ctxMenuSortLastAccessDesc": {
+		"message": "Viimeksi käytetty (uusimmat ensin)",
+		"description": "Sort option: by last access time descending"
+	},
+	"ctxMenuMaxItems": {
+		"message": "Enimmäismäärä",
+		"description": "Label for maximum number of items in context menu"
+	},
+	"ctxMenuMaxItemsUnlimited": {
+		"message": "Rajoittamaton",
+		"description": "Placeholder shown when max items is 0 (no limit)"
+	},
+	"ctxMenuScrollToBottom": {
+		"message": "Vieritä alas",
+		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuTimeDisplay": {
+		"message": "Näytä aika",
+		"description": "Label for time display mode dropdown in context menu"
+	},
+	"ctxMenuTimeNone": {
+		"message": "Älä näytä",
+		"description": "Time display option: hide time column"
+	},
+	"ctxMenuTimeLastAccess": {
+		"message": "Viimeisin käynti",
+		"description": "Time display option: show last access time"
+	},
+	"ctxMenuTimeClosedTime": {
+		"message": "Sulkemisaika",
+		"description": "Time display option: show when the tab was closed"
+	},
+	"ctxMenuTimeDateAdded": {
+		"message": "Lisäyspäivämäärä",
+		"description": "Time display option: show when the bookmark was added"
+	}
+}

@@ -1,0 +1,2150 @@
+{
+	"extName": {
+		"message": "FlowMouse - Gestá myšou",
+		"description": "Extension name"
+	},
+	"extNameShort": {
+		"message": "FlowMouse",
+		"description": "Short extension name for popup"
+	},
+	"extDescription": {
+		"message": "Open-source rozšírenie pre gestá myšou zamerané na súkromie a plynulý zážitok. Plynulé gestá, podpora Super Drag.",
+		"description": "Extension description"
+	},
+	"theme": {
+		"message": "Téma",
+		"description": "Theme"
+	},
+	"themeDark": {
+		"message": "Tmavá",
+		"description": "Dark theme"
+	},
+	"themeLight": {
+		"message": "Svetlá",
+		"description": "Light theme"
+	},
+	"themeAuto": {
+		"message": "Podľa systému",
+		"description": "Auto theme - follow system"
+	},
+	"syncStatus": {
+		"message": "Stav synchronizácie",
+		"description": "Sync status"
+	},
+	"syncStatusDesc": {
+		"message": "Synchronizácia nastavení cez účet %browserName%",
+		"description": "Sync status description"
+	},
+	"saved": {
+		"message": "Uložené",
+		"description": "Saved"
+	},
+	"author": {
+		"message": "Autor",
+		"description": "Author"
+	},
+	"privacyNote": {
+		"message": " Beží lokálne, žiadny prístup k sieti okrem synchronizácie, žiadny zber údajov",
+		"description": "Privacy note in footer"
+	},
+	"supportUsText": {
+		"message": "Páči sa vám FlowMouse? Dajte nám 5-hviezdičkové hodnotenie v %appStoreInfo% na našu podporu!",
+		"description": "Rating text"
+	},
+	"storeNameChrome": {
+		"message": "Internetový obchod Chrome",
+		"description": "Chrome Web Store name"
+	},
+	"storeNameEdge": {
+		"message": "Doplnky Edge",
+		"description": "Edge Add-ons name"
+	},
+	"storeNameFirefox": {
+		"message": "Doplnky Firefox",
+		"description": "Firefox Add-ons name"
+	},
+	"feedbackText": {
+		"message": "Problémy alebo návrhy? Nahláste ich cez <a href='mailto:Service@52pojie.cn'>Email</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> alebo <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Fórum</a>. Vylepšíme to čo najskôr!",
+		"description": "Feedback text"
+	},
+	"feedbackTextChrome": {
+		"message": "Problémy alebo návrhy? Nahláste ich cez <a href='https://chromewebstore.google.com/detail/fnldhkfidchnjiokpoemdhoejmaojkgp/support' target='_blank'>Podporu Internetového obchodu Chrome</a>, <a href='mailto:Service@52pojie.cn'>Email</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> alebo <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Fórum</a>. Vylepšíme to čo najskôr!",
+		"description": "Feedback text for Chrome browser"
+	},
+	"supportAndFeedback": {
+		"message": "Podpora a spätná väzba",
+		"description": "Support and Feedback section title"
+	},
+	"feedbackTitle": {
+		"message": "Spätná väzba a návrhy",
+		"description": "Feedback row title"
+	},
+	"supportUsTitle": {
+		"message": "Podporte nás",
+		"description": "Rating row title"
+	},
+	"backToSettings": {
+		"message": "Späť na nastavenia",
+		"description": "Back to settings link"
+	},
+	"settings": {
+		"message": "Nastavenia",
+		"description": "Settings"
+	},
+	"moreSettings": {
+		"message": "Viac nastavení",
+		"description": "More settings button in popup"
+	},
+	"version": {
+		"message": "Verzia",
+		"description": "Version"
+	},
+	"basicSettings": {
+		"message": "Nastavenia gest",
+		"description": "Gesture settings section"
+	},
+	"enableGesture": {
+		"message": "Povoliť gestá",
+		"description": "Enable gesture feature"
+	},
+	"enableGestureDesc": {
+		"message": "Podržte pravé tlačidlo myši a pohybujte myšou pre jednoduché vykonanie gest",
+		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
+	},
+	"gestureTriggerButtons": {
+		"message": "Spúšťacie tlačidlá",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "Vyberte, ktoré tlačidlá myši môžu spúšťať gestá",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "Pravé tlačidlo",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "Stredné tlačidlo",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "Bočné tlačidlo (Späť)",
+		"description": "Mouse button 4 - the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "Bočné tlačidlo (Vpred)",
+		"description": "Mouse button 5 - the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "Pravé tlačidlo dotykového pera",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "Niektoré spúšťacie tlačidlá nemusia fungovať správne v závislosti od vášho hardvéru alebo nastavení ovládača. Napríklad myši Logitech môžu vyžadovať zakázanie funkcie „Horizontálne posúvanie“ (Horizontal Scrolling) v ovládači, aby ste mohli používať bočné tlačidlá na gestá.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
+	"macLinuxContextMenuNotice": {
+		"message": "Kvôli systémovým obmedzeniam je pri povolených gestách pravého tlačidla myši na macOS / Linux potrebné dvojité kliknutie pravým tlačidlom na otvorenie kontextového menu.",
+		"description": "Notice for macOS / Linux users about double right-click for context menu"
+	},
+	"macLinuxDoubleClickHint": {
+		"message": "Ak chcete otvoriť kontextovú ponuku, dvakrát kliknite pravým tlačidlom myši. (Zistiť viac)",
+		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
+	},
+	"edgeGestureConflictNotice": {
+		"message": "%browserName% má vstavané funkcie gest. Ak chcete používať gestá FlowMouse, <a href=\"#\" class=\"edge-gesture-link\">vypnite prosím vstavané gestá</a> v nastaveniach %browserName%.",
+		"description": "Notice for Edge users about built-in gesture conflict"
+	},
+	"macTextDragNotice": {
+		"message": "Kvôli správaniu macOS, pri ťahaní textu najprv vyberte text, potom v rámci vybranej oblasti stlačte a podržte ľavé tlačidlo, a pred ťahaním urobte krátku pauzu. Inak sa funkcia ťahania nemusí spustiť.",
+		"description": "Notice for macOS users about text drag behavior"
+	},
+	"showTrail": {
+		"message": "Zobraziť stopu gesta",
+		"description": "Show gesture trail"
+	},
+	"showTrailDesc": {
+		"message": "Zobraziť čiaru stopy pri vykonávaní gest",
+		"description": "Show trail line when performing gestures"
+	},
+	"showHint": {
+		"message": "Zobraziť nápovedu akcie",
+		"description": "Show action hint"
+	},
+	"showHintDesc": {
+		"message": "Zobraziť aktuálnu akciu gesta v strede obrazovky",
+		"description": "Show current gesture action in center of screen"
+	},
+	"color": {
+		"message": "Farba",
+		"description": "Color"
+	},
+	"width": {
+		"message": "Šírka",
+		"description": "Width/thickness"
+	},
+	"background": {
+		"message": "Pozadie",
+		"description": "Background"
+	},
+	"opacity": {
+		"message": "Priehľadnosť",
+		"description": "Opacity"
+	},
+	"blur": {
+		"message": "Rozmazanie",
+		"description": "Blur radius"
+	},
+	"hudShadow": {
+		"message": "Tieň",
+		"description": "HUD shadow toggle"
+	},
+	"showSuggestedGestures": {
+		"message": "Tipy pre gestá",
+		"description": "Show suggested gestures at bottom of screen"
+	},
+	"customCss": {
+		"message": "Vlastné CSS",
+		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
+	},
+	"customCssDesc": {
+		"message": "Nastavte vlastné CSS na úpravu vlastného používateľského rozhrania FlowMouse",
+		"description": "Description for the Custom CSS advanced setting"
+	},
+	"customCssConfigure": {
+		"message": "Konfigurovať",
+		"description": "Button label to open the Custom CSS editor dialog when no CSS is set"
+	},
+	"customCssEdit": {
+		"message": "Upraviť",
+		"description": "Button label to open the Custom CSS editor dialog when CSS is already set"
+	},
+	"customCssEditorTitle": {
+		"message": "Editor vlastného CSS",
+		"description": "Title of the dedicated custom CSS editor page"
+	},
+	"customCssEditorHint": {
+		"message": "Štýly sa vkladajú do každého Shadow DOM, ktorý vytvorí FlowMouse. Pre uloženie stlačte Ctrl+S.",
+		"description": "Hint shown above the editor textarea."
+	},
+	"customCssEditorPlaceholder": {
+		"message": "/* Sem napíšte svoj vlastný CSS… */",
+		"description": "Placeholder inside the Custom CSS editor textarea"
+	},
+	"customCssEditorInsertSnippet": {
+		"message": "Príklad",
+		"description": "Button to append an example/starter CSS snippet to the editor"
+	},
+	"customCssEditorRevert": {
+		"message": "Vrátiť zmeny",
+		"description": "Button that reverts the editor content back to the last saved value"
+	},
+	"customCssEditorSave": {
+		"message": "Uložiť",
+		"description": "Save button in the Custom CSS editor"
+	},
+	"customCssEditorSaved": {
+		"message": "Uložené",
+		"description": "Status message shown briefly after the user saves the custom CSS"
+	},
+	"customCssEditorDiscardConfirm": {
+		"message": "Zahodiť neuložené úpravy a vrátiť sa k naposledy uloženému CSS?",
+		"description": "Confirmation dialog shown before reverting unsaved edits"
+	},
+	"text": {
+		"message": "Text",
+		"description": "Text"
+	},
+	"scrollAmount": {
+		"message": "Vzdialenosť posúvania",
+		"description": "Scroll amount"
+	},
+	"scrollAmountDesc": {
+		"message": "Vzdialenosť posúvania pre gestá hore/dole (% výšky okna)",
+		"description": "Scroll distance for up/down gestures"
+	},
+	"scrollSmoothness": {
+		"message": "Plynulosť posúvania",
+		"description": "Scroll smoothness"
+	},
+	"scrollSmoothnessDesc": {
+		"message": "Efekt animácie posúvania pre gestá hore/dole",
+		"description": "Scroll smoothness description"
+	},
+	"smoothnessAuto": {
+		"message": "Automaticky",
+		"description": "Auto scroll smoothness - uses system if animation enabled, otherwise smooth"
+	},
+	"smoothnessSystem": {
+		"message": "Systémová (Vysoký výkon)",
+		"description": "System scroll smoothness"
+	},
+	"smoothnessCustom": {
+		"message": "Plynulá",
+		"description": "Custom smooth scrolling"
+	},
+	"smoothnessNone": {
+		"message": "Žiadna animácia",
+		"description": "No scroll animation"
+	},
+	"scrollDuration": {
+		"message": "Trvanie animácie",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "Nedostupné pri používaní posúvania systému",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
+	"scrollAccel": {
+		"message": "Násobiteľ plynulého posúvania",
+		"description": "Speed multiplier applied when scrolling consecutively"
+	},
+	"scrollAccelOff": {
+		"message": "Vypnuté",
+		"description": "Scroll acceleration disabled"
+	},
+	"scrollAccelWindow": {
+		"message": "Časový limit pre postupné posúvanie",
+		"description": "Max time (ms) between scrolls to count as consecutive"
+	},
+	"dragFeatures": {
+		"message": "Funkcie ťahania",
+		"description": "Drag features section"
+	},
+	"textDragSearch": {
+		"message": "Ťahanie textu",
+		"description": "Text drag"
+	},
+	"textDragSearchDesc": {
+		"message": "Potiahnite vybraný text pre vyhľadávanie",
+		"description": "Drag selected text to search"
+	},
+	"textDragIgnoreInput": {
+		"message": "Zakázať vo vstupných poliach",
+		"description": "Option to disable text drag inside input boxes and textareas"
+	},
+	"textDragIgnoreInputDesc": {
+		"message": "Nespúšťať ťahanie textu v upraviteľných oblastiach, ako sú vstupné polia a textové editory",
+		"description": "Description for text drag ignore input option"
+	},
+	"dragDropOnInput": {
+		"message": "Potlačiť gesto nad textovými poľami",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "Nespúšťať gesto pri pustení do textových polí alebo upraviteľných oblastí",
+		"description": "Description for drag drop on input option"
+	},
+	"searchEngine": {
+		"message": "Vyhľadávač",
+		"description": "Search engine"
+	},
+	"custom": {
+		"message": "Vlastný",
+		"description": "Custom"
+	},
+	"customUrlPlaceholder": {
+		"message": "Vlastná URL, použite %s pre hľadaný výraz",
+		"description": "Custom URL placeholder"
+	},
+	"customUrlPlaceholderHint": {
+		"message": "Musí obsahovať protokol (napr. https://). Dostupné zástupné symboly: %placeholders%. Pridajte :raw pre preskočenie kódovania URL, napr. %example%",
+		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
+	},
+	"urlPlaceholderText": {
+		"message": "%s=Kľúčové slovo",
+		"description": "Placeholder for text drag custom URL"
+	},
+	"urlPlaceholderImage": {
+		"message": "%s=URL obrázka",
+		"description": "Placeholder for image drag custom URL"
+	},
+	"searchEngine_google_translate": {
+		"message": "Prekladač Google",
+		"description": "Google Translate search engine"
+	},
+	"searchEngine_bing_translate": {
+		"message": "Prekladač Bing",
+		"description": "Bing Translate search engine"
+	},
+	"searchEngine_baidu": {
+		"message": "Baidu",
+		"description": "Baidu search engine"
+	},
+	"searchEngine_360": {
+		"message": "360 Search",
+		"description": "360 search engine"
+	},
+	"searchEngine_yandex": {
+		"message": "Yandex",
+		"description": "Yandex search engine"
+	},
+	"searchEngine_system": {
+		"message": "Predvolený prehliadačom",
+		"description": "System default search engine"
+	},
+	"imageDrag": {
+		"message": "Ťahanie obrázka",
+		"description": "Image drag"
+	},
+	"imageDragDesc": {
+		"message": "Potiahnite obrázok pre otvorenie na novej karte",
+		"description": "Drag image to open in new tab"
+	},
+	"linkDrag": {
+		"message": "Ťahanie odkazu",
+		"description": "Link drag"
+	},
+	"linkDragDesc": {
+		"message": "Potiahnite odkaz pre otvorenie na novej karte",
+		"description": "Drag link to open in new tab"
+	},
+	"enableCustomGestures": {
+		"message": "Vlastné gestá",
+		"description": "Enable custom gestures"
+	},
+	"enableCustomGesturesDesc": {
+		"message": "Zobraziť a prispôsobiť akcie pre každé gesto",
+		"description": "View and customize each gesture action"
+	},
+	"gestureAutoSaveHint": {
+		"message": "Tip: Zmeny sa ukladajú automaticky.",
+		"description": "Hint about auto-save"
+	},
+	"blacklist": {
+		"message": "Čierna listina webov",
+		"description": "Website blacklist"
+	},
+	"blacklistPlaceholder": {
+		"message": "Zadajte doménu, napr. example.com, stlačte Enter pre pridanie",
+		"description": "Blacklist input placeholder"
+	},
+	"add": {
+		"message": "Pridať",
+		"description": "Add button"
+	},
+	"emptyBlacklist": {
+		"message": "Žiadne blokované stránky. Zadajte doménu vyššie pre pridanie.",
+		"description": "Empty blacklist message"
+	},
+	"enableBlacklistContextMenu": {
+		"message": "Prepínač gest v kontextovej ponuke",
+		"description": "Setting title for blacklist context menu toggle"
+	},
+	"enableBlacklistContextMenuDesc": {
+		"message": "Zobraziť možnosť zakázania/povolenia gest v kontextovej ponuke",
+		"description": "Setting description for blacklist context menu toggle"
+	},
+	"menuAddToBlacklist": {
+		"message": "Zakázať gestá na tejto stránke",
+		"description": "Context menu title for adding current site to blacklist"
+	},
+	"menuRemoveFromBlacklist": {
+		"message": "Povoliť gestá na tejto stránke",
+		"description": "Context menu title for removing current site from blacklist"
+	},
+	"dataManagement": {
+		"message": "Správa údajov",
+		"description": "Data management section"
+	},
+	"export": {
+		"message": "Exportovať",
+		"description": "Export settings"
+	},
+	"import": {
+		"message": "Importovať",
+		"description": "Import settings"
+	},
+	"reset": {
+		"message": "Resetovať",
+		"description": "Reset to default"
+	},
+	"duplicate": {
+		"message": "Duplikovať",
+		"description": "Generic duplicate button tooltip"
+	},
+	"delete": {
+		"message": "Odstrániť",
+		"description": "Generic delete button tooltip"
+	},
+	"autoSaved": {
+		"message": "Automaticky uložené",
+		"description": "Auto-saved message"
+	},
+	"saveFailure": {
+		"message": "Uloženie zlyhalo",
+		"description": "Save failure message"
+	},
+	"resetConfirm": {
+		"message": "Ste si istí, že chcete resetovať všetky nastavenia na predvolené hodnoty?",
+		"description": "Reset confirmation"
+	},
+	"resetDone": {
+		"message": "Nastavenia resetované na predvolené",
+		"description": "Reset done message"
+	},
+	"exportDone": {
+		"message": "Nastavenia exportované",
+		"description": "Export done message"
+	},
+	"importDone": {
+		"message": "Nastavenia importované",
+		"description": "Import done message"
+	},
+	"importConfirm": {
+		"message": "Import prepíše vaše aktuálne nastavenia. Konfiguračné súbory importujte iba z dôveryhodných zdrojov.\n\nPokračovať?",
+		"description": "Import confirmation warning"
+	},
+	"importFailed": {
+		"message": "Import zlyhal: Neplatný konfiguračný súbor",
+		"description": "Import failed message"
+	},
+	"importFailedSyncError": {
+		"message": "Import zlyhal: Chyba synchronizácie, skontrolujte stav prehliadača",
+		"description": "Import failed sync error message"
+	},
+	"invalidDomain": {
+		"message": "Zadajte platnú doménu",
+		"description": "Invalid domain message"
+	},
+	"domainExists": {
+		"message": "Doména je už v čiernej listine",
+		"description": "Domain already in blacklist"
+	},
+	"about": {
+		"message": "O rozšírení",
+		"description": "About section"
+	},
+	"language": {
+		"message": "Jazyk",
+		"description": "Language"
+	},
+	"languageAuto": {
+		"message": "Podľa systému",
+		"description": "Follow system language"
+	},
+	"privacyFriendly": {
+		"message": "Ochrana súkromia",
+		"description": "Privacy friendly"
+	},
+	"localOnly": {
+		"message": "Iba lokálne",
+		"description": "Local only"
+	},
+	"autoSave": {
+		"message": "Automatické ukladanie",
+		"description": "Auto save"
+	},
+	"gestureDesc_L": {
+		"message": "Vľavo",
+		"description": "Gesture description for ←"
+	},
+	"gestureDesc_R": {
+		"message": "Vpravo",
+		"description": "Gesture description for →"
+	},
+	"gestureDesc_U": {
+		"message": "Hore",
+		"description": "Gesture description for ↑"
+	},
+	"gestureDesc_D": {
+		"message": "Dole",
+		"description": "Gesture description for ↓"
+	},
+	"gestureDesc_DR": {
+		"message": "Dole potom Vpravo",
+		"description": "Gesture description for ↓→"
+	},
+	"gestureDesc_LU": {
+		"message": "Vľavo potom Hore",
+		"description": "Gesture description for ←↑"
+	},
+	"gestureDesc_RU": {
+		"message": "Vpravo potom Hore",
+		"description": "Gesture description for →↑"
+	},
+	"gestureDesc_RD": {
+		"message": "Vpravo potom Dole",
+		"description": "Gesture description for →↓"
+	},
+	"gestureDesc_UL": {
+		"message": "Hore potom Vľavo",
+		"description": "Gesture description for ↑←"
+	},
+	"gestureDesc_UR": {
+		"message": "Hore potom Vpravo",
+		"description": "Gesture description for ↑→"
+	},
+	"gestureDesc_DL": {
+		"message": "Dole potom Vľavo",
+		"description": "Gesture description for ↓←"
+	},
+	"gestureDesc_LD": {
+		"message": "Vľavo potom Dole",
+		"description": "Gesture description for ←↓"
+	},
+	"gestureDesc_UD": {
+		"message": "Hore potom Dole",
+		"description": "Gesture description for ↑↓"
+	},
+	"gestureDesc_DU": {
+		"message": "Dole potom Hore",
+		"description": "Gesture description for ↓↑"
+	},
+	"gestureDesc_LR": {
+		"message": "Vľavo potom Vpravo",
+		"description": "Gesture description for ←→"
+	},
+	"gestureDesc_RL": {
+		"message": "Vpravo potom Vľavo",
+		"description": "Gesture description for →←"
+	},
+	"actionNone": {
+		"message": "Žiadna",
+		"description": "No action"
+	},
+	"actionBack": {
+		"message": "Späť",
+		"description": "Go back"
+	},
+	"actionForward": {
+		"message": "Dopredu",
+		"description": "Go forward"
+	},
+	"actionUrlLevelUp": {
+		"message": "O úroveň vyššie v URL",
+		"description": "Navigate to the parent directory of the current URL"
+	},
+	"actionUrlToRoot": {
+		"message": "Do koreňového adresára URL",
+		"description": "Navigate to the root of the current site"
+	},
+	"actionScrollUp": {
+		"message": "Posunúť hore",
+		"description": "Scroll up"
+	},
+	"actionScrollDown": {
+		"message": "Posunúť dole",
+		"description": "Scroll down"
+	},
+	"actionScrollLeft": {
+		"message": "Posunúť doľava",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "Posunúť doprava",
+		"description": "Scroll right"
+	},
+	"actionScrollToTop": {
+		"message": "Posunúť na začiatok",
+		"description": "Scroll to top"
+	},
+	"actionScrollToBottom": {
+		"message": "Posunúť na koniec",
+		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "Posunúť úplne doľava",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "Posunúť úplne doprava",
+		"description": "Scroll to the rightmost position"
+	},
+	"actionCloseTab": {
+		"message": "Zavrieť kartu",
+		"description": "Close tab"
+	},
+	"closeTabKeepWindow": {
+		"message": "Ak je to posledná karta, ponechať okno otvorené",
+		"description": "Checkbox label for closeTab action config"
+	},
+	"closeTabAfterClose": {
+		"message": "Po zatvorení",
+		"description": "Label for closeTab afterClose config"
+	},
+	"closeTabAfterCloseDefault": {
+		"message": "Predvolený prehliadačom",
+		"description": "Option for closeTab afterClose config - let browser decide"
+	},
+	"closeTabAfterCloseLeft": {
+		"message": "Prepnúť na ľavú kartu",
+		"description": "Option for closeTab afterClose config - switch to left tab"
+	},
+	"closeTabAfterCloseRight": {
+		"message": "Prepnúť na pravú kartu",
+		"description": "Option for closeTab afterClose config - switch to right tab"
+	},
+	"switchTabNoWrap": {
+		"message": "Neprepínať cyklicky",
+		"description": "Checkbox label for switchLeftTab/switchRightTab action config"
+	},
+	"switchTabMoveTab": {
+		"message": "Presunúť aktuálnu kartu",
+		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
+	},
+	"refreshHardReload": {
+		"message": "Tvrdé obnovenie (obísť vyrovnávaciu pamäť)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
+	"actionCloseBrowser": {
+		"message": "Zavrieť prehliadač",
+		"description": "Close browser"
+	},
+	"actionCloseWindow": {
+		"message": "Zavrieť okno",
+		"description": "Close current window"
+	},
+	"actionRestoreTab": {
+		"message": "Obnoviť zatvorenú kartu",
+		"description": "Restore closed tab"
+	},
+	"actionNewTab": {
+		"message": "Nová karta",
+		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "Nezatvárať pripnuté karty",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
+	},
+	"closeTabsPreserveTab": {
+		"message": "Zachovať karty (uvoľniť obsah stránky)",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
+	"actionCloseOtherTabs": {
+		"message": "Zavrieť ostatné karty",
+		"description": "Close other tabs"
+	},
+	"actionCloseLeftTabs": {
+		"message": "Zavrieť karty vľavo",
+		"description": "Close tabs to the left"
+	},
+	"actionCloseRightTabs": {
+		"message": "Zavrieť karty vpravo",
+		"description": "Close tabs to the right"
+	},
+	"actionCloseAllTabs": {
+		"message": "Zavrieť všetky karty",
+		"description": "Close all tabs"
+	},
+	"actionSwitchLeftTab": {
+		"message": "Prepnúť na ľavú kartu",
+		"description": "Switch to left tab"
+	},
+	"actionSwitchRightTab": {
+		"message": "Prepnúť na pravú kartu",
+		"description": "Switch to right tab"
+	},
+	"actionSwitchFirstTab": {
+		"message": "Prepnúť na prvú kartu",
+		"description": "Switch to first tab"
+	},
+	"actionSwitchLastTab": {
+		"message": "Prepnúť na poslednú kartu",
+		"description": "Switch to last tab"
+	},
+	"actionSwitchLastActiveTab": {
+		"message": "Prepnúť na poslednú aktívnu kartu",
+		"description": "Switch to the most recently active tab"
+	},
+	"actionRefresh": {
+		"message": "Obnoviť aktuálnu kartu",
+		"description": "Refresh current tab"
+	},
+	"actionRefreshAllTabs": {
+		"message": "Obnoviť všetky karty",
+		"description": "Refresh all tabs"
+	},
+	"actionStopLoading": {
+		"message": "Zastaviť načítanie",
+		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "Zastaviť načítanie všetkých kariet",
+		"description": "Stop loading all tabs in the current window"
+	},
+	"actionNewWindow": {
+		"message": "Nové okno",
+		"description": "New window"
+	},
+	"actionNewIncognito": {
+		"message": "Nové inkognito okno",
+		"description": "New incognito window"
+	},
+	"actionAddToBookmarks": {
+		"message": "Pridať do záložiek",
+		"description": "Add to bookmarks"
+	},
+	"actionToggleFullscreen": {
+		"message": "Prepnúť celú obrazovku",
+		"description": "Toggle fullscreen"
+	},
+	"actionToggleMaximize": {
+		"message": "Maximalizovať/Obnoviť okno",
+		"description": "Toggle window maximize"
+	},
+	"actionMinimize": {
+		"message": "Minimalizovať okno",
+		"description": "Minimize window"
+	},
+	"actionOpenCustomUrl": {
+		"message": "Otvoriť vlastnú URL",
+		"description": "Open custom URL"
+	},
+	"actionCopyUrl": {
+		"message": "Kopírovať aktuálnu URL",
+		"description": "Copy current URL"
+	},
+	"actionCopyTitle": {
+		"message": "Kopírovať názov stránky",
+		"description": "Copy page title"
+	},
+	"actionCopyTitleAndUrl": {
+		"message": "Kopírovať názov stránky a URL",
+		"description": "Copy page title and URL"
+	},
+	"actionOpenDownloads": {
+		"message": "Otvoriť sťahovania",
+		"description": "Open downloads page"
+	},
+	"actionOpenHistory": {
+		"message": "Otvoriť históriu",
+		"description": "Open history page"
+	},
+	"actionOpenExtensions": {
+		"message": "Otvoriť rozšírenia",
+		"description": "Open extensions page"
+	},
+	"actionSaveAsMhtml": {
+		"message": "Uložiť ako MHTML",
+		"description": "Save current page as MHTML file"
+	},
+	"actionPrintPage": {
+		"message": "Tlačiť stránku",
+		"description": "Print page"
+	},
+	"actionDuplicateTab": {
+		"message": "Duplikovať kartu",
+		"description": "Duplicate current tab"
+	},
+	"actionToggleMuteTab": {
+		"message": "Stlmiť/Zrušiť stlmenie aktuálnej karty",
+		"description": "Toggle mute current tab"
+	},
+	"actionToggleMuteAllTabs": {
+		"message": "Stlmiť/Zrušiť stlmenie všetkých kariet",
+		"description": "Toggle mute all tabs"
+	},
+	"actionTogglePinTab": {
+		"message": "Pripnúť/Odopnúť aktuálnu kartu",
+		"description": "Toggle pin current tab"
+	},
+	"actionMoveTabToNewWindow": {
+		"message": "Presunúť kartu do nového okna",
+		"description": "Move current tab to a new window"
+	},
+	"actionSearchClipboard": {
+		"message": "Hľadať zo schránky",
+		"description": "Search clipboard text using a search engine"
+	},
+	"showTrailOrigin": {
+		"message": "Zobraziť počiatočný bod",
+		"description": "Show trail origin point"
+	},
+	"enableTrailSmooth": {
+		"message": "Vyhladzovanie stopy",
+		"description": "Enable trail smoothing for gesture visualization"
+	},
+	"distanceThreshold": {
+		"message": "Vzdialenosť rozpoznávania gest",
+		"description": "Gesture recognition distance"
+	},
+	"distanceThresholdDesc": {
+		"message": "Minimálna vzdialenosť pohybu na rozpoznanie gesta a ťahania",
+		"description": "Description for gesture recognition distance"
+	},
+	"distanceThresholdNotice": {
+		"message": "Tip: Pre najlepšie rozpoznávanie sa odporúča hodnota medzi 15-30.",
+		"description": "Warning when distance threshold is too small or too large"
+	},
+	"gestureTurnTolerance": {
+		"message": "Tolerancia otočenia gesta",
+		"description": "Turn tolerance for detecting direction changes in long gestures"
+	},
+	"gestureTurnToleranceDesc": {
+		"message": "Vyššie hodnoty znižujú náhodné otočenia, ale vyžadujú dlhšie pohyby na zmenu smeru",
+		"description": "Description for gesture turn tolerance setting"
+	},
+	"advanced": {
+		"message": "Zobraziť pokročilé nastavenia",
+		"description": "Short label for per-section advanced toggle"
+	},
+	"otherSettings": {
+		"message": "Ďalšie nastavenia",
+		"description": "Section title for other/miscellaneous settings"
+	},
+	"styleSettings": {
+		"message": "Vzhľad",
+		"description": "Section title for style/appearance settings (trail, HUD, etc.)"
+	},
+	"show": {
+		"message": "Zobraziť",
+		"description": "Show navigation menu"
+	},
+	"hide": {
+		"message": "Skryť",
+		"description": "Hide navigation menu"
+	},
+	"urlFormatError": {
+		"message": "Zadajte celú URL začínajúcu sa na http:// alebo https://",
+		"description": "URL format error message"
+	},
+	"resetToDefault": {
+		"message": "Obnoviť predvolené",
+		"description": "Reset gesture to default action"
+	},
+	"resetToDefaultConfirm": {
+		"message": "Obnoviť tieto nastavenia na predvolené hodnoty?",
+		"description": "Confirmation dialog for resetting settings"
+	},
+	"addCustomGesture": {
+		"message": "Pridať vlastné gesto",
+		"description": "Add custom gesture section title"
+	},
+	"clear": {
+		"message": "Vymazať",
+		"description": "Clear button"
+	},
+	"gestureAdded": {
+		"message": "Gesto pridané",
+		"description": "Gesture added success message"
+	},
+	"gestureRecorderTitle": {
+		"message": "Nakresliť gesto",
+		"description": "Gesture recorder full-screen title"
+	},
+	"gestureRecorderDesc": {
+		"message": "Podržte tlačidlo „%button%“ a nakreslite vzor gesta",
+		"description": "Gesture recorder instruction, %button% is replaced with the mouse button name"
+	},
+	"gestureRecorderEsc": {
+		"message": "Zrušiť",
+		"description": "Gesture recorder cancel button label"
+	},
+	"gestureRecorderRecording": {
+		"message": "Nahrávanie…",
+		"description": "Gesture recorder recording indicator"
+	},
+	"gestureRecorderResult": {
+		"message": "Zaznamenané gesto",
+		"description": "Gesture recorder result label"
+	},
+	"gestureRecorderConfirm": {
+		"message": "Potvrdiť",
+		"description": "Gesture recorder confirm button"
+	},
+	"gestureRecorderRedraw": {
+		"message": "Prekresliť",
+		"description": "Gesture recorder redraw button"
+	},
+	"gestureRecorderBanned": {
+		"message": "Gesto %pattern% už existuje",
+		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"rightButton": {
+		"message": "Pravé tlačidlo myši",
+		"description": "Right mouse button name"
+	},
+	"leftButton": {
+		"message": "Ľavé tlačidlo myši",
+		"description": "Left mouse button name"
+	},
+	"customGesture": {
+		"message": "Vlastné",
+		"description": "Label for custom gestures"
+	},
+	"deleteGesture": {
+		"message": "Vymazať gesto",
+		"description": "Delete gesture button tooltip"
+	},
+	"deleteGestureConfirm": {
+		"message": "Vymazať gesto %pattern%?",
+		"description": "Delete gesture confirmation"
+	},
+	"gestureDeleted": {
+		"message": "Gesto vymazané",
+		"description": "Gesture deleted success message"
+	},
+	"enterCustomUrl": {
+		"message": "URL",
+		"description": "Prompt for custom URL input"
+	},
+	"copyAsMarkdown": {
+		"message": "Kopírovať ako Markdown",
+		"description": "Checkbox label for copying as markdown format"
+	},
+	"invalidUrl": {
+		"message": "Zadajte platnú URL (začínajúcu na http:// alebo https://)",
+		"description": "Invalid URL error message"
+	},
+	"popupTrail": {
+		"message": "Stopa gesta",
+		"description": "Gesture trail in popup"
+	},
+	"popupHint": {
+		"message": "Nápoveda akcie",
+		"description": "Action hint in popup"
+	},
+	"popupCommonGestures": {
+		"message": "Bežné gestá",
+		"description": "Common gestures"
+	},
+	"popupCurrentSite": {
+		"message": "Aktuálna stránka",
+		"description": "Current site"
+	},
+	"popupRestricted": {
+		"message": "Obmedzená stránka",
+		"description": "Restricted page"
+	},
+	"popupDisabled": {
+		"message": "Zakázané",
+		"description": "Disabled"
+	},
+	"popupAddBlacklist": {
+		"message": "Pridať na čiernu listinu",
+		"description": "Add to blacklist"
+	},
+	"popupRemoveBlacklist": {
+		"message": "Odstrániť z čiernej listiny",
+		"description": "Remove from blacklist"
+	},
+	"popupNotAvailable": {
+		"message": "Nedostupné",
+		"description": "Not available"
+	},
+	"popupBack": {
+		"message": "Späť",
+		"description": "Back - short"
+	},
+	"popupForward": {
+		"message": "Vpred",
+		"description": "Forward - short"
+	},
+	"popupScrollUp": {
+		"message": "Hore",
+		"description": "Scroll up - short"
+	},
+	"popupScrollDown": {
+		"message": "Dole",
+		"description": "Scroll down - short"
+	},
+	"popupClose": {
+		"message": "Zavrieť",
+		"description": "Close Tab - short"
+	},
+	"popupRestore": {
+		"message": "Obnoviť",
+		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "Ľavá karta",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "Pravá karta",
+		"description": "Switch Right Tab - short"
+	},
+	"dragSearchText": {
+		"message": "🔍 Vyhľadať ťahaním",
+		"description": "Drag search hint"
+	},
+	"dragOpenImage": {
+		"message": "🖼️ Otvoriť Obrázok",
+		"description": "Drag open image hint"
+	},
+	"dragOpenLink": {
+		"message": "🔗 Otvoriť Odkaz",
+		"description": "Drag open link hint"
+	},
+	"aboutTitle": {
+		"message": "O FlowMouse",
+		"description": "About title"
+	},
+	"aboutTitleShort": {
+		"message": "Informácie",
+		"description": "Short About title "
+	},
+	"aboutAuthor": {
+		"message": "Autor",
+		"description": "Author"
+	},
+	"aboutWebsite": {
+		"message": "Web stránka",
+		"description": "Website"
+	},
+	"aboutOpenSource": {
+		"message": "GitHub",
+		"description": "GitHub link"
+	},
+	"aboutEmail": {
+		"message": "Email",
+		"description": "Email"
+	},
+	"aboutPrivacy": {
+		"message": "Vyhlásenie o ochrane súkromia",
+		"description": "Privacy statement"
+	},
+	"aboutPrivacyText": {
+		"message": "Toto rozšírenie je open-source projekt s kódom hostovaným na GitHub. Príspevky a revízia kódu sú vítané. Všetky spracovania údajov prebiehajú lokálne na vašom zariadení. Samotné rozšírenie nenadväzuje žiadne sieťové pripojenia a nemá žiadne backendové servery, takže nezhromažďuje ani neposiela žiadne údaje používateľov na externé servery. Vaše uložené nastavenia sú šifrované a synchronizované medzi vašimi prihlásenými zariadeniami prostredníctvom vstavanej synchronizačnej služby prehliadača %browserName%. Tento proces je plne riadený prehliadačom a riadi sa nastaveniami súkromia a synchronizácie vášho prehliadača.",
+		"description": "Privacy statement text"
+	},
+	"aboutCredits": {
+		"message": "Poďakovanie",
+		"description": "Credits"
+	},
+	"aboutCreditsText": {
+		"message": "Vďaka prehliadaču Microsoft Edge a rozšíreniu crxMouse za inšpiráciu dizajnu.\nVďaka komunite 52pojie.cn a používateľom za spätnú väzbu a návrhy!",
+		"description": "Credits text"
+	},
+	"aboutFeatures": {
+		"message": "Funkcie",
+		"description": "Features"
+	},
+	"aboutFeature1": {
+		"message": "16 predvolených gest + vlastné gestá",
+		"description": "Feature 1"
+	},
+	"aboutFeature2": {
+		"message": "Vizuálna odozva stopy",
+		"description": "Feature 2"
+	},
+	"aboutFeature3": {
+		"message": "Super Drag pre Text/Obrázok/Odkaz",
+		"description": "Feature 3"
+	},
+	"aboutFeature4": {
+		"message": "Čierna listina webov",
+		"description": "Feature 4"
+	},
+	"aboutFeature5": {
+		"message": "Synchronizácia účtu %browserName%",
+		"description": "Feature 5"
+	},
+	"aboutFeature6": {
+		"message": "Beží lokálne, žiadna sieť okrem synchronizácie",
+		"description": "Feature 6"
+	},
+	"tutorial": {
+		"message": "Návod",
+		"description": "Tutorial link"
+	},
+	"learnMore": {
+		"message": "Zistiť viac",
+		"description": "Learn more link"
+	},
+	"badgeNoNetwork": {
+		"message": "Žiadna sieť okrem synchronizácie",
+		"description": "No network privacy badge"
+	},
+	"badgeNoData": {
+		"message": "Žiadny zber údajov",
+		"description": "No data collection badge"
+	},
+	"badgeLocalRun": {
+		"message": "Beží lokálne",
+		"description": "Local run badge"
+	},
+	"newTabSettings": {
+		"message": "Nastavenia novej karty",
+		"description": "New tab open settings"
+	},
+	"newTabPosition": {
+		"message": "Pozícia",
+		"description": "New tab position"
+	},
+	"tabPositionRight": {
+		"message": "Vpravo od aktuálnej karty",
+		"description": "Right of current tab"
+	},
+	"tabPositionLeft": {
+		"message": "Vľavo od aktuálnej karty",
+		"description": "Left of current tab"
+	},
+	"tabPositionFirst": {
+		"message": "Prvá karta (vľavo)",
+		"description": "First tab (leftmost)"
+	},
+	"tabPositionLast": {
+		"message": "Posledná karta (vpravo)",
+		"description": "Last tab (rightmost)"
+	},
+	"tabPositionCurrent": {
+		"message": "Aktuálna karta",
+		"description": "Open in current tab"
+	},
+	"tabPositionNewWindow": {
+		"message": "Nové okno",
+		"description": "Open in a new browser window"
+	},
+	"newTabActive": {
+		"message": "Otvoriť v popredí",
+		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "Otvoriť v popredí",
+		"description": "Open window in foreground"
+	},
+	"openInIncognito": {
+		"message": "Inkognito",
+		"description": "Open in incognito checkbox"
+	},
+	"textDragGestures": {
+		"message": "Gestá ťahania textu",
+		"description": "Text drag gestures"
+	},
+	"linkDragGestures": {
+		"message": "Gestá ťahania odkazu",
+		"description": "Link drag gestures"
+	},
+	"imageDragGestures": {
+		"message": "Gestá ťahania obrázka",
+		"description": "Image drag gestures"
+	},
+	"direction": {
+		"message": "Smer",
+		"description": "Direction column header"
+	},
+	"action": {
+		"message": "Príkaz",
+		"description": "Action column header"
+	},
+	"imageSearchUrl": {
+		"message": "URL vyhľadávania obrázkov (%s = URL obrázka)",
+		"description": "Image search URL input"
+	},
+	"dragActionNone": {
+		"message": "Žiadna",
+		"description": "No action"
+	},
+	"dragActionSearch": {
+		"message": "🔍 Vyhľadávač",
+		"description": "Search action"
+	},
+	"dragActionCopy": {
+		"message": "📋 Kopírovať",
+		"description": "Copy action"
+	},
+	"dragActionOpenTab": {
+		"message": "📑 Otvoriť na novej karte",
+		"description": "Open in new tab"
+	},
+	"dragActionOpenTabLink": {
+		"message": "🔗 Otvoriť odkaz",
+		"description": "Open link in new tab"
+	},
+	"dragActionOpenTabImage": {
+		"message": "🖼️ Otvoriť obrázok",
+		"description": "Open image in new tab"
+	},
+	"dragActionCopyLink": {
+		"message": "📋 Kopírovať odkaz",
+		"description": "Copy link"
+	},
+	"dragActionCopyLinkText": {
+		"message": "📋 Kopírovať text odkazu",
+		"description": "Copy link text"
+	},
+	"dragActionCopyLinkAndText": {
+		"message": "📋 Kopírovať text a odkaz",
+		"description": "Copy link text and URL"
+	},
+	"dragActionSaveImage": {
+		"message": "💾 Uložiť obrázok",
+		"description": "Save image"
+	},
+	"dragActionCopyImage": {
+		"message": "🖼️ Kopírovať obrázok",
+		"description": "Copy image"
+	},
+	"dragActionCopyImageUrl": {
+		"message": "📋 Kopírovať URL obrázka",
+		"description": "Copy image URL"
+	},
+	"dragActionImageSearch": {
+		"message": "🔍 Vyhľadať obrázok",
+		"description": "Image search"
+	},
+	"dragActionCustomSearch": {
+		"message": "🔍 Vlastné vyhľadávanie",
+		"description": "Custom search"
+	},
+	"dragActionSendCustomEvent": {
+		"message": "Odoslať vlastnú udalosť",
+		"description": "Send custom DOM event on drag gesture"
+	},
+	"reducedMotionWarning": {
+		"message": "%OS% systémová animácia je vypnutá, animácia posúvania nemusí fungovať správne. Môžete povoliť animáciu v nastaveniach systému %OS%.",
+		"description": "Warning message when system reduced motion is enabled"
+	},
+	"autoDetectUrl": {
+		"message": "Auto-detekcia URL",
+		"description": "Auto detect URL checkbox label"
+	},
+	"autoDetectUrlTooltip": {
+		"message": "Ak je text vo formáte odkazu, otvorte ho priamo namiesto vyhľadávania",
+		"description": "Tooltip for the auto detect URL checkbox"
+	},
+	"preferLink": {
+		"message": "Uprednostniť odkaz",
+		"description": "Prefer link checkbox label"
+	},
+	"customHudName": {
+		"message": "Názov",
+		"description": "Placeholder for custom action name shown on HUD"
+	},
+	"customHudNameTooltip": {
+		"message": "Vlastný názov zobrazený na obrazovke pri vykonávaní gesta",
+		"description": "Tooltip for the custom HUD name field"
+	},
+	"actionNoOptions": {
+		"message": "Tento príkaz nevyžaduje žiadne nastavenia.",
+		"description": "Placeholder shown in the action picker's detail panel when the selected action has no configurable settings"
+	},
+	"actionRequiredBadge": {
+		"message": "Povinné",
+		"description": "Badge shown next to fields that must be filled in (e.g., URL for Open URL)"
+	},
+	"menuNeedRefresh": {
+		"message": "FlowMouse nenačítaný, kliknite pre obnovenie",
+		"description": "Context menu title for pages needing refresh"
+	},
+	"menuRestricted": {
+		"message": "FlowMouse nedostupný, zistite prečo",
+		"description": "Context menu title for restricted pages"
+	},
+	"showRestrictedNotice": {
+		"message": "Oznámenie na obmedzených stránkach",
+		"description": "Setting title for restricted page notice"
+	},
+	"showRestrictedNoticeDesc": {
+		"message": "Zobraziť oznámenie kontextového menu na stránkach, kde gestá nie sú k dispozícii",
+		"description": "Setting description for restricted page notice"
+	},
+	"restrictedPagesDetailsTitle": {
+		"message": "Kvôli bezpečnostným politikám prehliadača nemôžu rozšírenia bežať na určitých typoch stránok.",
+		"description": "Collapsible details title"
+	},
+	"showMoreHint": {
+		"message": " (Zobraziť podrobnosti)",
+		"description": "Hint to show more details"
+	},
+	"restrictedNewTab": {
+		"message": "Stránka novej karty",
+		"description": "New tab page title"
+	},
+	"restrictedNewTabDesc": {
+		"message": "Predvolená stránka novej karty prehliadača je chránená systémová stránka. Rozšírenia tu nemôžu vkladať skripty ani meniť obsah.",
+		"description": "New tab page description"
+	},
+	"restrictedStore": {
+		"message": "Oficiálne obchody rozšírení",
+		"description": "Store page title"
+	},
+	"restrictedStoreDesc": {
+		"message": "Napríklad %storeInfo%, atď. Prehliadače bránia rozšíreniam bežať na týchto stránkach na ochranu normálnej prevádzky obchodu.",
+		"description": "Store page description"
+	},
+	"restrictedInternal": {
+		"message": "Interné stránky prehliadača (%browserProtocol%)",
+		"description": "Internal page title"
+	},
+	"restrictedInternalDesc": {
+		"message": "Napríklad interné nastavenia, história, sťahovanie, chybové stránky atď. prehliadača %browserName%. Tieto stránky zahŕňajú základné funkcie prehliadača a údaje o súkromí používateľov, preto sú prísne chránené.",
+		"description": "Internal page description"
+	},
+	"restrictedFile": {
+		"message": "Stránky lokálnych súborov (file://)",
+		"description": "File page title"
+	},
+	"restrictedFileDesc": {
+		"message": "Lokálne html, pdf, atď. súbory otvorené cez protokol file://. Kvôli bezpečnostným obmedzeniam (aby sa zabránilo škodlivým rozšíreniam v prístupe k lokálnemu súborovému systému), rozšírenia nemôžu na týchto stránkach fungovať.",
+		"description": "File page description"
+	},
+	"restrictedViewSource": {
+		"message": "Stránky zobrazenia zdroja (view-source:)",
+		"description": "View source page title"
+	},
+	"restrictedViewSourceDesc": {
+		"message": "Prehliadač zdrojového kódu je tiež chránená systémová stránka. Rozšírenia tu nemôžu bežať.",
+		"description": "View source page description"
+	},
+	"restrictedOther": {
+		"message": "Ostatné menej časté ovplyvnené stránky nie sú uvedené samostatne.",
+		"description": "Other restricted pages note"
+	},
+	"popupNeedRefresh": {
+		"message": "Rozšírenie nenačítané",
+		"description": "Popup title when content script not loaded"
+	},
+	"popupNeedRefreshDesc": {
+		"message": "Táto stránka bola otvorená pred inštaláciou/aktualizáciou rozšírenia. Obnovte stránku pre povolenie gest.",
+		"description": "Popup description when content script not loaded"
+	},
+	"popupRefreshBtn": {
+		"message": "Obnoviť stránku",
+		"description": "Popup refresh button text"
+	},
+	"popupRestrictedTitle": {
+		"message": "Gestá nedostupné",
+		"description": "Popup title for restricted pages"
+	},
+	"popupRestrictedDesc": {
+		"message": "Táto stránka nemôže používať gestá kvôli bezpečnostným obmedzeniam prehliadača.",
+		"description": "Popup description for restricted pages"
+	},
+	"popupLearnMore": {
+		"message": "Zistiť viac",
+		"description": "Popup learn more button text"
+	},
+	"tutorialPending": {
+		"message": "Vyskúšať",
+		"description": "Tutorial pending status"
+	},
+	"tutorialCompleted": {
+		"message": "Hotovo",
+		"description": "Tutorial completed status"
+	},
+	"tutorialClickToStart": {
+		"message": "Kliknite <span class=\"text-highlight\">Pravým tlačidlom myši</span> pre začiatok",
+		"description": "Tutorial Step 0 instruction"
+	},
+	"tutorialWelcomeTitle": {
+		"message": "Vitajte vo FlowMouse",
+		"description": "Tutorial welcome title"
+	},
+	"tutorialWelcomeSubtitle": {
+		"message": "Ovládnite základy za 30 sekúnd pre plynulejšie a intuitívnejšie prehliadanie",
+		"description": "Tutorial welcome subtitle"
+	},
+	"tutorialStep1Title": {
+		"message": "Základy",
+		"description": "Tutorial Step 1 title"
+	},
+	"tutorialStep1Subtitle": {
+		"message": "Naučte sa mechaniku gest",
+		"description": "Tutorial Step 1 subtitle"
+	},
+	"tutorialStep1InstructionIdle": {
+		"message": "Stlačte a <strong>Podržte</strong> <span class=\"text-highlight\">Pravé tlačidlo myši</span>",
+		"description": "Tutorial Step 1 instruction idle"
+	},
+	"tutorialStep1InstructionPressing": {
+		"message": "<strong>Výborne!</strong> Teraz ťahajte <strong>%arrow% Doprava</strong>",
+		"description": "Tutorial Step 1 instruction pressing"
+	},
+	"tutorialStep1InstructionDragging": {
+		"message": "Pokračujte v ťahaní...",
+		"description": "Tutorial Step 1 instruction dragging"
+	},
+	"tutorialStep1InstructionReleasing": {
+		"message": "<strong>Skvelé!</strong> Teraz uvoľnite!",
+		"description": "Tutorial Step 1 instruction releasing"
+	},
+	"tutorialStep2Title": {
+		"message": "Gestá FlowMouse",
+		"description": "Tutorial Step 2 title"
+	},
+	"tutorialStep2Subtitle": {
+		"message": "Podržte <span class=\"text-highlight\">Pravé tlačidlo myši</span> pre vykonanie gest",
+		"description": "Tutorial Step 2 subtitle"
+	},
+	"tutorialStep2Footer": {
+		"message": "<strong>Viac gest</strong> a <strong>úplné prispôsobenie</strong> dostupné v nastaveniach.",
+		"description": "Footer note for step 2 discovery banner"
+	},
+	"tutorialStep2DiscoveryHeader": {
+		"message": "Viac gest",
+		"description": "Header for step 2 discovery banner"
+	},
+	"tutorialStep3DiscoveryHeader": {
+		"message": "Viac funkcií Super Drag",
+		"description": "Header for step 3 discovery banner"
+	},
+	"tutorialStep3TextSearch": {
+		"message": "Text <span class=\"svg-arrow\">→</span> Hľadať",
+		"description": "Text drag search discovery item"
+	},
+	"tutorialStep3LinkOpen": {
+		"message": "Odkaz <span class=\"svg-arrow\">→</span> Otvoriť na novej karte",
+		"description": "Link drag open discovery item"
+	},
+	"tutorialStep3ImageOpen": {
+		"message": "Obrázok <span class=\"svg-arrow\">→</span> Otvoriť na novej karte",
+		"description": "Image drag open discovery item"
+	},
+	"tutorialStep3Footer": {
+		"message": "<strong>Viac akcií ťahania</strong> a <strong>úplné prispôsobenie</strong> dostupné v režime pokročilých nastavení",
+		"description": "Footer for step 3 discovery banner"
+	},
+	"tutorialContinue": {
+		"message": "Pokračovať",
+		"description": "Tutorial continue button"
+	},
+	"tutorialStep3Title": {
+		"message": "Super Drag",
+		"description": "Tutorial Step 3 title"
+	},
+	"tutorialStep3Subtitle": {
+		"message": "Podržte <span class=\"text-highlight\">Ľavé tlačidlo myši</span> a ťahajte <span class=\"svg-arrow\">→</span> pre rýchle vykonanie akcií",
+		"description": "Tutorial Step 3 subtitle"
+	},
+	"tutorialStep3HintTitle": {
+		"message": "Vyhľadávanie výberu textu",
+		"description": "Tutorial Step 3 hint title"
+	},
+	"tutorialStep3HintDesc": {
+		"message": "Vyberte text, potom podržte <span class=\"text-highlight\">Ľavé tlačidlo myši</span> a potiahnite <span class=\"svg-arrow\">→</span> pre vyhľadávanie",
+		"description": "Tutorial Step 3 hint description. Note: Must drag to right. Use SVG arrow instead of text for direction."
+	},
+	"tutorialStep3TextBoxLabel": {
+		"message": "Skúste to s textom nižšie!",
+		"description": "Tutorial Step 3 text box label"
+	},
+	"tutorialStep3SelectableText": {
+		"message": "FlowMouse Super Drag",
+		"description": "Tutorial Step 3 selectable text"
+	},
+	"tutorialStep4Title": {
+		"message": "Gratulujeme!",
+		"description": "Tutorial Step 4 title"
+	},
+	"tutorialStep4Subtitle": {
+		"message": "Užite si plynulé ('Flow') prehliadanie.",
+		"description": "Tutorial Step 4 subtitle"
+	},
+	"tutorialStep4Instruction": {
+		"message": "Použite <span class=\"text-highlight\">Super Drag <span class=\"svg-arrow\">→</span></span> na tomto odkaze pre otvorenie na <span class=\"text-highlight\">Novej karte</span>",
+		"description": "Tutorial Step 4 instruction. Note: Must drag to right. Use SVG arrow instead of text for direction."
+	},
+	"tutorialSettingsLink": {
+		"message": "Nastavenia FlowMouse",
+		"description": "Tutorial settings link"
+	},
+	"tutorialSettingsHint": {
+		"message": "Mnoho ďalších výkonných funkcií čaká na objavenie!",
+		"description": "Tutorial settings hint"
+	},
+	"tutorialWrongDirection": {
+		"message": "Nesprávny smer! Ťahajte %arrow% Doprava",
+		"description": "Tutorial wrong direction error"
+	},
+	"tutorialEarlyRelease": {
+		"message": "Uvoľnené príliš skoro! Pokračujte v ťahaní.",
+		"description": "Tutorial early release error"
+	},
+	"tutorialDragWrongButton": {
+		"message": "Použite <span class=\"text-highlight\">Ľavé tlačidlo myši</span> na ťahanie",
+		"description": "Tutorial drag wrong button error"
+	},
+	"tutorialRefreshTip": {
+		"message": "Tip: Karty otvorené pred inštaláciou je potrebné <span class=\"text-highlight\">obnoviť</span> pre použitie FlowMouse",
+		"description": "Tip about refreshing tabs"
+	},
+	"permissionBookmarksTitle": {
+		"message": "Spravovať záložky",
+		"description": "Permission popup title for bookmarks"
+	},
+	"permissionBookmarksDesc": {
+		"message": "Na pridanie stránok do záložiek potrebuje FlowMouse prístup k vašim záložkám.",
+		"description": "Permission popup description for bookmarks"
+	},
+	"permissionDownloadsTitle": {
+		"message": "Spravovať sťahovania",
+		"description": "Permission popup title for downloads"
+	},
+	"permissionDownloadsDesc": {
+		"message": "Na uloženie obrázkov potrebuje FlowMouse prístup k vašim sťahovaniam.",
+		"description": "Permission popup description for downloads"
+	},
+	"permissionDownloadsPageCaptureTitle": {
+		"message": "Uložiť obsah",
+		"description": "Permission popup title for downloads and page capture"
+	},
+	"permissionDownloadsPageCaptureDesc": {
+		"message": "Na uloženie obsahu potrebuje FlowMouse prístup k stránkam a sťahovaniam.",
+		"description": "Permission popup description for downloads and page capture"
+	},
+	"permissionIncognitoTitle": {
+		"message": "Povoliť v režime inkognito",
+		"description": "Permission popup title for incognito"
+	},
+	"permissionIncognitoDesc": {
+		"message": "Ak chcete, aby to fungovalo v oknách inkognito, musíte pre FlowMouse manuálne povoliť možnosť „Povoliť v režime inkognito“.",
+		"description": "Permission popup description for incognito"
+	},
+	"permissionClipboardReadTitle": {
+		"message": "Čítanie zo schránky",
+		"description": "Permission popup title for clipboard read"
+	},
+	"permissionClipboardReadDesc": {
+		"message": "Ak chcete vložiť obsah schránky, FlowMouse potrebuje povolenie na čítanie vašej schránky.",
+		"description": "Permission popup description for clipboard read"
+	},
+	"openExtensionsSettings": {
+		"message": "Otvoriť podrobnosti rozšírenia",
+		"description": "Button to open extension details page"
+	},
+	"permissionFirefoxIncognitoTitle": {
+		"message": "Spustiť v súkromných oknách",
+		"description": "Permission popup title for Firefox private browsing"
+	},
+	"permissionFirefoxIncognitoDesc": {
+		"message": "Ak chcete, aby to fungovalo v súkromných oknách, musíte v Správcovi doplnkov manuálne povoliť možnosť „Spustiť v súkromných oknách“ pre FlowMouse.",
+		"description": "Permission popup description for Firefox private browsing"
+	},
+	"grantPermission": {
+		"message": "Udeliť povolenie",
+		"description": "Grant permission button"
+	},
+	"grantPermissionCancel": {
+		"message": "Zrušiť",
+		"description": "Cancel button"
+	},
+	"permissionTitle": {
+		"message": "Povolenie FlowMouse",
+		"description": "Generic permission window title"
+	},
+	"tutorialPinHint": {
+		"message": "Kliknite na<span class='icon-ext'></span><b>Rozšírenia</b>, a<span class='icon-pin'></span><b>Pripnúť</b> FlowMouse pre ľahký prístup!",
+		"description": "Hint to pin the extension in tutorial step 4. Do not add space around icon."
+	},
+	"downloadErrorHotlink": {
+		"message": "Uloženie obrázka zlyhalo. Webová stránka môže mať ochranu proti hotlinku. Kliknite pravým tlačidlom myši na obrázok a vyberte možnosť „Uložiť obrázok ako...“",
+		"description": "Toast message when image download fails due to hotlink protection"
+	},
+	"saveImageLoadError": {
+		"message": "Uloženie obrázka zlyhalo: Obrázok sa nepodarilo načítať",
+		"description": "Toast message when image fails to load before saving"
+	},
+	"saveImageTimeout": {
+		"message": "Uloženie obrázka zlyhalo: Časový limit načítania vypršal",
+		"description": "Toast message when image loading times out"
+	},
+	"buttonOkay": {
+		"message": "OK",
+		"description": "Generic OK button"
+	},
+	"buttonConfirm": {
+		"message": "Potvrdiť",
+		"description": "Generic Confirm button"
+	},
+	"buttonCancel": {
+		"message": "Zrušiť",
+		"description": "Generic Cancel button"
+	},
+	"buttonClose": {
+		"message": "Zavrieť",
+		"description": "Generic Close button"
+	},
+	"searchActions": {
+		"message": "Hľadať príkazy...",
+		"description": "Placeholder for action search input in action picker"
+	},
+	"actionCategoryNavigation": {
+		"message": "Navigácia",
+		"description": "Action category: navigation"
+	},
+	"actionCategoryTabs": {
+		"message": "Karty",
+		"description": "Action category: tabs"
+	},
+	"actionCategoryWindow": {
+		"message": "Okno",
+		"description": "Action category: window"
+	},
+	"actionCategoryUtilities": {
+		"message": "Nástroje",
+		"description": "Action category: utilities"
+	},
+	"noResults": {
+		"message": "Žiadne výsledky",
+		"description": "No search results found"
+	},
+	"wheelGestures": {
+		"message": "Gestá kolieskom myši",
+		"description": "Mouse wheel gestures section title"
+	},
+	"enableWheelGestures": {
+		"message": "Povoliť gestá kolieskom myši",
+		"description": "Enable mouse wheel gestures"
+	},
+	"enableWheelGesturesDesc": {
+		"message": "Vykonávajte rôzne akcie rýchlo pomocou kolieska myši",
+		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelGesture_scrollUpHoldingRight": {
+		"message": "Posunúť nahor pri podržaní pravého tlačidla",
+		"description": "Wheel gesture: scroll up while holding right button"
+	},
+	"wheelGesture_scrollDownHoldingRight": {
+		"message": "Posunúť nadol pri podržaní pravého tlačidla",
+		"description": "Wheel gesture: scroll down while holding right button"
+	},
+	"wheelGesture_wheelClickHoldingRight": {
+		"message": "Kliknutie stredným tlačidlom pri podržaní pravého tlačidla",
+		"description": "Wheel gesture: wheel (middle) click while holding right button"
+	},
+	"specialGestures": {
+		"message": "Špeciálne gestá",
+		"description": "Special gestures section title"
+	},
+	"enableSpecialGestures": {
+		"message": "Povoliť špeciálne gestá",
+		"description": "Enable special gestures"
+	},
+	"enableSpecialGesturesDesc": {
+		"message": "Vykonávajte akcie kliknutím na jedno tlačidlo myši a súčasným podržaním druhého",
+		"description": "Enable special gestures description"
+	},
+	"specialGesture_leftClickHoldingRight": {
+		"message": "Kliknutie ľavým tlačidlom pri podržaní pravého tlačidla",
+		"description": "Special gesture: left click while holding right button"
+	},
+	"specialGesture_rightClickHoldingLeft": {
+		"message": "Kliknutie pravým tlačidlom pri podržaní ľavého tlačidla",
+		"description": "Special gesture: right click while holding left button"
+	},
+	"actionChainsDesc": {
+		"message": "Použite reťazce príkazov na postupné vykonávanie viacerých príkazov.",
+		"description": "Action chains section description"
+	},
+	"actionActionChain": {
+		"message": "Reťazec príkazov",
+		"description": "Action chain action name"
+	},
+	"actionCustomMenu": {
+		"message": "Vlastná ponuka",
+		"description": "Custom popup menu action name"
+	},
+	"customMenuDesc": {
+		"message": "Vytvorte vlastné kontextové ponuky s viacerými akciami.",
+		"description": "Custom menu section description"
+	},
+	"addMenu": {
+		"message": "Pridať ponuku",
+		"description": "Add menu button"
+	},
+	"menuNamePlaceholder": {
+		"message": "Vlastná ponuka",
+		"description": "Menu name input placeholder"
+	},
+	"menuItemCount": {
+		"message": "%count% položiek",
+		"description": "Item count for menus, e.g. '3 items'"
+	},
+	"menuItemCountOne": {
+		"message": "%count% položka",
+		"description": "Item count for menus with exactly 1 item"
+	},
+	"addMenuItem": {
+		"message": "Pridať položku",
+		"description": "Add menu item button"
+	},
+	"addMenuSeparator": {
+		"message": "Pridať oddeľovač",
+		"description": "Add separator to menu button"
+	},
+	"emptyMenuItems": {
+		"message": "Neboli pridané žiadne položky. Začnite kliknutím na „Pridať položku“.",
+		"description": "Empty menu items message"
+	},
+	"menuNotFound": {
+		"message": "(Menu sa nenašlo)",
+		"description": "Menu not found label"
+	},
+	"deleteMenuConfirm": {
+		"message": "Odstrániť menu „%name%“?",
+		"description": "Delete menu confirmation"
+	},
+	"menuItemNumber": {
+		"message": "Položka %n%",
+		"description": "Menu item number label"
+	},
+	"addChain": {
+		"message": "Pridať reťazec",
+		"description": "Add chain button"
+	},
+	"chainNamePlaceholder": {
+		"message": "Reťazec príkazov",
+		"description": "Chain name input placeholder"
+	},
+	"chainDelayUnit": {
+		"message": "ms",
+		"description": "Milliseconds unit for chain delay"
+	},
+	"addStep": {
+		"message": "Pridať krok",
+		"description": "Add step button"
+	},
+	"emptyChainSteps": {
+		"message": "Neboli pridané žiadne kroky. Začnite kliknutím na tlačidlo „Pridať krok“.",
+		"description": "Empty chain steps message in expanded body"
+	},
+	"emptyChainStepsShort": {
+		"message": "Žiadne pridané kroky",
+		"description": "Short empty chain steps message for summary"
+	},
+	"noChains": {
+		"message": "Zatiaľ žiadne reťazce príkazov. Vytvorte ho kliknutím na tlačidlo „Pridať reťazec“.",
+		"description": "No chains message"
+	},
+	"chainNotFound": {
+		"message": "(Reťazec sa nenašiel)",
+		"description": "Chain not found label"
+	},
+	"deleteChainConfirm": {
+		"message": "Odstrániť reťazec \"%name%\"?",
+		"description": "Delete chain confirmation"
+	},
+	"stepNumber": {
+		"message": "Krok %n%",
+		"description": "Step number label"
+	},
+	"actionDelay": {
+		"message": "Oneskorenie",
+		"description": "Delay action name for chain steps"
+	},
+	"actionSendCustomEvent": {
+		"message": "Odoslať vlastnú udalosť",
+		"description": "Action to dispatch a custom DOM event"
+	},
+	"actionSendExtensionMessage": {
+		"message": "Vyvolať iné rozšírenie",
+		"description": "Action to send a custom message to another installed extension"
+	},
+	"actionSimulateKey": {
+		"message": "Simulovať stlačenie klávesu",
+		"description": "Action to simulate a keyboard key press on the page"
+	},
+	"actionPasteClipboard": {
+		"message": "Vložiť zo schránky",
+		"description": "Action to paste clipboard text at the gesture start position"
+	},
+	"pasteClipboardHint": {
+		"message": "Obsah schránky sa vloží do vstupného poľa na <b>východiskovej pozícii gesta</b>.",
+		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
+	"actionPasteContent": {
+		"message": "Vložiť vlastný text",
+		"description": "Action to paste a preset, user-specified text at the gesture start position"
+	},
+	"pasteContentLabel": {
+		"message": "Text",
+		"description": "Label for the text field where the user enters the content to paste"
+	},
+	"pasteContentHint": {
+		"message": "Zadaný text sa vloží do vstupného poľa na <b>východiskovej pozícii gesta</b>.",
+		"description": "Hint shown in action config when paste specified content is selected. Contains HTML."
+	},
+	"pasteContentSensitiveHint": {
+		"message": "Neodporúča sa tu ukladať citlivé informácie, ako napríklad heslá.",
+		"description": "Warning hint below the content field for the paste specified content action"
+	},
+	"simulateKeyPreset": {
+		"message": "Prednastavený kláves",
+		"description": "Label for preset key dropdown in simulate key config"
+	},
+	"simulateKeyPresetLeft": {
+		"message": "← Šípka doľava (Predchádzajúca stránka)",
+		"description": "Preset: ArrowLeft key"
+	},
+	"simulateKeyPresetRight": {
+		"message": "→ Šípka doprava (Ďalšia stránka)",
+		"description": "Preset: ArrowRight key"
+	},
+	"simulateKeyPresetCustom": {
+		"message": "Vlastný kláves",
+		"description": "Preset: Custom key option"
+	},
+	"simulateKeyRecordBtn": {
+		"message": "Zaznamenať kláves",
+		"description": "Button to start recording a key press"
+	},
+	"simulateKeyRecording": {
+		"message": "Stlačte kláves...",
+		"description": "Recording state text"
+	},
+	"simulateKeyManualInput": {
+		"message": "Aktuálny kláves",
+		"description": "Label for current key display in simulate key config"
+	},
+	"simulateKeyHint": {
+		"message": "Táto funkcia odosiela udalosti klávesnice iba na aktuálnu stránku, bežne sa používa na navigáciu na stránke (← predchádzajúca / → ďalšia). NEBUDE spúšťať klávesové skratky prehliadača (napr. Ctrl+R neobnoví stránku). Navyše kvôli obmedzeniam rámca webových stránok nemusia byť simulované udalosti zachytené všetkými vlastnými komponentmi alebo vstupnými poľami.",
+		"description": "Hint text for simulate key feature"
+	},
+	"customEventInvalidJson": {
+		"message": "Neplatný formát JSON",
+		"description": "Error message when event detail is not valid JSON"
+	},
+	"customEventIncludeGestureInfo": {
+		"message": "Zahrnúť informácie o gestách v %code%",
+		"description": "Checkbox label for including gesture context in custom event detail. %code% = detail.gesture"
+	},
+	"customEventConfigureBtn": {
+		"message": "Nastavenia",
+		"description": "Label for the configure button of custom event action in drag gesture manager"
+	},
+	"customEventHint": {
+		"message": "Odošle %code% na %window%. Užitočné pre integráciu s inými skriptami.",
+		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
+	},
+	"sendExtensionMessageHint": {
+		"message": "Odošle správu cez %code% do iného nainštalovaného rozšírenia. Užitočné pre integráciu s inými rozšíreniami.",
+		"description": "Hint explaining how send-message-to-extension works. %code% = <code>chrome.runtime.sendMessage(...)</code>"
+	},
+	"delayDuration": {
+		"message": "Trvanie",
+		"description": "Delay duration label"
+	},
+	"chainStepCount": {
+		"message": "Počet krokov: %count%",
+		"description": "Step count for unnamed chains, e.g. '3 steps'"
+	},
+	"chainStepCountOne": {
+		"message": "Krokov: %count%",
+		"description": "Step count for unnamed chains with exactly 1 step"
+	},
+	"actionZoomIn": {
+		"message": "Priblížiť",
+		"description": "Zoom in on the current page"
+	},
+	"actionZoomOut": {
+		"message": "Oddialiť",
+		"description": "Zoom out on the current page"
+	},
+	"actionResetZoom": {
+		"message": "Obnoviť priblíženie",
+		"description": "Reset page zoom to default or a specified level"
+	},
+	"actionViewPageSource": {
+		"message": "Zobraziť zdrojový kód stránky",
+		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionPauseGesture": {
+		"message": "Pozastaviť gestá do obnovenia",
+		"description": "Temporarily disable all gestures on the current tab until page refresh"
+	},
+	"actionAreaSelect": {
+		"message": "Výber oblasti",
+		"description": "Enter area select mode to drag-select links on the page and batch open them"
+	},
+	"areaSelectTitle": {
+		"message": "Výber oblasti",
+		"description": "Label for the area select row in the popup"
+	},
+	"areaSelectModifierKey": {
+		"message": "Rýchly výber oblasti",
+		"description": "Label for the modifier key dropdown in area select settings"
+	},
+	"areaSelectModifierKeyDesc": {
+		"message": "Podržte modifikačný kláves, potom kliknite ľavým tlačidlom a ťahom rýchlo vyberte odkazy na stránke pre hromadné operácie",
+		"description": "Description for the modifier key setting"
+	},
+	"areaSelectDisabled": {
+		"message": "Zakázané",
+		"description": "Disabled option for the area select modifier key dropdown"
+	},
+	"areaSelectMouseDrag": {
+		"message": "Ťahanie myšou",
+		"description": "Suffix label next to the modifier key dropdown"
+	},
+	"areaSelectTextUrl": {
+		"message": "Rozpoznávanie textových URL",
+		"description": "Label for the text URL recognition toggle"
+	},
+	"areaSelectTextUrlDesc": {
+		"message": "Pri výbere extrahovať aj obyčajné textové URL (nehypertextové odkazy)",
+		"description": "Description for the text URL recognition toggle"
+	},
+	"areaSelectWarnThreshold": {
+		"message": "Upozornenie na dávkovú operáciu",
+		"description": "Label for the batch operation alert threshold input"
+	},
+	"areaSelectWarnThresholdDesc": {
+		"message": "Zobraziť potvrdenie pri dávkovom spracovaní viac ako tohto počtu položiek, 0 pre deaktiváciu",
+		"description": "Description for the batch operation alert threshold"
+	},
+	"areaSelectDelay": {
+		"message": "Interval operácie",
+		"description": "Label for the operation interval input"
+	},
+	"areaSelectDelayDesc": {
+		"message": "Oneskorenie medzi každým otvorením v dávkových operáciách (sekundy)",
+		"description": "Description for the operation interval setting"
+	},
+	"areaSelectHint": {
+		"message": "Potiahnutím vyberte odkazy",
+		"description": "Hint text shown in the area select overlay"
+	},
+	"areaSelectOpen": {
+		"message": "Otvoriť %count% odkazov",
+		"description": "Button text in the area select toolbar to batch open selected links"
+	},
+	"areaSelectOpenOne": {
+		"message": "Otvoriť %count% odkaz",
+		"description": "Button text to open a single selected link (singular form)"
+	},
+	"areaSelectCopy": {
+		"message": "Kopírovať odkazy",
+		"description": "Button text to copy all selected link URLs to clipboard"
+	},
+	"areaSelectCancel": {
+		"message": "Zrušiť",
+		"description": "Button text to cancel area select mode"
+	},
+	"areaSelectConfirm": {
+		"message": "Potvrdiť",
+		"description": "Button text to confirm opening many links"
+	},
+	"areaSelectWarnTitle": {
+		"message": "Otvoriť veľa odkazov?",
+		"description": "Title of the warning modal when opening many links"
+	},
+	"areaSelectWarnMessage": {
+		"message": "Chystáte sa otvoriť %count% odkazov. To by mohlo spomaliť váš prehliadač. Pokračovať?",
+		"description": "Body text of the warning modal"
+	},
+	"start": {
+		"message": "Štart",
+		"description": "Button label to start an action (e.g. area select)"
+	},
+	"actionMenuShowTabs": {
+		"message": "Prepnúť kartu",
+		"description": "Show a context menu listing all open tabs in the current window"
+	},
+	"actionMenuRecentlyClosed": {
+		"message": "Nedávno zatvorené karty",
+		"description": "Show a context menu listing recently closed tabs for quick restore"
+	},
+	"recentlyClosedMaxItems": {
+		"message": "Max. položiek",
+		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
+	},
+	"actionCategoryContextMenu": {
+		"message": "Vyskakovacie menu",
+		"description": "Action category: context menu actions"
+	},
+	"zoomStepMode": {
+		"message": "Režim lupy",
+		"description": "Label for zoom mode selector: browser steps vs fixed increment"
+	},
+	"zoomStepModeBrowser": {
+		"message": "Použiť úrovne lupy prehliadača",
+		"description": "Option: follow Chrome's built-in zoom steps (25%, 33%, 50%, …, 500%)"
+	},
+	"zoomStepModeFixed": {
+		"message": "Pevný krok",
+		"description": "Option: zoom in/out by a configurable fixed percentage each time"
+	},
+	"zoomDelta": {
+		"message": "Veľkosť kroku",
+		"description": "Label for the zoom increment/decrement slider"
+	},
+	"resetZoomLevel": {
+		"message": "Obnoviť na",
+		"description": "Label for the target zoom level when resetting zoom"
+	},
+	"resetZoomDefault": {
+		"message": "Predvolené nastavenie prehliadača",
+		"description": "Option: reset zoom to the browser's default zoom setting"
+	},
+	"resetZoomCustom": {
+		"message": "Vlastná hodnota",
+		"description": "Option: reset zoom to a user-specified custom zoom level"
+	},
+	"actionMenuShowBookmarks": {
+		"message": "Zobraziť záložky",
+		"description": "Show a context menu listing bookmarks from a selected folder"
+	},
+	"bookmarkFolder": {
+		"message": "Priečinok",
+		"description": "Label for selecting which bookmark folder to display"
+	},
+	"bookmarkFolderDefault": {
+		"message": "Predvolený priečinok prehliadača",
+		"description": "Option label for using the browser's default bookmark location"
+	},
+	"bookmarkGrantPermission": {
+		"message": "(Povoliť prístup k záložkám)",
+		"description": "Button label to request bookmarks permission"
+	},
+	"ctxMenuSortOrder": {
+		"message": "Zoradiť podľa",
+		"description": "Label for context menu sort order dropdown"
+	},
+	"ctxMenuSortDefault": {
+		"message": "Predvolené",
+		"description": "Sort option: original API/insertion order"
+	},
+	"ctxMenuSortDefaultDesc": {
+		"message": "Predvolené (obrátene)",
+		"description": "Sort option: reverse of original API order"
+	},
+	"ctxMenuSortDateAddedAsc": {
+		"message": "Dátum pridania (od najstarších)",
+		"description": "Sort option: by date added ascending"
+	},
+	"ctxMenuSortDateAddedDesc": {
+		"message": "Dátum pridania (od najnovších)",
+		"description": "Sort option: by date added descending"
+	},
+	"ctxMenuSortNameAsc": {
+		"message": "Názov (vzostupne)",
+		"description": "Sort option: alphabetical ascending"
+	},
+	"ctxMenuSortNameDesc": {
+		"message": "Názov (zostupne)",
+		"description": "Sort option: alphabetical descending"
+	},
+	"ctxMenuSortLastAccessAsc": {
+		"message": "Posledný prístup (od najstarších)",
+		"description": "Sort option: by last access time ascending"
+	},
+	"ctxMenuSortLastAccessDesc": {
+		"message": "Posledný prístup (od najnovších)",
+		"description": "Sort option: by last access time descending"
+	},
+	"ctxMenuMaxItems": {
+		"message": "Max. počet",
+		"description": "Label for maximum number of items in context menu"
+	},
+	"ctxMenuMaxItemsUnlimited": {
+		"message": "Neobmedzené",
+		"description": "Placeholder shown when max items is 0 (no limit)"
+	},
+	"ctxMenuScrollToBottom": {
+		"message": "Posunúť nadol",
+		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuTimeDisplay": {
+		"message": "Zobraziť čas",
+		"description": "Label for time display mode dropdown in context menu"
+	},
+	"ctxMenuTimeNone": {
+		"message": "Nezobrazovať",
+		"description": "Time display option: hide time column"
+	},
+	"ctxMenuTimeLastAccess": {
+		"message": "Posledný prístup",
+		"description": "Time display option: show last access time"
+	},
+	"ctxMenuTimeClosedTime": {
+		"message": "Čas zatvorenia",
+		"description": "Time display option: show when the tab was closed"
+	},
+	"ctxMenuTimeDateAdded": {
+		"message": "Dátum pridania",
+		"description": "Time display option: show when the bookmark was added"
+	}
+}

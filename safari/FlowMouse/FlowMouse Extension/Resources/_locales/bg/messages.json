@@ -1,0 +1,2150 @@
+{
+	"extName": {
+		"message": "FlowMouse - Жестове с мишката",
+		"description": "Extension name"
+	},
+	"extNameShort": {
+		"message": "FlowMouse",
+		"description": "Short extension name for popup"
+	},
+	"extDescription": {
+		"message": "Разширение за жестове с мишката с отворен код, фокусирано върху поверителността и плавността. Плавни жестове, поддръжка на Супер влачене.",
+		"description": "Extension description"
+	},
+	"theme": {
+		"message": "Тема",
+		"description": "Theme"
+	},
+	"themeDark": {
+		"message": "Тъмна",
+		"description": "Dark theme"
+	},
+	"themeLight": {
+		"message": "Светла",
+		"description": "Light theme"
+	},
+	"themeAuto": {
+		"message": "Следвай системата",
+		"description": "Auto theme - follow system"
+	},
+	"syncStatus": {
+		"message": "Състояние на синхронизация",
+		"description": "Sync status"
+	},
+	"syncStatusDesc": {
+		"message": "Синхронизация на настройките чрез %browserName% акаунт",
+		"description": "Sync status description"
+	},
+	"saved": {
+		"message": "Запазено",
+		"description": "Saved"
+	},
+	"author": {
+		"message": "Автор",
+		"description": "Author"
+	},
+	"privacyNote": {
+		"message": " Изцяло локално, няма достъп до мрежата освен за синхронизация, не събира данни.",
+		"description": "Privacy note in footer"
+	},
+	"supportUsText": {
+		"message": "Харесвате FlowMouse? Моля, дайте ни 5-звездна оценка в %appStoreInfo%, това ни мотивира да продължим!",
+		"description": "Rating text"
+	},
+	"storeNameChrome": {
+		"message": "Уеб магазин на Chrome",
+		"description": "Chrome Web Store name"
+	},
+	"storeNameEdge": {
+		"message": "Добавки за Edge",
+		"description": "Edge Add-ons name"
+	},
+	"storeNameFirefox": {
+		"message": "Добавки за Firefox",
+		"description": "Firefox Add-ons name"
+	},
+	"feedbackText": {
+		"message": "Имате проблеми или предложения? Моля, споделете ги чрез <a href='mailto:Service@52pojie.cn'>Имейл</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> или във <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Форума</a>. Ще го подобрим възможно най-скоро!",
+		"description": "Feedback text"
+	},
+	"feedbackTextChrome": {
+		"message": "Имате проблеми или предложения? Моля, споделете ги чрез <a href='https://chromewebstore.google.com/detail/fnldhkfidchnjiokpoemdhoejmaojkgp/support' target='_blank'>Поддръжка на Уеб магазина на Chrome</a>, <a href='mailto:Service@52pojie.cn'>Имейл</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> или във <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Форума</a>. Ще го подобрим възможно най-скоро!",
+		"description": "Feedback text for Chrome browser"
+	},
+	"supportAndFeedback": {
+		"message": "Поддръжка и обратна връзка",
+		"description": "Support and Feedback section title"
+	},
+	"feedbackTitle": {
+		"message": "Обратна връзка и предложения",
+		"description": "Feedback row title"
+	},
+	"supportUsTitle": {
+		"message": "Подкрепете ни",
+		"description": "Rating row title"
+	},
+	"backToSettings": {
+		"message": "Обратно към настройките",
+		"description": "Back to settings link"
+	},
+	"settings": {
+		"message": "Настройки",
+		"description": "Settings"
+	},
+	"moreSettings": {
+		"message": "Още настройки",
+		"description": "More settings button in popup"
+	},
+	"version": {
+		"message": "Версия",
+		"description": "Version"
+	},
+	"basicSettings": {
+		"message": "Функции за жестове",
+		"description": "Gesture settings section"
+	},
+	"enableGesture": {
+		"message": "Активиране на жестове",
+		"description": "Enable gesture feature"
+	},
+	"enableGestureDesc": {
+		"message": "Задръжте десния бутон на мишката и движете мишката, за да изпълните жестове лесно",
+		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
+	},
+	"gestureTriggerButtons": {
+		"message": "Бутони за задействане",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "Изберете кои бутони на мишката могат да задействат жестове",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "Десен бутон",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "Среден бутон",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "Страничен бутон (Назад)",
+		"description": "Mouse button 4 - the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "Страничен бутон (Напред)",
+		"description": "Mouse button 5 - the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "Десен бутон на стилус",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "Някои бутони за задействане може да не работят правилно в зависимост от вашия хардуер или настройките на драйвера. Например, мишките Logitech може да изискват деактивиране на \"Хоризонтално превъртане\" в драйвера, за да се използват страничните бутони за жестове.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
+	"macLinuxContextMenuNotice": {
+		"message": "Поради системни ограничения, когато са активирани жестовете с десния бутон, при macOS / Linux е необходимо двойно щракване с десния бутон за отваряне на контекстното меню.",
+		"description": "Notice for macOS / Linux users about double right-click for context menu"
+	},
+	"macLinuxDoubleClickHint": {
+		"message": "За да отворите контекстното меню, щракнете двукратно с десния бутон. (Научете повече)",
+		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
+	},
+	"edgeGestureConflictNotice": {
+		"message": "%browserName% има вградени функции за жестове. За да използвате жестовете на FlowMouse, моля, <a href=\"#\" class=\"edge-gesture-link\">деактивирайте вградените жестове</a> в настройките на %browserName%.",
+		"description": "Notice for Edge users about built-in gesture conflict"
+	},
+	"macTextDragNotice": {
+		"message": "Поради особеностите на macOS, при влачене на текст първо маркирайте текста, след това натиснете и задръжте левия бутон в маркираната област за кратко, преди да го плъзнете. В противен случай функцията за влачене може да не се задейства.",
+		"description": "Notice for macOS users about text drag behavior"
+	},
+	"showTrail": {
+		"message": "Показване на следа от жеста",
+		"description": "Show gesture trail"
+	},
+	"showTrailDesc": {
+		"message": "Показване на линия на следата при изпълнение на жестове",
+		"description": "Show trail line when performing gestures"
+	},
+	"showHint": {
+		"message": "Показване на подсказка за действие",
+		"description": "Show action hint"
+	},
+	"showHintDesc": {
+		"message": "Показване на текущото действие на жеста в центъра на екрана",
+		"description": "Show current gesture action in center of screen"
+	},
+	"color": {
+		"message": "Цвят",
+		"description": "Color"
+	},
+	"width": {
+		"message": "Дебелина",
+		"description": "Width/thickness"
+	},
+	"background": {
+		"message": "Фон",
+		"description": "Background"
+	},
+	"opacity": {
+		"message": "Прозрачност",
+		"description": "Opacity"
+	},
+	"blur": {
+		"message": "Размиване",
+		"description": "Blur radius"
+	},
+	"hudShadow": {
+		"message": "Сянка",
+		"description": "HUD shadow toggle"
+	},
+	"showSuggestedGestures": {
+		"message": "Подсказки за жестове",
+		"description": "Show suggested gestures at bottom of screen"
+	},
+	"customCss": {
+		"message": "Персонализиран CSS",
+		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
+	},
+	"customCssDesc": {
+		"message": "Задайте персонализиран CSS, за да промените собствения интерфейс на FlowMouse",
+		"description": "Description for the Custom CSS advanced setting"
+	},
+	"customCssConfigure": {
+		"message": "Конфигуриране",
+		"description": "Button label to open the Custom CSS editor dialog when no CSS is set"
+	},
+	"customCssEdit": {
+		"message": "Редактиране",
+		"description": "Button label to open the Custom CSS editor dialog when CSS is already set"
+	},
+	"customCssEditorTitle": {
+		"message": "Редактор на персонализиран CSS",
+		"description": "Title of the dedicated custom CSS editor page"
+	},
+	"customCssEditorHint": {
+		"message": "Стиловете се инжектират във всеки Shadow DOM, създаден от FlowMouse. Натиснете Ctrl+S, за да запазите.",
+		"description": "Hint shown above the editor textarea."
+	},
+	"customCssEditorPlaceholder": {
+		"message": "/* Напишете вашия персонализиран CSS тук… */",
+		"description": "Placeholder inside the Custom CSS editor textarea"
+	},
+	"customCssEditorInsertSnippet": {
+		"message": "Пример",
+		"description": "Button to append an example/starter CSS snippet to the editor"
+	},
+	"customCssEditorRevert": {
+		"message": "Връщане",
+		"description": "Button that reverts the editor content back to the last saved value"
+	},
+	"customCssEditorSave": {
+		"message": "Запазване",
+		"description": "Save button in the Custom CSS editor"
+	},
+	"customCssEditorSaved": {
+		"message": "Запазено",
+		"description": "Status message shown briefly after the user saves the custom CSS"
+	},
+	"customCssEditorDiscardConfirm": {
+		"message": "Отхвърляне на незапазените редакции и връщане към последния запазен CSS?",
+		"description": "Confirmation dialog shown before reverting unsaved edits"
+	},
+	"text": {
+		"message": "Текст",
+		"description": "Text"
+	},
+	"scrollAmount": {
+		"message": "Разстояние на превъртане",
+		"description": "Scroll amount"
+	},
+	"scrollAmountDesc": {
+		"message": "Разстояние на превъртане за жестове нагоре/надолу (% от височината на прозореца)",
+		"description": "Scroll distance for up/down gestures"
+	},
+	"scrollSmoothness": {
+		"message": "Плавност на превъртане",
+		"description": "Scroll smoothness"
+	},
+	"scrollSmoothnessDesc": {
+		"message": "Ефект на анимация на превъртане за жестове нагоре/надолу",
+		"description": "Scroll smoothness description"
+	},
+	"smoothnessAuto": {
+		"message": "Автоматично",
+		"description": "Auto scroll smoothness - uses system if animation enabled, otherwise smooth"
+	},
+	"smoothnessSystem": {
+		"message": "Системна (висока производителност)",
+		"description": "System scroll smoothness"
+	},
+	"smoothnessCustom": {
+		"message": "Плавна",
+		"description": "Custom smooth scrolling"
+	},
+	"smoothnessNone": {
+		"message": "Без анимация",
+		"description": "No scroll animation"
+	},
+	"scrollDuration": {
+		"message": "Продължителност на анимацията",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "Не е налично при използване на системно превъртане",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
+	"scrollAccel": {
+		"message": "Множител за непрекъснато превъртане",
+		"description": "Speed multiplier applied when scrolling consecutively"
+	},
+	"scrollAccelOff": {
+		"message": "Изкл.",
+		"description": "Scroll acceleration disabled"
+	},
+	"scrollAccelWindow": {
+		"message": "Време за последователно превъртане",
+		"description": "Max time (ms) between scrolls to count as consecutive"
+	},
+	"dragFeatures": {
+		"message": "Функции за плъзгане",
+		"description": "Drag features section"
+	},
+	"textDragSearch": {
+		"message": "Плъзгане на текст",
+		"description": "Text drag"
+	},
+	"textDragSearchDesc": {
+		"message": "Плъзнете избран текст за търсене",
+		"description": "Drag selected text to search"
+	},
+	"textDragIgnoreInput": {
+		"message": "Деактивиране в полета за въвеждане",
+		"description": "Option to disable text drag inside input boxes and textareas"
+	},
+	"textDragIgnoreInputDesc": {
+		"message": "Не задействайте плъзгане на текст в редактируеми области като полета за въвеждане и текстови редактори",
+		"description": "Description for text drag ignore input option"
+	},
+	"dragDropOnInput": {
+		"message": "Потискане на жеста над полета за въвеждане",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "Не задействай жест при пускане в полета за въвеждане или редактируеми области",
+		"description": "Description for drag drop on input option"
+	},
+	"searchEngine": {
+		"message": "Търсачка",
+		"description": "Search engine"
+	},
+	"custom": {
+		"message": "Персонализирано",
+		"description": "Custom"
+	},
+	"customUrlPlaceholder": {
+		"message": "Персонализиран URL, използвайте %s за термин за търсене",
+		"description": "Custom URL placeholder"
+	},
+	"customUrlPlaceholderHint": {
+		"message": "Трябва да включва протокол (напр. https://). Налични контейнери: %placeholders%. Добавете :raw, за да пропуснете URL кодирането, напр. %example%",
+		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
+	},
+	"urlPlaceholderText": {
+		"message": "%s=Ключова дума",
+		"description": "Placeholder for text drag custom URL"
+	},
+	"urlPlaceholderImage": {
+		"message": "%s=URL на изображението",
+		"description": "Placeholder for image drag custom URL"
+	},
+	"searchEngine_google_translate": {
+		"message": "Google Преводач",
+		"description": "Google Translate search engine"
+	},
+	"searchEngine_bing_translate": {
+		"message": "Преводач на Bing",
+		"description": "Bing Translate search engine"
+	},
+	"searchEngine_baidu": {
+		"message": "Baidu",
+		"description": "Baidu search engine"
+	},
+	"searchEngine_360": {
+		"message": "360 Търсене",
+		"description": "360 search engine"
+	},
+	"searchEngine_yandex": {
+		"message": "Яндекс",
+		"description": "Yandex search engine"
+	},
+	"searchEngine_system": {
+		"message": "По подразбиране за браузъра",
+		"description": "System default search engine"
+	},
+	"imageDrag": {
+		"message": "Плъзгане на изображение",
+		"description": "Image drag"
+	},
+	"imageDragDesc": {
+		"message": "Плъзнете изображение за отваряне в нов раздел",
+		"description": "Drag image to open in new tab"
+	},
+	"linkDrag": {
+		"message": "Плъзгане на връзка",
+		"description": "Link drag"
+	},
+	"linkDragDesc": {
+		"message": "Плъзнете връзка за отваряне в нов раздел",
+		"description": "Drag link to open in new tab"
+	},
+	"enableCustomGestures": {
+		"message": "Персонализирани жестове",
+		"description": "Enable custom gestures"
+	},
+	"enableCustomGesturesDesc": {
+		"message": "Преглеждане и персонализиране на всяко действие на жест",
+		"description": "View and customize each gesture action"
+	},
+	"gestureAutoSaveHint": {
+		"message": "Съвет: Промените се запазват автоматично.",
+		"description": "Hint about auto-save"
+	},
+	"blacklist": {
+		"message": "Черен списък на сайтове",
+		"description": "Website blacklist"
+	},
+	"blacklistPlaceholder": {
+		"message": "Въведете домейн, напр. example.com, натиснете Enter за добавяне",
+		"description": "Blacklist input placeholder"
+	},
+	"add": {
+		"message": "Добавяне",
+		"description": "Add button"
+	},
+	"emptyBlacklist": {
+		"message": "Няма сайтове в черния списък. Въведете домейн по-горе за добавяне.",
+		"description": "Empty blacklist message"
+	},
+	"enableBlacklistContextMenu": {
+		"message": "Превключвател на жестовете в контекстното меню",
+		"description": "Setting title for blacklist context menu toggle"
+	},
+	"enableBlacklistContextMenuDesc": {
+		"message": "Показване на опция за деактивиране/активиране на жестове в контекстното меню",
+		"description": "Setting description for blacklist context menu toggle"
+	},
+	"menuAddToBlacklist": {
+		"message": "Деактивиране на жестовете на този сайт",
+		"description": "Context menu title for adding current site to blacklist"
+	},
+	"menuRemoveFromBlacklist": {
+		"message": "Активиране на жестовете на този сайт",
+		"description": "Context menu title for removing current site from blacklist"
+	},
+	"dataManagement": {
+		"message": "Управление на данни",
+		"description": "Data management section"
+	},
+	"export": {
+		"message": "Експортиране на настройките",
+		"description": "Export settings"
+	},
+	"import": {
+		"message": "Импортиране",
+		"description": "Import settings"
+	},
+	"reset": {
+		"message": "Нулиране на настройките",
+		"description": "Reset to default"
+	},
+	"duplicate": {
+		"message": "Дублиране",
+		"description": "Generic duplicate button tooltip"
+	},
+	"delete": {
+		"message": "Изтриване",
+		"description": "Generic delete button tooltip"
+	},
+	"autoSaved": {
+		"message": "Автоматично запазено",
+		"description": "Auto-saved message"
+	},
+	"saveFailure": {
+		"message": "Неуспешно запазване",
+		"description": "Save failure message"
+	},
+	"resetConfirm": {
+		"message": "Сигурни ли сте, че искате да нулирате всички настройки по подразбиране?",
+		"description": "Reset confirmation"
+	},
+	"resetDone": {
+		"message": "Настройките са нулирани по подразбиране",
+		"description": "Reset done message"
+	},
+	"exportDone": {
+		"message": "Настройките са експортирани",
+		"description": "Export done message"
+	},
+	"importDone": {
+		"message": "Настройките бяха импортирани успешно",
+		"description": "Import done message"
+	},
+	"importConfirm": {
+		"message": "Импортирането ще презапише текущите ви настройки. Импортирайте конфигурационни файлове само от надеждни източници.\n\nПродължаване?",
+		"description": "Import confirmation warning"
+	},
+	"importFailed": {
+		"message": "Неуспешно импортиране: Невалиден конфигурационен файл",
+		"description": "Import failed message"
+	},
+	"importFailedSyncError": {
+		"message": "Неуспешен импорт: Грешка при синхронизирането, моля, проверете състоянието на браузъра",
+		"description": "Import failed sync error message"
+	},
+	"invalidDomain": {
+		"message": "Моля, въведете валиден домейн",
+		"description": "Invalid domain message"
+	},
+	"domainExists": {
+		"message": "Домейнът вече е в черния списък",
+		"description": "Domain already in blacklist"
+	},
+	"about": {
+		"message": "За програмата",
+		"description": "About section"
+	},
+	"language": {
+		"message": "Език",
+		"description": "Language"
+	},
+	"languageAuto": {
+		"message": "Следвай системата",
+		"description": "Follow system language"
+	},
+	"privacyFriendly": {
+		"message": "Приятелски към поверителност",
+		"description": "Privacy friendly"
+	},
+	"localOnly": {
+		"message": "Само локално",
+		"description": "Local only"
+	},
+	"autoSave": {
+		"message": "Автоматично запазване",
+		"description": "Auto save"
+	},
+	"gestureDesc_L": {
+		"message": "Наляво",
+		"description": "Gesture description for ←"
+	},
+	"gestureDesc_R": {
+		"message": "Надясно",
+		"description": "Gesture description for →"
+	},
+	"gestureDesc_U": {
+		"message": "Нагоре",
+		"description": "Gesture description for ↑"
+	},
+	"gestureDesc_D": {
+		"message": "Надолу",
+		"description": "Gesture description for ↓"
+	},
+	"gestureDesc_DR": {
+		"message": "Надолу после надясно",
+		"description": "Gesture description for ↓→"
+	},
+	"gestureDesc_LU": {
+		"message": "Наляво после нагоре",
+		"description": "Gesture description for ←↑"
+	},
+	"gestureDesc_RU": {
+		"message": "Надясно после нагоре",
+		"description": "Gesture description for →↑"
+	},
+	"gestureDesc_RD": {
+		"message": "Надясно после надолу",
+		"description": "Gesture description for →↓"
+	},
+	"gestureDesc_UL": {
+		"message": "Нагоре после наляво",
+		"description": "Gesture description for ↑←"
+	},
+	"gestureDesc_UR": {
+		"message": "Нагоре после надясно",
+		"description": "Gesture description for ↑→"
+	},
+	"gestureDesc_DL": {
+		"message": "Надолу после наляво",
+		"description": "Gesture description for ↓←"
+	},
+	"gestureDesc_LD": {
+		"message": "Наляво после надолу",
+		"description": "Gesture description for ←↓"
+	},
+	"gestureDesc_UD": {
+		"message": "Нагоре после надолу",
+		"description": "Gesture description for ↑↓"
+	},
+	"gestureDesc_DU": {
+		"message": "Надолу после нагоре",
+		"description": "Gesture description for ↓↑"
+	},
+	"gestureDesc_LR": {
+		"message": "Наляво после надясно",
+		"description": "Gesture description for ←→"
+	},
+	"gestureDesc_RL": {
+		"message": "Надясно после наляво",
+		"description": "Gesture description for →←"
+	},
+	"actionNone": {
+		"message": "Без действие",
+		"description": "No action"
+	},
+	"actionBack": {
+		"message": "Назад",
+		"description": "Go back"
+	},
+	"actionForward": {
+		"message": "Напред",
+		"description": "Go forward"
+	},
+	"actionUrlLevelUp": {
+		"message": "Едно ниво нагоре в URL",
+		"description": "Navigate to the parent directory of the current URL"
+	},
+	"actionUrlToRoot": {
+		"message": "Към основния URL",
+		"description": "Navigate to the root of the current site"
+	},
+	"actionScrollUp": {
+		"message": "Превъртане нагоре",
+		"description": "Scroll up"
+	},
+	"actionScrollDown": {
+		"message": "Превъртане надолу",
+		"description": "Scroll down"
+	},
+	"actionScrollLeft": {
+		"message": "Превъртане наляво",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "Превъртане надясно",
+		"description": "Scroll right"
+	},
+	"actionScrollToTop": {
+		"message": "Превъртане до върха",
+		"description": "Scroll to top"
+	},
+	"actionScrollToBottom": {
+		"message": "Превъртане до дъното",
+		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "Превъртане до най-лявата част",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "Превъртане до най-дясната част",
+		"description": "Scroll to the rightmost position"
+	},
+	"actionCloseTab": {
+		"message": "Затвори раздела",
+		"description": "Close tab"
+	},
+	"closeTabKeepWindow": {
+		"message": "Ако това е последният раздел, запази прозореца отворен",
+		"description": "Checkbox label for closeTab action config"
+	},
+	"closeTabAfterClose": {
+		"message": "След затваряне",
+		"description": "Label for closeTab afterClose config"
+	},
+	"closeTabAfterCloseDefault": {
+		"message": "По подразбиране за браузъра",
+		"description": "Option for closeTab afterClose config - let browser decide"
+	},
+	"closeTabAfterCloseLeft": {
+		"message": "Превключване към ляв раздел",
+		"description": "Option for closeTab afterClose config - switch to left tab"
+	},
+	"closeTabAfterCloseRight": {
+		"message": "Превключване към десен раздел",
+		"description": "Option for closeTab afterClose config - switch to right tab"
+	},
+	"switchTabNoWrap": {
+		"message": "Без циклично превключване",
+		"description": "Checkbox label for switchLeftTab/switchRightTab action config"
+	},
+	"switchTabMoveTab": {
+		"message": "Премести текущия раздел",
+		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
+	},
+	"refreshHardReload": {
+		"message": "Твърдо презареждане (заобикаляне на кеша)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
+	"actionCloseBrowser": {
+		"message": "Затвори браузъра",
+		"description": "Close browser"
+	},
+	"actionCloseWindow": {
+		"message": "Затвори прозореца",
+		"description": "Close current window"
+	},
+	"actionRestoreTab": {
+		"message": "Възстанови затворения раздел",
+		"description": "Restore closed tab"
+	},
+	"actionNewTab": {
+		"message": "Нов раздел",
+		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "Не затваряйте фиксирани раздели",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
+	},
+	"closeTabsPreserveTab": {
+		"message": "Запазване на разделите (освобождаване на съдържанието на страницата)",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
+	"actionCloseOtherTabs": {
+		"message": "Затваряне на други раздели",
+		"description": "Close other tabs"
+	},
+	"actionCloseLeftTabs": {
+		"message": "Затваряне на раздели вляво",
+		"description": "Close tabs to the left"
+	},
+	"actionCloseRightTabs": {
+		"message": "Затваряне на раздели вдясно",
+		"description": "Close tabs to the right"
+	},
+	"actionCloseAllTabs": {
+		"message": "Затваряне на всички раздели",
+		"description": "Close all tabs"
+	},
+	"actionSwitchLeftTab": {
+		"message": "Превключване към ляв раздел",
+		"description": "Switch to left tab"
+	},
+	"actionSwitchRightTab": {
+		"message": "Превключване към десен раздел",
+		"description": "Switch to right tab"
+	},
+	"actionSwitchFirstTab": {
+		"message": "Превключване към първи раздел",
+		"description": "Switch to first tab"
+	},
+	"actionSwitchLastTab": {
+		"message": "Превключване към последен раздел",
+		"description": "Switch to last tab"
+	},
+	"actionSwitchLastActiveTab": {
+		"message": "Превключване към последния активен раздел",
+		"description": "Switch to the most recently active tab"
+	},
+	"actionRefresh": {
+		"message": "Опресни текущия раздел",
+		"description": "Refresh current tab"
+	},
+	"actionRefreshAllTabs": {
+		"message": "Опресняване на всички раздели",
+		"description": "Refresh all tabs"
+	},
+	"actionStopLoading": {
+		"message": "Спри зареждането",
+		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "Спри зареждането на всички раздели",
+		"description": "Stop loading all tabs in the current window"
+	},
+	"actionNewWindow": {
+		"message": "Нов прозорец",
+		"description": "New window"
+	},
+	"actionNewIncognito": {
+		"message": "Нов инкогнито прозорец",
+		"description": "New incognito window"
+	},
+	"actionAddToBookmarks": {
+		"message": "Добави към отметките",
+		"description": "Add to bookmarks"
+	},
+	"actionToggleFullscreen": {
+		"message": "Превключи на цял екран",
+		"description": "Toggle fullscreen"
+	},
+	"actionToggleMaximize": {
+		"message": "Максимизирай/възстанови прозореца",
+		"description": "Toggle window maximize"
+	},
+	"actionMinimize": {
+		"message": "Минимизирай прозореца",
+		"description": "Minimize window"
+	},
+	"actionOpenCustomUrl": {
+		"message": "Отваряне на персонализиран URL",
+		"description": "Open custom URL"
+	},
+	"actionCopyUrl": {
+		"message": "Копирай адреса на страницата",
+		"description": "Copy current URL"
+	},
+	"actionCopyTitle": {
+		"message": "Копирай заглавието на страницата",
+		"description": "Copy page title"
+	},
+	"actionCopyTitleAndUrl": {
+		"message": "Копиране на заглавието на страницата и URL адреса",
+		"description": "Copy page title and URL"
+	},
+	"actionOpenDownloads": {
+		"message": "Отвори изтеглянията",
+		"description": "Open downloads page"
+	},
+	"actionOpenHistory": {
+		"message": "Отвори историята",
+		"description": "Open history page"
+	},
+	"actionOpenExtensions": {
+		"message": "Отвори разширенията",
+		"description": "Open extensions page"
+	},
+	"actionSaveAsMhtml": {
+		"message": "Запазване като MHTML",
+		"description": "Save current page as MHTML file"
+	},
+	"actionPrintPage": {
+		"message": "Разпечатай страницата",
+		"description": "Print page"
+	},
+	"actionDuplicateTab": {
+		"message": "Дублирайте раздела",
+		"description": "Duplicate current tab"
+	},
+	"actionToggleMuteTab": {
+		"message": "Заглуши/включи звука в раздела",
+		"description": "Toggle mute current tab"
+	},
+	"actionToggleMuteAllTabs": {
+		"message": "Заглуши/включи звука във всички раздели",
+		"description": "Toggle mute all tabs"
+	},
+	"actionTogglePinTab": {
+		"message": "Фиксирай/Откачи текущия раздел",
+		"description": "Toggle pin current tab"
+	},
+	"actionMoveTabToNewWindow": {
+		"message": "Преместване на раздела в нов прозорец",
+		"description": "Move current tab to a new window"
+	},
+	"actionSearchClipboard": {
+		"message": "Търсене от клипборда",
+		"description": "Search clipboard text using a search engine"
+	},
+	"showTrailOrigin": {
+		"message": "Показване на начална точка",
+		"description": "Show trail origin point"
+	},
+	"enableTrailSmooth": {
+		"message": "Изглаждане на следата",
+		"description": "Enable trail smoothing for gesture visualization"
+	},
+	"distanceThreshold": {
+		"message": "Разстояние за разпознаване на жестове",
+		"description": "Gesture recognition distance"
+	},
+	"distanceThresholdDesc": {
+		"message": "Минимално разстояние на движение за разпознаване на жест и плъзгане",
+		"description": "Description for gesture recognition distance"
+	},
+	"distanceThresholdNotice": {
+		"message": "Съвет: Препоръчва се стойност между 15-30 за най-добро разпознаване.",
+		"description": "Warning when distance threshold is too small or too large"
+	},
+	"gestureTurnTolerance": {
+		"message": "Допуск за завой на жеста",
+		"description": "Turn tolerance for detecting direction changes in long gestures"
+	},
+	"gestureTurnToleranceDesc": {
+		"message": "По-високите стойности намаляват случайните завои, но изискват по-дълги движения за промяна на посоката",
+		"description": "Description for gesture turn tolerance setting"
+	},
+	"advanced": {
+		"message": "Покажи разширени настройки",
+		"description": "Short label for per-section advanced toggle"
+	},
+	"otherSettings": {
+		"message": "Други настройки",
+		"description": "Section title for other/miscellaneous settings"
+	},
+	"styleSettings": {
+		"message": "Изглед",
+		"description": "Section title for style/appearance settings (trail, HUD, etc.)"
+	},
+	"show": {
+		"message": "Показване",
+		"description": "Show navigation menu"
+	},
+	"hide": {
+		"message": "Скриване",
+		"description": "Hide navigation menu"
+	},
+	"urlFormatError": {
+		"message": "Моля, въведете пълен URL, започващ с http:// или https://",
+		"description": "URL format error message"
+	},
+	"resetToDefault": {
+		"message": "Нулиране по подразбиране",
+		"description": "Reset gesture to default action"
+	},
+	"resetToDefaultConfirm": {
+		"message": "Нулиране на тези настройки до стойностите по подразбиране?",
+		"description": "Confirmation dialog for resetting settings"
+	},
+	"addCustomGesture": {
+		"message": "Добавяне на персонализиран жест",
+		"description": "Add custom gesture section title"
+	},
+	"clear": {
+		"message": "Изчистване",
+		"description": "Clear button"
+	},
+	"gestureAdded": {
+		"message": "Жестът е добавен",
+		"description": "Gesture added success message"
+	},
+	"gestureRecorderTitle": {
+		"message": "Нарисувайте жест",
+		"description": "Gesture recorder full-screen title"
+	},
+	"gestureRecorderDesc": {
+		"message": "Задръжте бутона „%button%“ и нарисувайте жест",
+		"description": "Gesture recorder instruction, %button% is replaced with the mouse button name"
+	},
+	"gestureRecorderEsc": {
+		"message": "Отказ",
+		"description": "Gesture recorder cancel button label"
+	},
+	"gestureRecorderRecording": {
+		"message": "Записване…",
+		"description": "Gesture recorder recording indicator"
+	},
+	"gestureRecorderResult": {
+		"message": "Записан жест",
+		"description": "Gesture recorder result label"
+	},
+	"gestureRecorderConfirm": {
+		"message": "Потвърждаване",
+		"description": "Gesture recorder confirm button"
+	},
+	"gestureRecorderRedraw": {
+		"message": "Преначертаване",
+		"description": "Gesture recorder redraw button"
+	},
+	"gestureRecorderBanned": {
+		"message": "Жестът %pattern% вече съществува",
+		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"rightButton": {
+		"message": "Десен бутон на мишката",
+		"description": "Right mouse button name"
+	},
+	"leftButton": {
+		"message": "Ляв бутон на мишката",
+		"description": "Left mouse button name"
+	},
+	"customGesture": {
+		"message": "Персонализиран",
+		"description": "Label for custom gestures"
+	},
+	"deleteGesture": {
+		"message": "Изтриване на жест",
+		"description": "Delete gesture button tooltip"
+	},
+	"deleteGestureConfirm": {
+		"message": "Изтриване на жест %pattern%?",
+		"description": "Delete gesture confirmation"
+	},
+	"gestureDeleted": {
+		"message": "Жестът е изтрит",
+		"description": "Gesture deleted success message"
+	},
+	"enterCustomUrl": {
+		"message": "URL",
+		"description": "Prompt for custom URL input"
+	},
+	"copyAsMarkdown": {
+		"message": "Копиране като Markdown",
+		"description": "Checkbox label for copying as markdown format"
+	},
+	"invalidUrl": {
+		"message": "Моля, въведете валиден URL (започващ с http:// или https://)",
+		"description": "Invalid URL error message"
+	},
+	"popupTrail": {
+		"message": "Следа от жест",
+		"description": "Gesture trail in popup"
+	},
+	"popupHint": {
+		"message": "Подсказка за действие",
+		"description": "Action hint in popup"
+	},
+	"popupCommonGestures": {
+		"message": "Често използвани жестове",
+		"description": "Common gestures"
+	},
+	"popupCurrentSite": {
+		"message": "Текущ сайт",
+		"description": "Current site"
+	},
+	"popupRestricted": {
+		"message": "Ограничена страница",
+		"description": "Restricted page"
+	},
+	"popupDisabled": {
+		"message": "Деактивирано",
+		"description": "Disabled"
+	},
+	"popupAddBlacklist": {
+		"message": "Добавяне в черен списък",
+		"description": "Add to blacklist"
+	},
+	"popupRemoveBlacklist": {
+		"message": "Премахване от черен списък",
+		"description": "Remove from blacklist"
+	},
+	"popupNotAvailable": {
+		"message": "Недостъпно",
+		"description": "Not available"
+	},
+	"popupBack": {
+		"message": "Назад",
+		"description": "Back - short"
+	},
+	"popupForward": {
+		"message": "Напред",
+		"description": "Forward - short"
+	},
+	"popupScrollUp": {
+		"message": "Нагоре",
+		"description": "Scroll up - short"
+	},
+	"popupScrollDown": {
+		"message": "Надолу",
+		"description": "Scroll down - short"
+	},
+	"popupClose": {
+		"message": "Затвори",
+		"description": "Close Tab - short"
+	},
+	"popupRestore": {
+		"message": "Възстанови",
+		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "Ляв раздел",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "Десен раздел",
+		"description": "Switch Right Tab - short"
+	},
+	"dragSearchText": {
+		"message": "🔍 Търсене с плъзгане",
+		"description": "Drag search hint"
+	},
+	"dragOpenImage": {
+		"message": "🖼️ Отваряне на изображение",
+		"description": "Drag open image hint"
+	},
+	"dragOpenLink": {
+		"message": "🔗 Отваряне на връзка",
+		"description": "Drag open link hint"
+	},
+	"aboutTitle": {
+		"message": "За FlowMouse",
+		"description": "About title"
+	},
+	"aboutTitleShort": {
+		"message": "Относно",
+		"description": "Short About title "
+	},
+	"aboutAuthor": {
+		"message": "Автор",
+		"description": "Author"
+	},
+	"aboutWebsite": {
+		"message": "Уебсайт",
+		"description": "Website"
+	},
+	"aboutOpenSource": {
+		"message": "GitHub",
+		"description": "GitHub link"
+	},
+	"aboutEmail": {
+		"message": "Имейл",
+		"description": "Email"
+	},
+	"aboutPrivacy": {
+		"message": "Декларация за поверителност",
+		"description": "Privacy statement"
+	},
+	"aboutPrivacyText": {
+		"message": "Това разширение е проект с отворен код, чийто код е публикуван в GitHub. Приветстват се приноси и прегледи на кода. Цялата обработка на данни се извършва локално на вашето устройство. Самото разширение не установява никакви мрежови връзки и няма бекенд сървъри, така че не събира и не качва никакви потребителски данни на външни сървъри. Вашите запазени настройки се криптират и синхронизират между вашите устройства, в които сте влезли, чрез вградената услуга за синхронизация на браузъра %browserName%. Този процес се контролира изцяло от браузъра и следва настройките за поверителност и синхронизация на вашия браузър.",
+		"description": "Privacy statement text"
+	},
+	"aboutCredits": {
+		"message": "Благодарности",
+		"description": "Credits"
+	},
+	"aboutCreditsText": {
+		"message": "Благодарности на браузъра Microsoft Edge и разширението crxMouse за вдъхновението в дизайна.\nБлагодарности на общността 52pojie.cn и потребителите за обратна връзка и предложения!",
+		"description": "Credits text"
+	},
+	"aboutFeatures": {
+		"message": "Функции",
+		"description": "Features"
+	},
+	"aboutFeature1": {
+		"message": "16 стандартни жеста + персонализирани жестове",
+		"description": "Feature 1"
+	},
+	"aboutFeature2": {
+		"message": "Визуална обратна връзка за следата",
+		"description": "Feature 2"
+	},
+	"aboutFeature3": {
+		"message": "Супер плъзгане за текст/изображение/връзка",
+		"description": "Feature 3"
+	},
+	"aboutFeature4": {
+		"message": "Черен списък на сайтове",
+		"description": "Feature 4"
+	},
+	"aboutFeature5": {
+		"message": "Синхронизация с %browserName% акаунт",
+		"description": "Feature 5"
+	},
+	"aboutFeature6": {
+		"message": "Работи локално, няма мрежа освен за синхронизация",
+		"description": "Feature 6"
+	},
+	"tutorial": {
+		"message": "Ръководство",
+		"description": "Tutorial link"
+	},
+	"learnMore": {
+		"message": "Научете повече",
+		"description": "Learn more link"
+	},
+	"badgeNoNetwork": {
+		"message": "Няма мрежа освен за синхронизация",
+		"description": "No network privacy badge"
+	},
+	"badgeNoData": {
+		"message": "Не се събират данни",
+		"description": "No data collection badge"
+	},
+	"badgeLocalRun": {
+		"message": "Работи локално",
+		"description": "Local run badge"
+	},
+	"newTabSettings": {
+		"message": "Настройки за нов раздел",
+		"description": "New tab open settings"
+	},
+	"newTabPosition": {
+		"message": "Позиция на отваряне",
+		"description": "New tab position"
+	},
+	"tabPositionRight": {
+		"message": "Отдясно на текущия раздел",
+		"description": "Right of current tab"
+	},
+	"tabPositionLeft": {
+		"message": "Отляво на текущия раздел",
+		"description": "Left of current tab"
+	},
+	"tabPositionFirst": {
+		"message": "Първия раздел",
+		"description": "First tab (leftmost)"
+	},
+	"tabPositionLast": {
+		"message": "Последния раздел",
+		"description": "Last tab (rightmost)"
+	},
+	"tabPositionCurrent": {
+		"message": "Текущия раздел",
+		"description": "Open in current tab"
+	},
+	"tabPositionNewWindow": {
+		"message": "Нов прозорец",
+		"description": "Open in a new browser window"
+	},
+	"newTabActive": {
+		"message": "Отваряне на преден план",
+		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "Отваряне на преден план",
+		"description": "Open window in foreground"
+	},
+	"openInIncognito": {
+		"message": "Инкогнито",
+		"description": "Open in incognito checkbox"
+	},
+	"textDragGestures": {
+		"message": "Жестове за плъзгане на текст",
+		"description": "Text drag gestures"
+	},
+	"linkDragGestures": {
+		"message": "Жестове за плъзгане на връзка",
+		"description": "Link drag gestures"
+	},
+	"imageDragGestures": {
+		"message": "Жестове за плъзгане на изображение",
+		"description": "Image drag gestures"
+	},
+	"direction": {
+		"message": "Посока",
+		"description": "Direction column header"
+	},
+	"action": {
+		"message": "Команда",
+		"description": "Action column header"
+	},
+	"imageSearchUrl": {
+		"message": "URL за търсене на изображение (%s за адреса на изображението)",
+		"description": "Image search URL input"
+	},
+	"dragActionNone": {
+		"message": "Без действие",
+		"description": "No action"
+	},
+	"dragActionSearch": {
+		"message": "🔍 Търсене",
+		"description": "Search action"
+	},
+	"dragActionCopy": {
+		"message": "📋 Копиране",
+		"description": "Copy action"
+	},
+	"dragActionOpenTab": {
+		"message": "📑 Отваряне в нов раздел",
+		"description": "Open in new tab"
+	},
+	"dragActionOpenTabLink": {
+		"message": "🔗 Отваряне на връзка",
+		"description": "Open link in new tab"
+	},
+	"dragActionOpenTabImage": {
+		"message": "🖼️ Отваряне на изображение",
+		"description": "Open image in new tab"
+	},
+	"dragActionCopyLink": {
+		"message": "📋 Копиране на връзка",
+		"description": "Copy link"
+	},
+	"dragActionCopyLinkText": {
+		"message": "📋 Копиране на текста на връзката",
+		"description": "Copy link text"
+	},
+	"dragActionCopyLinkAndText": {
+		"message": "📋 Копиране на текст и връзка",
+		"description": "Copy link text and URL"
+	},
+	"dragActionSaveImage": {
+		"message": "💾 Запази изображението",
+		"description": "Save image"
+	},
+	"dragActionCopyImage": {
+		"message": "📋 Копирай изображението",
+		"description": "Copy image"
+	},
+	"dragActionCopyImageUrl": {
+		"message": "📋 Копиране на URL на изображение",
+		"description": "Copy image URL"
+	},
+	"dragActionImageSearch": {
+		"message": "🔍 Търсене на изображение",
+		"description": "Image search"
+	},
+	"dragActionCustomSearch": {
+		"message": "🔍 Персонализирано търсене",
+		"description": "Custom search"
+	},
+	"dragActionSendCustomEvent": {
+		"message": "Изпращане на персонализирано събитие",
+		"description": "Send custom DOM event on drag gesture"
+	},
+	"reducedMotionWarning": {
+		"message": "Системните анимации на %OS% не са активирани, анимацията на превъртане може да не се показва правилно. Можете да активирате анимациите в системните настройки на %OS%.",
+		"description": "Warning message when system reduced motion is enabled"
+	},
+	"autoDetectUrl": {
+		"message": "Автоматично разпознаване на URL",
+		"description": "Auto detect URL checkbox label"
+	},
+	"autoDetectUrlTooltip": {
+		"message": "Ако текстът е във формат на връзка, отворете я директно вместо да търсите",
+		"description": "Tooltip for the auto detect URL checkbox"
+	},
+	"preferLink": {
+		"message": "Предпочитание за отваряне на връзка",
+		"description": "Prefer link checkbox label"
+	},
+	"customHudName": {
+		"message": "Име",
+		"description": "Placeholder for custom action name shown on HUD"
+	},
+	"customHudNameTooltip": {
+		"message": "Персонализирано име, показвано на екрана при изпълнение на жеста",
+		"description": "Tooltip for the custom HUD name field"
+	},
+	"actionNoOptions": {
+		"message": "Тази команда не изисква никакви настройки.",
+		"description": "Placeholder shown in the action picker's detail panel when the selected action has no configurable settings"
+	},
+	"actionRequiredBadge": {
+		"message": "Задължително",
+		"description": "Badge shown next to fields that must be filled in (e.g., URL for Open URL)"
+	},
+	"menuNeedRefresh": {
+		"message": "FlowMouse не е зареден, щракнете за опресняване",
+		"description": "Context menu title for pages needing refresh"
+	},
+	"menuRestricted": {
+		"message": "FlowMouse не може да се използва, научете защо",
+		"description": "Context menu title for restricted pages"
+	},
+	"showRestrictedNotice": {
+		"message": "Известие за ограничена страница",
+		"description": "Setting title for restricted page notice"
+	},
+	"showRestrictedNoticeDesc": {
+		"message": "Показване на подсказка в контекстното меню на страници, където жестовете не могат да се използват",
+		"description": "Setting description for restricted page notice"
+	},
+	"restrictedPagesDetailsTitle": {
+		"message": "Поради ограничения на политиката за сигурност на браузъра, разширенията не могат да работят на определени типове страници",
+		"description": "Collapsible details title"
+	},
+	"showMoreHint": {
+		"message": "(Показване на подробности)",
+		"description": "Hint to show more details"
+	},
+	"restrictedNewTab": {
+		"message": "Нов раздел",
+		"description": "New tab page title"
+	},
+	"restrictedNewTabDesc": {
+		"message": "Страницата за нов раздел по подразбиране на браузъра е защитена системна страница, разширенията не могат да работят на тази страница.",
+		"description": "New tab page description"
+	},
+	"restrictedStore": {
+		"message": "Страници на официален магазин за приложения",
+		"description": "Store page title"
+	},
+	"restrictedStoreDesc": {
+		"message": "Например %storeInfo% и др. Браузърът забранява на разширенията да работят на такива страници, за да се предотврати намесата на злонамерени разширения в нормалния достъп и инсталирането от магазина.",
+		"description": "Store page description"
+	},
+	"restrictedInternal": {
+		"message": "Вътрешни страници за управление на браузъра (%browserProtocol%)",
+		"description": "Internal page title"
+	},
+	"restrictedInternalDesc": {
+		"message": "Например, вътрешните настройки, историята, изтеглянията, страниците за грешки и др. на %browserName%. Тези страници засягат основни функции на браузъра и данни за поверителността на потребителите, така че са строго защитени.",
+		"description": "Internal page description"
+	},
+	"restrictedFile": {
+		"message": "Страници с локални файлове (file://)",
+		"description": "File page title"
+	},
+	"restrictedFileDesc": {
+		"message": "Локални html, pdf и др. файлове, отворени чрез file:// протокол, поради ограничения за сигурност (за предотвратяване на достъпа на злонамерени разширения до локалната файлова система), разширенията не могат да работят на такива страници.",
+		"description": "File page description"
+	},
+	"restrictedViewSource": {
+		"message": "Страница за преглед на изходен код (view-source:)",
+		"description": "View source page title"
+	},
+	"restrictedViewSourceDesc": {
+		"message": "Интерфейсът за преглед на изходен код, предоставен от браузъра, също е защитена системна страница, разширенията не могат да работят на тази страница.",
+		"description": "View source page description"
+	},
+	"restrictedOther": {
+		"message": "Други рядко използвани засегнати страници не са изброени поотделно.",
+		"description": "Other restricted pages note"
+	},
+	"popupNeedRefresh": {
+		"message": "Разширението не е заредено",
+		"description": "Popup title when content script not loaded"
+	},
+	"popupNeedRefreshDesc": {
+		"message": "Тази страница е била отворена преди инсталирането/актуализирането на разширението, необходимо е опресняване за използване на жестове",
+		"description": "Popup description when content script not loaded"
+	},
+	"popupRefreshBtn": {
+		"message": "Опресняване на страницата",
+		"description": "Popup refresh button text"
+	},
+	"popupRestrictedTitle": {
+		"message": "Жестовете не могат да се използват",
+		"description": "Popup title for restricted pages"
+	},
+	"popupRestrictedDesc": {
+		"message": "Тази страница не може да зареди разширението поради ограничения за сигурност на браузъра",
+		"description": "Popup description for restricted pages"
+	},
+	"popupLearnMore": {
+		"message": "Научете подробности",
+		"description": "Popup learn more button text"
+	},
+	"tutorialPending": {
+		"message": "За изпробване",
+		"description": "Tutorial pending status"
+	},
+	"tutorialCompleted": {
+		"message": "Завършено",
+		"description": "Tutorial completed status"
+	},
+	"tutorialClickToStart": {
+		"message": "Щракнете <span class=\"text-highlight\">десен бутон на мишката</span> за начало",
+		"description": "Tutorial Step 0 instruction"
+	},
+	"tutorialWelcomeTitle": {
+		"message": "Добре дошли във FlowMouse",
+		"description": "Tutorial welcome title"
+	},
+	"tutorialWelcomeSubtitle": {
+		"message": "30 секунди за бързо овладяване на основните операции, за по-плавно сърфиране и по-лесно управление",
+		"description": "Tutorial welcome subtitle"
+	},
+	"tutorialStep1Title": {
+		"message": "Основни операции",
+		"description": "Tutorial Step 1 title"
+	},
+	"tutorialStep1Subtitle": {
+		"message": "Овладяване на основния механизъм на жестове",
+		"description": "Tutorial Step 1 subtitle"
+	},
+	"tutorialStep1InstructionIdle": {
+		"message": "Моля, натиснете и задръжте <span class=\"text-highlight\">десен бутон на мишката</span>",
+		"description": "Tutorial Step 1 instruction idle"
+	},
+	"tutorialStep1InstructionPressing": {
+		"message": "<strong>Добре!</strong> Задръжте го и плъзнете <strong>надясно %arrow%</strong>",
+		"description": "Tutorial Step 1 instruction pressing"
+	},
+	"tutorialStep1InstructionDragging": {
+		"message": "Продължете да плъзгате...",
+		"description": "Tutorial Step 1 instruction dragging"
+	},
+	"tutorialStep1InstructionReleasing": {
+		"message": "<strong>Много добре!</strong> Отпуснете десния бутон!",
+		"description": "Tutorial Step 1 instruction releasing"
+	},
+	"tutorialStep2Title": {
+		"message": "Често използвани жестове",
+		"description": "Tutorial Step 2 title"
+	},
+	"tutorialStep2Subtitle": {
+		"message": "Натиснете и задръжте <span class=\"text-highlight\">десен бутон на мишката</span> за нарисуване на жест",
+		"description": "Tutorial Step 2 subtitle"
+	},
+	"tutorialStep2Footer": {
+		"message": "<strong>Още жестове</strong> и <strong>персонализиране на жестове</strong> могат да се открият в настройките",
+		"description": "Footer note for step 2 discovery banner"
+	},
+	"tutorialStep2DiscoveryHeader": {
+		"message": "Още функции за жестове",
+		"description": "Header for step 2 discovery banner"
+	},
+	"tutorialStep3DiscoveryHeader": {
+		"message": "Още функции за супер плъзгане",
+		"description": "Header for step 3 discovery banner"
+	},
+	"tutorialStep3TextSearch": {
+		"message": "Текст <span class=\"svg-arrow\">→</span> Търсене",
+		"description": "Text drag search discovery item"
+	},
+	"tutorialStep3LinkOpen": {
+		"message": "Връзка <span class=\"svg-arrow\">→</span> Отваряне в нов раздел",
+		"description": "Link drag open discovery item"
+	},
+	"tutorialStep3ImageOpen": {
+		"message": "Изображение <span class=\"svg-arrow\">→</span> Отваряне в нов раздел",
+		"description": "Image drag open discovery item"
+	},
+	"tutorialStep3Footer": {
+		"message": "<strong>Още функции за плъзгане</strong> и <strong>персонализиране на плъзгане</strong> могат да се открият в режим на разширени настройки",
+		"description": "Footer for step 3 discovery banner"
+	},
+	"tutorialContinue": {
+		"message": "Продължи",
+		"description": "Tutorial continue button"
+	},
+	"tutorialStep3Title": {
+		"message": "Супер плъзгане",
+		"description": "Tutorial Step 3 title"
+	},
+	"tutorialStep3Subtitle": {
+		"message": "Натиснете и задръжте <span class=\"text-highlight\">ляв бутон на мишката</span> и плъзнете към <span class=\"svg-arrow\">→</span>, за бързо изпълнение на действия",
+		"description": "Tutorial Step 3 subtitle"
+	},
+	"tutorialStep3HintTitle": {
+		"message": "Търсене чрез влачене на текст",
+		"description": "Tutorial Step 3 hint title"
+	},
+	"tutorialStep3HintDesc": {
+		"message": "Изберете текст, използвайте <span class=\"text-highlight\">ляв бутон на мишката</span> за плъзгане към <span class=\"svg-arrow\">→</span> за търсене",
+		"description": "Tutorial Step 3 hint description. Note: Must drag to right. Use SVG arrow instead of text for direction."
+	},
+	"tutorialStep3TextBoxLabel": {
+		"message": "Изпробвайте върху текста по-долу!",
+		"description": "Tutorial Step 3 text box label"
+	},
+	"tutorialStep3SelectableText": {
+		"message": "FlowMouse Супер влачене",
+		"description": "Tutorial Step 3 selectable text"
+	},
+	"tutorialStep4Title": {
+		"message": "Поздравления!",
+		"description": "Tutorial Step 4 title"
+	},
+	"tutorialStep4Subtitle": {
+		"message": "Плъзгайте се леко, влезте в потока.",
+		"description": "Tutorial Step 4 subtitle"
+	},
+	"tutorialStep4Instruction": {
+		"message": "<span class=\"text-highlight\">Супер плъзгане <span class=\"svg-arrow\">→</span></span> върху връзка, за отваряне в <span class=\"text-highlight\">нов раздел</span>",
+		"description": "Tutorial Step 4 instruction. Note: Must drag to right. Use SVG arrow instead of text for direction."
+	},
+	"tutorialSettingsLink": {
+		"message": "Настройки на FlowMouse",
+		"description": "Tutorial settings link"
+	},
+	"tutorialSettingsHint": {
+		"message": "Има още много мощни функции за откриване!",
+		"description": "Tutorial settings hint"
+	},
+	"tutorialWrongDirection": {
+		"message": "Грешна посока! Моля, плъзнете надясно %arrow%",
+		"description": "Tutorial wrong direction error"
+	},
+	"tutorialEarlyRelease": {
+		"message": "Отпуснахте бутона твърде рано! Опитайте отново.",
+		"description": "Tutorial early release error"
+	},
+	"tutorialDragWrongButton": {
+		"message": "Моля, използвайте <span class=\"text-highlight\">ляв бутон на мишката</span> за плъзгане",
+		"description": "Tutorial drag wrong button error"
+	},
+	"tutorialRefreshTip": {
+		"message": "Съвет: Раздели, отворени преди инсталирането на FlowMouse, трябва да бъдат <span class=\"text-highlight\">опреснени</span> преди да могат да използват жестове",
+		"description": "Tip about refreshing tabs"
+	},
+	"permissionBookmarksTitle": {
+		"message": "Управление на отметки",
+		"description": "Permission popup title for bookmarks"
+	},
+	"permissionBookmarksDesc": {
+		"message": "За да добави страницата към отметки, FlowMouse се нуждае от разрешение за отметки.",
+		"description": "Permission popup description for bookmarks"
+	},
+	"permissionDownloadsTitle": {
+		"message": "Управление на изтегляния",
+		"description": "Permission popup title for downloads"
+	},
+	"permissionDownloadsDesc": {
+		"message": "За да запази изображения, FlowMouse се нуждае от разрешение за изтегляне.",
+		"description": "Permission popup description for downloads"
+	},
+	"permissionDownloadsPageCaptureTitle": {
+		"message": "Запазване на съдържание",
+		"description": "Permission popup title for downloads and page capture"
+	},
+	"permissionDownloadsPageCaptureDesc": {
+		"message": "За да запази съдържание, FlowMouse се нуждае от достъп до страници и изтегляния.",
+		"description": "Permission popup description for downloads and page capture"
+	},
+	"permissionIncognitoTitle": {
+		"message": "Да се разрешава в режим „инкогнито“",
+		"description": "Permission popup title for incognito"
+	},
+	"permissionIncognitoDesc": {
+		"message": "За да работи в прозорци „инкогнито“, трябва ръчно да разрешите „Да се разрешава в режим „инкогнито““ за FlowMouse.",
+		"description": "Permission popup description for incognito"
+	},
+	"permissionClipboardReadTitle": {
+		"message": "Четене на клипборда",
+		"description": "Permission popup title for clipboard read"
+	},
+	"permissionClipboardReadDesc": {
+		"message": "За да постави съдържанието от клипборда, FlowMouse се нуждае от достъп за четене на вашия клипборд.",
+		"description": "Permission popup description for clipboard read"
+	},
+	"openExtensionsSettings": {
+		"message": "Отвори подробности за разширението",
+		"description": "Button to open extension details page"
+	},
+	"permissionFirefoxIncognitoTitle": {
+		"message": "Изпълнение в прозорци за поверително сърфиране",
+		"description": "Permission popup title for Firefox private browsing"
+	},
+	"permissionFirefoxIncognitoDesc": {
+		"message": "За да работи в прозорци за поверително сърфиране, трябва ръчно да разрешите „Изпълнение в прозорци за поверително сърфиране“ за FlowMouse в Управление на добавки.",
+		"description": "Permission popup description for Firefox private browsing"
+	},
+	"grantPermission": {
+		"message": "Предоставяне на разрешение",
+		"description": "Grant permission button"
+	},
+	"grantPermissionCancel": {
+		"message": "Отказ",
+		"description": "Cancel button"
+	},
+	"permissionTitle": {
+		"message": "FlowMouse се нуждае от разрешение",
+		"description": "Generic permission window title"
+	},
+	"tutorialPinHint": {
+		"message": "Щракнете върху<span class='icon-ext'></span> <b>Разширения</b> и<span class='icon-pin'></span> <b>закачете</b> FlowMouse за по-бърз достъп до настройките!",
+		"description": "Hint to pin the extension in tutorial step 4. Do not add space around icon."
+	},
+	"downloadErrorHotlink": {
+		"message": "Запазването на изображението не е успешно. Уебсайтът може да има защита срещу директно свързване (hotlink). Моля, щракнете с десен бутон върху изображението и изберете „Запазване на изображението като...“",
+		"description": "Toast message when image download fails due to hotlink protection"
+	},
+	"saveImageLoadError": {
+		"message": "Запазването на изображението е неуспешно: Изображението не успя да се зареди",
+		"description": "Toast message when image fails to load before saving"
+	},
+	"saveImageTimeout": {
+		"message": "Запазването на изображението е неуспешно: Времето за зареждане изтече",
+		"description": "Toast message when image loading times out"
+	},
+	"buttonOkay": {
+		"message": "Добре",
+		"description": "Generic OK button"
+	},
+	"buttonConfirm": {
+		"message": "Потвърди",
+		"description": "Generic Confirm button"
+	},
+	"buttonCancel": {
+		"message": "Отказ",
+		"description": "Generic Cancel button"
+	},
+	"buttonClose": {
+		"message": "Затвори",
+		"description": "Generic Close button"
+	},
+	"searchActions": {
+		"message": "Търсене на команди...",
+		"description": "Placeholder for action search input in action picker"
+	},
+	"actionCategoryNavigation": {
+		"message": "Навигация",
+		"description": "Action category: navigation"
+	},
+	"actionCategoryTabs": {
+		"message": "Раздели",
+		"description": "Action category: tabs"
+	},
+	"actionCategoryWindow": {
+		"message": "Прозорец",
+		"description": "Action category: window"
+	},
+	"actionCategoryUtilities": {
+		"message": "Инструменти",
+		"description": "Action category: utilities"
+	},
+	"noResults": {
+		"message": "Няма резултати",
+		"description": "No search results found"
+	},
+	"wheelGestures": {
+		"message": "Жестове с колелцето на мишката",
+		"description": "Mouse wheel gestures section title"
+	},
+	"enableWheelGestures": {
+		"message": "Активиране на жестовете с колелцето на мишката",
+		"description": "Enable mouse wheel gestures"
+	},
+	"enableWheelGesturesDesc": {
+		"message": "Извършвайте различни действия бързо с помощта на колелцето на мишката",
+		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelGesture_scrollUpHoldingRight": {
+		"message": "Превъртане нагоре при задържане на десния бутон",
+		"description": "Wheel gesture: scroll up while holding right button"
+	},
+	"wheelGesture_scrollDownHoldingRight": {
+		"message": "Превъртане надолу при задържане на десния бутон",
+		"description": "Wheel gesture: scroll down while holding right button"
+	},
+	"wheelGesture_wheelClickHoldingRight": {
+		"message": "Щракване със средния бутон при задържане на десния бутон",
+		"description": "Wheel gesture: wheel (middle) click while holding right button"
+	},
+	"specialGestures": {
+		"message": "Специални жестове",
+		"description": "Special gestures section title"
+	},
+	"enableSpecialGestures": {
+		"message": "Активиране на специални жестове",
+		"description": "Enable special gestures"
+	},
+	"enableSpecialGesturesDesc": {
+		"message": "Извършвайте действия чрез щракване върху един бутон на мишката, докато задържате другия",
+		"description": "Enable special gestures description"
+	},
+	"specialGesture_leftClickHoldingRight": {
+		"message": "Щракнете с левия бутон, докато задържате десния",
+		"description": "Special gesture: left click while holding right button"
+	},
+	"specialGesture_rightClickHoldingLeft": {
+		"message": "Щракнете с десния бутон, докато задържате левия",
+		"description": "Special gesture: right click while holding left button"
+	},
+	"actionChainsDesc": {
+		"message": "Използвайте вериги от команди, за да изпълнявате множество команди последователно.",
+		"description": "Action chains section description"
+	},
+	"actionActionChain": {
+		"message": "Верига от команди",
+		"description": "Action chain action name"
+	},
+	"actionCustomMenu": {
+		"message": "Персонализирано меню",
+		"description": "Custom popup menu action name"
+	},
+	"customMenuDesc": {
+		"message": "Създавайте персонализирани изскачащи менюта с множество действия.",
+		"description": "Custom menu section description"
+	},
+	"addMenu": {
+		"message": "Добавяне на меню",
+		"description": "Add menu button"
+	},
+	"menuNamePlaceholder": {
+		"message": "Персонализирано меню",
+		"description": "Menu name input placeholder"
+	},
+	"menuItemCount": {
+		"message": "%count% елемента",
+		"description": "Item count for menus, e.g. '3 items'"
+	},
+	"menuItemCountOne": {
+		"message": "%count% елемент",
+		"description": "Item count for menus with exactly 1 item"
+	},
+	"addMenuItem": {
+		"message": "Добавяне на елемент",
+		"description": "Add menu item button"
+	},
+	"addMenuSeparator": {
+		"message": "Добавяне на разделител",
+		"description": "Add separator to menu button"
+	},
+	"emptyMenuItems": {
+		"message": "Няма добавени елементи. Кликнете върху „Добавяне на елемент“, за да започнете.",
+		"description": "Empty menu items message"
+	},
+	"menuNotFound": {
+		"message": "(Менюто не е намерено)",
+		"description": "Menu not found label"
+	},
+	"deleteMenuConfirm": {
+		"message": "Изтриване на менюто „%name%“?",
+		"description": "Delete menu confirmation"
+	},
+	"menuItemNumber": {
+		"message": "Елемент %n%",
+		"description": "Menu item number label"
+	},
+	"addChain": {
+		"message": "Добавяне на верига",
+		"description": "Add chain button"
+	},
+	"chainNamePlaceholder": {
+		"message": "Верига от команди",
+		"description": "Chain name input placeholder"
+	},
+	"chainDelayUnit": {
+		"message": "мс",
+		"description": "Milliseconds unit for chain delay"
+	},
+	"addStep": {
+		"message": "Добавяне на стъпка",
+		"description": "Add step button"
+	},
+	"emptyChainSteps": {
+		"message": "Няма добавени стъпки. Кликнете върху „Добавяне на стъпка“, за да започнете.",
+		"description": "Empty chain steps message in expanded body"
+	},
+	"emptyChainStepsShort": {
+		"message": "Няма добавени стъпки",
+		"description": "Short empty chain steps message for summary"
+	},
+	"noChains": {
+		"message": "Все още няма вериги от команди. Кликнете върху „Добавяне на верига“, за да създадете такава.",
+		"description": "No chains message"
+	},
+	"chainNotFound": {
+		"message": "(Веригата не е намерена)",
+		"description": "Chain not found label"
+	},
+	"deleteChainConfirm": {
+		"message": "Изтриване на веригата \"%name%\"?",
+		"description": "Delete chain confirmation"
+	},
+	"stepNumber": {
+		"message": "Стъпка %n%",
+		"description": "Step number label"
+	},
+	"actionDelay": {
+		"message": "Закъснение",
+		"description": "Delay action name for chain steps"
+	},
+	"actionSendCustomEvent": {
+		"message": "Изпращане на персонализирано събитие",
+		"description": "Action to dispatch a custom DOM event"
+	},
+	"actionSendExtensionMessage": {
+		"message": "Извикване на друго разширение",
+		"description": "Action to send a custom message to another installed extension"
+	},
+	"actionSimulateKey": {
+		"message": "Симулиране на натискане на клавиш",
+		"description": "Action to simulate a keyboard key press on the page"
+	},
+	"actionPasteClipboard": {
+		"message": "Поставяне от клипборда",
+		"description": "Action to paste clipboard text at the gesture start position"
+	},
+	"pasteClipboardHint": {
+		"message": "Съдържанието на клипборда ще бъде поставено във входното поле на <b>началната позиция на жеста</b>.",
+		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
+	"actionPasteContent": {
+		"message": "Поставяне на персонализиран текст",
+		"description": "Action to paste a preset, user-specified text at the gesture start position"
+	},
+	"pasteContentLabel": {
+		"message": "Текст",
+		"description": "Label for the text field where the user enters the content to paste"
+	},
+	"pasteContentHint": {
+		"message": "Указаният текст ще бъде въведен във входното поле на <b>началната позиция на жеста</b>.",
+		"description": "Hint shown in action config when paste specified content is selected. Contains HTML."
+	},
+	"pasteContentSensitiveHint": {
+		"message": "Не се препоръчва да съхранявате чувствителна информация като пароли тук.",
+		"description": "Warning hint below the content field for the paste specified content action"
+	},
+	"simulateKeyPreset": {
+		"message": "Предварително зададен клавиш",
+		"description": "Label for preset key dropdown in simulate key config"
+	},
+	"simulateKeyPresetLeft": {
+		"message": "← Стрелка наляво (Предишна страница)",
+		"description": "Preset: ArrowLeft key"
+	},
+	"simulateKeyPresetRight": {
+		"message": "→ Стрелка надясно (Следваща страница)",
+		"description": "Preset: ArrowRight key"
+	},
+	"simulateKeyPresetCustom": {
+		"message": "Персонализиран клавиш",
+		"description": "Preset: Custom key option"
+	},
+	"simulateKeyRecordBtn": {
+		"message": "Запис на клавиш",
+		"description": "Button to start recording a key press"
+	},
+	"simulateKeyRecording": {
+		"message": "Натиснете клавиш...",
+		"description": "Recording state text"
+	},
+	"simulateKeyManualInput": {
+		"message": "Текущ клавиш",
+		"description": "Label for current key display in simulate key config"
+	},
+	"simulateKeyHint": {
+		"message": "Тази функция изпраща събития от клавиатурата само към текущата страница, обикновено се използва за навигация (← предишна / → следваща). НЯМА да задейства преки пътища на браузъра (напр. Ctrl+R няма да опресни страницата). Освен това, поради ограничения на рамката на уебсайта, симулираните събития може да не бъдат уловени от всички персонализирани компоненти или полета за въвеждане.",
+		"description": "Hint text for simulate key feature"
+	},
+	"customEventInvalidJson": {
+		"message": "Невалиден JSON формат",
+		"description": "Error message when event detail is not valid JSON"
+	},
+	"customEventIncludeGestureInfo": {
+		"message": "Включване на информация за жестове в %code%",
+		"description": "Checkbox label for including gesture context in custom event detail. %code% = detail.gesture"
+	},
+	"customEventConfigureBtn": {
+		"message": "Настройки",
+		"description": "Label for the configure button of custom event action in drag gesture manager"
+	},
+	"customEventHint": {
+		"message": "Изпраща %code% на %window%. Полезно за интеграция с други скриптове.",
+		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
+	},
+	"sendExtensionMessageHint": {
+		"message": "Изпраща съобщение чрез %code% до друго инсталирано разширение. Полезно за интеграция с други разширения.",
+		"description": "Hint explaining how send-message-to-extension works. %code% = <code>chrome.runtime.sendMessage(...)</code>"
+	},
+	"delayDuration": {
+		"message": "Продължителност",
+		"description": "Delay duration label"
+	},
+	"chainStepCount": {
+		"message": "%count% стъпки",
+		"description": "Step count for unnamed chains, e.g. '3 steps'"
+	},
+	"chainStepCountOne": {
+		"message": "%count% стъпка",
+		"description": "Step count for unnamed chains with exactly 1 step"
+	},
+	"actionZoomIn": {
+		"message": "Увеличаване",
+		"description": "Zoom in on the current page"
+	},
+	"actionZoomOut": {
+		"message": "Намаляване",
+		"description": "Zoom out on the current page"
+	},
+	"actionResetZoom": {
+		"message": "Нулиране на мащаба",
+		"description": "Reset page zoom to default or a specified level"
+	},
+	"actionViewPageSource": {
+		"message": "Преглед на изходния код на страницата",
+		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionPauseGesture": {
+		"message": "Пауза на жестовете до опресняване",
+		"description": "Temporarily disable all gestures on the current tab until page refresh"
+	},
+	"actionAreaSelect": {
+		"message": "Избор на област",
+		"description": "Enter area select mode to drag-select links on the page and batch open them"
+	},
+	"areaSelectTitle": {
+		"message": "Избор на област",
+		"description": "Label for the area select row in the popup"
+	},
+	"areaSelectModifierKey": {
+		"message": "Бърз избор на област",
+		"description": "Label for the modifier key dropdown in area select settings"
+	},
+	"areaSelectModifierKeyDesc": {
+		"message": "Задръжте клавиша модификатор, след което щракнете с левия бутон и плъзнете, за да изберете бързо връзки на страницата за пакетни операции",
+		"description": "Description for the modifier key setting"
+	},
+	"areaSelectDisabled": {
+		"message": "Изключено",
+		"description": "Disabled option for the area select modifier key dropdown"
+	},
+	"areaSelectMouseDrag": {
+		"message": "Влачене с мишката",
+		"description": "Suffix label next to the modifier key dropdown"
+	},
+	"areaSelectTextUrl": {
+		"message": "Разпознаване на текстови URL адреси",
+		"description": "Label for the text URL recognition toggle"
+	},
+	"areaSelectTextUrlDesc": {
+		"message": "При маркиране извличай и обикновени текстови URL адреси (без хипервръзки)",
+		"description": "Description for the text URL recognition toggle"
+	},
+	"areaSelectWarnThreshold": {
+		"message": "Предупреждение за пакетна операция",
+		"description": "Label for the batch operation alert threshold input"
+	},
+	"areaSelectWarnThresholdDesc": {
+		"message": "Показване на потвърждение при пакетна обработка на повече от този брой елементи, 0 за деактивиране",
+		"description": "Description for the batch operation alert threshold"
+	},
+	"areaSelectDelay": {
+		"message": "Интервал на операция",
+		"description": "Label for the operation interval input"
+	},
+	"areaSelectDelayDesc": {
+		"message": "Закъснение между всяко отваряне при пакетни операции (секунди)",
+		"description": "Description for the operation interval setting"
+	},
+	"areaSelectHint": {
+		"message": "Плъзнете, за да изберете връзки",
+		"description": "Hint text shown in the area select overlay"
+	},
+	"areaSelectOpen": {
+		"message": "Отваряне на %count% връзки",
+		"description": "Button text in the area select toolbar to batch open selected links"
+	},
+	"areaSelectOpenOne": {
+		"message": "Отваряне на %count% връзка",
+		"description": "Button text to open a single selected link (singular form)"
+	},
+	"areaSelectCopy": {
+		"message": "Копиране на връзки",
+		"description": "Button text to copy all selected link URLs to clipboard"
+	},
+	"areaSelectCancel": {
+		"message": "Отказ",
+		"description": "Button text to cancel area select mode"
+	},
+	"areaSelectConfirm": {
+		"message": "Потвърждаване",
+		"description": "Button text to confirm opening many links"
+	},
+	"areaSelectWarnTitle": {
+		"message": "Отваряне на много връзки?",
+		"description": "Title of the warning modal when opening many links"
+	},
+	"areaSelectWarnMessage": {
+		"message": "На път сте да отворите %count% връзки. Това може да забави браузъра ви. Продължавате ли?",
+		"description": "Body text of the warning modal"
+	},
+	"start": {
+		"message": "Старт",
+		"description": "Button label to start an action (e.g. area select)"
+	},
+	"actionMenuShowTabs": {
+		"message": "Превключване на раздел",
+		"description": "Show a context menu listing all open tabs in the current window"
+	},
+	"actionMenuRecentlyClosed": {
+		"message": "Наскоро затворени раздели",
+		"description": "Show a context menu listing recently closed tabs for quick restore"
+	},
+	"recentlyClosedMaxItems": {
+		"message": "Макс. елементи",
+		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
+	},
+	"actionCategoryContextMenu": {
+		"message": "Изскачащо меню",
+		"description": "Action category: context menu actions"
+	},
+	"zoomStepMode": {
+		"message": "Метод на мащабиране",
+		"description": "Label for zoom mode selector: browser steps vs fixed increment"
+	},
+	"zoomStepModeBrowser": {
+		"message": "Използване на нивата на браузъра",
+		"description": "Option: follow Chrome's built-in zoom steps (25%, 33%, 50%, …, 500%)"
+	},
+	"zoomStepModeFixed": {
+		"message": "Фиксирана стъпка",
+		"description": "Option: zoom in/out by a configurable fixed percentage each time"
+	},
+	"zoomDelta": {
+		"message": "Размер на стъпката",
+		"description": "Label for the zoom increment/decrement slider"
+	},
+	"resetZoomLevel": {
+		"message": "Нулиране до",
+		"description": "Label for the target zoom level when resetting zoom"
+	},
+	"resetZoomDefault": {
+		"message": "По подразбиране за браузъра",
+		"description": "Option: reset zoom to the browser's default zoom setting"
+	},
+	"resetZoomCustom": {
+		"message": "Персонализирана стойност",
+		"description": "Option: reset zoom to a user-specified custom zoom level"
+	},
+	"actionMenuShowBookmarks": {
+		"message": "Покажи отметките",
+		"description": "Show a context menu listing bookmarks from a selected folder"
+	},
+	"bookmarkFolder": {
+		"message": "Папка",
+		"description": "Label for selecting which bookmark folder to display"
+	},
+	"bookmarkFolderDefault": {
+		"message": "По подразбиране за браузъра",
+		"description": "Option label for using the browser's default bookmark location"
+	},
+	"bookmarkGrantPermission": {
+		"message": "(Предоставяне на достъп до отметките)",
+		"description": "Button label to request bookmarks permission"
+	},
+	"ctxMenuSortOrder": {
+		"message": "Сортиране по",
+		"description": "Label for context menu sort order dropdown"
+	},
+	"ctxMenuSortDefault": {
+		"message": "По подразбиране",
+		"description": "Sort option: original API/insertion order"
+	},
+	"ctxMenuSortDefaultDesc": {
+		"message": "По подразбиране (обратен ред)",
+		"description": "Sort option: reverse of original API order"
+	},
+	"ctxMenuSortDateAddedAsc": {
+		"message": "Дата на добавяне (първо най-старите)",
+		"description": "Sort option: by date added ascending"
+	},
+	"ctxMenuSortDateAddedDesc": {
+		"message": "Дата на добавяне (първо най-новите)",
+		"description": "Sort option: by date added descending"
+	},
+	"ctxMenuSortNameAsc": {
+		"message": "Име (възходящо)",
+		"description": "Sort option: alphabetical ascending"
+	},
+	"ctxMenuSortNameDesc": {
+		"message": "Име (низходящо)",
+		"description": "Sort option: alphabetical descending"
+	},
+	"ctxMenuSortLastAccessAsc": {
+		"message": "Последен достъп (първо най-старите)",
+		"description": "Sort option: by last access time ascending"
+	},
+	"ctxMenuSortLastAccessDesc": {
+		"message": "Последен достъп (първо най-новите)",
+		"description": "Sort option: by last access time descending"
+	},
+	"ctxMenuMaxItems": {
+		"message": "Макс. брой",
+		"description": "Label for maximum number of items in context menu"
+	},
+	"ctxMenuMaxItemsUnlimited": {
+		"message": "Неограничено",
+		"description": "Placeholder shown when max items is 0 (no limit)"
+	},
+	"ctxMenuScrollToBottom": {
+		"message": "Превъртане до долу",
+		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuTimeDisplay": {
+		"message": "Показване на времето",
+		"description": "Label for time display mode dropdown in context menu"
+	},
+	"ctxMenuTimeNone": {
+		"message": "Не показвай",
+		"description": "Time display option: hide time column"
+	},
+	"ctxMenuTimeLastAccess": {
+		"message": "Последен достъп",
+		"description": "Time display option: show last access time"
+	},
+	"ctxMenuTimeClosedTime": {
+		"message": "Време на затваряне",
+		"description": "Time display option: show when the tab was closed"
+	},
+	"ctxMenuTimeDateAdded": {
+		"message": "Дата на добавяне",
+		"description": "Time display option: show when the bookmark was added"
+	}
+}

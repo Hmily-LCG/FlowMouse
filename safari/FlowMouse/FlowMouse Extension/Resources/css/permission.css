@@ -1,0 +1,90 @@
+:root {
+	--primary-color: #4285f4;
+	--bg-color: #1a1a2e;
+	--text-color: #ffffff;
+	--secondary-text-color: #888888;
+	--border-color: rgba(255, 255, 255, 0.1);
+	--button-hover: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] {
+	--bg-color: #f5f7fa;
+	--text-color: #222222;
+	--secondary-text-color: #666666;
+	--border-color: rgba(0, 0, 0, 0.1);
+	--button-hover: rgba(0, 0, 0, 0.05);
+}
+
+body {
+	font-family: 'Segoe UI', sans-serif;
+	margin: 0;
+	padding: 20px;
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	height: 100vh;
+	box-sizing: border-box;
+}
+
+.container {
+	max-width: 300px;
+}
+
+h2 {
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+
+p {
+	font-size: 14px;
+	color: var(--secondary-text-color);
+	margin-bottom: 20px;
+	line-height: 1.5;
+}
+
+.icon {
+	width: 48px;
+	height: 48px;
+	margin: 0 auto 15px;
+	color: var(--primary-color);
+	display: block;
+}
+
+.buttons {
+	display: flex;
+	gap: 10px;
+	justify-content: center;
+	width: 100%;
+}
+
+button {
+	padding: 8px 16px;
+	border-radius: 4px;
+	border: none;
+	font-size: 14px;
+	cursor: pointer;
+	transition: background-color 0.2s;
+}
+
+.primary-btn {
+	background-color: var(--primary-color);
+	color: white;
+}
+
+.primary-btn:hover {
+	opacity: 0.9;
+}
+
+.secondary-btn {
+	background-color: transparent;
+	color: var(--secondary-text-color);
+	border: 1px solid var(--border-color);
+}
+
+.secondary-btn:hover {
+	background-color: var(--button-hover);
+}
