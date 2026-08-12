@@ -4,7 +4,9 @@ import { SettingsStore } from '../settings-store.js';
 import { icons } from '../icons.js';
 
 let fileSchemeAllowed = false;
-chrome.extension.isAllowedFileSchemeAccess().then(v => { fileSchemeAllowed = v; });
+if (window.FlowMouseCompat.hasFileSchemeQuery) {
+	chrome.extension.isAllowedFileSchemeAccess().then(v => { fileSchemeAllowed = v; });
+}
 
 class PopupPage extends LitElement {
 	static properties = {
@@ -463,7 +465,7 @@ class PopupPage extends LitElement {
 
 	#getActiveGestures() {
 		const i18n = window.i18n;
-		const { DEFAULT_GESTURES, ACTION_KEYS, ACTION_SHORT_KEYS } = window.GestureConstants;
+		const { ACTION_KEYS, ACTION_SHORT_KEYS } = window.GestureConstants;
 		const settings = this._store.current;
 
 		let actionMap;

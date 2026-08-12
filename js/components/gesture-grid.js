@@ -115,7 +115,7 @@ class GestureGrid extends LitElement {
 	#renderItem(pattern, gestures) {
 		const { DEFAULT_GESTURES } = window.GestureConstants;
 		const currentAction = gestures[pattern] || DEFAULT_GESTURES[pattern] || 'none';
-		const defaultAction = DEFAULT_GESTURES[pattern] || 'none';
+		const defaultAction = window.GestureConstants.getDefaultGestures()[pattern] || 'none';
 		const isCustom = !DEFAULT_GESTURES[pattern];
 		const entryConfig = (this.mouseGestures || {})[pattern] || {};
 		const hasCustomConfig = Object.keys(entryConfig).some(k => k !== 'action');
@@ -178,7 +178,7 @@ class GestureGrid extends LitElement {
 
 	#handleReset(pattern) {
 		const { DEFAULT_GESTURES } = window.GestureConstants;
-		const defaultAction = DEFAULT_GESTURES[pattern] || 'none';
+		const defaultAction = window.GestureConstants.getDefaultGestures()[pattern] || 'none';
 
 		const newMouseGestures = { ...(this.mouseGestures || {}) };
 		newMouseGestures[pattern] = { action: defaultAction };

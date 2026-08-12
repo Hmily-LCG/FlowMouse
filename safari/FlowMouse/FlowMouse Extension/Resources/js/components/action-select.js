@@ -1540,7 +1540,7 @@ class ActionSelect extends LitElement {
 			const lang = window.i18n.getCurrentLanguage();
 			const order = getSearchEngineOrder(lang);
 			const displayKeys = [...order];
-			if (engine && engine !== 'custom' && !displayKeys.includes(engine) && SEARCH_ENGINES[engine]) {
+			if (engine && engine !== 'custom' && engine !== 'system' && !displayKeys.includes(engine) && SEARCH_ENGINES[engine]) {
 				displayKeys.push(engine);
 			}
 			return html`
