@@ -315,6 +315,18 @@
 		'uk': ['google', 'bing', 'tineye', 'saucenao', 'iqdb', 'trace'],
 	};
 
+	const UNSUPPORTED_ACTION_CAPABILITY = {
+		restoreTab: 'hasSessions',
+		menuRecentlyClosed: 'hasSessions',
+		saveAsMhtml: 'hasPageCapture',
+		zoomIn: 'hasTabZoom',
+		zoomOut: 'hasTabZoom',
+		resetZoom: 'hasTabZoom',
+		saveImage: 'hasDownloads',
+	};
+
+	const SAFARI_ONLY_HIDDEN_ACTIONS = new Set(['openDownloads', 'openHistory', 'openExtensions']);
+
 	const DEFAULT_SETTINGS = {
 		theme: 'auto',
 		language: 'auto',
@@ -327,7 +339,7 @@
 		enableTrailSmooth: true,
 		enableGestureCustomization: false,
 		mouseGestures: Object.fromEntries(
-			Object.entries(DEFAULT_GESTURES).map(([p, a]) => [p, { action: a }])
+			Object.entries(getDefaultGestures()).map(([p, a]) => [p, { action: a }])
 		),
 		sectionAdvanced: {},
 		enableTextDrag: true,
@@ -403,6 +415,32 @@
 		return text.replace(/[↑↓←→]/g, match => ARROW_SVG[match] || match);
 	}
 
+	function isActionSupported(action) {
+		const compat = window.FlowMouseCompat;
+		if (!compat) return true;
+		if (compat.isSafari && SAFARI_ONLY_HIDDEN_ACTIONS.has(action)) return false;
+		const capKey = UNSUPPORTED_ACTION_CAPABILITY[action];
+		if (capKey && !compat[capKey]) return false;
+		return true;
+	}
+
+	function getDefaultGestures() {
+		const result = {};
+		for (const [pattern, action] of Object.entries(DEFAULT_GESTURES)) {
+			result[pattern] = isActionSupported(action) ? action : 'none';
+		}
+		return result;
+	}
+
+	function getSearchEngineOrder(lang) {
+		const order = SEARCH_ENGINE_ORDER[lang] || SEARCH_ENGINE_ORDER['default'];
+		const compat = window.FlowMouseCompat;
+		if (compat && !compat.hasSearch) {
+			return order.filter(key => key !== 'system');
+		}
+		return order;
+	}
+
 	window.GestureConstants = {
 		DEFAULT_GESTURES,
 		ACTION_KEYS,
@@ -424,6 +462,9 @@
 		DEFAULT_SETTINGS,
 
 		arrowsToSvg,
+		isActionSupported,
+		getDefaultGestures,
+		getSearchEngineOrder,
 	};
 
 	window.litDisableBundleWarning = true;
