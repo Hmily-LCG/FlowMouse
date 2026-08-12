@@ -9,15 +9,23 @@
 
 	const isSafari = detectIsSafari();
 
-	const hasSessions = !!(chrome.sessions && chrome.sessions.restore);
-	const hasSearch = !!(chrome.search && chrome.search.query);
-	const hasPageCapture = !!(chrome.pageCapture && chrome.pageCapture.saveAsMHTML);
-	const hasDownloads = !!(chrome.downloads && chrome.downloads.download);
-	const hasTabZoom = !!(chrome.tabs && chrome.tabs.setZoom);
-	const hasBookmarks = !!(chrome.bookmarks && chrome.bookmarks.create);
-	const hasContextMenus = !!(chrome.contextMenus && chrome.contextMenus.create);
-	const hasIncognitoQuery = !!(chrome.extension && chrome.extension.isAllowedIncognitoAccess);
-	const hasFileSchemeQuery = !!(chrome.extension && chrome.extension.isAllowedFileSchemeAccess);
+	// Derived from isSafari, not from chrome.X existence checks: this module
+	// also loads in the content-script context (see manifest.json), where
+	// Chrome/Edge restrict the chrome.* surface to a small subset regardless
+	// of browser or actual support — chrome.sessions, chrome.tabs,
+	// chrome.downloads, chrome.search, chrome.pageCapture, chrome.contextMenus
+	// are all undefined there even on Chrome. An existence check would
+	// misreport "unsupported" in that context. Basing these on isSafari keeps
+	// the flags consistent across every context the extension runs in.
+	const hasSessions = !isSafari;
+	const hasSearch = !isSafari;
+	const hasPageCapture = !isSafari;
+	const hasDownloads = !isSafari;
+	const hasTabZoom = !isSafari;
+	const hasBookmarks = true;
+	const hasContextMenus = true;
+	const hasIncognitoQuery = !isSafari;
+	const hasFileSchemeQuery = !isSafari;
 
 	self.FlowMouseCompat = {
 		isSafari,
