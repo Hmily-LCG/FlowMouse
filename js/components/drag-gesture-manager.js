@@ -208,6 +208,7 @@ class DragGestureManager extends LitElement {
 
 	#visibleActions(currentAction) {
 		return Object.entries(this._actions)
+			.filter(([v]) => window.GestureConstants.isActionSupported(v))
 			.filter(([v]) => !DragGestureManager.ADVANCED_ACTIONS.has(v) || this.advancedMode || v === currentAction);
 	}
 
@@ -421,9 +422,9 @@ class DragGestureManager extends LitElement {
 	}
 
 	#renderSearchEngineOptions(current) {
-		const { SEARCH_ENGINES, SEARCH_ENGINE_ORDER } = window.GestureConstants;
+		const { SEARCH_ENGINES, getSearchEngineOrder } = window.GestureConstants;
 		const lang = window.i18n.getCurrentLanguage();
-		const order = SEARCH_ENGINE_ORDER[lang] || SEARCH_ENGINE_ORDER['default'];
+		const order = getSearchEngineOrder(lang);
 		const displayKeys = [...order];
 
 		if (current && current !== 'custom' && !displayKeys.includes(current) && SEARCH_ENGINES[current]) {

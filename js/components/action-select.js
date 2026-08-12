@@ -759,6 +759,7 @@ class ActionSelect extends LitElement {
 			const items = [];
 			for (const action of cat.actions) {
 				if (!ACTION_KEYS[action]) continue;
+				if (!window.GestureConstants.isActionSupported(action)) continue;
 				if (action === 'actionChain' && ctx === 'chain-step') continue;
 				if (action === 'customMenu' && (ctx === 'chain-step' || ctx === 'menu-item')) continue;
 				if (action === 'delay' && ctx !== 'chain-step') continue;
@@ -1535,9 +1536,9 @@ class ActionSelect extends LitElement {
 			const engine = this._pendingConfig.engine ?? defaults.engine;
 			const url = this._pendingConfig.url ?? defaults.url;
 			const autoDetectUrl = this._pendingConfig.autoDetectUrl ?? defaults.autoDetectUrl;
-			const { SEARCH_ENGINES, SEARCH_ENGINE_ORDER } = window.GestureConstants;
+			const { SEARCH_ENGINES, getSearchEngineOrder } = window.GestureConstants;
 			const lang = window.i18n.getCurrentLanguage();
-			const order = SEARCH_ENGINE_ORDER[lang] || SEARCH_ENGINE_ORDER['default'];
+			const order = getSearchEngineOrder(lang);
 			const displayKeys = [...order];
 			if (engine && engine !== 'custom' && !displayKeys.includes(engine) && SEARCH_ENGINES[engine]) {
 				displayKeys.push(engine);
