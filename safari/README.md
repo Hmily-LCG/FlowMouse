@@ -55,7 +55,19 @@ mv /tmp/flowmouse-safari-build/FlowMouse safari/FlowMouse
 rm -rf /tmp/flowmouse-safari-build
 ```
 
-Then re-apply the macOS 13.3 deployment target (see below).
+Then re-apply both fixes below — the converter resets project settings to its own defaults every time:
+
+1. **Deployment target** — set to macOS 13.3 (see below).
+2. **Bundle-ID casing** — the converter derives the app target's bundle
+   identifier from the capitalized `--app-name` (`com.hmilylcg.FlowMouse`)
+   but the extension target's from the literal lowercase
+   `--bundle-identifier` value (`com.hmilylcg.flowmouse.Extension`). Xcode's
+   embedded-binary validation is case-sensitive and fails the build until
+   they're aligned:
+   ```bash
+   sed -i '' 's/PRODUCT_BUNDLE_IDENTIFIER = com\.hmilylcg\.FlowMouse;/PRODUCT_BUNDLE_IDENTIFIER = com.hmilylcg.flowmouse;/' \
+     safari/FlowMouse/FlowMouse.xcodeproj/project.pbxproj
+   ```
 
 ## Deployment target
 
