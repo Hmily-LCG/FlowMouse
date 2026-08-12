@@ -63,6 +63,10 @@
 		"message": "Firefox Add-ons",
 		"description": "Firefox Add-ons name"
 	},
+	"storeNameSafari": {
+		"message": "Mac App Store",
+		"description": "Mac App Store name"
+	},
 	"feedbackText": {
 		"message": "Issues or suggestions? Please report via <a href='mailto:Service@52pojie.cn'>Email</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> or <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Forum</a>. We'll improve it ASAP!",
 		"description": "Feedback text"

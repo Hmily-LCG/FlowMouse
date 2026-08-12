@@ -4,6 +4,7 @@
 	const isFirefox = false;
 	const isEdgeDesktop = navigator.userAgent.includes('Edg/');
 	const isEdge = navigator.userAgent.includes('Edg/') || navigator.userAgent.includes('EdgA/');
+	const isSafari = !!(window.FlowMouseCompat && window.FlowMouseCompat.isSafari);
 
 	let translations = {};
 	let currentLang = 'en';
@@ -194,7 +195,9 @@
 	function getBrowserType() {
 		if (browserType) return browserType;
 		{
-			if (isEdge) {
+			if (isSafari) {
+				browserType = 'safari';
+			} else if (isEdge) {
 				browserType = 'edge';
 			} else {
 				browserType = 'chrome';
@@ -224,6 +227,13 @@
 			storeNameKey: 'storeNameFirefox',
 			flowmouseStoreLink: 'https://addons.mozilla.org/firefox/addon/flowmouse/',
 			protocol: 'about:'
+		},
+		'safari': {
+			name: 'Safari',
+			storeLink: 'https://apps.apple.com/',
+			storeNameKey: 'storeNameSafari',
+			flowmouseStoreLink: '',
+			protocol: ''
 		}
 	}
 
@@ -328,6 +338,7 @@
 		isFirefox,
 		isEdge,
 		isEdgeDesktop,
+		isSafari,
 		getBrowserName,
 		getBrowserInfo,
 		getModifierKeyName,
