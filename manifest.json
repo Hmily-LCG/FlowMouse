@@ -37,6 +37,7 @@
                 "<all_urls>"
             ],
             "js": [
+                "js/browser-compat.js",
                 "js/constants.js",
                 "js/gesture-visual.js",
                 "js/gesture-recognizer.js",

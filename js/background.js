@@ -1,3 +1,5 @@
+importScripts('browser-compat.js');
+
 const isEdge = navigator.userAgent.includes('Edg/') || navigator.userAgent.includes('EdgA/');
 
 const GLOBAL_MUTE_KEY = 'flowmouse_global_mute_state';
