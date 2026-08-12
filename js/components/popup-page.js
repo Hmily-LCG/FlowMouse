@@ -473,7 +473,7 @@ class PopupPage extends LitElement {
 				actionMap[pattern] = config.action;
 			}
 		} else {
-			actionMap = { ...DEFAULT_GESTURES };
+			actionMap = { ...window.GestureConstants.getDefaultGestures() };
 		}
 
 		const sorted = Object.entries(actionMap).sort((a, b) => a[0].length - b[0].length);

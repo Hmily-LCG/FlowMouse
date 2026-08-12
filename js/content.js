@@ -2010,9 +2010,11 @@ window.ContentContextMenu = ContentContextMenu;
 			enableDrag: DEFAULT_SETTINGS.enableTextDrag || DEFAULT_SETTINGS.enableImageDrag || DEFAULT_SETTINGS.enableLinkDrag
 		};
 
+		const ACTIVE_DEFAULT_GESTURES = window.GestureConstants.getDefaultGestures();
+
 		function getGestureAction(pattern) {
 			if (!SETTINGS.enableGestureCustomization) {
-				return DEFAULT_GESTURES[pattern];
+				return ACTIVE_DEFAULT_GESTURES[pattern];
 			}
 
 			const config = SETTINGS.mouseGestures?.[pattern];
