@@ -880,7 +880,7 @@ class OptionsPage extends LitElement {
 								</span>
 								<div class="setting-label">
 									<span>${i18n.getMessage('feedbackTitle')}</span>
-									<span>${unsafeHTML(i18n.getMessage(!i18n.isFirefox && !i18n.isEdge ? 'feedbackTextChrome' : 'feedbackText'))}</span>
+									<span>${unsafeHTML(i18n.getMessage(!i18n.isFirefox && !i18n.isEdge && !window.FlowMouseCompat.isSafari ? 'feedbackTextChrome' : 'feedbackText'))}</span>
 								</div>
 							</div>
 						</div>
@@ -1368,9 +1368,11 @@ class OptionsPage extends LitElement {
 		};
 
 		if ((action === 'newIncognito' && window.i18n.isFirefox) || action === 'openInIncognito') {
-			const isAllowed = await chrome.extension.isAllowedIncognitoAccess();
-			if (!isAllowed) {
-				await openPopup('incognito');
+			if (window.FlowMouseCompat.hasIncognitoQuery) {
+				const isAllowed = await chrome.extension.isAllowedIncognitoAccess();
+				if (!isAllowed) {
+					await openPopup('incognito');
+				}
 			}
 			return;
 		}
