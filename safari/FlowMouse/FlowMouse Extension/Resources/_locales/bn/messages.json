@@ -1,0 +1,2150 @@
+{
+	"extName": {
+		"message": "FlowMouse - মাউস জেসচার",
+		"description": "Extension name"
+	},
+	"extNameShort": {
+		"message": "FlowMouse",
+		"description": "Short extension name for popup"
+	},
+	"extDescription": {
+		"message": "গোপনীয়তা এবং মসৃণ অভিজ্ঞতার উপর দৃষ্টি নিবদ্ধ করা একটি ওপেন সোর্স মাউস জেসচার এক্সটেনশন। মসৃণ জেসচার অপারেশন, সুপার ড্র্যাগ সমর্থন করে।",
+		"description": "Extension description"
+	},
+	"theme": {
+		"message": "থিম",
+		"description": "Theme"
+	},
+	"themeDark": {
+		"message": "ডার্ক",
+		"description": "Dark theme"
+	},
+	"themeLight": {
+		"message": "লাইট",
+		"description": "Light theme"
+	},
+	"themeAuto": {
+		"message": "সিস্টেম অনুসরণ করুন",
+		"description": "Auto theme - follow system"
+	},
+	"syncStatus": {
+		"message": "সিঙ্ক স্ট্যাটাস",
+		"description": "Sync status"
+	},
+	"syncStatusDesc": {
+		"message": "%browserName% অ্যাকাউন্টের মাধ্যমে সেটিংস সিঙ্ক করুন",
+		"description": "Sync status description"
+	},
+	"saved": {
+		"message": "সংরক্ষিত",
+		"description": "Saved"
+	},
+	"author": {
+		"message": "লেখক",
+		"description": "Author"
+	},
+	"privacyNote": {
+		"message": " স্থানীয়ভাবে চলে, সিঙ্ক ছাড়া কোনো নেটওয়ার্ক অ্যাক্সেস নেই, কোনো ডেটা সংগ্রহ করা হয় না",
+		"description": "Privacy note in footer"
+	},
+	"supportUsText": {
+		"message": "FlowMouse পছন্দ হয়েছে? আমাদের সমর্থন করতে %appStoreInfo% একটি ৫-স্টার রেটিং দিন!",
+		"description": "Rating text"
+	},
+	"storeNameChrome": {
+		"message": "Chrome ওয়েব স্টোর",
+		"description": "Chrome Web Store name"
+	},
+	"storeNameEdge": {
+		"message": "Edge অ্যাড-অন",
+		"description": "Edge Add-ons name"
+	},
+	"storeNameFirefox": {
+		"message": "Firefox অ্যাড-অন",
+		"description": "Firefox Add-ons name"
+	},
+	"feedbackText": {
+		"message": "সমস্যা বা পরামর্শ আছে? অনুগ্রহ করে <a href='mailto:Service@52pojie.cn'>ইমেল</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> বা <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>ফোরামের</a> মাধ্যমে আমাদের জানান। আমরা যত দ্রুত সম্ভব এটি উন্নত করব!",
+		"description": "Feedback text"
+	},
+	"feedbackTextChrome": {
+		"message": "সমস্যা বা পরামর্শ আছে? অনুগ্রহ করে <a href='https://chromewebstore.google.com/detail/fnldhkfidchnjiokpoemdhoejmaojkgp/support' target='_blank'>Chrome ওয়েব স্টোর সমর্থন</a>, <a href='mailto:Service@52pojie.cn'>ইমেল</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> বা <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>ফোরামের</a> মাধ্যমে আমাদের জানান। আমরা যত দ্রুত সম্ভব এটি উন্নত করব!",
+		"description": "Feedback text for Chrome browser"
+	},
+	"supportAndFeedback": {
+		"message": "সমর্থন এবং প্রতিক্রিয়া",
+		"description": "Support and Feedback section title"
+	},
+	"feedbackTitle": {
+		"message": "প্রতিক্রিয়া এবং পরামর্শ",
+		"description": "Feedback row title"
+	},
+	"supportUsTitle": {
+		"message": "আমাদের সমর্থন করুন",
+		"description": "Rating row title"
+	},
+	"backToSettings": {
+		"message": "সেটিংস-এ ফিরে যান",
+		"description": "Back to settings link"
+	},
+	"settings": {
+		"message": "সেটিংস",
+		"description": "Settings"
+	},
+	"moreSettings": {
+		"message": "আরও সেটিংস",
+		"description": "More settings button in popup"
+	},
+	"version": {
+		"message": "সংস্করণ",
+		"description": "Version"
+	},
+	"basicSettings": {
+		"message": "জেসচার সেটিংস",
+		"description": "Gesture settings section"
+	},
+	"enableGesture": {
+		"message": "জেসচার সক্রিয় করুন",
+		"description": "Enable gesture feature"
+	},
+	"enableGestureDesc": {
+		"message": "মাউসের ডান বোতাম চেপে ধরে মাউস সরিয়ে সহজেই জেসচার সম্পাদন করুন",
+		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
+	},
+	"gestureTriggerButtons": {
+		"message": "ট্রিগার বোতাম",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "কোন মাউস বোতামগুলি অঙ্গভঙ্গি ট্রিগার করতে পারে তা নির্বাচন করুন",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "ডান বোতাম",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "মাঝের বোতাম",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "পাশের বোতাম (পিছনে)",
+		"description": "Mouse button 4 - the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "পাশের বোতাম (সামনে)",
+		"description": "Mouse button 5 - the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "স্টাইলাসের ডান বোতাম",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "আপনার হার্ডওয়্যার বা ড্রাইভার সেটিংসের উপর নির্ভর করে কিছু ট্রিগার বোতাম সঠিকভাবে কাজ নাও করতে পারে। উদাহরণস্বরূপ, লজিটেক (Logitech) মাউসগুলিতে জেসচার বা ইশারার জন্য সাইড বোতামগুলি ব্যবহার করার জন্য ড্রাইভা‌রে \"Horizontal Scrolling\" (অনুভূমিক স্ক্রোলিং) নিষ্ক্রিয় করার প্রয়োজন হতে পারে।",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
+	"macLinuxContextMenuNotice": {
+		"message": "সিস্টেমের সীমাবদ্ধতার কারণে, যখন রাইট-ক্লিক জেসচারগুলি সক্ষম করা থাকে, macOS / Linux-এ প্রসঙ্গ মেনু খুলতে ডাবল রাইট-ক্লিক করতে হতে পারে।",
+		"description": "Notice for macOS / Linux users about double right-click for context menu"
+	},
+	"macLinuxDoubleClickHint": {
+		"message": "কনটেক্সট মেনু খুলতে, দুবার রাইট-ক্লিক করুন। (আরও জানুন)",
+		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
+	},
+	"edgeGestureConflictNotice": {
+		"message": "%browserName%-এ বিল্ট-ইন জেশ্চার বৈশিষ্ট্য রয়েছে। FlowMouse-এর জেশ্চার ব্যবহার করতে, অনুগ্রহ করে %browserName% সেটিংসে <a href=\"#\" class=\"edge-gesture-link\">বিল্ট-ইন জেশ্চারগুলি নিষ্ক্রিয় করুন</a>।",
+		"description": "Notice for Edge users about built-in gesture conflict"
+	},
+	"macTextDragNotice": {
+		"message": "macOS-এর আচরণের কারণে, টেক্সট ড্র্যাগ করার সময় প্রথমে টেক্সট নির্বাচন করুন, তারপর নির্বাচিত এলাকার মধ্যে বাম বোতামটি চেপে ধরুন এবং ড্র্যাগ করার আগে সামান্য বিরতি দিন। অন্যথায়, ড্র্যাগ ফাংশন ট্রিগার নাও হতে পারে।",
+		"description": "Notice for macOS users about text drag behavior"
+	},
+	"showTrail": {
+		"message": "জেসচার ট্রেইল দেখান",
+		"description": "Show gesture trail"
+	},
+	"showTrailDesc": {
+		"message": "জেসচার করার সময় ট্রেইল লাইন প্রদর্শন করুন",
+		"description": "Show trail line when performing gestures"
+	},
+	"showHint": {
+		"message": "অ্যাকশন ইঙ্গিত দেখান",
+		"description": "Show action hint"
+	},
+	"showHintDesc": {
+		"message": "স্ক্রিনের কেন্দ্রে বর্তমান জেসচার অ্যাকশন প্রদর্শন করুন",
+		"description": "Show current gesture action in center of screen"
+	},
+	"color": {
+		"message": "রঙ",
+		"description": "Color"
+	},
+	"width": {
+		"message": "প্রস্থ",
+		"description": "Width/thickness"
+	},
+	"background": {
+		"message": "ব্যাকগ্রাউন্ড",
+		"description": "Background"
+	},
+	"opacity": {
+		"message": "অস্বচ্ছতা",
+		"description": "Opacity"
+	},
+	"blur": {
+		"message": "ঝাপসা",
+		"description": "Blur radius"
+	},
+	"hudShadow": {
+		"message": "ছায়া",
+		"description": "HUD shadow toggle"
+	},
+	"showSuggestedGestures": {
+		"message": "জেসচার প্রম্পট",
+		"description": "Show suggested gestures at bottom of screen"
+	},
+	"customCss": {
+		"message": "কাস্টম CSS",
+		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
+	},
+	"customCssDesc": {
+		"message": "FlowMouse এর নিজস্ব UI কাস্টমাইজ করতে কাস্টম CSS সেট করুন",
+		"description": "Description for the Custom CSS advanced setting"
+	},
+	"customCssConfigure": {
+		"message": "কনফিগার করুন",
+		"description": "Button label to open the Custom CSS editor dialog when no CSS is set"
+	},
+	"customCssEdit": {
+		"message": "সম্পাদনা করুন",
+		"description": "Button label to open the Custom CSS editor dialog when CSS is already set"
+	},
+	"customCssEditorTitle": {
+		"message": "কাস্টম CSS সম্পাদক",
+		"description": "Title of the dedicated custom CSS editor page"
+	},
+	"customCssEditorHint": {
+		"message": "স্টাইলগুলি FlowMouse-এর তৈরি প্রতিটি Shadow DOM-এ ইনজেক্ট করা হয়। সেভ করতে Ctrl+S চাপুন।",
+		"description": "Hint shown above the editor textarea."
+	},
+	"customCssEditorPlaceholder": {
+		"message": "/* আপনার কাস্টম CSS এখানে লিখুন… */",
+		"description": "Placeholder inside the Custom CSS editor textarea"
+	},
+	"customCssEditorInsertSnippet": {
+		"message": "উদাহরণ",
+		"description": "Button to append an example/starter CSS snippet to the editor"
+	},
+	"customCssEditorRevert": {
+		"message": "পরিবর্তন বাতিল করুন",
+		"description": "Button that reverts the editor content back to the last saved value"
+	},
+	"customCssEditorSave": {
+		"message": "সেভ করুন",
+		"description": "Save button in the Custom CSS editor"
+	},
+	"customCssEditorSaved": {
+		"message": "সেভ করা হয়েছে",
+		"description": "Status message shown briefly after the user saves the custom CSS"
+	},
+	"customCssEditorDiscardConfirm": {
+		"message": "আপনার সেভ না করা এডিটগুলি বাতিল করে শেষ সেভ করা CSS-এ ফিরে যাবেন?",
+		"description": "Confirmation dialog shown before reverting unsaved edits"
+	},
+	"text": {
+		"message": "টেক্সট",
+		"description": "Text"
+	},
+	"scrollAmount": {
+		"message": "স্ক্রল দূরত্ব",
+		"description": "Scroll amount"
+	},
+	"scrollAmountDesc": {
+		"message": "উপর/নিচ জেসচারের জন্য স্ক্রল দূরত্ব (উইন্ডোর উচ্চতার শতাংশ)",
+		"description": "Scroll distance for up/down gestures"
+	},
+	"scrollSmoothness": {
+		"message": "স্ক্রল মসৃণতা",
+		"description": "Scroll smoothness"
+	},
+	"scrollSmoothnessDesc": {
+		"message": "উপর/নিচ জেসচারের জন্য অ্যানিমেশন প্রভাব",
+		"description": "Scroll smoothness description"
+	},
+	"smoothnessAuto": {
+		"message": "স্বয়ংক্রিয়",
+		"description": "Auto scroll smoothness - uses system if animation enabled, otherwise smooth"
+	},
+	"smoothnessSystem": {
+		"message": "সিস্টেম (উচ্চ কর্মক্ষমতা)",
+		"description": "System scroll smoothness"
+	},
+	"smoothnessCustom": {
+		"message": "মসৃণ",
+		"description": "Custom smooth scrolling"
+	},
+	"smoothnessNone": {
+		"message": "কোন অ্যানিমেশন নেই",
+		"description": "No scroll animation"
+	},
+	"scrollDuration": {
+		"message": "অ্যানিমেশনের সময়কাল",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "সিস্টেম স্ক্রোলিং ব্যবহার করার সময় অনুপলব্ধ",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
+	"scrollAccel": {
+		"message": "ক্রমাগত স্ক্রোল গুণক",
+		"description": "Speed multiplier applied when scrolling consecutively"
+	},
+	"scrollAccelOff": {
+		"message": "বন্ধ",
+		"description": "Scroll acceleration disabled"
+	},
+	"scrollAccelWindow": {
+		"message": "পরপর স্ক্রোল করার সময়সীমা",
+		"description": "Max time (ms) between scrolls to count as consecutive"
+	},
+	"dragFeatures": {
+		"message": "ড্র্যাগ বৈশিষ্ট্য",
+		"description": "Drag features section"
+	},
+	"textDragSearch": {
+		"message": "টেক্সট ড্র্যাগ",
+		"description": "Text drag"
+	},
+	"textDragSearchDesc": {
+		"message": "নির্বাচন করা টেক্সট ড্র্যাগ করে অনুসন্ধান করুন",
+		"description": "Drag selected text to search"
+	},
+	"textDragIgnoreInput": {
+		"message": "ইনপুট ক্ষেত্রে নিষ্ক্রিয় করুন",
+		"description": "Option to disable text drag inside input boxes and textareas"
+	},
+	"textDragIgnoreInputDesc": {
+		"message": "ইনপুট ক্ষেত্র এবং পাঠ্য সম্পাদকগুলির মতো সম্পাদনাযোগ্য অঞ্চলগুলির ভিতরে পাঠ্য টানানো ট্রিগার করবেন না",
+		"description": "Description for text drag ignore input option"
+	},
+	"dragDropOnInput": {
+		"message": "ইনপুট ফিল্ডে জেসচার বাতিল করুন",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "ইনপুট ফিল্ড বা এডিটযোগ্য এলাকায় ছাড়ার সময় জেসচার চালু করবেন না",
+		"description": "Description for drag drop on input option"
+	},
+	"searchEngine": {
+		"message": "সার্চ ইঞ্জিন",
+		"description": "Search engine"
+	},
+	"custom": {
+		"message": "কাস্টম",
+		"description": "Custom"
+	},
+	"customUrlPlaceholder": {
+		"message": "কাস্টম URL, সার্চ টার্মের জন্য %s ব্যবহার করুন",
+		"description": "Custom URL placeholder"
+	},
+	"customUrlPlaceholderHint": {
+		"message": "অবশ্যই প্রোটোকল অন্তর্ভুক্ত করতে হবে (যেমন https://)। উপলব্ধ স্থানধারক: %placeholders%। URL এনকোডিং এড়িয়ে যেতে :raw যোগ করুন, যেমন %example%",
+		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
+	},
+	"urlPlaceholderText": {
+		"message": "%s=কীওয়ার্ড",
+		"description": "Placeholder for text drag custom URL"
+	},
+	"urlPlaceholderImage": {
+		"message": "%s=ছবির ইউআরএল",
+		"description": "Placeholder for image drag custom URL"
+	},
+	"searchEngine_google_translate": {
+		"message": "Google অনুবাদ",
+		"description": "Google Translate search engine"
+	},
+	"searchEngine_bing_translate": {
+		"message": "Bing অনুবাদ",
+		"description": "Bing Translate search engine"
+	},
+	"searchEngine_baidu": {
+		"message": "Baidu",
+		"description": "Baidu search engine"
+	},
+	"searchEngine_360": {
+		"message": "360 Search",
+		"description": "360 search engine"
+	},
+	"searchEngine_yandex": {
+		"message": "Yandex",
+		"description": "Yandex search engine"
+	},
+	"searchEngine_system": {
+		"message": "ব্রাউজার ডিফল্ট",
+		"description": "System default search engine"
+	},
+	"imageDrag": {
+		"message": "ইমেজ ড্র্যাগ",
+		"description": "Image drag"
+	},
+	"imageDragDesc": {
+		"message": "ইমেজ ড্র্যাগ করে নতুন ট্যাবে খুলুন",
+		"description": "Drag image to open in new tab"
+	},
+	"linkDrag": {
+		"message": "লিঙ্ক ড্র্যাগ",
+		"description": "Link drag"
+	},
+	"linkDragDesc": {
+		"message": "লিঙ্ক ড্র্যাগ করে নতুন ট্যাবে খুলুন",
+		"description": "Drag link to open in new tab"
+	},
+	"enableCustomGestures": {
+		"message": "কাস্টম জেসচার",
+		"description": "Enable custom gestures"
+	},
+	"enableCustomGesturesDesc": {
+		"message": "প্রতিটি জেসচার অ্যাকশন দেখুন এবং কাস্টমাইজ করুন",
+		"description": "View and customize each gesture action"
+	},
+	"gestureAutoSaveHint": {
+		"message": "পরামর্শ: পরিবর্তনগুলি স্বয়ংক্রিয়ভাবে সংরক্ষিত হয়।",
+		"description": "Hint about auto-save"
+	},
+	"blacklist": {
+		"message": "ওয়েবসাইট ব্ল্যাকলিস্ট",
+		"description": "Website blacklist"
+	},
+	"blacklistPlaceholder": {
+		"message": "ডোমেইন লিখুন, যেমন example.com, যোগ করতে Enter চাপুন",
+		"description": "Blacklist input placeholder"
+	},
+	"add": {
+		"message": "যোগ করুন",
+		"description": "Add button"
+	},
+	"emptyBlacklist": {
+		"message": "কোনো ব্ল্যাকলিস্টেড সাইট নেই। যোগ করতে উপরে ডোমেইন লিখুন।",
+		"description": "Empty blacklist message"
+	},
+	"enableBlacklistContextMenu": {
+		"message": "কনটেক্সট মেনুতে অঙ্গভঙ্গি টগল",
+		"description": "Setting title for blacklist context menu toggle"
+	},
+	"enableBlacklistContextMenuDesc": {
+		"message": "কনটেক্সট মেনুতে অঙ্গভঙ্গি নিষ্ক্রিয়/সক্রিয় করার বিকল্প দেখান",
+		"description": "Setting description for blacklist context menu toggle"
+	},
+	"menuAddToBlacklist": {
+		"message": "এই সাইটে অঙ্গভঙ্গি নিষ্ক্রিয় করুন",
+		"description": "Context menu title for adding current site to blacklist"
+	},
+	"menuRemoveFromBlacklist": {
+		"message": "এই সাইটে অঙ্গভঙ্গি সক্রিয় করুন",
+		"description": "Context menu title for removing current site from blacklist"
+	},
+	"dataManagement": {
+		"message": "ডেটা ম্যানেজমেন্ট",
+		"description": "Data management section"
+	},
+	"export": {
+		"message": "এক্সপোর্ট",
+		"description": "Export settings"
+	},
+	"import": {
+		"message": "ইমপোর্ট",
+		"description": "Import settings"
+	},
+	"reset": {
+		"message": "রিসেট",
+		"description": "Reset to default"
+	},
+	"duplicate": {
+		"message": "অনুলিপি তৈরি করুন",
+		"description": "Generic duplicate button tooltip"
+	},
+	"delete": {
+		"message": "মুছুন",
+		"description": "Generic delete button tooltip"
+	},
+	"autoSaved": {
+		"message": "স্বয়ংক্রিয়ভাবে সংরক্ষিত",
+		"description": "Auto-saved message"
+	},
+	"saveFailure": {
+		"message": "সংরক্ষণ ব্যর্থ হয়েছে",
+		"description": "Save failure message"
+	},
+	"resetConfirm": {
+		"message": "আপনি কি সমস্ত সেটিংস ডিফল্টে রিসেট করতে চান?",
+		"description": "Reset confirmation"
+	},
+	"resetDone": {
+		"message": "সেটিংস ডিফল্টে রিসেট করা হয়েছে",
+		"description": "Reset done message"
+	},
+	"exportDone": {
+		"message": "সেটিংস এক্সপোর্ট করা হয়েছে",
+		"description": "Export done message"
+	},
+	"importDone": {
+		"message": "সেটিংস ইমপোর্ট করা হয়েছে",
+		"description": "Import done message"
+	},
+	"importConfirm": {
+		"message": "আমদানি করলে আপনার বর্তমান সেটিংস ওভাররাইট হয়ে যাবে। শুধুমাত্র বিশ্বস্ত সোর্স থেকে কনফিগারেশন ফাইল আমদানি করুন।\n\nচালিয়ে যাবেন?",
+		"description": "Import confirmation warning"
+	},
+	"importFailed": {
+		"message": "ইমপোর্ট ব্যর্থ হয়েছে: অবৈধ কনফিগারেশন ফাইল",
+		"description": "Import failed message"
+	},
+	"importFailedSyncError": {
+		"message": "আমদানি ব্যর্থ হয়েছে: সিঙ্ক ত্রুটি, দয়া করে ব্রাউজারের স্থিতি পরীক্ষা করুন",
+		"description": "Import failed sync error message"
+	},
+	"invalidDomain": {
+		"message": "অনুগ্রহ করে একটি বৈধ ডোমেইন লিখুন",
+		"description": "Invalid domain message"
+	},
+	"domainExists": {
+		"message": "ডোমেইন ইতিমধ্যে ব্ল্যাকলিস্টে আছে",
+		"description": "Domain already in blacklist"
+	},
+	"about": {
+		"message": "সম্পর্কে",
+		"description": "About section"
+	},
+	"language": {
+		"message": "ভাষা",
+		"description": "Language"
+	},
+	"languageAuto": {
+		"message": "সিস্টেম অনুসরণ করুন",
+		"description": "Follow system language"
+	},
+	"privacyFriendly": {
+		"message": "গোপনীয়তা বান্ধব",
+		"description": "Privacy friendly"
+	},
+	"localOnly": {
+		"message": "শুধুমাত্র লোকাল",
+		"description": "Local only"
+	},
+	"autoSave": {
+		"message": "অটো সেভ",
+		"description": "Auto save"
+	},
+	"gestureDesc_L": {
+		"message": "বাম",
+		"description": "Gesture description for ←"
+	},
+	"gestureDesc_R": {
+		"message": "ডান",
+		"description": "Gesture description for →"
+	},
+	"gestureDesc_U": {
+		"message": "উপর",
+		"description": "Gesture description for ↑"
+	},
+	"gestureDesc_D": {
+		"message": "নিচ",
+		"description": "Gesture description for ↓"
+	},
+	"gestureDesc_DR": {
+		"message": "নিচ তারপর ডান",
+		"description": "Gesture description for ↓→"
+	},
+	"gestureDesc_LU": {
+		"message": "বাম তারপর উপর",
+		"description": "Gesture description for ←↑"
+	},
+	"gestureDesc_RU": {
+		"message": "ডান তারপর উপর",
+		"description": "Gesture description for →↑"
+	},
+	"gestureDesc_RD": {
+		"message": "ডান তারপর নিচ",
+		"description": "Gesture description for →↓"
+	},
+	"gestureDesc_UL": {
+		"message": "উপর তারপর বাম",
+		"description": "Gesture description for ↑←"
+	},
+	"gestureDesc_UR": {
+		"message": "উপর তারপর ডান",
+		"description": "Gesture description for ↑→"
+	},
+	"gestureDesc_DL": {
+		"message": "নিচ তারপর বাম",
+		"description": "Gesture description for ↓←"
+	},
+	"gestureDesc_LD": {
+		"message": "বাম তারপর নিচ",
+		"description": "Gesture description for ←↓"
+	},
+	"gestureDesc_UD": {
+		"message": "উপর তারপর নিচ",
+		"description": "Gesture description for ↑↓"
+	},
+	"gestureDesc_DU": {
+		"message": "নিচ তারপর উপর",
+		"description": "Gesture description for ↓↑"
+	},
+	"gestureDesc_LR": {
+		"message": "বাম তারপর ডান",
+		"description": "Gesture description for ←→"
+	},
+	"gestureDesc_RL": {
+		"message": "ডান তারপর বাম",
+		"description": "Gesture description for →←"
+	},
+	"actionNone": {
+		"message": "কিছুই না",
+		"description": "No action"
+	},
+	"actionBack": {
+		"message": "পেছনে যান",
+		"description": "Go back"
+	},
+	"actionForward": {
+		"message": "সামনে যান",
+		"description": "Go forward"
+	},
+	"actionUrlLevelUp": {
+		"message": "URL এর এক ধাপ উপরে",
+		"description": "Navigate to the parent directory of the current URL"
+	},
+	"actionUrlToRoot": {
+		"message": "মূল URL-এ যান",
+		"description": "Navigate to the root of the current site"
+	},
+	"actionScrollUp": {
+		"message": "উপরে স্ক্রল করুন",
+		"description": "Scroll up"
+	},
+	"actionScrollDown": {
+		"message": "নিচে স্ক্রল করুন",
+		"description": "Scroll down"
+	},
+	"actionScrollLeft": {
+		"message": "বামে স্ক্রল করুন",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "ডানে স্ক্রল করুন",
+		"description": "Scroll right"
+	},
+	"actionScrollToTop": {
+		"message": "সবার উপরে স্ক্রল করুন",
+		"description": "Scroll to top"
+	},
+	"actionScrollToBottom": {
+		"message": "সবার নিচে স্ক্রল করুন",
+		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "একদম বামে স্ক্রল করুন",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "একদম ডানে স্ক্রল করুন",
+		"description": "Scroll to the rightmost position"
+	},
+	"actionCloseTab": {
+		"message": "ট্যাব বন্ধ করুন",
+		"description": "Close tab"
+	},
+	"closeTabKeepWindow": {
+		"message": "এটি শেষ ট্যাব হলে, উইন্ডো খোলা রাখুন",
+		"description": "Checkbox label for closeTab action config"
+	},
+	"closeTabAfterClose": {
+		"message": "বন্ধ করার পর",
+		"description": "Label for closeTab afterClose config"
+	},
+	"closeTabAfterCloseDefault": {
+		"message": "ব্রাউজার ডিফল্ট",
+		"description": "Option for closeTab afterClose config - let browser decide"
+	},
+	"closeTabAfterCloseLeft": {
+		"message": "বাম ট্যাবে যান",
+		"description": "Option for closeTab afterClose config - switch to left tab"
+	},
+	"closeTabAfterCloseRight": {
+		"message": "ডান ট্যাবে যান",
+		"description": "Option for closeTab afterClose config - switch to right tab"
+	},
+	"switchTabNoWrap": {
+		"message": "চক্রাকারে স্যুইচ করবেন না",
+		"description": "Checkbox label for switchLeftTab/switchRightTab action config"
+	},
+	"switchTabMoveTab": {
+		"message": "বর্তমান ট্যাব সরান",
+		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
+	},
+	"refreshHardReload": {
+		"message": "হার্ড রিলোড (ক্যাশে বাইপাস করুন)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
+	"actionCloseBrowser": {
+		"message": "ব্রাউজার বন্ধ করুন",
+		"description": "Close browser"
+	},
+	"actionCloseWindow": {
+		"message": "উইন্ডো বন্ধ করুন",
+		"description": "Close current window"
+	},
+	"actionRestoreTab": {
+		"message": "বন্ধ ট্যাব পুনরুদ্ধার করুন",
+		"description": "Restore closed tab"
+	},
+	"actionNewTab": {
+		"message": "নতুন ট্যাব",
+		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "পিন করা ট্যাব বন্ধ করবেন না",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
+	},
+	"closeTabsPreserveTab": {
+		"message": "ট্যাবগুলি সংরক্ষণ করুন (পৃষ্ঠার বিষয়বস্তু আনলোড করুন)",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
+	"actionCloseOtherTabs": {
+		"message": "অন্যান্য ট্যাব বন্ধ করুন",
+		"description": "Close other tabs"
+	},
+	"actionCloseLeftTabs": {
+		"message": "বামদিকের ট্যাব বন্ধ করুন",
+		"description": "Close tabs to the left"
+	},
+	"actionCloseRightTabs": {
+		"message": "ডানদিকের ট্যাব বন্ধ করুন",
+		"description": "Close tabs to the right"
+	},
+	"actionCloseAllTabs": {
+		"message": "সব ট্যাব বন্ধ করুন",
+		"description": "Close all tabs"
+	},
+	"actionSwitchLeftTab": {
+		"message": "বাম ট্যাবে যান",
+		"description": "Switch to left tab"
+	},
+	"actionSwitchRightTab": {
+		"message": "ডান ট্যাবে যান",
+		"description": "Switch to right tab"
+	},
+	"actionSwitchFirstTab": {
+		"message": "প্রথম ট্যাবে যান",
+		"description": "Switch to first tab"
+	},
+	"actionSwitchLastTab": {
+		"message": "শেষ ট্যাবে যান",
+		"description": "Switch to last tab"
+	},
+	"actionSwitchLastActiveTab": {
+		"message": "সর্বশেষ সক্রিয় ট্যাবে যান",
+		"description": "Switch to the most recently active tab"
+	},
+	"actionRefresh": {
+		"message": "বর্তমান ট্যাব রিফ্রেশ করুন",
+		"description": "Refresh current tab"
+	},
+	"actionRefreshAllTabs": {
+		"message": "সব ট্যাব রিফ্রেশ করুন",
+		"description": "Refresh all tabs"
+	},
+	"actionStopLoading": {
+		"message": "লোডিং বন্ধ করুন",
+		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "সব ট্যাবের লোডিং বন্ধ করুন",
+		"description": "Stop loading all tabs in the current window"
+	},
+	"actionNewWindow": {
+		"message": "নতুন উইন্ডো",
+		"description": "New window"
+	},
+	"actionNewIncognito": {
+		"message": "নতুন ইনকগনিটো উইন্ডো",
+		"description": "New incognito window"
+	},
+	"actionAddToBookmarks": {
+		"message": "বুকমার্কসে যোগ করুন",
+		"description": "Add to bookmarks"
+	},
+	"actionToggleFullscreen": {
+		"message": "ফুলস্ক্রিন টগল করুন",
+		"description": "Toggle fullscreen"
+	},
+	"actionToggleMaximize": {
+		"message": "বড়/ছোট টগল করুন",
+		"description": "Toggle window maximize"
+	},
+	"actionMinimize": {
+		"message": "মিনিমাইজ করুন",
+		"description": "Minimize window"
+	},
+	"actionOpenCustomUrl": {
+		"message": "কাস্টম URL খুলুন",
+		"description": "Open custom URL"
+	},
+	"actionCopyUrl": {
+		"message": "বর্তমান URL কপি করুন",
+		"description": "Copy current URL"
+	},
+	"actionCopyTitle": {
+		"message": "পেজ টাইটেল কপি করুন",
+		"description": "Copy page title"
+	},
+	"actionCopyTitleAndUrl": {
+		"message": "পৃষ্ঠার শিরোনাম ও URL কপি করুন",
+		"description": "Copy page title and URL"
+	},
+	"actionOpenDownloads": {
+		"message": "ডাউনলোডস খুলুন",
+		"description": "Open downloads page"
+	},
+	"actionOpenHistory": {
+		"message": "হিস্ট্রি খুলুন",
+		"description": "Open history page"
+	},
+	"actionOpenExtensions": {
+		"message": "এক্সটেনশনস খুলুন",
+		"description": "Open extensions page"
+	},
+	"actionSaveAsMhtml": {
+		"message": "MHTML হিসেবে সংরক্ষণ করুন",
+		"description": "Save current page as MHTML file"
+	},
+	"actionPrintPage": {
+		"message": "পেজ প্রিন্ট করুন",
+		"description": "Print page"
+	},
+	"actionDuplicateTab": {
+		"message": "ট্যাব ডুপ্লিকেট করুন",
+		"description": "Duplicate current tab"
+	},
+	"actionToggleMuteTab": {
+		"message": "ট্যাব মিউট/আনমিউট করুন",
+		"description": "Toggle mute current tab"
+	},
+	"actionToggleMuteAllTabs": {
+		"message": "সব ট্যাব মিউট/আনমিউট করুন",
+		"description": "Toggle mute all tabs"
+	},
+	"actionTogglePinTab": {
+		"message": "বর্তমান ট্যাব পিন/আনপিন করুন",
+		"description": "Toggle pin current tab"
+	},
+	"actionMoveTabToNewWindow": {
+		"message": "ট্যাব নতুন উইন্ডোতে সরান",
+		"description": "Move current tab to a new window"
+	},
+	"actionSearchClipboard": {
+		"message": "ক্লিপবোর্ড থেকে খুঁজুন",
+		"description": "Search clipboard text using a search engine"
+	},
+	"showTrailOrigin": {
+		"message": "অরিজিন পয়েন্ট দেখান",
+		"description": "Show trail origin point"
+	},
+	"enableTrailSmooth": {
+		"message": "ট্রেইল মসৃণকরণ",
+		"description": "Enable trail smoothing for gesture visualization"
+	},
+	"distanceThreshold": {
+		"message": "অঙ্গভঙ্গি শনাক্তকরণ দূরত্ব",
+		"description": "Gesture recognition distance"
+	},
+	"distanceThresholdDesc": {
+		"message": "অঙ্গভঙ্গি এবং ড্র্যাগ শনাক্ত করতে নূন্যতম চলাচলের দূরত্ব",
+		"description": "Description for gesture recognition distance"
+	},
+	"distanceThresholdNotice": {
+		"message": "টিপ: সেরা স্বীকৃতির জন্য 15-30 এর মধ্যে একটি মান সুপারিশ করা হয়।",
+		"description": "Warning when distance threshold is too small or too large"
+	},
+	"gestureTurnTolerance": {
+		"message": "ভঙ্গির মোড়ের সহনশীলতা",
+		"description": "Turn tolerance for detecting direction changes in long gestures"
+	},
+	"gestureTurnToleranceDesc": {
+		"message": "উচ্চতর মানগুলি দুর্ঘটনাজনিত মোড়গুলি হ্রাস করে তবে দিক পরিবর্তন করার জন্য আরও দীর্ঘ চলাচলের প্রয়োজন হয়",
+		"description": "Description for gesture turn tolerance setting"
+	},
+	"advanced": {
+		"message": "উন্নত সেটিংস দেখান",
+		"description": "Short label for per-section advanced toggle"
+	},
+	"otherSettings": {
+		"message": "অন্যান্য সেটিংস",
+		"description": "Section title for other/miscellaneous settings"
+	},
+	"styleSettings": {
+		"message": "চেহারা",
+		"description": "Section title for style/appearance settings (trail, HUD, etc.)"
+	},
+	"show": {
+		"message": "দেখান",
+		"description": "Show navigation menu"
+	},
+	"hide": {
+		"message": "লুকান",
+		"description": "Hide navigation menu"
+	},
+	"urlFormatError": {
+		"message": "অনুগ্রহ করে http:// বা https:// দিয়ে শুরু হওয়া সম্পূর্ণ URL লিখুন",
+		"description": "URL format error message"
+	},
+	"resetToDefault": {
+		"message": "ডিফল্টে রিসেট করুন",
+		"description": "Reset gesture to default action"
+	},
+	"resetToDefaultConfirm": {
+		"message": "এই সেটিংসগুলি ডিফল্ট মানগুলিতে পুনরায় সেট করবেন?",
+		"description": "Confirmation dialog for resetting settings"
+	},
+	"addCustomGesture": {
+		"message": "কাস্টম জেসচার যোগ করুন",
+		"description": "Add custom gesture section title"
+	},
+	"clear": {
+		"message": "মুছুন",
+		"description": "Clear button"
+	},
+	"gestureAdded": {
+		"message": "জেসচার যোগ করা হয়েছে",
+		"description": "Gesture added success message"
+	},
+	"gestureRecorderTitle": {
+		"message": "একটি জেসচার আঁকুন",
+		"description": "Gesture recorder full-screen title"
+	},
+	"gestureRecorderDesc": {
+		"message": "%button% চেপে ধরে একটি জেসচার প্যাটার্ন আঁকুন",
+		"description": "Gesture recorder instruction, %button% is replaced with the mouse button name"
+	},
+	"gestureRecorderEsc": {
+		"message": "বাতিল",
+		"description": "Gesture recorder cancel button label"
+	},
+	"gestureRecorderRecording": {
+		"message": "রেকর্ডিং…",
+		"description": "Gesture recorder recording indicator"
+	},
+	"gestureRecorderResult": {
+		"message": "রেকর্ড করা জেসচার",
+		"description": "Gesture recorder result label"
+	},
+	"gestureRecorderConfirm": {
+		"message": "নিশ্চিত করুন",
+		"description": "Gesture recorder confirm button"
+	},
+	"gestureRecorderRedraw": {
+		"message": "পুনরায় আঁকুন",
+		"description": "Gesture recorder redraw button"
+	},
+	"gestureRecorderBanned": {
+		"message": "%pattern% জেসচারটি ইতিমধ্যে বিদ্যমান",
+		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"rightButton": {
+		"message": "মাউসের ডান বোতাম",
+		"description": "Right mouse button name"
+	},
+	"leftButton": {
+		"message": "মাউসের বাম বোতাম",
+		"description": "Left mouse button name"
+	},
+	"customGesture": {
+		"message": "কাস্টম",
+		"description": "Label for custom gestures"
+	},
+	"deleteGesture": {
+		"message": "জেসচার মুছুন",
+		"description": "Delete gesture button tooltip"
+	},
+	"deleteGestureConfirm": {
+		"message": "আপনি কি জেসচার %pattern% মুছতে নিশ্চিত?",
+		"description": "Delete gesture confirmation"
+	},
+	"gestureDeleted": {
+		"message": "জেসচার মুছে ফেলা হয়েছে",
+		"description": "Gesture deleted success message"
+	},
+	"enterCustomUrl": {
+		"message": "URL",
+		"description": "Prompt for custom URL input"
+	},
+	"copyAsMarkdown": {
+		"message": "Markdown হিসেবে কপি করুন",
+		"description": "Checkbox label for copying as markdown format"
+	},
+	"invalidUrl": {
+		"message": "অনুগ্রহ করে একটি বৈধ URL লিখুন (http:// বা https:// দিয়ে শুরু)",
+		"description": "Invalid URL error message"
+	},
+	"popupTrail": {
+		"message": "জেসচার ট্রেইল",
+		"description": "Gesture trail in popup"
+	},
+	"popupHint": {
+		"message": "অ্যাকশন ইঙ্গিত",
+		"description": "Action hint in popup"
+	},
+	"popupCommonGestures": {
+		"message": "সাধারণ জেসচার",
+		"description": "Common gestures"
+	},
+	"popupCurrentSite": {
+		"message": "বর্তমান সাইট",
+		"description": "Current site"
+	},
+	"popupRestricted": {
+		"message": "সীমাবদ্ধ পেজ",
+		"description": "Restricted page"
+	},
+	"popupDisabled": {
+		"message": "নিষ্ক্রিয়",
+		"description": "Disabled"
+	},
+	"popupAddBlacklist": {
+		"message": "ব্ল্যাকলিস্টে যোগ করুন",
+		"description": "Add to blacklist"
+	},
+	"popupRemoveBlacklist": {
+		"message": "ব্ল্যাকলিস্ট সরান",
+		"description": "Remove from blacklist"
+	},
+	"popupNotAvailable": {
+		"message": "উপলব্ধ নয়",
+		"description": "Not available"
+	},
+	"popupBack": {
+		"message": "পেছনে",
+		"description": "Back - short"
+	},
+	"popupForward": {
+		"message": "সামনে",
+		"description": "Forward - short"
+	},
+	"popupScrollUp": {
+		"message": "উপরে",
+		"description": "Scroll up - short"
+	},
+	"popupScrollDown": {
+		"message": "নিচে",
+		"description": "Scroll down - short"
+	},
+	"popupClose": {
+		"message": "বন্ধ",
+		"description": "Close Tab - short"
+	},
+	"popupRestore": {
+		"message": "পুনরুদ্ধার",
+		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "বাম ট্যাব",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "ডান ট্যাব",
+		"description": "Switch Right Tab - short"
+	},
+	"dragSearchText": {
+		"message": "🔍 ড্র্যাগ অনুসন্ধান",
+		"description": "Drag search hint"
+	},
+	"dragOpenImage": {
+		"message": "🖼️ ইমেজ খুলুন",
+		"description": "Drag open image hint"
+	},
+	"dragOpenLink": {
+		"message": "🔗 লিঙ্ক খুলুন",
+		"description": "Drag open link hint"
+	},
+	"aboutTitle": {
+		"message": "FlowMouse সম্পর্কে",
+		"description": "About title"
+	},
+	"aboutTitleShort": {
+		"message": "সম্পর্কে",
+		"description": "Short About title "
+	},
+	"aboutAuthor": {
+		"message": "লেখক",
+		"description": "Author"
+	},
+	"aboutWebsite": {
+		"message": "ওয়েবসাইট",
+		"description": "Website"
+	},
+	"aboutOpenSource": {
+		"message": "GitHub",
+		"description": "GitHub link"
+	},
+	"aboutEmail": {
+		"message": "ইমেল",
+		"description": "Email"
+	},
+	"aboutPrivacy": {
+		"message": "গোপনীয়তা বিবৃতি",
+		"description": "Privacy statement"
+	},
+	"aboutPrivacyText": {
+		"message": "এই এক্সটেনশনটি একটি ওপেন সোর্স প্রকল্প যার কোড GitHub-এ হোস্ট করা আছে। অবদান এবং কোড পর্যালোচনা স্বাগত। সমস্ত ডেটা প্রসেসিং আপনার ডিভাইসে স্থানীয়ভাবে সম্পন্ন হয়। এক্সটেনশনটি নিজেই কোনো নেটওয়ার্ক সংযোগ স্থাপন করে না এবং কোনো ব্যাকএন্ড সার্ভার নেই, তাই এটি কোনো ব্যবহারকারী ডেটা সংগ্রহ বা বাহ্যিক সার্ভারে আপলোড করে না। আপনার সংরক্ষিত সেটিংস এনক্রিপ্ট করা হয় এবং %browserName% ব্রাউজারের বিল্ট-ইন সিঙ্ক পরিষেবার মাধ্যমে আপনার লগ-ইন করা ডিভাইসগুলির মধ্যে সিঙ্ক করা হয়। এই প্রক্রিয়াটি সম্পূর্ণ ব্রাউজার দ্বারা নিয়ন্ত্রিত এবং আপনার ব্রাউজারের গোপনীয়তা ও সিঙ্ক সেটিংস অনুসরণ করে।",
+		"description": "Privacy statement text"
+	},
+	"aboutCredits": {
+		"message": "কৃতজ্ঞতা স্বীকার",
+		"description": "Credits"
+	},
+	"aboutCreditsText": {
+		"message": "ডিজাইন অনুপ্রেরণার জন্য Microsoft Edge ব্রাউজার এবং crxMouse এক্সটেনশনকে ধন্যবাদ।\nপ্রতিক্রিয়া এবং পরামর্শের জন্য 52pojie.cn সম্প্রদায় এবং ব্যবহারকারীদের ধন্যবাদ!",
+		"description": "Credits text"
+	},
+	"aboutFeatures": {
+		"message": "বৈশিষ্ট্যসমূহ",
+		"description": "Features"
+	},
+	"aboutFeature1": {
+		"message": "১৬টি ডিফল্ট জেসচার + কাস্টম জেসচার",
+		"description": "Feature 1"
+	},
+	"aboutFeature2": {
+		"message": "ভিজ্যুয়াল ট্রেইল ফিডব্যাক",
+		"description": "Feature 2"
+	},
+	"aboutFeature3": {
+		"message": "টেক্সট/ইমেজ/লিঙ্ক সুপার ড্র্যাগ",
+		"description": "Feature 3"
+	},
+	"aboutFeature4": {
+		"message": "ওয়েবসাইট ব্ল্যাকলিস্ট",
+		"description": "Feature 4"
+	},
+	"aboutFeature5": {
+		"message": "%browserName% অ্যাকাউন্ট সিঙ্ক",
+		"description": "Feature 5"
+	},
+	"aboutFeature6": {
+		"message": "স্থানীয়ভাবে চলে, সিঙ্ক ছাড়া নেটওয়ার্ক নেই",
+		"description": "Feature 6"
+	},
+	"tutorial": {
+		"message": "টিউটোরিয়াল",
+		"description": "Tutorial link"
+	},
+	"learnMore": {
+		"message": "আরও জানুন",
+		"description": "Learn more link"
+	},
+	"badgeNoNetwork": {
+		"message": "সিঙ্ক ছাড়া নেটওয়ার্ক নেই",
+		"description": "No network privacy badge"
+	},
+	"badgeNoData": {
+		"message": "ডেটা সংগ্রহ নেই",
+		"description": "No data collection badge"
+	},
+	"badgeLocalRun": {
+		"message": "স্থানীয়ভাবে চলে",
+		"description": "Local run badge"
+	},
+	"newTabSettings": {
+		"message": "নতুন ট্যাব সেটিংস",
+		"description": "New tab open settings"
+	},
+	"newTabPosition": {
+		"message": "অবস্থান",
+		"description": "New tab position"
+	},
+	"tabPositionRight": {
+		"message": "বর্তমান ট্যাবের ডানদিকে",
+		"description": "Right of current tab"
+	},
+	"tabPositionLeft": {
+		"message": "বর্তমান ট্যাবের বামদিকে",
+		"description": "Left of current tab"
+	},
+	"tabPositionFirst": {
+		"message": "প্রথম ট্যাব (বামপ্রান্ত)",
+		"description": "First tab (leftmost)"
+	},
+	"tabPositionLast": {
+		"message": "শেষ ট্যাব (ডানপ্রান্ত)",
+		"description": "Last tab (rightmost)"
+	},
+	"tabPositionCurrent": {
+		"message": "বর্তমান ট্যাব",
+		"description": "Open in current tab"
+	},
+	"tabPositionNewWindow": {
+		"message": "নতুন উইন্ডো",
+		"description": "Open in a new browser window"
+	},
+	"newTabActive": {
+		"message": "সামনে খুলুন",
+		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "সামনে খুলুন",
+		"description": "Open window in foreground"
+	},
+	"openInIncognito": {
+		"message": "ইনকগনিটো",
+		"description": "Open in incognito checkbox"
+	},
+	"textDragGestures": {
+		"message": "টেক্সট ড্র্যাগ জেসচার",
+		"description": "Text drag gestures"
+	},
+	"linkDragGestures": {
+		"message": "লিঙ্ক ড্র্যাগ জেসচার",
+		"description": "Link drag gestures"
+	},
+	"imageDragGestures": {
+		"message": "ইমেজ ড্র্যাগ জেসচার",
+		"description": "Image drag gestures"
+	},
+	"direction": {
+		"message": "দিক",
+		"description": "Direction column header"
+	},
+	"action": {
+		"message": "কমান্ড",
+		"description": "Action column header"
+	},
+	"imageSearchUrl": {
+		"message": "ইমেজ সার্চ URL (%s = ইমেজের URL)",
+		"description": "Image search URL input"
+	},
+	"dragActionNone": {
+		"message": "কিছুই না",
+		"description": "No action"
+	},
+	"dragActionSearch": {
+		"message": "🔍 সার্চ ইঞ্জিন",
+		"description": "Search action"
+	},
+	"dragActionCopy": {
+		"message": "📋 কপি",
+		"description": "Copy action"
+	},
+	"dragActionOpenTab": {
+		"message": "📑 নতুন ট্যাবে খুলুন",
+		"description": "Open in new tab"
+	},
+	"dragActionOpenTabLink": {
+		"message": "🔗 লিঙ্ক খুলুন",
+		"description": "Open link in new tab"
+	},
+	"dragActionOpenTabImage": {
+		"message": "🖼️ ইমেজ খুলুন",
+		"description": "Open image in new tab"
+	},
+	"dragActionCopyLink": {
+		"message": "📋 লিঙ্ক কপি করুন",
+		"description": "Copy link"
+	},
+	"dragActionCopyLinkText": {
+		"message": "📋 লিঙ্ক টেক্সট কপি করুন",
+		"description": "Copy link text"
+	},
+	"dragActionCopyLinkAndText": {
+		"message": "📋 পাঠ্য এবং লিঙ্ক অনুলিপি করুন",
+		"description": "Copy link text and URL"
+	},
+	"dragActionSaveImage": {
+		"message": "💾 ইমেজ সংরক্ষণ করুন",
+		"description": "Save image"
+	},
+	"dragActionCopyImage": {
+		"message": "🖼️ ইমেজ কপি করুন",
+		"description": "Copy image"
+	},
+	"dragActionCopyImageUrl": {
+		"message": "📋 ইমেজ URL কপি করুন",
+		"description": "Copy image URL"
+	},
+	"dragActionImageSearch": {
+		"message": "🔍 ইমেজ অনুসন্ধান",
+		"description": "Image search"
+	},
+	"dragActionCustomSearch": {
+		"message": "🔍 কাস্টম অনুসন্ধান",
+		"description": "Custom search"
+	},
+	"dragActionSendCustomEvent": {
+		"message": "কাস্টম ইভেন্ট পাঠান",
+		"description": "Send custom DOM event on drag gesture"
+	},
+	"reducedMotionWarning": {
+		"message": "%OS% সিস্টেম অ্যানিমেশন নিষ্ক্রিয়, স্ক্রল অ্যানিমেশন সঠিকভাবে কাজ নাও করতে পারে। আপনি %OS% সিস্টেম সেটিংসে অ্যানিমেশন চালু করতে পারেন।",
+		"description": "Warning message when system reduced motion is enabled"
+	},
+	"autoDetectUrl": {
+		"message": "স্বয়ংক্রিয় URL সনাক্তকরণ",
+		"description": "Auto detect URL checkbox label"
+	},
+	"autoDetectUrlTooltip": {
+		"message": "টেক্সট যদি লিঙ্ক বিন্যাসে থাকে, তবে অনুসন্ধান করার পরিবর্তে এটি সরাসরি খুলুন",
+		"description": "Tooltip for the auto detect URL checkbox"
+	},
+	"preferLink": {
+		"message": "লিঙ্ক অগ্রাধিকার দিন",
+		"description": "Prefer link checkbox label"
+	},
+	"customHudName": {
+		"message": "নাম",
+		"description": "Placeholder for custom action name shown on HUD"
+	},
+	"customHudNameTooltip": {
+		"message": "ভঙ্গিটি সম্পাদন করার সময় স্ক্রিনে প্রদর্শিত কাস্টম নাম",
+		"description": "Tooltip for the custom HUD name field"
+	},
+	"actionNoOptions": {
+		"message": "এই কমান্ডের জন্য কোনো সেটিংসের প্রয়োজন নেই।",
+		"description": "Placeholder shown in the action picker's detail panel when the selected action has no configurable settings"
+	},
+	"actionRequiredBadge": {
+		"message": "প্রয়োজনীয়",
+		"description": "Badge shown next to fields that must be filled in (e.g., URL for Open URL)"
+	},
+	"menuNeedRefresh": {
+		"message": "FlowMouse লোড হয়নি, রিফ্রেশ করতে ক্লিক করুন",
+		"description": "Context menu title for pages needing refresh"
+	},
+	"menuRestricted": {
+		"message": "FlowMouse অনুপলব্ধ, কারণ জানুন",
+		"description": "Context menu title for restricted pages"
+	},
+	"showRestrictedNotice": {
+		"message": "সীমাবদ্ধ পেজ বিজ্ঞপ্তি",
+		"description": "Setting title for restricted page notice"
+	},
+	"showRestrictedNoticeDesc": {
+		"message": "যেসব পেজে জেসচার অনুপলব্ধ সেখানে প্রসঙ্গ মেনু বিজ্ঞপ্তি দেখান",
+		"description": "Setting description for restricted page notice"
+	},
+	"restrictedPagesDetailsTitle": {
+		"message": "ব্রাউজারের নিরাপত্তা নীতির কারণে, এক্সটেনশন নির্দিষ্ট ধরণের পেজে চলতে পারে না।",
+		"description": "Collapsible details title"
+	},
+	"showMoreHint": {
+		"message": " (বিস্তারিত দেখুন)",
+		"description": "Hint to show more details"
+	},
+	"restrictedNewTab": {
+		"message": "নতুন ট্যাব পেজ",
+		"description": "New tab page title"
+	},
+	"restrictedNewTabDesc": {
+		"message": "ব্রাউজারের ডিফল্ট নতুন ট্যাব পেজ একটি সুরক্ষিত সিস্টেম পেজ। এক্সটেনশন এখানে স্ক্রিপ্ট ইনজেক্ট বা বিষয়বস্তু পরিবর্তন করতে পারে না।",
+		"description": "New tab page description"
+	},
+	"restrictedStore": {
+		"message": "অফিসিয়াল এক্সটেনশন স্টোর",
+		"description": "Store page title"
+	},
+	"restrictedStoreDesc": {
+		"message": "উদাহরণস্বরূপ %storeInfo% ইত্যাদি। স্টোরের স্বাভাবিক ক্রিয়াকলাপ রক্ষা করতে ব্রাউজার এই পেজগুলিতে এক্সটেনশন চালানো বাধা দেয়।",
+		"description": "Store page description"
+	},
+	"restrictedInternal": {
+		"message": "ব্রাউজার অভ্যন্তরীণ পেজ (%browserProtocol%)",
+		"description": "Internal page title"
+	},
+	"restrictedInternalDesc": {
+		"message": "উদাহরণস্বরূপ, %browserName%-এর অভ্যন্তরীণ সেটিংস, ইতিহাস, ডাউনলোড, ত্রুটি পৃষ্ঠাগুলি ইত্যাদি। এই পৃষ্ঠাগুলি ব্রাউজারের মূল ফাংশন এবং ব্যবহারকারীর গোপনীয়তা ডেটা জড়িত, তাই এগুলি কঠোরভাবে সুরক্ষিত।",
+		"description": "Internal page description"
+	},
+	"restrictedFile": {
+		"message": "স্থানীয় ফাইল পেজ (file://)",
+		"description": "File page title"
+	},
+	"restrictedFileDesc": {
+		"message": "file:// প্রোটোকলের মাধ্যমে খোলা স্থানীয় html, pdf ইত্যাদি ফাইল। নিরাপত্তা নিষেধাজ্ঞার কারণে (স্থানীয় ফাইল সিস্টেমে ক্ষতিকারক এক্সটেনশন অ্যাক্সেস রোধ করতে), এক্সটেনশন এই পেজগুলিতে কাজ করতে পারে না।",
+		"description": "File page description"
+	},
+	"restrictedViewSource": {
+		"message": "উৎস দেখুন পেজ (view-source:)",
+		"description": "View source page title"
+	},
+	"restrictedViewSourceDesc": {
+		"message": "ব্রাউজারের সোর্স কোড ভিউয়ারও একটি সুরক্ষিত সিস্টেম পেজ। এক্সটেনশন এখানে চলতে পারে না।",
+		"description": "View source page description"
+	},
+	"restrictedOther": {
+		"message": "অন্যান্য কম সাধারণ প্রভাবিত পেজ আলাদাভাবে তালিকাভুক্ত করা হয়নি।",
+		"description": "Other restricted pages note"
+	},
+	"popupNeedRefresh": {
+		"message": "এক্সটেনশন লোড হয়নি",
+		"description": "Popup title when content script not loaded"
+	},
+	"popupNeedRefreshDesc": {
+		"message": "এই পেজটি এক্সটেনশন ইনস্টল/আপডেট করার আগে খোলা ছিল। জেসচার সক্ষম করতে রিফ্রেশ করুন।",
+		"description": "Popup description when content script not loaded"
+	},
+	"popupRefreshBtn": {
+		"message": "পেজ রিফ্রেশ করুন",
+		"description": "Popup refresh button text"
+	},
+	"popupRestrictedTitle": {
+		"message": "জেসচার অনুপলব্ধ",
+		"description": "Popup title for restricted pages"
+	},
+	"popupRestrictedDesc": {
+		"message": "ব্রাউজার নিরাপত্তা সীমাবদ্ধতার কারণে এই পেজে জেসচার ব্যবহার করা যাবে না।",
+		"description": "Popup description for restricted pages"
+	},
+	"popupLearnMore": {
+		"message": "আরও জানুন",
+		"description": "Popup learn more button text"
+	},
+	"tutorialPending": {
+		"message": "চেষ্টা করুন",
+		"description": "Tutorial pending status"
+	},
+	"tutorialCompleted": {
+		"message": "সম্পন্ন",
+		"description": "Tutorial completed status"
+	},
+	"tutorialClickToStart": {
+		"message": "শুরু করতে <span class=\"text-highlight\">মাউসের ডান বোতাম</span> ক্লিক করুন",
+		"description": "Tutorial Step 0 instruction"
+	},
+	"tutorialWelcomeTitle": {
+		"message": "FlowMouse-এ স্বাগতম",
+		"description": "Tutorial welcome title"
+	},
+	"tutorialWelcomeSubtitle": {
+		"message": "আরও মসৃণ ব্রাউজিংয়ের জন্য ৩০ সেকেন্ডে বেসিকগুলি আয়ত্ত করুন",
+		"description": "Tutorial welcome subtitle"
+	},
+	"tutorialStep1Title": {
+		"message": "বেসিকস",
+		"description": "Tutorial Step 1 title"
+	},
+	"tutorialStep1Subtitle": {
+		"message": "জেসচার পদ্ধতি শিখুন",
+		"description": "Tutorial Step 1 subtitle"
+	},
+	"tutorialStep1InstructionIdle": {
+		"message": "দয়া করে <span class=\"text-highlight\">মাউসের ডান বোতাম</span> টিপে ধরুন",
+		"description": "Tutorial Step 1 instruction idle"
+	},
+	"tutorialStep1InstructionPressing": {
+		"message": "<strong>চমৎকার!</strong> এবার <strong>%arrow% ডানদিকে</strong> ড্র্যাগ করুন",
+		"description": "Tutorial Step 1 instruction pressing"
+	},
+	"tutorialStep1InstructionDragging": {
+		"message": "ড্র্যাগ করতে থাকুন...",
+		"description": "Tutorial Step 1 instruction dragging"
+	},
+	"tutorialStep1InstructionReleasing": {
+		"message": "<strong>দারুণ!</strong> এবার ছেড়ে দিন!",
+		"description": "Tutorial Step 1 instruction releasing"
+	},
+	"tutorialStep2Title": {
+		"message": "জাতীয় জেসচার",
+		"description": "Tutorial Step 2 title"
+	},
+	"tutorialStep2Subtitle": {
+		"message": "জেসচার করতে <span class=\"text-highlight\">মাউসের ডান বোতাম</span> টিপে ধরুন",
+		"description": "Tutorial Step 2 subtitle"
+	},
+	"tutorialStep2Footer": {
+		"message": "<strong>আরও জেসচার</strong> এবং <strong>ফুল কাস্টমাইজেশন</strong> সেটিংসে উপলব্ধ।",
+		"description": "Footer note for step 2 discovery banner"
+	},
+	"tutorialStep2DiscoveryHeader": {
+		"message": "আরও জেসচার",
+		"description": "Header for step 2 discovery banner"
+	},
+	"tutorialStep3DiscoveryHeader": {
+		"message": "আরও সুপার ড্র্যাগ বৈশিষ্ট্য",
+		"description": "Header for step 3 discovery banner"
+	},
+	"tutorialStep3TextSearch": {
+		"message": "টেক্সট <span class=\"svg-arrow\">→</span> অনুসন্ধান",
+		"description": "Text drag search discovery item"
+	},
+	"tutorialStep3LinkOpen": {
+		"message": "লিঙ্ক <span class=\"svg-arrow\">→</span> নতুন ট্যাবে খুলুন",
+		"description": "Link drag open discovery item"
+	},
+	"tutorialStep3ImageOpen": {
+		"message": "ইমেজ <span class=\"svg-arrow\">→</span> নতুন ট্যাবে খুলুন",
+		"description": "Image drag open discovery item"
+	},
+	"tutorialStep3Footer": {
+		"message": "<strong>আরও ড্র্যাগ অ্যাকশন</strong> এবং <strong>ফুল কাস্টমাইজেশন</strong> উন্নত সেটিংসে উপলব্ধ",
+		"description": "Footer for step 3 discovery banner"
+	},
+	"tutorialContinue": {
+		"message": "চালিয়ে যান",
+		"description": "Tutorial continue button"
+	},
+	"tutorialStep3Title": {
+		"message": "সুপার ড্র্যাগ",
+		"description": "Tutorial Step 3 title"
+	},
+	"tutorialStep3Subtitle": {
+		"message": "দ্রুত অ্যাকশন করতে <span class=\"text-highlight\">মাউসের বাম বোতাম</span> টিপে ধরুন এবং <span class=\"svg-arrow\">→</span> ড্র্যাগ করুন",
+		"description": "Tutorial Step 3 subtitle"
+	},
+	"tutorialStep3HintTitle": {
+		"message": "টেক্সট নির্বাচন ও অনুসন্ধান",
+		"description": "Tutorial Step 3 hint title"
+	},
+	"tutorialStep3HintDesc": {
+		"message": "টেক্সট নির্বাচন করুন, তারপর অনুসন্ধান করতে <span class=\"text-highlight\">মাউসের বাম বোতাম</span> ব্যবহার করে <span class=\"svg-arrow\">→</span> ড্র্যাগ করুন",
+		"description": "Tutorial Step 3 hint description. Note: Must drag to right. Use SVG arrow instead of text for direction."
+	},
+	"tutorialStep3TextBoxLabel": {
+		"message": "নিচের টেক্সট দিয়ে চেষ্টা করুন!",
+		"description": "Tutorial Step 3 text box label"
+	},
+	"tutorialStep3SelectableText": {
+		"message": "FlowMouse সুপার ড্র্যাগ",
+		"description": "Tutorial Step 3 selectable text"
+	},
+	"tutorialStep4Title": {
+		"message": "অভিনন্দন!",
+		"description": "Tutorial Step 4 title"
+	},
+	"tutorialStep4Subtitle": {
+		"message": "আপনি এখন প্রবাহের সাথে মিশে গেছেন।",
+		"description": "Tutorial Step 4 subtitle"
+	},
+	"tutorialStep4Instruction": {
+		"message": "এই লিঙ্কে <span class=\"text-highlight\">সুপার ড্র্যাগ <span class=\"svg-arrow\">→</span></span> ব্যবহার করে একটি <span class=\"text-highlight\">নতুন ট্যাবে</span> খুলুন",
+		"description": "Tutorial Step 4 instruction. Note: Must drag to right. Use SVG arrow instead of text for direction."
+	},
+	"tutorialSettingsLink": {
+		"message": "FlowMouse সেটিংস",
+		"description": "Tutorial settings link"
+	},
+	"tutorialSettingsHint": {
+		"message": "আপনার অন্বেষণের জন্য আরও অনেক শক্তিশালী বৈশিষ্ট্য অপেক্ষা করছে!",
+		"description": "Tutorial settings hint"
+	},
+	"tutorialWrongDirection": {
+		"message": "ভুল দিক! %arrow% ডানদিকে ড্র্যাগ করুন",
+		"description": "Tutorial wrong direction error"
+	},
+	"tutorialEarlyRelease": {
+		"message": "খুব তাড়াতাড়ি ছেড়ে দিয়েছেন! আবার চেষ্টা করুন।",
+		"description": "Tutorial early release error"
+	},
+	"tutorialDragWrongButton": {
+		"message": "ড্র্যাগ করতে <span class=\"text-highlight\">মাউসের বাম বোতাম</span> ব্যবহার করুন",
+		"description": "Tutorial drag wrong button error"
+	},
+	"tutorialRefreshTip": {
+		"message": "পরামর্শ: ইনস্টলেশনের আগে খোলা ট্যাবগুলি FlowMouse ব্যবহার করতে <span class=\"text-highlight\">রিফ্রেশ</span> করা প্রয়োজন",
+		"description": "Tip about refreshing tabs"
+	},
+	"permissionBookmarksTitle": {
+		"message": "বুকমার্কস পরিচালনা",
+		"description": "Permission popup title for bookmarks"
+	},
+	"permissionBookmarksDesc": {
+		"message": "আপনার বুকমার্কসে পেজ যোগ করতে, FlowMouse-এর আপনার বুকমার্কসে অ্যাক্সেস প্রয়োজন।",
+		"description": "Permission popup description for bookmarks"
+	},
+	"permissionDownloadsTitle": {
+		"message": "ডাউনলোডস পরিচালনা",
+		"description": "Permission popup title for downloads"
+	},
+	"permissionDownloadsDesc": {
+		"message": "ইমেজ সংরক্ষণ করতে, FlowMouse-এর আপনার ডাউনলোডসে অ্যাক্সেস প্রয়োজন।",
+		"description": "Permission popup description for downloads"
+	},
+	"permissionDownloadsPageCaptureTitle": {
+		"message": "কন্টেন্ট সংরক্ষণ করুন",
+		"description": "Permission popup title for downloads and page capture"
+	},
+	"permissionDownloadsPageCaptureDesc": {
+		"message": "কন্টেন্ট সংরক্ষণ করতে, FlowMouse-এর পেজ এবং ডাউনলোডসে অ্যাক্সেস প্রয়োজন।",
+		"description": "Permission popup description for downloads and page capture"
+	},
+	"permissionIncognitoTitle": {
+		"message": "অজ্ঞাত মোডে অনুমতি দিন",
+		"description": "Permission popup title for incognito"
+	},
+	"permissionIncognitoDesc": {
+		"message": "অজ্ঞাত উইন্ডোতে কাজ করার জন্য, আপনাকে ম্যানুয়ালি FlowMouse-এর জন্য 'অজ্ঞাত মোডে অনুমতি দিন' সক্ষম করতে হবে।",
+		"description": "Permission popup description for incognito"
+	},
+	"permissionClipboardReadTitle": {
+		"message": "ক্লিপবোর্ড পড়া",
+		"description": "Permission popup title for clipboard read"
+	},
+	"permissionClipboardReadDesc": {
+		"message": "ক্লিপবোর্ডের বিষয়বস্তু পেস্ট করতে, FlowMouse-এর আপনার ক্লিপবোর্ড পড়ার অ্যাক্সেস প্রয়োজন।",
+		"description": "Permission popup description for clipboard read"
+	},
+	"openExtensionsSettings": {
+		"message": "এক্সটেনশন বিশদ খুলুন",
+		"description": "Button to open extension details page"
+	},
+	"permissionFirefoxIncognitoTitle": {
+		"message": "ব্যক্তিগত উইন্ডোতে চালান",
+		"description": "Permission popup title for Firefox private browsing"
+	},
+	"permissionFirefoxIncognitoDesc": {
+		"message": "ব্যক্তিগত উইন্ডোতে কাজ করার জন্য, আপনাকে অ্যাড-অন ম্যানেজারে FlowMouse-এর জন্য 'ব্যক্তিগত উইন্ডোতে চালান' সক্ষম করতে হবে।",
+		"description": "Permission popup description for Firefox private browsing"
+	},
+	"grantPermission": {
+		"message": "অনুমতি দিন",
+		"description": "Grant permission button"
+	},
+	"grantPermissionCancel": {
+		"message": "বাতিল",
+		"description": "Cancel button"
+	},
+	"permissionTitle": {
+		"message": "FlowMouse অনুমতি",
+		"description": "Generic permission window title"
+	},
+	"tutorialPinHint": {
+		"message": "সহজে অ্যাক্সেসের জন্য<span class='icon-ext'></span><b>এক্সটেনশনস</b> ক্লিক করুন এবং FlowMouse<span class='icon-pin'></span><b>পিন</b> করুন!",
+		"description": "Hint to pin the extension in tutorial step 4. Do not add space around icon."
+	},
+	"downloadErrorHotlink": {
+		"message": "ইমেজ সেভ ব্যর্থ হয়েছে। এই ওয়েবসাইটে হটলিঙ্ক সুরক্ষা থাকতে পারে। অনুগ্রহ করে ইমেজে রাইট ক্লিক করুন এবং \"সেভ ইমেজ অ্যাজ...\" নির্বাচন করুন।",
+		"description": "Toast message when image download fails due to hotlink protection"
+	},
+	"saveImageLoadError": {
+		"message": "ছবি সংরক্ষণ ব্যর্থ হয়েছে: ছবি লোড করতে ব্যর্থ হয়েছে",
+		"description": "Toast message when image fails to load before saving"
+	},
+	"saveImageTimeout": {
+		"message": "ছবি সংরক্ষণ ব্যর্থ হয়েছে: লোডিং সময়সীমা শেষ",
+		"description": "Toast message when image loading times out"
+	},
+	"buttonOkay": {
+		"message": "ঠিক আছে",
+		"description": "Generic OK button"
+	},
+	"buttonConfirm": {
+		"message": "নিশ্চিত করুন",
+		"description": "Generic Confirm button"
+	},
+	"buttonCancel": {
+		"message": "বাতিল করুন",
+		"description": "Generic Cancel button"
+	},
+	"buttonClose": {
+		"message": "বন্ধ করুন",
+		"description": "Generic Close button"
+	},
+	"searchActions": {
+		"message": "কমান্ড খুঁজুন...",
+		"description": "Placeholder for action search input in action picker"
+	},
+	"actionCategoryNavigation": {
+		"message": "নেভিগেশন",
+		"description": "Action category: navigation"
+	},
+	"actionCategoryTabs": {
+		"message": "ট্যাব",
+		"description": "Action category: tabs"
+	},
+	"actionCategoryWindow": {
+		"message": "উইন্ডো",
+		"description": "Action category: window"
+	},
+	"actionCategoryUtilities": {
+		"message": "ইউটিলিটি",
+		"description": "Action category: utilities"
+	},
+	"noResults": {
+		"message": "কোনো ফলাফল পাওয়া যায়নি",
+		"description": "No search results found"
+	},
+	"wheelGestures": {
+		"message": "মাউস হুইল জেসচার",
+		"description": "Mouse wheel gestures section title"
+	},
+	"enableWheelGestures": {
+		"message": "মাউস হুইল জেসচার সক্ষম করুন",
+		"description": "Enable mouse wheel gestures"
+	},
+	"enableWheelGesturesDesc": {
+		"message": "মাউস হুইল ব্যবহার করে দ্রুত বিভিন্ন কাজ সম্পন্ন করুন",
+		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelGesture_scrollUpHoldingRight": {
+		"message": "ডান বোতাম চেপে ধরে উপরে স্ক্রোল করুন",
+		"description": "Wheel gesture: scroll up while holding right button"
+	},
+	"wheelGesture_scrollDownHoldingRight": {
+		"message": "ডান বোতাম চেপে ধরে নিচে স্ক্রোল করুন",
+		"description": "Wheel gesture: scroll down while holding right button"
+	},
+	"wheelGesture_wheelClickHoldingRight": {
+		"message": "ডান বোতাম চেপে ধরে মাঝের বোতামে ক্লিক করুন",
+		"description": "Wheel gesture: wheel (middle) click while holding right button"
+	},
+	"specialGestures": {
+		"message": "বিশেষ জেসচার",
+		"description": "Special gestures section title"
+	},
+	"enableSpecialGestures": {
+		"message": "বিশেষ জেসচার সক্ষম করুন",
+		"description": "Enable special gestures"
+	},
+	"enableSpecialGesturesDesc": {
+		"message": "অন্যটি ধরে রেখে একটি মাউস বাটনে ক্লিক করে কাজ সম্পাদন করুন",
+		"description": "Enable special gestures description"
+	},
+	"specialGesture_leftClickHoldingRight": {
+		"message": "ডান বোতাম চেপে ধরে বাম ক্লিক করুন",
+		"description": "Special gesture: left click while holding right button"
+	},
+	"specialGesture_rightClickHoldingLeft": {
+		"message": "বাম বোতাম চেপে ধরে ডান ক্লিক করুন",
+		"description": "Special gesture: right click while holding left button"
+	},
+	"actionChainsDesc": {
+		"message": "একাধিক কমান্ড ক্রমান্বয়ে কার্যকর করতে কমান্ড চেইন ব্যবহার করুন।",
+		"description": "Action chains section description"
+	},
+	"actionActionChain": {
+		"message": "কমান্ড চেইন",
+		"description": "Action chain action name"
+	},
+	"actionCustomMenu": {
+		"message": "কাস্টম মেনু",
+		"description": "Custom popup menu action name"
+	},
+	"customMenuDesc": {
+		"message": "একাধিক অ্যাকশন সহ কাস্টম পপআপ মেনু তৈরি করুন।",
+		"description": "Custom menu section description"
+	},
+	"addMenu": {
+		"message": "মেনু যোগ করুন",
+		"description": "Add menu button"
+	},
+	"menuNamePlaceholder": {
+		"message": "কাস্টম মেনু",
+		"description": "Menu name input placeholder"
+	},
+	"menuItemCount": {
+		"message": "%count% টি আইটেম",
+		"description": "Item count for menus, e.g. '3 items'"
+	},
+	"menuItemCountOne": {
+		"message": "%count% টি আইটেম",
+		"description": "Item count for menus with exactly 1 item"
+	},
+	"addMenuItem": {
+		"message": "আইটেম যোগ করুন",
+		"description": "Add menu item button"
+	},
+	"addMenuSeparator": {
+		"message": "বিভাজক যোগ করুন",
+		"description": "Add separator to menu button"
+	},
+	"emptyMenuItems": {
+		"message": "কোনো আইটেম যোগ করা হয়নি। শুরু করতে \"আইটেম যোগ করুন\"-এ ক্লিক করুন।",
+		"description": "Empty menu items message"
+	},
+	"menuNotFound": {
+		"message": "(মেনু পাওয়া যায়নি)",
+		"description": "Menu not found label"
+	},
+	"deleteMenuConfirm": {
+		"message": "\"%name%\" মেনু মুছে ফেলবেন?",
+		"description": "Delete menu confirmation"
+	},
+	"menuItemNumber": {
+		"message": "আইটেম %n%",
+		"description": "Menu item number label"
+	},
+	"addChain": {
+		"message": "চেইন যোগ করুন",
+		"description": "Add chain button"
+	},
+	"chainNamePlaceholder": {
+		"message": "কমান্ড চেইন",
+		"description": "Chain name input placeholder"
+	},
+	"chainDelayUnit": {
+		"message": "মিলি সেকেন্ড",
+		"description": "Milliseconds unit for chain delay"
+	},
+	"addStep": {
+		"message": "ধাপ যোগ করুন",
+		"description": "Add step button"
+	},
+	"emptyChainSteps": {
+		"message": "কোনো ধাপ যোগ করা হয়নি। শুরু করতে \"ধাপ যোগ করুন\" এ ক্লিক করুন।",
+		"description": "Empty chain steps message in expanded body"
+	},
+	"emptyChainStepsShort": {
+		"message": "কোনো ধাপ যোগ করা হয়নি",
+		"description": "Short empty chain steps message for summary"
+	},
+	"noChains": {
+		"message": "এখনও কোনো কমান্ড চেইন নেই। একটি তৈরি করতে \"চেইন যোগ করুন\" এ ক্লিক করুন।",
+		"description": "No chains message"
+	},
+	"chainNotFound": {
+		"message": "(চেইন পাওয়া যায়নি)",
+		"description": "Chain not found label"
+	},
+	"deleteChainConfirm": {
+		"message": "\"%name%\" চেইন মুছে ফেলবেন?",
+		"description": "Delete chain confirmation"
+	},
+	"stepNumber": {
+		"message": "ধাপ %n%",
+		"description": "Step number label"
+	},
+	"actionDelay": {
+		"message": "বিলম্ব",
+		"description": "Delay action name for chain steps"
+	},
+	"actionSendCustomEvent": {
+		"message": "কাস্টম ইভেন্ট পাঠান",
+		"description": "Action to dispatch a custom DOM event"
+	},
+	"actionSendExtensionMessage": {
+		"message": "অন্য এক্সটেনশন আহ্বান করুন",
+		"description": "Action to send a custom message to another installed extension"
+	},
+	"actionSimulateKey": {
+		"message": "কী টিপা অনুকরণ করুন",
+		"description": "Action to simulate a keyboard key press on the page"
+	},
+	"actionPasteClipboard": {
+		"message": "ক্লিপবোর্ড থেকে পেস্ট করুন",
+		"description": "Action to paste clipboard text at the gesture start position"
+	},
+	"pasteClipboardHint": {
+		"message": "<b>ভঙ্গির শুরুর স্থানে</b> ইনপুট ফিল্ডে ক্লিপবোর্ডের বিষয়বস্তু পেস্ট করা হবে।",
+		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
+	"actionPasteContent": {
+		"message": "কাস্টম টেক্সট পেস্ট করুন",
+		"description": "Action to paste a preset, user-specified text at the gesture start position"
+	},
+	"pasteContentLabel": {
+		"message": "টেক্সট",
+		"description": "Label for the text field where the user enters the content to paste"
+	},
+	"pasteContentHint": {
+		"message": "<b>ভঙ্গির শুরুর স্থানে</b> ইনপুট ফিল্ডে নির্দিষ্ট টেক্সট প্রবেশ করানো হবে।",
+		"description": "Hint shown in action config when paste specified content is selected. Contains HTML."
+	},
+	"pasteContentSensitiveHint": {
+		"message": "পাসওয়ার্ডের মতো সংবেদনশীল তথ্য এখানে সংরক্ষণ করার পরামর্শ দেওয়া হয় না।",
+		"description": "Warning hint below the content field for the paste specified content action"
+	},
+	"simulateKeyPreset": {
+		"message": "প্রিসেট কী",
+		"description": "Label for preset key dropdown in simulate key config"
+	},
+	"simulateKeyPresetLeft": {
+		"message": "← বাম তীর (আগের পৃষ্ঠা)",
+		"description": "Preset: ArrowLeft key"
+	},
+	"simulateKeyPresetRight": {
+		"message": "→ ডান তীর (পরবর্তী পৃষ্ঠা)",
+		"description": "Preset: ArrowRight key"
+	},
+	"simulateKeyPresetCustom": {
+		"message": "কাস্টম কী",
+		"description": "Preset: Custom key option"
+	},
+	"simulateKeyRecordBtn": {
+		"message": "কী রেকর্ড করুন",
+		"description": "Button to start recording a key press"
+	},
+	"simulateKeyRecording": {
+		"message": "একটি কী চাপুন...",
+		"description": "Recording state text"
+	},
+	"simulateKeyManualInput": {
+		"message": "বর্তমান কী",
+		"description": "Label for current key display in simulate key config"
+	},
+	"simulateKeyHint": {
+		"message": "এই বৈশিষ্ট্যটি শুধুমাত্র বর্তমান পৃষ্ঠায় কীবোর্ড ইভেন্ট পাঠায়, সাধারণত পৃষ্ঠা নেভিগেশনের জন্য ব্যবহৃত হয় (← পূর্ববর্তী / → পরবর্তী)। এটি ব্রাউজার শর্টকাটগুলিকে ট্রিগার করবে না (যেমন, Ctrl+R রিফ্রেশ করবে না)। উপরন্তু, ওয়েবসাইট ফ্রেমওয়ার্কের সীমাবদ্ধতার কারণে, সিমুলেট করা ইভেন্টগুলি সমস্ত কাস্টম উপাদান বা ইনপুট ক্ষেত্র দ্বারা ক্যাপচার নাও হতে পারে।",
+		"description": "Hint text for simulate key feature"
+	},
+	"customEventInvalidJson": {
+		"message": "অবৈধ JSON ফর্ম্যাট",
+		"description": "Error message when event detail is not valid JSON"
+	},
+	"customEventIncludeGestureInfo": {
+		"message": "%code%-এ সংকেত তথ্য অন্তর্ভুক্ত করুন",
+		"description": "Checkbox label for including gesture context in custom event detail. %code% = detail.gesture"
+	},
+	"customEventConfigureBtn": {
+		"message": "সেটিংস",
+		"description": "Label for the configure button of custom event action in drag gesture manager"
+	},
+	"customEventHint": {
+		"message": "%window% এ %code% প্রেরণ করে। অন্যান্য স্ক্রিপ্টের সাথে একীকরণের জন্য দরকারী।",
+		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
+	},
+	"sendExtensionMessageHint": {
+		"message": "%code% এর মাধ্যমে অন্য ইনস্টল করা এক্সটেনশনে একটি বার্তা পাঠায়। অন্যান্য এক্সটেনশনের সাথে একীকরণের জন্য দরকারী।",
+		"description": "Hint explaining how send-message-to-extension works. %code% = <code>chrome.runtime.sendMessage(...)</code>"
+	},
+	"delayDuration": {
+		"message": "সময়কাল",
+		"description": "Delay duration label"
+	},
+	"chainStepCount": {
+		"message": "%count% ধাপ",
+		"description": "Step count for unnamed chains, e.g. '3 steps'"
+	},
+	"chainStepCountOne": {
+		"message": "%count% ধাপ",
+		"description": "Step count for unnamed chains with exactly 1 step"
+	},
+	"actionZoomIn": {
+		"message": "জুম ইন করুন",
+		"description": "Zoom in on the current page"
+	},
+	"actionZoomOut": {
+		"message": "জুম আউট করুন",
+		"description": "Zoom out on the current page"
+	},
+	"actionResetZoom": {
+		"message": "জুম রিসেট করুন",
+		"description": "Reset page zoom to default or a specified level"
+	},
+	"actionViewPageSource": {
+		"message": "পৃষ্ঠার সোর্স দেখুন",
+		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionPauseGesture": {
+		"message": "রিফ্রেশ না হওয়া পর্যন্ত জেসচার পজ",
+		"description": "Temporarily disable all gestures on the current tab until page refresh"
+	},
+	"actionAreaSelect": {
+		"message": "এলাকা নির্বাচন",
+		"description": "Enter area select mode to drag-select links on the page and batch open them"
+	},
+	"areaSelectTitle": {
+		"message": "এলাকা নির্বাচন",
+		"description": "Label for the area select row in the popup"
+	},
+	"areaSelectModifierKey": {
+		"message": "দ্রুত এলাকা নির্বাচন",
+		"description": "Label for the modifier key dropdown in area select settings"
+	},
+	"areaSelectModifierKeyDesc": {
+		"message": "সংশোধক কী চেপে ধরে রাখুন, তারপর পৃষ্ঠায় ব্যাচ ক্রিয়াকলাপের জন্য লিঙ্কগুলি দ্রুত নির্বাচন করতে বাম-ক্লিক করুন এবং টেনে আনুন",
+		"description": "Description for the modifier key setting"
+	},
+	"areaSelectDisabled": {
+		"message": "নিষ্ক্রিয়",
+		"description": "Disabled option for the area select modifier key dropdown"
+	},
+	"areaSelectMouseDrag": {
+		"message": "মাউস টেনে আনা",
+		"description": "Suffix label next to the modifier key dropdown"
+	},
+	"areaSelectTextUrl": {
+		"message": "টেক্সট URL স্বীকৃতি",
+		"description": "Label for the text URL recognition toggle"
+	},
+	"areaSelectTextUrlDesc": {
+		"message": "নির্বাচনের সময় প্লেন-টেক্সট URL-ও (হাইপারলিঙ্ক নয় এমন) এক্সট্রাক্ট করুন",
+		"description": "Description for the text URL recognition toggle"
+	},
+	"areaSelectWarnThreshold": {
+		"message": "ব্যাচ অপারেশন সতর্কতা",
+		"description": "Label for the batch operation alert threshold input"
+	},
+	"areaSelectWarnThresholdDesc": {
+		"message": "এর বেশি আইটেম ব্যাচ অপারেট করার সময় নিশ্চিতকরণ দেখান, নিষ্ক্রিয় করতে 0",
+		"description": "Description for the batch operation alert threshold"
+	},
+	"areaSelectDelay": {
+		"message": "অপারেশন বিরতি",
+		"description": "Label for the operation interval input"
+	},
+	"areaSelectDelayDesc": {
+		"message": "ব্যাচ অপারেশনে প্রতিটি খোলার মধ্যে বিলম্ব (সেকেন্ড)",
+		"description": "Description for the operation interval setting"
+	},
+	"areaSelectHint": {
+		"message": "লিঙ্কগুলি নির্বাচন করতে টেনে আনুন",
+		"description": "Hint text shown in the area select overlay"
+	},
+	"areaSelectOpen": {
+		"message": "%count%টি লিঙ্ক খুলুন",
+		"description": "Button text in the area select toolbar to batch open selected links"
+	},
+	"areaSelectOpenOne": {
+		"message": "%count%টি লিঙ্ক খুলুন",
+		"description": "Button text to open a single selected link (singular form)"
+	},
+	"areaSelectCopy": {
+		"message": "লিঙ্কগুলি অনুলিপি করুন",
+		"description": "Button text to copy all selected link URLs to clipboard"
+	},
+	"areaSelectCancel": {
+		"message": "বাতিল করুন",
+		"description": "Button text to cancel area select mode"
+	},
+	"areaSelectConfirm": {
+		"message": "নিশ্চিত করুন",
+		"description": "Button text to confirm opening many links"
+	},
+	"areaSelectWarnTitle": {
+		"message": "অনেক লিঙ্ক খুলবেন?",
+		"description": "Title of the warning modal when opening many links"
+	},
+	"areaSelectWarnMessage": {
+		"message": "আপনি %count% টি লিঙ্ক খুলতে চলেছেন। এটি আপনার ব্রাউজার ধীর করতে পারে। চালিয়ে যাবেন?",
+		"description": "Body text of the warning modal"
+	},
+	"start": {
+		"message": "শুরু করুন",
+		"description": "Button label to start an action (e.g. area select)"
+	},
+	"actionMenuShowTabs": {
+		"message": "ট্যাব পাল্টান",
+		"description": "Show a context menu listing all open tabs in the current window"
+	},
+	"actionMenuRecentlyClosed": {
+		"message": "সম্প্রতি বন্ধ করা ট্যাব",
+		"description": "Show a context menu listing recently closed tabs for quick restore"
+	},
+	"recentlyClosedMaxItems": {
+		"message": "সর্বাধিক আইটেম",
+		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
+	},
+	"actionCategoryContextMenu": {
+		"message": "পপ-আপ মেনু",
+		"description": "Action category: context menu actions"
+	},
+	"zoomStepMode": {
+		"message": "জুম করার পদ্ধতি",
+		"description": "Label for zoom mode selector: browser steps vs fixed increment"
+	},
+	"zoomStepModeBrowser": {
+		"message": "ব্রাউজারের জুম স্তর ব্যবহার করুন",
+		"description": "Option: follow Chrome's built-in zoom steps (25%, 33%, 50%, …, 500%)"
+	},
+	"zoomStepModeFixed": {
+		"message": "নির্দিষ্ট ধাপ",
+		"description": "Option: zoom in/out by a configurable fixed percentage each time"
+	},
+	"zoomDelta": {
+		"message": "ধাপের আকার",
+		"description": "Label for the zoom increment/decrement slider"
+	},
+	"resetZoomLevel": {
+		"message": "এতে রিসেট করুন",
+		"description": "Label for the target zoom level when resetting zoom"
+	},
+	"resetZoomDefault": {
+		"message": "ব্রাউজারের ডিফল্ট",
+		"description": "Option: reset zoom to the browser's default zoom setting"
+	},
+	"resetZoomCustom": {
+		"message": "কাস্টম মান",
+		"description": "Option: reset zoom to a user-specified custom zoom level"
+	},
+	"actionMenuShowBookmarks": {
+		"message": "বুকমার্কগুলি দেখান",
+		"description": "Show a context menu listing bookmarks from a selected folder"
+	},
+	"bookmarkFolder": {
+		"message": "ফোল্ডার",
+		"description": "Label for selecting which bookmark folder to display"
+	},
+	"bookmarkFolderDefault": {
+		"message": "ব্রাউজার ডিফল্ট",
+		"description": "Option label for using the browser's default bookmark location"
+	},
+	"bookmarkGrantPermission": {
+		"message": "(বুকমার্কের অনুমতি দিন)",
+		"description": "Button label to request bookmarks permission"
+	},
+	"ctxMenuSortOrder": {
+		"message": "সাজানোর ধরন",
+		"description": "Label for context menu sort order dropdown"
+	},
+	"ctxMenuSortDefault": {
+		"message": "ডিফল্ট",
+		"description": "Sort option: original API/insertion order"
+	},
+	"ctxMenuSortDefaultDesc": {
+		"message": "ডিফল্ট (বিপরীত)",
+		"description": "Sort option: reverse of original API order"
+	},
+	"ctxMenuSortDateAddedAsc": {
+		"message": "যোগ করার তারিখ (পুরোনোটি আগে)",
+		"description": "Sort option: by date added ascending"
+	},
+	"ctxMenuSortDateAddedDesc": {
+		"message": "যোগ করার তারিখ (নতুনটি আগে)",
+		"description": "Sort option: by date added descending"
+	},
+	"ctxMenuSortNameAsc": {
+		"message": "নাম (আরোহী)",
+		"description": "Sort option: alphabetical ascending"
+	},
+	"ctxMenuSortNameDesc": {
+		"message": "নাম (অবরোহী)",
+		"description": "Sort option: alphabetical descending"
+	},
+	"ctxMenuSortLastAccessAsc": {
+		"message": "সর্বশেষ অ্যাক্সেস (পুরোনোটি আগে)",
+		"description": "Sort option: by last access time ascending"
+	},
+	"ctxMenuSortLastAccessDesc": {
+		"message": "সর্বশেষ অ্যাক্সেস (নতুনটি আগে)",
+		"description": "Sort option: by last access time descending"
+	},
+	"ctxMenuMaxItems": {
+		"message": "সর্বোচ্চ আইটেম",
+		"description": "Label for maximum number of items in context menu"
+	},
+	"ctxMenuMaxItemsUnlimited": {
+		"message": "অসীম",
+		"description": "Placeholder shown when max items is 0 (no limit)"
+	},
+	"ctxMenuScrollToBottom": {
+		"message": "নিচে স্ক্রোল করুন",
+		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuTimeDisplay": {
+		"message": "সময় দেখান",
+		"description": "Label for time display mode dropdown in context menu"
+	},
+	"ctxMenuTimeNone": {
+		"message": "দেখাবেন না",
+		"description": "Time display option: hide time column"
+	},
+	"ctxMenuTimeLastAccess": {
+		"message": "শেষবার অ্যাক্সেস করা হয়েছে",
+		"description": "Time display option: show last access time"
+	},
+	"ctxMenuTimeClosedTime": {
+		"message": "বন্ধ করার সময়",
+		"description": "Time display option: show when the tab was closed"
+	},
+	"ctxMenuTimeDateAdded": {
+		"message": "যোগ করা তারিখ",
+		"description": "Time display option: show when the bookmark was added"
+	}
+}

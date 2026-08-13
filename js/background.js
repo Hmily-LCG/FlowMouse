@@ -1,3 +1,5 @@
+importScripts('browser-compat.js');
+
 const isEdge = navigator.userAgent.includes('Edg/') || navigator.userAgent.includes('EdgA/');
 
 const GLOBAL_MUTE_KEY = 'flowmouse_global_mute_state';
@@ -185,6 +187,7 @@ async function handleAction(request, sender) {
 		}
 
 		case 'restoreTab':
+			if (!self.FlowMouseCompat.hasSessions) return { success: false, unsupported: true };
 			if (sender.tab?.incognito) return { success: false };
 			await chrome.sessions.restore(null).catch(() => { });
 			return { success: true };
@@ -228,7 +231,7 @@ async function handleAction(request, sender) {
 
 		case 'openIncognitoTabs': {
 			const urls = request.urls || [];
-			const queries = request.queries || [];
+			const queries = self.FlowMouseCompat.hasSearch ? (request.queries || []) : [];
 			if (!sender.tab || (urls.length === 0 && queries.length === 0)) return { success: true };
 			if (sender.tab.incognito) {
 				for (const url of urls) {
@@ -254,6 +257,7 @@ async function handleAction(request, sender) {
 		}
 
 		case 'systemSearch': {
+			if (!self.FlowMouseCompat.hasSearch) return { success: false, unsupported: true };
 			if (sender.tab) {
 				if (request.incognito && !sender.tab.incognito) {
 					const granted = await requestPermission(['incognito'], sender.tab.windowId);
@@ -290,6 +294,10 @@ async function handleAction(request, sender) {
 
 		case 'saveImage':
 			if (request.url) {
+				if (!self.FlowMouseCompat.hasDownloads || (!request.url.startsWith('data:') && !self.FlowMouseCompat.hasPageCapture)) {
+					notifyDownloadError(sender.tab?.id);
+					return { success: true };
+				}
 				requestPermission(['downloads', 'pageCapture'], sender.tab?.windowId ?? null).then(async (granted) => {
 					if (!granted) return;
 
@@ -350,6 +358,9 @@ async function handleAction(request, sender) {
 
 		case 'saveAsMhtml':
 			if (sender.tab?.id) {
+				if (!self.FlowMouseCompat.hasPageCapture || !self.FlowMouseCompat.hasDownloads) {
+					return { success: false, unsupported: true };
+				}
 				requestPermission(['downloads', 'pageCapture'], sender.tab.windowId).then(async (granted) => {
 					if (!granted) return;
 
@@ -628,6 +639,7 @@ async function handleAction(request, sender) {
 
 		case 'zoomIn':
 		case 'zoomOut': {
+			if (!self.FlowMouseCompat.hasTabZoom) return { success: false, unsupported: true };
 			if (!sender.tab?.id) return { success: false };
 			const currentZoom = await chrome.tabs.getZoom(sender.tab.id);
 			const direction = request.action === 'zoomIn' ? 1 : -1;
@@ -649,6 +661,7 @@ async function handleAction(request, sender) {
 		}
 
 		case 'resetZoom': {
+			if (!self.FlowMouseCompat.hasTabZoom) return { success: false, unsupported: true };
 			if (!sender.tab?.id) return { success: false };
 			const resetLevel = request.resetZoomLevel;
 			const zoomFactor = resetLevel > 0 ? resetLevel / 100 : 0;
@@ -701,18 +714,21 @@ async function handleAction(request, sender) {
 		}
 
 		case 'openDownloads':
+			if (self.FlowMouseCompat.isSafari) return { success: false, unsupported: true };
 			{
 				await chrome.tabs.create({ url: 'chrome://downloads', active: true, windowId: sender.tab.windowId });
 			}
 			return { success: true };
 
 		case 'openHistory':
+			if (self.FlowMouseCompat.isSafari) return { success: false, unsupported: true };
 			{
 				await chrome.tabs.create({ url: 'chrome://history', active: true, windowId: sender.tab.windowId });
 			}
 			return { success: true };
 
 		case 'openExtensions':
+			if (self.FlowMouseCompat.isSafari) return { success: false, unsupported: true };
 			{
 				await chrome.tabs.create({ url: 'chrome://extensions', active: true, windowId: sender.tab.windowId });
 			}
@@ -888,12 +904,14 @@ async function handleAction(request, sender) {
 			return { success: true };
 
 		case 'restoreSession':
+			if (!self.FlowMouseCompat.hasSessions) return { success: false, unsupported: true };
 			if (request.sessionId) {
 				await chrome.sessions.restore(request.sessionId).catch(() => {});
 			}
 			return { success: true };
 
 		case 'getRecentlyClosedTabs': {
+			if (!self.FlowMouseCompat.hasSessions) return { success: false, unsupported: true, tabs: [] };
 			const maxItems = request.maxItems ?? 12;
 			const sessions = await chrome.sessions.getRecentlyClosed({ maxResults: 25 });
 			let tabs = [];
@@ -1293,7 +1311,9 @@ const MENU_ID_RESTRICTED = 'flowmouse-restricted';
 const MENU_ID_BLACKLIST = 'flowmouse-blacklist-toggle';
 
 let fileSchemeAllowed = false;
-chrome.extension.isAllowedFileSchemeAccess().then(v => { fileSchemeAllowed = v; });
+if (self.FlowMouseCompat.hasFileSchemeQuery) {
+	chrome.extension.isAllowedFileSchemeAccess().then(v => { fileSchemeAllowed = v; });
+}
 
 function isRestrictedUrl(url) {
 	if (!url) return true;
@@ -1631,6 +1651,7 @@ async function notifyDownloadError(tabId) {
 
 async function requestPermission(permissions, windowId) {
 	if (permissions.includes('incognito')) {
+		if (!self.FlowMouseCompat.hasIncognitoQuery) return true;
 		const isAllowed = await chrome.extension.isAllowedIncognitoAccess();
 		if (isAllowed) return true;
 	} else {
@@ -1643,6 +1664,7 @@ async function requestPermission(permissions, windowId) {
 
 		const checkGranted = async () => {
 			if (permissions.includes('incognito')) {
+				if (!self.FlowMouseCompat.hasIncognitoQuery) return true;
 				return await chrome.extension.isAllowedIncognitoAccess();
 			}
 			return await chrome.permissions.contains({ permissions: permissions });

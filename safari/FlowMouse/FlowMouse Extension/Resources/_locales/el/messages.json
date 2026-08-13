@@ -1,0 +1,2150 @@
+{
+	"extName": {
+		"message": "FlowMouse - Χειρονομίες Ποντικιού",
+		"description": "Extension name"
+	},
+	"extNameShort": {
+		"message": "FlowMouse",
+		"description": "Short extension name for popup"
+	},
+	"extDescription": {
+		"message": "Μια επέκταση χειρονομιών ποντικιού ανοιχτού κώδικα που εστιάζει στο απόρρητο και την ομαλή εμπειρία. Ομαλές και άμεσες χειρονομίες, υποστήριξη super drag.",
+		"description": "Extension description"
+	},
+	"theme": {
+		"message": "Θέμα",
+		"description": "Theme"
+	},
+	"themeDark": {
+		"message": "Σκούρο",
+		"description": "Dark theme"
+	},
+	"themeLight": {
+		"message": "Φωτεινό",
+		"description": "Light theme"
+	},
+	"themeAuto": {
+		"message": "Ακολούθησε το σύστημα",
+		"description": "Auto theme - follow system"
+	},
+	"syncStatus": {
+		"message": "Κατάσταση Συγχρονισμού",
+		"description": "Sync status"
+	},
+	"syncStatusDesc": {
+		"message": "Ρυθμίσεις συγχρονισμού μέσω λογαριασμού %browserName%",
+		"description": "Sync status description"
+	},
+	"saved": {
+		"message": "Αποθηκευμένο",
+		"description": "Saved"
+	},
+	"author": {
+		"message": "Συγγραφέας",
+		"description": "Author"
+	},
+	"privacyNote": {
+		"message": " Εκτελείται τοπικά, χωρίς πρόσβαση στο δίκτυο εκτός από τον συγχρονισμό, χωρίς συλλογή δεδομένων",
+		"description": "Privacy note in footer"
+	},
+	"supportUsText": {
+		"message": "Σας αρέσει το FlowMouse; Δώστε μας μια βαθμολογία 5 αστέρων στο %appStoreInfo% για να μας υποστηρίξετε!",
+		"description": "Rating text"
+	},
+	"storeNameChrome": {
+		"message": "Chrome Web Store",
+		"description": "Chrome Web Store name"
+	},
+	"storeNameEdge": {
+		"message": "Πρόσθετα του Edge",
+		"description": "Edge Add-ons name"
+	},
+	"storeNameFirefox": {
+		"message": "Πρόσθετα του Firefox",
+		"description": "Firefox Add-ons name"
+	},
+	"feedbackText": {
+		"message": "Προβλήματα ή προτάσεις; Παρακαλούμε αναφέρετε μέσω <a href='mailto:Service@52pojie.cn'>Email</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> ή <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Forum</a>. Θα το βελτιώσουμε το συντομότερο δυνατό!",
+		"description": "Feedback text"
+	},
+	"feedbackTextChrome": {
+		"message": "Προβλήματα ή προτάσεις; Παρακαλούμε αναφέρετε μέσω <a href='https://chromewebstore.google.com/detail/fnldhkfidchnjiokpoemdhoejmaojkgp/support' target='_blank'>Υποστήριξης Chrome Web Store</a>, <a href='mailto:Service@52pojie.cn'>Email</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> ή <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Forum</a>. Θα το βελτιώσουμε το συντομότερο δυνατό!",
+		"description": "Feedback text for Chrome browser"
+	},
+	"supportAndFeedback": {
+		"message": "Υποστήριξη και σχόλια",
+		"description": "Support and Feedback section title"
+	},
+	"feedbackTitle": {
+		"message": "Σχόλια και προτάσεις",
+		"description": "Feedback row title"
+	},
+	"supportUsTitle": {
+		"message": "Υποστηρίξτε μας",
+		"description": "Rating row title"
+	},
+	"backToSettings": {
+		"message": "Επιστροφή στις Ρυθμίσεις",
+		"description": "Back to settings link"
+	},
+	"settings": {
+		"message": "Ρυθμίσεις",
+		"description": "Settings"
+	},
+	"moreSettings": {
+		"message": "Περισσότερες Ρυθμίσεις",
+		"description": "More settings button in popup"
+	},
+	"version": {
+		"message": "Έκδοση",
+		"description": "Version"
+	},
+	"basicSettings": {
+		"message": "Ρυθμίσεις Χειρονομιών",
+		"description": "Gesture settings section"
+	},
+	"enableGesture": {
+		"message": "Ενεργοποίηση Χειρονομιών",
+		"description": "Enable gesture feature"
+	},
+	"enableGestureDesc": {
+		"message": "Κρατήστε πατημένο το δεξί κουμπί του ποντικιού και μετακινήστε το ποντίκι για να εκτελέσετε εύκολα χειρονομίες",
+		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
+	},
+	"gestureTriggerButtons": {
+		"message": "Κουμπιά ενεργοποίησης",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "Επιλέξτε ποια κουμπιά του ποντικιού μπορούν να ενεργοποιήσουν χειρονομίες",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "Δεξί Κουμπί",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "Μεσαίο Κουμπί",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "Πλαϊνό Κουμπί (Πίσω)",
+		"description": "Mouse button 4 - the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "Πλαϊνό Κουμπί (Εμπρός)",
+		"description": "Mouse button 5 - the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "Δεξί Κουμπί Γραφίδας",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "Ορισμένα κουμπιά ενεργοποίησης ενδέχεται να μην λειτουργούν σωστά ανάλογα με το υλικό ή τις ρυθμίσεις του προγράμματος οδήγησης. Για παράδειγμα, τα ποντίκια Logitech μπορεί να απαιτούν την απενεργοποίηση της 'Οριζόντιας Κύλισης' (Horizontal Scrolling) στο πρόγραμμα οδήγησης για να χρησιμοποιήσετε τα πλαϊνά κουμπιά για χειρονομίες.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
+	"macLinuxContextMenuNotice": {
+		"message": "Λόγω περιορισμών του συστήματος, όταν είναι ενεργοποιημένες οι χειρονομίες δεξιού κλικ, απαιτείται διπλό δεξί κλικ για το άνοιγμα του μενού περιβάλλοντος σε macOS / Linux.",
+		"description": "Notice for macOS / Linux users about double right-click for context menu"
+	},
+	"macLinuxDoubleClickHint": {
+		"message": "Για να ανοίξετε το μενού περιβάλλοντος, κάντε διπλό δεξί κλικ. (Μάθετε περισσότερα)",
+		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
+	},
+	"edgeGestureConflictNotice": {
+		"message": "Το %browserName% διαθέτει ενσωματωμένες λειτουργίες χειρονομιών. Για να χρησιμοποιήσετε τις χειρονομίες του FlowMouse, <a href=\"#\" class=\"edge-gesture-link\">απενεργοποιήστε τις ενσωματωμένες χειρονομίες</a> στις ρυθμίσεις του %browserName%.",
+		"description": "Notice for Edge users about built-in gesture conflict"
+	},
+	"macTextDragNotice": {
+		"message": "Λόγω της συμπεριφοράς του macOS, κατά τη μεταφορά κειμένου, επιλέξτε πρώτα το κείμενο, στη συνέχεια πατήστε και κρατήστε πατημένο το αριστερό κουμπί εντός της επιλεγμένης περιοχής και κάντε μια μικρή παύση πριν τη μεταφορά. Διαφορετικά, η λειτουργία μεταφοράς ενδέχεται να μην ενεργοποιηθεί.",
+		"description": "Notice for macOS users about text drag behavior"
+	},
+	"showTrail": {
+		"message": "Εμφάνιση Ίχνους Χειρονομίας",
+		"description": "Show gesture trail"
+	},
+	"showTrailDesc": {
+		"message": "Εμφάνιση γραμμής ίχνους κατά την εκτέλεση χειρονομιών",
+		"description": "Show trail line when performing gestures"
+	},
+	"showHint": {
+		"message": "Εμφάνιση Υπόδειξης Ενέργειας",
+		"description": "Show action hint"
+	},
+	"showHintDesc": {
+		"message": "Εμφάνιση της τρέχουσας ενέργειας χειρονομίας στο κέντρο της οθόνης",
+		"description": "Show current gesture action in center of screen"
+	},
+	"color": {
+		"message": "Χρώμα",
+		"description": "Color"
+	},
+	"width": {
+		"message": "Πλάτος",
+		"description": "Width/thickness"
+	},
+	"background": {
+		"message": "Φόντο",
+		"description": "Background"
+	},
+	"opacity": {
+		"message": "Αδιαφάνεια",
+		"description": "Opacity"
+	},
+	"blur": {
+		"message": "Θόλωμα",
+		"description": "Blur radius"
+	},
+	"hudShadow": {
+		"message": "Σκιά",
+		"description": "HUD shadow toggle"
+	},
+	"showSuggestedGestures": {
+		"message": "Υποδείξεις χειρονομιών",
+		"description": "Show suggested gestures at bottom of screen"
+	},
+	"customCss": {
+		"message": "Προσαρμοσμένο CSS",
+		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
+	},
+	"customCssDesc": {
+		"message": "Ορίστε προσαρμοσμένο CSS για να τροποποιήσετε το περιβάλλον εργασίας του FlowMouse",
+		"description": "Description for the Custom CSS advanced setting"
+	},
+	"customCssConfigure": {
+		"message": "Διαμόρφωση",
+		"description": "Button label to open the Custom CSS editor dialog when no CSS is set"
+	},
+	"customCssEdit": {
+		"message": "Επεξεργασία",
+		"description": "Button label to open the Custom CSS editor dialog when CSS is already set"
+	},
+	"customCssEditorTitle": {
+		"message": "Επεξεργαστής προσαρμοσμένου CSS",
+		"description": "Title of the dedicated custom CSS editor page"
+	},
+	"customCssEditorHint": {
+		"message": "Τα στιλ εισάγονται σε κάθε Shadow DOM που δημιουργεί το FlowMouse. Πατήστε Ctrl+S για αποθήκευση.",
+		"description": "Hint shown above the editor textarea."
+	},
+	"customCssEditorPlaceholder": {
+		"message": "/* Γράψτε το προσαρμοσμένο CSS σας εδώ… */",
+		"description": "Placeholder inside the Custom CSS editor textarea"
+	},
+	"customCssEditorInsertSnippet": {
+		"message": "Παράδειγμα",
+		"description": "Button to append an example/starter CSS snippet to the editor"
+	},
+	"customCssEditorRevert": {
+		"message": "Αναίρεση",
+		"description": "Button that reverts the editor content back to the last saved value"
+	},
+	"customCssEditorSave": {
+		"message": "Αποθήκευση",
+		"description": "Save button in the Custom CSS editor"
+	},
+	"customCssEditorSaved": {
+		"message": "Αποθηκεύτηκε",
+		"description": "Status message shown briefly after the user saves the custom CSS"
+	},
+	"customCssEditorDiscardConfirm": {
+		"message": "Απόρριψη των μη αποθηκευμένων επεξεργασιών σας και επιστροφή στο τελευταίο αποθηκευμένο CSS;",
+		"description": "Confirmation dialog shown before reverting unsaved edits"
+	},
+	"text": {
+		"message": "Κείμενο",
+		"description": "Text"
+	},
+	"scrollAmount": {
+		"message": "Απόσταση Κύλισης",
+		"description": "Scroll amount"
+	},
+	"scrollAmountDesc": {
+		"message": "Απόσταση κύλισης για χειρονομίες πάνω/κάτω (% του ύψους παραθύρου)",
+		"description": "Scroll distance for up/down gestures"
+	},
+	"scrollSmoothness": {
+		"message": "Ομαλότητα Κύλισης",
+		"description": "Scroll smoothness"
+	},
+	"scrollSmoothnessDesc": {
+		"message": "Εφέ κίνησης κύλισης για χειρονομίες πάνω/κάτω",
+		"description": "Scroll smoothness description"
+	},
+	"smoothnessAuto": {
+		"message": "Αυτόματα",
+		"description": "Auto scroll smoothness - uses system if animation enabled, otherwise smooth"
+	},
+	"smoothnessSystem": {
+		"message": "Σύστημα (Υψηλή Απόδοση)",
+		"description": "System scroll smoothness"
+	},
+	"smoothnessCustom": {
+		"message": "Ομαλή",
+		"description": "Custom smooth scrolling"
+	},
+	"smoothnessNone": {
+		"message": "Χωρίς κίνηση",
+		"description": "No scroll animation"
+	},
+	"scrollDuration": {
+		"message": "Διάρκεια κινούμενης εικόνας",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "Μη διαθέσιμο κατά τη χρήση της κύλισης συστήματος",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
+	"scrollAccel": {
+		"message": "Πολλαπλασιαστής συνεχούς κύλισης",
+		"description": "Speed multiplier applied when scrolling consecutively"
+	},
+	"scrollAccelOff": {
+		"message": "Ανενεργό",
+		"description": "Scroll acceleration disabled"
+	},
+	"scrollAccelWindow": {
+		"message": "Όριο χρόνου διαδοχικής κύλισης",
+		"description": "Max time (ms) between scrolls to count as consecutive"
+	},
+	"dragFeatures": {
+		"message": "Λειτουργίες Μεταφοράς (Drag)",
+		"description": "Drag features section"
+	},
+	"textDragSearch": {
+		"message": "Μεταφορά Κειμένου",
+		"description": "Text drag"
+	},
+	"textDragSearchDesc": {
+		"message": "Μεταφέρετε επιλεγμένο κείμενο για αναζήτηση",
+		"description": "Drag selected text to search"
+	},
+	"textDragIgnoreInput": {
+		"message": "Απενεργοποίηση σε πεδία εισαγωγής",
+		"description": "Option to disable text drag inside input boxes and textareas"
+	},
+	"textDragIgnoreInputDesc": {
+		"message": "Να μην ενεργοποιείται η μεταφορά κειμένου σε επεξεργάσιμες περιοχές, όπως πεδία εισαγωγής και προγράμματα επεξεργασίας κειμένου",
+		"description": "Description for text drag ignore input option"
+	},
+	"dragDropOnInput": {
+		"message": "Αναστολή χειρονομίας πάνω από πεδία εισαγωγής",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "Να μην ενεργοποιείται η χειρονομία κατά την απόθεση σε πεδία εισαγωγής ή επεξεργάσιμες περιοχές",
+		"description": "Description for drag drop on input option"
+	},
+	"searchEngine": {
+		"message": "Μηχανή Αναζήτησης",
+		"description": "Search engine"
+	},
+	"custom": {
+		"message": "Προσαρμοσμένη",
+		"description": "Custom"
+	},
+	"customUrlPlaceholder": {
+		"message": "Προσαρμοσμένο URL, χρησιμοποιήστε %s για τον όρο αναζήτησης",
+		"description": "Custom URL placeholder"
+	},
+	"customUrlPlaceholderHint": {
+		"message": "Πρέπει να περιλαμβάνει πρωτόκολλο (π.χ. https://). Διαθέσιμα σύμβολα κράτησης θέσης: %placeholders%. Προσθέστε :raw για να παραλείψετε την κωδικοποίηση URL, π.χ. %example%",
+		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
+	},
+	"urlPlaceholderText": {
+		"message": "%s=Λέξη κλειδί",
+		"description": "Placeholder for text drag custom URL"
+	},
+	"urlPlaceholderImage": {
+		"message": "%s=URL εικόνας",
+		"description": "Placeholder for image drag custom URL"
+	},
+	"searchEngine_google_translate": {
+		"message": "Μετάφραση Google",
+		"description": "Google Translate search engine"
+	},
+	"searchEngine_bing_translate": {
+		"message": "Μετάφραση Bing",
+		"description": "Bing Translate search engine"
+	},
+	"searchEngine_baidu": {
+		"message": "Baidu",
+		"description": "Baidu search engine"
+	},
+	"searchEngine_360": {
+		"message": "360 Search",
+		"description": "360 search engine"
+	},
+	"searchEngine_yandex": {
+		"message": "Yandex",
+		"description": "Yandex search engine"
+	},
+	"searchEngine_system": {
+		"message": "Προεπιλογή περιηγητή",
+		"description": "System default search engine"
+	},
+	"imageDrag": {
+		"message": "Μεταφορά Εικόνας",
+		"description": "Image drag"
+	},
+	"imageDragDesc": {
+		"message": "Μεταφέρετε την εικόνα για άνοιγμα σε νέα καρτέλα",
+		"description": "Drag image to open in new tab"
+	},
+	"linkDrag": {
+		"message": "Μεταφορά Συνδέσμου",
+		"description": "Link drag"
+	},
+	"linkDragDesc": {
+		"message": "Μεταφέρετε τον σύνδεσμο για άνοιγμα σε νέα καρτέλα",
+		"description": "Drag link to open in new tab"
+	},
+	"enableCustomGestures": {
+		"message": "Προσαρμοσμένες Χειρονομίες",
+		"description": "Enable custom gestures"
+	},
+	"enableCustomGesturesDesc": {
+		"message": "Προβολή και προσαρμογή κάθε ενέργειας χειρονομίας",
+		"description": "View and customize each gesture action"
+	},
+	"gestureAutoSaveHint": {
+		"message": "Συμβουλή: Οι αλλαγές αποθηκεύονται αυτόματα.",
+		"description": "Hint about auto-save"
+	},
+	"blacklist": {
+		"message": "Μαύρη Λίστα Ιστοτόπων",
+		"description": "Website blacklist"
+	},
+	"blacklistPlaceholder": {
+		"message": "Εισάγετε τομέα, π.χ. example.com, πατήστε Enter για προσθήκη",
+		"description": "Blacklist input placeholder"
+	},
+	"add": {
+		"message": "Προσθήκη",
+		"description": "Add button"
+	},
+	"emptyBlacklist": {
+		"message": "Δεν υπάρχουν αποκλεισμένοι ιστότοποι. Εισάγετε έναν τομέα παραπάνω για προσθήκη.",
+		"description": "Empty blacklist message"
+	},
+	"enableBlacklistContextMenu": {
+		"message": "Εναλλαγή χειρονομιών στο μενού περιβάλλοντος",
+		"description": "Setting title for blacklist context menu toggle"
+	},
+	"enableBlacklistContextMenuDesc": {
+		"message": "Εμφάνιση μιας επιλογής απενεργοποίησης/ενεργοποίησης χειρονομιών στο μενού περιβάλλοντος",
+		"description": "Setting description for blacklist context menu toggle"
+	},
+	"menuAddToBlacklist": {
+		"message": "Απενεργοποίηση χειρονομιών σε αυτόν τον ιστότοπο",
+		"description": "Context menu title for adding current site to blacklist"
+	},
+	"menuRemoveFromBlacklist": {
+		"message": "Ενεργοποίηση χειρονομιών σε αυτόν τον ιστότοπο",
+		"description": "Context menu title for removing current site from blacklist"
+	},
+	"dataManagement": {
+		"message": "Διαχείριση Δεδομένων",
+		"description": "Data management section"
+	},
+	"export": {
+		"message": "Εξαγωγή",
+		"description": "Export settings"
+	},
+	"import": {
+		"message": "Εισαγωγή",
+		"description": "Import settings"
+	},
+	"reset": {
+		"message": "Επαναφορά",
+		"description": "Reset to default"
+	},
+	"duplicate": {
+		"message": "Δημιουργία αντιγράφου",
+		"description": "Generic duplicate button tooltip"
+	},
+	"delete": {
+		"message": "Διαγραφή",
+		"description": "Generic delete button tooltip"
+	},
+	"autoSaved": {
+		"message": "Αποθηκεύτηκε αυτόματα",
+		"description": "Auto-saved message"
+	},
+	"saveFailure": {
+		"message": "Η αποθήκευση απέτυχε",
+		"description": "Save failure message"
+	},
+	"resetConfirm": {
+		"message": "Είστε βέβαιοι ότι θέλετε να επαναφέρετε όλες τις ρυθμίσεις στις προεπιλογές;",
+		"description": "Reset confirmation"
+	},
+	"resetDone": {
+		"message": "Οι ρυθμίσεις επανήλθαν στις προεπιλογές",
+		"description": "Reset done message"
+	},
+	"exportDone": {
+		"message": "Ρυθμίσεις εξήχθησαν",
+		"description": "Export done message"
+	},
+	"importDone": {
+		"message": "Ρυθμίσεις εισήχθησαν",
+		"description": "Import done message"
+	},
+	"importConfirm": {
+		"message": "Η εισαγωγή θα αντικαταστήσει τις τρέχουσες ρυθμίσεις σας. Εισαγάγετε αρχεία διαμόρφωσης μόνο από αξιόπιστες πηγές.\n\nΣυνέχεια;",
+		"description": "Import confirmation warning"
+	},
+	"importFailed": {
+		"message": "Η εισαγωγή απέτυχε: Μη έγκυρο αρχείο ρυθμίσεων",
+		"description": "Import failed message"
+	},
+	"importFailedSyncError": {
+		"message": "Η εισαγωγή απέτυχε: Σφάλμα συγχρονισμού, ελέγξτε την κατάσταση του προγράμματος περιήγησης",
+		"description": "Import failed sync error message"
+	},
+	"invalidDomain": {
+		"message": "Παρακαλώ εισάγετε έναν έγκυρο τομέα",
+		"description": "Invalid domain message"
+	},
+	"domainExists": {
+		"message": "Ο τομέας υπάρχει ήδη στη μαύρη λίστα",
+		"description": "Domain already in blacklist"
+	},
+	"about": {
+		"message": "Σχετικά",
+		"description": "About section"
+	},
+	"language": {
+		"message": "Γλώσσα",
+		"description": "Language"
+	},
+	"languageAuto": {
+		"message": "Ακολούθησε το Σύστημα",
+		"description": "Follow system language"
+	},
+	"privacyFriendly": {
+		"message": "Φιλικό προς το Απόρρητο",
+		"description": "Privacy friendly"
+	},
+	"localOnly": {
+		"message": "Μόνο Τοπικά",
+		"description": "Local only"
+	},
+	"autoSave": {
+		"message": "Αυτόματη Αποθήκευση",
+		"description": "Auto save"
+	},
+	"gestureDesc_L": {
+		"message": "Αριστερά",
+		"description": "Gesture description for ←"
+	},
+	"gestureDesc_R": {
+		"message": "Δεξιά",
+		"description": "Gesture description for →"
+	},
+	"gestureDesc_U": {
+		"message": "Πάνω",
+		"description": "Gesture description for ↑"
+	},
+	"gestureDesc_D": {
+		"message": "Κάτω",
+		"description": "Gesture description for ↓"
+	},
+	"gestureDesc_DR": {
+		"message": "Κάτω μετά Δεξιά",
+		"description": "Gesture description for ↓→"
+	},
+	"gestureDesc_LU": {
+		"message": "Αριστερά μετά Πάνω",
+		"description": "Gesture description for ←↑"
+	},
+	"gestureDesc_RU": {
+		"message": "Δεξιά μετά Πάνω",
+		"description": "Gesture description for →↑"
+	},
+	"gestureDesc_RD": {
+		"message": "Δεξιά μετά Κάτω",
+		"description": "Gesture description for →↓"
+	},
+	"gestureDesc_UL": {
+		"message": "Πάνω μετά Αριστερά",
+		"description": "Gesture description for ↑←"
+	},
+	"gestureDesc_UR": {
+		"message": "Πάνω μετά Δεξιά",
+		"description": "Gesture description for ↑→"
+	},
+	"gestureDesc_DL": {
+		"message": "Κάτω μετά Αριστερά",
+		"description": "Gesture description for ↓←"
+	},
+	"gestureDesc_LD": {
+		"message": "Αριστερά μετά Κάτω",
+		"description": "Gesture description for ←↓"
+	},
+	"gestureDesc_UD": {
+		"message": "Πάνω μετά Κάτω",
+		"description": "Gesture description for ↑↓"
+	},
+	"gestureDesc_DU": {
+		"message": "Κάτω μετά Πάνω",
+		"description": "Gesture description for ↓↑"
+	},
+	"gestureDesc_LR": {
+		"message": "Αριστερά μετά Δεξιά",
+		"description": "Gesture description for ←→"
+	},
+	"gestureDesc_RL": {
+		"message": "Δεξιά μετά Αριστερά",
+		"description": "Gesture description for →←"
+	},
+	"actionNone": {
+		"message": "Καμία",
+		"description": "No action"
+	},
+	"actionBack": {
+		"message": "Πίσω",
+		"description": "Go back"
+	},
+	"actionForward": {
+		"message": "Μπροστά",
+		"description": "Go forward"
+	},
+	"actionUrlLevelUp": {
+		"message": "Ένα επίπεδο πάνω στο URL",
+		"description": "Navigate to the parent directory of the current URL"
+	},
+	"actionUrlToRoot": {
+		"message": "Στη ρίζα του URL",
+		"description": "Navigate to the root of the current site"
+	},
+	"actionScrollUp": {
+		"message": "Κύλιση Πάνω",
+		"description": "Scroll up"
+	},
+	"actionScrollDown": {
+		"message": "Κύλιση Κάτω",
+		"description": "Scroll down"
+	},
+	"actionScrollLeft": {
+		"message": "Κύλιση Αριστερά",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "Κύλιση Δεξιά",
+		"description": "Scroll right"
+	},
+	"actionScrollToTop": {
+		"message": "Κύλιση στην Κορυφή",
+		"description": "Scroll to top"
+	},
+	"actionScrollToBottom": {
+		"message": "Κύλιση στο Τέλος",
+		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "Κύλιση στο αριστερό άκρο",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "Κύλιση στο δεξιό άκρο",
+		"description": "Scroll to the rightmost position"
+	},
+	"actionCloseTab": {
+		"message": "Κλείσιμο Καρτέλας",
+		"description": "Close tab"
+	},
+	"closeTabKeepWindow": {
+		"message": "Αν είναι η τελευταία καρτέλα, διατήρηση του παραθύρου ανοιχτού",
+		"description": "Checkbox label for closeTab action config"
+	},
+	"closeTabAfterClose": {
+		"message": "Μετά το κλείσιμο",
+		"description": "Label for closeTab afterClose config"
+	},
+	"closeTabAfterCloseDefault": {
+		"message": "Προεπιλογή περιηγητή",
+		"description": "Option for closeTab afterClose config - let browser decide"
+	},
+	"closeTabAfterCloseLeft": {
+		"message": "Μετάβαση στην αριστερή καρτέλα",
+		"description": "Option for closeTab afterClose config - switch to left tab"
+	},
+	"closeTabAfterCloseRight": {
+		"message": "Μετάβαση στη δεξιά καρτέλα",
+		"description": "Option for closeTab afterClose config - switch to right tab"
+	},
+	"switchTabNoWrap": {
+		"message": "Όχι κυκλική εναλλαγή",
+		"description": "Checkbox label for switchLeftTab/switchRightTab action config"
+	},
+	"switchTabMoveTab": {
+		"message": "Μετακίνηση τρέχουσας καρτέλας",
+		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
+	},
+	"refreshHardReload": {
+		"message": "Σκληρή επαναφόρτωση (παράκαμψη κρυφής μνήμης)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
+	"actionCloseBrowser": {
+		"message": "Κλείσιμο Προγράμματος Περιήγησης",
+		"description": "Close browser"
+	},
+	"actionCloseWindow": {
+		"message": "Κλείσιμο παραθύρου",
+		"description": "Close current window"
+	},
+	"actionRestoreTab": {
+		"message": "Επαναφορά Κλειστής Καρτέλας",
+		"description": "Restore closed tab"
+	},
+	"actionNewTab": {
+		"message": "Νέα Καρτέλα",
+		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "Μην κλείνετε τις καρφιτσωμένες καρτέλες",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
+	},
+	"closeTabsPreserveTab": {
+		"message": "Διατήρηση καρτελών (αποφόρτωση περιεχομένου σελίδας)",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
+	"actionCloseOtherTabs": {
+		"message": "Κλείσιμο Άλλων Καρτελών",
+		"description": "Close other tabs"
+	},
+	"actionCloseLeftTabs": {
+		"message": "Κλείσιμο Καρτελών στα Αριστερά",
+		"description": "Close tabs to the left"
+	},
+	"actionCloseRightTabs": {
+		"message": "Κλείσιμο Καρτελών στα Δεξιά",
+		"description": "Close tabs to the right"
+	},
+	"actionCloseAllTabs": {
+		"message": "Κλείσιμο Όλων των Καρτελών",
+		"description": "Close all tabs"
+	},
+	"actionSwitchLeftTab": {
+		"message": "Μετάβαση στην Αριστερή Καρτέλα",
+		"description": "Switch to left tab"
+	},
+	"actionSwitchRightTab": {
+		"message": "Μετάβαση στη Δεξιά Καρτέλα",
+		"description": "Switch to right tab"
+	},
+	"actionSwitchFirstTab": {
+		"message": "Μετάβαση στην Πρώτη Καρτέλα",
+		"description": "Switch to first tab"
+	},
+	"actionSwitchLastTab": {
+		"message": "Μετάβαση στην Τελευταία Καρτέλα",
+		"description": "Switch to last tab"
+	},
+	"actionSwitchLastActiveTab": {
+		"message": "Μετάβαση στην τελευταία ενεργή καρτέλα",
+		"description": "Switch to the most recently active tab"
+	},
+	"actionRefresh": {
+		"message": "Ανανέωση Τρέχουσας Καρτέλας",
+		"description": "Refresh current tab"
+	},
+	"actionRefreshAllTabs": {
+		"message": "Ανανέωση Όλων των Καρτελών",
+		"description": "Refresh all tabs"
+	},
+	"actionStopLoading": {
+		"message": "Διακοπή Φόρτωσης",
+		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "Διακοπή Φόρτωσης Όλων των Καρτελών",
+		"description": "Stop loading all tabs in the current window"
+	},
+	"actionNewWindow": {
+		"message": "Νέο Παράθυρο",
+		"description": "New window"
+	},
+	"actionNewIncognito": {
+		"message": "Νέο Παράθυρο Ανώνυμης Περιήγησης",
+		"description": "New incognito window"
+	},
+	"actionAddToBookmarks": {
+		"message": "Προσθήκη στους Σελιδοδείκτες",
+		"description": "Add to bookmarks"
+	},
+	"actionToggleFullscreen": {
+		"message": "Εναλλαγή Πλήρους Οθόνης",
+		"description": "Toggle fullscreen"
+	},
+	"actionToggleMaximize": {
+		"message": "Εναλλαγή Μεγιστοποίησης/Επαναφοράς",
+		"description": "Toggle window maximize"
+	},
+	"actionMinimize": {
+		"message": "Ελαχιστοποίηση Παραθύρου",
+		"description": "Minimize window"
+	},
+	"actionOpenCustomUrl": {
+		"message": "Άνοιγμα Προσαρμοσμένου URL",
+		"description": "Open custom URL"
+	},
+	"actionCopyUrl": {
+		"message": "Αντιγραφή Τρέχοντος URL",
+		"description": "Copy current URL"
+	},
+	"actionCopyTitle": {
+		"message": "Αντιγραφή Τίτλου Σελίδας",
+		"description": "Copy page title"
+	},
+	"actionCopyTitleAndUrl": {
+		"message": "Αντιγραφή τίτλου σελίδας και URL",
+		"description": "Copy page title and URL"
+	},
+	"actionOpenDownloads": {
+		"message": "Άνοιγμα Λήψεων",
+		"description": "Open downloads page"
+	},
+	"actionOpenHistory": {
+		"message": "Άνοιγμα Ιστορικού",
+		"description": "Open history page"
+	},
+	"actionOpenExtensions": {
+		"message": "Άνοιγμα Επεκτάσεων",
+		"description": "Open extensions page"
+	},
+	"actionSaveAsMhtml": {
+		"message": "Αποθήκευση ως MHTML",
+		"description": "Save current page as MHTML file"
+	},
+	"actionPrintPage": {
+		"message": "Εκτύπωση Σελίδας",
+		"description": "Print page"
+	},
+	"actionDuplicateTab": {
+		"message": "Αναπαραγωγή Καρτέλας",
+		"description": "Duplicate current tab"
+	},
+	"actionToggleMuteTab": {
+		"message": "Σίγαση/Κατάργηση Σίγασης Τρέχουσας Καρτέλας",
+		"description": "Toggle mute current tab"
+	},
+	"actionToggleMuteAllTabs": {
+		"message": "Σίγαση/Κατάργηση Σίγασης Όλων των Καρτελών",
+		"description": "Toggle mute all tabs"
+	},
+	"actionTogglePinTab": {
+		"message": "Καρφίτσωμα/Ξεκαρφίτσωμα Τρέχουσας Καρτέλας",
+		"description": "Toggle pin current tab"
+	},
+	"actionMoveTabToNewWindow": {
+		"message": "Μετακίνηση καρτέλας σε νέο παράθυρο",
+		"description": "Move current tab to a new window"
+	},
+	"actionSearchClipboard": {
+		"message": "Αναζήτηση από το πρόχειρο",
+		"description": "Search clipboard text using a search engine"
+	},
+	"showTrailOrigin": {
+		"message": "Εμφάνιση Σημείου Αρχής",
+		"description": "Show trail origin point"
+	},
+	"enableTrailSmooth": {
+		"message": "Εξομάλυνση ίχνους",
+		"description": "Enable trail smoothing for gesture visualization"
+	},
+	"distanceThreshold": {
+		"message": "Απόσταση αναγνώρισης χειρονομιών",
+		"description": "Gesture recognition distance"
+	},
+	"distanceThresholdDesc": {
+		"message": "Ελάχιστη απόσταση κίνησης για την αναγνώριση χειρονομίας και μεταφοράς (drag)",
+		"description": "Description for gesture recognition distance"
+	},
+	"distanceThresholdNotice": {
+		"message": "Συμβουλή: Συνιστάται μια τιμή μεταξύ 15-30 για καλύτερη αναγνώριση.",
+		"description": "Warning when distance threshold is too small or too large"
+	},
+	"gestureTurnTolerance": {
+		"message": "Ανοχή περιστροφής χειρονομίας",
+		"description": "Turn tolerance for detecting direction changes in long gestures"
+	},
+	"gestureTurnToleranceDesc": {
+		"message": "Οι υψηλότερες τιμές μειώνουν τις τυχαίες στροφές, αλλά απαιτούν μεγαλύτερες κινήσεις για την αλλαγή κατεύθυνσης",
+		"description": "Description for gesture turn tolerance setting"
+	},
+	"advanced": {
+		"message": "Εμφάνιση σύνθετων ρυθμίσεων",
+		"description": "Short label for per-section advanced toggle"
+	},
+	"otherSettings": {
+		"message": "Άλλες ρυθμίσεις",
+		"description": "Section title for other/miscellaneous settings"
+	},
+	"styleSettings": {
+		"message": "Εμφάνιση",
+		"description": "Section title for style/appearance settings (trail, HUD, etc.)"
+	},
+	"show": {
+		"message": "Εμφάνιση",
+		"description": "Show navigation menu"
+	},
+	"hide": {
+		"message": "Απόκρυψη",
+		"description": "Hide navigation menu"
+	},
+	"urlFormatError": {
+		"message": "Παρακαλώ εισάγετε πλήρες URL που να αρχίζει με http:// ή https://",
+		"description": "URL format error message"
+	},
+	"resetToDefault": {
+		"message": "Επαναφορά στην προεπιλογή",
+		"description": "Reset gesture to default action"
+	},
+	"resetToDefaultConfirm": {
+		"message": "Επαναφορά αυτών των ρυθμίσεων στις προεπιλεγμένες τιμές;",
+		"description": "Confirmation dialog for resetting settings"
+	},
+	"addCustomGesture": {
+		"message": "Προσθήκη Προσαρμοσμένης Χειρονομίας",
+		"description": "Add custom gesture section title"
+	},
+	"clear": {
+		"message": "Καθαρισμός",
+		"description": "Clear button"
+	},
+	"gestureAdded": {
+		"message": "Η χειρονομία προστέθηκε",
+		"description": "Gesture added success message"
+	},
+	"gestureRecorderTitle": {
+		"message": "Σχεδιάστε μια Χειρονομία",
+		"description": "Gesture recorder full-screen title"
+	},
+	"gestureRecorderDesc": {
+		"message": "Κρατήστε πατημένο το %button% και σχεδιάστε ένα μοτίβο χειρονομίας",
+		"description": "Gesture recorder instruction, %button% is replaced with the mouse button name"
+	},
+	"gestureRecorderEsc": {
+		"message": "Ακύρωση",
+		"description": "Gesture recorder cancel button label"
+	},
+	"gestureRecorderRecording": {
+		"message": "Εγγραφή…",
+		"description": "Gesture recorder recording indicator"
+	},
+	"gestureRecorderResult": {
+		"message": "Καταγεγραμμένη Χειρονομία",
+		"description": "Gesture recorder result label"
+	},
+	"gestureRecorderConfirm": {
+		"message": "Επιβεβαίωση",
+		"description": "Gesture recorder confirm button"
+	},
+	"gestureRecorderRedraw": {
+		"message": "Επανασχεδιασμός",
+		"description": "Gesture recorder redraw button"
+	},
+	"gestureRecorderBanned": {
+		"message": "Η χειρονομία %pattern% υπάρχει ήδη",
+		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"rightButton": {
+		"message": "Δεξί κουμπί ποντικιού",
+		"description": "Right mouse button name"
+	},
+	"leftButton": {
+		"message": "Αριστερό κουμπί ποντικιού",
+		"description": "Left mouse button name"
+	},
+	"customGesture": {
+		"message": "Προσαρμοσμένη",
+		"description": "Label for custom gestures"
+	},
+	"deleteGesture": {
+		"message": "Διαγραφή Χειρονομίας",
+		"description": "Delete gesture button tooltip"
+	},
+	"deleteGestureConfirm": {
+		"message": "Διαγραφή χειρονομίας %pattern%;",
+		"description": "Delete gesture confirmation"
+	},
+	"gestureDeleted": {
+		"message": "Η χειρονομία διαγράφηκε",
+		"description": "Gesture deleted success message"
+	},
+	"enterCustomUrl": {
+		"message": "URL",
+		"description": "Prompt for custom URL input"
+	},
+	"copyAsMarkdown": {
+		"message": "Αντιγραφή ως Markdown",
+		"description": "Checkbox label for copying as markdown format"
+	},
+	"invalidUrl": {
+		"message": "Παρακαλώ εισάγετε ένα έγκυρο URL (που αρχίζει με http:// ή https://)",
+		"description": "Invalid URL error message"
+	},
+	"popupTrail": {
+		"message": "Ίχνος Χειρονομίας",
+		"description": "Gesture trail in popup"
+	},
+	"popupHint": {
+		"message": "Υπόδειξη Ενέργειας",
+		"description": "Action hint in popup"
+	},
+	"popupCommonGestures": {
+		"message": "Κοινές Χειρονομίες",
+		"description": "Common gestures"
+	},
+	"popupCurrentSite": {
+		"message": "Τρέχων Ιστότοπος",
+		"description": "Current site"
+	},
+	"popupRestricted": {
+		"message": "Πληροφορίες σελίδας",
+		"description": "Restricted page"
+	},
+	"popupDisabled": {
+		"message": "Απενεργοποιημένο",
+		"description": "Disabled"
+	},
+	"popupAddBlacklist": {
+		"message": "Προσθήκη στη Μαύρη Λίστα",
+		"description": "Add to blacklist"
+	},
+	"popupRemoveBlacklist": {
+		"message": "Αφαίρεση από τη Μαύρη Λίστα",
+		"description": "Remove from blacklist"
+	},
+	"popupNotAvailable": {
+		"message": "Μη διαθέσιμο",
+		"description": "Not available"
+	},
+	"popupBack": {
+		"message": "Πίσω",
+		"description": "Back - short"
+	},
+	"popupForward": {
+		"message": "Μπροστά",
+		"description": "Forward - short"
+	},
+	"popupScrollUp": {
+		"message": "Πάνω",
+		"description": "Scroll up - short"
+	},
+	"popupScrollDown": {
+		"message": "Κάτω",
+		"description": "Scroll down - short"
+	},
+	"popupClose": {
+		"message": "Κλείσιμο",
+		"description": "Close Tab - short"
+	},
+	"popupRestore": {
+		"message": "Επαναφορά",
+		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "Αριστερή Καρτέλα",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "Δεξιά Καρτέλα",
+		"description": "Switch Right Tab - short"
+	},
+	"dragSearchText": {
+		"message": "🔍 Σύρετε για Αναζήτηση",
+		"description": "Drag search hint"
+	},
+	"dragOpenImage": {
+		"message": "🖼️ Άνοιγμα Εικόνας",
+		"description": "Drag open image hint"
+	},
+	"dragOpenLink": {
+		"message": "🔗 Άνοιγμα Συνδέσμου",
+		"description": "Drag open link hint"
+	},
+	"aboutTitle": {
+		"message": "Σχετικά με το FlowMouse",
+		"description": "About title"
+	},
+	"aboutTitleShort": {
+		"message": "Σχετικά",
+		"description": "Short About title "
+	},
+	"aboutAuthor": {
+		"message": "Συγγραφέας",
+		"description": "Author"
+	},
+	"aboutWebsite": {
+		"message": "Ιστότοπος",
+		"description": "Website"
+	},
+	"aboutOpenSource": {
+		"message": "GitHub",
+		"description": "GitHub link"
+	},
+	"aboutEmail": {
+		"message": "Email",
+		"description": "Email"
+	},
+	"aboutPrivacy": {
+		"message": "Δήλωση Απορρήτου",
+		"description": "Privacy statement"
+	},
+	"aboutPrivacyText": {
+		"message": "Αυτή η επέκταση είναι ένα έργο ανοιχτού κώδικα με κώδικα που φιλοξενείται στο GitHub. Συνεισφορές και έλεγχος κώδικα είναι ευπρόσδεκτα. Όλη η επεξεργασία δεδομένων γίνεται τοπικά στη συσκευή σας. Η ίδια η επέκταση δεν δημιουργεί συνδέσεις δικτύου και δεν διαθέτει διακομιστές υποστήριξης (backend), συνεπώς δεν συλλέγει ούτε ανεβάζει δεδομένα χρηστών σε εξωτερικούς διακομιστές. Οι αποθηκευμένες ρυθμίσεις σας κρυπτογραφούνται και συγχρονίζονται μεταξύ των συνδεδεμένων συσκευών σας μέσω της ενσωματωμένης υπηρεσίας συγχρονισμού του προγράμματος περιήγησης %browserName%. Αυτή η διαδικασία ελέγχεται πλήρως από το πρόγραμμα περιήγησης και ακολουθεί τις ρυθμίσεις απορρήτου και συγχρονισμού του προγράμματος περιήγησής σας.",
+		"description": "Privacy statement text"
+	},
+	"aboutCredits": {
+		"message": "Ευχαριστίες",
+		"description": "Credits"
+	},
+	"aboutCreditsText": {
+		"message": "Ευχαριστούμε το πρόγραμμα περιήγησης Microsoft Edge και την επέκταση crxMouse για την έμπνευση σχεδιασμού.\nΕυχαριστούμε την κοινότητα 52pojie.cn και τους χρήστες για τα σχόλια και τις προτάσεις!",
+		"description": "Credits text"
+	},
+	"aboutFeatures": {
+		"message": "Χαρακτηριστικά",
+		"description": "Features"
+	},
+	"aboutFeature1": {
+		"message": "16 Προεπιλεγμένες Χειρονομίες + Προσαρμοσμένες Χειρονομίες",
+		"description": "Feature 1"
+	},
+	"aboutFeature2": {
+		"message": "Οπτική Ανατροφοδότηση Ίχνους",
+		"description": "Feature 2"
+	},
+	"aboutFeature3": {
+		"message": "Super Drag Κειμένου/Εικόνας/Συνδέσμου",
+		"description": "Feature 3"
+	},
+	"aboutFeature4": {
+		"message": "Μαύρη Λίστα Ιστοτόπων",
+		"description": "Feature 4"
+	},
+	"aboutFeature5": {
+		"message": "Συγχρονισμός Λογαριασμού %browserName%",
+		"description": "Feature 5"
+	},
+	"aboutFeature6": {
+		"message": "Εκτελείται Τοπικά, Χωρίς Δίκτυο Εκτός Συγχρονισμού",
+		"description": "Feature 6"
+	},
+	"tutorial": {
+		"message": "Οδηγός Χρήσης",
+		"description": "Tutorial link"
+	},
+	"learnMore": {
+		"message": "Μάθετε Περισσότερα",
+		"description": "Learn more link"
+	},
+	"badgeNoNetwork": {
+		"message": "Χωρίς Δίκτυο Εκτός Συγχρονισμού",
+		"description": "No network privacy badge"
+	},
+	"badgeNoData": {
+		"message": "Χωρίς Συλλογή Δεδομένων",
+		"description": "No data collection badge"
+	},
+	"badgeLocalRun": {
+		"message": "Εκτελείται Τοπικά",
+		"description": "Local run badge"
+	},
+	"newTabSettings": {
+		"message": "Ρυθμίσεις Νέας Καρτέλας",
+		"description": "New tab open settings"
+	},
+	"newTabPosition": {
+		"message": "Θέση ανοίγματος",
+		"description": "New tab position"
+	},
+	"tabPositionRight": {
+		"message": "Δεξιά από την τρέχουσα καρτέλα",
+		"description": "Right of current tab"
+	},
+	"tabPositionLeft": {
+		"message": "Αριστερά από την τρέχουσα καρτέλα",
+		"description": "Left of current tab"
+	},
+	"tabPositionFirst": {
+		"message": "Πρώτη καρτέλα",
+		"description": "First tab (leftmost)"
+	},
+	"tabPositionLast": {
+		"message": "Τελευταία καρτέλα",
+		"description": "Last tab (rightmost)"
+	},
+	"tabPositionCurrent": {
+		"message": "Τρέχουσα καρτέλα",
+		"description": "Open in current tab"
+	},
+	"tabPositionNewWindow": {
+		"message": "Νέο παράθυρο",
+		"description": "Open in a new browser window"
+	},
+	"newTabActive": {
+		"message": "Άνοιγμα στο προσκήνιο",
+		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "Άνοιγμα στο προσκήνιο",
+		"description": "Open window in foreground"
+	},
+	"openInIncognito": {
+		"message": "Ανώνυμη περιήγηση",
+		"description": "Open in incognito checkbox"
+	},
+	"textDragGestures": {
+		"message": "Χειρονομίες Μεταφοράς Κειμένου",
+		"description": "Text drag gestures"
+	},
+	"linkDragGestures": {
+		"message": "Χειρονομίες Μεταφοράς Συνδέσμου",
+		"description": "Link drag gestures"
+	},
+	"imageDragGestures": {
+		"message": "Χειρονομίες Μεταφοράς Εικόνας",
+		"description": "Image drag gestures"
+	},
+	"direction": {
+		"message": "Κατεύθυνση",
+		"description": "Direction column header"
+	},
+	"action": {
+		"message": "Εντολή",
+		"description": "Action column header"
+	},
+	"imageSearchUrl": {
+		"message": "URL αναζήτησης εικόνας (το %s είναι το URL εικόνας)",
+		"description": "Image search URL input"
+	},
+	"dragActionNone": {
+		"message": "Καμία ενέργεια",
+		"description": "No action"
+	},
+	"dragActionSearch": {
+		"message": "🔍 Μηχανή Αναζήτησης",
+		"description": "Search action"
+	},
+	"dragActionCopy": {
+		"message": "📋 Αντιγραφή",
+		"description": "Copy action"
+	},
+	"dragActionOpenTab": {
+		"message": "📑 Άνοιγμα σε νέα καρτέλα",
+		"description": "Open in new tab"
+	},
+	"dragActionOpenTabLink": {
+		"message": "🔗 Άνοιγμα συνδέσμου",
+		"description": "Open link in new tab"
+	},
+	"dragActionOpenTabImage": {
+		"message": "🖼️ Άνοιγμα εικόνας",
+		"description": "Open image in new tab"
+	},
+	"dragActionCopyLink": {
+		"message": "📋 Αντιγραφή συνδέσμου",
+		"description": "Copy link"
+	},
+	"dragActionCopyLinkText": {
+		"message": "📋 Αντιγραφή κειμένου συνδέσμου",
+		"description": "Copy link text"
+	},
+	"dragActionCopyLinkAndText": {
+		"message": "📋 Αντιγραφή κειμένου και συνδέσμου",
+		"description": "Copy link text and URL"
+	},
+	"dragActionSaveImage": {
+		"message": "💾 Αποθήκευση εικόνας",
+		"description": "Save image"
+	},
+	"dragActionCopyImage": {
+		"message": "🖼️ Αντιγραφή εικόνας",
+		"description": "Copy image"
+	},
+	"dragActionCopyImageUrl": {
+		"message": "📋 Αντιγραφή URL εικόνας",
+		"description": "Copy image URL"
+	},
+	"dragActionImageSearch": {
+		"message": "🔍 Αναζήτηση εικόνας",
+		"description": "Image search"
+	},
+	"dragActionCustomSearch": {
+		"message": "🔍 Προσαρμοσμένη αναζήτηση",
+		"description": "Custom search"
+	},
+	"dragActionSendCustomEvent": {
+		"message": "Αποστολή προσαρμοσμένου συμβάντος",
+		"description": "Send custom DOM event on drag gesture"
+	},
+	"reducedMotionWarning": {
+		"message": "Η κίνηση συστήματος %OS% δεν είναι ενεργοποιημένη, επομένως η κίνηση κύλισης ενδέχεται να μην εμφανίζεται σωστά. Μπορείτε να ενεργοποιήσετε την κίνηση στις ρυθμίσεις συστήματος %OS%.",
+		"description": "Warning message when system reduced motion is enabled"
+	},
+	"autoDetectUrl": {
+		"message": "Αυτόματη ανίχνευση συνδέσμου",
+		"description": "Auto detect URL checkbox label"
+	},
+	"autoDetectUrlTooltip": {
+		"message": "Εάν το κείμενο είναι σε μορφή συνδέσμου, άνοιγμά του απευθείας αντί για αναζήτηση",
+		"description": "Tooltip for the auto detect URL checkbox"
+	},
+	"preferLink": {
+		"message": "Προτίμηση ανοίγματος συνδέσμου",
+		"description": "Prefer link checkbox label"
+	},
+	"customHudName": {
+		"message": "Όνομα",
+		"description": "Placeholder for custom action name shown on HUD"
+	},
+	"customHudNameTooltip": {
+		"message": "Προσαρμοσμένο όνομα που εμφανίζεται στην οθόνη κατά την εκτέλεση της κίνησης",
+		"description": "Tooltip for the custom HUD name field"
+	},
+	"actionNoOptions": {
+		"message": "Αυτή η εντολή δεν απαιτεί ρυθμίσεις.",
+		"description": "Placeholder shown in the action picker's detail panel when the selected action has no configurable settings"
+	},
+	"actionRequiredBadge": {
+		"message": "Απαιτείται",
+		"description": "Badge shown next to fields that must be filled in (e.g., URL for Open URL)"
+	},
+	"menuNeedRefresh": {
+		"message": "Το FlowMouse δεν φορτώθηκε, κάντε κλικ για ανανέωση",
+		"description": "Context menu title for pages needing refresh"
+	},
+	"menuRestricted": {
+		"message": "Το FlowMouse δεν είναι διαθέσιμο, μάθετε γιατί",
+		"description": "Context menu title for restricted pages"
+	},
+	"showRestrictedNotice": {
+		"message": "Ειδοποίηση σελίδας με περιορισμούς",
+		"description": "Setting title for restricted page notice"
+	},
+	"showRestrictedNoticeDesc": {
+		"message": "Εμφάνιση υπόδειξης στο μενού δεξιού κλικ σε σελίδες όπου οι χειρονομίες δεν μπορούν να χρησιμοποιηθούν",
+		"description": "Setting description for restricted page notice"
+	},
+	"restrictedPagesDetailsTitle": {
+		"message": "Λόγω περιορισμών πολιτικής ασφαλείας του προγράμματος περιήγησης, η επέκταση δεν μπορεί να εκτελεστεί σε συγκεκριμένους τύπους σελίδων",
+		"description": "Collapsible details title"
+	},
+	"showMoreHint": {
+		"message": "（Εμφάνιση λεπτομερειών）",
+		"description": "Hint to show more details"
+	},
+	"restrictedNewTab": {
+		"message": "Νέα καρτέλα",
+		"description": "New tab page title"
+	},
+	"restrictedNewTabDesc": {
+		"message": "Η προεπιλεγμένη νέα καρτέλα του προγράμματος περιήγησης είναι μια προστατευμένη σελίδα συστήματος, και οι επεκτάσεις δεν μπορούν να εκτελεστούν εδώ.",
+		"description": "New tab page description"
+	},
+	"restrictedStore": {
+		"message": "Επίσημη σελίδα καταστήματος",
+		"description": "Store page title"
+	},
+	"restrictedStoreDesc": {
+		"message": "Π.χ. %storeInfo%. Τα προγράμματα περιήγησης απαγορεύουν στις επεκτάσεις να εκτελούνται σε τέτοιες σελίδες για να αποτρέψουν κακόβουλες επεκτάσεις από το να παρεμβαίνουν στην κανονική πρόσβαση και εγκατάσταση στο κατάστημα.",
+		"description": "Store page description"
+	},
+	"restrictedInternal": {
+		"message": "Εσωτερική σελίδα διαχείρισης προγράμματος περιήγησης (%browserProtocol%)",
+		"description": "Internal page title"
+	},
+	"restrictedInternalDesc": {
+		"message": "Για παράδειγμα, οι εσωτερικές ρυθμίσεις, το ιστορικό, οι λήψεις, οι σελίδες σφαλμάτων κ.λπ. του %browserName%. Αυτές οι σελίδες αφορούν βασικές λειτουργίες του προγράμματος περιήγησης και δεδομένα απορρήτου των χρηστών, επομένως προστατεύονται αυστηρά.",
+		"description": "Internal page description"
+	},
+	"restrictedFile": {
+		"message": "Σελίδα τοπικού αρχείου (file://)",
+		"description": "File page title"
+	},
+	"restrictedFileDesc": {
+		"message": "Τοπικά αρχεία html, pdf κ.λπ. που ανοίγουν μέσω του πρωτοκόλλου file://. Λόγω περιορισμών ασφαλείας (αποτροπή κακόβουλων επεκτάσεων από το να έχουν πρόσβαση στο τοπικό σύστημα αρχείων), οι επεκτάσεις δεν μπορούν να εκτελεστούν σε τέτοιες σελίδες.",
+		"description": "File page description"
+	},
+	"restrictedViewSource": {
+		"message": "Σελίδα προβολής πηγαίου κώδικα (view-source:)",
+		"description": "View source page title"
+	},
+	"restrictedViewSourceDesc": {
+		"message": "Η διεπαφή προβολής πηγαίου κώδικα που παρέχεται από το πρόγραμμα περιήγησης είναι επίσης μια προστατευμένη σελίδα συστήματος και οι επεκτάσεις δεν μπορούν να εκτελεστούν εδώ.",
+		"description": "View source page description"
+	},
+	"restrictedOther": {
+		"message": "Άλλες σπάνιες επηρεαζόμενες σελίδες δεν αναφέρονται ξεχωριστά.",
+		"description": "Other restricted pages note"
+	},
+	"popupNeedRefresh": {
+		"message": "Η επέκταση δεν φορτώθηκε",
+		"description": "Popup title when content script not loaded"
+	},
+	"popupNeedRefreshDesc": {
+		"message": "Αυτή η σελίδα άνοιξε πριν την εγκατάσταση/ενημέρωση της επέκτασης, απαιτείται ανανέωση για να χρησιμοποιήσετε χειρονομίες",
+		"description": "Popup description when content script not loaded"
+	},
+	"popupRefreshBtn": {
+		"message": "Ανανέωση σελίδας",
+		"description": "Popup refresh button text"
+	},
+	"popupRestrictedTitle": {
+		"message": "Οι χειρονομίες δεν είναι διαθέσιμες",
+		"description": "Popup title for restricted pages"
+	},
+	"popupRestrictedDesc": {
+		"message": "Λόγω περιορισμών ασφαλείας του προγράμματος περιήγησης, η επέκταση δεν μπορεί να φορτωθεί σε αυτή τη σελίδα",
+		"description": "Popup description for restricted pages"
+	},
+	"popupLearnMore": {
+		"message": "Μάθετε περισσότερα",
+		"description": "Popup learn more button text"
+	},
+	"tutorialPending": {
+		"message": "Εκκρεμεί",
+		"description": "Tutorial pending status"
+	},
+	"tutorialCompleted": {
+		"message": "Ολοκληρώθηκε",
+		"description": "Tutorial completed status"
+	},
+	"tutorialClickToStart": {
+		"message": "Κάντε κλικ στο <span class=\"text-highlight\">Δεξί Κλικ</span> για έναρξη",
+		"description": "Tutorial Step 0 instruction"
+	},
+	"tutorialWelcomeTitle": {
+		"message": "Καλώς ήρθατε στο FlowMouse",
+		"description": "Tutorial welcome title"
+	},
+	"tutorialWelcomeSubtitle": {
+		"message": "Κατακτήστε τις βασικές λειτουργίες σε 30 δευτερόλεπτα για πιο ομαλή και διαισθητική περιήγηση",
+		"description": "Tutorial welcome subtitle"
+	},
+	"tutorialStep1Title": {
+		"message": "Βασικές Λειτουργίες",
+		"description": "Tutorial Step 1 title"
+	},
+	"tutorialStep1Subtitle": {
+		"message": "Κατανοήστε τον βασικό μηχανισμό χειρονομιών",
+		"description": "Tutorial Step 1 subtitle"
+	},
+	"tutorialStep1InstructionIdle": {
+		"message": "Παρακαλώ κρατήστε πατημένο το <span class=\"text-highlight\">Δεξί Κλικ</span>",
+		"description": "Tutorial Step 1 instruction idle"
+	},
+	"tutorialStep1InstructionPressing": {
+		"message": "<strong>Εξαιρετικά!</strong> Κρατήστε πατημένο και σύρετε προς τα <strong>%arrow% Δεξιά</strong>",
+		"description": "Tutorial Step 1 instruction pressing"
+	},
+	"tutorialStep1InstructionDragging": {
+		"message": "Συνεχίστε να σύρετε...",
+		"description": "Tutorial Step 1 instruction dragging"
+	},
+	"tutorialStep1InstructionReleasing": {
+		"message": "<strong>Πολύ καλά!</strong> Αφήστε το δεξί κλικ!",
+		"description": "Tutorial Step 1 instruction releasing"
+	},
+	"tutorialStep2Title": {
+		"message": "Κοινές Χειρονομίες",
+		"description": "Tutorial Step 2 title"
+	},
+	"tutorialStep2Subtitle": {
+		"message": "Κρατήστε πατημένο το <span class=\"text-highlight\">Δεξί Κλικ</span> για να σχεδιάσετε χειρονομίες",
+		"description": "Tutorial Step 2 subtitle"
+	},
+	"tutorialStep2Footer": {
+		"message": "<strong>Περισσότερες χειρονομίες</strong> και <strong>προσαρμογή χειρονομιών</strong> μπορούν να εξερευνηθούν στις ρυθμίσεις",
+		"description": "Footer note for step 2 discovery banner"
+	},
+	"tutorialStep2DiscoveryHeader": {
+		"message": "Περισσότερες Λειτουργίες Χειρονομιών",
+		"description": "Header for step 2 discovery banner"
+	},
+	"tutorialStep3DiscoveryHeader": {
+		"message": "Περισσότερες Λειτουργίες Super Drag",
+		"description": "Header for step 3 discovery banner"
+	},
+	"tutorialStep3TextSearch": {
+		"message": "Κείμενο <span class=\"svg-arrow\">→</span> Αναζήτηση",
+		"description": "Text drag search discovery item"
+	},
+	"tutorialStep3LinkOpen": {
+		"message": "Σύνδεσμος <span class=\"svg-arrow\">→</span> Άνοιγμα σε νέα καρτέλα",
+		"description": "Link drag open discovery item"
+	},
+	"tutorialStep3ImageOpen": {
+		"message": "Εικόνα <span class=\"svg-arrow\">→</span> Άνοιγμα σε νέα καρτέλα",
+		"description": "Image drag open discovery item"
+	},
+	"tutorialStep3Footer": {
+		"message": "<strong>Περισσότερες λειτουργίες μεταφοράς</strong> και <strong>προσαρμογή μεταφοράς</strong> μπορούν να εξερευνηθούν στη λειτουργία ρυθμίσεων για προχωρημένους",
+		"description": "Footer for step 3 discovery banner"
+	},
+	"tutorialContinue": {
+		"message": "Συνέχεια",
+		"description": "Tutorial continue button"
+	},
+	"tutorialStep3Title": {
+		"message": "Super Drag",
+		"description": "Tutorial Step 3 title"
+	},
+	"tutorialStep3Subtitle": {
+		"message": "Κρατήστε πατημένο το <span class=\"text-highlight\">Αριστερό Κλικ</span> και σύρετε προς τα <span class=\"svg-arrow\">→</span> για γρήγορη εκτέλεση",
+		"description": "Tutorial Step 3 subtitle"
+	},
+	"tutorialStep3HintTitle": {
+		"message": "Αναζήτηση με Μεταφορά Κειμένου",
+		"description": "Tutorial Step 3 hint title"
+	},
+	"tutorialStep3HintDesc": {
+		"message": "Επιλέξτε κείμενο, χρησιμοποιήστε το <span class=\"text-highlight\">Αριστερό Κλικ</span> για να σύρετε προς τα <span class=\"svg-arrow\">→</span> για αναζήτηση",
+		"description": "Tutorial Step 3 hint description. Note: Must drag to right. Use SVG arrow instead of text for direction."
+	},
+	"tutorialStep3TextBoxLabel": {
+		"message": "Δοκιμάστε με το παρακάτω κείμενο!",
+		"description": "Tutorial Step 3 text box label"
+	},
+	"tutorialStep3SelectableText": {
+		"message": "FlowMouse Super Drag",
+		"description": "Tutorial Step 3 selectable text"
+	},
+	"tutorialStep4Title": {
+		"message": "Συγχαρητήρια!",
+		"description": "Tutorial Step 4 title"
+	},
+	"tutorialStep4Subtitle": {
+		"message": "Σύρετε με τα δάχτυλά σας, μπείτε στο \"flow\".",
+		"description": "Tutorial Step 4 subtitle"
+	},
+	"tutorialStep4Instruction": {
+		"message": "Κάντε <span class=\"text-highlight\">Super Drag <span class=\"svg-arrow\">→</span></span> σε έναν σύνδεσμο για να ανοίξει σε <span class=\"text-highlight\">νέα καρτέλα</span>",
+		"description": "Tutorial Step 4 instruction. Note: Must drag to right. Use SVG arrow instead of text for direction."
+	},
+	"tutorialSettingsLink": {
+		"message": "Ρυθμίσεις FlowMouse",
+		"description": "Tutorial settings link"
+	},
+	"tutorialSettingsHint": {
+		"message": "Ανακαλύψτε περισσότερες ισχυρές λειτουργίες!",
+		"description": "Tutorial settings hint"
+	},
+	"tutorialWrongDirection": {
+		"message": "Λάθος κατεύθυνση! Παρακαλώ σύρετε προς %arrow% δεξιά",
+		"description": "Tutorial wrong direction error"
+	},
+	"tutorialEarlyRelease": {
+		"message": "Αφήσατε το κλικ πολύ νωρίς! Δοκιμάστε ξανά.",
+		"description": "Tutorial early release error"
+	},
+	"tutorialDragWrongButton": {
+		"message": "Παρακαλώ χρησιμοποιήστε το <span class=\"text-highlight\">Αριστερό Κλικ</span> για μεταφορά",
+		"description": "Tutorial drag wrong button error"
+	},
+	"tutorialRefreshTip": {
+		"message": "Συμβουλή: Οι καρτέλες που άνοιξαν πριν την εγκατάσταση του FlowMouse χρειάζονται <span class=\"text-highlight\">ανανέωση</span> για να λειτουργήσουν οι χειρονομίες",
+		"description": "Tip about refreshing tabs"
+	},
+	"permissionBookmarksTitle": {
+		"message": "Διαχείριση Σελιδοδεικτών",
+		"description": "Permission popup title for bookmarks"
+	},
+	"permissionBookmarksDesc": {
+		"message": "Για να προσθέσετε σελίδες στους σελιδοδείκτες, το FlowMouse χρειάζεται άδεια πρόσβασης στους σελιδοδείκτες.",
+		"description": "Permission popup description for bookmarks"
+	},
+	"permissionDownloadsTitle": {
+		"message": "Διαχείριση Λήψεων",
+		"description": "Permission popup title for downloads"
+	},
+	"permissionDownloadsDesc": {
+		"message": "Για να αποθηκεύσετε εικόνες, το FlowMouse χρειάζεται άδεια λήψεων.",
+		"description": "Permission popup description for downloads"
+	},
+	"permissionDownloadsPageCaptureTitle": {
+		"message": "Αποθήκευση περιεχομένου",
+		"description": "Permission popup title for downloads and page capture"
+	},
+	"permissionDownloadsPageCaptureDesc": {
+		"message": "Για να αποθηκεύσετε περιεχόμενο, το FlowMouse χρειάζεται πρόσβαση σε σελίδες και λήψεις.",
+		"description": "Permission popup description for downloads and page capture"
+	},
+	"permissionIncognitoTitle": {
+		"message": "Να επιτρέπεται σε ανώνυμη περιήγηση",
+		"description": "Permission popup title for incognito"
+	},
+	"permissionIncognitoDesc": {
+		"message": "Για να λειτουργήσει στα παράθυρα ανώνυμης περιήγησης, πρέπει να ενεργοποιήσετε χειροκίνητα την επιλογή \"Να επιτρέπεται σε ανώνυμη περιήγηση\" για το FlowMouse.",
+		"description": "Permission popup description for incognito"
+	},
+	"permissionClipboardReadTitle": {
+		"message": "Ανάγνωση προχείρου",
+		"description": "Permission popup title for clipboard read"
+	},
+	"permissionClipboardReadDesc": {
+		"message": "Για να επικολλήσετε περιεχόμενο από το πρόχειρο, το FlowMouse χρειάζεται άδεια ανάγνωσης του προχείρου σας.",
+		"description": "Permission popup description for clipboard read"
+	},
+	"openExtensionsSettings": {
+		"message": "Λεπτομέρειες επέκτασης",
+		"description": "Button to open extension details page"
+	},
+	"permissionFirefoxIncognitoTitle": {
+		"message": "Εκτέλεση σε ιδιωτικά παράθυρα",
+		"description": "Permission popup title for Firefox private browsing"
+	},
+	"permissionFirefoxIncognitoDesc": {
+		"message": "Για να λειτουργήσει σε ιδιωτικά παράθυρα, πρέπει να ενεργοποιήσετε χειροκίνητα την επιλογή «Εκτέλεση σε ιδιωτικά παράθυρα» για το FlowMouse στη διαχείριση προσθέτων.",
+		"description": "Permission popup description for Firefox private browsing"
+	},
+	"grantPermission": {
+		"message": "Παροχή Άδειας",
+		"description": "Grant permission button"
+	},
+	"grantPermissionCancel": {
+		"message": "Ακύρωση",
+		"description": "Cancel button"
+	},
+	"permissionTitle": {
+		"message": "Το FlowMouse απαιτεί άδεια",
+		"description": "Generic permission window title"
+	},
+	"tutorialPinHint": {
+		"message": "Κάντε κλικ στο<span class='icon-ext'></span><b>Επεκτάσεις</b>, και<span class='icon-pin'></span><b>Καρφιτσώστε</b> το FlowMouse για ευκολότερη πρόσβαση!",
+		"description": "Hint to pin the extension in tutorial step 4. Do not add space around icon."
+	},
+	"downloadErrorHotlink": {
+		"message": "Η αποθήκευση εικόνας απέτυχε. Ο ιστότοπος ενδέχεται να έχει προστασία hotlink. Κάντε δεξί κλικ στην εικόνα και επιλέξτε \"Αποθήκευση εικόνας ως...\"",
+		"description": "Toast message when image download fails due to hotlink protection"
+	},
+	"saveImageLoadError": {
+		"message": "Η αποθήκευση εικόνας απέτυχε: Η εικόνα απέτυχε να φορτώσει",
+		"description": "Toast message when image fails to load before saving"
+	},
+	"saveImageTimeout": {
+		"message": "Η αποθήκευση εικόνας απέτυχε: Λήξη χρονικού ορίου φόρτωσης",
+		"description": "Toast message when image loading times out"
+	},
+	"buttonOkay": {
+		"message": "Εντάξει",
+		"description": "Generic OK button"
+	},
+	"buttonConfirm": {
+		"message": "Επιβεβαίωση",
+		"description": "Generic Confirm button"
+	},
+	"buttonCancel": {
+		"message": "Ακύρωση",
+		"description": "Generic Cancel button"
+	},
+	"buttonClose": {
+		"message": "Κλείσιμο",
+		"description": "Generic Close button"
+	},
+	"searchActions": {
+		"message": "Αναζήτηση εντολών...",
+		"description": "Placeholder for action search input in action picker"
+	},
+	"actionCategoryNavigation": {
+		"message": "Πλοήγηση",
+		"description": "Action category: navigation"
+	},
+	"actionCategoryTabs": {
+		"message": "Καρτέλες",
+		"description": "Action category: tabs"
+	},
+	"actionCategoryWindow": {
+		"message": "Παράθυρο",
+		"description": "Action category: window"
+	},
+	"actionCategoryUtilities": {
+		"message": "Εργαλεία",
+		"description": "Action category: utilities"
+	},
+	"noResults": {
+		"message": "Δεν βρέθηκαν αποτελέσματα",
+		"description": "No search results found"
+	},
+	"wheelGestures": {
+		"message": "Χειρονομίες ροδέλας ποντικιού",
+		"description": "Mouse wheel gestures section title"
+	},
+	"enableWheelGestures": {
+		"message": "Ενεργοποίηση χειρονομιών ροδέλας ποντικιού",
+		"description": "Enable mouse wheel gestures"
+	},
+	"enableWheelGesturesDesc": {
+		"message": "Εκτελέστε γρήγορα διάφορες ενέργειες χρησιμοποιώντας τη ροδέλα του ποντικιού",
+		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelGesture_scrollUpHoldingRight": {
+		"message": "Κύλιση προς τα πάνω με πατημένο το δεξί κουμπί",
+		"description": "Wheel gesture: scroll up while holding right button"
+	},
+	"wheelGesture_scrollDownHoldingRight": {
+		"message": "Κύλιση προς τα κάτω με πατημένο το δεξί κουμπί",
+		"description": "Wheel gesture: scroll down while holding right button"
+	},
+	"wheelGesture_wheelClickHoldingRight": {
+		"message": "Κλικ στο μεσαίο κουμπί με πατημένο το δεξί κουμπί",
+		"description": "Wheel gesture: wheel (middle) click while holding right button"
+	},
+	"specialGestures": {
+		"message": "Ειδικές κινήσεις",
+		"description": "Special gestures section title"
+	},
+	"enableSpecialGestures": {
+		"message": "Ενεργοποίηση ειδικών κινήσεων",
+		"description": "Enable special gestures"
+	},
+	"enableSpecialGesturesDesc": {
+		"message": "Εκτελέστε ενέργειες κάνοντας κλικ στο ένα κουμπί του ποντικιού ενώ κρατάτε πατημένο το άλλο",
+		"description": "Enable special gestures description"
+	},
+	"specialGesture_leftClickHoldingRight": {
+		"message": "Αριστερό κλικ κρατώντας πατημένο το δεξί κουμπί",
+		"description": "Special gesture: left click while holding right button"
+	},
+	"specialGesture_rightClickHoldingLeft": {
+		"message": "Δεξί κλικ κρατώντας πατημένο το αριστερό κουμπί",
+		"description": "Special gesture: right click while holding left button"
+	},
+	"actionChainsDesc": {
+		"message": "Χρησιμοποιήστε αλυσίδες εντολών για να εκτελέσετε πολλαπλές εντολές με τη σειρά.",
+		"description": "Action chains section description"
+	},
+	"actionActionChain": {
+		"message": "Αλυσίδα εντολών",
+		"description": "Action chain action name"
+	},
+	"actionCustomMenu": {
+		"message": "Προσαρμοσμένο μενού",
+		"description": "Custom popup menu action name"
+	},
+	"customMenuDesc": {
+		"message": "Δημιουργήστε προσαρμοσμένα αναδυόμενα μενού με πολλές ενέργειες.",
+		"description": "Custom menu section description"
+	},
+	"addMenu": {
+		"message": "Προσθήκη μενού",
+		"description": "Add menu button"
+	},
+	"menuNamePlaceholder": {
+		"message": "Προσαρμοσμένο μενού",
+		"description": "Menu name input placeholder"
+	},
+	"menuItemCount": {
+		"message": "%count% στοιχεία",
+		"description": "Item count for menus, e.g. '3 items'"
+	},
+	"menuItemCountOne": {
+		"message": "%count% στοιχείο",
+		"description": "Item count for menus with exactly 1 item"
+	},
+	"addMenuItem": {
+		"message": "Προσθήκη στοιχείου",
+		"description": "Add menu item button"
+	},
+	"addMenuSeparator": {
+		"message": "Προσθήκη διαχωριστικού",
+		"description": "Add separator to menu button"
+	},
+	"emptyMenuItems": {
+		"message": "Δεν προστέθηκαν στοιχεία. Κάντε κλικ στο \"Προσθήκη στοιχείου\" για να ξεκινήσετε.",
+		"description": "Empty menu items message"
+	},
+	"menuNotFound": {
+		"message": "(Το μενού δεν βρέθηκε)",
+		"description": "Menu not found label"
+	},
+	"deleteMenuConfirm": {
+		"message": "Διαγραφή του μενού \"%name%\";",
+		"description": "Delete menu confirmation"
+	},
+	"menuItemNumber": {
+		"message": "Στοιχείο %n%",
+		"description": "Menu item number label"
+	},
+	"addChain": {
+		"message": "Προσθήκη αλυσίδας",
+		"description": "Add chain button"
+	},
+	"chainNamePlaceholder": {
+		"message": "Αλυσίδα εντολών",
+		"description": "Chain name input placeholder"
+	},
+	"chainDelayUnit": {
+		"message": "ms",
+		"description": "Milliseconds unit for chain delay"
+	},
+	"addStep": {
+		"message": "Προσθήκη βήματος",
+		"description": "Add step button"
+	},
+	"emptyChainSteps": {
+		"message": "Δεν έχουν προστεθεί βήματα. Κάντε κλικ στο \"Προσθήκη βήματος\" για να ξεκινήσετε.",
+		"description": "Empty chain steps message in expanded body"
+	},
+	"emptyChainStepsShort": {
+		"message": "Δεν έχουν προστεθεί βήματα",
+		"description": "Short empty chain steps message for summary"
+	},
+	"noChains": {
+		"message": "Δεν υπάρχουν ακόμα αλυσίδες εντολών. Κάντε κλικ στο \"Προσθήκη αλυσίδας\" για να δημιουργήσετε μία.",
+		"description": "No chains message"
+	},
+	"chainNotFound": {
+		"message": "(Η αλυσίδα δεν βρέθηκε)",
+		"description": "Chain not found label"
+	},
+	"deleteChainConfirm": {
+		"message": "Διαγραφή της αλυσίδας \"%name%\";",
+		"description": "Delete chain confirmation"
+	},
+	"stepNumber": {
+		"message": "Βήμα %n%",
+		"description": "Step number label"
+	},
+	"actionDelay": {
+		"message": "Καθυστέρηση",
+		"description": "Delay action name for chain steps"
+	},
+	"actionSendCustomEvent": {
+		"message": "Αποστολή προσαρμοσμένου συμβάντος",
+		"description": "Action to dispatch a custom DOM event"
+	},
+	"actionSendExtensionMessage": {
+		"message": "Κλήση άλλης επέκτασης",
+		"description": "Action to send a custom message to another installed extension"
+	},
+	"actionSimulateKey": {
+		"message": "Προσομοίωση πατήματος πλήκτρου",
+		"description": "Action to simulate a keyboard key press on the page"
+	},
+	"actionPasteClipboard": {
+		"message": "Επικόλληση από το πρόχειρο",
+		"description": "Action to paste clipboard text at the gesture start position"
+	},
+	"pasteClipboardHint": {
+		"message": "Το περιεχόμενο του πρόχειρου θα επικολληθεί στο πεδίο εισαγωγής στην <b>αρχική θέση της χειρονομίας</b>.",
+		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
+	"actionPasteContent": {
+		"message": "Επικόλληση προσαρμοσμένου κειμένου",
+		"description": "Action to paste a preset, user-specified text at the gesture start position"
+	},
+	"pasteContentLabel": {
+		"message": "Κείμενο",
+		"description": "Label for the text field where the user enters the content to paste"
+	},
+	"pasteContentHint": {
+		"message": "Το καθορισμένο κείμενο θα εισαχθεί στο πεδίο εισαγωγής στην <b>αρχική θέση της χειρονομίας</b>.",
+		"description": "Hint shown in action config when paste specified content is selected. Contains HTML."
+	},
+	"pasteContentSensitiveHint": {
+		"message": "Δεν συνιστάται η αποθήκευση ευαίσθητων πληροφοριών, όπως κωδικοί πρόσβασης, εδώ.",
+		"description": "Warning hint below the content field for the paste specified content action"
+	},
+	"simulateKeyPreset": {
+		"message": "Προκαθορισμένο πλήκτρο",
+		"description": "Label for preset key dropdown in simulate key config"
+	},
+	"simulateKeyPresetLeft": {
+		"message": "← Αριστερό βέλος (Προηγούμενη σελίδα)",
+		"description": "Preset: ArrowLeft key"
+	},
+	"simulateKeyPresetRight": {
+		"message": "→ Δεξί βέλος (Επόμενη σελίδα)",
+		"description": "Preset: ArrowRight key"
+	},
+	"simulateKeyPresetCustom": {
+		"message": "Προσαρμοσμένο πλήκτρο",
+		"description": "Preset: Custom key option"
+	},
+	"simulateKeyRecordBtn": {
+		"message": "Εγγραφή πλήκτρου",
+		"description": "Button to start recording a key press"
+	},
+	"simulateKeyRecording": {
+		"message": "Πατήστε ένα πλήκτρο...",
+		"description": "Recording state text"
+	},
+	"simulateKeyManualInput": {
+		"message": "Τρέχον πλήκτρο",
+		"description": "Label for current key display in simulate key config"
+	},
+	"simulateKeyHint": {
+		"message": "Αυτή η δυνατότητα στέλνει συμβάντα πληκτρολογίου μόνο στην τρέχουσα σελίδα, και χρησιμοποιείται συνήθως για πλοήγηση (← προηγούμενη / → επόμενη). ΔΕΝ θα ενεργοποιήσει συντομεύσεις του προγράμματος περιήγησης (π.χ. το Ctrl+R δεν θα ανανεώσει τη σελίδα). Επιπλέον, λόγω περιορισμών του πλαισίου του ιστότοπου, τα προσομοιωμένα συμβάντα ενδέχεται να μην καταγραφούν από όλα τα προσαρμοσμένα στοιχεία ή τα πεδία εισαγωγής.",
+		"description": "Hint text for simulate key feature"
+	},
+	"customEventInvalidJson": {
+		"message": "Μη έγκυρη μορφή JSON",
+		"description": "Error message when event detail is not valid JSON"
+	},
+	"customEventIncludeGestureInfo": {
+		"message": "Συμπερίληψη πληροφοριών χειρονομιών στο %code%",
+		"description": "Checkbox label for including gesture context in custom event detail. %code% = detail.gesture"
+	},
+	"customEventConfigureBtn": {
+		"message": "Ρυθμίσεις",
+		"description": "Label for the configure button of custom event action in drag gesture manager"
+	},
+	"customEventHint": {
+		"message": "Αποστέλλει %code% στο %window%. Χρήσιμο για ενσωμάτωση με άλλα σενάρια.",
+		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
+	},
+	"sendExtensionMessageHint": {
+		"message": "Αποστέλλει ένα μήνυμα μέσω %code% σε άλλη εγκατεστημένη επέκταση. Χρήσιμο για ενσωμάτωση με άλλες επεκτάσεις.",
+		"description": "Hint explaining how send-message-to-extension works. %code% = <code>chrome.runtime.sendMessage(...)</code>"
+	},
+	"delayDuration": {
+		"message": "Διάρκεια",
+		"description": "Delay duration label"
+	},
+	"chainStepCount": {
+		"message": "%count% βήματα",
+		"description": "Step count for unnamed chains, e.g. '3 steps'"
+	},
+	"chainStepCountOne": {
+		"message": "%count% βήμα",
+		"description": "Step count for unnamed chains with exactly 1 step"
+	},
+	"actionZoomIn": {
+		"message": "Μεγέθυνση",
+		"description": "Zoom in on the current page"
+	},
+	"actionZoomOut": {
+		"message": "Σμίκρυνση",
+		"description": "Zoom out on the current page"
+	},
+	"actionResetZoom": {
+		"message": "Επαναφορά ζουμ",
+		"description": "Reset page zoom to default or a specified level"
+	},
+	"actionViewPageSource": {
+		"message": "Προβολή κώδικα σελίδας",
+		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionPauseGesture": {
+		"message": "Παύση χειρονομιών έως ανανέωση",
+		"description": "Temporarily disable all gestures on the current tab until page refresh"
+	},
+	"actionAreaSelect": {
+		"message": "Επιλογή περιοχής",
+		"description": "Enter area select mode to drag-select links on the page and batch open them"
+	},
+	"areaSelectTitle": {
+		"message": "Επιλογή περιοχής",
+		"description": "Label for the area select row in the popup"
+	},
+	"areaSelectModifierKey": {
+		"message": "Γρήγορη επιλογή περιοχής",
+		"description": "Label for the modifier key dropdown in area select settings"
+	},
+	"areaSelectModifierKeyDesc": {
+		"message": "Κρατήστε πατημένο το πλήκτρο τροποποίησης, κάντε αριστερό κλικ και σύρετε για γρήγορη επιλογή συνδέσμων στη σελίδα για μαζικές λειτουργίες",
+		"description": "Description for the modifier key setting"
+	},
+	"areaSelectDisabled": {
+		"message": "Ανενεργό",
+		"description": "Disabled option for the area select modifier key dropdown"
+	},
+	"areaSelectMouseDrag": {
+		"message": "Σύρσιμο ποντικιού",
+		"description": "Suffix label next to the modifier key dropdown"
+	},
+	"areaSelectTextUrl": {
+		"message": "Αναγνώριση κειμένου URL",
+		"description": "Label for the text URL recognition toggle"
+	},
+	"areaSelectTextUrlDesc": {
+		"message": "Εξαγωγή και των URL απλού κειμένου (όχι υπερσυνδέσμων) κατά την επιλογή",
+		"description": "Description for the text URL recognition toggle"
+	},
+	"areaSelectWarnThreshold": {
+		"message": "Ειδοποίηση ομαδικής λειτουργίας",
+		"description": "Label for the batch operation alert threshold input"
+	},
+	"areaSelectWarnThresholdDesc": {
+		"message": "Εμφάνιση επιβεβαίωσης κατά την ομαδική λειτουργία περισσότερων από αυτού του αριθμού στοιχείων, 0 για απενεργοποίηση",
+		"description": "Description for the batch operation alert threshold"
+	},
+	"areaSelectDelay": {
+		"message": "Διάστημα λειτουργίας",
+		"description": "Label for the operation interval input"
+	},
+	"areaSelectDelayDesc": {
+		"message": "Καθυστέρηση μεταξύ κάθε ανοίγματος σε μαζικές λειτουργίες (δευτερόλεπτα)",
+		"description": "Description for the operation interval setting"
+	},
+	"areaSelectHint": {
+		"message": "Σύρετε για να επιλέξετε συνδέσμους",
+		"description": "Hint text shown in the area select overlay"
+	},
+	"areaSelectOpen": {
+		"message": "Άνοιγμα %count% συνδέσμων",
+		"description": "Button text in the area select toolbar to batch open selected links"
+	},
+	"areaSelectOpenOne": {
+		"message": "Άνοιγμα %count% συνδέσμου",
+		"description": "Button text to open a single selected link (singular form)"
+	},
+	"areaSelectCopy": {
+		"message": "Αντιγραφή συνδέσμων",
+		"description": "Button text to copy all selected link URLs to clipboard"
+	},
+	"areaSelectCancel": {
+		"message": "Ακύρωση",
+		"description": "Button text to cancel area select mode"
+	},
+	"areaSelectConfirm": {
+		"message": "Επιβεβαίωση",
+		"description": "Button text to confirm opening many links"
+	},
+	"areaSelectWarnTitle": {
+		"message": "Άνοιγμα πολλών συνδέσμων;",
+		"description": "Title of the warning modal when opening many links"
+	},
+	"areaSelectWarnMessage": {
+		"message": "Πρόκειται να ανοίξετε %count% συνδέσμους. Αυτό μπορεί να επιβραδύνει το πρόγραμμα περιήγησής σας. Συνέχεια;",
+		"description": "Body text of the warning modal"
+	},
+	"start": {
+		"message": "Έναρξη",
+		"description": "Button label to start an action (e.g. area select)"
+	},
+	"actionMenuShowTabs": {
+		"message": "Εναλλαγή καρτέλας",
+		"description": "Show a context menu listing all open tabs in the current window"
+	},
+	"actionMenuRecentlyClosed": {
+		"message": "Πρόσφατα κλεισμένες καρτέλες",
+		"description": "Show a context menu listing recently closed tabs for quick restore"
+	},
+	"recentlyClosedMaxItems": {
+		"message": "Μέγιστα στοιχεία",
+		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
+	},
+	"actionCategoryContextMenu": {
+		"message": "Αναδυόμενο μενού",
+		"description": "Action category: context menu actions"
+	},
+	"zoomStepMode": {
+		"message": "Λειτουργία ζουμ",
+		"description": "Label for zoom mode selector: browser steps vs fixed increment"
+	},
+	"zoomStepModeBrowser": {
+		"message": "Χρήση επιπέδων ζουμ προγράμματος περιήγησης",
+		"description": "Option: follow Chrome's built-in zoom steps (25%, 33%, 50%, …, 500%)"
+	},
+	"zoomStepModeFixed": {
+		"message": "Σταθερό βήμα",
+		"description": "Option: zoom in/out by a configurable fixed percentage each time"
+	},
+	"zoomDelta": {
+		"message": "Μέγεθος βήματος",
+		"description": "Label for the zoom increment/decrement slider"
+	},
+	"resetZoomLevel": {
+		"message": "Επαναφορά σε",
+		"description": "Label for the target zoom level when resetting zoom"
+	},
+	"resetZoomDefault": {
+		"message": "Προεπιλογή προγράμματος περιήγησης",
+		"description": "Option: reset zoom to the browser's default zoom setting"
+	},
+	"resetZoomCustom": {
+		"message": "Προσαρμοσμένη τιμή",
+		"description": "Option: reset zoom to a user-specified custom zoom level"
+	},
+	"actionMenuShowBookmarks": {
+		"message": "Εμφάνιση σελιδοδεικτών",
+		"description": "Show a context menu listing bookmarks from a selected folder"
+	},
+	"bookmarkFolder": {
+		"message": "Φάκελος",
+		"description": "Label for selecting which bookmark folder to display"
+	},
+	"bookmarkFolderDefault": {
+		"message": "Προεπιλογή περιηγητή",
+		"description": "Option label for using the browser's default bookmark location"
+	},
+	"bookmarkGrantPermission": {
+		"message": "(Εκχώρηση άδειας σελιδοδεικτών)",
+		"description": "Button label to request bookmarks permission"
+	},
+	"ctxMenuSortOrder": {
+		"message": "Ταξινόμηση κατά",
+		"description": "Label for context menu sort order dropdown"
+	},
+	"ctxMenuSortDefault": {
+		"message": "Προεπιλογή",
+		"description": "Sort option: original API/insertion order"
+	},
+	"ctxMenuSortDefaultDesc": {
+		"message": "Προεπιλογή (αντίστροφα)",
+		"description": "Sort option: reverse of original API order"
+	},
+	"ctxMenuSortDateAddedAsc": {
+		"message": "Ημερομηνία προσθήκης (παλαιότερα πρώτα)",
+		"description": "Sort option: by date added ascending"
+	},
+	"ctxMenuSortDateAddedDesc": {
+		"message": "Ημερομηνία προσθήκης (νεότερα πρώτα)",
+		"description": "Sort option: by date added descending"
+	},
+	"ctxMenuSortNameAsc": {
+		"message": "Όνομα (αύξουσα)",
+		"description": "Sort option: alphabetical ascending"
+	},
+	"ctxMenuSortNameDesc": {
+		"message": "Όνομα (φθίνουσα)",
+		"description": "Sort option: alphabetical descending"
+	},
+	"ctxMenuSortLastAccessAsc": {
+		"message": "Τελευταία πρόσβαση (παλαιότερα πρώτα)",
+		"description": "Sort option: by last access time ascending"
+	},
+	"ctxMenuSortLastAccessDesc": {
+		"message": "Τελευταία πρόσβαση (νεότερα πρώτα)",
+		"description": "Sort option: by last access time descending"
+	},
+	"ctxMenuMaxItems": {
+		"message": "Μέγ. αριθμός",
+		"description": "Label for maximum number of items in context menu"
+	},
+	"ctxMenuMaxItemsUnlimited": {
+		"message": "Απεριόριστο",
+		"description": "Placeholder shown when max items is 0 (no limit)"
+	},
+	"ctxMenuScrollToBottom": {
+		"message": "Κύλιση στο κάτω μέρος",
+		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuTimeDisplay": {
+		"message": "Εμφάνιση ώρας",
+		"description": "Label for time display mode dropdown in context menu"
+	},
+	"ctxMenuTimeNone": {
+		"message": "Να μην εμφανίζεται",
+		"description": "Time display option: hide time column"
+	},
+	"ctxMenuTimeLastAccess": {
+		"message": "Τελευταία πρόσβαση",
+		"description": "Time display option: show last access time"
+	},
+	"ctxMenuTimeClosedTime": {
+		"message": "Χρόνος κλεισίματος",
+		"description": "Time display option: show when the tab was closed"
+	},
+	"ctxMenuTimeDateAdded": {
+		"message": "Ημερομηνία προσθήκης",
+		"description": "Time display option: show when the bookmark was added"
+	}
+}

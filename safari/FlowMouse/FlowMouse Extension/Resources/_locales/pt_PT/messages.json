@@ -1,0 +1,2150 @@
+{
+	"extName": {
+		"message": "FlowMouse - Gestos do Rato",
+		"description": "Extension name"
+	},
+	"extNameShort": {
+		"message": "FlowMouse",
+		"description": "Short extension name for popup"
+	},
+	"extDescription": {
+		"message": "Uma extensão de gestos do rato de código aberto focada na privacidade e experiência fluida. Gestos suaves, suporte para super arrastar.",
+		"description": "Extension description"
+	},
+	"theme": {
+		"message": "Tema",
+		"description": "Theme"
+	},
+	"themeDark": {
+		"message": "Escuro",
+		"description": "Dark theme"
+	},
+	"themeLight": {
+		"message": "Claro",
+		"description": "Light theme"
+	},
+	"themeAuto": {
+		"message": "Seguir sistema",
+		"description": "Auto theme - follow system"
+	},
+	"syncStatus": {
+		"message": "Estado da Sincronização",
+		"description": "Sync status"
+	},
+	"syncStatusDesc": {
+		"message": "Sincronização de definições via conta %browserName%",
+		"description": "Sync status description"
+	},
+	"saved": {
+		"message": "Guardado",
+		"description": "Saved"
+	},
+	"author": {
+		"message": "Autor",
+		"description": "Author"
+	},
+	"privacyNote": {
+		"message": " Executa localmente, sem acesso à rede exceto sincronização, sem recolha de dados",
+		"description": "Privacy note in footer"
+	},
+	"supportUsText": {
+		"message": "Gosta do FlowMouse? Por favor, dê-nos uma classificação de 5 estrelas na %appStoreInfo% para nos apoiar!",
+		"description": "Rating text"
+	},
+	"storeNameChrome": {
+		"message": "Chrome Web Store",
+		"description": "Chrome Web Store name"
+	},
+	"storeNameEdge": {
+		"message": "Suplementos do Edge",
+		"description": "Edge Add-ons name"
+	},
+	"storeNameFirefox": {
+		"message": "Add-ons para o Firefox",
+		"description": "Firefox Add-ons name"
+	},
+	"feedbackText": {
+		"message": "Problemas ou sugestões? Reporte via <a href='mailto:Service@52pojie.cn'>E-mail</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> ou <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Fórum</a>. Vamos melhorar o mais rápido possível!",
+		"description": "Feedback text"
+	},
+	"feedbackTextChrome": {
+		"message": "Problemas ou sugestões? Reporte via <a href='https://chromewebstore.google.com/detail/fnldhkfidchnjiokpoemdhoejmaojkgp/support' target='_blank'>Suporte da Chrome Web Store</a>, <a href='mailto:Service@52pojie.cn'>E-mail</a>, <a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a> ou <a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>Fórum</a>. Vamos melhorar o mais rápido possível!",
+		"description": "Feedback text for Chrome browser"
+	},
+	"supportAndFeedback": {
+		"message": "Suporte e Feedback",
+		"description": "Support and Feedback section title"
+	},
+	"feedbackTitle": {
+		"message": "Feedback e Sugestões",
+		"description": "Feedback row title"
+	},
+	"supportUsTitle": {
+		"message": "Apoie-nos",
+		"description": "Rating row title"
+	},
+	"backToSettings": {
+		"message": "Voltar às Definições",
+		"description": "Back to settings link"
+	},
+	"settings": {
+		"message": "Definições",
+		"description": "Settings"
+	},
+	"moreSettings": {
+		"message": "Mais Definições",
+		"description": "More settings button in popup"
+	},
+	"version": {
+		"message": "Versão",
+		"description": "Version"
+	},
+	"basicSettings": {
+		"message": "Definições de Gestos",
+		"description": "Gesture settings section"
+	},
+	"enableGesture": {
+		"message": "Ativar Gestos",
+		"description": "Enable gesture feature"
+	},
+	"enableGestureDesc": {
+		"message": "Mantenha premido o botão direito do rato e mova o rato para realizar gestos facilmente",
+		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
+	},
+	"gestureTriggerButtons": {
+		"message": "Botões de Acionamento",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "Selecione quais botões do rato podem acionar os gestos",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "Botão direito",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "Botão do meio",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "Botão lateral (Retroceder)",
+		"description": "Mouse button 4 - the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "Botão lateral (Avançar)",
+		"description": "Mouse button 5 - the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "Botão direito da caneta",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "Alguns botões de acionamento podem não funcionar corretamente dependendo do hardware ou das definições do controlador. Por exemplo, os ratos da Logitech podem exigir que se desative a 'Deslocação horizontal' (Horizontal Scrolling) no controlador para utilizar os botões laterais para os gestos.",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
+	"macLinuxContextMenuNotice": {
+		"message": "Devido a limitações do sistema, quando os gestos de clique com o botão direito estão ativados, é necessário fazer duplo clique com o botão direito para abrir o menu de contexto no macOS / Linux.",
+		"description": "Notice for macOS / Linux users about double right-click for context menu"
+	},
+	"macLinuxDoubleClickHint": {
+		"message": "Para abrir o menu de contexto, faça duplo clique com o botão direito. (Saiba mais)",
+		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
+	},
+	"edgeGestureConflictNotice": {
+		"message": "O %browserName% tem funcionalidades de gestos integradas. Para utilizar os gestos do FlowMouse, <a href=\"#\" class=\"edge-gesture-link\">desative os gestos integrados</a> nas definições do %browserName%.",
+		"description": "Notice for Edge users about built-in gesture conflict"
+	},
+	"macTextDragNotice": {
+		"message": "Devido ao comportamento do macOS, ao arrastar texto, primeiro selecione o texto, depois prima e mantenha o botão esquerdo dentro da área selecionada e faça uma breve pausa antes de arrastar. Caso contrário, a função de arrastar pode não ser acionada.",
+		"description": "Notice for macOS users about text drag behavior"
+	},
+	"showTrail": {
+		"message": "Mostrar Rasto do Gesto",
+		"description": "Show gesture trail"
+	},
+	"showTrailDesc": {
+		"message": "Exibir linha de rasto ao realizar gestos",
+		"description": "Show trail line when performing gestures"
+	},
+	"showHint": {
+		"message": "Mostrar Dica de Ação",
+		"description": "Show action hint"
+	},
+	"showHintDesc": {
+		"message": "Exibir ação do gesto atual no centro do ecrã",
+		"description": "Show current gesture action in center of screen"
+	},
+	"color": {
+		"message": "Cor",
+		"description": "Color"
+	},
+	"width": {
+		"message": "Espessura",
+		"description": "Width/thickness"
+	},
+	"background": {
+		"message": "Fundo",
+		"description": "Background"
+	},
+	"opacity": {
+		"message": "Opacidade",
+		"description": "Opacity"
+	},
+	"blur": {
+		"message": "Desfoque",
+		"description": "Blur radius"
+	},
+	"hudShadow": {
+		"message": "Sombra",
+		"description": "HUD shadow toggle"
+	},
+	"showSuggestedGestures": {
+		"message": "Indicações de gestos",
+		"description": "Show suggested gestures at bottom of screen"
+	},
+	"customCss": {
+		"message": "CSS personalizado",
+		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
+	},
+	"customCssDesc": {
+		"message": "Defina CSS personalizado para ajustar a própria interface do FlowMouse",
+		"description": "Description for the Custom CSS advanced setting"
+	},
+	"customCssConfigure": {
+		"message": "Configurar",
+		"description": "Button label to open the Custom CSS editor dialog when no CSS is set"
+	},
+	"customCssEdit": {
+		"message": "Editar",
+		"description": "Button label to open the Custom CSS editor dialog when CSS is already set"
+	},
+	"customCssEditorTitle": {
+		"message": "Editor de CSS Personalizado",
+		"description": "Title of the dedicated custom CSS editor page"
+	},
+	"customCssEditorHint": {
+		"message": "Os estilos são injetados em cada Shadow DOM criado pelo FlowMouse. Prima Ctrl+S para guardar.",
+		"description": "Hint shown above the editor textarea."
+	},
+	"customCssEditorPlaceholder": {
+		"message": "/* Escreva o seu CSS personalizado aqui… */",
+		"description": "Placeholder inside the Custom CSS editor textarea"
+	},
+	"customCssEditorInsertSnippet": {
+		"message": "Exemplo",
+		"description": "Button to append an example/starter CSS snippet to the editor"
+	},
+	"customCssEditorRevert": {
+		"message": "Reverter",
+		"description": "Button that reverts the editor content back to the last saved value"
+	},
+	"customCssEditorSave": {
+		"message": "Guardar",
+		"description": "Save button in the Custom CSS editor"
+	},
+	"customCssEditorSaved": {
+		"message": "Guardado",
+		"description": "Status message shown briefly after the user saves the custom CSS"
+	},
+	"customCssEditorDiscardConfirm": {
+		"message": "Descartar as suas edições não guardadas e reverter para o último CSS guardado?",
+		"description": "Confirmation dialog shown before reverting unsaved edits"
+	},
+	"text": {
+		"message": "Texto",
+		"description": "Text"
+	},
+	"scrollAmount": {
+		"message": "Distância de Rolagem",
+		"description": "Scroll amount"
+	},
+	"scrollAmountDesc": {
+		"message": "Distância de rolagem para gestos cima/baixo (% da altura da janela)",
+		"description": "Scroll distance for up/down gestures"
+	},
+	"scrollSmoothness": {
+		"message": "Suavidade da Rolagem",
+		"description": "Scroll smoothness"
+	},
+	"scrollSmoothnessDesc": {
+		"message": "Efeito de animação de rolagem para gestos cima/baixo",
+		"description": "Scroll smoothness description"
+	},
+	"smoothnessAuto": {
+		"message": "Automático",
+		"description": "Auto scroll smoothness - uses system if animation enabled, otherwise smooth"
+	},
+	"smoothnessSystem": {
+		"message": "Sistema (Alto Desempenho)",
+		"description": "System scroll smoothness"
+	},
+	"smoothnessCustom": {
+		"message": "Suave",
+		"description": "Custom smooth scrolling"
+	},
+	"smoothnessNone": {
+		"message": "Sem animação",
+		"description": "No scroll animation"
+	},
+	"scrollDuration": {
+		"message": "Duração da animação",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "Indisponível ao usar o deslocamento do sistema",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
+	"scrollAccel": {
+		"message": "Multiplicador de deslocamento contínuo",
+		"description": "Speed multiplier applied when scrolling consecutively"
+	},
+	"scrollAccelOff": {
+		"message": "Desativado",
+		"description": "Scroll acceleration disabled"
+	},
+	"scrollAccelWindow": {
+		"message": "Tempo limite para deslocamento consecutivo",
+		"description": "Max time (ms) between scrolls to count as consecutive"
+	},
+	"dragFeatures": {
+		"message": "Funcionalidades de Arrastar",
+		"description": "Drag features section"
+	},
+	"textDragSearch": {
+		"message": "Arrastar Texto",
+		"description": "Text drag"
+	},
+	"textDragSearchDesc": {
+		"message": "Arrastar texto selecionado para pesquisar",
+		"description": "Drag selected text to search"
+	},
+	"textDragIgnoreInput": {
+		"message": "Desativar em campos de entrada",
+		"description": "Option to disable text drag inside input boxes and textareas"
+	},
+	"textDragIgnoreInputDesc": {
+		"message": "Não acionar o arrasto de texto em áreas editáveis, como campos de entrada e editores de texto",
+		"description": "Description for text drag ignore input option"
+	},
+	"dragDropOnInput": {
+		"message": "Suprimir gesto sobre campos de introdução",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "Não acionar o gesto ao largar em campos de introdução ou áreas editáveis",
+		"description": "Description for drag drop on input option"
+	},
+	"searchEngine": {
+		"message": "Motor de Busca",
+		"description": "Search engine"
+	},
+	"custom": {
+		"message": "Personalizado",
+		"description": "Custom"
+	},
+	"customUrlPlaceholder": {
+		"message": "URL personalizado, use %s para o termo de pesquisa",
+		"description": "Custom URL placeholder"
+	},
+	"customUrlPlaceholderHint": {
+		"message": "Deve incluir o protocolo (ex. https://). Marcadores de posição disponíveis: %placeholders%. Adicione :raw para ignorar a codificação de URL, ex. %example%",
+		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
+	},
+	"urlPlaceholderText": {
+		"message": "%s=Palavra-chave",
+		"description": "Placeholder for text drag custom URL"
+	},
+	"urlPlaceholderImage": {
+		"message": "%s=URL imagem",
+		"description": "Placeholder for image drag custom URL"
+	},
+	"searchEngine_google_translate": {
+		"message": "Google Tradutor",
+		"description": "Google Translate search engine"
+	},
+	"searchEngine_bing_translate": {
+		"message": "Bing Tradutor",
+		"description": "Bing Translate search engine"
+	},
+	"searchEngine_baidu": {
+		"message": "Baidu",
+		"description": "Baidu search engine"
+	},
+	"searchEngine_360": {
+		"message": "360 Search",
+		"description": "360 search engine"
+	},
+	"searchEngine_yandex": {
+		"message": "Yandex",
+		"description": "Yandex search engine"
+	},
+	"searchEngine_system": {
+		"message": "Predefinição do navegador",
+		"description": "System default search engine"
+	},
+	"imageDrag": {
+		"message": "Arrastar Imagem",
+		"description": "Image drag"
+	},
+	"imageDragDesc": {
+		"message": "Arrastar imagem para abrir num novo separador",
+		"description": "Drag image to open in new tab"
+	},
+	"linkDrag": {
+		"message": "Arrastar Ligação",
+		"description": "Link drag"
+	},
+	"linkDragDesc": {
+		"message": "Arrastar ligação para abrir num novo separador",
+		"description": "Drag link to open in new tab"
+	},
+	"enableCustomGestures": {
+		"message": "Gestos Personalizados",
+		"description": "Enable custom gestures"
+	},
+	"enableCustomGesturesDesc": {
+		"message": "Ver e personalizar cada ação de gesto",
+		"description": "View and customize each gesture action"
+	},
+	"gestureAutoSaveHint": {
+		"message": "Dica: As alterações são guardadas automaticamente.",
+		"description": "Hint about auto-save"
+	},
+	"blacklist": {
+		"message": "Lista Negra de Sites",
+		"description": "Website blacklist"
+	},
+	"blacklistPlaceholder": {
+		"message": "Introduza o domínio, ex: example.com, prima Enter para adicionar",
+		"description": "Blacklist input placeholder"
+	},
+	"add": {
+		"message": "Adicionar",
+		"description": "Add button"
+	},
+	"emptyBlacklist": {
+		"message": "Sem sites na lista negra. Introduza um domínio acima para adicionar.",
+		"description": "Empty blacklist message"
+	},
+	"enableBlacklistContextMenu": {
+		"message": "Alternador de gestos no menu de contexto",
+		"description": "Setting title for blacklist context menu toggle"
+	},
+	"enableBlacklistContextMenuDesc": {
+		"message": "Mostrar uma opção para desativar/ativar gestos no menu de contexto",
+		"description": "Setting description for blacklist context menu toggle"
+	},
+	"menuAddToBlacklist": {
+		"message": "Desativar gestos neste site",
+		"description": "Context menu title for adding current site to blacklist"
+	},
+	"menuRemoveFromBlacklist": {
+		"message": "Ativar gestos neste site",
+		"description": "Context menu title for removing current site from blacklist"
+	},
+	"dataManagement": {
+		"message": "Gestão de Dados",
+		"description": "Data management section"
+	},
+	"export": {
+		"message": "Exportar",
+		"description": "Export settings"
+	},
+	"import": {
+		"message": "Importar",
+		"description": "Import settings"
+	},
+	"reset": {
+		"message": "Repor",
+		"description": "Reset to default"
+	},
+	"duplicate": {
+		"message": "Duplicar",
+		"description": "Generic duplicate button tooltip"
+	},
+	"delete": {
+		"message": "Eliminar",
+		"description": "Generic delete button tooltip"
+	},
+	"autoSaved": {
+		"message": "Guardado automaticamente",
+		"description": "Auto-saved message"
+	},
+	"saveFailure": {
+		"message": "Falha ao guardar",
+		"description": "Save failure message"
+	},
+	"resetConfirm": {
+		"message": "Tem a certeza que pretende repor todas as definições para a predefinição?",
+		"description": "Reset confirmation"
+	},
+	"resetDone": {
+		"message": "Definições repostas para a predefinição",
+		"description": "Reset done message"
+	},
+	"exportDone": {
+		"message": "Definições exportadas",
+		"description": "Export done message"
+	},
+	"importDone": {
+		"message": "Definições importadas",
+		"description": "Import done message"
+	},
+	"importConfirm": {
+		"message": "A importação irá substituir as suas definições atuais. Importe apenas ficheiros de configuração de fontes fiáveis.\n\nContinuar?",
+		"description": "Import confirmation warning"
+	},
+	"importFailed": {
+		"message": "Falha na importação: Ficheiro de configuração inválido",
+		"description": "Import failed message"
+	},
+	"importFailedSyncError": {
+		"message": "Falha na importação: Erro de sincronização, por favor verifique o estado do navegador",
+		"description": "Import failed sync error message"
+	},
+	"invalidDomain": {
+		"message": "Por favor, introduza um domínio válido",
+		"description": "Invalid domain message"
+	},
+	"domainExists": {
+		"message": "O domínio já existe na lista negra",
+		"description": "Domain already in blacklist"
+	},
+	"about": {
+		"message": "Sobre",
+		"description": "About section"
+	},
+	"language": {
+		"message": "Idioma",
+		"description": "Language"
+	},
+	"languageAuto": {
+		"message": "Seguir o Sistema",
+		"description": "Follow system language"
+	},
+	"privacyFriendly": {
+		"message": "Amigo da Privacidade",
+		"description": "Privacy friendly"
+	},
+	"localOnly": {
+		"message": "Apenas Local",
+		"description": "Local only"
+	},
+	"autoSave": {
+		"message": "Guardar Automático",
+		"description": "Auto save"
+	},
+	"gestureDesc_L": {
+		"message": "Esquerda",
+		"description": "Gesture description for ←"
+	},
+	"gestureDesc_R": {
+		"message": "Direita",
+		"description": "Gesture description for →"
+	},
+	"gestureDesc_U": {
+		"message": "Cima",
+		"description": "Gesture description for ↑"
+	},
+	"gestureDesc_D": {
+		"message": "Baixo",
+		"description": "Gesture description for ↓"
+	},
+	"gestureDesc_DR": {
+		"message": "Baixo depois Direita",
+		"description": "Gesture description for ↓→"
+	},
+	"gestureDesc_LU": {
+		"message": "Esquerda depois Cima",
+		"description": "Gesture description for ←↑"
+	},
+	"gestureDesc_RU": {
+		"message": "Direita depois Cima",
+		"description": "Gesture description for →↑"
+	},
+	"gestureDesc_RD": {
+		"message": "Direita depois Baixo",
+		"description": "Gesture description for →↓"
+	},
+	"gestureDesc_UL": {
+		"message": "Cima depois Esquerda",
+		"description": "Gesture description for ↑←"
+	},
+	"gestureDesc_UR": {
+		"message": "Cima depois Direita",
+		"description": "Gesture description for ↑→"
+	},
+	"gestureDesc_DL": {
+		"message": "Baixo depois Esquerda",
+		"description": "Gesture description for ↓←"
+	},
+	"gestureDesc_LD": {
+		"message": "Esquerda depois Baixo",
+		"description": "Gesture description for ←↓"
+	},
+	"gestureDesc_UD": {
+		"message": "Cima depois Baixo",
+		"description": "Gesture description for ↑↓"
+	},
+	"gestureDesc_DU": {
+		"message": "Baixo depois Cima",
+		"description": "Gesture description for ↓↑"
+	},
+	"gestureDesc_LR": {
+		"message": "Esquerda depois Direita",
+		"description": "Gesture description for ←→"
+	},
+	"gestureDesc_RL": {
+		"message": "Direita depois Esquerda",
+		"description": "Gesture description for →←"
+	},
+	"actionNone": {
+		"message": "Nenhum",
+		"description": "No action"
+	},
+	"actionBack": {
+		"message": "Voltar",
+		"description": "Go back"
+	},
+	"actionForward": {
+		"message": "Avançar",
+		"description": "Go forward"
+	},
+	"actionUrlLevelUp": {
+		"message": "Subir um nível no URL",
+		"description": "Navigate to the parent directory of the current URL"
+	},
+	"actionUrlToRoot": {
+		"message": "Ir para a raiz do URL",
+		"description": "Navigate to the root of the current site"
+	},
+	"actionScrollUp": {
+		"message": "Rolar para Cima",
+		"description": "Scroll up"
+	},
+	"actionScrollDown": {
+		"message": "Rolar para Baixo",
+		"description": "Scroll down"
+	},
+	"actionScrollLeft": {
+		"message": "Rolar para a Esquerda",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "Rolar para a Direita",
+		"description": "Scroll right"
+	},
+	"actionScrollToTop": {
+		"message": "Rolar para o Topo",
+		"description": "Scroll to top"
+	},
+	"actionScrollToBottom": {
+		"message": "Rolar para o Fundo",
+		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "Rolar para a Extremidade Esquerda",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "Rolar para a Extremidade Direita",
+		"description": "Scroll to the rightmost position"
+	},
+	"actionCloseTab": {
+		"message": "Fechar Separador",
+		"description": "Close tab"
+	},
+	"closeTabKeepWindow": {
+		"message": "Se for o último separador, manter a janela aberta",
+		"description": "Checkbox label for closeTab action config"
+	},
+	"closeTabAfterClose": {
+		"message": "Após fechar",
+		"description": "Label for closeTab afterClose config"
+	},
+	"closeTabAfterCloseDefault": {
+		"message": "Predefinição do navegador",
+		"description": "Option for closeTab afterClose config - let browser decide"
+	},
+	"closeTabAfterCloseLeft": {
+		"message": "Mudar para separador à esquerda",
+		"description": "Option for closeTab afterClose config - switch to left tab"
+	},
+	"closeTabAfterCloseRight": {
+		"message": "Mudar para separador à direita",
+		"description": "Option for closeTab afterClose config - switch to right tab"
+	},
+	"switchTabNoWrap": {
+		"message": "Não alternar de forma cíclica",
+		"description": "Checkbox label for switchLeftTab/switchRightTab action config"
+	},
+	"switchTabMoveTab": {
+		"message": "Mover o separador atual",
+		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
+	},
+	"refreshHardReload": {
+		"message": "Recarregamento Forçado (ignorar cache)",
+		"description": "Checkbox label for refresh hard reload option"
+	},
+	"actionCloseBrowser": {
+		"message": "Fechar Navegador",
+		"description": "Close browser"
+	},
+	"actionCloseWindow": {
+		"message": "Fechar janela",
+		"description": "Close current window"
+	},
+	"actionRestoreTab": {
+		"message": "Restaurar Separador Fechado",
+		"description": "Restore closed tab"
+	},
+	"actionNewTab": {
+		"message": "Novo Separador",
+		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "Não fechar separadores fixados",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
+	},
+	"closeTabsPreserveTab": {
+		"message": "Manter separadores (descarregar o conteúdo da página)",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
+	"actionCloseOtherTabs": {
+		"message": "Fechar Outros Separadores",
+		"description": "Close other tabs"
+	},
+	"actionCloseLeftTabs": {
+		"message": "Fechar Separadores à Esquerda",
+		"description": "Close tabs to the left"
+	},
+	"actionCloseRightTabs": {
+		"message": "Fechar Separadores à Direita",
+		"description": "Close tabs to the right"
+	},
+	"actionCloseAllTabs": {
+		"message": "Fechar Todos os Separadores",
+		"description": "Close all tabs"
+	},
+	"actionSwitchLeftTab": {
+		"message": "Mudar para Separador à Esquerda",
+		"description": "Switch to left tab"
+	},
+	"actionSwitchRightTab": {
+		"message": "Mudar para Separador à Direita",
+		"description": "Switch to right tab"
+	},
+	"actionSwitchFirstTab": {
+		"message": "Mudar para o Primeiro Separador",
+		"description": "Switch to first tab"
+	},
+	"actionSwitchLastTab": {
+		"message": "Mudar para o Último Separador",
+		"description": "Switch to last tab"
+	},
+	"actionSwitchLastActiveTab": {
+		"message": "Alternar para o último separador ativo",
+		"description": "Switch to the most recently active tab"
+	},
+	"actionRefresh": {
+		"message": "Atualizar Separador Atual",
+		"description": "Refresh current tab"
+	},
+	"actionRefreshAllTabs": {
+		"message": "Atualizar Todos os Separadores",
+		"description": "Refresh all tabs"
+	},
+	"actionStopLoading": {
+		"message": "Parar Carregamento",
+		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "Parar Carregamento de Todos os Separadores",
+		"description": "Stop loading all tabs in the current window"
+	},
+	"actionNewWindow": {
+		"message": "Nova Janela",
+		"description": "New window"
+	},
+	"actionNewIncognito": {
+		"message": "Nova Janela Incógnita",
+		"description": "New incognito window"
+	},
+	"actionAddToBookmarks": {
+		"message": "Adicionar aos Favoritos",
+		"description": "Add to bookmarks"
+	},
+	"actionToggleFullscreen": {
+		"message": "Alternar Ecrã Inteiro",
+		"description": "Toggle fullscreen"
+	},
+	"actionToggleMaximize": {
+		"message": "Alternar Maximizar/Restaurar",
+		"description": "Toggle window maximize"
+	},
+	"actionMinimize": {
+		"message": "Minimizar Janela",
+		"description": "Minimize window"
+	},
+	"actionOpenCustomUrl": {
+		"message": "Abrir URL Personalizado",
+		"description": "Open custom URL"
+	},
+	"actionCopyUrl": {
+		"message": "Copiar URL Atual",
+		"description": "Copy current URL"
+	},
+	"actionCopyTitle": {
+		"message": "Copiar Título da Página",
+		"description": "Copy page title"
+	},
+	"actionCopyTitleAndUrl": {
+		"message": "Copiar título da página e URL",
+		"description": "Copy page title and URL"
+	},
+	"actionOpenDownloads": {
+		"message": "Abrir Transferências",
+		"description": "Open downloads page"
+	},
+	"actionOpenHistory": {
+		"message": "Abrir Histórico",
+		"description": "Open history page"
+	},
+	"actionOpenExtensions": {
+		"message": "Abrir Extensões",
+		"description": "Open extensions page"
+	},
+	"actionSaveAsMhtml": {
+		"message": "Guardar como MHTML",
+		"description": "Save current page as MHTML file"
+	},
+	"actionPrintPage": {
+		"message": "Imprimir Página",
+		"description": "Print page"
+	},
+	"actionDuplicateTab": {
+		"message": "Duplicar Separador",
+		"description": "Duplicate current tab"
+	},
+	"actionToggleMuteTab": {
+		"message": "Silenciar/Ativar Som do Separador Atual",
+		"description": "Toggle mute current tab"
+	},
+	"actionToggleMuteAllTabs": {
+		"message": "Silenciar/Ativar Som de Todos os Separadores",
+		"description": "Toggle mute all tabs"
+	},
+	"actionTogglePinTab": {
+		"message": "Fixar/Desafixar o Separador Atual",
+		"description": "Toggle pin current tab"
+	},
+	"actionMoveTabToNewWindow": {
+		"message": "Mover separador para nova janela",
+		"description": "Move current tab to a new window"
+	},
+	"actionSearchClipboard": {
+		"message": "Pesquisar da área de transferência",
+		"description": "Search clipboard text using a search engine"
+	},
+	"showTrailOrigin": {
+		"message": "Mostrar Ponto de Origem",
+		"description": "Show trail origin point"
+	},
+	"enableTrailSmooth": {
+		"message": "Suavização de rastro",
+		"description": "Enable trail smoothing for gesture visualization"
+	},
+	"distanceThreshold": {
+		"message": "Distância de reconhecimento de gestos",
+		"description": "Gesture recognition distance"
+	},
+	"distanceThresholdDesc": {
+		"message": "Distância mínima de movimento para reconhecer um gesto e arrastar",
+		"description": "Description for gesture recognition distance"
+	},
+	"distanceThresholdNotice": {
+		"message": "Dica: Recomenda-se um valor entre 15 e 30 para o melhor reconhecimento.",
+		"description": "Warning when distance threshold is too small or too large"
+	},
+	"gestureTurnTolerance": {
+		"message": "Tolerância de curva do gesto",
+		"description": "Turn tolerance for detecting direction changes in long gestures"
+	},
+	"gestureTurnToleranceDesc": {
+		"message": "Valores mais altos reduzem curvas acidentais, mas exigem movimentos mais longos para mudar de direção",
+		"description": "Description for gesture turn tolerance setting"
+	},
+	"advanced": {
+		"message": "Mostrar definições avançadas",
+		"description": "Short label for per-section advanced toggle"
+	},
+	"otherSettings": {
+		"message": "Outras definições",
+		"description": "Section title for other/miscellaneous settings"
+	},
+	"styleSettings": {
+		"message": "Aparência",
+		"description": "Section title for style/appearance settings (trail, HUD, etc.)"
+	},
+	"show": {
+		"message": "Mostrar",
+		"description": "Show navigation menu"
+	},
+	"hide": {
+		"message": "Ocultar",
+		"description": "Hide navigation menu"
+	},
+	"urlFormatError": {
+		"message": "Por favor, introduza o URL completo começando com http:// ou https://",
+		"description": "URL format error message"
+	},
+	"resetToDefault": {
+		"message": "Repor predefinição",
+		"description": "Reset gesture to default action"
+	},
+	"resetToDefaultConfirm": {
+		"message": "Repor estas definições para os valores predefinidos?",
+		"description": "Confirmation dialog for resetting settings"
+	},
+	"addCustomGesture": {
+		"message": "Adicionar Gesto Personalizado",
+		"description": "Add custom gesture section title"
+	},
+	"clear": {
+		"message": "Limpar",
+		"description": "Clear button"
+	},
+	"gestureAdded": {
+		"message": "Gesto adicionado",
+		"description": "Gesture added success message"
+	},
+	"gestureRecorderTitle": {
+		"message": "Desenhar um Gesto",
+		"description": "Gesture recorder full-screen title"
+	},
+	"gestureRecorderDesc": {
+		"message": "Mantenha premido o %button% e desenhe um padrão de gesto",
+		"description": "Gesture recorder instruction, %button% is replaced with the mouse button name"
+	},
+	"gestureRecorderEsc": {
+		"message": "Cancelar",
+		"description": "Gesture recorder cancel button label"
+	},
+	"gestureRecorderRecording": {
+		"message": "A gravar…",
+		"description": "Gesture recorder recording indicator"
+	},
+	"gestureRecorderResult": {
+		"message": "Gesto Gravado",
+		"description": "Gesture recorder result label"
+	},
+	"gestureRecorderConfirm": {
+		"message": "Confirmar",
+		"description": "Gesture recorder confirm button"
+	},
+	"gestureRecorderRedraw": {
+		"message": "Redesenhar",
+		"description": "Gesture recorder redraw button"
+	},
+	"gestureRecorderBanned": {
+		"message": "O gesto %pattern% já existe",
+		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"rightButton": {
+		"message": "Botão direito do rato",
+		"description": "Right mouse button name"
+	},
+	"leftButton": {
+		"message": "Botão esquerdo do rato",
+		"description": "Left mouse button name"
+	},
+	"customGesture": {
+		"message": "Personalizado",
+		"description": "Label for custom gestures"
+	},
+	"deleteGesture": {
+		"message": "Eliminar Gesto",
+		"description": "Delete gesture button tooltip"
+	},
+	"deleteGestureConfirm": {
+		"message": "Eliminar gesto %pattern%?",
+		"description": "Delete gesture confirmation"
+	},
+	"gestureDeleted": {
+		"message": "Gesto eliminado",
+		"description": "Gesture deleted success message"
+	},
+	"enterCustomUrl": {
+		"message": "URL",
+		"description": "Prompt for custom URL input"
+	},
+	"copyAsMarkdown": {
+		"message": "Copiar como Markdown",
+		"description": "Checkbox label for copying as markdown format"
+	},
+	"invalidUrl": {
+		"message": "Por favor, introduza um URL válido (começando com http:// ou https://)",
+		"description": "Invalid URL error message"
+	},
+	"popupTrail": {
+		"message": "Rasto do Gesto",
+		"description": "Gesture trail in popup"
+	},
+	"popupHint": {
+		"message": "Dica de Ação",
+		"description": "Action hint in popup"
+	},
+	"popupCommonGestures": {
+		"message": "Gestos Comuns",
+		"description": "Common gestures"
+	},
+	"popupCurrentSite": {
+		"message": "Site Atual",
+		"description": "Current site"
+	},
+	"popupRestricted": {
+		"message": "Página Restrita",
+		"description": "Restricted page"
+	},
+	"popupDisabled": {
+		"message": "Desativado",
+		"description": "Disabled"
+	},
+	"popupAddBlacklist": {
+		"message": "Adicionar à Lista Negra",
+		"description": "Add to blacklist"
+	},
+	"popupRemoveBlacklist": {
+		"message": "Remover da Lista Negra",
+		"description": "Remove from blacklist"
+	},
+	"popupNotAvailable": {
+		"message": "Indisponível",
+		"description": "Not available"
+	},
+	"popupBack": {
+		"message": "Voltar",
+		"description": "Back - short"
+	},
+	"popupForward": {
+		"message": "Avançar",
+		"description": "Forward - short"
+	},
+	"popupScrollUp": {
+		"message": "Cima",
+		"description": "Scroll up - short"
+	},
+	"popupScrollDown": {
+		"message": "Baixo",
+		"description": "Scroll down - short"
+	},
+	"popupClose": {
+		"message": "Fechar",
+		"description": "Close Tab - short"
+	},
+	"popupRestore": {
+		"message": "Restaurar",
+		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "Separador esq.",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "Separador dir.",
+		"description": "Switch Right Tab - short"
+	},
+	"dragSearchText": {
+		"message": "🔍 Pesquisa por Arrastar",
+		"description": "Drag search hint"
+	},
+	"dragOpenImage": {
+		"message": "🖼️ Abrir Imagem",
+		"description": "Drag open image hint"
+	},
+	"dragOpenLink": {
+		"message": "🔗 Abrir Ligação",
+		"description": "Drag open link hint"
+	},
+	"aboutTitle": {
+		"message": "Sobre o FlowMouse",
+		"description": "About title"
+	},
+	"aboutTitleShort": {
+		"message": "Sobre",
+		"description": "Short About title "
+	},
+	"aboutAuthor": {
+		"message": "Autor",
+		"description": "Author"
+	},
+	"aboutWebsite": {
+		"message": "Site",
+		"description": "Website"
+	},
+	"aboutOpenSource": {
+		"message": "GitHub",
+		"description": "GitHub link"
+	},
+	"aboutEmail": {
+		"message": "E-mail",
+		"description": "Email"
+	},
+	"aboutPrivacy": {
+		"message": "Declaração de Privacidade",
+		"description": "Privacy statement"
+	},
+	"aboutPrivacyText": {
+		"message": "Esta extensão é um projeto de código aberto com código alojado no GitHub. Contribuições e revisão de código são bem-vindas. Todo o processamento de dados é feito localmente no seu dispositivo. A extensão em si não estabelece quaisquer ligações de rede e não possui servidores backend, pelo que não recolhe nem envia quaisquer dados do utilizador para servidores externos. As suas definições guardadas são encriptadas e sincronizadas entre os seus dispositivos com sessão iniciada através do serviço de sincronização integrado do navegador %browserName%. Este processo é inteiramente controlado pelo navegador e segue as definições de privacidade e sincronização do seu navegador.",
+		"description": "Privacy statement text"
+	},
+	"aboutCredits": {
+		"message": "Créditos",
+		"description": "Credits"
+	},
+	"aboutCreditsText": {
+		"message": "Agradecimentos ao navegador Microsoft Edge e à extensão crxMouse pela inspiração de design.\nAgradecimentos à comunidade 52pojie.cn e aos utilizadores pelo feedback e sugestões!",
+		"description": "Credits text"
+	},
+	"aboutFeatures": {
+		"message": "Funcionalidades",
+		"description": "Features"
+	},
+	"aboutFeature1": {
+		"message": "16 Gestos Predefinidos + Gestos Personalizados",
+		"description": "Feature 1"
+	},
+	"aboutFeature2": {
+		"message": "Feedback Visual de Rasto",
+		"description": "Feature 2"
+	},
+	"aboutFeature3": {
+		"message": "Super Arrastar Texto/Imagem/Ligação",
+		"description": "Feature 3"
+	},
+	"aboutFeature4": {
+		"message": "Lista Negra de Sites",
+		"description": "Feature 4"
+	},
+	"aboutFeature5": {
+		"message": "Sincronização de Conta %browserName%",
+		"description": "Feature 5"
+	},
+	"aboutFeature6": {
+		"message": "Executa Localmente, Sem Rede Exceto Sincronização",
+		"description": "Feature 6"
+	},
+	"tutorial": {
+		"message": "Tutorial",
+		"description": "Tutorial link"
+	},
+	"learnMore": {
+		"message": "Saber Mais",
+		"description": "Learn more link"
+	},
+	"badgeNoNetwork": {
+		"message": "Sem Rede Exceto Sincronização",
+		"description": "No network privacy badge"
+	},
+	"badgeNoData": {
+		"message": "Sem Recolha de Dados",
+		"description": "No data collection badge"
+	},
+	"badgeLocalRun": {
+		"message": "Executa Localmente",
+		"description": "Local run badge"
+	},
+	"newTabSettings": {
+		"message": "Definições de Novo Separador",
+		"description": "New tab open settings"
+	},
+	"newTabPosition": {
+		"message": "Posição",
+		"description": "New tab position"
+	},
+	"tabPositionRight": {
+		"message": "À direita do separador atual",
+		"description": "Right of current tab"
+	},
+	"tabPositionLeft": {
+		"message": "À esquerda do separador atual",
+		"description": "Left of current tab"
+	},
+	"tabPositionFirst": {
+		"message": "Primeiro separador (mais à esquerda)",
+		"description": "First tab (leftmost)"
+	},
+	"tabPositionLast": {
+		"message": "Último separador (mais à direita)",
+		"description": "Last tab (rightmost)"
+	},
+	"tabPositionCurrent": {
+		"message": "Separador atual",
+		"description": "Open in current tab"
+	},
+	"tabPositionNewWindow": {
+		"message": "Nova janela",
+		"description": "Open in a new browser window"
+	},
+	"newTabActive": {
+		"message": "Abrir em primeiro plano",
+		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "Abrir em primeiro plano",
+		"description": "Open window in foreground"
+	},
+	"openInIncognito": {
+		"message": "Incógnito",
+		"description": "Open in incognito checkbox"
+	},
+	"textDragGestures": {
+		"message": "Gestos de Arrastar Texto",
+		"description": "Text drag gestures"
+	},
+	"linkDragGestures": {
+		"message": "Gestos de Arrastar Ligação",
+		"description": "Link drag gestures"
+	},
+	"imageDragGestures": {
+		"message": "Gestos de Arrastar Imagem",
+		"description": "Image drag gestures"
+	},
+	"direction": {
+		"message": "Direção",
+		"description": "Direction column header"
+	},
+	"action": {
+		"message": "Comando",
+		"description": "Action column header"
+	},
+	"imageSearchUrl": {
+		"message": "URL de Pesquisa de Imagem (%s = URL da imagem)",
+		"description": "Image search URL input"
+	},
+	"dragActionNone": {
+		"message": "Nenhum",
+		"description": "No action"
+	},
+	"dragActionSearch": {
+		"message": "🔍 Motor de Busca",
+		"description": "Search action"
+	},
+	"dragActionCopy": {
+		"message": "📋 Copiar",
+		"description": "Copy action"
+	},
+	"dragActionOpenTab": {
+		"message": "📑 Abrir em Novo Separador",
+		"description": "Open in new tab"
+	},
+	"dragActionOpenTabLink": {
+		"message": "🔗 Abrir Ligação",
+		"description": "Open link in new tab"
+	},
+	"dragActionOpenTabImage": {
+		"message": "🖼️ Abrir Imagem",
+		"description": "Open image in new tab"
+	},
+	"dragActionCopyLink": {
+		"message": "📋 Copiar Ligação",
+		"description": "Copy link"
+	},
+	"dragActionCopyLinkText": {
+		"message": "📋 Copiar Texto da Ligação",
+		"description": "Copy link text"
+	},
+	"dragActionCopyLinkAndText": {
+		"message": "📋 Copiar Texto e Link",
+		"description": "Copy link text and URL"
+	},
+	"dragActionSaveImage": {
+		"message": "💾 Guardar Imagem",
+		"description": "Save image"
+	},
+	"dragActionCopyImage": {
+		"message": "🖼️ Copiar Imagem",
+		"description": "Copy image"
+	},
+	"dragActionCopyImageUrl": {
+		"message": "📋 Copiar URL da Imagem",
+		"description": "Copy image URL"
+	},
+	"dragActionImageSearch": {
+		"message": "🔍 Pesquisa de Imagem",
+		"description": "Image search"
+	},
+	"dragActionCustomSearch": {
+		"message": "🔍 Pesquisa Personalizada",
+		"description": "Custom search"
+	},
+	"dragActionSendCustomEvent": {
+		"message": "Enviar evento personalizado",
+		"description": "Send custom DOM event on drag gesture"
+	},
+	"reducedMotionWarning": {
+		"message": "A animação do sistema %OS% está desativada, a animação de rolagem pode não funcionar corretamente. Pode ativar a animação nas definições do sistema %OS%.",
+		"description": "Warning message when system reduced motion is enabled"
+	},
+	"autoDetectUrl": {
+		"message": "Detetar URL Automaticamente",
+		"description": "Auto detect URL checkbox label"
+	},
+	"autoDetectUrlTooltip": {
+		"message": "Se o texto tiver o formato de uma ligação, abrir diretamente em vez de pesquisar",
+		"description": "Tooltip for the auto detect URL checkbox"
+	},
+	"preferLink": {
+		"message": "Preferir Ligação",
+		"description": "Prefer link checkbox label"
+	},
+	"customHudName": {
+		"message": "Nome",
+		"description": "Placeholder for custom action name shown on HUD"
+	},
+	"customHudNameTooltip": {
+		"message": "Nome personalizado exibido no ecrã ao realizar o gesto",
+		"description": "Tooltip for the custom HUD name field"
+	},
+	"actionNoOptions": {
+		"message": "Este comando não requer qualquer configuração.",
+		"description": "Placeholder shown in the action picker's detail panel when the selected action has no configurable settings"
+	},
+	"actionRequiredBadge": {
+		"message": "Obrigatório",
+		"description": "Badge shown next to fields that must be filled in (e.g., URL for Open URL)"
+	},
+	"menuNeedRefresh": {
+		"message": "FlowMouse não carregado, clique para atualizar",
+		"description": "Context menu title for pages needing refresh"
+	},
+	"menuRestricted": {
+		"message": "FlowMouse indisponível, saiba porquê",
+		"description": "Context menu title for restricted pages"
+	},
+	"showRestrictedNotice": {
+		"message": "Aviso de Página Restrita",
+		"description": "Setting title for restricted page notice"
+	},
+	"showRestrictedNoticeDesc": {
+		"message": "Mostrar aviso no menu de contexto em páginas onde os gestos estão indisponíveis",
+		"description": "Setting description for restricted page notice"
+	},
+	"restrictedPagesDetailsTitle": {
+		"message": "Devido a políticas de segurança do navegador, as extensões não podem ser executadas em certos tipos de páginas.",
+		"description": "Collapsible details title"
+	},
+	"showMoreHint": {
+		"message": " (Mostrar detalhes)",
+		"description": "Hint to show more details"
+	},
+	"restrictedNewTab": {
+		"message": "Página de Novo Separador",
+		"description": "New tab page title"
+	},
+	"restrictedNewTabDesc": {
+		"message": "A página de novo separador predefinida do navegador é uma página de sistema protegida. As extensões não podem injetar scripts ou modificar conteúdo aqui.",
+		"description": "New tab page description"
+	},
+	"restrictedStore": {
+		"message": "Lojas de Extensões Oficiais",
+		"description": "Store page title"
+	},
+	"restrictedStoreDesc": {
+		"message": "Por exemplo, %storeInfo%, etc. Os navegadores impedem que extensões funcionem nestas páginas para proteger o funcionamento normal da loja.",
+		"description": "Store page description"
+	},
+	"restrictedInternal": {
+		"message": "Páginas Internas do Navegador (%browserProtocol%)",
+		"description": "Internal page title"
+	},
+	"restrictedInternalDesc": {
+		"message": "Por exemplo, configurações internas, histórico, transferências, páginas de erro, etc. do %browserName%. Estas páginas envolvem funções centrais do navegador e dados de privacidade do utilizador, pelo que são estritamente protegidas.",
+		"description": "Internal page description"
+	},
+	"restrictedFile": {
+		"message": "Páginas de Ficheiros Locais (file://)",
+		"description": "File page title"
+	},
+	"restrictedFileDesc": {
+		"message": "Ficheiros locais html, pdf, etc. abertos através do protocolo file://. Devido a restrições de segurança (prevenindo extensões maliciosas de aceder ao sistema de ficheiros local), as extensões não podem funcionar nestas páginas.",
+		"description": "File page description"
+	},
+	"restrictedViewSource": {
+		"message": "Páginas de Visualização de Fonte (view-source:)",
+		"description": "View source page title"
+	},
+	"restrictedViewSourceDesc": {
+		"message": "O visualizador de código fonte do navegador é também uma página de sistema protegida. As extensões não podem ser executadas aqui.",
+		"description": "View source page description"
+	},
+	"restrictedOther": {
+		"message": "Outras páginas afetadas menos comuns não são listadas separadamente.",
+		"description": "Other restricted pages note"
+	},
+	"popupNeedRefresh": {
+		"message": "Extensão não carregada",
+		"description": "Popup title when content script not loaded"
+	},
+	"popupNeedRefreshDesc": {
+		"message": "Esta página foi aberta antes da instalação/atualização da extensão. Atualize para ativar os gestos.",
+		"description": "Popup description when content script not loaded"
+	},
+	"popupRefreshBtn": {
+		"message": "Atualizar Página",
+		"description": "Popup refresh button text"
+	},
+	"popupRestrictedTitle": {
+		"message": "Gestos indisponíveis",
+		"description": "Popup title for restricted pages"
+	},
+	"popupRestrictedDesc": {
+		"message": "Esta página não pode usar gestos devido a restrições de segurança do navegador.",
+		"description": "Popup description for restricted pages"
+	},
+	"popupLearnMore": {
+		"message": "Saber Mais",
+		"description": "Popup learn more button text"
+	},
+	"tutorialPending": {
+		"message": "Experimentar agora",
+		"description": "Tutorial pending status"
+	},
+	"tutorialCompleted": {
+		"message": "Feito",
+		"description": "Tutorial completed status"
+	},
+	"tutorialClickToStart": {
+		"message": "Clique no <span class=\"text-highlight\">Botão Direito do Rato</span> para Começar",
+		"description": "Tutorial Step 0 instruction"
+	},
+	"tutorialWelcomeTitle": {
+		"message": "Bem-vindo ao FlowMouse",
+		"description": "Tutorial welcome title"
+	},
+	"tutorialWelcomeSubtitle": {
+		"message": "Domine o básico em 30 segundos para uma navegação mais fluida e intuitiva",
+		"description": "Tutorial welcome subtitle"
+	},
+	"tutorialStep1Title": {
+		"message": "O Básico",
+		"description": "Tutorial Step 1 title"
+	},
+	"tutorialStep1Subtitle": {
+		"message": "Aprenda a mecânica central dos gestos",
+		"description": "Tutorial Step 1 subtitle"
+	},
+	"tutorialStep1InstructionIdle": {
+		"message": "Pressione e <strong>Mantenha</strong> o <span class=\"text-highlight\">Botão Direito do Rato</span>",
+		"description": "Tutorial Step 1 instruction idle"
+	},
+	"tutorialStep1InstructionPressing": {
+		"message": "<strong>Excelente!</strong> Agora arraste <strong>%arrow% Direita</strong>",
+		"description": "Tutorial Step 1 instruction pressing"
+	},
+	"tutorialStep1InstructionDragging": {
+		"message": "Continue a arrastar...",
+		"description": "Tutorial Step 1 instruction dragging"
+	},
+	"tutorialStep1InstructionReleasing": {
+		"message": "<strong>Ótimo!</strong> Agora solte!",
+		"description": "Tutorial Step 1 instruction releasing"
+	},
+	"tutorialStep2Title": {
+		"message": "Gestos FlowMouse",
+		"description": "Tutorial Step 2 title"
+	},
+	"tutorialStep2Subtitle": {
+		"message": "Mantenha o <span class=\"text-highlight\">Botão Direito do Rato</span> para realizar gestos",
+		"description": "Tutorial Step 2 subtitle"
+	},
+	"tutorialStep2Footer": {
+		"message": "<strong>Mais gestos</strong> e <strong>personalização completa</strong> disponíveis nas definições.",
+		"description": "Footer note for step 2 discovery banner"
+	},
+	"tutorialStep2DiscoveryHeader": {
+		"message": "Mais Gestos",
+		"description": "Header for step 2 discovery banner"
+	},
+	"tutorialStep3DiscoveryHeader": {
+		"message": "Mais Funcionalidades de Super Arrastar",
+		"description": "Header for step 3 discovery banner"
+	},
+	"tutorialStep3TextSearch": {
+		"message": "Texto <span class=\"svg-arrow\">→</span> Pesquisa",
+		"description": "Text drag search discovery item"
+	},
+	"tutorialStep3LinkOpen": {
+		"message": "Ligação <span class=\"svg-arrow\">→</span> Abrir em Novo Separador",
+		"description": "Link drag open discovery item"
+	},
+	"tutorialStep3ImageOpen": {
+		"message": "Imagem <span class=\"svg-arrow\">→</span> Abrir em Novo Separador",
+		"description": "Image drag open discovery item"
+	},
+	"tutorialStep3Footer": {
+		"message": "<strong>Mais ações de arrastar</strong> e <strong>personalização completa</strong> disponíveis no modo de definições avançadas",
+		"description": "Footer for step 3 discovery banner"
+	},
+	"tutorialContinue": {
+		"message": "Continuar",
+		"description": "Tutorial continue button"
+	},
+	"tutorialStep3Title": {
+		"message": "Super Arrastar",
+		"description": "Tutorial Step 3 title"
+	},
+	"tutorialStep3Subtitle": {
+		"message": "Mantenha o <span class=\"text-highlight\">Botão Esquerdo do Rato</span> e arraste <span class=\"svg-arrow\">→</span> para realizar ações rapidamente",
+		"description": "Tutorial Step 3 subtitle"
+	},
+	"tutorialStep3HintTitle": {
+		"message": "Pesquisa de Seleção de Texto",
+		"description": "Tutorial Step 3 hint title"
+	},
+	"tutorialStep3HintDesc": {
+		"message": "Selecione texto, depois use o <span class=\"text-highlight\">Botão Esquerdo do Rato</span> para arrastar <span class=\"svg-arrow\">→</span> para pesquisar",
+		"description": "Tutorial Step 3 hint description. Note: Must drag to right. Use SVG arrow instead of text for direction."
+	},
+	"tutorialStep3TextBoxLabel": {
+		"message": "Tente com o texto abaixo!",
+		"description": "Tutorial Step 3 text box label"
+	},
+	"tutorialStep3SelectableText": {
+		"message": "FlowMouse Super Arrastar",
+		"description": "Tutorial Step 3 selectable text"
+	},
+	"tutorialStep4Title": {
+		"message": "Parabéns!",
+		"description": "Tutorial Step 4 title"
+	},
+	"tutorialStep4Subtitle": {
+		"message": "Agora move-se com o fluxo.",
+		"description": "Tutorial Step 4 subtitle"
+	},
+	"tutorialStep4Instruction": {
+		"message": "Use o <span class=\"text-highlight\">Super Arrastar <span class=\"svg-arrow\">→</span></span> nesta ligação para abrir num <span class=\"text-highlight\">Novo Separador</span>",
+		"description": "Tutorial Step 4 instruction. Note: Must drag to right. Use SVG arrow instead of text for direction."
+	},
+	"tutorialSettingsLink": {
+		"message": "Definições do FlowMouse",
+		"description": "Tutorial settings link"
+	},
+	"tutorialSettingsHint": {
+		"message": "Muitas funcionalidades poderosas à espera de serem exploradas!",
+		"description": "Tutorial settings hint"
+	},
+	"tutorialWrongDirection": {
+		"message": "Direção errada! Arraste %arrow% Direita",
+		"description": "Tutorial wrong direction error"
+	},
+	"tutorialEarlyRelease": {
+		"message": "Soltou demasiado cedo! Continue a arrastar.",
+		"description": "Tutorial early release error"
+	},
+	"tutorialDragWrongButton": {
+		"message": "Use o <span class=\"text-highlight\">Botão Esquerdo do Rato</span> para arrastar",
+		"description": "Tutorial drag wrong button error"
+	},
+	"tutorialRefreshTip": {
+		"message": "Dica: Separadores abertos antes da instalação precisam de ser <span class=\"text-highlight\">atualizados</span> para usar o FlowMouse",
+		"description": "Tip about refreshing tabs"
+	},
+	"permissionBookmarksTitle": {
+		"message": "Gerir Favoritos",
+		"description": "Permission popup title for bookmarks"
+	},
+	"permissionBookmarksDesc": {
+		"message": "Para adicionar páginas aos seus favoritos, o FlowMouse necessita de acesso aos seus favoritos.",
+		"description": "Permission popup description for bookmarks"
+	},
+	"permissionDownloadsTitle": {
+		"message": "Gerir Transferências",
+		"description": "Permission popup title for downloads"
+	},
+	"permissionDownloadsDesc": {
+		"message": "Para guardar imagens, o FlowMouse necessita de acesso às suas transferências.",
+		"description": "Permission popup description for downloads"
+	},
+	"permissionDownloadsPageCaptureTitle": {
+		"message": "Guardar conteúdo",
+		"description": "Permission popup title for downloads and page capture"
+	},
+	"permissionDownloadsPageCaptureDesc": {
+		"message": "Para guardar conteúdos, o FlowMouse necessita de acesso às páginas e transferências.",
+		"description": "Permission popup description for downloads and page capture"
+	},
+	"permissionIncognitoTitle": {
+		"message": "Permitir em modo de navegação anónima",
+		"description": "Permission popup title for incognito"
+	},
+	"permissionIncognitoDesc": {
+		"message": "Para funcionar em janelas de navegação anónima, tem de ativar manualmente a opção \"Permitir em modo de navegação anónima\" para o FlowMouse.",
+		"description": "Permission popup description for incognito"
+	},
+	"permissionClipboardReadTitle": {
+		"message": "Ler a área de transferência",
+		"description": "Permission popup title for clipboard read"
+	},
+	"permissionClipboardReadDesc": {
+		"message": "Para colar o conteúdo da área de transferência, o FlowMouse precisa de acesso para ler a sua área de transferência.",
+		"description": "Permission popup description for clipboard read"
+	},
+	"openExtensionsSettings": {
+		"message": "Abrir detalhes da extensão",
+		"description": "Button to open extension details page"
+	},
+	"permissionFirefoxIncognitoTitle": {
+		"message": "Executar em janelas privadas",
+		"description": "Permission popup title for Firefox private browsing"
+	},
+	"permissionFirefoxIncognitoDesc": {
+		"message": "Para funcionar em janelas privadas, tem de ativar manualmente a opção \"Executar em janelas privadas\" para o FlowMouse no Gestor de extras.",
+		"description": "Permission popup description for Firefox private browsing"
+	},
+	"grantPermission": {
+		"message": "Conceder Permissão",
+		"description": "Grant permission button"
+	},
+	"grantPermissionCancel": {
+		"message": "Cancelar",
+		"description": "Cancel button"
+	},
+	"permissionTitle": {
+		"message": "Permissão FlowMouse",
+		"description": "Generic permission window title"
+	},
+	"tutorialPinHint": {
+		"message": "Clique em<span class='icon-ext'></span><b>Extensões</b> e<span class='icon-pin'></span><b>Fixe</b> o FlowMouse para acesso fácil!",
+		"description": "Hint to pin the extension in tutorial step 4. Do not add space around icon."
+	},
+	"downloadErrorHotlink": {
+		"message": "Falha ao guardar imagem. O site pode ter proteção contra hotlink. Clique com o botão direito na imagem e selecione \"Guardar imagem como...\"",
+		"description": "Toast message when image download fails due to hotlink protection"
+	},
+	"saveImageLoadError": {
+		"message": "Falha ao guardar imagem: Falha ao carregar imagem",
+		"description": "Toast message when image fails to load before saving"
+	},
+	"saveImageTimeout": {
+		"message": "Falha ao guardar imagem: O tempo de carregamento esgotou",
+		"description": "Toast message when image loading times out"
+	},
+	"buttonOkay": {
+		"message": "OK",
+		"description": "Generic OK button"
+	},
+	"buttonConfirm": {
+		"message": "Confirmar",
+		"description": "Generic Confirm button"
+	},
+	"buttonCancel": {
+		"message": "Cancelar",
+		"description": "Generic Cancel button"
+	},
+	"buttonClose": {
+		"message": "Fechar",
+		"description": "Generic Close button"
+	},
+	"searchActions": {
+		"message": "Pesquisar comandos...",
+		"description": "Placeholder for action search input in action picker"
+	},
+	"actionCategoryNavigation": {
+		"message": "Navegação",
+		"description": "Action category: navigation"
+	},
+	"actionCategoryTabs": {
+		"message": "Separadores",
+		"description": "Action category: tabs"
+	},
+	"actionCategoryWindow": {
+		"message": "Janela",
+		"description": "Action category: window"
+	},
+	"actionCategoryUtilities": {
+		"message": "Ferramentas",
+		"description": "Action category: utilities"
+	},
+	"noResults": {
+		"message": "Sem resultados",
+		"description": "No search results found"
+	},
+	"wheelGestures": {
+		"message": "Gestos da roda do rato",
+		"description": "Mouse wheel gestures section title"
+	},
+	"enableWheelGestures": {
+		"message": "Ativar gestos da roda do rato",
+		"description": "Enable mouse wheel gestures"
+	},
+	"enableWheelGesturesDesc": {
+		"message": "Execute várias ações rapidamente usando a roda do rato",
+		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelGesture_scrollUpHoldingRight": {
+		"message": "Desloque para cima enquanto segura o botão direito",
+		"description": "Wheel gesture: scroll up while holding right button"
+	},
+	"wheelGesture_scrollDownHoldingRight": {
+		"message": "Desloque para baixo enquanto segura o botão direito",
+		"description": "Wheel gesture: scroll down while holding right button"
+	},
+	"wheelGesture_wheelClickHoldingRight": {
+		"message": "Clique com o botão do meio enquanto segura o botão direito",
+		"description": "Wheel gesture: wheel (middle) click while holding right button"
+	},
+	"specialGestures": {
+		"message": "Gestos especiais",
+		"description": "Special gestures section title"
+	},
+	"enableSpecialGestures": {
+		"message": "Ativar gestos especiais",
+		"description": "Enable special gestures"
+	},
+	"enableSpecialGesturesDesc": {
+		"message": "Execute ações clicando num botão do rato enquanto mantém o outro premido",
+		"description": "Enable special gestures description"
+	},
+	"specialGesture_leftClickHoldingRight": {
+		"message": "Clique com o botão esquerdo enquanto mantém premido o botão direito",
+		"description": "Special gesture: left click while holding right button"
+	},
+	"specialGesture_rightClickHoldingLeft": {
+		"message": "Clique com o botão direito enquanto mantém premido o botão esquerdo",
+		"description": "Special gesture: right click while holding left button"
+	},
+	"actionChainsDesc": {
+		"message": "Utilize cadeias de comandos para executar múltiplos comandos em sequência.",
+		"description": "Action chains section description"
+	},
+	"actionActionChain": {
+		"message": "Cadeia de Comandos",
+		"description": "Action chain action name"
+	},
+	"actionCustomMenu": {
+		"message": "Menu Personalizado",
+		"description": "Custom popup menu action name"
+	},
+	"customMenuDesc": {
+		"message": "Crie menus de contexto personalizados com várias ações.",
+		"description": "Custom menu section description"
+	},
+	"addMenu": {
+		"message": "Adicionar menu",
+		"description": "Add menu button"
+	},
+	"menuNamePlaceholder": {
+		"message": "Menu Personalizado",
+		"description": "Menu name input placeholder"
+	},
+	"menuItemCount": {
+		"message": "%count% itens",
+		"description": "Item count for menus, e.g. '3 items'"
+	},
+	"menuItemCountOne": {
+		"message": "%count% item",
+		"description": "Item count for menus with exactly 1 item"
+	},
+	"addMenuItem": {
+		"message": "Adicionar item",
+		"description": "Add menu item button"
+	},
+	"addMenuSeparator": {
+		"message": "Adicionar separador",
+		"description": "Add separator to menu button"
+	},
+	"emptyMenuItems": {
+		"message": "Nenhum item adicionado. Clique em \"Adicionar item\" para começar.",
+		"description": "Empty menu items message"
+	},
+	"menuNotFound": {
+		"message": "(Menu não encontrado)",
+		"description": "Menu not found label"
+	},
+	"deleteMenuConfirm": {
+		"message": "Eliminar o menu \"%name%\"?",
+		"description": "Delete menu confirmation"
+	},
+	"menuItemNumber": {
+		"message": "Item %n%",
+		"description": "Menu item number label"
+	},
+	"addChain": {
+		"message": "Adicionar Cadeia",
+		"description": "Add chain button"
+	},
+	"chainNamePlaceholder": {
+		"message": "Cadeia de Comandos",
+		"description": "Chain name input placeholder"
+	},
+	"chainDelayUnit": {
+		"message": "ms",
+		"description": "Milliseconds unit for chain delay"
+	},
+	"addStep": {
+		"message": "Adicionar Passo",
+		"description": "Add step button"
+	},
+	"emptyChainSteps": {
+		"message": "Nenhum passo adicionado. Clique em \"Adicionar Passo\" para começar.",
+		"description": "Empty chain steps message in expanded body"
+	},
+	"emptyChainStepsShort": {
+		"message": "Nenhum passo adicionado",
+		"description": "Short empty chain steps message for summary"
+	},
+	"noChains": {
+		"message": "Nenhuma cadeia de comandos ainda. Clique em \"Adicionar Cadeia\" para criar uma.",
+		"description": "No chains message"
+	},
+	"chainNotFound": {
+		"message": "(Cadeia não encontrada)",
+		"description": "Chain not found label"
+	},
+	"deleteChainConfirm": {
+		"message": "Eliminar cadeia \"%name%\"?",
+		"description": "Delete chain confirmation"
+	},
+	"stepNumber": {
+		"message": "Passo %n%",
+		"description": "Step number label"
+	},
+	"actionDelay": {
+		"message": "Atraso",
+		"description": "Delay action name for chain steps"
+	},
+	"actionSendCustomEvent": {
+		"message": "Enviar evento personalizado",
+		"description": "Action to dispatch a custom DOM event"
+	},
+	"actionSendExtensionMessage": {
+		"message": "Invocar outra extensão",
+		"description": "Action to send a custom message to another installed extension"
+	},
+	"actionSimulateKey": {
+		"message": "Simular pressão de tecla",
+		"description": "Action to simulate a keyboard key press on the page"
+	},
+	"actionPasteClipboard": {
+		"message": "Colar da área de transferência",
+		"description": "Action to paste clipboard text at the gesture start position"
+	},
+	"pasteClipboardHint": {
+		"message": "O conteúdo da área de transferência será colado no campo de entrada na <b>posição inicial do gesto</b>.",
+		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
+	"actionPasteContent": {
+		"message": "Colar texto personalizado",
+		"description": "Action to paste a preset, user-specified text at the gesture start position"
+	},
+	"pasteContentLabel": {
+		"message": "Texto",
+		"description": "Label for the text field where the user enters the content to paste"
+	},
+	"pasteContentHint": {
+		"message": "O texto especificado será inserido no campo de entrada na <b>posição inicial do gesto</b>.",
+		"description": "Hint shown in action config when paste specified content is selected. Contains HTML."
+	},
+	"pasteContentSensitiveHint": {
+		"message": "Não é recomendado armazenar informações sensíveis, como palavras-passe, aqui.",
+		"description": "Warning hint below the content field for the paste specified content action"
+	},
+	"simulateKeyPreset": {
+		"message": "Tecla predefinida",
+		"description": "Label for preset key dropdown in simulate key config"
+	},
+	"simulateKeyPresetLeft": {
+		"message": "← Seta para a esquerda (Página anterior)",
+		"description": "Preset: ArrowLeft key"
+	},
+	"simulateKeyPresetRight": {
+		"message": "→ Seta para a direita (Página seguinte)",
+		"description": "Preset: ArrowRight key"
+	},
+	"simulateKeyPresetCustom": {
+		"message": "Tecla personalizada",
+		"description": "Preset: Custom key option"
+	},
+	"simulateKeyRecordBtn": {
+		"message": "Gravar tecla",
+		"description": "Button to start recording a key press"
+	},
+	"simulateKeyRecording": {
+		"message": "Pressione uma tecla...",
+		"description": "Recording state text"
+	},
+	"simulateKeyManualInput": {
+		"message": "Tecla atual",
+		"description": "Label for current key display in simulate key config"
+	},
+	"simulateKeyHint": {
+		"message": "Esta funcionalidade apenas envia eventos de teclado para a página atual, sendo frequentemente utilizada para a navegação na página (← anterior / → seguinte). NÃO ativará atalhos do navegador (por ex., Ctrl+R não irá atualizar a página). Além disso, devido às limitações da estrutura do site, os eventos simulados podem não ser capturados por todos os componentes personalizados ou campos de entrada.",
+		"description": "Hint text for simulate key feature"
+	},
+	"customEventInvalidJson": {
+		"message": "Formato JSON inválido",
+		"description": "Error message when event detail is not valid JSON"
+	},
+	"customEventIncludeGestureInfo": {
+		"message": "Incluir informações de gestos em %code%",
+		"description": "Checkbox label for including gesture context in custom event detail. %code% = detail.gesture"
+	},
+	"customEventConfigureBtn": {
+		"message": "Definições",
+		"description": "Label for the configure button of custom event action in drag gesture manager"
+	},
+	"customEventHint": {
+		"message": "Despacha %code% em %window%. Útil para integração com outros scripts.",
+		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
+	},
+	"sendExtensionMessageHint": {
+		"message": "Envia uma mensagem através de %code% para outra extensão instalada. Útil para integração com outras extensões.",
+		"description": "Hint explaining how send-message-to-extension works. %code% = <code>chrome.runtime.sendMessage(...)</code>"
+	},
+	"delayDuration": {
+		"message": "Duração",
+		"description": "Delay duration label"
+	},
+	"chainStepCount": {
+		"message": "%count% passos",
+		"description": "Step count for unnamed chains, e.g. '3 steps'"
+	},
+	"chainStepCountOne": {
+		"message": "%count% passo",
+		"description": "Step count for unnamed chains with exactly 1 step"
+	},
+	"actionZoomIn": {
+		"message": "Aumentar",
+		"description": "Zoom in on the current page"
+	},
+	"actionZoomOut": {
+		"message": "Diminuir",
+		"description": "Zoom out on the current page"
+	},
+	"actionResetZoom": {
+		"message": "Repor zoom",
+		"description": "Reset page zoom to default or a specified level"
+	},
+	"actionViewPageSource": {
+		"message": "Ver código-fonte da página",
+		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionPauseGesture": {
+		"message": "Pausar Gestos Até Atualizar",
+		"description": "Temporarily disable all gestures on the current tab until page refresh"
+	},
+	"actionAreaSelect": {
+		"message": "Seleção de Área",
+		"description": "Enter area select mode to drag-select links on the page and batch open them"
+	},
+	"areaSelectTitle": {
+		"message": "Seleção de Área",
+		"description": "Label for the area select row in the popup"
+	},
+	"areaSelectModifierKey": {
+		"message": "Seleção Rápida de Área",
+		"description": "Label for the modifier key dropdown in area select settings"
+	},
+	"areaSelectModifierKeyDesc": {
+		"message": "Mantenha a tecla modificadora pressionada, depois clique com o botão esquerdo e arraste para selecionar rapidamente links na página para operações em lote",
+		"description": "Description for the modifier key setting"
+	},
+	"areaSelectDisabled": {
+		"message": "Desativado",
+		"description": "Disabled option for the area select modifier key dropdown"
+	},
+	"areaSelectMouseDrag": {
+		"message": "Arrastar com o rato",
+		"description": "Suffix label next to the modifier key dropdown"
+	},
+	"areaSelectTextUrl": {
+		"message": "Reconhecimento de URL de texto",
+		"description": "Label for the text URL recognition toggle"
+	},
+	"areaSelectTextUrlDesc": {
+		"message": "Também extrair URLs de texto simples (não hiperlinks) ao selecionar",
+		"description": "Description for the text URL recognition toggle"
+	},
+	"areaSelectWarnThreshold": {
+		"message": "Alerta de Operação em Lote",
+		"description": "Label for the batch operation alert threshold input"
+	},
+	"areaSelectWarnThresholdDesc": {
+		"message": "Mostrar confirmação ao operar em lote mais de esta quantidade de itens, 0 para desativar",
+		"description": "Description for the batch operation alert threshold"
+	},
+	"areaSelectDelay": {
+		"message": "Intervalo de operação",
+		"description": "Label for the operation interval input"
+	},
+	"areaSelectDelayDesc": {
+		"message": "Atraso entre cada abertura em operações em lote (segundos)",
+		"description": "Description for the operation interval setting"
+	},
+	"areaSelectHint": {
+		"message": "Arraste para selecionar links",
+		"description": "Hint text shown in the area select overlay"
+	},
+	"areaSelectOpen": {
+		"message": "Abrir %count% links",
+		"description": "Button text in the area select toolbar to batch open selected links"
+	},
+	"areaSelectOpenOne": {
+		"message": "Abrir %count% link",
+		"description": "Button text to open a single selected link (singular form)"
+	},
+	"areaSelectCopy": {
+		"message": "Copiar links",
+		"description": "Button text to copy all selected link URLs to clipboard"
+	},
+	"areaSelectCancel": {
+		"message": "Cancelar",
+		"description": "Button text to cancel area select mode"
+	},
+	"areaSelectConfirm": {
+		"message": "Confirmar",
+		"description": "Button text to confirm opening many links"
+	},
+	"areaSelectWarnTitle": {
+		"message": "Abrir muitas ligações?",
+		"description": "Title of the warning modal when opening many links"
+	},
+	"areaSelectWarnMessage": {
+		"message": "Está prestes a abrir %count% ligações. Isto pode tornar o seu browser mais lento. Continuar?",
+		"description": "Body text of the warning modal"
+	},
+	"start": {
+		"message": "Iniciar",
+		"description": "Button label to start an action (e.g. area select)"
+	},
+	"actionMenuShowTabs": {
+		"message": "Mudar de separador",
+		"description": "Show a context menu listing all open tabs in the current window"
+	},
+	"actionMenuRecentlyClosed": {
+		"message": "Separadores fechados recentemente",
+		"description": "Show a context menu listing recently closed tabs for quick restore"
+	},
+	"recentlyClosedMaxItems": {
+		"message": "Nº máximo de itens",
+		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
+	},
+	"actionCategoryContextMenu": {
+		"message": "Menu pop-up",
+		"description": "Action category: context menu actions"
+	},
+	"zoomStepMode": {
+		"message": "Modo de zoom",
+		"description": "Label for zoom mode selector: browser steps vs fixed increment"
+	},
+	"zoomStepModeBrowser": {
+		"message": "Usar níveis de zoom do navegador",
+		"description": "Option: follow Chrome's built-in zoom steps (25%, 33%, 50%, …, 500%)"
+	},
+	"zoomStepModeFixed": {
+		"message": "Incremento fixo",
+		"description": "Option: zoom in/out by a configurable fixed percentage each time"
+	},
+	"zoomDelta": {
+		"message": "Tamanho do incremento",
+		"description": "Label for the zoom increment/decrement slider"
+	},
+	"resetZoomLevel": {
+		"message": "Repor para",
+		"description": "Label for the target zoom level when resetting zoom"
+	},
+	"resetZoomDefault": {
+		"message": "Predefinição do navegador",
+		"description": "Option: reset zoom to the browser's default zoom setting"
+	},
+	"resetZoomCustom": {
+		"message": "Valor personalizado",
+		"description": "Option: reset zoom to a user-specified custom zoom level"
+	},
+	"actionMenuShowBookmarks": {
+		"message": "Mostrar marcadores",
+		"description": "Show a context menu listing bookmarks from a selected folder"
+	},
+	"bookmarkFolder": {
+		"message": "Pasta",
+		"description": "Label for selecting which bookmark folder to display"
+	},
+	"bookmarkFolderDefault": {
+		"message": "Predefinição do navegador",
+		"description": "Option label for using the browser's default bookmark location"
+	},
+	"bookmarkGrantPermission": {
+		"message": "(Conceder acesso aos marcadores)",
+		"description": "Button label to request bookmarks permission"
+	},
+	"ctxMenuSortOrder": {
+		"message": "Ordenar por",
+		"description": "Label for context menu sort order dropdown"
+	},
+	"ctxMenuSortDefault": {
+		"message": "Predefinido",
+		"description": "Sort option: original API/insertion order"
+	},
+	"ctxMenuSortDefaultDesc": {
+		"message": "Predefinido (inverso)",
+		"description": "Sort option: reverse of original API order"
+	},
+	"ctxMenuSortDateAddedAsc": {
+		"message": "Data de adição (mais antigas primeiro)",
+		"description": "Sort option: by date added ascending"
+	},
+	"ctxMenuSortDateAddedDesc": {
+		"message": "Data de adição (mais recentes primeiro)",
+		"description": "Sort option: by date added descending"
+	},
+	"ctxMenuSortNameAsc": {
+		"message": "Nome (crescente)",
+		"description": "Sort option: alphabetical ascending"
+	},
+	"ctxMenuSortNameDesc": {
+		"message": "Nome (decrescente)",
+		"description": "Sort option: alphabetical descending"
+	},
+	"ctxMenuSortLastAccessAsc": {
+		"message": "Último acesso (mais antigos primeiro)",
+		"description": "Sort option: by last access time ascending"
+	},
+	"ctxMenuSortLastAccessDesc": {
+		"message": "Último acesso (mais recentes primeiro)",
+		"description": "Sort option: by last access time descending"
+	},
+	"ctxMenuMaxItems": {
+		"message": "Itens máximos",
+		"description": "Label for maximum number of items in context menu"
+	},
+	"ctxMenuMaxItemsUnlimited": {
+		"message": "Ilimitado",
+		"description": "Placeholder shown when max items is 0 (no limit)"
+	},
+	"ctxMenuScrollToBottom": {
+		"message": "Deslocar para baixo",
+		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuTimeDisplay": {
+		"message": "Mostrar tempo",
+		"description": "Label for time display mode dropdown in context menu"
+	},
+	"ctxMenuTimeNone": {
+		"message": "Não mostrar",
+		"description": "Time display option: hide time column"
+	},
+	"ctxMenuTimeLastAccess": {
+		"message": "Último acesso",
+		"description": "Time display option: show last access time"
+	},
+	"ctxMenuTimeClosedTime": {
+		"message": "Hora de fecho",
+		"description": "Time display option: show when the tab was closed"
+	},
+	"ctxMenuTimeDateAdded": {
+		"message": "Data de adição",
+		"description": "Time display option: show when the bookmark was added"
+	}
+}

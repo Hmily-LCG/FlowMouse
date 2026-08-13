@@ -1,0 +1,2150 @@
+{
+	"extName": {
+		"message": "FlowMouse - マウスジェスチャー",
+		"description": "Extension name"
+	},
+	"extNameShort": {
+		"message": "FlowMouse",
+		"description": "Short extension name for popup"
+	},
+	"extDescription": {
+		"message": "プライバシーとスムーズな体験に重点を置いた、オープンソースのマウスジェスチャー拡張機能です。滑らかな操作感でスーパードラッグに対応。",
+		"description": "Extension description"
+	},
+	"theme": {
+		"message": "テーマ",
+		"description": "Theme"
+	},
+	"themeDark": {
+		"message": "ダーク",
+		"description": "Dark theme"
+	},
+	"themeLight": {
+		"message": "ライト",
+		"description": "Light theme"
+	},
+	"themeAuto": {
+		"message": "システムに従う",
+		"description": "Auto theme - follow system"
+	},
+	"syncStatus": {
+		"message": "同期ステータス",
+		"description": "Sync status"
+	},
+	"syncStatusDesc": {
+		"message": "%browserName%アカウント経由での設定同期",
+		"description": "Sync status description"
+	},
+	"saved": {
+		"message": "保存済み",
+		"description": "Saved"
+	},
+	"author": {
+		"message": "作者",
+		"description": "Author"
+	},
+	"privacyNote": {
+		"message": " 完全ローカル動作、同期時を除きネットワーク通信なし、データ収集なし",
+		"description": "Privacy note in footer"
+	},
+	"supportUsText": {
+		"message": "FlowMouseを気に入っていただけましたか？%appStoreInfo%で5つ星の評価をいただけると励みになります！",
+		"description": "Rating text"
+	},
+	"storeNameChrome": {
+		"message": "Chrome ウェブストア",
+		"description": "Chrome Web Store name"
+	},
+	"storeNameEdge": {
+		"message": "Edge アドオン",
+		"description": "Edge Add-ons name"
+	},
+	"storeNameFirefox": {
+		"message": "Firefox アドオン",
+		"description": "Firefox Add-ons name"
+	},
+	"feedbackText": {
+		"message": "不具合やご提案がありますか？<a href='mailto:Service@52pojie.cn'>メール</a>、<a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a>、または<a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>フォーラム</a>でお知らせください。迅速に対応いたします！",
+		"description": "Feedback text"
+	},
+	"feedbackTextChrome": {
+		"message": "不具合やご提案がありますか？<a href='https://chromewebstore.google.com/detail/fnldhkfidchnjiokpoemdhoejmaojkgp/support' target='_blank'>Chromeウェブストアのサポート</a>、<a href='mailto:Service@52pojie.cn'>メール</a>、<a href='https://github.com/Hmily-LCG/FlowMouse/issues' target='_blank'>GitHub</a>、または<a href='https://www.52pojie.cn/thread-2080303-1-1.html' target='_blank'>フォーラム</a>でお知らせください。迅速に対応いたします！",
+		"description": "Feedback text for Chrome browser"
+	},
+	"supportAndFeedback": {
+		"message": "サポートとフィードバック",
+		"description": "Support and Feedback section title"
+	},
+	"feedbackTitle": {
+		"message": "フィードバックと提案",
+		"description": "Feedback row title"
+	},
+	"supportUsTitle": {
+		"message": "応援する",
+		"description": "Rating row title"
+	},
+	"backToSettings": {
+		"message": "設定に戻る",
+		"description": "Back to settings link"
+	},
+	"settings": {
+		"message": "設定",
+		"description": "Settings"
+	},
+	"moreSettings": {
+		"message": "その他の設定",
+		"description": "More settings button in popup"
+	},
+	"version": {
+		"message": "バージョン",
+		"description": "Version"
+	},
+	"basicSettings": {
+		"message": "ジェスチャー機能",
+		"description": "Gesture settings section"
+	},
+	"enableGesture": {
+		"message": "ジェスチャー機能を有効にする",
+		"description": "Enable gesture feature"
+	},
+	"enableGestureDesc": {
+		"message": "右クリックを押したままマウスを動かすことで、ジェスチャー操作を簡単に実行できます",
+		"description": "Hold the right mouse button and move the mouse to easily perform gestures"
+	},
+	"gestureTriggerButtons": {
+		"message": "トリガーボタン",
+		"description": "Gesture trigger buttons setting title"
+	},
+	"gestureTriggerButtonsDesc": {
+		"message": "ジェスチャーをトリガーできるマウスボタンを選択します",
+		"description": "Gesture trigger buttons setting description"
+	},
+	"btnRightMouse": {
+		"message": "右ボタン",
+		"description": "Right mouse button"
+	},
+	"btnMiddleMouse": {
+		"message": "中ボタン",
+		"description": "Middle mouse button (wheel click)"
+	},
+	"btnSide1Mouse": {
+		"message": "サイドボタン（戻る）",
+		"description": "Mouse button 4 - the side button typically used for navigating back"
+	},
+	"btnSide2Mouse": {
+		"message": "サイドボタン（進む）",
+		"description": "Mouse button 5 - the side button typically used for navigating forward"
+	},
+	"btnPenRight": {
+		"message": "タッチペン右ボタン",
+		"description": "The secondary (right-click) button on a stylus / digital pen"
+	},
+	"triggerButtonDriverWarning": {
+		"message": "お使いのハードウェアやドライバの設定によっては、一部のトリガーボタンが正しく機能しない場合があります。例えば、Logicool（Logitech）のマウスでは、サイドボタンをジェスチャーに使用するためにドライバの「水平スクロール」を無効にする必要がある場合があります。",
+		"description": "Warning shown when side buttons or stylus right button is enabled as a gesture trigger"
+	},
+	"macLinuxContextMenuNotice": {
+		"message": "システムの制限により、右クリックジェスチャーが有効な場合、macOS / Linuxでは右ダブルクリックでコンテキストメニューを開きます。",
+		"description": "Notice for macOS / Linux users about double right-click for context menu"
+	},
+	"macLinuxDoubleClickHint": {
+		"message": "コンテキストメニューを開くには、右ボタンをダブルクリックしてください。（詳細）",
+		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
+	},
+	"edgeGestureConflictNotice": {
+		"message": "%browserName% にはジェスチャ機能が組み込まれています。FlowMouse のジェスチャを使用するには、%browserName% の設定で<a href=\"#\" class=\"edge-gesture-link\">組み込みジェスチャを無効にしてください</a>。",
+		"description": "Notice for Edge users about built-in gesture conflict"
+	},
+	"macTextDragNotice": {
+		"message": "macOSの仕様により、テキストをドラッグする際は、まずテキストを選択し、選択範囲内で左ボタンを押したまま少し待ってからドラッグしてください。そうしないとドラッグ機能が機能しない場合があります。",
+		"description": "Notice for macOS users about text drag behavior"
+	},
+	"showTrail": {
+		"message": "ジェスチャーの軌跡を表示",
+		"description": "Show gesture trail"
+	},
+	"showTrailDesc": {
+		"message": "ジェスチャー実行時に軌跡線を表示します",
+		"description": "Show trail line when performing gestures"
+	},
+	"showHint": {
+		"message": "操作ヒントを表示",
+		"description": "Show action hint"
+	},
+	"showHintDesc": {
+		"message": "画面中央に現在のジェスチャーに対応する操作を表示します",
+		"description": "Show current gesture action in center of screen"
+	},
+	"color": {
+		"message": "色",
+		"description": "Color"
+	},
+	"width": {
+		"message": "太さ",
+		"description": "Width/thickness"
+	},
+	"background": {
+		"message": "背景",
+		"description": "Background"
+	},
+	"opacity": {
+		"message": "不透明度",
+		"description": "Opacity"
+	},
+	"blur": {
+		"message": "ぼかし",
+		"description": "Blur radius"
+	},
+	"hudShadow": {
+		"message": "影",
+		"description": "HUD shadow toggle"
+	},
+	"showSuggestedGestures": {
+		"message": "ジェスチャープロンプト",
+		"description": "Show suggested gestures at bottom of screen"
+	},
+	"customCss": {
+		"message": "カスタム CSS",
+		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
+	},
+	"customCssDesc": {
+		"message": "カスタム CSS を設定して FlowMouse 自身の UI を調整します",
+		"description": "Description for the Custom CSS advanced setting"
+	},
+	"customCssConfigure": {
+		"message": "設定",
+		"description": "Button label to open the Custom CSS editor dialog when no CSS is set"
+	},
+	"customCssEdit": {
+		"message": "編集",
+		"description": "Button label to open the Custom CSS editor dialog when CSS is already set"
+	},
+	"customCssEditorTitle": {
+		"message": "カスタム CSS エディター",
+		"description": "Title of the dedicated custom CSS editor page"
+	},
+	"customCssEditorHint": {
+		"message": "スタイルは FlowMouse が作成する各 Shadow DOM に挿入されます。保存するには Ctrl+S を押してください。",
+		"description": "Hint shown above the editor textarea."
+	},
+	"customCssEditorPlaceholder": {
+		"message": "/* ここにカスタム CSS を記述します… */",
+		"description": "Placeholder inside the Custom CSS editor textarea"
+	},
+	"customCssEditorInsertSnippet": {
+		"message": "例",
+		"description": "Button to append an example/starter CSS snippet to the editor"
+	},
+	"customCssEditorRevert": {
+		"message": "元に戻す",
+		"description": "Button that reverts the editor content back to the last saved value"
+	},
+	"customCssEditorSave": {
+		"message": "保存",
+		"description": "Save button in the Custom CSS editor"
+	},
+	"customCssEditorSaved": {
+		"message": "保存しました",
+		"description": "Status message shown briefly after the user saves the custom CSS"
+	},
+	"customCssEditorDiscardConfirm": {
+		"message": "未保存の編集を破棄して、最後に保存したCSSに戻しますか？",
+		"description": "Confirmation dialog shown before reverting unsaved edits"
+	},
+	"text": {
+		"message": "文字",
+		"description": "Text"
+	},
+	"scrollAmount": {
+		"message": "スクロール距離",
+		"description": "Scroll amount"
+	},
+	"scrollAmountDesc": {
+		"message": "上下スクロールジェスチャーのスクロール距離（ウィンドウの高さに対するパーセンテージ）",
+		"description": "Scroll distance for up/down gestures"
+	},
+	"scrollSmoothness": {
+		"message": "スクロールアニメーション",
+		"description": "Scroll smoothness"
+	},
+	"scrollSmoothnessDesc": {
+		"message": "上下スクロールジェスチャーのアニメーション効果",
+		"description": "Scroll smoothness description"
+	},
+	"smoothnessAuto": {
+		"message": "自動",
+		"description": "Auto scroll smoothness - uses system if animation enabled, otherwise smooth"
+	},
+	"smoothnessSystem": {
+		"message": "システム (高性能)",
+		"description": "System scroll smoothness"
+	},
+	"smoothnessCustom": {
+		"message": "スムーズ",
+		"description": "Custom smooth scrolling"
+	},
+	"smoothnessNone": {
+		"message": "アニメーションなし",
+		"description": "No scroll animation"
+	},
+	"scrollDuration": {
+		"message": "アニメーションの時間",
+		"description": "Duration of the custom smooth scroll animation"
+	},
+	"scrollDurationDisabledTooltip": {
+		"message": "システムスクロール使用時は無効です",
+		"description": "Tooltip explaining why the animation duration slider is disabled"
+	},
+	"scrollAccel": {
+		"message": "連続スクロール倍率",
+		"description": "Speed multiplier applied when scrolling consecutively"
+	},
+	"scrollAccelOff": {
+		"message": "オフ",
+		"description": "Scroll acceleration disabled"
+	},
+	"scrollAccelWindow": {
+		"message": "連続スクロール判定時間",
+		"description": "Max time (ms) between scrolls to count as consecutive"
+	},
+	"dragFeatures": {
+		"message": "ドラッグ機能",
+		"description": "Drag features section"
+	},
+	"textDragSearch": {
+		"message": "テキストドラッグ",
+		"description": "Text drag"
+	},
+	"textDragSearchDesc": {
+		"message": "選択したテキストをドラッグして検索します",
+		"description": "Drag selected text to search"
+	},
+	"textDragIgnoreInput": {
+		"message": "入力フィールドで無効にする",
+		"description": "Option to disable text drag inside input boxes and textareas"
+	},
+	"textDragIgnoreInputDesc": {
+		"message": "入力フィールドやテキストエディタなどの編集可能な領域でテキストのドラッグをトリガーしない",
+		"description": "Description for text drag ignore input option"
+	},
+	"dragDropOnInput": {
+		"message": "入力フィールド上でのジェスチャーを無効化",
+		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
+	},
+	"dragDropOnInputDesc": {
+		"message": "入力フィールドや編集可能な領域にドロップしたときはジェスチャーをトリガーしない",
+		"description": "Description for drag drop on input option"
+	},
+	"searchEngine": {
+		"message": "検索エンジン",
+		"description": "Search engine"
+	},
+	"custom": {
+		"message": "カスタム",
+		"description": "Custom"
+	},
+	"customUrlPlaceholder": {
+		"message": "カスタムURL、検索語を %s で置き換えます",
+		"description": "Custom URL placeholder"
+	},
+	"customUrlPlaceholderHint": {
+		"message": "プロトコル（例: https://）を含める必要があります。使用可能なプレースホルダー: %placeholders%。URLエンコードをスキップするには :raw を追加します（例: %example%）。",
+		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
+	},
+	"urlPlaceholderText": {
+		"message": "%s=検索キーワード",
+		"description": "Placeholder for text drag custom URL"
+	},
+	"urlPlaceholderImage": {
+		"message": "%s=画像URL",
+		"description": "Placeholder for image drag custom URL"
+	},
+	"searchEngine_google_translate": {
+		"message": "Google 翻訳",
+		"description": "Google Translate search engine"
+	},
+	"searchEngine_bing_translate": {
+		"message": "Bing 翻訳",
+		"description": "Bing Translate search engine"
+	},
+	"searchEngine_baidu": {
+		"message": "Baidu",
+		"description": "Baidu search engine"
+	},
+	"searchEngine_360": {
+		"message": "360 Search",
+		"description": "360 search engine"
+	},
+	"searchEngine_yandex": {
+		"message": "Yandex",
+		"description": "Yandex search engine"
+	},
+	"searchEngine_system": {
+		"message": "ブラウザのデフォルト",
+		"description": "System default search engine"
+	},
+	"imageDrag": {
+		"message": "画像ドラッグ",
+		"description": "Image drag"
+	},
+	"imageDragDesc": {
+		"message": "画像をドラッグして新しいタブで開きます",
+		"description": "Drag image to open in new tab"
+	},
+	"linkDrag": {
+		"message": "リンクドラッグ",
+		"description": "Link drag"
+	},
+	"linkDragDesc": {
+		"message": "リンクをドラッグして新しいタブで開きます",
+		"description": "Drag link to open in new tab"
+	},
+	"enableCustomGestures": {
+		"message": "カスタムジェスチャー",
+		"description": "Enable custom gestures"
+	},
+	"enableCustomGesturesDesc": {
+		"message": "各ジェスチャーの操作を確認・カスタマイズできます",
+		"description": "View and customize each gesture action"
+	},
+	"gestureAutoSaveHint": {
+		"message": "ヒント：変更は自動的に保存されます。",
+		"description": "Hint about auto-save"
+	},
+	"blacklist": {
+		"message": "サイトブラックリスト",
+		"description": "Website blacklist"
+	},
+	"blacklistPlaceholder": {
+		"message": "ドメインを入力（例: example.com）、Enterで追加",
+		"description": "Blacklist input placeholder"
+	},
+	"add": {
+		"message": "追加",
+		"description": "Add button"
+	},
+	"emptyBlacklist": {
+		"message": "ブラックリストは空です。上でドメインを入力して追加してください。",
+		"description": "Empty blacklist message"
+	},
+	"enableBlacklistContextMenu": {
+		"message": "コンテキストメニューでのジェスチャー切り替え",
+		"description": "Setting title for blacklist context menu toggle"
+	},
+	"enableBlacklistContextMenuDesc": {
+		"message": "コンテキストメニューにジェスチャーの無効/有効オプションを表示します",
+		"description": "Setting description for blacklist context menu toggle"
+	},
+	"menuAddToBlacklist": {
+		"message": "このサイトでジェスチャーを無効にする",
+		"description": "Context menu title for adding current site to blacklist"
+	},
+	"menuRemoveFromBlacklist": {
+		"message": "このサイトでジェスチャーを有効にする",
+		"description": "Context menu title for removing current site from blacklist"
+	},
+	"dataManagement": {
+		"message": "データ管理",
+		"description": "Data management section"
+	},
+	"export": {
+		"message": "設定をエクスポート",
+		"description": "Export settings"
+	},
+	"import": {
+		"message": "設定をインポート",
+		"description": "Import settings"
+	},
+	"reset": {
+		"message": "デフォルトに戻す",
+		"description": "Reset to default"
+	},
+	"duplicate": {
+		"message": "複製",
+		"description": "Generic duplicate button tooltip"
+	},
+	"delete": {
+		"message": "削除",
+		"description": "Generic delete button tooltip"
+	},
+	"autoSaved": {
+		"message": "自動保存されました",
+		"description": "Auto-saved message"
+	},
+	"saveFailure": {
+		"message": "保存に失敗しました",
+		"description": "Save failure message"
+	},
+	"resetConfirm": {
+		"message": "すべての設定をデフォルトに戻してもよろしいですか？",
+		"description": "Reset confirmation"
+	},
+	"resetDone": {
+		"message": "デフォルト設定に戻しました",
+		"description": "Reset done message"
+	},
+	"exportDone": {
+		"message": "設定をエクスポートしました",
+		"description": "Export done message"
+	},
+	"importDone": {
+		"message": "設定をインポートしました",
+		"description": "Import done message"
+	},
+	"importConfirm": {
+		"message": "インポートすると現在の設定が上書きされます。信頼できるソースからの設定ファイルのみをインポートしてください。\n\n続行しますか？",
+		"description": "Import confirmation warning"
+	},
+	"importFailed": {
+		"message": "インポート失敗：無効な設定ファイルです",
+		"description": "Import failed message"
+	},
+	"importFailedSyncError": {
+		"message": "インポートに失敗しました：同期エラー、ブラウザの状態を確認してください",
+		"description": "Import failed sync error message"
+	},
+	"invalidDomain": {
+		"message": "有効なドメインを入力してください",
+		"description": "Invalid domain message"
+	},
+	"domainExists": {
+		"message": "そのドメインは既にブラックリストに存在します",
+		"description": "Domain already in blacklist"
+	},
+	"about": {
+		"message": "について",
+		"description": "About section"
+	},
+	"language": {
+		"message": "言語",
+		"description": "Language"
+	},
+	"languageAuto": {
+		"message": "システムに従う",
+		"description": "Follow system language"
+	},
+	"privacyFriendly": {
+		"message": "プライバシー重視",
+		"description": "Privacy friendly"
+	},
+	"localOnly": {
+		"message": "ローカル動作",
+		"description": "Local only"
+	},
+	"autoSave": {
+		"message": "自動保存",
+		"description": "Auto save"
+	},
+	"gestureDesc_L": {
+		"message": "左へ",
+		"description": "Gesture description for ←"
+	},
+	"gestureDesc_R": {
+		"message": "右へ",
+		"description": "Gesture description for →"
+	},
+	"gestureDesc_U": {
+		"message": "上へ",
+		"description": "Gesture description for ↑"
+	},
+	"gestureDesc_D": {
+		"message": "下へ",
+		"description": "Gesture description for ↓"
+	},
+	"gestureDesc_DR": {
+		"message": "下、右",
+		"description": "Gesture description for ↓→"
+	},
+	"gestureDesc_LU": {
+		"message": "左、上",
+		"description": "Gesture description for ←↑"
+	},
+	"gestureDesc_RU": {
+		"message": "右、上",
+		"description": "Gesture description for →↑"
+	},
+	"gestureDesc_RD": {
+		"message": "右、下",
+		"description": "Gesture description for →↓"
+	},
+	"gestureDesc_UL": {
+		"message": "上、左",
+		"description": "Gesture description for ↑←"
+	},
+	"gestureDesc_UR": {
+		"message": "上、右",
+		"description": "Gesture description for ↑→"
+	},
+	"gestureDesc_DL": {
+		"message": "下、左",
+		"description": "Gesture description for ↓←"
+	},
+	"gestureDesc_LD": {
+		"message": "左、下",
+		"description": "Gesture description for ←↓"
+	},
+	"gestureDesc_UD": {
+		"message": "上、下",
+		"description": "Gesture description for ↑↓"
+	},
+	"gestureDesc_DU": {
+		"message": "下、上",
+		"description": "Gesture description for ↓↑"
+	},
+	"gestureDesc_LR": {
+		"message": "左、右",
+		"description": "Gesture description for ←→"
+	},
+	"gestureDesc_RL": {
+		"message": "右、左",
+		"description": "Gesture description for →←"
+	},
+	"actionNone": {
+		"message": "なし",
+		"description": "No action"
+	},
+	"actionBack": {
+		"message": "戻る",
+		"description": "Go back"
+	},
+	"actionForward": {
+		"message": "進む",
+		"description": "Go forward"
+	},
+	"actionUrlLevelUp": {
+		"message": "URLの上の階層へ",
+		"description": "Navigate to the parent directory of the current URL"
+	},
+	"actionUrlToRoot": {
+		"message": "URLのルートへ",
+		"description": "Navigate to the root of the current site"
+	},
+	"actionScrollUp": {
+		"message": "上にスクロール",
+		"description": "Scroll up"
+	},
+	"actionScrollDown": {
+		"message": "下にスクロール",
+		"description": "Scroll down"
+	},
+	"actionScrollLeft": {
+		"message": "左にスクロール",
+		"description": "Scroll left"
+	},
+	"actionScrollRight": {
+		"message": "右にスクロール",
+		"description": "Scroll right"
+	},
+	"actionScrollToTop": {
+		"message": "最上部にスクロール",
+		"description": "Scroll to top"
+	},
+	"actionScrollToBottom": {
+		"message": "最下部にスクロール",
+		"description": "Scroll to bottom"
+	},
+	"actionScrollToLeftEdge": {
+		"message": "左端にスクロール",
+		"description": "Scroll to the leftmost position"
+	},
+	"actionScrollToRightEdge": {
+		"message": "右端にスクロール",
+		"description": "Scroll to the rightmost position"
+	},
+	"actionCloseTab": {
+		"message": "タブを閉じる",
+		"description": "Close tab"
+	},
+	"closeTabKeepWindow": {
+		"message": "最後のタブの場合、ウィンドウを保持する",
+		"description": "Checkbox label for closeTab action config"
+	},
+	"closeTabAfterClose": {
+		"message": "閉じた後",
+		"description": "Label for closeTab afterClose config"
+	},
+	"closeTabAfterCloseDefault": {
+		"message": "ブラウザのデフォルト",
+		"description": "Option for closeTab afterClose config - let browser decide"
+	},
+	"closeTabAfterCloseLeft": {
+		"message": "左のタブに切り替え",
+		"description": "Option for closeTab afterClose config - switch to left tab"
+	},
+	"closeTabAfterCloseRight": {
+		"message": "右のタブに切り替え",
+		"description": "Option for closeTab afterClose config - switch to right tab"
+	},
+	"switchTabNoWrap": {
+		"message": "タブ移動をループさせない",
+		"description": "Checkbox label for switchLeftTab/switchRightTab action config"
+	},
+	"switchTabMoveTab": {
+		"message": "現在のタブを移動",
+		"description": "Checkbox label for switchLeftTab/switchRightTab/switchFirstTab/switchLastTab action config"
+	},
+	"refreshHardReload": {
+		"message": "ハードリロード（キャッシュをバイパス）",
+		"description": "Checkbox label for refresh hard reload option"
+	},
+	"actionCloseBrowser": {
+		"message": "ブラウザを閉じる",
+		"description": "Close browser"
+	},
+	"actionCloseWindow": {
+		"message": "ウィンドウを閉じる",
+		"description": "Close current window"
+	},
+	"actionRestoreTab": {
+		"message": "閉じたタブを復元",
+		"description": "Restore closed tab"
+	},
+	"actionNewTab": {
+		"message": "新しいタブを開く",
+		"description": "New tab"
+	},
+	"closeTabsSkipPinned": {
+		"message": "固定されたタブを閉じない",
+		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
+	},
+	"closeTabsPreserveTab": {
+		"message": "タブを保持（ページコンテンツを破棄）",
+		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
+	},
+	"actionCloseOtherTabs": {
+		"message": "他のタブを閉じる",
+		"description": "Close other tabs"
+	},
+	"actionCloseLeftTabs": {
+		"message": "左側のタブを閉じる",
+		"description": "Close tabs to the left"
+	},
+	"actionCloseRightTabs": {
+		"message": "右側のタブを閉じる",
+		"description": "Close tabs to the right"
+	},
+	"actionCloseAllTabs": {
+		"message": "すべてのタブを閉じる",
+		"description": "Close all tabs"
+	},
+	"actionSwitchLeftTab": {
+		"message": "左のタブに切り替え",
+		"description": "Switch to left tab"
+	},
+	"actionSwitchRightTab": {
+		"message": "右のタブに切り替え",
+		"description": "Switch to right tab"
+	},
+	"actionSwitchFirstTab": {
+		"message": "最初のタブに切り替え",
+		"description": "Switch to first tab"
+	},
+	"actionSwitchLastTab": {
+		"message": "最後のタブに切り替え",
+		"description": "Switch to last tab"
+	},
+	"actionSwitchLastActiveTab": {
+		"message": "直前のタブに切り替え",
+		"description": "Switch to the most recently active tab"
+	},
+	"actionRefresh": {
+		"message": "現在のタブを更新",
+		"description": "Refresh current tab"
+	},
+	"actionRefreshAllTabs": {
+		"message": "すべてのタブを更新",
+		"description": "Refresh all tabs"
+	},
+	"actionStopLoading": {
+		"message": "読み込み中止",
+		"description": "Stop loading"
+	},
+	"actionStopAllLoading": {
+		"message": "すべてのタブの読み込みを中止",
+		"description": "Stop loading all tabs in the current window"
+	},
+	"actionNewWindow": {
+		"message": "新しいウィンドウ",
+		"description": "New window"
+	},
+	"actionNewIncognito": {
+		"message": "新しいシークレットウィンドウ",
+		"description": "New incognito window"
+	},
+	"actionAddToBookmarks": {
+		"message": "ブックマークに追加",
+		"description": "Add to bookmarks"
+	},
+	"actionToggleFullscreen": {
+		"message": "全画面表示の切り替え",
+		"description": "Toggle fullscreen"
+	},
+	"actionToggleMaximize": {
+		"message": "ウィンドウの最大化/元に戻す",
+		"description": "Toggle window maximize"
+	},
+	"actionMinimize": {
+		"message": "ウィンドウを最小化",
+		"description": "Minimize window"
+	},
+	"actionOpenCustomUrl": {
+		"message": "カスタムURLを開く",
+		"description": "Open custom URL"
+	},
+	"actionCopyUrl": {
+		"message": "現在のURLをコピー",
+		"description": "Copy current URL"
+	},
+	"actionCopyTitle": {
+		"message": "ページのタイトルをコピー",
+		"description": "Copy page title"
+	},
+	"actionCopyTitleAndUrl": {
+		"message": "ページのタイトルとURLをコピー",
+		"description": "Copy page title and URL"
+	},
+	"actionOpenDownloads": {
+		"message": "ダウンロードを開く",
+		"description": "Open downloads page"
+	},
+	"actionOpenHistory": {
+		"message": "履歴を開く",
+		"description": "Open history page"
+	},
+	"actionOpenExtensions": {
+		"message": "拡張機能を開く",
+		"description": "Open extensions page"
+	},
+	"actionSaveAsMhtml": {
+		"message": "MHTMLとして保存",
+		"description": "Save current page as MHTML file"
+	},
+	"actionPrintPage": {
+		"message": "ページを印刷",
+		"description": "Print page"
+	},
+	"actionDuplicateTab": {
+		"message": "タブを複製",
+		"description": "Duplicate current tab"
+	},
+	"actionToggleMuteTab": {
+		"message": "タブのミュート切り替え",
+		"description": "Toggle mute current tab"
+	},
+	"actionToggleMuteAllTabs": {
+		"message": "全タブのミュート切り替え",
+		"description": "Toggle mute all tabs"
+	},
+	"actionTogglePinTab": {
+		"message": "現在のタブの固定/解除",
+		"description": "Toggle pin current tab"
+	},
+	"actionMoveTabToNewWindow": {
+		"message": "タブを新しいウィンドウに移動",
+		"description": "Move current tab to a new window"
+	},
+	"actionSearchClipboard": {
+		"message": "クリップボードから検索",
+		"description": "Search clipboard text using a search engine"
+	},
+	"showTrailOrigin": {
+		"message": "起点を表示",
+		"description": "Show trail origin point"
+	},
+	"enableTrailSmooth": {
+		"message": "軌跡の平滑化",
+		"description": "Enable trail smoothing for gesture visualization"
+	},
+	"distanceThreshold": {
+		"message": "ジェスチャー判定距離",
+		"description": "Gesture recognition distance"
+	},
+	"distanceThresholdDesc": {
+		"message": "ジェスチャーおよびドラッグを認識するための最小移動距離",
+		"description": "Description for gesture recognition distance"
+	},
+	"distanceThresholdNotice": {
+		"message": "ヒント：最適な認識結果を得るには、15〜30の間に設定することをお勧めします。",
+		"description": "Warning when distance threshold is too small or too large"
+	},
+	"gestureTurnTolerance": {
+		"message": "ジェスチャーのターン許容度",
+		"description": "Turn tolerance for detecting direction changes in long gestures"
+	},
+	"gestureTurnToleranceDesc": {
+		"message": "数値を大きくすると方向転換の誤検知は減りますが、方向を変えるためにより長い移動距離が必要になります",
+		"description": "Description for gesture turn tolerance setting"
+	},
+	"advanced": {
+		"message": "詳細設定を表示",
+		"description": "Short label for per-section advanced toggle"
+	},
+	"otherSettings": {
+		"message": "その他の設定",
+		"description": "Section title for other/miscellaneous settings"
+	},
+	"styleSettings": {
+		"message": "外観",
+		"description": "Section title for style/appearance settings (trail, HUD, etc.)"
+	},
+	"show": {
+		"message": "表示",
+		"description": "Show navigation menu"
+	},
+	"hide": {
+		"message": "非表示",
+		"description": "Hide navigation menu"
+	},
+	"urlFormatError": {
+		"message": "完全なURLを入力してください（http:// または https:// で始まる必要があります）",
+		"description": "URL format error message"
+	},
+	"resetToDefault": {
+		"message": "デフォルトに戻す",
+		"description": "Reset gesture to default action"
+	},
+	"resetToDefaultConfirm": {
+		"message": "これらの設定をデフォルト値にリセットしますか？",
+		"description": "Confirmation dialog for resetting settings"
+	},
+	"addCustomGesture": {
+		"message": "カスタムジェスチャーを追加",
+		"description": "Add custom gesture section title"
+	},
+	"clear": {
+		"message": "クリア",
+		"description": "Clear button"
+	},
+	"gestureAdded": {
+		"message": "ジェスチャーを追加しました",
+		"description": "Gesture added success message"
+	},
+	"gestureRecorderTitle": {
+		"message": "ジェスチャーを描画",
+		"description": "Gesture recorder full-screen title"
+	},
+	"gestureRecorderDesc": {
+		"message": "%button% を押したままジェスチャーパターンを描画します",
+		"description": "Gesture recorder instruction, %button% is replaced with the mouse button name"
+	},
+	"gestureRecorderEsc": {
+		"message": "キャンセル",
+		"description": "Gesture recorder cancel button label"
+	},
+	"gestureRecorderRecording": {
+		"message": "記録中…",
+		"description": "Gesture recorder recording indicator"
+	},
+	"gestureRecorderResult": {
+		"message": "記録されたジェスチャー",
+		"description": "Gesture recorder result label"
+	},
+	"gestureRecorderConfirm": {
+		"message": "確認",
+		"description": "Gesture recorder confirm button"
+	},
+	"gestureRecorderRedraw": {
+		"message": "描き直し",
+		"description": "Gesture recorder redraw button"
+	},
+	"gestureRecorderBanned": {
+		"message": "ジェスチャー %pattern% は既に存在します",
+		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"rightButton": {
+		"message": "マウスの右ボタン",
+		"description": "Right mouse button name"
+	},
+	"leftButton": {
+		"message": "マウスの左ボタン",
+		"description": "Left mouse button name"
+	},
+	"customGesture": {
+		"message": "カスタム",
+		"description": "Label for custom gestures"
+	},
+	"deleteGesture": {
+		"message": "ジェスチャーを削除",
+		"description": "Delete gesture button tooltip"
+	},
+	"deleteGestureConfirm": {
+		"message": "ジェスチャー %pattern% を削除しますか？",
+		"description": "Delete gesture confirmation"
+	},
+	"gestureDeleted": {
+		"message": "ジェスチャーを削除しました",
+		"description": "Gesture deleted success message"
+	},
+	"enterCustomUrl": {
+		"message": "URL",
+		"description": "Prompt for custom URL input"
+	},
+	"copyAsMarkdown": {
+		"message": "Markdown形式でコピー",
+		"description": "Checkbox label for copying as markdown format"
+	},
+	"invalidUrl": {
+		"message": "有効なURLを入力してください（http:// または https:// で始まるもの）",
+		"description": "Invalid URL error message"
+	},
+	"popupTrail": {
+		"message": "ジェスチャー軌跡",
+		"description": "Gesture trail in popup"
+	},
+	"popupHint": {
+		"message": "操作ヒント",
+		"description": "Action hint in popup"
+	},
+	"popupCommonGestures": {
+		"message": "よく使うジェスチャー",
+		"description": "Common gestures"
+	},
+	"popupCurrentSite": {
+		"message": "現在のサイト",
+		"description": "Current site"
+	},
+	"popupRestricted": {
+		"message": "制限されたページ",
+		"description": "Restricted page"
+	},
+	"popupDisabled": {
+		"message": "無効化済み",
+		"description": "Disabled"
+	},
+	"popupAddBlacklist": {
+		"message": "ブラックリストに追加",
+		"description": "Add to blacklist"
+	},
+	"popupRemoveBlacklist": {
+		"message": "ブラックリストから削除",
+		"description": "Remove from blacklist"
+	},
+	"popupNotAvailable": {
+		"message": "利用不可",
+		"description": "Not available"
+	},
+	"popupBack": {
+		"message": "戻る",
+		"description": "Back - short"
+	},
+	"popupForward": {
+		"message": "進む",
+		"description": "Forward - short"
+	},
+	"popupScrollUp": {
+		"message": "上へ",
+		"description": "Scroll up - short"
+	},
+	"popupScrollDown": {
+		"message": "下へ",
+		"description": "Scroll down - short"
+	},
+	"popupClose": {
+		"message": "閉じる",
+		"description": "Close Tab - short"
+	},
+	"popupRestore": {
+		"message": "復元",
+		"description": "Restore Tab - short"
+	},
+	"popupSwitchLeftTab": {
+		"message": "左のタブ",
+		"description": "Switch Left Tab - short"
+	},
+	"popupSwitchRightTab": {
+		"message": "右のタブ",
+		"description": "Switch Right Tab - short"
+	},
+	"dragSearchText": {
+		"message": "🔍 ドラッグして検索",
+		"description": "Drag search hint"
+	},
+	"dragOpenImage": {
+		"message": "🖼️ 画像を開く",
+		"description": "Drag open image hint"
+	},
+	"dragOpenLink": {
+		"message": "🔗 リンクを開く",
+		"description": "Drag open link hint"
+	},
+	"aboutTitle": {
+		"message": "FlowMouse について",
+		"description": "About title"
+	},
+	"aboutTitleShort": {
+		"message": "概要",
+		"description": "Short About title "
+	},
+	"aboutAuthor": {
+		"message": "作者",
+		"description": "Author"
+	},
+	"aboutWebsite": {
+		"message": "公式サイト",
+		"description": "Website"
+	},
+	"aboutOpenSource": {
+		"message": "GitHub",
+		"description": "GitHub link"
+	},
+	"aboutEmail": {
+		"message": "メール",
+		"description": "Email"
+	},
+	"aboutPrivacy": {
+		"message": "プライバシーポリシー",
+		"description": "Privacy statement"
+	},
+	"aboutPrivacyText": {
+		"message": "本拡張機能はオープンソースプロジェクトであり、コードはGitHubで公開されています。レビューや貢献を歓迎します。拡張機能のすべてのデータ処理はデバイスのローカルで行われ、それ自体でネットワーク接続を確立したり、バックエンドサーバーを持ったりすることはないため、ユーザーデータを外部サーバーに収集またはアップロードすることはありません。保存された設定は、ログインしているデバイス間で%browserName%ブラウザの組み込み同期サービスを通じて暗号化されて同期されます。このプロセスは完全にブラウザによって制御され、ブラウザのプライバシーと同期設定に従います。",
+		"description": "Privacy statement text"
+	},
+	"aboutCredits": {
+		"message": "謝辞",
+		"description": "Credits"
+	},
+	"aboutCreditsText": {
+		"message": "デザインのインスピレーションを与えてくれたMicrosoft EdgeブラウザとcrxMouse拡張機能に感謝します。\nまた、フィードバックやご提案をくださった吾愛破解フォーラムや公式アカウントの熱心なユーザーの皆様に感謝いたします！",
+		"description": "Credits text"
+	},
+	"aboutFeatures": {
+		"message": "特徴",
+		"description": "Features"
+	},
+	"aboutFeature1": {
+		"message": "16種類のデフォルトジェスチャー + カスタムジェスチャー",
+		"description": "Feature 1"
+	},
+	"aboutFeature2": {
+		"message": "視覚的な軌跡フィードバック",
+		"description": "Feature 2"
+	},
+	"aboutFeature3": {
+		"message": "テキスト/画像/リンクのスーパードラッグ",
+		"description": "Feature 3"
+	},
+	"aboutFeature4": {
+		"message": "サイトブラックリスト",
+		"description": "Feature 4"
+	},
+	"aboutFeature5": {
+		"message": "%browserName%アカウント同期",
+		"description": "Feature 5"
+	},
+	"aboutFeature6": {
+		"message": "完全ローカル動作、同期以外でネットワーク接続なし",
+		"description": "Feature 6"
+	},
+	"tutorial": {
+		"message": "チュートリアル",
+		"description": "Tutorial link"
+	},
+	"learnMore": {
+		"message": "もっと詳しく",
+		"description": "Learn more link"
+	},
+	"badgeNoNetwork": {
+		"message": "同期以外で通信なし",
+		"description": "No network privacy badge"
+	},
+	"badgeNoData": {
+		"message": "データ収集なし",
+		"description": "No data collection badge"
+	},
+	"badgeLocalRun": {
+		"message": "ローカル動作",
+		"description": "Local run badge"
+	},
+	"newTabSettings": {
+		"message": "新しいタブの設定",
+		"description": "New tab open settings"
+	},
+	"newTabPosition": {
+		"message": "開く位置",
+		"description": "New tab position"
+	},
+	"tabPositionRight": {
+		"message": "現在のタブの右側",
+		"description": "Right of current tab"
+	},
+	"tabPositionLeft": {
+		"message": "現在のタブの左側",
+		"description": "Left of current tab"
+	},
+	"tabPositionFirst": {
+		"message": "最初のタブ",
+		"description": "First tab (leftmost)"
+	},
+	"tabPositionLast": {
+		"message": "最後のタブ",
+		"description": "Last tab (rightmost)"
+	},
+	"tabPositionCurrent": {
+		"message": "現在のタブ",
+		"description": "Open in current tab"
+	},
+	"tabPositionNewWindow": {
+		"message": "新しいウィンドウ",
+		"description": "Open in a new browser window"
+	},
+	"newTabActive": {
+		"message": "最前面で開く",
+		"description": "Open tab in foreground"
+	},
+	"newWindowFocused": {
+		"message": "最前面で開く",
+		"description": "Open window in foreground"
+	},
+	"openInIncognito": {
+		"message": "シークレット",
+		"description": "Open in incognito checkbox"
+	},
+	"textDragGestures": {
+		"message": "テキストドラッグジェスチャー",
+		"description": "Text drag gestures"
+	},
+	"linkDragGestures": {
+		"message": "リンクドラッグジェスチャー",
+		"description": "Link drag gestures"
+	},
+	"imageDragGestures": {
+		"message": "画像ドラッグジェスチャー",
+		"description": "Image drag gestures"
+	},
+	"direction": {
+		"message": "方向",
+		"description": "Direction column header"
+	},
+	"action": {
+		"message": "コマンド",
+		"description": "Action column header"
+	},
+	"imageSearchUrl": {
+		"message": "画像検索URL (%s は画像アドレス)",
+		"description": "Image search URL input"
+	},
+	"dragActionNone": {
+		"message": "なし",
+		"description": "No action"
+	},
+	"dragActionSearch": {
+		"message": "🔍 検索エンジン",
+		"description": "Search action"
+	},
+	"dragActionCopy": {
+		"message": "📋 コピー",
+		"description": "Copy action"
+	},
+	"dragActionOpenTab": {
+		"message": "📑 新しいタブで開く",
+		"description": "Open in new tab"
+	},
+	"dragActionOpenTabLink": {
+		"message": "🔗 リンクを開く",
+		"description": "Open link in new tab"
+	},
+	"dragActionOpenTabImage": {
+		"message": "🖼️ 画像を開く",
+		"description": "Open image in new tab"
+	},
+	"dragActionCopyLink": {
+		"message": "📋 リンクをコピー",
+		"description": "Copy link"
+	},
+	"dragActionCopyLinkText": {
+		"message": "📋 リンクテキストをコピー",
+		"description": "Copy link text"
+	},
+	"dragActionCopyLinkAndText": {
+		"message": "📋 テキストとリンクをコピー",
+		"description": "Copy link text and URL"
+	},
+	"dragActionSaveImage": {
+		"message": "💾 画像を保存",
+		"description": "Save image"
+	},
+	"dragActionCopyImage": {
+		"message": "🖼️ 画像をコピー",
+		"description": "Copy image"
+	},
+	"dragActionCopyImageUrl": {
+		"message": "📋 画像アドレスをコピー",
+		"description": "Copy image URL"
+	},
+	"dragActionImageSearch": {
+		"message": "🔍 画像検索",
+		"description": "Image search"
+	},
+	"dragActionCustomSearch": {
+		"message": "🔍 カスタム検索",
+		"description": "Custom search"
+	},
+	"dragActionSendCustomEvent": {
+		"message": "カスタムイベントを送信",
+		"description": "Send custom DOM event on drag gesture"
+	},
+	"reducedMotionWarning": {
+		"message": "%OS% システムのアニメーションが無効になっているため、スクロールアニメーションが正常に表示されない場合があります。%OS% のシステム設定でアニメーションを有効にできます。",
+		"description": "Warning message when system reduced motion is enabled"
+	},
+	"autoDetectUrl": {
+		"message": "リンクを自動認識",
+		"description": "Auto detect URL checkbox label"
+	},
+	"autoDetectUrlTooltip": {
+		"message": "テキストがリンク形式の場合、検索せずに直接開く",
+		"description": "Tooltip for the auto detect URL checkbox"
+	},
+	"preferLink": {
+		"message": "リンクを開くことを優先",
+		"description": "Prefer link checkbox label"
+	},
+	"customHudName": {
+		"message": "名前",
+		"description": "Placeholder for custom action name shown on HUD"
+	},
+	"customHudNameTooltip": {
+		"message": "ジェスチャー実行時に画面上に表示されるカスタム名",
+		"description": "Tooltip for the custom HUD name field"
+	},
+	"actionNoOptions": {
+		"message": "このコマンドには設定項目がありません。",
+		"description": "Placeholder shown in the action picker's detail panel when the selected action has no configurable settings"
+	},
+	"actionRequiredBadge": {
+		"message": "必須",
+		"description": "Badge shown next to fields that must be filled in (e.g., URL for Open URL)"
+	},
+	"menuNeedRefresh": {
+		"message": "FlowMouse未ロード、クリックして更新",
+		"description": "Context menu title for pages needing refresh"
+	},
+	"menuRestricted": {
+		"message": "FlowMouse利用不可、理由を確認",
+		"description": "Context menu title for restricted pages"
+	},
+	"showRestrictedNotice": {
+		"message": "制限ページの通知",
+		"description": "Setting title for restricted page notice"
+	},
+	"showRestrictedNoticeDesc": {
+		"message": "ジェスチャーが使用できないページで右クリックメニューに通知を表示します",
+		"description": "Setting description for restricted page notice"
+	},
+	"restrictedPagesDetailsTitle": {
+		"message": "ブラウザのセキュリティポリシー制限により、特定のページでは拡張機能が動作しません",
+		"description": "Collapsible details title"
+	},
+	"showMoreHint": {
+		"message": "（詳細を表示）",
+		"description": "Hint to show more details"
+	},
+	"restrictedNewTab": {
+		"message": "新しいタブページ",
+		"description": "New tab page title"
+	},
+	"restrictedNewTabDesc": {
+		"message": "ブラウザのデフォルトの新しいタブページは保護されたシステムページであり、拡張機能はこのページで動作できません。",
+		"description": "New tab page description"
+	},
+	"restrictedStore": {
+		"message": "公式ストアページ",
+		"description": "Store page title"
+	},
+	"restrictedStoreDesc": {
+		"message": "例えば %storeInfo% など。悪意のある拡張機能がストアの正常なアクセスやインストールプロセスを妨害するのを防ぐため、ブラウザはこれらのページでの拡張機能の実行を禁止しています。",
+		"description": "Store page description"
+	},
+	"restrictedInternal": {
+		"message": "ブラウザ内部管理ページ (%browserProtocol%)",
+		"description": "Internal page title"
+	},
+	"restrictedInternalDesc": {
+		"message": "例えば、%browserName% の内部設定、履歴、ダウンロード、エラーページなどです。これらのページはブラウザのコア機能とユーザーのプライバシーデータに関わるため、厳重に保護されています。",
+		"description": "Internal page description"
+	},
+	"restrictedFile": {
+		"message": "ローカルファイルページ (file://)",
+		"description": "File page title"
+	},
+	"restrictedFileDesc": {
+		"message": "file:// プロトコルを通じて開かれるローカルの html、pdf などのファイルは、セキュリティ制限（悪意のある拡張機能がローカルファイルシステムにアクセスするのを防ぐため）により、拡張機能はこれらのページで動作できません。",
+		"description": "File page description"
+	},
+	"restrictedViewSource": {
+		"message": "ソースコード表示ページ (view-source:)",
+		"description": "View source page title"
+	},
+	"restrictedViewSourceDesc": {
+		"message": "ブラウザが提供するソースコード表示画面も同様に保護されたシステムページであり、拡張機能はこのページで動作できません。",
+		"description": "View source page description"
+	},
+	"restrictedOther": {
+		"message": "その他の一般的でない影響を受けるページは個別に記載しません。",
+		"description": "Other restricted pages note"
+	},
+	"popupNeedRefresh": {
+		"message": "拡張機能がロードされていません",
+		"description": "Popup title when content script not loaded"
+	},
+	"popupNeedRefreshDesc": {
+		"message": "このページは拡張機能のインストール/更新前に開かれたため、ジェスチャーを使用するには更新が必要です",
+		"description": "Popup description when content script not loaded"
+	},
+	"popupRefreshBtn": {
+		"message": "ページを更新",
+		"description": "Popup refresh button text"
+	},
+	"popupRestrictedTitle": {
+		"message": "ジェスチャーは使用できません",
+		"description": "Popup title for restricted pages"
+	},
+	"popupRestrictedDesc": {
+		"message": "ブラウザのセキュリティ制限により、このページでは拡張機能がロードできません",
+		"description": "Popup description for restricted pages"
+	},
+	"popupLearnMore": {
+		"message": "詳細を見る",
+		"description": "Popup learn more button text"
+	},
+	"tutorialPending": {
+		"message": "待機中",
+		"description": "Tutorial pending status"
+	},
+	"tutorialCompleted": {
+		"message": "完了",
+		"description": "Tutorial completed status"
+	},
+	"tutorialClickToStart": {
+		"message": "<span class=\"text-highlight\">マウスの右ボタン</span>をクリックして開始してください",
+		"description": "Tutorial Step 0 instruction"
+	},
+	"tutorialWelcomeTitle": {
+		"message": "FlowMouseへようこそ",
+		"description": "Tutorial welcome title"
+	},
+	"tutorialWelcomeSubtitle": {
+		"message": "30秒で基本操作をマスターし、ブラウジングをよりスムーズに、思いのままに",
+		"description": "Tutorial welcome subtitle"
+	},
+	"tutorialStep1Title": {
+		"message": "基本操作",
+		"description": "Tutorial Step 1 title"
+	},
+	"tutorialStep1Subtitle": {
+		"message": "中核となるジェスチャーの仕組みを学ぶ",
+		"description": "Tutorial Step 1 subtitle"
+	},
+	"tutorialStep1InstructionIdle": {
+		"message": "<span class=\"text-highlight\">マウスの右ボタン</span>を押し続けてください",
+		"description": "Tutorial Step 1 instruction idle"
+	},
+	"tutorialStep1InstructionPressing": {
+		"message": "<strong>素晴らしい！</strong> 押したまま、<strong>%arrow% 右</strong>へドラッグしてください",
+		"description": "Tutorial Step 1 instruction pressing"
+	},
+	"tutorialStep1InstructionDragging": {
+		"message": "ドラッグし続けて...",
+		"description": "Tutorial Step 1 instruction dragging"
+	},
+	"tutorialStep1InstructionReleasing": {
+		"message": "<strong>いいですね！</strong> 右ボタンを離してください！",
+		"description": "Tutorial Step 1 instruction releasing"
+	},
+	"tutorialStep2Title": {
+		"message": "よく使うジェスチャー",
+		"description": "Tutorial Step 2 title"
+	},
+	"tutorialStep2Subtitle": {
+		"message": "<span class=\"text-highlight\">マウスの右ボタン</span>を押したままジェスチャーを描く",
+		"description": "Tutorial Step 2 subtitle"
+	},
+	"tutorialStep2Footer": {
+		"message": "<strong>その他のジェスチャー</strong>や<strong>ジェスチャーのカスタマイズ</strong>は設定で確認できます",
+		"description": "Footer note for step 2 discovery banner"
+	},
+	"tutorialStep2DiscoveryHeader": {
+		"message": "その他のジェスチャー機能",
+		"description": "Header for step 2 discovery banner"
+	},
+	"tutorialStep3DiscoveryHeader": {
+		"message": "その他のスーパードラッグ機能",
+		"description": "Header for step 3 discovery banner"
+	},
+	"tutorialStep3TextSearch": {
+		"message": "テキスト <span class=\"svg-arrow\">→</span> 検索",
+		"description": "Text drag search discovery item"
+	},
+	"tutorialStep3LinkOpen": {
+		"message": "リンク <span class=\"svg-arrow\">→</span> 新しいタブで開く",
+		"description": "Link drag open discovery item"
+	},
+	"tutorialStep3ImageOpen": {
+		"message": "画像 <span class=\"svg-arrow\">→</span> 新しいタブで開く",
+		"description": "Image drag open discovery item"
+	},
+	"tutorialStep3Footer": {
+		"message": "<strong>その他のドラッグ機能</strong>や<strong>ドラッグのカスタマイズ</strong>は詳細設定モードで確認できます",
+		"description": "Footer for step 3 discovery banner"
+	},
+	"tutorialContinue": {
+		"message": "続ける",
+		"description": "Tutorial continue button"
+	},
+	"tutorialStep3Title": {
+		"message": "スーパードラッグ",
+		"description": "Tutorial Step 3 title"
+	},
+	"tutorialStep3Subtitle": {
+		"message": "<span class=\"text-highlight\">マウスの左ボタン</span>を押したまま <span class=\"svg-arrow\">→</span> へドラッグして素早く操作",
+		"description": "Tutorial Step 3 subtitle"
+	},
+	"tutorialStep3HintTitle": {
+		"message": "テキストドラッグ検索",
+		"description": "Tutorial Step 3 hint title"
+	},
+	"tutorialStep3HintDesc": {
+		"message": "テキストを選択し、<span class=\"text-highlight\">マウスの左ボタン</span>で <span class=\"svg-arrow\">→</span> へドラッグして検索してください",
+		"description": "Tutorial Step 3 hint description. Note: Must drag to right. Use SVG arrow instead of text for direction."
+	},
+	"tutorialStep3TextBoxLabel": {
+		"message": "下のテキストで試してみてください！",
+		"description": "Tutorial Step 3 text box label"
+	},
+	"tutorialStep3SelectableText": {
+		"message": "FlowMouse スーパードラッグ",
+		"description": "Tutorial Step 3 selectable text"
+	},
+	"tutorialStep4Title": {
+		"message": "おめでとうございます！",
+		"description": "Tutorial Step 4 title"
+	},
+	"tutorialStep4Subtitle": {
+		"message": "指先の動きで、フロー状態へ。",
+		"description": "Tutorial Step 4 subtitle"
+	},
+	"tutorialStep4Instruction": {
+		"message": "このリンクを<span class=\"text-highlight\">スーパードラッグ <span class=\"svg-arrow\">→</span></span> して、<span class=\"text-highlight\">新しいタブ</span>で開いてください",
+		"description": "Tutorial Step 4 instruction. Note: Must drag to right. Use SVG arrow instead of text for direction."
+	},
+	"tutorialSettingsLink": {
+		"message": "FlowMouse 設定",
+		"description": "Tutorial settings link"
+	},
+	"tutorialSettingsHint": {
+		"message": "さらなる強力な機能があなたを待っています！",
+		"description": "Tutorial settings hint"
+	},
+	"tutorialWrongDirection": {
+		"message": "方向が違います！ %arrow% 右へドラッグしてください",
+		"description": "Tutorial wrong direction error"
+	},
+	"tutorialEarlyRelease": {
+		"message": "放すのが早すぎます！もう一度試してください。",
+		"description": "Tutorial early release error"
+	},
+	"tutorialDragWrongButton": {
+		"message": "<span class=\"text-highlight\">マウスの左ボタン</span>を使用してドラッグしてください",
+		"description": "Tutorial drag wrong button error"
+	},
+	"tutorialRefreshTip": {
+		"message": "ヒント：FlowMouseのインストール前に開いていたタブは、ジェスチャーを使用するために<span class=\"text-highlight\">更新</span>が必要です",
+		"description": "Tip about refreshing tabs"
+	},
+	"permissionBookmarksTitle": {
+		"message": "ブックマークの管理",
+		"description": "Permission popup title for bookmarks"
+	},
+	"permissionBookmarksDesc": {
+		"message": "ページをブックマークに追加するために、FlowMouseはブックマークの権限を必要とします。",
+		"description": "Permission popup description for bookmarks"
+	},
+	"permissionDownloadsTitle": {
+		"message": "ダウンロードの管理",
+		"description": "Permission popup title for downloads"
+	},
+	"permissionDownloadsDesc": {
+		"message": "画像を保存するために、FlowMouseはダウンロードの権限を必要とします。",
+		"description": "Permission popup description for downloads"
+	},
+	"permissionDownloadsPageCaptureTitle": {
+		"message": "コンテンツを保存",
+		"description": "Permission popup title for downloads and page capture"
+	},
+	"permissionDownloadsPageCaptureDesc": {
+		"message": "コンテンツを保存するために、FlowMouseはページへのアクセスとダウンロードの権限を必要とします。",
+		"description": "Permission popup description for downloads and page capture"
+	},
+	"permissionIncognitoTitle": {
+		"message": "シークレット モードでの実行を許可する",
+		"description": "Permission popup title for incognito"
+	},
+	"permissionIncognitoDesc": {
+		"message": "シークレット ウィンドウで使用するには、FlowMouse の「シークレット モードでの実行を許可する」を手動で有効にする必要があります。",
+		"description": "Permission popup description for incognito"
+	},
+	"permissionClipboardReadTitle": {
+		"message": "クリップボードの読み取り",
+		"description": "Permission popup title for clipboard read"
+	},
+	"permissionClipboardReadDesc": {
+		"message": "クリップボードの内容を貼り付けるために、FlowMouseはクリップボードを読み取る権限を必要とします。",
+		"description": "Permission popup description for clipboard read"
+	},
+	"openExtensionsSettings": {
+		"message": "拡張機能の詳細を開く",
+		"description": "Button to open extension details page"
+	},
+	"permissionFirefoxIncognitoTitle": {
+		"message": "プライベートウィンドウでの実行",
+		"description": "Permission popup title for Firefox private browsing"
+	},
+	"permissionFirefoxIncognitoDesc": {
+		"message": "プライベートウィンドウで使用するには、アドオンマネージャーで FlowMouse の「プライベートウィンドウでの実行」を手動で許可する必要があります。",
+		"description": "Permission popup description for Firefox private browsing"
+	},
+	"grantPermission": {
+		"message": "権限を付与",
+		"description": "Grant permission button"
+	},
+	"grantPermissionCancel": {
+		"message": "キャンセル",
+		"description": "Cancel button"
+	},
+	"permissionTitle": {
+		"message": "FlowMouse 権限リクエスト",
+		"description": "Generic permission window title"
+	},
+	"tutorialPinHint": {
+		"message": "<span class='icon-ext'></span><b>拡張機能</b>をクリックし、FlowMouseを<span class='icon-pin'></span><b>固定</b>すると設定へのアクセスが便利になります！",
+		"description": "Hint to pin the extension in tutorial step 4. Do not add space around icon."
+	},
+	"downloadErrorHotlink": {
+		"message": "画像の保存に失敗しました。このウェブサイトには直リンク防止機能がある可能性があります。画像を右クリックして「名前を付けて画像を保存...」を選択してください。",
+		"description": "Toast message when image download fails due to hotlink protection"
+	},
+	"saveImageLoadError": {
+		"message": "画像の保存に失敗しました：画像の読み込みに失敗しました",
+		"description": "Toast message when image fails to load before saving"
+	},
+	"saveImageTimeout": {
+		"message": "画像の保存に失敗しました：読み込みがタイムアウトしました",
+		"description": "Toast message when image loading times out"
+	},
+	"buttonOkay": {
+		"message": "OK",
+		"description": "Generic OK button"
+	},
+	"buttonConfirm": {
+		"message": "確認",
+		"description": "Generic Confirm button"
+	},
+	"buttonCancel": {
+		"message": "キャンセル",
+		"description": "Generic Cancel button"
+	},
+	"buttonClose": {
+		"message": "閉じる",
+		"description": "Generic Close button"
+	},
+	"searchActions": {
+		"message": "コマンドを検索...",
+		"description": "Placeholder for action search input in action picker"
+	},
+	"actionCategoryNavigation": {
+		"message": "ナビゲーション",
+		"description": "Action category: navigation"
+	},
+	"actionCategoryTabs": {
+		"message": "タブ",
+		"description": "Action category: tabs"
+	},
+	"actionCategoryWindow": {
+		"message": "ウィンドウ",
+		"description": "Action category: window"
+	},
+	"actionCategoryUtilities": {
+		"message": "ユーティリティ",
+		"description": "Action category: utilities"
+	},
+	"noResults": {
+		"message": "結果なし",
+		"description": "No search results found"
+	},
+	"wheelGestures": {
+		"message": "マウスホイールジェスチャー",
+		"description": "Mouse wheel gestures section title"
+	},
+	"enableWheelGestures": {
+		"message": "マウスホイールジェスチャーを有効にする",
+		"description": "Enable mouse wheel gestures"
+	},
+	"enableWheelGesturesDesc": {
+		"message": "マウスホイールを使用して様々な操作を素早く実行します",
+		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelGesture_scrollUpHoldingRight": {
+		"message": "右ボタンを押しながら上にスクロール",
+		"description": "Wheel gesture: scroll up while holding right button"
+	},
+	"wheelGesture_scrollDownHoldingRight": {
+		"message": "右ボタンを押しながら下にスクロール",
+		"description": "Wheel gesture: scroll down while holding right button"
+	},
+	"wheelGesture_wheelClickHoldingRight": {
+		"message": "右ボタンを押しながらホイールをクリック",
+		"description": "Wheel gesture: wheel (middle) click while holding right button"
+	},
+	"specialGestures": {
+		"message": "特別なジェスチャー",
+		"description": "Special gestures section title"
+	},
+	"enableSpecialGestures": {
+		"message": "特別なジェスチャーを有効にする",
+		"description": "Enable special gestures"
+	},
+	"enableSpecialGesturesDesc": {
+		"message": "いずれかのマウスボタンを押したまま、もう一方のボタンをクリックしてアクションを実行します",
+		"description": "Enable special gestures description"
+	},
+	"specialGesture_leftClickHoldingRight": {
+		"message": "右ボタンを押しながら左クリック",
+		"description": "Special gesture: left click while holding right button"
+	},
+	"specialGesture_rightClickHoldingLeft": {
+		"message": "左ボタンを押しながら右クリック",
+		"description": "Special gesture: right click while holding left button"
+	},
+	"actionChainsDesc": {
+		"message": "コマンドチェーンを使用して、複数のコマンドを順番に実行します。",
+		"description": "Action chains section description"
+	},
+	"actionActionChain": {
+		"message": "コマンドチェーン",
+		"description": "Action chain action name"
+	},
+	"actionCustomMenu": {
+		"message": "カスタムメニュー",
+		"description": "Custom popup menu action name"
+	},
+	"customMenuDesc": {
+		"message": "複数のアクションを含むカスタムポップアップメニューを作成します。",
+		"description": "Custom menu section description"
+	},
+	"addMenu": {
+		"message": "メニューを追加",
+		"description": "Add menu button"
+	},
+	"menuNamePlaceholder": {
+		"message": "カスタムメニュー",
+		"description": "Menu name input placeholder"
+	},
+	"menuItemCount": {
+		"message": "%count% 個のアイテム",
+		"description": "Item count for menus, e.g. '3 items'"
+	},
+	"menuItemCountOne": {
+		"message": "%count% 個のアイテム",
+		"description": "Item count for menus with exactly 1 item"
+	},
+	"addMenuItem": {
+		"message": "アイテムを追加",
+		"description": "Add menu item button"
+	},
+	"addMenuSeparator": {
+		"message": "区切り線を追加",
+		"description": "Add separator to menu button"
+	},
+	"emptyMenuItems": {
+		"message": "アイテムが追加されていません。「アイテムを追加」をクリックして開始してください。",
+		"description": "Empty menu items message"
+	},
+	"menuNotFound": {
+		"message": "（メニューが見つかりません）",
+		"description": "Menu not found label"
+	},
+	"deleteMenuConfirm": {
+		"message": "メニュー「%name%」を削除しますか？",
+		"description": "Delete menu confirmation"
+	},
+	"menuItemNumber": {
+		"message": "アイテム %n%",
+		"description": "Menu item number label"
+	},
+	"addChain": {
+		"message": "チェーンを追加",
+		"description": "Add chain button"
+	},
+	"chainNamePlaceholder": {
+		"message": "コマンドチェーン",
+		"description": "Chain name input placeholder"
+	},
+	"chainDelayUnit": {
+		"message": "ミリ秒",
+		"description": "Milliseconds unit for chain delay"
+	},
+	"addStep": {
+		"message": "ステップを追加",
+		"description": "Add step button"
+	},
+	"emptyChainSteps": {
+		"message": "ステップがありません。「ステップを追加」をクリックして開始します。",
+		"description": "Empty chain steps message in expanded body"
+	},
+	"emptyChainStepsShort": {
+		"message": "ステップなし",
+		"description": "Short empty chain steps message for summary"
+	},
+	"noChains": {
+		"message": "コマンドチェーンがありません。「チェーンを追加」をクリックして作成します。",
+		"description": "No chains message"
+	},
+	"chainNotFound": {
+		"message": "(チェーンが見つかりません)",
+		"description": "Chain not found label"
+	},
+	"deleteChainConfirm": {
+		"message": "チェーン「%name%」を削除しますか？",
+		"description": "Delete chain confirmation"
+	},
+	"stepNumber": {
+		"message": "ステップ %n%",
+		"description": "Step number label"
+	},
+	"actionDelay": {
+		"message": "遅延",
+		"description": "Delay action name for chain steps"
+	},
+	"actionSendCustomEvent": {
+		"message": "カスタムイベントを送信",
+		"description": "Action to dispatch a custom DOM event"
+	},
+	"actionSendExtensionMessage": {
+		"message": "他の拡張機能を呼び出す",
+		"description": "Action to send a custom message to another installed extension"
+	},
+	"actionSimulateKey": {
+		"message": "キー入力をシミュレート",
+		"description": "Action to simulate a keyboard key press on the page"
+	},
+	"actionPasteClipboard": {
+		"message": "クリップボードを貼り付け",
+		"description": "Action to paste clipboard text at the gesture start position"
+	},
+	"pasteClipboardHint": {
+		"message": "クリップボードの内容は、<b>ジェスチャーの開始位置</b>にある入力フィールドに貼り付けられます。",
+		"description": "Hint shown in action config when paste clipboard is selected. Contains HTML."
+	},
+	"actionPasteContent": {
+		"message": "カスタムテキストを貼り付け",
+		"description": "Action to paste a preset, user-specified text at the gesture start position"
+	},
+	"pasteContentLabel": {
+		"message": "テキスト",
+		"description": "Label for the text field where the user enters the content to paste"
+	},
+	"pasteContentHint": {
+		"message": "指定されたテキストは、<b>ジェスチャーの開始位置</b>にある入力フィールドに挿入されます。",
+		"description": "Hint shown in action config when paste specified content is selected. Contains HTML."
+	},
+	"pasteContentSensitiveHint": {
+		"message": "パスワードなどの機密情報をここに保存することはお勧めしません。",
+		"description": "Warning hint below the content field for the paste specified content action"
+	},
+	"simulateKeyPreset": {
+		"message": "プリセットキー",
+		"description": "Label for preset key dropdown in simulate key config"
+	},
+	"simulateKeyPresetLeft": {
+		"message": "← 左向き矢印（前のページ）",
+		"description": "Preset: ArrowLeft key"
+	},
+	"simulateKeyPresetRight": {
+		"message": "→ 右向き矢印（次のページ）",
+		"description": "Preset: ArrowRight key"
+	},
+	"simulateKeyPresetCustom": {
+		"message": "カスタムキー",
+		"description": "Preset: Custom key option"
+	},
+	"simulateKeyRecordBtn": {
+		"message": "キーを記録",
+		"description": "Button to start recording a key press"
+	},
+	"simulateKeyRecording": {
+		"message": "キーを押してください...",
+		"description": "Recording state text"
+	},
+	"simulateKeyManualInput": {
+		"message": "現在のキー",
+		"description": "Label for current key display in simulate key config"
+	},
+	"simulateKeyHint": {
+		"message": "この機能は現在のページにのみキーボードイベントを送信し、通常はページのナビゲーション（← 前へ / → 次へ）に使用されます。ブラウザのショートカットはトリガーされません（例: Ctrl+Rはページを更新しません）。さらに、Webサイトのフレームワークの制限により、シミュレートされたイベントは一部のカスタムコンポーネントや入力フィールドでキャプチャされない場合があります。",
+		"description": "Hint text for simulate key feature"
+	},
+	"customEventInvalidJson": {
+		"message": "無効なJSONフォーマット",
+		"description": "Error message when event detail is not valid JSON"
+	},
+	"customEventIncludeGestureInfo": {
+		"message": "%code% にジェスチャー情報を含める",
+		"description": "Checkbox label for including gesture context in custom event detail. %code% = detail.gesture"
+	},
+	"customEventConfigureBtn": {
+		"message": "設定",
+		"description": "Label for the configure button of custom event action in drag gesture manager"
+	},
+	"customEventHint": {
+		"message": "%window% に %code% をディスパッチします。他のスクリプトとの統合に便利です。",
+		"description": "Hint explaining how custom event works. %code% = <code>new CustomEvent(...)</code>, %window% = <code>window</code>"
+	},
+	"sendExtensionMessageHint": {
+		"message": "%code% を介して他のインストール済み拡張機能にメッセージを送信します。他の拡張機能との統合に便利です。",
+		"description": "Hint explaining how send-message-to-extension works. %code% = <code>chrome.runtime.sendMessage(...)</code>"
+	},
+	"delayDuration": {
+		"message": "期間",
+		"description": "Delay duration label"
+	},
+	"chainStepCount": {
+		"message": "%count% ステップ",
+		"description": "Step count for unnamed chains, e.g. '3 steps'"
+	},
+	"chainStepCountOne": {
+		"message": "%count% ステップ",
+		"description": "Step count for unnamed chains with exactly 1 step"
+	},
+	"actionZoomIn": {
+		"message": "拡大",
+		"description": "Zoom in on the current page"
+	},
+	"actionZoomOut": {
+		"message": "縮小",
+		"description": "Zoom out on the current page"
+	},
+	"actionResetZoom": {
+		"message": "ズームをリセット",
+		"description": "Reset page zoom to default or a specified level"
+	},
+	"actionViewPageSource": {
+		"message": "ページのソースを表示",
+		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionPauseGesture": {
+		"message": "更新までジェスチャーを一時停止",
+		"description": "Temporarily disable all gestures on the current tab until page refresh"
+	},
+	"actionAreaSelect": {
+		"message": "エリア選択",
+		"description": "Enter area select mode to drag-select links on the page and batch open them"
+	},
+	"areaSelectTitle": {
+		"message": "エリア選択",
+		"description": "Label for the area select row in the popup"
+	},
+	"areaSelectModifierKey": {
+		"message": "クイックエリア選択",
+		"description": "Label for the modifier key dropdown in area select settings"
+	},
+	"areaSelectModifierKeyDesc": {
+		"message": "修飾キーを押しながら左クリックしてドラッグし、ページのリンクをすばやく選択して一括操作を行います",
+		"description": "Description for the modifier key setting"
+	},
+	"areaSelectDisabled": {
+		"message": "無効",
+		"description": "Disabled option for the area select modifier key dropdown"
+	},
+	"areaSelectMouseDrag": {
+		"message": "マウスドラッグ",
+		"description": "Suffix label next to the modifier key dropdown"
+	},
+	"areaSelectTextUrl": {
+		"message": "テキストURL認識",
+		"description": "Label for the text URL recognition toggle"
+	},
+	"areaSelectTextUrlDesc": {
+		"message": "範囲選択時にプレーンテキストのURL（ハイパーリンク以外）も抽出します",
+		"description": "Description for the text URL recognition toggle"
+	},
+	"areaSelectWarnThreshold": {
+		"message": "一括操作の警告",
+		"description": "Label for the batch operation alert threshold input"
+	},
+	"areaSelectWarnThresholdDesc": {
+		"message": "一括操作の対象がこの数を超える場合に確認を表示します。無効にするには 0 に設定します",
+		"description": "Description for the batch operation alert threshold"
+	},
+	"areaSelectDelay": {
+		"message": "操作間隔",
+		"description": "Label for the operation interval input"
+	},
+	"areaSelectDelayDesc": {
+		"message": "一括で開く際の間隔（秒）",
+		"description": "Description for the operation interval setting"
+	},
+	"areaSelectHint": {
+		"message": "ドラッグしてリンクを選択",
+		"description": "Hint text shown in the area select overlay"
+	},
+	"areaSelectOpen": {
+		"message": "%count% 個のリンクを開く",
+		"description": "Button text in the area select toolbar to batch open selected links"
+	},
+	"areaSelectOpenOne": {
+		"message": "%count% 個のリンクを開く",
+		"description": "Button text to open a single selected link (singular form)"
+	},
+	"areaSelectCopy": {
+		"message": "リンクをコピー",
+		"description": "Button text to copy all selected link URLs to clipboard"
+	},
+	"areaSelectCancel": {
+		"message": "キャンセル",
+		"description": "Button text to cancel area select mode"
+	},
+	"areaSelectConfirm": {
+		"message": "確認",
+		"description": "Button text to confirm opening many links"
+	},
+	"areaSelectWarnTitle": {
+		"message": "多数のリンクを開きますか？",
+		"description": "Title of the warning modal when opening many links"
+	},
+	"areaSelectWarnMessage": {
+		"message": "%count% 個のリンクを開こうとしています。ブラウザの動作が遅くなる可能性があります。続行しますか？",
+		"description": "Body text of the warning modal"
+	},
+	"start": {
+		"message": "開始",
+		"description": "Button label to start an action (e.g. area select)"
+	},
+	"actionMenuShowTabs": {
+		"message": "タブを切り替え",
+		"description": "Show a context menu listing all open tabs in the current window"
+	},
+	"actionMenuRecentlyClosed": {
+		"message": "最近閉じたタブ",
+		"description": "Show a context menu listing recently closed tabs for quick restore"
+	},
+	"recentlyClosedMaxItems": {
+		"message": "最大表示数",
+		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
+	},
+	"actionCategoryContextMenu": {
+		"message": "ポップアップメニュー",
+		"description": "Action category: context menu actions"
+	},
+	"zoomStepMode": {
+		"message": "ズーム方式",
+		"description": "Label for zoom mode selector: browser steps vs fixed increment"
+	},
+	"zoomStepModeBrowser": {
+		"message": "ブラウザのズームレベルを使用",
+		"description": "Option: follow Chrome's built-in zoom steps (25%, 33%, 50%, …, 500%)"
+	},
+	"zoomStepModeFixed": {
+		"message": "固定ステップ",
+		"description": "Option: zoom in/out by a configurable fixed percentage each time"
+	},
+	"zoomDelta": {
+		"message": "ステップサイズ",
+		"description": "Label for the zoom increment/decrement slider"
+	},
+	"resetZoomLevel": {
+		"message": "リセット先",
+		"description": "Label for the target zoom level when resetting zoom"
+	},
+	"resetZoomDefault": {
+		"message": "ブラウザのデフォルト",
+		"description": "Option: reset zoom to the browser's default zoom setting"
+	},
+	"resetZoomCustom": {
+		"message": "カスタム値",
+		"description": "Option: reset zoom to a user-specified custom zoom level"
+	},
+	"actionMenuShowBookmarks": {
+		"message": "ブックマークを表示",
+		"description": "Show a context menu listing bookmarks from a selected folder"
+	},
+	"bookmarkFolder": {
+		"message": "フォルダ",
+		"description": "Label for selecting which bookmark folder to display"
+	},
+	"bookmarkFolderDefault": {
+		"message": "ブラウザのデフォルト",
+		"description": "Option label for using the browser's default bookmark location"
+	},
+	"bookmarkGrantPermission": {
+		"message": "（ブックマークの権限を付与）",
+		"description": "Button label to request bookmarks permission"
+	},
+	"ctxMenuSortOrder": {
+		"message": "並べ替え",
+		"description": "Label for context menu sort order dropdown"
+	},
+	"ctxMenuSortDefault": {
+		"message": "デフォルト",
+		"description": "Sort option: original API/insertion order"
+	},
+	"ctxMenuSortDefaultDesc": {
+		"message": "デフォルト（逆順）",
+		"description": "Sort option: reverse of original API order"
+	},
+	"ctxMenuSortDateAddedAsc": {
+		"message": "追加日（古い順）",
+		"description": "Sort option: by date added ascending"
+	},
+	"ctxMenuSortDateAddedDesc": {
+		"message": "追加日（新しい順）",
+		"description": "Sort option: by date added descending"
+	},
+	"ctxMenuSortNameAsc": {
+		"message": "名前（昇順）",
+		"description": "Sort option: alphabetical ascending"
+	},
+	"ctxMenuSortNameDesc": {
+		"message": "名前（降順）",
+		"description": "Sort option: alphabetical descending"
+	},
+	"ctxMenuSortLastAccessAsc": {
+		"message": "最近のアクセス（古い順）",
+		"description": "Sort option: by last access time ascending"
+	},
+	"ctxMenuSortLastAccessDesc": {
+		"message": "最近のアクセス（新しい順）",
+		"description": "Sort option: by last access time descending"
+	},
+	"ctxMenuMaxItems": {
+		"message": "最大数",
+		"description": "Label for maximum number of items in context menu"
+	},
+	"ctxMenuMaxItemsUnlimited": {
+		"message": "無制限",
+		"description": "Placeholder shown when max items is 0 (no limit)"
+	},
+	"ctxMenuScrollToBottom": {
+		"message": "一番下までスクロール",
+		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuTimeDisplay": {
+		"message": "時間を表示",
+		"description": "Label for time display mode dropdown in context menu"
+	},
+	"ctxMenuTimeNone": {
+		"message": "表示しない",
+		"description": "Time display option: hide time column"
+	},
+	"ctxMenuTimeLastAccess": {
+		"message": "最終アクセス",
+		"description": "Time display option: show last access time"
+	},
+	"ctxMenuTimeClosedTime": {
+		"message": "閉じた時間",
+		"description": "Time display option: show when the tab was closed"
+	},
+	"ctxMenuTimeDateAdded": {
+		"message": "追加日時",
+		"description": "Time display option: show when the bookmark was added"
+	}
+}

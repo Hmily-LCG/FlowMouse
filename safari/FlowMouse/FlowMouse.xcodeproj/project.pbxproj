@@ -1,0 +1,649 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E7DAA7CC302C26E100A2228C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DAA7CB302C26E100A2228C /* AppDelegate.swift */; };
+		E7DAA7D0302C26E100A2228C /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = E7DAA7CE302C26E100A2228C /* Main.html */; };
+		E7DAA7D2302C26E100A2228C /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E7DAA7D1302C26E100A2228C /* Icon.png */; };
+		E7DAA7D4302C26E100A2228C /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = E7DAA7D3302C26E100A2228C /* Style.css */; };
+		E7DAA7D6302C26E100A2228C /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = E7DAA7D5302C26E100A2228C /* Script.js */; };
+		E7DAA7D8302C26E100A2228C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DAA7D7302C26E100A2228C /* ViewController.swift */; };
+		E7DAA7DB302C26E100A2228C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7DAA7D9302C26E100A2228C /* Main.storyboard */; };
+		E7DAA7DD302C26E200A2228C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7DAA7DC302C26E200A2228C /* Assets.xcassets */; };
+		E7DAA7E4302C26E200A2228C /* FlowMouse Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = E7DAA7E3302C26E200A2228C /* FlowMouse Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E7DAA7E9302C26E200A2228C /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DAA7E8302C26E200A2228C /* SafariWebExtensionHandler.swift */; };
+		E7DAA803302C26E200A2228C /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = E7DAA7F5302C26E200A2228C /* LICENSE */; };
+		E7DAA804302C26E200A2228C /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = E7DAA7F6302C26E200A2228C /* CHANGELOG.md */; };
+		E7DAA805302C26E200A2228C /* css in Resources */ = {isa = PBXBuildFile; fileRef = E7DAA7F7302C26E200A2228C /* css */; };
+		E7DAA806302C26E200A2228C /* js in Resources */ = {isa = PBXBuildFile; fileRef = E7DAA7F8302C26E200A2228C /* js */; };
+		E7DAA807302C26E200A2228C /* docs in Resources */ = {isa = PBXBuildFile; fileRef = E7DAA7F9302C26E200A2228C /* docs */; };
+		E7DAA808302C26E200A2228C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E7DAA7FA302C26E200A2228C /* README.md */; };
+		E7DAA809302C26E200A2228C /* icons in Resources */ = {isa = PBXBuildFile; fileRef = E7DAA7FB302C26E200A2228C /* icons */; };
+		E7DAA80A302C26E200A2228C /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = E7DAA7FC302C26E200A2228C /* manifest.json */; };
+		E7DAA80B302C26E200A2228C /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = E7DAA7FD302C26E200A2228C /* _locales */; };
+		E7DAA80C302C26E200A2228C /* THIRD_PARTY_LICENSES.md in Resources */ = {isa = PBXBuildFile; fileRef = E7DAA7FE302C26E200A2228C /* THIRD_PARTY_LICENSES.md */; };
+		E7DAA80D302C26E200A2228C /* CHANGELOG.zh_CN.md in Resources */ = {isa = PBXBuildFile; fileRef = E7DAA7FF302C26E200A2228C /* CHANGELOG.zh_CN.md */; };
+		E7DAA80E302C26E200A2228C /* assets in Resources */ = {isa = PBXBuildFile; fileRef = E7DAA800302C26E200A2228C /* assets */; };
+		E7DAA80F302C26E200A2228C /* pages in Resources */ = {isa = PBXBuildFile; fileRef = E7DAA801302C26E200A2228C /* pages */; };
+		E7DAA810302C26E200A2228C /* README.zh_CN.md in Resources */ = {isa = PBXBuildFile; fileRef = E7DAA802302C26E200A2228C /* README.zh_CN.md */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E7DAA7E5302C26E200A2228C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E7DAA7C0302C26E100A2228C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E7DAA7E2302C26E200A2228C;
+			remoteInfo = "FlowMouse Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E7DAA7F0302C26E200A2228C /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E7DAA7E4302C26E200A2228C /* FlowMouse Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		E7DAA7C8302C26E100A2228C /* FlowMouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowMouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7DAA7CB302C26E100A2228C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E7DAA7CF302C26E100A2228C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/Main.html; sourceTree = "<group>"; };
+		E7DAA7D1302C26E100A2228C /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		E7DAA7D3302C26E100A2228C /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		E7DAA7D5302C26E100A2228C /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		E7DAA7D7302C26E100A2228C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E7DAA7DA302C26E100A2228C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E7DAA7DC302C26E200A2228C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E7DAA7DE302C26E200A2228C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7DAA7E3302C26E200A2228C /* FlowMouse Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "FlowMouse Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7DAA7E8302C26E200A2228C /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		E7DAA7EA302C26E200A2228C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7DAA7F5302C26E200A2228C /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = Resources/LICENSE; sourceTree = "<group>"; };
+		E7DAA7F6302C26E200A2228C /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = Resources/CHANGELOG.md; sourceTree = "<group>"; };
+		E7DAA7F7302C26E200A2228C /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; name = css; path = Resources/css; sourceTree = "<group>"; };
+		E7DAA7F8302C26E200A2228C /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; name = js; path = Resources/js; sourceTree = "<group>"; };
+		E7DAA7F9302C26E200A2228C /* docs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = docs; path = Resources/docs; sourceTree = "<group>"; };
+		E7DAA7FA302C26E200A2228C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = Resources/README.md; sourceTree = "<group>"; };
+		E7DAA7FB302C26E200A2228C /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icons; path = Resources/icons; sourceTree = "<group>"; };
+		E7DAA7FC302C26E200A2228C /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = Resources/manifest.json; sourceTree = "<group>"; };
+		E7DAA7FD302C26E200A2228C /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; name = _locales; path = Resources/_locales; sourceTree = "<group>"; };
+		E7DAA7FE302C26E200A2228C /* THIRD_PARTY_LICENSES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = THIRD_PARTY_LICENSES.md; path = Resources/THIRD_PARTY_LICENSES.md; sourceTree = "<group>"; };
+		E7DAA7FF302C26E200A2228C /* CHANGELOG.zh_CN.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.zh_CN.md; path = Resources/CHANGELOG.zh_CN.md; sourceTree = "<group>"; };
+		E7DAA800302C26E200A2228C /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = Resources/assets; sourceTree = "<group>"; };
+		E7DAA801302C26E200A2228C /* pages */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pages; path = Resources/pages; sourceTree = "<group>"; };
+		E7DAA802302C26E200A2228C /* README.zh_CN.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.zh_CN.md; path = Resources/README.zh_CN.md; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E7DAA7C5302C26E100A2228C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7DAA7E0302C26E200A2228C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E7DAA7BF302C26E100A2228C = {
+			isa = PBXGroup;
+			children = (
+				E7DAA7CA302C26E100A2228C /* FlowMouse */,
+				E7DAA7E7302C26E200A2228C /* FlowMouse Extension */,
+				E7DAA7C9302C26E100A2228C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E7DAA7C9302C26E100A2228C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E7DAA7C8302C26E100A2228C /* FlowMouse.app */,
+				E7DAA7E3302C26E200A2228C /* FlowMouse Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E7DAA7CA302C26E100A2228C /* FlowMouse */ = {
+			isa = PBXGroup;
+			children = (
+				E7DAA7CB302C26E100A2228C /* AppDelegate.swift */,
+				E7DAA7D7302C26E100A2228C /* ViewController.swift */,
+				E7DAA7D9302C26E100A2228C /* Main.storyboard */,
+				E7DAA7DC302C26E200A2228C /* Assets.xcassets */,
+				E7DAA7DE302C26E200A2228C /* Info.plist */,
+				E7DAA7CD302C26E100A2228C /* Resources */,
+			);
+			path = FlowMouse;
+			sourceTree = "<group>";
+		};
+		E7DAA7CD302C26E100A2228C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E7DAA7CE302C26E100A2228C /* Main.html */,
+				E7DAA7D1302C26E100A2228C /* Icon.png */,
+				E7DAA7D3302C26E100A2228C /* Style.css */,
+				E7DAA7D5302C26E100A2228C /* Script.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E7DAA7E7302C26E200A2228C /* FlowMouse Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E7DAA7F4302C26E200A2228C /* Resources */,
+				E7DAA7E8302C26E200A2228C /* SafariWebExtensionHandler.swift */,
+				E7DAA7EA302C26E200A2228C /* Info.plist */,
+			);
+			path = "FlowMouse Extension";
+			sourceTree = "<group>";
+		};
+		E7DAA7F4302C26E200A2228C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E7DAA7F5302C26E200A2228C /* LICENSE */,
+				E7DAA7F6302C26E200A2228C /* CHANGELOG.md */,
+				E7DAA7F7302C26E200A2228C /* css */,
+				E7DAA7F8302C26E200A2228C /* js */,
+				E7DAA7F9302C26E200A2228C /* docs */,
+				E7DAA7FA302C26E200A2228C /* README.md */,
+				E7DAA7FB302C26E200A2228C /* icons */,
+				E7DAA7FC302C26E200A2228C /* manifest.json */,
+				E7DAA7FD302C26E200A2228C /* _locales */,
+				E7DAA7FE302C26E200A2228C /* THIRD_PARTY_LICENSES.md */,
+				E7DAA7FF302C26E200A2228C /* CHANGELOG.zh_CN.md */,
+				E7DAA800302C26E200A2228C /* assets */,
+				E7DAA801302C26E200A2228C /* pages */,
+				E7DAA802302C26E200A2228C /* README.zh_CN.md */,
+			);
+			name = Resources;
+			path = "FlowMouse Extension";
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E7DAA7C7302C26E100A2228C /* FlowMouse */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7DAA7F1302C26E200A2228C /* Build configuration list for PBXNativeTarget "FlowMouse" */;
+			buildPhases = (
+				E7DAA7C4302C26E100A2228C /* Sources */,
+				E7DAA7C5302C26E100A2228C /* Frameworks */,
+				E7DAA7C6302C26E100A2228C /* Resources */,
+				E7DAA7F0302C26E200A2228C /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E7DAA7E6302C26E200A2228C /* PBXTargetDependency */,
+			);
+			name = FlowMouse;
+			packageProductDependencies = (
+			);
+			productName = FlowMouse;
+			productReference = E7DAA7C8302C26E100A2228C /* FlowMouse.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E7DAA7E2302C26E200A2228C /* FlowMouse Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7DAA7ED302C26E200A2228C /* Build configuration list for PBXNativeTarget "FlowMouse Extension" */;
+			buildPhases = (
+				E7DAA7DF302C26E200A2228C /* Sources */,
+				E7DAA7E0302C26E200A2228C /* Frameworks */,
+				E7DAA7E1302C26E200A2228C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "FlowMouse Extension";
+			packageProductDependencies = (
+			);
+			productName = "FlowMouse Extension";
+			productReference = E7DAA7E3302C26E200A2228C /* FlowMouse Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E7DAA7C0302C26E100A2228C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2660;
+				LastUpgradeCheck = 2660;
+				TargetAttributes = {
+					E7DAA7C7302C26E100A2228C = {
+						CreatedOnToolsVersion = 26.6;
+					};
+					E7DAA7E2302C26E200A2228C = {
+						CreatedOnToolsVersion = 26.6;
+					};
+				};
+			};
+			buildConfigurationList = E7DAA7C3302C26E100A2228C /* Build configuration list for PBXProject "FlowMouse" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E7DAA7BF302C26E100A2228C;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = E7DAA7C9302C26E100A2228C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E7DAA7C7302C26E100A2228C /* FlowMouse */,
+				E7DAA7E2302C26E200A2228C /* FlowMouse Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E7DAA7C6302C26E100A2228C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7DAA7D2302C26E100A2228C /* Icon.png in Resources */,
+				E7DAA7DB302C26E100A2228C /* Main.storyboard in Resources */,
+				E7DAA7D6302C26E100A2228C /* Script.js in Resources */,
+				E7DAA7D0302C26E100A2228C /* Main.html in Resources */,
+				E7DAA7DD302C26E200A2228C /* Assets.xcassets in Resources */,
+				E7DAA7D4302C26E100A2228C /* Style.css in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7DAA7E1302C26E200A2228C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7DAA80B302C26E200A2228C /* _locales in Resources */,
+				E7DAA80F302C26E200A2228C /* pages in Resources */,
+				E7DAA808302C26E200A2228C /* README.md in Resources */,
+				E7DAA805302C26E200A2228C /* css in Resources */,
+				E7DAA803302C26E200A2228C /* LICENSE in Resources */,
+				E7DAA804302C26E200A2228C /* CHANGELOG.md in Resources */,
+				E7DAA80A302C26E200A2228C /* manifest.json in Resources */,
+				E7DAA80D302C26E200A2228C /* CHANGELOG.zh_CN.md in Resources */,
+				E7DAA810302C26E200A2228C /* README.zh_CN.md in Resources */,
+				E7DAA806302C26E200A2228C /* js in Resources */,
+				E7DAA80C302C26E200A2228C /* THIRD_PARTY_LICENSES.md in Resources */,
+				E7DAA80E302C26E200A2228C /* assets in Resources */,
+				E7DAA809302C26E200A2228C /* icons in Resources */,
+				E7DAA807302C26E200A2228C /* docs in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E7DAA7C4302C26E100A2228C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7DAA7D8302C26E100A2228C /* ViewController.swift in Sources */,
+				E7DAA7CC302C26E100A2228C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7DAA7DF302C26E200A2228C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7DAA7E9302C26E200A2228C /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E7DAA7E6302C26E200A2228C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E7DAA7E2302C26E200A2228C /* FlowMouse Extension */;
+			targetProxy = E7DAA7E5302C26E200A2228C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E7DAA7CE302C26E100A2228C /* Main.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E7DAA7CF302C26E100A2228C /* Base */,
+			);
+			name = Main.html;
+			sourceTree = "<group>";
+		};
+		E7DAA7D9302C26E100A2228C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E7DAA7DA302C26E100A2228C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E7DAA7EB302C26E200A2228C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E7DAA7EC302C26E200A2228C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		E7DAA7EE302C26E200A2228C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "FlowMouse Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "FlowMouse Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hmilylcg.flowmouse.Extension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		E7DAA7EF302C26E200A2228C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "FlowMouse Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "FlowMouse Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hmilylcg.flowmouse.Extension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		E7DAA7F2302C26E200A2228C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FlowMouse/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FlowMouse;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hmilylcg.flowmouse;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		E7DAA7F3302C26E200A2228C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FlowMouse/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FlowMouse;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hmilylcg.flowmouse;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E7DAA7C3302C26E100A2228C /* Build configuration list for PBXProject "FlowMouse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7DAA7EB302C26E200A2228C /* Debug */,
+				E7DAA7EC302C26E200A2228C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E7DAA7ED302C26E200A2228C /* Build configuration list for PBXNativeTarget "FlowMouse Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7DAA7EE302C26E200A2228C /* Debug */,
+				E7DAA7EF302C26E200A2228C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E7DAA7F1302C26E200A2228C /* Build configuration list for PBXNativeTarget "FlowMouse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7DAA7F2302C26E200A2228C /* Debug */,
+				E7DAA7F3302C26E200A2228C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E7DAA7C0302C26E100A2228C /* Project object */;
+}
