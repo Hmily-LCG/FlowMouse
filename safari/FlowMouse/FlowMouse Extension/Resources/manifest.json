@@ -8,10 +8,8 @@
     "minimum_chrome_version": "109",
     "permissions": [
         "tabs",
-        "sessions",
         "storage",
         "contextMenus",
-        "search",
         "scripting",
         "favicon"
     ],

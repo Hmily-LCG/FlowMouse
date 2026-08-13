@@ -133,7 +133,7 @@
 		simulateKey: { keyValue: 'ArrowLeft', modCtrl: false, modShift: false, modAlt: false, modMeta: false },
 		pasteClipboard: {},
 		pasteContent: { content: '' },
-		searchClipboard: { engine: 'system', url: '', autoDetectUrl: true, position: 'right', active: true, incognito: false },
+		searchClipboard: { engine: getDefaultSearchEngine(), url: '', autoDetectUrl: true, position: 'right', active: true, incognito: false },
 		zoomIn: { zoomMode: 'browser', zoomDelta: 10 },
 		zoomOut: { zoomMode: 'browser', zoomDelta: 10 },
 		resetZoom: { resetZoomLevel: 0 },
@@ -189,7 +189,7 @@
 	};
 
 	const DRAG_ACTION_DEFAULTS = {
-		search:          { engine: 'system', url: '', autoDetectUrl: true, position: 'right', active: true, incognito: false },
+		search:          { engine: getDefaultSearchEngine(), url: '', autoDetectUrl: true, position: 'right', active: true, incognito: false },
 		openTab:         { position: 'right', active: true, incognito: false, preferLink: false },
 		imageSearch:     { engine: 'google', url: '', position: 'right', active: true, incognito: false },
 		copyLinkAndText: { asMarkdown: false },
@@ -441,6 +441,11 @@
 		return order;
 	}
 
+	function getDefaultSearchEngine() {
+		const compat = window.FlowMouseCompat;
+		return (compat && !compat.hasSearch) ? 'google' : 'system';
+	}
+
 	window.GestureConstants = {
 		DEFAULT_GESTURES,
 		ACTION_KEYS,
@@ -465,6 +470,7 @@
 		isActionSupported,
 		getDefaultGestures,
 		getSearchEngineOrder,
+		getDefaultSearchEngine,
 	};
 
 	window.litDisableBundleWarning = true;
