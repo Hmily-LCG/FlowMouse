@@ -427,7 +427,7 @@ class DragGestureManager extends LitElement {
 		const order = getSearchEngineOrder(lang);
 		const displayKeys = [...order];
 
-		if (current && current !== 'custom' && current !== 'system' && !displayKeys.includes(current) && SEARCH_ENGINES[current]) {
+		if (current && current !== 'custom' && !displayKeys.includes(current) && SEARCH_ENGINES[current]) {
 			displayKeys.push(current);
 		}
 
