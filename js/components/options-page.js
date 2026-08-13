@@ -1275,8 +1275,7 @@ class OptionsPage extends LitElement {
 				}
 				const DEFAULT_SETTINGS = structuredClone(window.GestureConstants.DEFAULT_SETTINGS);
 				if ((imported.customGestures || imported.gestures) && !imported.mouseGestures) {
-					const { DEFAULT_GESTURES } = window.GestureConstants;
-					const baseGestures = imported.gestures || DEFAULT_GESTURES;
+					const baseGestures = imported.gestures || window.GestureConstants.getDefaultGestures();
 					const customGestures = imported.customGestures || {};
 					const customGestureUrls = imported.customGestureUrls || {};
 					const merged = { ...baseGestures, ...customGestures };
