@@ -115,7 +115,7 @@ class GestureGrid extends LitElement {
 
 	#renderItem(pattern, gestures, defaultGestures) {
 		const { DEFAULT_GESTURES } = window.GestureConstants;
-		const currentAction = gestures[pattern] || DEFAULT_GESTURES[pattern] || 'none';
+		const currentAction = gestures[pattern] || defaultGestures[pattern] || 'none';
 		const defaultAction = defaultGestures[pattern] || 'none';
 		const isCustom = !DEFAULT_GESTURES[pattern];
 		const entryConfig = (this.mouseGestures || {})[pattern] || {};
