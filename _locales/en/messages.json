@@ -1627,6 +1627,10 @@
 		"message": "Image save failed. The website may have hotlink protection. Please right-click the image and select \"Save image as...\"",
 		"description": "Toast message when image download fails due to hotlink protection"
 	},
+	"actionUnsupportedOnBrowser": {
+		"message": "This action isn't supported on %browserName%.",
+		"description": "Toast message shown when a gesture's action is rejected because the current browser lacks the required capability (e.g. Safari)"
+	},
 	"saveImageLoadError": {
 		"message": "Save image failed: Image failed to load",
 		"description": "Toast message when image fails to load before saving"

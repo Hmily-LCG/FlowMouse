@@ -3196,7 +3196,12 @@ window.ContentContextMenu = ContentContextMenu;
 						const clipText = (await navigator.clipboard.readText() || '').trim();
 						if (!clipText) break;
 						const { SEARCH_ENGINES } = window.GestureConstants;
-						const engine = mergedConfig.engine || 'system';
+						let engine = mergedConfig.engine || 'system';
+						// See the matching comment in resolveTabTarget(): a stored 'system'
+						// engine can outlive hasSearch becoming false.
+						if (engine === 'system' && !window.FlowMouseCompat.hasSearch) {
+							engine = window.GestureConstants.getDefaultSearchEngine();
+						}
 						const customUrl = mergedConfig.url || '';
 						const position = mergedConfig.position || 'right';
 						const active = mergedConfig.active !== false;
@@ -3402,13 +3407,24 @@ window.ContentContextMenu = ContentContextMenu;
 			const config = SETTINGS.enableGestureCustomization
 				? (SETTINGS.mouseGestures?.[pattern] || {})
 				: {};
-			executeAction(action, config, { startX: recognizer.startX, startY: recognizer.startY, endX: recognizer.currentX, endY: recognizer.currentY }, gestureState.startTarget);
+			executeAction(action, config, { startX: recognizer.startX, startY: recognizer.startY, endX: recognizer.currentX, endY: recognizer.currentY }, gestureState.startTarget)
+				.then(result => {
+					if (result && result.unsupported) {
+						toaster.showToast(msg('actionUnsupportedOnBrowser'), { duration: 4000 });
+					}
+				});
 		}
 
 		function resolveTabTarget(config, state) {
 			const { SEARCH_ENGINES, IMAGE_SEARCH_ENGINES } = window.GestureConstants;
 			const { selectedText: content, dragType, parentLink } = state;
-			const engine = config.engine;
+			// A stored engine of 'system' can outlive hasSearch becoming false (stale
+			// config, cross-device sync, legacy import) even though the UI no longer
+			// offers it — fall back to a working engine instead of routing to the
+			// hasSearch-gated systemSearch action, which would silently no-op.
+			const engine = (config.engine === 'system' && !window.FlowMouseCompat.hasSearch)
+				? window.GestureConstants.getDefaultSearchEngine()
+				: config.engine;
 			const customUrl = config.url;
 
 			switch (config.action) {
