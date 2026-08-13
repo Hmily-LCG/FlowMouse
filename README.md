@@ -71,6 +71,10 @@ FlowMouse settings are stored locally via the browser's storage API. If browser 
 
 See [CHANGELOG.md](https://github.com/Hmily-LCG/FlowMouse/blob/main/CHANGELOG.md).
 
+## Contributing
+
+See [CONTRIBUTING.md](https://github.com/Hmily-LCG/FlowMouse/blob/main/CONTRIBUTING.md).
+
 ## The story behind FlowMouse
 
 For years, I was a loyal CrxMouse user. It genuinely improved my productivity. But one thing always bugged me: it kept requesting "advanced feature" permissions, which really meant access to my browsing history. I never agreed.

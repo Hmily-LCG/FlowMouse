@@ -71,6 +71,10 @@ FlowMouse 是开源项目，代码已托管于 GitHub，欢迎审阅与贡献。
 
 详见 [CHANGELOG.zh_CN.md](https://github.com/Hmily-LCG/FlowMouse/blob/main/CHANGELOG.zh_CN.md)。
 
+## 贡献
+
+详见 [CONTRIBUTING.md](https://github.com/Hmily-LCG/FlowMouse/blob/main/CONTRIBUTING.md)。
+
 ## 缘起
 
 多年以来，我一直是 CrxMouse 的忠实用户，它确实极大地提升了我的操作效率。然而，长期使用中也一直伴随着一个困扰：它频繁弹出请求授予“高级功能”权限——实质上是希望获取用户访问的网址记录。出于对隐私的坚持，我始终没有同意。
