@@ -95,10 +95,10 @@
 	}
 
 	function getHudText(pattern) {
-		if (!window.GestureConstants?.DEFAULT_GESTURES) {
+		if (!window.GestureConstants?.getDefaultGestures) {
 			return '';
 		}
-		const actionKey = window.GestureConstants.DEFAULT_GESTURES[pattern];
+		const actionKey = window.GestureConstants.getDefaultGestures()[pattern];
 		if (actionKey) {
 			const actionName = getActionName(actionKey);
 			return actionName || actionKey;
