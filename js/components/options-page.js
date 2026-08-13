@@ -1445,8 +1445,11 @@ class OptionsPage extends LitElement {
 
 	#getRestrictedInternalTitle() {
 		const browserInfo = window.i18n.getBrowserInfo();
-		return window.i18n.getMessage('restrictedInternal')
-			.replace('%browserProtocol%', browserInfo.protocol);
+		const title = window.i18n.getMessage('restrictedInternal');
+		if (!browserInfo.protocol) {
+			return title.replace(/\s*\(%browserProtocol%\)/, '');
+		}
+		return title.replace('%browserProtocol%', browserInfo.protocol);
 	}
 }
 
