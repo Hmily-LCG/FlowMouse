@@ -73,7 +73,9 @@ mv /tmp/flowmouse-safari-build/FlowMouse safari/FlowMouse
 rm -rf /tmp/flowmouse-safari-build
 ```
 
-Then re-apply both fixes below — the converter resets project settings to its own defaults every time:
+Then re-apply all three fixes below — the converter resets project settings
+(and re-copies the root `manifest.json` verbatim) to its own defaults every
+time:
 
 1. **Deployment target** — set to macOS 13.3 (see below).
 2. **Bundle-ID casing** — the converter derives the app target's bundle
@@ -86,6 +88,13 @@ Then re-apply both fixes below — the converter resets project settings to its 
    sed -i '' 's/PRODUCT_BUNDLE_IDENTIFIER = com\.hmilylcg\.FlowMouse;/PRODUCT_BUNDLE_IDENTIFIER = com.hmilylcg.flowmouse;/' \
      safari/FlowMouse/FlowMouse.xcodeproj/project.pbxproj
    ```
+3. **Unused permissions** — the copied `manifest.json`'s `permissions` array
+   still lists `sessions` and `search`, carried over from the root manifest
+   for Chrome/Edge. Safari never has `hasSessions`/`hasSearch` capability
+   (they're hardcoded off for Safari in `js/browser-compat.js`), so the code
+   never calls those APIs there — remove both from
+   `safari/FlowMouse/FlowMouse Extension/Resources/manifest.json`'s
+   `permissions` array after regenerating.
 
 ## Deployment target
 
