@@ -1654,7 +1654,10 @@ async function notifyDownloadError(tabId) {
 
 async function requestPermission(permissions, windowId) {
 	if (permissions.includes('incognito')) {
-		if (!self.FlowMouseCompat.hasIncognitoQuery) return true;
+		// hasIncognitoQuery is false on Safari, which has no isAllowedIncognitoAccess
+		// API to verify the grant — fail closed instead of assuming it's granted,
+		// since callers act on this by actually creating a private window.
+		if (!self.FlowMouseCompat.hasIncognitoQuery) return false;
 		const isAllowed = await chrome.extension.isAllowedIncognitoAccess();
 		if (isAllowed) return true;
 	} else {
@@ -1667,7 +1670,7 @@ async function requestPermission(permissions, windowId) {
 
 		const checkGranted = async () => {
 			if (permissions.includes('incognito')) {
-				if (!self.FlowMouseCompat.hasIncognitoQuery) return true;
+				if (!self.FlowMouseCompat.hasIncognitoQuery) return false;
 				return await chrome.extension.isAllowedIncognitoAccess();
 			}
 			return await chrome.permissions.contains({ permissions: permissions });
