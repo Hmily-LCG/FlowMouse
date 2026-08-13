@@ -43,7 +43,7 @@ class ViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHan
     }
 
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        if (message.body as! String != "open-preferences") {
+        guard let body = message.body as? String, body == "open-preferences" else {
             return;
         }
 
