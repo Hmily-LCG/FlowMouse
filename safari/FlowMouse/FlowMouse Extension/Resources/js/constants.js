@@ -318,7 +318,9 @@
 	const UNSUPPORTED_ACTION_CAPABILITY = {
 		restoreTab: 'hasSessions',
 		menuRecentlyClosed: 'hasSessions',
-		saveAsMhtml: 'hasPageCapture',
+		// background.js's saveAsMhtml handler requires both flags — keep this in
+		// sync with that check.
+		saveAsMhtml: ['hasPageCapture', 'hasDownloads'],
 		zoomIn: 'hasTabZoom',
 		zoomOut: 'hasTabZoom',
 		resetZoom: 'hasTabZoom',
@@ -420,7 +422,10 @@
 		if (!compat) return true;
 		if (compat.isSafari && SAFARI_ONLY_HIDDEN_ACTIONS.has(action)) return false;
 		const capKey = UNSUPPORTED_ACTION_CAPABILITY[action];
-		if (capKey && !compat[capKey]) return false;
+		if (capKey) {
+			const capKeys = Array.isArray(capKey) ? capKey : [capKey];
+			if (capKeys.some(key => !compat[key])) return false;
+		}
 		return true;
 	}
 
