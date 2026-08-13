@@ -1310,7 +1310,10 @@ const MENU_ID_REFRESH = 'flowmouse-need-refresh';
 const MENU_ID_RESTRICTED = 'flowmouse-restricted';
 const MENU_ID_BLACKLIST = 'flowmouse-blacklist-toggle';
 
-let fileSchemeAllowed = false;
+// hasFileSchemeQuery is false on Safari, which has no isAllowedFileSchemeAccess
+// API to query — default to allowed there instead of permanently restricted,
+// since content-script injection (not this flag) is what actually gates access.
+let fileSchemeAllowed = !self.FlowMouseCompat.hasFileSchemeQuery;
 if (self.FlowMouseCompat.hasFileSchemeQuery) {
 	chrome.extension.isAllowedFileSchemeAccess().then(v => { fileSchemeAllowed = v; });
 }

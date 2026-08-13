@@ -3,7 +3,10 @@ import { commonStyles } from './shared-styles.js';
 import { SettingsStore } from '../settings-store.js';
 import { icons } from '../icons.js';
 
-let fileSchemeAllowed = false;
+// hasFileSchemeQuery is false on Safari, which has no isAllowedFileSchemeAccess
+// API to query — default to allowed there instead of permanently restricted,
+// since content-script injection (not this flag) is what actually gates access.
+let fileSchemeAllowed = !window.FlowMouseCompat.hasFileSchemeQuery;
 if (window.FlowMouseCompat.hasFileSchemeQuery) {
 	chrome.extension.isAllowedFileSchemeAccess().then(v => { fileSchemeAllowed = v; });
 }
