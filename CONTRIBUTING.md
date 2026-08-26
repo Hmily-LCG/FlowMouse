@@ -8,7 +8,7 @@ Please review the guidelines below before you start working on any changes.
 
 * **Bug Fixes & Minor Improvements:** We welcome small, focused pull requests that fix bugs, improve performance, or refine existing features.
 
-* **New Features & Significant Changes:** We currently do not accept PRs for major new features or significant changes. This is due to our limited review capacity and our need to comply with Chrome's [Single Purpose Policy](https://developer.chrome.com/docs/webstore/program-policies/policies#quality_guidelines). However, you are welcome to discuss feature ideas via issues, or fork the project to build custom features under the GPLv3 license.
+* **New Features & Significant Changes:** We currently do not accept PRs for major new features or significant changes. This is due to our limited review capacity and our need to comply with Chrome's [Single Purpose Policy](https://developer.chrome.com/docs/webstore/program-policies/policies#quality_guidelines). However, you are welcome to discuss feature ideas via [Issues](https://github.com/Hmily-LCG/FlowMouse/issues), or fork the project to build custom features under the GPLv3 license.
 
 ## A Note on AI-Generated Code
 
