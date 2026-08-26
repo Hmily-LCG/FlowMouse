@@ -1679,38 +1679,64 @@ class ActionSelect extends LitElement {
 				&& window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 			return html`
-				${showDistance ? html`
-					<div class="action-config-row">
-						<span class="action-config-label">${window.i18n.getMessage('scrollAmount')}</span>
-						<div class="slider-control">
-							<input type="range" min="25" max="200" step="5"
-								.value=${String(this._pendingConfig.scrollDistance ?? distanceDefault)}
-								@input=${(e) => { this._pendingConfig = { ...this._pendingConfig, scrollDistance: Number(e.target.value) }; this.requestUpdate(); }}
-							>
-							<span>${this._pendingConfig.scrollDistance ?? distanceDefault}%</span>
-						</div>
-					</div>
-					<div class="action-config-row">
-						<span class="action-config-label">${window.i18n.getMessage('scrollAccel')}</span>
-						<div class="slider-control">
-							<input type="range" min="0.1" max="10" step="0.1"
-								.value=${String(currentAcceleration)}
-								@input=${(e) => { this._pendingConfig = { ...this._pendingConfig, scrollAccel: Number(e.target.value) }; this.requestUpdate(); }}
-							>
-							<span>${currentAcceleration == 1 ? window.i18n.getMessage('scrollAccelOff') : currentAcceleration + 'x'}</span>
-						</div>
-					</div>
-					<div class="action-config-row ${currentAcceleration == 1 ? 'disabled' : ''}">
-						<span class="action-config-label">${window.i18n.getMessage('scrollAccelWindow')}</span>
-						<div class="slider-control">
-							<input type="range" min="100" max="1000" step="50"
-								.value=${String(currentAccelWindow)}
-								@input=${(e) => { this._pendingConfig = { ...this._pendingConfig, scrollAccelWindow: Number(e.target.value) }; this.requestUpdate(); }}
-							>
-							<span>${currentAccelWindow}ms</span>
-						</div>
-					</div>
-				` : ''}
+				    ${showDistance ? html`
+                    <div class="action-config-row">
+                        <span class="action-config-label">${window.i18n.getMessage('scrollAmount')}</span>
+                        <div class="slider-control">
+                            <input type="range" min="25" max="200" step="5"
+                                .value=${String(this._pendingConfig.scrollDistance ?? distanceDefault)}
+                                @input=${(e) => { this._pendingConfig = { ...this._pendingConfig, scrollDistance: Number(e.target.value) }; this.requestUpdate(); }}
+                            >
+                            <span>${this._pendingConfig.scrollDistance ?? distanceDefault}%</span>
+                        </div>
+                    </div>
+                    <div class="action-config-row">
+                        <span class="action-config-label">${window.i18n.getMessage('scrollAccel')}</span>
+                        <div class="slider-control">
+                            <input type="range" min="0.1" max="10" step="0.1"
+                                .value=${String(currentAcceleration)}
+                                @input=${(e) => { this._pendingConfig = { ...this._pendingConfig, scrollAccel: Number(e.target.value) }; this.requestUpdate(); }}
+                            >
+                            <span>${currentAcceleration == 1 ? window.i18n.getMessage('scrollAccelOff') : currentAcceleration + 'x'}</span>
+                        </div>
+                    </div>
+                    <div class="action-config-row ${currentAcceleration == 1 ? 'disabled' : ''}">
+                        <span class="action-config-label">${window.i18n.getMessage('scrollAccelWindow')}</span>
+                        <div class="slider-control">
+                            <input type="range" min="100" max="1000" step="50"
+                                .value=${String(currentAccelWindow)}
+                                @input=${(e) => { this._pendingConfig = { ...this._pendingConfig, scrollAccelWindow: Number(e.target.value) }; this.requestUpdate(); }}
+                            >
+                            <span>${currentAccelWindow}ms</span>
+                        </div>
+                    </div>
+                    <label class="action-config-checkbox">
+                        <input type="checkbox"
+                            .checked=${this._pendingConfig.continuousScroll !== false}
+                            @change=${(e) => {
+                                this._pendingConfig = {
+                                    ...this._pendingConfig,
+                                    continuousScroll: e.target.checked,
+                                    ...(e.target.checked ? {} : { autoScroll: false }),
+                                };
+                                this.requestUpdate();
+                            }}
+                        >
+                        <span>拖动时连续滚动</span>
+                    </label>
+                    <label class="action-config-checkbox ${(this._pendingConfig.continuousScroll === false) ? 'disabled' : ''}"
+                        style=${(this._pendingConfig.continuousScroll === false) ? 'opacity:0.4;pointer-events:none' : ''}>
+                        <input type="checkbox"
+                            .checked=${!!this._pendingConfig.autoScroll}
+                            ?disabled=${this._pendingConfig.continuousScroll === false}
+                            @change=${(e) => {
+                                this._pendingConfig = { ...this._pendingConfig, autoScroll: e.target.checked };
+                                this.requestUpdate();
+                            }}
+                        >
+                        <span>自动滚动（类似中键，离起点越远越快）</span>
+                    </label>
+                ` : ''}
 				<div class="action-config-row">
 					<span class="action-config-label">${window.i18n.getMessage('scrollSmoothness')}</span>
 					<select .value=${currentSmoothness}

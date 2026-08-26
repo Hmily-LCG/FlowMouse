@@ -2010,15 +2010,14 @@ window.ContentContextMenu = ContentContextMenu;
 			enableDrag: DEFAULT_SETTINGS.enableTextDrag || DEFAULT_SETTINGS.enableImageDrag || DEFAULT_SETTINGS.enableLinkDrag
 		};
 
-		function getGestureAction(pattern) {
-			if (!SETTINGS.enableGestureCustomization) {
-				return DEFAULT_GESTURES[pattern];
-			}
+        function getGestureAction(pattern) {
+            if (!SETTINGS.enableGestureCustomization) {
+                return DEFAULT_GESTURES[pattern];
+            }
 
-			const config = SETTINGS.mouseGestures?.[pattern];
-			return config?.action;
-		}
-
+            const config = SETTINGS.mouseGestures?.[pattern];
+            return config?.action;
+        }
 
 		function getActionName(pattern) {
 			const action = getGestureAction(pattern);
@@ -2235,36 +2234,119 @@ window.ContentContextMenu = ContentContextMenu;
 			}
 		});
 
-		let gestureState = {
-			isRightButton: false,
-			gestureButton: null,
-			isDrag: false,
-			selectedText: '',
-			dragElement: null,
-			dragType: null,
-			parentLink: null,
-			startTarget: null,
-			preventContextMenu: false,
-			skipFirstDragOver: false,
-			dropOnInputSuppressed: false
-		};
+        let gestureState = {
+            isRightButton: false,
+            gestureButton: null,
+            isDrag: false,
+            selectedText: '',
+            dragElement: null,
+            dragType: null,
+            parentLink: null,
+            startTarget: null,
+            preventContextMenu: false,
+            skipFirstDragOver: false,
+            dropOnInputSuppressed: false
+        };
 
-		function resetState() {
-			if (!isIframe || recognizer.isActive()) {
-				visualizer.hide();
-				if (SETTINGS.enableHUD) visualizer.updateAction('', []);
-			}
-			recognizer.reset();
-			gestureState.isRightButton = false;
-			gestureState.gestureButton = null;
-			gestureState.isDrag = false;
-			gestureState.selectedText = '';
-			gestureState.dragElement = null;
-			gestureState.dragType = null;
-			gestureState.startTarget = null;
-			gestureState.skipFirstDragOver = false;
-			gestureState.dropOnInputSuppressed = false;
-		}
+        let panMode = null;
+        let autoScroll = null;
+
+        function findHorizontalScrollTarget(x, y) {
+            const root = document.scrollingElement || document.documentElement;
+            let el = document.elementFromPoint(x, y);
+            while (el && el !== root && el !== document.body) {
+                const style = window.getComputedStyle(el);
+                const ox = style.overflowX;
+                if ((ox === 'auto' || ox === 'scroll' || ox === 'overlay') &&
+                    el.scrollWidth > el.clientWidth + 1) {
+                    return el;
+                }
+                el = el.parentElement || (el.getRootNode?.() instanceof ShadowRoot ? el.getRootNode().host : null);
+            }
+            return root;
+        }
+
+        function endHorizontalScroll() {
+            if (autoScroll?.rafId) cancelAnimationFrame(autoScroll.rafId);
+            autoScroll = null;
+            panMode = null;
+        }
+
+        function startPan(e, config) {
+            const target = findHorizontalScrollTarget(e.clientX, e.clientY);
+            // 滚动距离 75% → 灵敏度约 1；可再乘倍率
+            const sens = ((config.scrollDistance ?? 75) / 75) * (config.scrollAccel > 1 ? config.scrollAccel : 1);
+            panMode = {
+                target,
+                startScroll: target.scrollLeft,
+                startMouseX: e.clientX,
+                sensitivity: sens,
+            };
+        }
+
+        function updatePan(e) {
+            if (!panMode) return;
+            const dx = e.clientX - panMode.startMouseX;
+            const next = panMode.startScroll + dx * panMode.sensitivity;
+            const max = Math.max(0, panMode.target.scrollWidth - panMode.target.clientWidth);
+            panMode.target.scrollLeft = Math.max(0, Math.min(next, max));
+        }
+
+        function startAutoScroll(e, config) {
+            const target = findHorizontalScrollTarget(e.clientX, e.clientY);
+            const dist = config.scrollDistance ?? 75;
+            const accel = config.scrollAccel > 1 ? config.scrollAccel : 1;
+            autoScroll = {
+                target,
+                originX: e.clientX,
+                lastX: e.clientX,
+                // 距离滑块 + 倍率 → 速度
+                speedFactor: (dist / 75) * 0.12 * accel,
+                deadZone: 8,
+                rafId: null,
+            };
+            const tick = () => {
+                if (!autoScroll) return;
+                const dx = autoScroll.lastX - autoScroll.originX;
+                let velocity = 0;
+                if (Math.abs(dx) > autoScroll.deadZone) {
+                    const signed = dx - Math.sign(dx) * autoScroll.deadZone;
+                    velocity = signed * autoScroll.speedFactor;
+                }
+                if (velocity !== 0) {
+                    const max = Math.max(0, autoScroll.target.scrollWidth - autoScroll.target.clientWidth);
+                    autoScroll.target.scrollLeft = Math.max(0, Math.min(autoScroll.target.scrollLeft + velocity, max));
+                }
+                autoScroll.rafId = requestAnimationFrame(tick);
+            };
+            autoScroll.rafId = requestAnimationFrame(tick);
+        }
+
+        function updateAutoScrollPointer(e) {
+            if (autoScroll) autoScroll.lastX = e.clientX;
+        }
+
+        function endPan() {
+            endHorizontalScroll();
+        }
+
+        function resetState() {
+            endPan();
+            if (!isIframe || recognizer.isActive()) {
+                visualizer.hide();
+                if (SETTINGS.enableHUD) visualizer.updateAction('', []);
+            }
+            recognizer.reset();
+            gestureState.isRightButton = false;
+            gestureState.gestureButton = null;
+            gestureState.isDrag = false;
+            gestureState.selectedText = '';
+            gestureState.dragElement = null;
+            gestureState.dragType = null;
+            gestureState.startTarget = null;
+            gestureState.skipFirstDragOver = false;
+            gestureState.dropOnInputSuppressed = false;
+        }
 
 		let isRemoteGestureActive = false;
 
@@ -2571,89 +2653,135 @@ window.ContentContextMenu = ContentContextMenu;
 			}
 		}, { capture: true });
 
-		eventManager.add(isGestureEnabled, window, 'pointermove', (e) => {
-			if (!gestureState.isRightButton) return;
+		    eventManager.add(isGestureEnabled, window, 'pointermove', (e) => {
+            if (!gestureState.isRightButton) return;
 
-			const result = recognizer.move(e.clientX, e.clientY, e.timeStamp);
+            const result = recognizer.move(e.clientX, e.clientY, e.timeStamp);
 
-			if (result.totalDistance > 3 || result.activated) {
-				try {
-					const target = document.documentElement || document.body;
-					if (!target.hasPointerCapture(e.pointerId)) {
-						target.setPointerCapture(e.pointerId);
-					}
-				} catch (err) {
-					console.warn('FlowMouse: setPointerCapture failed', err);
-				}
-			}
+            if (recognizer.isActive()) {
+                if (panMode) {
+                    updatePan(e);
+                } else if (autoScroll) {
+                    updateAutoScrollPointer(e);
+                } else {
+                    const pattern = result.pattern || recognizer.getPattern();
+                    if (pattern === '←' || pattern === '→') {
+                        // 直接读设置，不调用 getScrollGestureConfig
+                        let action = null;
+                        if (SETTINGS.enableGestureCustomization) {
+                            action = SETTINGS.mouseGestures?.[pattern]?.action;
+                        } else {
+                            action = (window.GestureConstants.DEFAULT_GESTURES || {})[pattern];
+                        }
+                        // 你设置里绑的是向左/向右滚动
+                        if (action === 'scrollLeft' || action === 'scrollRight') {
+                            const defaults = (window.GestureConstants.ACTION_DEFAULTS || {})[action] || {};
+                            const saved = SETTINGS.enableGestureCustomization
+                                ? (SETTINGS.mouseGestures?.[pattern] || {})
+                                : {};
+                            const cfg = { ...defaults, ...saved };
 
-			let currentPoints = [];
-			if (SETTINGS.enableTrail) {
-				if (e.getCoalescedEvents) {
-					const events = e.getCoalescedEvents();
-					if (events.length > 0) {
-						currentPoints = events.map(evt => ({ x: evt.clientX, y: evt.clientY, timestamp: evt.timeStamp }));
-					}
-				}
-				if (currentPoints.length === 0) {
-					currentPoints = [{ x: e.clientX, y: e.clientY, timestamp: e.timeStamp }];
-				}
-			}
+                            // continuousScroll 默认当作开启（没写字段也进连续滚）
+                            if (cfg.continuousScroll !== false) {
+                                if (cfg.autoScroll) {
+                                    startAutoScroll(e, cfg);
+                                    updateAutoScrollPointer(e);
+                                } else {
+                                    startPan(e, cfg);
+                                    updatePan(e);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
 
-			if (result.activated) {
-				if (!isExtensionContextValid()) return;
-				gestureState.preventContextMenu = true;
-				safeSendMessage({ action: 'gestureStateUpdate', active: true });
-				if (SETTINGS.enableTrail) {
-					visualizer.updateSettings({
-						minCutoff: 5.0,
-						beta: 0.01,
-						dcutoff: 1.0
-					});
-					visualizer.show();
+            if (result.totalDistance > 3 || result.activated) {
+                try {
+                    const target = document.documentElement || document.body;
+                    if (!target.hasPointerCapture(e.pointerId)) {
+                        target.setPointerCapture(e.pointerId);
+                    }
+                } catch (err) {
+                    console.warn('FlowMouse: setPointerCapture failed', err);
+                }
+            }
 
-					const preTrail = result.preActivationTrail || [{ x: recognizer.startX, y: recognizer.startY, timestamp: recognizer.startTimestamp }];
-					const merged = [...preTrail, ...currentPoints];
-					merged.sort((a, b) => a.timestamp - b.timestamp);
-					visualizer.addPoints(merged);
-				}
-			} else if (recognizer.isActive() && SETTINGS.enableTrail) {
-				visualizer.addPoints(currentPoints);
-			}
+            let currentPoints = [];
+            if (SETTINGS.enableTrail) {
+                if (e.getCoalescedEvents) {
+                    const events = e.getCoalescedEvents();
+                    if (events.length > 0) {
+                        currentPoints = events.map(evt => ({ x: evt.clientX, y: evt.clientY, timestamp: evt.timeStamp }));
+                    }
+                }
+                if (currentPoints.length === 0) {
+                    currentPoints = [{ x: e.clientX, y: e.clientY, timestamp: e.timeStamp }];
+                }
+            }
 
-			if (!recognizer.isActive()) return;
+            if (result.activated) {
+                if (!isExtensionContextValid()) return;
+                gestureState.preventContextMenu = true;
+                safeSendMessage({ action: 'gestureStateUpdate', active: true });
+                if (SETTINGS.enableTrail) {
+                    visualizer.updateSettings({
+                        minCutoff: 5.0,
+                        beta: 0.01,
+                        dcutoff: 1.0
+                    });
+                    visualizer.show();
 
-			if (result.directionChanged && SETTINGS.enableHUD) {
-				const actionName = getActionName(result.pattern);
-				visualizer.updateAction(result.pattern, actionName ? [actionName] : []);
-				if (SETTINGS.enableSuggestedGestures) {
-					const suggestions = getSuggestedGestures(result.pattern);
-					visualizer.updateSuggestedGestures(suggestions, result.pattern);
-				}
-			}
-		}, { capture: true });
+                    const preTrail = result.preActivationTrail || [{ x: recognizer.startX, y: recognizer.startY, timestamp: recognizer.startTimestamp }];
+                    const merged = [...preTrail, ...currentPoints];
+                    merged.sort((a, b) => a.timestamp - b.timestamp);
+                    visualizer.addPoints(merged);
+                }
+            } else if (recognizer.isActive() && SETTINGS.enableTrail) {
+                visualizer.addPoints(currentPoints);
+            }
 
-		eventManager.add(isGestureEnabled, window, 'pointerup', (e) => {
-			if (gestureState.isRightButton) {
-				if (recognizer.isActive()) {
-					e.preventDefault();
-					e.stopPropagation();
-					executeGesture(recognizer.getPattern());
-					lastRightClickTime = 0;
-				}
+            if (!recognizer.isActive()) return;
 
-				resetState();
-			}
-			if (gestureState.preventContextMenu) {
-				preventContextMenuTimeoutId = setTimeout(() => {
-					gestureState.preventContextMenu = false;
-					preventContextMenuTimeoutId = null;
-					safeSendMessage({ action: 'gestureStateUpdate', active: false });
-				}, 50);
-			}
-		}, { capture: true });
+            if (result.directionChanged && SETTINGS.enableHUD) {
+                const pattern = result.pattern || recognizer.getPattern();
+                if (pattern === '←' || pattern === '→') {
+                    visualizer.updateAction(pattern, ['实时横滚']);
+                } else {
+                    const actionName = getActionName(result.pattern);
+                    visualizer.updateAction(result.pattern, actionName ? [actionName] : []);
+                }
+                if (SETTINGS.enableSuggestedGestures) {
+                    const suggestions = getSuggestedGestures(result.pattern);
+                    visualizer.updateSuggestedGestures(suggestions, result.pattern);
+                }
+            }
+        }, { capture: true });
 
-		eventManager.add(isGestureEnabled, window, 'mousedown', (e) => {
+		    eventManager.add(isGestureEnabled, window, 'pointerup', (e) => {
+            if (gestureState.isRightButton) {
+                if (recognizer.isActive()) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (panMode || autoScroll) {
+                        endHorizontalScroll();
+                    } else {
+                        executeGesture(recognizer.getPattern());
+                    }
+                }
+
+                resetState();
+            }
+            if (gestureState.preventContextMenu) {
+                preventContextMenuTimeoutId = setTimeout(() => {
+                    gestureState.preventContextMenu = false;
+                    preventContextMenuTimeoutId = null;
+                    safeSendMessage({ action: 'gestureStateUpdate', active: false });
+                }, 50);
+            }
+        }, { capture: true });
+
+        eventManager.add(isGestureEnabled, window, 'mousedown', (e) => {
 			if (e.button === 0 && gestureState.isRightButton && recognizer.isActive()) {
 				e.preventDefault();
 				e.stopImmediatePropagation();
