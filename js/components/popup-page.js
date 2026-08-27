@@ -1,6 +1,6 @@
+import { settingsStore } from '../settings-store.js';
 import { LitElement, html, css, unsafeHTML } from '../../js/lib/lit-all.min.js';
 import { commonStyles } from './shared-styles.js';
-import { SettingsStore } from '../settings-store.js';
 import { icons } from '../icons.js';
 
 let fileSchemeAllowed = false;
@@ -315,7 +315,7 @@ class PopupPage extends LitElement {
 		this._ready = false;
 		this._gesturesCollapsed = false;
 		this._currentTabId = null;
-		this._store = SettingsStore;
+		this._store = settingsStore;
 	}
 
 	connectedCallback() {
@@ -324,7 +324,7 @@ class PopupPage extends LitElement {
 	}
 
 	async #init() {
-		await this._store.load();
+		await this._store.waitForLoad();
 		await this.#loadAll();
 		this._ready = true;
 

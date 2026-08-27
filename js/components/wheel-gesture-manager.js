@@ -176,6 +176,4 @@ class WheelGestureManager extends LitElement {
 	}
 }
 
-window.i18n.waitForInit().then(() => {
-	customElements.define('wheel-gesture-manager', WheelGestureManager);
-});
+customElements.define('wheel-gesture-manager', WheelGestureManager);

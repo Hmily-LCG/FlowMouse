@@ -131,7 +131,7 @@
 
 
 	function getRoot() {
-		return document.scrollingElement || document.documentElement;
+		return document.scrollingElement || window;
 	}
 
 	const SCROLL_ACTIONS = {
@@ -146,16 +146,35 @@
 	};
 
 	const AXES = {
-		x: { pos: 'scrollLeft', size: 'clientWidth', scrollSize: 'scrollWidth', overflow: 'overflowX', to: 'left' },
-		y: { pos: 'scrollTop', size: 'clientHeight', scrollSize: 'scrollHeight', overflow: 'overflowY', to: 'top' },
+		x: { pos: 'scrollLeft', size: 'clientWidth', scrollSize: 'scrollWidth', windowPos: 'scrollX', windowSize: 'innerWidth', overflow: 'overflowX', to: 'left' },
+		y: { pos: 'scrollTop', size: 'clientHeight', scrollSize: 'scrollHeight', windowPos: 'scrollY', windowSize: 'innerHeight', overflow: 'overflowY', to: 'top' },
 	};
+
+	function getScrollMetrics(target, axis) {
+		const ax = AXES[axis];
+		if (target !== window) {
+			return {
+				pos: target[ax.pos],
+				size: target[ax.size],
+				scrollSize: target[ax.scrollSize],
+			};
+		}
+
+		return {
+			pos: window[ax.windowPos],
+			size: window[ax.windowSize],
+			scrollSize: Math.max(
+				document.documentElement?.[ax.scrollSize] ?? 0,
+				document.body?.[ax.scrollSize] ?? 0,
+			),
+		};
+	}
 
 	function hasScrollRoom(el, action) {
 		const { axis, dir } = SCROLL_ACTIONS[action];
-		const ax = AXES[axis];
-		const max = el[ax.scrollSize] - el[ax.size];
+		const { pos, size, scrollSize } = getScrollMetrics(el, axis);
+		const max = Math.max(0, scrollSize - size);
 		if (max <= 1) return false;
-		const pos = el[ax.pos];
 		return dir < 0 ? pos > 1 : pos < max - 1;
 	}
 
@@ -239,7 +258,7 @@
 		scrollActiveTarget = target;
 
 		const ax = AXES[axis];
-		const start = target[ax.pos];
+		const { pos: start } = getScrollMetrics(target, axis);
 		if (start === goal) {
 			scrollActiveTarget = null;
 			return;
@@ -282,14 +301,14 @@
 		const target = getScrollTarget(action, forceTargetWindow, cursorX, cursorY);
 		const smoothness = resolveScrollSmoothness(scrollConfig.scrollSmoothness);
 
-		const cur = target[ax.pos];
-		const max = target[ax.scrollSize] - target[ax.size];
+		const { pos: cur, size, scrollSize } = getScrollMetrics(target, meta.axis);
+		const max = Math.max(0, scrollSize - size);
 
 		let goal, unclampedGoal;
 		if (meta.toEdge) {
 			goal = unclampedGoal = meta.dir < 0 ? 0 : max;
 		} else {
-			let delta = target[ax.size] * (scrollConfig.scrollDistance / 100) * meta.dir;
+			let delta = size * (scrollConfig.scrollDistance / 100) * meta.dir;
 
 			const accel = scrollConfig.scrollAccel ?? 1;
 			const accelWindow = scrollConfig.scrollAccelWindow ?? 400;
@@ -1089,7 +1108,7 @@ window.ContentContextMenu = ContentContextMenu;
 			if (this.#state !== STATES.INACTIVE) return;
 			if (document.contentType === 'image/svg+xml') return;
 			this.#isIframe = isIframe;
-			this.#warnThreshold = warnThreshold || 15;
+			this.#warnThreshold = warnThreshold ?? 15;
 			this.#operationInterval = options?.operationInterval ?? 0;
 			this.#highlighter = new LinkHighlighter();
 			if (options?.textUrl === false) this.#highlighter.textLinks = false;
@@ -1133,7 +1152,7 @@ window.ContentContextMenu = ContentContextMenu;
 			this.#boundPointerCancel = (e) => this.#onPointerCancel(e);
 			this.#boundKeyDown = (e) => this.#onKeyDown(e);
 			this.#boundContextMenu = (e) => this.#onContextMenu(e);
-			this.#boundScroll = () => this.#onScroll();
+			this.#boundScroll = (e) => this.#onScroll(e);
 			this.#boundWheel = (e) => this.#onWheel(e);
 
 			window.addEventListener('pointerdown', this.#boundPointerDown, true);
@@ -1251,7 +1270,8 @@ window.ContentContextMenu = ContentContextMenu;
 			}
 		}
 
-		#onScroll() {
+		#onScroll(e) {
+			if (!e.isTrusted) return;
 			if (this.#state !== STATES.SELECTING) return;
 			if (!this.#dragStartedInFixed && !this.#firstHitIsFixed && !this.#highlighter.skipFixed) {
 				this.#highlighter.skipFixed = true;
@@ -1382,8 +1402,8 @@ window.ContentContextMenu = ContentContextMenu;
 		}
 
 		#onWheel(e) {
-			if (this.#state !== STATES.SELECTING) return;
 			if (!e.isTrusted) return;
+			if (this.#state !== STATES.SELECTING) return;
 			if (!e.ctrlKey && !e.shiftKey && !e.altKey && !e.metaKey) return;
 			e.preventDefault();
 			window.scrollBy(0, e.deltaY);
@@ -1560,7 +1580,7 @@ window.ContentContextMenu = ContentContextMenu;
 			const urls = this.#getDeduplicatedUrls();
 			if (urls.length === 0) return;
 
-			if (urls.length > this.#warnThreshold) {
+			if (this.#warnThreshold > 0 && urls.length > this.#warnThreshold) {
 				if (this.#modal) {
 					this.#modal._body.textContent = this.#msg('areaSelectWarnMessage').replaceAll('%count%', String(urls.length));
 					this.#modal.style.display = '';
@@ -2023,8 +2043,10 @@ window.ContentContextMenu = ContentContextMenu;
 		function getActionName(pattern) {
 			const action = getGestureAction(pattern);
 			if (!action || action === 'none') return '';
-			const customName = SETTINGS.mouseGestures?.[pattern]?.customName;
-			if (customName) return customName;
+			if (SETTINGS.enableGestureCustomization) {
+				const customName = SETTINGS.mouseGestures?.[pattern]?.customName;
+				if (customName) return customName;
+			}
 			if (action === 'actionChain') {
 				const config = SETTINGS.mouseGestures?.[pattern];
 				const chain = SETTINGS.actionChains?.[config?.chainId];
@@ -2096,7 +2118,7 @@ window.ContentContextMenu = ContentContextMenu;
 				}
 				if (items) {
 					const { blacklist, ...otherSettings } = items;
-					SETTINGS = { ...SETTINGS, ...otherSettings };
+					SETTINGS = { ...structuredClone(DEFAULT_SETTINGS), ...otherSettings };
 				}
 
 				SETTINGS.wheelGestures = {
@@ -2744,7 +2766,8 @@ window.ContentContextMenu = ContentContextMenu;
 			}
 		}, { capture: true });
 
-		function restoreDraggable() {
+		function restoreDraggable(e) {
+			if (!e.isTrusted) return;
 			window.removeEventListener('mouseup', restoreDraggable, true);
 			window.removeEventListener('dragend', restoreDraggable, true);
 
@@ -3030,6 +3053,7 @@ window.ContentContextMenu = ContentContextMenu;
 			}
 
 			function onChromeWheel(e) {
+				if (!e.isTrusted) return;
 				if (!isWheelGestureEnabled() || !(e.buttons & 2)) {
 					removeWheelListener();
 					return;

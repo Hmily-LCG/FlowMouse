@@ -146,8 +146,9 @@ class GestureGrid extends LitElement {
 				<action-select
 					.value=${currentAction}
 					.config=${entryConfig}
-					.gestureLabel=${`${pattern}${desc ? ' ' + desc : ''}`}
-					?allow-custom-name=${this.advancedMode}
+					.gestureArrows=${pattern}
+					.gestureLabel=${desc}
+					allow-custom-name
 					data-pattern=${pattern}
 					@action-change=${(e) => this.#handleActionChange(pattern, e)}
 				></action-select>
@@ -225,6 +226,4 @@ class GestureGrid extends LitElement {
 	}
 }
 
-window.i18n.waitForInit().then(() => {
-	customElements.define('gesture-grid', GestureGrid);
-});
+customElements.define('gesture-grid', GestureGrid);

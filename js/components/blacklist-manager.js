@@ -187,6 +187,4 @@ class BlacklistManager extends LitElement {
 	}
 }
 
-window.i18n.waitForInit().then(() => {
-	customElements.define('blacklist-manager', BlacklistManager);
-});
+customElements.define('blacklist-manager', BlacklistManager);

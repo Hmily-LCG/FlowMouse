@@ -111,7 +111,7 @@
 		newWindow: { focused: true },
 		newTab: { position: 'last', active: true },
 		openCustomUrl: { customUrl: '', position: 'last', active: true, incognito: false },
-		addToBookmarks: { folderId: '' },
+		addToBookmarks: { folderId: { id: '' } },
 		copyTitleAndUrl: { asMarkdown: false },
 		scrollUp: { scrollDistance: 75, scrollSmoothness: 'auto', scrollDuration: 500, scrollAccel: 1, scrollAccelWindow: 500 },
 		scrollDown: { scrollDistance: 75, scrollSmoothness: 'auto', scrollDuration: 500, scrollAccel: 1, scrollAccelWindow: 500 },
@@ -140,7 +140,7 @@
 		viewPageSource: { position: 'right', active: true },
 		menuShowTabs: { sortOrder: 'default', maxItems: 0, scrollToBottom: false, timeDisplay: 'lastAccess' },
 		menuRecentlyClosed: { maxItems: 12, sortOrder: 'default', scrollToBottom: false, timeDisplay: 'closedTime' },
-		menuShowBookmarks: { folderId: '1', position: 'right', active: true, incognito: false, sortOrder: 'default', maxItems: 30, scrollToBottom: false, timeDisplay: 'dateAdded' },
+		menuShowBookmarks: { folderId: { id: '1' }, position: 'right', active: true, incognito: false, sortOrder: 'default', maxItems: 30, scrollToBottom: false, timeDisplay: 'dateAdded' },
 	};
 
 	const LOCAL_ACTIONS = new Set([
@@ -399,8 +399,11 @@
 	};
 
 	function arrowsToSvg(text) {
-		if (CORNER_SVG[text]) return CORNER_SVG[text];
-		return text.replace(/[↑↓←→]/g, match => ARROW_SVG[match] || match);
+		if (typeof text !== 'string' || !text) return '';
+		const arrows = text.replace(/[^↑↓←→]/g, '');
+		if (!arrows) return '';
+		if (CORNER_SVG[arrows]) return CORNER_SVG[arrows];
+		return arrows.replace(/[↑↓←→]/g, match => ARROW_SVG[match]);
 	}
 
 	window.GestureConstants = {

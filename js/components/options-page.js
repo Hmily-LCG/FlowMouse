@@ -1,6 +1,6 @@
+import { settingsStore } from '../settings-store.js';
 import { LitElement, html, css, unsafeHTML, unsafeCSS, live } from '../../js/lib/lit-all.min.js';
 import { commonStyles, optionStyles } from './shared-styles.js';
-import { SettingsStore } from '../settings-store.js';
 import { icons, icon, iconUrl } from '../icons.js';
 import { tooltip } from '../tooltip.js';
 
@@ -231,7 +231,7 @@ class OptionsPage extends LitElement {
 		this._debounceTimer = null;
 		this._pendingPatch = null;
 		this._statusTimer = null;
-		this._store = SettingsStore;
+		this._store = settingsStore;
 	}
 
 	connectedCallback() {
@@ -273,7 +273,7 @@ class OptionsPage extends LitElement {
 	}
 
 	async #init() {
-		await this._store.load();
+		await this._store.waitForLoad();
 		this._settings = { ...this._store.current };
 		this._ready = true;
 
@@ -685,6 +685,7 @@ class OptionsPage extends LitElement {
 							</div>
 							<div style="display:flex;align-items:center;gap:8px;">
 								<select class="input-lg"
+									.value=${this._settings.areaSelectModifierKey}
 									@change=${e => this.#updateSetting('areaSelectModifierKey', e.target.value)}>
 									${(() => {
 										const current = this._settings.areaSelectModifierKey;

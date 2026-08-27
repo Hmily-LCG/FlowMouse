@@ -80,7 +80,7 @@
 			return false;
 		}
 		try {
-			const url = chrome.runtime.getURL(`_locales/${lang}/messages.json`);
+			const url = `/_locales/${lang}/messages.json`;
 			const response = await fetch(url);
 			if (response.ok) {
 				translations = await response.json();

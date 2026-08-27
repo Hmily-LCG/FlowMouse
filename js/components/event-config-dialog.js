@@ -287,6 +287,4 @@ class EventConfigDialog extends LitElement {
 	}
 }
 
-window.i18n.waitForInit().then(() => {
-	customElements.define('event-config-dialog', EventConfigDialog);
-});
+customElements.define('event-config-dialog', EventConfigDialog);

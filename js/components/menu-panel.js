@@ -1,13 +1,13 @@
+import { settingsStore } from '../settings-store.js';
 import { LitElement, html, css, unsafeHTML } from '../lib/lit-all.min.js';
 import { commonStyles, optionStyles } from './shared-styles.js';
 import { icon } from '../icons.js';
-import { SettingsStore } from '../settings-store.js';
 import { tooltip } from '../tooltip.js';
 
 export function getMenuLabel(menuId) {
 	const i18n = window.i18n;
 	if (!menuId) return i18n.getMessage('actionCustomMenu');
-	const menu = (SettingsStore.current.customMenus || {})[menuId];
+	const menu = (settingsStore.current.customMenus || {})[menuId];
 	if (!menu) return i18n.getMessage('menuNotFound');
 	const count = menu.items?.filter(it => it !== 'separator').length || 0;
 	const countLabel = (count === 1
@@ -202,13 +202,13 @@ class MenuPanel extends LitElement {
 	}
 
 	get customMenus() {
-		return SettingsStore.current.customMenus || {};
+		return settingsStore.current.customMenus || {};
 	}
 
 	connectedCallback() {
 		super.connectedCallback();
 		window.addEventListener('action-catalog-changed', this._onCatalogChanged);
-		this._unsubscribeStore = SettingsStore.onChange((changed) => {
+		this._unsubscribeStore = settingsStore.onChange((changed) => {
 			if ('customMenus' in changed) this.requestUpdate();
 		});
 	}
@@ -608,7 +608,7 @@ class MenuPanel extends LitElement {
 				composed: false,
 			}));
 		}
-		SettingsStore.save({ customMenus: menus });
+		settingsStore.save({ customMenus: menus });
 		window.dispatchEvent(new Event('action-catalog-changed'));
 	}
 
@@ -621,6 +621,4 @@ class MenuPanel extends LitElement {
 	}
 }
 
-window.i18n.waitForInit().then(() => {
-	customElements.define('menu-panel', MenuPanel);
-});
+customElements.define('menu-panel', MenuPanel);
