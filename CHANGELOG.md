@@ -1,5 +1,19 @@
 ## FlowMouse Changelog
 
+### v2.3.1 (2026-08-28)
+
+- Optimized the loading speed of settings and other pages
+- Optimized scrolling logic, fixing an issue where a few websites could not be scrolled
+- Fixed an issue where the styles of a few websites might interfere with the extension's Shadow DOM
+- Fixed default settings not syncing to open tabs after reset
+- Fixed an issue where the Batch Operation Alert for Area Select could not be disabled
+- Fixed an issue where third-party New Tab extensions might interfere with drag-to-search functionality (Thanks to @realDGD)
+- Fixed an issue where bookmark features might fail after syncing settings due to inconsistent bookmark folder IDs across devices in Chrome
+- Optimized HUD display logic to prevent false positives from third-party ad blocker extensions
+- Fixed an issue where the HUD still showed custom action names after disabling custom gestures
+- Other minor improvements
+
+
 ### v2.3 (2026-08-03)
 
 **New Features:**
