@@ -450,7 +450,7 @@ class ColorPicker extends LitElement {
 
 				${this.blurRadius != null ? html`
 					<div class="blur-row">
-						<span class="blur-label">${window.i18n?.getMessage('blur') || 'Blur'}</span>
+						<span class="blur-label">${window.i18n.getMessage('blur')}</span>
 						<input class="blur-slider" type="range" min="0" max="20" step="1"
 							.value=${String(this._blur)}
 							@input=${this.#onBlurInput}

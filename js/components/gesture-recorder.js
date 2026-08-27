@@ -404,7 +404,7 @@ class GestureRecorder extends LitElement {
 								${unsafeHTML(i18n.getMessage('gestureRecorderDesc').replace('%button%', `<strong>${buttonName}</strong>`))}
 							</p>
 							<div class="direction-hints">
-								${unsafeHTML(window.GestureConstants.arrowsToSvg('↑ ↓ ← →'))}
+								${unsafeHTML(window.GestureConstants.arrowsToSvg('↑↓←→'))}
 							</div>
 						</div>
 					` : ''}
@@ -597,6 +597,4 @@ class GestureRecorder extends LitElement {
 	}
 }
 
-window.i18n.waitForInit().then(() => {
-	customElements.define('gesture-recorder', GestureRecorder);
-});
+customElements.define('gesture-recorder', GestureRecorder);

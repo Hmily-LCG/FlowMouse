@@ -13,6 +13,25 @@ function reorderMouseGestures(storedMG) {
 	return ordered;
 }
 
+function normalizeSetting(key, value) {
+	if (key === 'mouseGestures' && value) {
+		return reorderMouseGestures(value);
+	}
+	if (key === 'wheelGestures' && value) {
+		return {
+			...structuredClone(DEFAULT_SETTINGS.wheelGestures || {}),
+			...value,
+		};
+	}
+	if (key === 'specialGestures' && value) {
+		return {
+			...structuredClone(DEFAULT_SETTINGS.specialGestures || {}),
+			...value,
+		};
+	}
+	return value;
+}
+
 function deepEqual(obj1, obj2) {
 	if (obj1 === obj2) return true;
 	if (typeof obj1 !== 'object' || obj1 === null || typeof obj2 !== 'object' || obj2 === null) {
@@ -30,100 +49,116 @@ function deepEqual(obj1, obj2) {
 	return true;
 }
 
-export const SettingsStore = {
-	_current: structuredClone(DEFAULT_SETTINGS),
-	_listeners: [],
-	_listening: false,
-	_resetting: false,
+class SettingsStore {
+	#current = structuredClone(DEFAULT_SETTINGS);
+	#listeners = [];
+	#listening = false;
+	#resetting = false;
+	#loaded = false;
+	#loadPromise = null;
 
-	get current() { return this._current; },
+	constructor() {
+		this.#loadPromise = this.#load();
+	}
 
-	async load() {
-		if (!this._listening) {
+	get current() { this.#assertLoaded(); return this.#current; }
+
+	async waitForLoad() {
+		return await this.#loadPromise;
+	}
+
+	#assertLoaded() {
+		if (!this.#loaded) throw new Error('SettingsStore not initialized');
+	}
+
+	async #load() {
+		if (!this.#listening) {
 			chrome.storage.onChanged.addListener((changes, namespace) => {
 				if (namespace === 'sync') {
 					this.handleExternalChange(changes);
 				}
 			});
-			this._listening = true;
+			this.#listening = true;
 		}
 
 		return new Promise((resolve) => {
 			chrome.storage.sync.get(DEFAULT_SETTINGS, (items) => {
-				this._current = { ...structuredClone(DEFAULT_SETTINGS), ...items };
+				this.#current = { ...structuredClone(DEFAULT_SETTINGS), ...items };
 
-				this._current.wheelGestures = {
-					...structuredClone(DEFAULT_SETTINGS.wheelGestures || {}),
-					...(this._current.wheelGestures || {}),
-				};
-				this._current.specialGestures = {
-					...structuredClone(DEFAULT_SETTINGS.specialGestures || {}),
-					...(this._current.specialGestures || {}),
-				};
+				for (const key of ['mouseGestures', 'wheelGestures', 'specialGestures']) {
+					this.#current[key] = normalizeSetting(key, this.#current[key]);
+				}
 
-				this._current.mouseGestures = reorderMouseGestures(this._current.mouseGestures);
-
-				resolve(this._current);
+				this.#loaded = true;
+				resolve(this.#current);
 			});
 		});
-	},
+	}
 
 	async save(patch = {}) {
+		this.#assertLoaded();
 		const now = new Date().toISOString();
-		Object.assign(this._current, patch, { lastSyncTime: now });
+		Object.assign(this.#current, patch, { lastSyncTime: now });
 
 		try {
-			await chrome.storage.sync.set(this._current);
+			await chrome.storage.sync.set(this.#current);
 			return true;
 		} catch (e) {
 			console.error('Settings save failed:', e);
 			return false;
 		}
-	},
+	}
 
 	async reset() {
-		this._resetting = true;
-		return new Promise((resolve) => {
-			chrome.storage.sync.clear(() => {
-				this._current = structuredClone(DEFAULT_SETTINGS);
-				this._resetting = false;
-				resolve();
-			});
-		});
-	},
+		this.#assertLoaded();
+		this.#resetting = true;
+		try {
+			await chrome.storage.sync.clear();
+			this.#current = structuredClone(DEFAULT_SETTINGS);
+			await chrome.storage.sync.set(this.#current);
+		} catch (e) {
+			console.error('Settings reset failed:', e);
+		} finally {
+			this.#resetting = false;
+		}
+	}
 
 	handleExternalChange(changes) {
-		if (this._resetting) return { changed: {}, hasChange: false };
+		if (!this.#loaded || this.#resetting) return { changed: {}, hasChange: false };
 		let changed = {};
 		let hasChange = false;
 
 		for (const [key, storageChange] of Object.entries(changes)) {
 			let newValue = storageChange.newValue;
 
-			if (key === 'mouseGestures' && newValue) {
-				newValue = reorderMouseGestures(newValue);
+			if (newValue === undefined && key in DEFAULT_SETTINGS) {
+				newValue = structuredClone(DEFAULT_SETTINGS[key]);
 			}
 
-			if (!deepEqual(this._current[key], newValue)) {
-				this._current[key] = newValue;
+			newValue = normalizeSetting(key, newValue);
+
+			if (!deepEqual(this.#current[key], newValue)) {
+				this.#current[key] = newValue;
 				changed[key] = newValue;
 				hasChange = true;
 			}
 		}
 
-		if (hasChange) this._notifyExternal(changed);
+		if (hasChange) this.#notifyExternal(changed);
 		return { changed, hasChange };
-	},
+	}
 
 	onChange(fn) {
-		this._listeners.push(fn);
+		this.#listeners.push(fn);
 		return () => {
-			const i = this._listeners.indexOf(fn);
-			if (i >= 0) this._listeners.splice(i, 1);
+			const i = this.#listeners.indexOf(fn);
+			if (i >= 0) this.#listeners.splice(i, 1);
 		};
-	},
-
-	_notifyExternal(changed) {
-		this._listeners.forEach(fn => fn(changed, this._current));
 	}
-};
+
+	#notifyExternal(changed) {
+		this.#listeners.forEach(fn => fn(changed, this.#current));
+	}
+}
+
+export const settingsStore = new SettingsStore();

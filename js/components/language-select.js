@@ -290,6 +290,4 @@ class LanguageSelect extends LitElement {
 	}
 }
 
-window.i18n.waitForInit().then(() => {
-	customElements.define('language-select', LanguageSelect);
-});
+customElements.define('language-select', LanguageSelect);

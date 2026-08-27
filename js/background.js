@@ -4,6 +4,103 @@ const GLOBAL_MUTE_KEY = 'flowmouse_global_mute_state';
 
 const ctxMenuSessions = new Map();
 
+class Bookmarks {
+	static #ROOT_IDS = new Set(['0', 'root________']);
+
+	static #pathSegment(node) {
+		if (node.folderType) return `System:${node.folderType}:${node.syncing}`;
+		return `User:${node.title}`;
+	}
+
+	static #samePath(a, b) {
+		return a.length === b.length && a.every((segment, i) => segment === b[i]);
+	}
+
+	static *#walk(nodes, depth = 0, ancestorPath = []) {
+		for (const node of nodes) {
+			if (!node.children) continue;
+			if (Bookmarks.#ROOT_IDS.has(node.id)) {
+				yield* Bookmarks.#walk(node.children, depth, ancestorPath);
+				continue;
+			}
+			const path = [...ancestorPath, Bookmarks.#pathSegment(node)];
+			yield { node, depth, path };
+			yield* Bookmarks.#walk(node.children, depth + 1, path);
+		}
+	}
+
+	static async pathOf(nodeId) {
+		const segments = [];
+		let currentId = nodeId;
+		while (currentId && !Bookmarks.#ROOT_IDS.has(currentId)) {
+			try {
+				const [node] = await chrome.bookmarks.get(currentId);
+				segments.push(Bookmarks.#pathSegment(node));
+				currentId = node.parentId;
+			} catch {
+				break;
+			}
+		}
+		return segments.reverse();
+	}
+
+	static async listFolders() {
+		const tree = await chrome.bookmarks.getTree();
+		const folders = [];
+		for (const { node, depth, path } of Bookmarks.#walk(tree)) {
+			folders.push({
+				id: node.id,
+				title: node.title,
+				depth,
+				linkCount: node.children.filter(c => c.url).length,
+				path,
+			});
+		}
+		return folders;
+	}
+
+	static async listLinks(folderId) {
+		const nodes = await chrome.bookmarks.getChildren(folderId);
+		return nodes
+			.filter(n => n.url)
+			.map(n => ({ title: n.title, url: n.url, date: n.dateAdded }));
+	}
+
+	static async #isFolder(id) {
+		try {
+			const [node] = await chrome.bookmarks.get(id);
+			return !!node && !node.url;
+		} catch {
+			return false;
+		}
+	}
+
+	static async resolveFolder(folderId) {
+		if (!folderId) return null;
+		const { id, path } = typeof folderId === 'string' ? { id: folderId } : folderId;
+		const hasPath = Array.isArray(path) && path.length > 0;
+		if (!id && !hasPath) return null;
+
+		{
+			return id && await Bookmarks.#isFolder(id) ? id : null;
+		}
+	}
+
+	static async addLink({ title, url, folderId }) {
+		const bookmark = { title, url };
+		const parentId = await Bookmarks.resolveFolder(folderId);
+		if (parentId) bookmark.parentId = parentId;
+
+		const existing = (await chrome.bookmarks.search({ url })).filter(b => b.url === url);
+		const isDuplicate = bookmark.parentId
+			? existing.some(b => b.parentId === bookmark.parentId)
+			: existing.length > 0;
+		if (isDuplicate) return null;
+
+		return await chrome.bookmarks.create(bookmark);
+	}
+}
+
 function sortAndClamp(items, sortOrder, maxItems, titleKey = 'title') {
 	if (sortOrder && sortOrder !== 'default') {
 		if (sortOrder === 'default_desc') {
@@ -81,6 +178,13 @@ async function openInNewWindow(url, focused = true, incognito = false) {
 	if (url) createOpts.url = url;
 	const win = await chrome.windows.create(createOpts);
 	return win.tabs[0];
+}
+
+async function getSenderWindow(sender) {
+	if (sender.tab?.windowId != null) {
+		return await chrome.windows.get(sender.tab.windowId);
+	}
+	return await chrome.windows.getCurrent();
 }
 
 function replaceUrlPlaceholders(template, tab) {
@@ -526,25 +630,17 @@ async function handleAction(request, sender) {
 			if (sender.tab) {
 				requestPermission(['bookmarks'], sender.tab.windowId).then(async (granted) => {
 					if (!granted) return;
-					const bookmark = {
+					await Bookmarks.addLink({
 						title: sender.tab.title,
 						url: sender.tab.url,
-					};
-					if (request.folderId) bookmark.parentId = request.folderId;
-
-					const existing = (await chrome.bookmarks.search({ url: bookmark.url })).filter(b => b.url === bookmark.url);
-					const isDuplicate = bookmark.parentId
-						? existing.some(b => b.parentId === bookmark.parentId)
-						: existing.length > 0;
-					if (isDuplicate) return { success: true };
-
-					await chrome.bookmarks.create(bookmark);
+						folderId: request.folderId,
+					});
 				});
 			}
 			return { success: true };
 
 		case 'toggleFullscreen': {
-			const win = await chrome.windows.getCurrent();
+			const win = await getSenderWindow(sender);
 			if (win.state === 'fullscreen') {
 				const storageKey = `flowmouse_fullscreen_prev_state_${win.id}`;
 				const items = await chrome.storage.session.get([storageKey]);
@@ -560,14 +656,14 @@ async function handleAction(request, sender) {
 		}
 
 		case 'toggleMaximize': {
-			const win = await chrome.windows.getCurrent();
+			const win = await getSenderWindow(sender);
 			const newState = win.state === 'maximized' ? 'normal' : 'maximized';
 			await chrome.windows.update(win.id, { state: newState });
 			return { success: true };
 		}
 
 		case 'minimize': {
-			const win = await chrome.windows.getCurrent();
+			const win = await getSenderWindow(sender);
 			await chrome.windows.update(win.id, { state: 'minimized' });
 			return { success: true };
 		}
@@ -762,11 +858,18 @@ async function handleAction(request, sender) {
 			const urls = request.urls;
 			const interval = Math.max(0, Math.min(60000, (parseFloat(request.operationInterval) || 0) * 1000));
 			if (urls?.length && sender.tab) {
-				const openerTabId = sender.tab.id;
+				let openerTabId = sender.tab.id;
 				const baseIndex = sender.tab.index + 1;
 				for (let i = 0; i < urls.length; i++) {
 					if (i > 0 && interval > 0) {
 						await new Promise(r => setTimeout(r, interval));
+					}
+					if (openerTabId != null) {
+						try {
+							await chrome.tabs.get(openerTabId);
+						} catch {
+							openerTabId = undefined;
+						}
 					}
 					await chrome.tabs.create({
 						url: urls[i],
@@ -863,23 +966,26 @@ async function handleAction(request, sender) {
 		}
 
 		case 'getBookmarks': {
-			const folderId = request.folderId || '1';
 			const granted = await requestPermission(['bookmarks'], sender.tab?.windowId);
 			if (!granted) return { success: false };
 			try {
-				const nodes = await chrome.bookmarks.getChildren(folderId);
-				let bookmarks = nodes
-					.filter(n => n.url)
-					.map(n => ({
-						title: n.title,
-						url: n.url,
-						date: n.dateAdded,
-					}));
-				bookmarks = sortAndClamp(bookmarks, request.sortOrder, request.maxItems);
-				return { success: true, bookmarks };
+				const folderId = await Bookmarks.resolveFolder(request.folderId) ?? '1';
+				const links = await Bookmarks.listLinks(folderId);
+				return { success: true, bookmarks: sortAndClamp(links, request.sortOrder, request.maxItems) };
 			} catch (error) {
 				console.error('Failed to get bookmarks:', error);
 				return { success: false, bookmarks: [] };
+			}
+		}
+
+		case 'getBookmarkFolders': {
+			const granted = await requestPermission(['bookmarks'], sender.tab?.windowId);
+			if (!granted) return { success: false, folders: [] };
+			try {
+				return { success: true, folders: await Bookmarks.listFolders() };
+			} catch (error) {
+				console.error('Failed to get bookmark folders:', error);
+				return { success: false, folders: [] };
 			}
 		}
 

@@ -1,6 +1,6 @@
+import { settingsStore } from '../settings-store.js';
 import { LitElement, html, css, unsafeHTML } from '../../js/lib/lit-all.min.js';
 import { commonStyles, optionStyles } from './shared-styles.js';
-import { SettingsStore } from '../settings-store.js';
 import { icon, iconDataUri } from '../icons.js';
 
 function buildPreviewItems() {
@@ -227,11 +227,11 @@ class CssEditorPage extends LitElement {
 		await window.i18n.waitForInit();
 		this._sampleItems = buildPreviewItems();
 
-		await SettingsStore.load();
-		this._css = SettingsStore.current.customCss || '';
+		await settingsStore.waitForLoad();
+		this._css = settingsStore.current.customCss || '';
 		this._savedCss = this._css;
 
-		SettingsStore.onChange((changed) => {
+		settingsStore.onChange((changed) => {
 			if ('theme' in changed) {
 				window.i18n.applyTheme(changed.theme);
 			}
@@ -369,7 +369,7 @@ class CssEditorPage extends LitElement {
 
 	#updateVisualizer() {
 		if (!this._visualizer) return;
-		const source = SettingsStore.current;
+		const source = settingsStore.current;
 		const settings = {
 			lang: window.i18n.getHtmlLang(),
 			isRtl: window.i18n.getDir() === 'rtl',
@@ -429,7 +429,7 @@ class CssEditorPage extends LitElement {
 
 	#save = async () => {
 		if (!this.#isDirty() || this._css.length > CUSTOM_CSS_MAX_LENGTH) return;
-		const ok = await SettingsStore.save({ customCss: this._css });
+		const ok = await settingsStore.save({ customCss: this._css });
 		if (ok) {
 			this._savedCss = this._css;
 			this.#showStatus(window.i18n.getMessage('customCssEditorSaved'), 'success');

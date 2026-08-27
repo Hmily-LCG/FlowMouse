@@ -1,13 +1,13 @@
+import { settingsStore } from '../settings-store.js';
 import { LitElement, html, css, unsafeHTML } from '../lib/lit-all.min.js';
 import { commonStyles, optionStyles } from './shared-styles.js';
 import { icon } from '../icons.js';
-import { SettingsStore } from '../settings-store.js';
 import { tooltip } from '../tooltip.js';
 
 export function getChainLabel(chainId) {
 	const i18n = window.i18n;
 	if (!chainId) return i18n.getMessage('actionActionChain');
-	const chain = (SettingsStore.current.actionChains || {})[chainId];
+	const chain = (settingsStore.current.actionChains || {})[chainId];
 	if (!chain) return i18n.getMessage('chainNotFound');
 	const steps = chain.steps?.length || 0;
 	const stepsLabel = (steps === 1
@@ -202,13 +202,13 @@ class ChainPanel extends LitElement {
 	}
 
 	get actionChains() {
-		return SettingsStore.current.actionChains || {};
+		return settingsStore.current.actionChains || {};
 	}
 
 	connectedCallback() {
 		super.connectedCallback();
 		window.addEventListener('action-catalog-changed', this._onCatalogChanged);
-		this._unsubscribeStore = SettingsStore.onChange((changed) => {
+		this._unsubscribeStore = settingsStore.onChange((changed) => {
 			if ('actionChains' in changed) this.requestUpdate();
 		});
 	}
@@ -575,7 +575,7 @@ class ChainPanel extends LitElement {
 				composed: false,
 			}));
 		}
-		SettingsStore.save({ actionChains: chains });
+		settingsStore.save({ actionChains: chains });
 		window.dispatchEvent(new Event('action-catalog-changed'));
 	}
 
@@ -588,6 +588,4 @@ class ChainPanel extends LitElement {
 	}
 }
 
-window.i18n.waitForInit().then(() => {
-	customElements.define('chain-panel', ChainPanel);
-});
+customElements.define('chain-panel', ChainPanel);

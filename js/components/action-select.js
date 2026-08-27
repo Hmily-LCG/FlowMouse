@@ -115,6 +115,7 @@ class ActionSelect extends LitElement {
 		value: { type: String },
 		config: { type: Object },
 		gestureLabel: { type: String, attribute: 'gesture-label' },
+		gestureArrows: { type: String, attribute: 'gesture-arrows' },
 		context: { type: String },
 		allowCustomName: { type: Boolean, attribute: 'allow-custom-name' },
 		compact: { type: Boolean },
@@ -681,6 +682,7 @@ class ActionSelect extends LitElement {
 		this.value = 'none';
 		this.config = {};
 		this.gestureLabel = '';
+		this.gestureArrows = '';
 		this.context = 'gesture';
 		this.compact = false;
 		this._open = false;
@@ -786,6 +788,11 @@ class ActionSelect extends LitElement {
 		`;
 	}
 
+	#renderGestureTitle() {
+		if (!this.gestureArrows && !this.gestureLabel) return '';
+		return html`<span class="modal-gesture">${this.gestureArrows ? unsafeHTML(window.GestureConstants.arrowsToSvg(this.gestureArrows)) : ''}${this.gestureArrows && this.gestureLabel ? ' ' : ''}${this.gestureLabel}</span>`;
+	}
+
 	#renderModal() {
 		const categories = this.#getFilteredCategories();
 		const hasResults = categories.some(c => c.items.length > 0);
@@ -799,7 +806,7 @@ class ActionSelect extends LitElement {
 				<div class="modal-panel" @mousedown=${(e) => e.stopPropagation()}>
 					<div class="modal-header">
 						<span class="modal-title">
-							${window.i18n.getMessage('action')}${this.gestureLabel ? html`<span class="modal-gesture">${unsafeHTML(window.GestureConstants.arrowsToSvg(this.gestureLabel))}</span>` : ''}
+							${window.i18n.getMessage('action')}${this.#renderGestureTitle()}
 						</span>
 						<button type="button" class="modal-close" @click=${this.#cancel}>${unsafeHTML(icons.x)}</button>
 					</div>
@@ -1760,7 +1767,7 @@ class ActionSelect extends LitElement {
 	#renderBookmarkFolderSelect({ allowDefault = false } = {}) {
 		const { ACTION_DEFAULTS } = window.GestureConstants;
 		const defaults = ACTION_DEFAULTS[this._pendingValue] || {};
-		const folderId = this._pendingConfig.folderId ?? defaults.folderId;
+		const rawFolderId = this._pendingConfig.folderId ?? defaults.folderId;
 
 		if (!this._bookmarkPermission && chrome.permissions) {
 			chrome.permissions.contains({ permissions: ['bookmarks'] }).then(granted => {
@@ -1796,12 +1803,29 @@ class ActionSelect extends LitElement {
 		}
 
 		const folders = this._bookmarkFolders || [];
+		const selected = this.#findFolder(rawFolderId, folders);
+		let folderId = selected ? selected.id : '';
+
+		if (folders.length && !('folderId' in this._pendingConfig)) {
+			if (selected) {
+				this._pendingConfig.folderId = { id: selected.id, path: selected.path };
+			} else if (!allowDefault) {
+				const first = folders[0];
+				this._pendingConfig.folderId = { id: first.id, path: first.path };
+				folderId = first.id;
+			}
+		}
 		return html`
 			<div class="action-config-row">
 				<span class="action-config-label">${window.i18n.getMessage('bookmarkFolder')}</span>
 				<select class="action-config-select"
 					.value=${folderId}
-					@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, folderId: e.target.value }; this.requestUpdate(); }}
+					@change=${(e) => {
+						const selectedFolder = folders.find(f => f.id === e.target.value);
+						const newRef = selectedFolder ? { id: selectedFolder.id, path: selectedFolder.path } : e.target.value;
+						this._pendingConfig = { ...this._pendingConfig, folderId: newRef };
+						this.requestUpdate();
+					}}
 				>
 					${allowDefault ? html`<option value="" ?selected=${!folderId}>${window.i18n.getMessage('bookmarkFolderDefault')}</option>` : ''}
 					${folders.map(f => html`<option value=${f.id} ?selected=${f.id === folderId}>${'\u00A0\u00A0'.repeat(f.depth)}${f.title} (${f.linkCount})</option>`)}
@@ -1810,24 +1834,20 @@ class ActionSelect extends LitElement {
 		`;
 	}
 
-	#loadBookmarkFolders() {
-		chrome.bookmarks.getTree().then(tree => {
-			const folders = [];
-			const walk = (nodes, depth = 0) => {
-				for (const node of nodes) {
-					if (node.children) {
-						if (node.id === '0') { walk(node.children, 0); continue; }
-						if (node.id === 'root________') { walk(node.children, depth); continue; }
-						const linkCount = node.children.filter(c => c.url).length;
-						folders.push({ id: node.id, title: node.title, depth, linkCount });
-						walk(node.children, depth + 1);
-					}
-				}
-			};
-			walk(tree);
-			this._bookmarkFolders = folders;
-			this.requestUpdate();
-		});
+	#findFolder(rawFolderId, folders) {
+		if (!rawFolderId) return null;
+		const { id, path } = typeof rawFolderId === 'object' ? rawFolderId : { id: rawFolderId };
+		const byId = folders.find(f => f.id === id);
+
+		{
+			return byId || null;
+		}
+	}
+
+	async #loadBookmarkFolders() {
+		const result = await chrome.runtime.sendMessage({ action: 'getBookmarkFolders' });
+		this._bookmarkFolders = result?.folders || [];
+		this.requestUpdate();
 	}
 
 	#isValidJson(str) {
@@ -1880,6 +1900,4 @@ class ActionSelect extends LitElement {
 	}
 }
 
-window.i18n.waitForInit().then(() => {
-	customElements.define('action-select', ActionSelect);
-});
+customElements.define('action-select', ActionSelect);

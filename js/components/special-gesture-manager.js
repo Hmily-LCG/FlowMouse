@@ -174,6 +174,4 @@ class SpecialGestureManager extends LitElement {
 	}
 }
 
-window.i18n.waitForInit().then(() => {
-	customElements.define('special-gesture-manager', SpecialGestureManager);
-});
+customElements.define('special-gesture-manager', SpecialGestureManager);
