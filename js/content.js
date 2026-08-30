@@ -2251,15 +2251,24 @@ window.ContentContextMenu = ContentContextMenu;
         let panMode = null;
         let autoScroll = null;
 
-        function findHorizontalScrollTarget(x, y) {
+        function findScrollTarget(x, y, axis) {
+            // axis: 'x' 横滚 | 'y' 竖滚
             const root = document.scrollingElement || document.documentElement;
             let el = document.elementFromPoint(x, y);
             while (el && el !== root && el !== document.body) {
                 const style = window.getComputedStyle(el);
-                const ox = style.overflowX;
-                if ((ox === 'auto' || ox === 'scroll' || ox === 'overlay') &&
-                    el.scrollWidth > el.clientWidth + 1) {
-                    return el;
+                if (axis === 'x') {
+                    const ox = style.overflowX;
+                    if ((ox === 'auto' || ox === 'scroll' || ox === 'overlay') &&
+                        el.scrollWidth > el.clientWidth + 1) {
+                        return el;
+                    }
+                } else {
+                    const oy = style.overflowY;
+                    if ((oy === 'auto' || oy === 'scroll' || oy === 'overlay') &&
+                        el.scrollHeight > el.clientHeight + 1) {
+                        return el;
+                    }
                 }
                 el = el.parentElement || (el.getRootNode?.() instanceof ShadowRoot ? el.getRootNode().host : null);
             }
@@ -2272,50 +2281,97 @@ window.ContentContextMenu = ContentContextMenu;
             panMode = null;
         }
 
-        function startPan(e, config) {
-            const target = findHorizontalScrollTarget(e.clientX, e.clientY);
-            // 滚动距离 75% → 灵敏度约 1；可再乘倍率
-            const sens = ((config.scrollDistance ?? 75) / 75) * (config.scrollAccel > 1 ? config.scrollAccel : 1);
-            panMode = {
-                target,
-                startScroll: target.scrollLeft,
-                startMouseX: e.clientX,
-                sensitivity: sens,
-            };
+        function startPan(e, config, axis) {
+                        // ========== 自动滚动模式 ==========
+            if (SETTINGS.enableAutoScrollMode && recognizer.isActive()) {
+                const pattern = result.pattern || recognizer.getPattern();
+
+                // 多段手势：退出滚动，本模式下不执行其它手势
+                if (pattern.length > 1) {
+                    if (panMode || autoScroll) endHorizontalScroll();
+                } else if (panMode) {
+                    updatePan(e);
+                } else if (autoScroll) {
+                    updateAutoScrollPointer(e);
+                } else {
+                    const map = {
+                        '←': { axis: 'x', key: 'left' },
+                        '→': { axis: 'x', key: 'right' },
+                        '↑': { axis: 'y', key: 'up' },
+                        '↓': { axis: 'y', key: 'down' },
+                    };
+                    const info = map[pattern];
+                    const mode = SETTINGS.autoScrollMode || {};
+                    const dirCfg = info ? (mode[info.key] || {}) : null;
+
+                    if (info && dirCfg.enabled !== false) {
+                        const cfg = {
+                            scrollDistance: dirCfg.scrollDistance ?? 75,
+                            scrollAccel: dirCfg.scrollAccel ?? 1,
+                        };
+                        if (mode.style === 'auto') {
+                            startAutoScroll(e, cfg, info.axis);4
+                            updateAutoScrollPointer(e);
+                        } else {
+                            startPan(e, cfg, info.axis);
+                            updatePan(e);
+                        }
+                    }
+                }
+            }
+            // ========== 非自动滚动模式：不要在这里 startPan ==========
         }
 
         function updatePan(e) {
             if (!panMode) return;
-            const dx = e.clientX - panMode.startMouseX;
-            const next = panMode.startScroll + dx * panMode.sensitivity;
-            const max = Math.max(0, panMode.target.scrollWidth - panMode.target.clientWidth);
-            panMode.target.scrollLeft = Math.max(0, Math.min(next, max));
+            const pos = panMode.axis === 'x' ? e.clientX : e.clientY;
+            const delta = pos - panMode.startMouse;
+            // 鼠标往右/往下 → 内容同向滚（与常见拖拽预览一致）
+            const next = panMode.startScroll + delta * panMode.sensitivity;
+            if (panMode.axis === 'x') {
+                const max = Math.max(0, panMode.target.scrollWidth - panMode.target.clientWidth);
+                panMode.target.scrollLeft = Math.max(0, Math.min(next, max));
+            } else {
+                const max = Math.max(0, panMode.target.scrollHeight - panMode.target.clientHeight);
+                panMode.target.scrollTop = Math.max(0, Math.min(next, max));
+            }
         }
 
-        function startAutoScroll(e, config) {
-            const target = findHorizontalScrollTarget(e.clientX, e.clientY);
-            const dist = config.scrollDistance ?? 75;
-            const accel = config.scrollAccel > 1 ? config.scrollAccel : 1;
+        function startAutoScroll(e, config, axis) {
+            const target = findScrollTarget(e.clientX, e.clientY, axis);
+            const dist = (config && config.scrollDistance) != null ? config.scrollDistance : 75;
+            const accel = (config && config.scrollAccel > 1) ? config.scrollAccel : 1;
             autoScroll = {
                 target,
-                originX: e.clientX,
-                lastX: e.clientX,
-                // 距离滑块 + 倍率 → 速度
+                axis,
+                origin: axis === 'x' ? e.clientX : e.clientY,
+                last: axis === 'x' ? e.clientX : e.clientY,
                 speedFactor: (dist / 75) * 0.12 * accel,
                 deadZone: 8,
                 rafId: null,
             };
             const tick = () => {
                 if (!autoScroll) return;
-                const dx = autoScroll.lastX - autoScroll.originX;
+                const d = autoScroll.last - autoScroll.origin;
                 let velocity = 0;
-                if (Math.abs(dx) > autoScroll.deadZone) {
-                    const signed = dx - Math.sign(dx) * autoScroll.deadZone;
+                if (Math.abs(d) > autoScroll.deadZone) {
+                    const signed = d - Math.sign(d) * autoScroll.deadZone;
                     velocity = signed * autoScroll.speedFactor;
                 }
                 if (velocity !== 0) {
-                    const max = Math.max(0, autoScroll.target.scrollWidth - autoScroll.target.clientWidth);
-                    autoScroll.target.scrollLeft = Math.max(0, Math.min(autoScroll.target.scrollLeft + velocity, max));
+                    if (autoScroll.axis === 'x') {
+                        const max = Math.max(0, autoScroll.target.scrollWidth - autoScroll.target.clientWidth);
+                        autoScroll.target.scrollLeft = Math.max(
+                            0,
+                            Math.min(autoScroll.target.scrollLeft + velocity, max)
+                        );
+                    } else {
+                        const max = Math.max(0, autoScroll.target.scrollHeight - autoScroll.target.clientHeight);
+                        autoScroll.target.scrollTop = Math.max(
+                            0,
+                            Math.min(autoScroll.target.scrollTop + velocity, max)
+                        );
+                    }
                 }
                 autoScroll.rafId = requestAnimationFrame(tick);
             };
@@ -2323,7 +2379,8 @@ window.ContentContextMenu = ContentContextMenu;
         }
 
         function updateAutoScrollPointer(e) {
-            if (autoScroll) autoScroll.lastX = e.clientX;
+            if (!autoScroll) return;
+            autoScroll.last = autoScroll.axis === 'x' ? e.clientX : e.clientY;
         }
 
         function endPan() {
@@ -2665,29 +2722,39 @@ window.ContentContextMenu = ContentContextMenu;
                     updateAutoScrollPointer(e);
                 } else {
                     const pattern = result.pattern || recognizer.getPattern();
+
+                    // 只用「单段」方向，不会匹配 ↑←、↓→ 等转弯
+                    let axis = null;
+                    let okActions = null;
                     if (pattern === '←' || pattern === '→') {
-                        // 直接读设置，不调用 getScrollGestureConfig
+                        axis = 'x';
+                        okActions = ['scrollLeft', 'scrollRight'];
+                    } else if (pattern === '↑' || pattern === '↓') {
+                        axis = 'y';
+                        okActions = ['scrollUp', 'scrollDown'];
+                    }
+
+                    if (axis && okActions) {
                         let action = null;
                         if (SETTINGS.enableGestureCustomization) {
                             action = SETTINGS.mouseGestures?.[pattern]?.action;
                         } else {
                             action = (window.GestureConstants.DEFAULT_GESTURES || {})[pattern];
                         }
-                        // 你设置里绑的是向左/向右滚动
-                        if (action === 'scrollLeft' || action === 'scrollRight') {
+
+                        if (okActions.includes(action)) {
                             const defaults = (window.GestureConstants.ACTION_DEFAULTS || {})[action] || {};
                             const saved = SETTINGS.enableGestureCustomization
                                 ? (SETTINGS.mouseGestures?.[pattern] || {})
                                 : {};
                             const cfg = { ...defaults, ...saved };
 
-                            // continuousScroll 默认当作开启（没写字段也进连续滚）
                             if (cfg.continuousScroll !== false) {
                                 if (cfg.autoScroll) {
-                                    startAutoScroll(e, cfg);
+                                    startAutoScroll(e, cfg, axis);
                                     updateAutoScrollPointer(e);
                                 } else {
-                                    startPan(e, cfg);
+                                    startPan(e, cfg, axis);
                                     updatePan(e);
                                 }
                             }
@@ -2763,11 +2830,18 @@ window.ContentContextMenu = ContentContextMenu;
                 if (recognizer.isActive()) {
                     e.preventDefault();
                     e.stopPropagation();
-                    if (panMode || autoScroll) {
-                        endHorizontalScroll();
+					if (recognizer.isActive()) {
+						e.preventDefault();
+						e.stopPropagation();
+
+                    if (SETTINGS.enableAutoScrollMode) {
+                        // 自动滚动模式：只结束滚动，不执行手势
+                        if (panMode || autoScroll) endHorizontalScroll();
                     } else {
+                        // 普通模式：执行手势
                         executeGesture(recognizer.getPattern());
                     }
+                }
                 }
 
                 resetState();
@@ -3036,9 +3110,18 @@ window.ContentContextMenu = ContentContextMenu;
 			}
 
 			if (result.directionChanged && SETTINGS.enableHUD) {
-				const hints = getDragHints(gestureState.dragType, result.pattern, gestureState.selectedText, gestureState.parentLink);
-				visualizer.updateAction(hints.length > 0 ? result.pattern : '', hints);
-			}
+                if (SETTINGS.enableAutoScrollMode) {
+                    visualizer.updateAction(result.pattern, ['自动滚动']);
+                    // 不调用 getSuggestedGestures
+                } else {
+                    const actionName = getActionName(result.pattern);
+                    visualizer.updateAction(result.pattern, actionName ? [actionName] : []);
+                    if (SETTINGS.enableSuggestedGestures) {
+                        const suggestions = getSuggestedGestures(result.pattern);
+                        visualizer.updateSuggestedGestures(suggestions, result.pattern);
+                    }
+                }
+            }
 		}, { capture: true });
 
 		eventManager.add(isDragEnabled, window, 'dragenter', (e) => {

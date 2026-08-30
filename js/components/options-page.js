@@ -295,6 +295,8 @@ class OptionsPage extends LitElement {
 	}
 
 
+	
+
 	render() {
 		if (!this._ready) return html``;
 		const i18n = window.i18n;
@@ -541,10 +543,64 @@ class OptionsPage extends LitElement {
 										<span>${i18n.getMessage('enableCustomGesturesDesc')}</span>
 									</div>
 									<label class="toggle">
-										<input type="checkbox" id="enableGestureCustomization" .checked=${this._settings.enableGestureCustomization} @change=${e => this.#updateSetting('enableGestureCustomization', e.target.checked)}>
+										<input type="checkbox" id="enableGestureCustomization" .checked=${this._settings.enableGestureCustomization} @change=${e => this.#onGestureCustomizationToggle(e.target.checked)}>
 										<span class="slider"></span>
 									</label>
 								</div>
+								
+						<div class="setting-row">  <!-- 或你文件里同类的行 -->
+						<div>
+							<strong>自动滚动</strong>
+							<div>开启后按住触发键拖动即可连续滚动，将关闭自定义手势</div>
+						</div>
+						<label class="toggle">
+							<input type="checkbox"
+							.checked=${!!this._settings.enableAutoScrollMode}
+							@change=${e => this.#onAutoScrollModeToggle(e.target.checked)}>
+							<span class="slider"></span>
+						</label>
+						</div>
+
+						<div style="display:${this._settings.enableAutoScrollMode ? 'block' : 'none'}">
+						<!-- 滚动方式 -->
+						<div>
+							<span>滚动方式</span>
+							<select
+							.value=${this._settings.autoScrollMode?.style || 'pan'}
+							@change=${e => this.#updateAutoScrollMode({ style: e.target.value })}>
+							<option value="pan">跟手拖动</option>
+							<option value="auto">自动滚动（中键式）</option>
+							</select>
+						</div>
+						<!-- 四向：可先只做启用勾选，距离以后再加滑块 -->
+						<label>
+							<input type="checkbox"
+							.checked=${this._settings.autoScrollMode?.left?.enabled !== false}
+							@change=${e => this.#updateAutoScrollDir('left', { enabled: e.target.checked })}>
+							向左
+						</label>
+						<label>
+							<input type="checkbox"
+							.checked=${this._settings.autoScrollMode?.right?.enabled !== false}
+							@change=${e => this.#updateAutoScrollDir('right', { enabled: e.target.checked })}>
+							向右
+						</label>
+						<label>
+							<input type="checkbox"
+							.checked=${this._settings.autoScrollMode?.up?.enabled !== false}
+							@change=${e => this.#updateAutoScrollDir('up', { enabled: e.target.checked })}>
+							向上
+						</label>
+						<label>
+							<input type="checkbox"
+							.checked=${this._settings.autoScrollMode?.down?.enabled !== false}
+							@change=${e => this.#updateAutoScrollDir('down', { enabled: e.target.checked })}>
+							向下
+						</label>
+
+						
+						</div>
+
 								<div style="display:${this._settings.enableGestureCustomization ? 'block' : 'none'}">
 									<gesture-grid id="gestureGrid"
 										.mouseGestures=${{ ...(this._settings.mouseGestures || {}) }}
@@ -956,6 +1012,8 @@ class OptionsPage extends LitElement {
 		`;
 	}
 
+	
+
 
 	#getSections(i18n) {
 		const sections = [
@@ -1112,7 +1170,34 @@ class OptionsPage extends LitElement {
 	async #updateSetting(key, value) {
 		await this.#savePatch({ [key]: this.#coerce(key, value) });
 	}
+	
+    #onAutoScrollModeToggle(checked) {
+        this.#updateSetting('enableAutoScrollMode', checked);
+        if (checked) {
+            this.#updateSetting('enableGestureCustomization', false);
+        }
+    }
 
+    #onGestureCustomizationToggle(checked) {
+        this.#updateSetting('enableGestureCustomization', checked);
+        if (checked) {
+            this.#updateSetting('enableAutoScrollMode', false);
+        }
+    }
+
+    #updateAutoScrollMode(partial) {
+        const prev = this._settings.autoScrollMode || {};
+        this.#updateSetting('autoScrollMode', { ...prev, ...partial });
+    }
+
+    #updateAutoScrollDir(dir, partial) {
+        const prev = this._settings.autoScrollMode || {};
+        const dirPrev = prev[dir] || {};
+        this.#updateSetting('autoScrollMode', {
+            ...prev,
+            [dir]: { ...dirPrev, ...partial },
+        });
+    }
 	async #updateTriggerButton(buttonKey, checked) {
 		const current = { ...this._settings.gestureTriggerButtons };
 		current[buttonKey] = checked;

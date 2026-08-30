@@ -1710,32 +1710,7 @@ class ActionSelect extends LitElement {
                             <span>${currentAccelWindow}ms</span>
                         </div>
                     </div>
-                    <label class="action-config-checkbox">
-                        <input type="checkbox"
-                            .checked=${this._pendingConfig.continuousScroll !== false}
-                            @change=${(e) => {
-                                this._pendingConfig = {
-                                    ...this._pendingConfig,
-                                    continuousScroll: e.target.checked,
-                                    ...(e.target.checked ? {} : { autoScroll: false }),
-                                };
-                                this.requestUpdate();
-                            }}
-                        >
-                        <span>拖动时连续滚动</span>
-                    </label>
-                    <label class="action-config-checkbox ${(this._pendingConfig.continuousScroll === false) ? 'disabled' : ''}"
-                        style=${(this._pendingConfig.continuousScroll === false) ? 'opacity:0.4;pointer-events:none' : ''}>
-                        <input type="checkbox"
-                            .checked=${!!this._pendingConfig.autoScroll}
-                            ?disabled=${this._pendingConfig.continuousScroll === false}
-                            @change=${(e) => {
-                                this._pendingConfig = { ...this._pendingConfig, autoScroll: e.target.checked };
-                                this.requestUpdate();
-                            }}
-                        >
-                        <span>自动滚动（类似中键，离起点越远越快）</span>
-                    </label>
+                    
                 ` : ''}
 				<div class="action-config-row">
 					<span class="action-config-label">${window.i18n.getMessage('scrollSmoothness')}</span>

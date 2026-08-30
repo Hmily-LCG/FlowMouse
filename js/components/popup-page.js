@@ -18,6 +18,7 @@ class PopupPage extends LitElement {
 		_needRefresh: { state: true },
 		_ready: { state: true },
 		_gesturesCollapsed: { state: true },
+		_enableAutoScrollMode: { state: true },
 	};
 
 	static styles = [
@@ -316,6 +317,7 @@ class PopupPage extends LitElement {
 		this._gesturesCollapsed = false;
 		this._currentTabId = null;
 		this._store = SettingsStore;
+		this._enableAutoScrollMode = false;
 	}
 
 	connectedCallback() {
@@ -342,6 +344,7 @@ class PopupPage extends LitElement {
 		this._gestureEnabled = settings.enableGesture !== false;
 		this._enableTrail = settings.enableTrail !== false;
 		this._enableHUD = settings.enableHUD !== false;
+		this._enableAutoScrollMode = !!settings.enableAutoScrollMode;
 
 		if (!this._ready) {
 			const stored = localStorage.getItem('popupGesturesCollapsed');
@@ -399,6 +402,16 @@ class PopupPage extends LitElement {
 					<span class="slider"></span>
 				</label>
 			</div>
+
+			<div class="status-row">
+                <span class="status-label">自动滚动</span>
+                <label class="toggle">
+                    <input type="checkbox"
+                        .checked=${this._enableAutoScrollMode}
+                        @change=${this.#onAutoScrollModeChange}>
+                    <span class="slider"></span>
+                </label>
+            </div>
 
 			<div class="status-row">
 				<span class="status-label">${i18n.getMessage('popupHint')}</span>
@@ -588,6 +601,16 @@ class PopupPage extends LitElement {
 		this._enableHUD = e.target.checked;
 		this.#saveQuickSettings();
 	}
+
+	#onAutoScrollModeChange(e) {
+	this._enableAutoScrollMode = e.target.checked;
+	const data = { enableAutoScrollMode: this._enableAutoScrollMode };
+	// 打开自动滚动时，关掉自定义手势
+	if (this._enableAutoScrollMode) {
+		data.enableGestureCustomization = false;
+	}
+	this._store.save(data);
+    }
 
 	async #saveQuickSettings() {
 		await this._store.save({
