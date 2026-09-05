@@ -3,7 +3,7 @@
 </p>
 <div align="center">
 
-<h1><img src="./assets/icon-heading.png" alt="" width="32" align="center"> FlowMouse</h1>
+# <sub><img src="./assets/icon-heading.png" alt="" width="36"></sub> FlowMouse
 
 [![GitHub stars](https://img.shields.io/github/stars/Hmily-LCG/FlowMouse.svg)](https://github.com/Hmily-LCG/FlowMouse)
 [![GitHub release](https://img.shields.io/github/v/release/Hmily-LCG/FlowMouse)](https://github.com/Hmily-LCG/FlowMouse/releases)
