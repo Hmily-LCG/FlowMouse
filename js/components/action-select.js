@@ -4,6 +4,7 @@ import { icons, icon } from '../icons.js';
 import { getChainLabel } from './chain-panel.js';
 import { getMenuLabel } from './menu-panel.js';
 import { tooltip } from '../tooltip.js';
+import { settingsStore } from '../settings-store.js';
 
 let modalOpenCount = 0;
 function lockBodyScroll() {
@@ -748,7 +749,7 @@ class ActionSelect extends LitElement {
 			mods.push(keyValue);
 			return `${baseLabel} (${mods.join('+')})`;
 		}
-		return window.i18n.getMessage(key) || val;
+		return window.i18n.getMessage(key);
 	}
 
 	#getFilteredCategories() {
@@ -813,12 +814,15 @@ class ActionSelect extends LitElement {
 					<div class="modal-body">
 						<div class="modal-left">
 							<div class="search-wrapper">
-								<input class="search-input input-lg" type="text"
-									placeholder=${window.i18n.getMessage('searchActions')}
-									.value=${this._search}
-									@input=${this.#onSearchInput}
-									@keydown=${this.#onKeydown}
-								>
+								<div class="input-icon">
+									${unsafeHTML(icon('search'))}
+									<input class="search-input input-lg" type="text"
+										placeholder=${window.i18n.getMessage('searchActions')}
+										.value=${this._search}
+										@input=${this.#onSearchInput}
+										@keydown=${this.#onKeydown}
+									>
+								</div>
 							</div>
 							<div class="action-list">
 								${hasResults ? categories.map(cat => html`
@@ -859,7 +863,7 @@ class ActionSelect extends LitElement {
 								</span>
 							</span>
 							<input class="modal-footer-name" type="text"
-								placeholder=${window.i18n.getMessage(window.GestureConstants.ACTION_KEYS[this._pendingValue]) || this._pendingValue}
+								placeholder=${window.i18n.getMessage(window.GestureConstants.ACTION_KEYS[this._pendingValue])}
 								maxlength="80"
 								.value=${this._pendingConfig.customName || ''}
 								@input=${(e) => { this._pendingConfig = { ...this._pendingConfig, customName: e.target.value }; }}
@@ -1057,7 +1061,7 @@ class ActionSelect extends LitElement {
 
 	#renderPositionSelect(showCurrent, showNewWindow, showIncognito) {
 		const action = this._pendingValue;
-		const defaults = window.GestureConstants.ACTION_DEFAULTS[action] || {};
+		const defaults = window.GestureConstants.ACTION_DEFAULTS[action];
 		const position = this._pendingConfig.position ?? defaults.position;
 		const active = this._pendingConfig.active ?? defaults.active;
 		const showActive = position !== 'current';
@@ -1102,7 +1106,7 @@ class ActionSelect extends LitElement {
 
 	#renderMenuConfigRow() {
 		const action = this._pendingValue;
-		const defaults = window.GestureConstants.ACTION_DEFAULTS[action] || {};
+		const defaults = window.GestureConstants.ACTION_DEFAULTS[action];
 		const sortOrder = this._pendingConfig.sortOrder ?? defaults.sortOrder;
 		const maxItems = this._pendingConfig.maxItems ?? defaults.maxItems;
 		const scrollToBottom = this._pendingConfig.scrollToBottom ?? defaults.scrollToBottom;
@@ -1167,7 +1171,7 @@ class ActionSelect extends LitElement {
 
 	#renderTimeDisplay() {
 		const action = this._pendingValue;
-		const defaults = window.GestureConstants.ACTION_DEFAULTS[action] || {};
+		const defaults = window.GestureConstants.ACTION_DEFAULTS[action];
 		const timeDisplay = this._pendingConfig.timeDisplay ?? defaults.timeDisplay;
 		const isFirefox = !!window.i18n.isFirefox;
 
@@ -1219,19 +1223,22 @@ class ActionSelect extends LitElement {
 						${window.i18n.getMessage('enterCustomUrl')}
 						<span class="required-badge">${window.i18n.getMessage('actionRequiredBadge')}</span>
 					</label>
-					<input class="action-config-input" type="text"
-						placeholder="https://web.archive.org/web/{tabUrl:raw}"
-						maxlength="500"
-						.value=${this._pendingConfig.customUrl || ''}
-						@input=${(e) => { this._pendingConfig = { ...this._pendingConfig, customUrl: e.target.value }; }}
-					>
+					<div class="input-icon">
+						${unsafeHTML(icon('link'))}
+						<input class="action-config-input" type="text"
+							placeholder="https://web.archive.org/web/{tabUrl:raw}"
+							maxlength="500"
+							.value=${this._pendingConfig.customUrl || ''}
+							@input=${(e) => { this._pendingConfig = { ...this._pendingConfig, customUrl: e.target.value }; }}
+						>
+					</div>
 					<div class="action-config-hint">${unsafeHTML(window.i18n.getMessage('customUrlPlaceholderHint').replace('%placeholders%', '<code>{tabUrl}</code> <code>{tabTitle}</code> <code>{tabDomain}</code>').replace('%example%', '<code>{tabUrl:raw}</code>'))}</div>
 				</div>
 				${this.#renderPositionSelect(true, true, true)}
 			`;
 		}
 		if (action === 'closeTab') {
-			const defaults = ACTION_DEFAULTS.closeTab || {};
+			const defaults = ACTION_DEFAULTS.closeTab;
 			const keepWindowChecked = this._pendingConfig.keepWindow ?? defaults.keepWindow;
 			const afterClose = this._pendingConfig.afterClose ?? defaults.afterClose;
 			const skipPinnedChecked = this._pendingConfig.skipPinned ?? defaults.skipPinned;
@@ -1264,7 +1271,7 @@ class ActionSelect extends LitElement {
 			`;
 		}
 		if (action === 'closeOtherTabs' || action === 'closeLeftTabs' || action === 'closeRightTabs' || action === 'closeAllTabs') {
-			const defaults = ACTION_DEFAULTS[action] || {};
+			const defaults = ACTION_DEFAULTS[action];
 			const skipPinnedChecked = this._pendingConfig.skipPinned ?? defaults.skipPinned;
 			const supportsPreserveTab = action !== 'closeAllTabs';
 			const preserveTabChecked = this._pendingConfig.preserveTab ?? defaults.preserveTab;
@@ -1288,7 +1295,7 @@ class ActionSelect extends LitElement {
 			`;
 		}
 		if (action === 'switchLeftTab' || action === 'switchRightTab') {
-			const defaults = ACTION_DEFAULTS[action] || {};
+			const defaults = ACTION_DEFAULTS[action];
 			const noWrapChecked = this._pendingConfig.noWrap ?? defaults.noWrap;
 			const moveTabChecked = this._pendingConfig.moveTab ?? defaults.moveTab;
 			return html`
@@ -1309,7 +1316,7 @@ class ActionSelect extends LitElement {
 			`;
 		}
 		if (action === 'switchFirstTab' || action === 'switchLastTab') {
-			const defaults = ACTION_DEFAULTS[action] || {};
+			const defaults = ACTION_DEFAULTS[action];
 			const moveTabChecked = this._pendingConfig.moveTab ?? defaults.moveTab;
 			return html`
 				<label class="action-config-checkbox">
@@ -1322,7 +1329,7 @@ class ActionSelect extends LitElement {
 			`;
 		}
 		if (action === 'refresh' || action === 'refreshAllTabs') {
-			const defaults = ACTION_DEFAULTS[action] || {};
+			const defaults = ACTION_DEFAULTS[action];
 			const hardReloadChecked = this._pendingConfig.hardReload ?? defaults.hardReload;
 			return html`
 				<label class="action-config-checkbox">
@@ -1338,7 +1345,7 @@ class ActionSelect extends LitElement {
 			return this.#renderPositionSelect(false, false, false);
 		}
 		if (action === 'newWindow') {
-			const defaults = ACTION_DEFAULTS.newWindow || {};
+			const defaults = ACTION_DEFAULTS.newWindow;
 			const focusedChecked = this._pendingConfig.focused ?? defaults.focused;
 			return html`
 				<label class="action-config-checkbox">
@@ -1354,7 +1361,7 @@ class ActionSelect extends LitElement {
 			return this.#renderPositionSelect(true, true, false);
 		}
 		if (action === 'copyTitleAndUrl') {
-			const defaults = ACTION_DEFAULTS.copyTitleAndUrl || {};
+			const defaults = ACTION_DEFAULTS.copyTitleAndUrl;
 			const checked = this._pendingConfig.asMarkdown ?? defaults.asMarkdown;
 			return html`
 				<label class="action-config-checkbox">
@@ -1367,7 +1374,7 @@ class ActionSelect extends LitElement {
 			`;
 		}
 		if (action === 'delay') {
-			const defaults = ACTION_DEFAULTS.delay || {};
+			const defaults = ACTION_DEFAULTS.delay;
 			const currentMs = this._pendingConfig.delayMs ?? defaults.delayMs;
 			return html`
 				<div class="action-config-row">
@@ -1383,7 +1390,7 @@ class ActionSelect extends LitElement {
 			`;
 		}
 		if (action === 'simulateKey') {
-			const defaults = ACTION_DEFAULTS.simulateKey || {};
+			const defaults = ACTION_DEFAULTS.simulateKey;
 			const keyValue = this._pendingConfig.keyValue ?? defaults.keyValue;
 			const modCtrl = this._pendingConfig.modCtrl ?? defaults.modCtrl;
 			const modShift = this._pendingConfig.modShift ?? defaults.modShift;
@@ -1437,7 +1444,7 @@ class ActionSelect extends LitElement {
 			`;
 		}
 		if (action === 'sendCustomEvent') {
-			const defaults = ACTION_DEFAULTS.sendCustomEvent || {};
+			const defaults = ACTION_DEFAULTS.sendCustomEvent;
 			const eventType = this._pendingConfig.eventType ?? defaults.eventType;
 			const eventDetail = this._pendingConfig.eventDetail ?? defaults.eventDetail;
 			const includeGestureInfo = this._pendingConfig.gestureInfo ?? defaults.gestureInfo;
@@ -1481,7 +1488,7 @@ class ActionSelect extends LitElement {
 			`;
 		}
 		if (action === 'sendExtensionMessage') {
-			const defaults = ACTION_DEFAULTS.sendExtensionMessage || {};
+			const defaults = ACTION_DEFAULTS.sendExtensionMessage;
 			const extensionId = this._pendingConfig.extensionId ?? defaults.extensionId;
 			const message = this._pendingConfig.message ?? defaults.message;
 			const isValidJson = this.#isValidJson(message);
@@ -1519,7 +1526,7 @@ class ActionSelect extends LitElement {
 			`;
 		}
 		if (action === 'pasteContent') {
-			const content = this._pendingConfig.content ?? (ACTION_DEFAULTS.pasteContent?.content || '');
+			const content = this._pendingConfig.content ?? ACTION_DEFAULTS.pasteContent.content;
 			return html`
 				<div class="action-config-info">${unsafeHTML(window.i18n.getMessage('pasteContentHint'))}</div>
 				<div class="action-config-field">
@@ -1538,7 +1545,7 @@ class ActionSelect extends LitElement {
 			`;
 		}
 		if (action === 'searchClipboard') {
-			const defaults = ACTION_DEFAULTS.searchClipboard || {};
+			const defaults = ACTION_DEFAULTS.searchClipboard;
 			const engine = this._pendingConfig.engine ?? defaults.engine;
 			const url = this._pendingConfig.url ?? defaults.url;
 			const autoDetectUrl = this._pendingConfig.autoDetectUrl ?? defaults.autoDetectUrl;
@@ -1565,11 +1572,14 @@ class ActionSelect extends LitElement {
 				</div>
 				${engine === 'custom' ? html`
 					<div class="action-config-field">
-						<input class="action-config-input" type="text"
-							placeholder=${window.i18n.getMessage('urlPlaceholderText')}
-							.value=${url}
-							@input=${(e) => { this._pendingConfig = { ...this._pendingConfig, url: e.target.value }; }}
-						>
+						<div class="input-icon">
+							${unsafeHTML(icon('link'))}
+							<input class="action-config-input" type="text"
+								placeholder=${window.i18n.getMessage('urlPlaceholderText')}
+								.value=${url}
+								@input=${(e) => { this._pendingConfig = { ...this._pendingConfig, url: e.target.value }; }}
+							>
+						</div>
 					</div>
 				` : ''}
 				<div class="action-config-row">
@@ -1589,7 +1599,7 @@ class ActionSelect extends LitElement {
 			`;
 		}
 		if (action === 'zoomIn' || action === 'zoomOut') {
-			const defaults = ACTION_DEFAULTS[action] || {};
+			const defaults = ACTION_DEFAULTS[action];
 			const zoomMode = this._pendingConfig.zoomMode ?? defaults.zoomMode;
 			const zoomDelta = this._pendingConfig.zoomDelta ?? defaults.zoomDelta;
 			return html`
@@ -1618,7 +1628,7 @@ class ActionSelect extends LitElement {
 			`;
 		}
 		if (action === 'resetZoom') {
-			const defaults = ACTION_DEFAULTS[action] || {};
+			const defaults = ACTION_DEFAULTS[action];
 			const resetZoomLevel = this._pendingConfig.resetZoomLevel ?? defaults.resetZoomLevel;
 			const isCustom = resetZoomLevel > 0;
 			return html`
@@ -1669,8 +1679,87 @@ class ActionSelect extends LitElement {
 		if (action === 'addToBookmarks') {
 			return this.#renderBookmarkFolderSelect({ allowDefault: true });
 		}
+		if (action === 'areaSelect') {
+			const defaults = ACTION_DEFAULTS.areaSelect;
+			const g = settingsStore.current;
+			const override = this._pendingConfig.overrideGlobal ?? defaults.overrideGlobal;
+			const textUrl = this._pendingConfig.textUrl ?? g.areaSelectTextUrl;
+			const warnThreshold = this._pendingConfig.warnThreshold ?? g.areaSelectWarnThreshold;
+			const delay = this._pendingConfig.delay ?? g.areaSelectDelay;
+			const autoAction = this._pendingConfig.autoAction ?? g.areaSelectAutoAction;
+			const autoActionOptions = Object.entries(window.GestureConstants.AREA_SELECT_AUTO_ACTIONS);
+			const help = (key) => html`<span class="help-icon"
+				.tooltip=${tooltip(window.i18n.getMessage(key))}>${unsafeHTML(icon('circleHelp', { size: 14 }))}</span>`;
+			return html`
+				<div class="action-config-row">
+					<select class="action-config-select"
+						.value=${override ? 'override' : 'global'}
+						@change=${(e) => {
+							this._pendingConfig = e.target.value === 'override'
+								? { ...this._pendingConfig, overrideGlobal: true, textUrl, warnThreshold, delay, autoAction }
+								: { ...this._pendingConfig, overrideGlobal: false };
+							this.requestUpdate();
+						}}
+					>
+						<option value="global">${window.i18n.getMessage('areaSelectUseGlobal')}</option>
+						<option value="override">${window.i18n.getMessage('areaSelectOverrideGlobal')}</option>
+					</select>
+				</div>
+				${override ? html`
+					<label class="action-config-checkbox">
+						<input type="checkbox"
+							.checked=${textUrl}
+							@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, textUrl: e.target.checked }; this.requestUpdate(); }}
+						>
+						<span>${window.i18n.getMessage('areaSelectTextUrl')}</span>
+						${help('areaSelectTextUrlDesc')}
+					</label>
+					<div class="action-config-row">
+						<span class="action-config-label">${window.i18n.getMessage('areaSelectAutoAction')} ${help('areaSelectAutoActionDesc')}</span>
+						<select class="action-config-select"
+							.value=${autoAction}
+							@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, autoAction: e.target.value }; this.requestUpdate(); }}
+						>
+							${autoActionOptions.map(([value, key]) => html`
+								<option value=${value} ?selected=${value === autoAction}>${window.i18n.getMessage(key)}</option>
+							`)}
+						</select>
+					</div>
+					<div class="action-config-row">
+						<span class="action-config-label">${window.i18n.getMessage('areaSelectWarnThreshold')} ${help('areaSelectWarnThresholdDesc')}</span>
+						<div class="inline-input-control">
+							<input type="number" class="action-config-input" min="0" max="999" step="1"
+								style="width:70px"
+								.value=${String(warnThreshold)}
+								@change=${(e) => {
+									const v = Math.max(0, Math.min(999, parseInt(e.target.value) || 0));
+									e.target.value = v;
+									this._pendingConfig = { ...this._pendingConfig, warnThreshold: v };
+									this.requestUpdate();
+								}}
+							>
+						</div>
+					</div>
+					<div class="action-config-row">
+						<span class="action-config-label">${window.i18n.getMessage('areaSelectDelay')} ${help('areaSelectDelayDesc')}</span>
+						<div class="inline-input-control">
+							<input type="number" class="action-config-input" min="0" max="60" step="0.1"
+								style="width:70px"
+								.value=${String(delay)}
+								@change=${(e) => {
+									const v = Math.max(0, Math.min(60, Math.round(parseFloat(e.target.value) * 100) / 100 || 0));
+									e.target.value = v;
+									this._pendingConfig = { ...this._pendingConfig, delay: v };
+									this.requestUpdate();
+								}}
+							>
+						</div>
+					</div>
+				` : ''}
+			`;
+		}
 		if (SCROLL_ACTIONS.includes(action)) {
-			const defaults = ACTION_DEFAULTS[action] || {};
+			const defaults = ACTION_DEFAULTS[action];
 			const showDistance = SCROLL_DISTANCE_ACTIONS.includes(action);
 			const smoothnessDefault = defaults.scrollSmoothness;
 			const distanceDefault = defaults.scrollDistance;
@@ -1766,7 +1855,7 @@ class ActionSelect extends LitElement {
 
 	#renderBookmarkFolderSelect({ allowDefault = false } = {}) {
 		const { ACTION_DEFAULTS } = window.GestureConstants;
-		const defaults = ACTION_DEFAULTS[this._pendingValue] || {};
+		const defaults = ACTION_DEFAULTS[this._pendingValue];
 		const rawFolderId = this._pendingConfig.folderId ?? defaults.folderId;
 
 		if (!this._bookmarkPermission && chrome.permissions) {

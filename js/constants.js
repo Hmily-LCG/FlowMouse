@@ -194,6 +194,7 @@
 		imageSearch:     { engine: 'google', url: '', position: 'right', active: true, incognito: false },
 		copyLinkAndText: { asMarkdown: false },
 		sendCustomEvent: { eventType: 'flowmouse:drag', eventDetail: '{}', gestureInfo: true },
+		saveImage:       { subdir: '' },
 	};
 
 	const TAB_POSITIONS = {
@@ -370,6 +371,7 @@
 		},
 		areaSelectModifierKey: 'Shift',
 		areaSelectTextUrl: false,
+		areaSelectAutoAction: 'none',
 		areaSelectWarnThreshold: 15,
 		areaSelectDelay: 0.3,
 		actionChains: {},
@@ -378,6 +380,20 @@
 		enableBlacklistContextMenu: false,
 		navCollapsed: false,
 		lastSyncTime: null,
+	};
+
+	ACTION_DEFAULTS.areaSelect = {
+		overrideGlobal: false,
+		textUrl: DEFAULT_SETTINGS.areaSelectTextUrl,
+		warnThreshold: DEFAULT_SETTINGS.areaSelectWarnThreshold,
+		delay: DEFAULT_SETTINGS.areaSelectDelay,
+		autoAction: DEFAULT_SETTINGS.areaSelectAutoAction,
+	};
+
+	const AREA_SELECT_AUTO_ACTIONS = {
+		none: 'areaSelectDisabled',
+		open: 'areaSelectOpen',
+		copy: 'areaSelectCopy',
 	};
 
 	const ARROW_SVG = {
@@ -425,6 +441,7 @@
 		IMAGE_SEARCH_ENGINE_ORDER,
 
 		DEFAULT_SETTINGS,
+		AREA_SELECT_AUTO_ACTIONS,
 
 		arrowsToSvg,
 	};

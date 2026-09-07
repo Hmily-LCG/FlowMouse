@@ -99,7 +99,7 @@ class WheelGestureManager extends LitElement {
 	}
 
 	render() {
-		const entries = Object.entries(this.wheelGestures || {})
+		const entries = Object.entries(this.wheelGestures)
 			.filter(([key]) => key in WHEEL_GESTURE_KEYS);
 
 		return html`
@@ -112,9 +112,9 @@ class WheelGestureManager extends LitElement {
 	#renderRow(key, config) {
 		const i18n = window.i18n;
 		const iconName = WHEEL_GESTURE_ICONS[key];
-		const label = i18n.getMessage(WHEEL_GESTURE_KEYS[key] || key);
+		const label = i18n.getMessage(WHEEL_GESTURE_KEYS[key]);
 		const { DEFAULT_SETTINGS } = window.GestureConstants;
-		const defaultConfig = DEFAULT_SETTINGS.wheelGestures?.[key] || { action: 'none' };
+		const defaultConfig = DEFAULT_SETTINGS.wheelGestures[key];
 		const isModified = this.#isModified(config, defaultConfig);
 
 		return html`
@@ -140,7 +140,7 @@ class WheelGestureManager extends LitElement {
 	}
 
 	#onActionChange(key, detail) {
-		const wheelGestures = { ...(this.wheelGestures || {}) };
+		const wheelGestures = { ...this.wheelGestures };
 		wheelGestures[key] = { ...wheelGestures[key], action: detail.action, ...detail.config };
 		this.dispatchEvent(new CustomEvent('wheel-gestures-change', {
 			detail: { wheelGestures },
@@ -165,9 +165,9 @@ class WheelGestureManager extends LitElement {
 
 	#handleReset(key) {
 		const { DEFAULT_SETTINGS } = window.GestureConstants;
-		const defaultConfig = DEFAULT_SETTINGS.wheelGestures?.[key] || { action: 'none' };
-		const wheelGestures = { ...(this.wheelGestures || {}) };
-		wheelGestures[key] = { ...defaultConfig };
+		const defaultConfig = DEFAULT_SETTINGS.wheelGestures[key];
+		const wheelGestures = { ...this.wheelGestures };
+		wheelGestures[key] = structuredClone(defaultConfig);
 		this.dispatchEvent(new CustomEvent('wheel-gestures-change', {
 			detail: { wheelGestures },
 			bubbles: true,

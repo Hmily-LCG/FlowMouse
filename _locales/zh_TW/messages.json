@@ -1631,6 +1631,10 @@
 		"message": "儲存圖片失敗：載入逾時",
 		"description": "Toast message when image loading times out"
 	},
+	"saveImageSubdirPlaceholder": {
+		"message": "子目錄（選填）",
+		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	},
 	"buttonOkay": {
 		"message": "確定",
 		"description": "Generic OK button"
@@ -1983,11 +1987,31 @@
 		"message": "批次開啟時每次操作之間的延遲（秒）",
 		"description": "Description for the operation interval setting"
 	},
+	"areaSelectAutoAction": {
+		"message": "框選後自動執行",
+		"description": "Label for automatically executing an action after area select"
+	},
+	"areaSelectAutoActionDesc": {
+		"message": "框選完成後，自動開啟或複製選取連結",
+		"description": "Description for the auto-execute after area select setting"
+	},
+	"areaSelectUseGlobal": {
+		"message": "使用全域設定",
+		"description": "Gesture config option to inherit area select settings from global options"
+	},
+	"areaSelectOverrideGlobal": {
+		"message": "覆寫全域設定",
+		"description": "Gesture config option to override global area select settings"
+	},
 	"areaSelectHint": {
 		"message": "拖曳以選取連結",
 		"description": "Hint text shown in the area select overlay"
 	},
 	"areaSelectOpen": {
+		"message": "開啟連結",
+		"description": "Area select: opens all selected links"
+	},
+	"areaSelectOpenCount": {
 		"message": "開啟 %count% 個連結",
 		"description": "Button text in the area select toolbar to batch open selected links"
 	},
@@ -1997,7 +2021,15 @@
 	},
 	"areaSelectCopy": {
 		"message": "複製連結",
-		"description": "Button text to copy all selected link URLs to clipboard"
+		"description": "Area select: copies all selected links to clipboard"
+	},
+	"areaSelectCopyCount": {
+		"message": "複製 %count% 個連結",
+		"description": "Status text in the area select toolbar when auto-copying multiple links"
+	},
+	"areaSelectCopyOne": {
+		"message": "複製 %count% 個連結",
+		"description": "Status text in the area select toolbar when auto-copying a single link"
 	},
 	"areaSelectCancel": {
 		"message": "取消",

@@ -1,8 +1,7 @@
 const { DEFAULT_SETTINGS } = window.GestureConstants;
 
 function reorderMouseGestures(storedMG) {
-	if (!storedMG) return {};
-	const defaultOrder = Object.keys(DEFAULT_SETTINGS.mouseGestures || {});
+	const defaultOrder = Object.keys(DEFAULT_SETTINGS.mouseGestures);
 	const ordered = {};
 	for (const p of defaultOrder) {
 		if (p in storedMG) ordered[p] = storedMG[p];
@@ -19,13 +18,13 @@ function normalizeSetting(key, value) {
 	}
 	if (key === 'wheelGestures' && value) {
 		return {
-			...structuredClone(DEFAULT_SETTINGS.wheelGestures || {}),
+			...structuredClone(DEFAULT_SETTINGS.wheelGestures),
 			...value,
 		};
 	}
 	if (key === 'specialGestures' && value) {
 		return {
-			...structuredClone(DEFAULT_SETTINGS.specialGestures || {}),
+			...structuredClone(DEFAULT_SETTINGS.specialGestures),
 			...value,
 		};
 	}

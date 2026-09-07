@@ -1631,6 +1631,10 @@
 		"message": "Lưu hình ảnh thất bại: Hết thời gian tải",
 		"description": "Toast message when image loading times out"
 	},
+	"saveImageSubdirPlaceholder": {
+		"message": "Thư mục con (tùy chọn)",
+		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	},
 	"buttonOkay": {
 		"message": "OK",
 		"description": "Generic OK button"
@@ -1983,11 +1987,31 @@
 		"message": "Khoảng trễ giữa mỗi lần mở trong các hoạt động hàng loạt (giây)",
 		"description": "Description for the operation interval setting"
 	},
+	"areaSelectAutoAction": {
+		"message": "Tự động thực thi sau khi chọn",
+		"description": "Label for automatically executing an action after area select"
+	},
+	"areaSelectAutoActionDesc": {
+		"message": "Tự động mở hoặc sao chép các liên kết đã chọn khi hoàn tất vùng chọn",
+		"description": "Description for the auto-execute after area select setting"
+	},
+	"areaSelectUseGlobal": {
+		"message": "Sử dụng cài đặt chung",
+		"description": "Gesture config option to inherit area select settings from global options"
+	},
+	"areaSelectOverrideGlobal": {
+		"message": "Ghi đè cài đặt chung",
+		"description": "Gesture config option to override global area select settings"
+	},
 	"areaSelectHint": {
 		"message": "Kéo để chọn các liên kết",
 		"description": "Hint text shown in the area select overlay"
 	},
 	"areaSelectOpen": {
+		"message": "Mở liên kết",
+		"description": "Area select: opens all selected links"
+	},
+	"areaSelectOpenCount": {
 		"message": "Mở %count% liên kết",
 		"description": "Button text in the area select toolbar to batch open selected links"
 	},
@@ -1997,7 +2021,15 @@
 	},
 	"areaSelectCopy": {
 		"message": "Sao chép liên kết",
-		"description": "Button text to copy all selected link URLs to clipboard"
+		"description": "Area select: copies all selected links to clipboard"
+	},
+	"areaSelectCopyCount": {
+		"message": "Sao chép %count% liên kết",
+		"description": "Status text in the area select toolbar when auto-copying multiple links"
+	},
+	"areaSelectCopyOne": {
+		"message": "Sao chép %count% liên kết",
+		"description": "Status text in the area select toolbar when auto-copying a single link"
 	},
 	"areaSelectCancel": {
 		"message": "Hủy",

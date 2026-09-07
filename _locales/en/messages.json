@@ -1631,6 +1631,10 @@
 		"message": "Save image failed: Loading timed out",
 		"description": "Toast message when image loading times out"
 	},
+	"saveImageSubdirPlaceholder": {
+		"message": "Subdirectory (optional)",
+		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	},
 	"buttonOkay": {
 		"message": "OK",
 		"description": "Generic OK button"
@@ -1983,11 +1987,31 @@
 		"message": "Delay between each open in batch operations (seconds)",
 		"description": "Description for the operation interval setting"
 	},
+	"areaSelectAutoAction": {
+		"message": "Auto Execute After Selection",
+		"description": "Label for automatically executing an action after area select"
+	},
+	"areaSelectAutoActionDesc": {
+		"message": "Automatically open or copy selected links when a selection is completed",
+		"description": "Description for the auto-execute after area select setting"
+	},
+	"areaSelectUseGlobal": {
+		"message": "Use global settings",
+		"description": "Gesture config option to inherit area select settings from global options"
+	},
+	"areaSelectOverrideGlobal": {
+		"message": "Override global settings",
+		"description": "Gesture config option to override global area select settings"
+	},
 	"areaSelectHint": {
 		"message": "Drag to select links",
 		"description": "Hint text shown in the area select overlay"
 	},
 	"areaSelectOpen": {
+		"message": "Open Links",
+		"description": "Area select: opens all selected links"
+	},
+	"areaSelectOpenCount": {
 		"message": "Open %count% links",
 		"description": "Button text in the area select toolbar to batch open selected links"
 	},
@@ -1997,7 +2021,15 @@
 	},
 	"areaSelectCopy": {
 		"message": "Copy Links",
-		"description": "Button text to copy all selected link URLs to clipboard"
+		"description": "Area select: copies all selected links to clipboard"
+	},
+	"areaSelectCopyCount": {
+		"message": "Copy %count% links",
+		"description": "Status text in the area select toolbar when auto-copying multiple links"
+	},
+	"areaSelectCopyOne": {
+		"message": "Copy %count% link",
+		"description": "Status text in the area select toolbar when auto-copying a single link"
 	},
 	"areaSelectCancel": {
 		"message": "Cancel",

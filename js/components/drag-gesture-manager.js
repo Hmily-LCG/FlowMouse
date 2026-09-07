@@ -56,10 +56,6 @@ class DragGestureManager extends LitElement {
 			.engine-select {
 				min-width: 80px;
 			}
-			input[type="text"].url-input {
-				flex: 1;
-				min-width: 150px;
-			}
 			input[type="text"].custom-name-input {
 				flex: 0 1 auto;
 				min-width: 80px;
@@ -246,6 +242,7 @@ class DragGestureManager extends LitElement {
 			(this.type === 'image' && action === 'imageSearch' && engine === 'custom');
 		const showPreferLink = this.type === 'image' && action === 'openTab';
 		const showCustomEvent = action === 'sendCustomEvent';
+		const showSaveImageSubdir = this.type === 'image' && action === 'saveImage';
 
 		const showSecondary = showPos || this.advancedMode;
 
@@ -277,11 +274,13 @@ class DragGestureManager extends LitElement {
 									</select>
 								` : ''}
 
-								<input type="text" class="url-input"
-									placeholder=${this.type === 'text' ? window.i18n.getMessage('urlPlaceholderText') : window.i18n.getMessage('urlPlaceholderImage')}
-									.value=${url}
-									style=${showUrl ? '' : 'display:none'}
-									@input=${(e) => this.#updateRow(index, 'url', e.target.value)}>
+								<div class="input-icon" style=${showUrl ? 'flex:1;min-width:150px' : 'display:none'}>
+									${unsafeHTML(icon('link'))}
+									<input type="text" class="url-input"
+										placeholder=${this.type === 'text' ? window.i18n.getMessage('urlPlaceholderText') : window.i18n.getMessage('urlPlaceholderImage')}
+										.value=${url}
+										@input=${(e) => this.#updateRow(index, 'url', e.target.value)}>
+								</div>
 
 								${this.type === 'text' ? html`
 									<label class="inline-checkbox auto-detect-label" style=${showEngine ? '' : 'display:none'}>
@@ -309,6 +308,17 @@ class DragGestureManager extends LitElement {
 											@change=${(e) => this.#updateRow(index, 'asMarkdown', e.target.checked)}>
 										<span>${window.i18n.getMessage('copyAsMarkdown')}</span>
 									</label>
+								` : ''}
+
+								${showSaveImageSubdir ? html`
+									<div class="input-icon">
+										${unsafeHTML(icon('folder'))}
+										<input type="text" class="folder-input"
+											placeholder=${window.i18n.getMessage('saveImageSubdirPlaceholder')}
+											.value=${cfg.subdir ?? defaults.subdir ?? ''}
+											maxlength="100"
+											@input=${(e) => this.#updateRow(index, 'subdir', e.target.value)}>
+									</div>
 								` : ''}
 
 								${showCustomEvent ? html`
@@ -346,7 +356,7 @@ class DragGestureManager extends LitElement {
 							<label class="inline-checkbox incognito-label" style=${showIncognito ? '' : 'display:none'}>
 								<input type="checkbox" .checked=${incognito}
 									@change=${(e) => this.#handleIncognitoChange(index, e.target.checked)}>
-								${window.i18n.getMessage('openInIncognito', 'Open in Incognito')}
+								${window.i18n.getMessage('openInIncognito')}
 							</label>
 
 							<span class="custom-name-label" style=${this.advancedMode ? '' : 'display:none'}>
@@ -358,7 +368,7 @@ class DragGestureManager extends LitElement {
 							</span>
 							<input type="text" class="custom-name-input input"
 								style=${this.advancedMode ? '' : 'display:none'}
-								placeholder=${window.i18n.getMessage(this._actions[action]) || action}
+								placeholder=${window.i18n.getMessage(this._actions[action])}
 								.value=${cfg.customName || ''}
 								maxlength="80"
 								@input=${(e) => this.#updateRow(index, 'customName', e.target.value)}>
@@ -397,7 +407,7 @@ class DragGestureManager extends LitElement {
 		if (!dialog) return;
 		const cfg = this.dragGestures[index] || {};
 		const { DRAG_ACTION_DEFAULTS } = window.GestureConstants;
-		const defaults = DRAG_ACTION_DEFAULTS.sendCustomEvent || {};
+		const defaults = DRAG_ACTION_DEFAULTS.sendCustomEvent;
 		const result = await dialog.open({
 			eventType: cfg.eventType ?? defaults.eventType,
 			eventDetail: cfg.eventDetail ?? defaults.eventDetail,

@@ -715,6 +715,19 @@ class OptionsPage extends LitElement {
 								<span class="slider"></span>
 							</label>
 						</div>
+						<div class="setting-row">
+							<div class="setting-label">
+								<span class="setting-title">${i18n.getMessage('areaSelectAutoAction')}${this.#renderInlineReset('areaSelectAutoAction')}</span>
+								<span>${i18n.getMessage('areaSelectAutoActionDesc')}</span>
+							</div>
+							<select class="input-lg"
+								.value=${this._settings.areaSelectAutoAction}
+								@change=${e => this.#updateSetting('areaSelectAutoAction', e.target.value)}>
+								${Object.entries(window.GestureConstants.AREA_SELECT_AUTO_ACTIONS).map(([value, key]) => html`
+									<option value=${value} ?selected=${value === this._settings.areaSelectAutoAction}>${i18n.getMessage(key)}</option>
+								`)}
+							</select>
+						</div>
 						<div class="setting-row advanced-setting">
 							<div class="setting-label">
 								<span class="setting-title">${i18n.getMessage('areaSelectWarnThreshold')}${this.#renderInlineReset('areaSelectWarnThreshold')}</span>

@@ -1631,6 +1631,10 @@
 		"message": "Kuvan tallennus epäonnistui: Latauksen aikakatkaisu",
 		"description": "Toast message when image loading times out"
 	},
+	"saveImageSubdirPlaceholder": {
+		"message": "Alikansio (valinnainen)",
+		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	},
 	"buttonOkay": {
 		"message": "OK",
 		"description": "Generic OK button"
@@ -1983,11 +1987,31 @@
 		"message": "Viive jokaisen avaamisen välillä erätoiminnoissa (sekuntia)",
 		"description": "Description for the operation interval setting"
 	},
+	"areaSelectAutoAction": {
+		"message": "Suorita automaattisesti valinnan jälkeen",
+		"description": "Label for automatically executing an action after area select"
+	},
+	"areaSelectAutoActionDesc": {
+		"message": "Avaa tai kopioi valitut linkit automaattisesti, kun valinta on valmis",
+		"description": "Description for the auto-execute after area select setting"
+	},
+	"areaSelectUseGlobal": {
+		"message": "Käytä yleisiä asetuksia",
+		"description": "Gesture config option to inherit area select settings from global options"
+	},
+	"areaSelectOverrideGlobal": {
+		"message": "Ohita yleiset asetukset",
+		"description": "Gesture config option to override global area select settings"
+	},
 	"areaSelectHint": {
 		"message": "Valitse linkit vetämällä",
 		"description": "Hint text shown in the area select overlay"
 	},
 	"areaSelectOpen": {
+		"message": "Avaa linkit",
+		"description": "Area select: opens all selected links"
+	},
+	"areaSelectOpenCount": {
 		"message": "Avaa %count% linkkiä",
 		"description": "Button text in the area select toolbar to batch open selected links"
 	},
@@ -1997,7 +2021,15 @@
 	},
 	"areaSelectCopy": {
 		"message": "Kopioi linkit",
-		"description": "Button text to copy all selected link URLs to clipboard"
+		"description": "Area select: copies all selected links to clipboard"
+	},
+	"areaSelectCopyCount": {
+		"message": "Kopioi %count% linkkiä",
+		"description": "Status text in the area select toolbar when auto-copying multiple links"
+	},
+	"areaSelectCopyOne": {
+		"message": "Kopioi %count% linkki",
+		"description": "Status text in the area select toolbar when auto-copying a single link"
 	},
 	"areaSelectCancel": {
 		"message": "Peruuta",

@@ -1631,6 +1631,10 @@
 		"message": "ছবি সংরক্ষণ ব্যর্থ হয়েছে: লোডিং সময়সীমা শেষ",
 		"description": "Toast message when image loading times out"
 	},
+	"saveImageSubdirPlaceholder": {
+		"message": "সাবডিরেক্টরি (ঐচ্ছিক)",
+		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	},
 	"buttonOkay": {
 		"message": "ঠিক আছে",
 		"description": "Generic OK button"
@@ -1983,11 +1987,31 @@
 		"message": "ব্যাচ অপারেশনে প্রতিটি খোলার মধ্যে বিলম্ব (সেকেন্ড)",
 		"description": "Description for the operation interval setting"
 	},
+	"areaSelectAutoAction": {
+		"message": "নির্বাচনের পর স্বয়ংক্রিয়ভাবে চালান",
+		"description": "Label for automatically executing an action after area select"
+	},
+	"areaSelectAutoActionDesc": {
+		"message": "নির্বাচন সম্পন্ন হলে স্বয়ংক্রিয়ভাবে নির্বাচিত লিঙ্কগুলি খুলুন বা কপি করুন",
+		"description": "Description for the auto-execute after area select setting"
+	},
+	"areaSelectUseGlobal": {
+		"message": "গ্লোবাল সেটিংস ব্যবহার করুন",
+		"description": "Gesture config option to inherit area select settings from global options"
+	},
+	"areaSelectOverrideGlobal": {
+		"message": "গ্লোবাল সেটিংস ওভাররাইড করুন",
+		"description": "Gesture config option to override global area select settings"
+	},
 	"areaSelectHint": {
 		"message": "লিঙ্কগুলি নির্বাচন করতে টেনে আনুন",
 		"description": "Hint text shown in the area select overlay"
 	},
 	"areaSelectOpen": {
+		"message": "লিঙ্কগুলি খুলুন",
+		"description": "Area select: opens all selected links"
+	},
+	"areaSelectOpenCount": {
 		"message": "%count%টি লিঙ্ক খুলুন",
 		"description": "Button text in the area select toolbar to batch open selected links"
 	},
@@ -1996,8 +2020,16 @@
 		"description": "Button text to open a single selected link (singular form)"
 	},
 	"areaSelectCopy": {
-		"message": "লিঙ্কগুলি অনুলিপি করুন",
-		"description": "Button text to copy all selected link URLs to clipboard"
+		"message": "লিঙ্কগুলি কপি করুন",
+		"description": "Area select: copies all selected links to clipboard"
+	},
+	"areaSelectCopyCount": {
+		"message": "%count%টি লিঙ্ক কপি করুন",
+		"description": "Status text in the area select toolbar when auto-copying multiple links"
+	},
+	"areaSelectCopyOne": {
+		"message": "%count%টি লিঙ্ক কপি করুন",
+		"description": "Status text in the area select toolbar when auto-copying a single link"
 	},
 	"areaSelectCancel": {
 		"message": "বাতিল করুন",

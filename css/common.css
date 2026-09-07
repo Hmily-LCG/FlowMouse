@@ -266,10 +266,10 @@ input[type="range"]::-moz-range-thumb {
 	align-items: center;
 	justify-content: center;
 	gap: 6px;
-	padding: 7px 14px;
+	padding: 6px 14px;
 	font-size: 13px;
 	font-family: inherit;
-	line-height: 1.2;
+	line-height: 1.4;
 	border: 0;
 	border-radius: 6px;
 	background: transparent;
@@ -416,10 +416,10 @@ input[type="search"],
 input[type="email"],
 input[type="url"],
 textarea {
-	padding: 7px 12px;
+	padding: 6px 12px;
 	font-size: 13px;
 	font-family: inherit;
-	line-height: 1.2;
+	line-height: 1.4;
 	border: 0;
 	border-radius: 6px;
 	box-shadow: 0 0 0 0.75px var(--border-color);
@@ -535,6 +535,51 @@ input.input-mono,
 select.input-mono,
 textarea.input-mono {
 	font-family: var(--font-mono);
+}
+
+.input-icon {
+	--input-icon-size: 14px;
+	--input-icon-inset: 10px;
+	--input-icon-pad: 8px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	min-width: 0;
+}
+.input-icon > svg {
+	position: absolute;
+	inset-inline-start: var(--input-icon-inset);
+	top: 0;
+	bottom: 0;
+	width: var(--input-icon-size);
+	height: var(--input-icon-size);
+	margin-block: auto;
+	color: var(--text-muted);
+	pointer-events: none;
+	flex-shrink: 0;
+	transition: color 0.15s ease;
+}
+.input-icon > input[type="text"],
+.input-icon > input[type="search"],
+.input-icon > input[type="url"],
+.input-icon > input[type="email"],
+.input-icon > input[type="password"],
+.input-icon > input[type="number"] {
+	width: 100%;
+	min-width: 0;
+	padding-inline-start: calc(var(--input-icon-inset) + var(--input-icon-size) + var(--input-icon-pad));
+}
+.input-icon:has(> input.input-xs) {
+	--input-icon-size: 12px;
+	--input-icon-inset: 8px;
+	--input-icon-pad: 6px;
+}
+.input-icon:has(> input.input-lg) {
+	--input-icon-size: 16px;
+	--input-icon-inset: 12px;
+}
+.input-icon:focus-within > svg {
+	color: var(--text-secondary);
 }
 
 .fm-tooltip {

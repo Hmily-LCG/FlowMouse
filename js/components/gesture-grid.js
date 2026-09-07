@@ -95,7 +95,7 @@ class GestureGrid extends LitElement {
 
 	#getFullGestures() {
 		const result = {};
-		for (const [pattern, config] of Object.entries(this.mouseGestures || {})) {
+		for (const [pattern, config] of Object.entries(this.mouseGestures)) {
 			result[pattern] = config.action;
 		}
 		return result;
@@ -103,7 +103,7 @@ class GestureGrid extends LitElement {
 
 	render() {
 		const gestures = this.#getFullGestures();
-		const patterns = Object.keys(this.mouseGestures || {});
+		const patterns = Object.keys(this.mouseGestures);
 
 		return html`
 			<div class="gesture-grid">
@@ -117,7 +117,7 @@ class GestureGrid extends LitElement {
 		const currentAction = gestures[pattern] || DEFAULT_GESTURES[pattern] || 'none';
 		const defaultAction = DEFAULT_GESTURES[pattern] || 'none';
 		const isCustom = !DEFAULT_GESTURES[pattern];
-		const entryConfig = (this.mouseGestures || {})[pattern] || {};
+		const entryConfig = this.mouseGestures[pattern] || {};
 		const hasCustomConfig = Object.keys(entryConfig).some(k => k !== 'action');
 		const isModified = !isCustom && (currentAction !== defaultAction || hasCustomConfig);
 		const descKey = GestureGrid.GESTURE_DESC_KEYS[pattern];
@@ -165,7 +165,7 @@ class GestureGrid extends LitElement {
 			composed: true,
 		}));
 
-		const newMouseGestures = { ...(this.mouseGestures || {}) };
+		const newMouseGestures = { ...this.mouseGestures };
 		newMouseGestures[pattern] = { action, ...config };
 
 		this.mouseGestures = newMouseGestures;
@@ -181,7 +181,7 @@ class GestureGrid extends LitElement {
 		const { DEFAULT_GESTURES } = window.GestureConstants;
 		const defaultAction = DEFAULT_GESTURES[pattern] || 'none';
 
-		const newMouseGestures = { ...(this.mouseGestures || {}) };
+		const newMouseGestures = { ...this.mouseGestures };
 		newMouseGestures[pattern] = { action: defaultAction };
 
 		this.mouseGestures = newMouseGestures;
@@ -194,7 +194,7 @@ class GestureGrid extends LitElement {
 	}
 
 	#handleClear(pattern) {
-		const newMouseGestures = { ...(this.mouseGestures || {}) };
+		const newMouseGestures = { ...this.mouseGestures };
 		newMouseGestures[pattern] = { action: 'none' };
 
 		this.mouseGestures = newMouseGestures;

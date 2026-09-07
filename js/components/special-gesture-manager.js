@@ -97,7 +97,7 @@ class SpecialGestureManager extends LitElement {
 	}
 
 	render() {
-		const entries = Object.entries(this.specialGestures || {})
+		const entries = Object.entries(this.specialGestures)
 			.filter(([key]) => key in SPECIAL_GESTURE_KEYS);
 
 		return html`
@@ -110,9 +110,9 @@ class SpecialGestureManager extends LitElement {
 	#renderRow(key, config) {
 		const i18n = window.i18n;
 		const iconName = SPECIAL_GESTURE_ICONS[key];
-		const label = i18n.getMessage(SPECIAL_GESTURE_KEYS[key] || key);
+		const label = i18n.getMessage(SPECIAL_GESTURE_KEYS[key]);
 		const { DEFAULT_SETTINGS } = window.GestureConstants;
-		const defaultConfig = DEFAULT_SETTINGS.specialGestures?.[key] || { action: 'none' };
+		const defaultConfig = DEFAULT_SETTINGS.specialGestures[key];
 		const isModified = this.#isModified(config, defaultConfig);
 
 		return html`
@@ -138,7 +138,7 @@ class SpecialGestureManager extends LitElement {
 	}
 
 	#onActionChange(key, detail) {
-		const specialGestures = { ...(this.specialGestures || {}) };
+		const specialGestures = { ...this.specialGestures };
 		specialGestures[key] = { ...specialGestures[key], action: detail.action, ...detail.config };
 		this.dispatchEvent(new CustomEvent('special-gestures-change', {
 			detail: { specialGestures },
@@ -163,9 +163,9 @@ class SpecialGestureManager extends LitElement {
 
 	#handleReset(key) {
 		const { DEFAULT_SETTINGS } = window.GestureConstants;
-		const defaultConfig = DEFAULT_SETTINGS.specialGestures?.[key] || { action: 'none' };
-		const specialGestures = { ...(this.specialGestures || {}) };
-		specialGestures[key] = { ...defaultConfig };
+		const defaultConfig = DEFAULT_SETTINGS.specialGestures[key];
+		const specialGestures = { ...this.specialGestures };
+		specialGestures[key] = structuredClone(defaultConfig);
 		this.dispatchEvent(new CustomEvent('special-gestures-change', {
 			detail: { specialGestures },
 			bubbles: true,

@@ -75,10 +75,7 @@
 	});
 
 	function arrowsToSvg(text) {
-		if (window.GestureConstants && window.GestureConstants.arrowsToSvg) {
-			return window.GestureConstants.arrowsToSvg(text);
-		}
-		return text;
+		return window.GestureConstants.arrowsToSvg(text);
 	}
 
 	function msg(key) {
@@ -87,7 +84,7 @@
 
 	function getActionName(actionKey) {
 		if (!actionKey) return '';
-		const i18nKey = window.GestureConstants?.ACTION_KEYS?.[actionKey];
+		const i18nKey = window.GestureConstants.ACTION_KEYS[actionKey];
 		if (i18nKey) {
 			return msg(i18nKey);
 		}
@@ -95,9 +92,6 @@
 	}
 
 	function getHudText(pattern) {
-		if (!window.GestureConstants?.DEFAULT_GESTURES) {
-			return '';
-		}
 		const actionKey = window.GestureConstants.DEFAULT_GESTURES[pattern];
 		if (actionKey) {
 			const actionName = getActionName(actionKey);
@@ -108,7 +102,7 @@
 
 	function getSuperDragHudText(dragType) {
 		if (dragType === 'text') {
-			const i18nKey = window.GestureConstants?.TEXT_DRAG_ACTIONS?.['search'];
+			const i18nKey = window.GestureConstants.TEXT_DRAG_ACTIONS['search'];
 			return i18nKey ? msg(i18nKey) : 'Search';
 		} else if (dragType === 'settings') {
 			const actionName = msg('dragActionOpenTabLink');
