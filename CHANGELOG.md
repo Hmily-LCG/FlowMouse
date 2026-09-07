@@ -1,5 +1,21 @@
 ## FlowMouse Changelog
 
+### v2.4 (2026-09-07)
+
+**Drag & Drop Improvements:**
+- Support specifying a save subdirectory for the Save Image drag action
+
+**Area Select Improvements:**
+- Support setting an action to automatically execute after Area Select
+- Fixed an issue where the link count displayed on the floating toolbar was inaccurate when pressing Esc to cancel a selection
+- For Area Select triggered by gestures, support configuring the behavior of each gesture individually
+
+**Interface & General Improvements:**
+- Fixed an issue where subsequent actions in a command chain were still executed in the previous window after opening a new window
+- Refined settings interface details, adding icons to some input fields
+- Other minor improvements
+
+
 ### v2.3.1 (2026-08-28)
 
 - Optimized the loading speed of settings and other pages
