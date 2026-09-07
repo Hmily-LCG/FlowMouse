@@ -1631,6 +1631,10 @@
 		"message": "ذخیره تصویر ناموفق بود: زمان بارگیری تمام شد",
 		"description": "Toast message when image loading times out"
 	},
+	"saveImageSubdirPlaceholder": {
+		"message": "زیرپوشه (اختیاری)",
+		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	},
 	"buttonOkay": {
 		"message": "تأیید",
 		"description": "Generic OK button"
@@ -1983,11 +1987,31 @@
 		"message": "تاخیر بین هر بار باز کردن در عملیات دسته‌ای (ثانیه)",
 		"description": "Description for the operation interval setting"
 	},
+	"areaSelectAutoAction": {
+		"message": "اجرای خودکار پس از انتخاب",
+		"description": "Label for automatically executing an action after area select"
+	},
+	"areaSelectAutoActionDesc": {
+		"message": "باز کردن یا کپی کردن خودکار پیوندهای انتخاب شده پس از اتمام انتخاب",
+		"description": "Description for the auto-execute after area select setting"
+	},
+	"areaSelectUseGlobal": {
+		"message": "استفاده از تنظیمات سراسری",
+		"description": "Gesture config option to inherit area select settings from global options"
+	},
+	"areaSelectOverrideGlobal": {
+		"message": "لغو تنظیمات سراسری",
+		"description": "Gesture config option to override global area select settings"
+	},
 	"areaSelectHint": {
 		"message": "برای انتخاب پیوندها بکشید",
 		"description": "Hint text shown in the area select overlay"
 	},
 	"areaSelectOpen": {
+		"message": "باز کردن پیوندها",
+		"description": "Area select: opens all selected links"
+	},
+	"areaSelectOpenCount": {
 		"message": "باز کردن %count% پیوند",
 		"description": "Button text in the area select toolbar to batch open selected links"
 	},
@@ -1996,8 +2020,16 @@
 		"description": "Button text to open a single selected link (singular form)"
 	},
 	"areaSelectCopy": {
-		"message": "کپی کردن پیوندها",
-		"description": "Button text to copy all selected link URLs to clipboard"
+		"message": "کپی پیوندها",
+		"description": "Area select: copies all selected links to clipboard"
+	},
+	"areaSelectCopyCount": {
+		"message": "کپی %count% پیوند",
+		"description": "Status text in the area select toolbar when auto-copying multiple links"
+	},
+	"areaSelectCopyOne": {
+		"message": "کپی %count% پیوند",
+		"description": "Status text in the area select toolbar when auto-copying a single link"
 	},
 	"areaSelectCancel": {
 		"message": "لغو",

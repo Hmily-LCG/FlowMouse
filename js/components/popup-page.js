@@ -499,10 +499,7 @@ class PopupPage extends LitElement {
 	}
 
 	#arrowSvg(text) {
-		if (window.GestureConstants && window.GestureConstants.arrowsToSvg) {
-			return window.GestureConstants.arrowsToSvg(text);
-		}
-		return text;
+		return window.GestureConstants.arrowsToSvg(text);
 	}
 
 	#isRestrictedUrl(url) {
@@ -657,13 +654,7 @@ class PopupPage extends LitElement {
 
 	async #enterAreaSelect() {
 		if (!this._currentTabId) return;
-		const settings = this._store.current;
-		await chrome.tabs.sendMessage(this._currentTabId, {
-			action: 'areaSelectEnter',
-			warnThreshold: settings.areaSelectWarnThreshold,
-			textUrl: settings.areaSelectTextUrl,
-			operationInterval: settings.areaSelectDelay,
-		});
+		await chrome.tabs.sendMessage(this._currentTabId, { action: 'areaSelectEnter' });
 		window.close();
 	}
 }

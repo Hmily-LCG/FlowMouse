@@ -1631,6 +1631,10 @@
 		"message": "Η αποθήκευση εικόνας απέτυχε: Λήξη χρονικού ορίου φόρτωσης",
 		"description": "Toast message when image loading times out"
 	},
+	"saveImageSubdirPlaceholder": {
+		"message": "Υποκατάλογος (προαιρετικό)",
+		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	},
 	"buttonOkay": {
 		"message": "Εντάξει",
 		"description": "Generic OK button"
@@ -1983,11 +1987,31 @@
 		"message": "Καθυστέρηση μεταξύ κάθε ανοίγματος σε μαζικές λειτουργίες (δευτερόλεπτα)",
 		"description": "Description for the operation interval setting"
 	},
+	"areaSelectAutoAction": {
+		"message": "Αυτόματη εκτέλεση μετά την επιλογή",
+		"description": "Label for automatically executing an action after area select"
+	},
+	"areaSelectAutoActionDesc": {
+		"message": "Αυτόματο άνοιγμα ή αντιγραφή επιλεγμένων συνδέσμων μετά την ολοκλήρωση της επιλογής",
+		"description": "Description for the auto-execute after area select setting"
+	},
+	"areaSelectUseGlobal": {
+		"message": "Χρήση καθολικών ρυθμίσεων",
+		"description": "Gesture config option to inherit area select settings from global options"
+	},
+	"areaSelectOverrideGlobal": {
+		"message": "Παράκαμψη καθολικών ρυθμίσεων",
+		"description": "Gesture config option to override global area select settings"
+	},
 	"areaSelectHint": {
 		"message": "Σύρετε για να επιλέξετε συνδέσμους",
 		"description": "Hint text shown in the area select overlay"
 	},
 	"areaSelectOpen": {
+		"message": "Άνοιγμα συνδέσμων",
+		"description": "Area select: opens all selected links"
+	},
+	"areaSelectOpenCount": {
 		"message": "Άνοιγμα %count% συνδέσμων",
 		"description": "Button text in the area select toolbar to batch open selected links"
 	},
@@ -1997,7 +2021,15 @@
 	},
 	"areaSelectCopy": {
 		"message": "Αντιγραφή συνδέσμων",
-		"description": "Button text to copy all selected link URLs to clipboard"
+		"description": "Area select: copies all selected links to clipboard"
+	},
+	"areaSelectCopyCount": {
+		"message": "Αντιγραφή %count% συνδέσμων",
+		"description": "Status text in the area select toolbar when auto-copying multiple links"
+	},
+	"areaSelectCopyOne": {
+		"message": "Αντιγραφή %count% συνδέσμου",
+		"description": "Status text in the area select toolbar when auto-copying a single link"
 	},
 	"areaSelectCancel": {
 		"message": "Ακύρωση",

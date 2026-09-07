@@ -34,7 +34,7 @@ class BlacklistManager extends LitElement {
 				gap: 10px;
 			}
 
-			.blacklist-add input {
+			.blacklist-add .input-icon {
 				flex: 1;
 			}
 
@@ -100,15 +100,18 @@ class BlacklistManager extends LitElement {
 	render() {
 		return html`
 			<div class="blacklist-add">
-				<input
-					type="text"
-					id="blacklistInput"
-					class="input-lg"
-					placeholder="${window.i18n.getMessage('blacklistPlaceholder')}"
-					.value="${this._inputValue}"
-					@input="${this.#handleInput}"
-					@keydown="${this.#handleKeydown}"
-				>
+				<div class="input-icon">
+					${unsafeHTML(icon('globe'))}
+					<input
+						type="text"
+						id="blacklistInput"
+						class="input-lg"
+						placeholder="${window.i18n.getMessage('blacklistPlaceholder')}"
+						.value="${this._inputValue}"
+						@input="${this.#handleInput}"
+						@keydown="${this.#handleKeydown}"
+					>
+				</div>
 				<button class="btn btn-primary btn-lg" id="addDomain" @click="${() => this.#addDomain()}">${window.i18n.getMessage('add')}</button>
 			</div>
 

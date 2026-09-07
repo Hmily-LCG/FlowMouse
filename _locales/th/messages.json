@@ -1631,6 +1631,10 @@
 		"message": "บันทึกรูปภาพไม่สำเร็จ: หมดเวลาโหลด",
 		"description": "Toast message when image loading times out"
 	},
+	"saveImageSubdirPlaceholder": {
+		"message": "ไดเรกทอรีย่อย (ไม่บังคับ)",
+		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	},
 	"buttonOkay": {
 		"message": "ตกลง",
 		"description": "Generic OK button"
@@ -1983,11 +1987,31 @@
 		"message": "ความหน่วงระหว่างการเปิดแต่ละรายการในการทำงานแบบแบตช์ (วินาที)",
 		"description": "Description for the operation interval setting"
 	},
+	"areaSelectAutoAction": {
+		"message": "ทำงานอัตโนมัติหลังจากการเลือก",
+		"description": "Label for automatically executing an action after area select"
+	},
+	"areaSelectAutoActionDesc": {
+		"message": "เปิดหรือคัดลอกลิงก์ที่เลือกโดยอัตโนมัติเมื่อทำการเลือกเสร็จสิ้น",
+		"description": "Description for the auto-execute after area select setting"
+	},
+	"areaSelectUseGlobal": {
+		"message": "ใช้การตั้งค่าส่วนกลาง",
+		"description": "Gesture config option to inherit area select settings from global options"
+	},
+	"areaSelectOverrideGlobal": {
+		"message": "ลบล้างการตั้งค่าส่วนกลาง",
+		"description": "Gesture config option to override global area select settings"
+	},
 	"areaSelectHint": {
 		"message": "ลากเพื่อเลือกลิงก์",
 		"description": "Hint text shown in the area select overlay"
 	},
 	"areaSelectOpen": {
+		"message": "เปิดลิงก์",
+		"description": "Area select: opens all selected links"
+	},
+	"areaSelectOpenCount": {
 		"message": "เปิด %count% ลิงก์",
 		"description": "Button text in the area select toolbar to batch open selected links"
 	},
@@ -1997,7 +2021,15 @@
 	},
 	"areaSelectCopy": {
 		"message": "คัดลอกลิงก์",
-		"description": "Button text to copy all selected link URLs to clipboard"
+		"description": "Area select: copies all selected links to clipboard"
+	},
+	"areaSelectCopyCount": {
+		"message": "คัดลอก %count% ลิงก์",
+		"description": "Status text in the area select toolbar when auto-copying multiple links"
+	},
+	"areaSelectCopyOne": {
+		"message": "คัดลอก %count% ลิงก์",
+		"description": "Status text in the area select toolbar when auto-copying a single link"
 	},
 	"areaSelectCancel": {
 		"message": "ยกเลิก",

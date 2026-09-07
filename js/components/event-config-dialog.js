@@ -226,10 +226,10 @@ class EventConfigDialog extends LitElement {
 		if (!this._open) return '';
 
 		const isValidJson = this.#isValidJson(this._eventDetail);
-		const hint = (window.i18n.getMessage('customEventHint') || '')
+		const hint = window.i18n.getMessage('customEventHint')
 			.replace('%code%', '<code>new CustomEvent(<b>type</b>, { detail: <b>detail</b>, bubbles: true, cancelable: true })</code>')
 			.replace('%window%', '<code>window</code>');
-		const gestureInfoLabel = (window.i18n.getMessage('customEventIncludeGestureInfo') || '')
+		const gestureInfoLabel = window.i18n.getMessage('customEventIncludeGestureInfo')
 			.replace('%code%', '<code><b>detail.gesture</b></code>');
 
 		return html`

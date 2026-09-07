@@ -397,6 +397,8 @@ async function handleAction(request, sender) {
 				requestPermission(['downloads'], sender.tab?.windowId ?? null).then(async (granted) => {
 					if (!granted) return;
 
+					const subdir = sanitizeSubdir(request.subdir);
+
 					if (request.url.startsWith('data:')) {
 						{
 							try {
@@ -408,7 +410,7 @@ async function handleAction(request, sender) {
 
 								const downloadId = await chrome.downloads.download({
 									url: downloadUrl,
-									filename: filename,
+									filename: joinDownloadPath(subdir, filename),
 									saveAs: false
 								});
 
@@ -435,6 +437,7 @@ async function handleAction(request, sender) {
 						}
 						await chrome.downloads.download({
 							url: imageUrl,
+							filename: joinDownloadPath(subdir, subdir ? getFilename(imageUrl) : null),
 							saveAs: false,
 							headers: headers
 						});
@@ -829,9 +832,11 @@ async function handleAction(request, sender) {
 			if (sender.tab?.id) {
 				await chrome.tabs.sendMessage(sender.tab.id, {
 					action: 'areaSelectEnter',
+					overrideGlobal: request.overrideGlobal,
 					warnThreshold: request.warnThreshold,
 					textUrl: request.textUrl,
-					operationInterval: request.operationInterval,
+					delay: request.delay,
+					autoAction: request.autoAction,
 				}).catch(() => {});
 			}
 			return { success: true };
@@ -1063,7 +1068,8 @@ async function handleAction(request, sender) {
 		case 'actionChain': {
 			const steps = request.steps;
 			if (!steps?.length) return { success: true };
-			const windowId = sender.tab?.windowId;
+			let windowId = sender.tab?.windowId;
+			let firstStep = true;
 
 			const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 
@@ -1073,6 +1079,16 @@ async function handleAction(request, sender) {
 					continue;
 				}
 
+				if (!firstStep || windowId == null) {
+					try {
+						const newWindow = await chrome.windows.getLastFocused({ windowTypes: ['normal'] });
+						if (newWindow.id != null) {
+							windowId = newWindow.id;
+						}
+					} catch {
+					}
+				}
+				firstStep = false;
 				const [activeTab] = await chrome.tabs.query({ active: true, windowId });
 				if (!activeTab) continue;
 
@@ -1149,34 +1165,11 @@ chrome.runtime.onInstalled.addListener((details) => {
 			});
 		}
 
-		function migrateScrollAmount() {
-			chrome.storage.sync.get(['scrollAmount', 'scrollSmoothness', 'mouseGestures'], (items) => {
-				if (items.scrollAmount === undefined && items.scrollSmoothness === undefined) return;
-
-				const mouseGestures = items.mouseGestures || {};
-				const scrollDistance = items.scrollAmount;
-
-				if (scrollDistance !== undefined) {
-					for (const config of Object.values(mouseGestures)) {
-						if ((config.action === 'scrollUp' || config.action === 'scrollDown') && config.scrollDistance === undefined) {
-							config.scrollDistance = Number(scrollDistance);
-						}
-					}
-				}
-
-				chrome.storage.sync.set({ mouseGestures }, () => {
-					chrome.storage.sync.remove(['scrollAmount', 'scrollSmoothness']);
-				});
-			});
-		}
-
 		chrome.storage.sync.get(['gestures', 'customGestures', 'customGestureUrls', 'mouseGestures'], (items) => {
 			if (items.mouseGestures && Object.keys(items.mouseGestures).length > 0) {
-				migrateScrollAmount();
 				return;
 			}
 			if (!items.customGestures && !items.customGestureUrls && !items.gestures) {
-				migrateScrollAmount();
 				return;
 			}
 
@@ -1201,34 +1194,12 @@ chrome.runtime.onInstalled.addListener((details) => {
 			}
 
 			chrome.storage.sync.remove(['gestures', 'customGestures', 'customGestureUrls'], () => {
-				chrome.storage.sync.set({ mouseGestures }, () => {
-					migrateScrollAmount();
-				});
+				chrome.storage.sync.set({ mouseGestures });
 			});
 		});
 
-		chrome.storage.sync.get(['enableAdvancedSettings', 'sectionAdvanced'], (items) => {
-			if (items.sectionAdvanced !== undefined || items.enableAdvancedSettings === undefined) {
-				return;
-			}
-
-			if (items.enableAdvancedSettings === true) {
-				chrome.storage.sync.set({
-					sectionAdvanced: { basic: true, drag: true }
-				}, () => {
-					chrome.storage.sync.remove(['enableAdvancedSettings']);
-				});
-			} else {
-				chrome.storage.sync.set({
-					sectionAdvanced: {}
-				}, () => {
-					chrome.storage.sync.remove(['enableAdvancedSettings']);
-				});
-			}
-		});
-
-		if (details.previousVersion.startsWith('1.2')) {
-			const isMacOrLinux = /Mac|Linux/i.test(navigator.platform);
+		if (compareVersions(details.previousVersion, '2.1') < 0) {
+			chrome.storage.sync.remove(['enableAdvancedSettings', 'scrollAmount', 'scrollSmoothness']);
 		}
 
 		if (compareVersions(details.previousVersion, '2.0.2') <= 0) {
@@ -1402,15 +1373,22 @@ function createRestrictedMenu() {
 	}, () => { chrome.runtime.lastError; });
 }
 
-function updateBadge(tabId, status) {
-	if (status === 'normal') {
-		chrome.action.setBadgeText({ tabId: tabId, text: '' });
-	} else if (status === 'restricted') {
-		chrome.action.setBadgeText({ tabId: tabId, text: '!' });
-		chrome.action.setBadgeBackgroundColor({ tabId: tabId, color: '#FFA500' });
-	} else if (status === 'needRefresh') {
-		chrome.action.setBadgeText({ tabId: tabId, text: '!' });
-		chrome.action.setBadgeBackgroundColor({ tabId: tabId, color: '#4285f4' });
+async function updateBadge(tabId, status) {
+	try {
+		if (status === 'normal') {
+			await chrome.action.setBadgeText({ tabId: tabId, text: '' });
+		} else if (status === 'restricted') {
+			await Promise.all([
+				chrome.action.setBadgeText({ tabId: tabId, text: '!' }),
+				chrome.action.setBadgeBackgroundColor({ tabId: tabId, color: '#FFA500' }),
+			]);
+		} else if (status === 'needRefresh') {
+			await Promise.all([
+				chrome.action.setBadgeText({ tabId: tabId, text: '!' }),
+				chrome.action.setBadgeBackgroundColor({ tabId: tabId, color: '#4285f4' }),
+			]);
+		}
+	} catch (e) {
 	}
 }
 
@@ -1421,7 +1399,7 @@ async function updateMenuForTab(tab) {
 
 	if (status === 'loading') {
 		removeAllMenus();
-		updateBadge(tabId, 'normal');
+		await updateBadge(tabId, 'normal');
 		return;
 	}
 
@@ -1441,27 +1419,27 @@ async function updateMenuForTab(tab) {
 
 	if (items.showRestrictedNotice === false) {
 		removeAllMenus();
-		updateBadge(tabId, 'normal');
+		await updateBadge(tabId, 'normal');
 		return;
 	}
 
 	if (hostname && items.blacklist && items.blacklist.includes(hostname)) {
 		removeAllMenus();
-		updateBadge(tabId, 'normal');
+		await updateBadge(tabId, 'normal');
 		return;
 	}
 
 	if (isRestrictedUrl(url)) {
 		createRestrictedMenu();
-		updateBadge(tabId, 'restricted');
+		await updateBadge(tabId, 'restricted');
 	} else {
 		const loaded = await isContentScriptLoaded(tabId);
 		if (loaded) {
 			removeAllMenus();
-			updateBadge(tabId, 'normal');
+			await updateBadge(tabId, 'normal');
 		} else {
 			createRefreshMenu();
-			updateBadge(tabId, 'needRefresh');
+			await updateBadge(tabId, 'needRefresh');
 		}
 	}
 }
@@ -1528,6 +1506,44 @@ chrome.storage.onChanged.addListener((changes, namespace) => {
 		}
 	}
 });
+
+function sanitizeSubdir(raw) {
+	if (!raw || typeof raw !== 'string') return '';
+	let s = raw.trim()
+		.replace(/\\/g, '/')
+		.replace(/\/+/g, '/');
+	s = s.replace(/^\/|\/$/g, '');
+	const segments = s.split('/').filter(seg => {
+		if (!seg || seg === '.' || seg === '..') return false;
+		if (/[<>:"|?*\x00-\x1f]/.test(seg)) return false;
+		return true;
+	});
+	return segments.join('/');
+}
+
+function sanitizeFilename(raw) {
+	if (!raw || typeof raw !== 'string') return '';
+	const illegalRe = /[\/?<>\\:*|"]/g;
+	const controlRe = /[\x00-\x1f\x80-\x9f]/g;
+	const reservedRe = /^\.+$/;
+	const windowsReservedRe = /^(con|prn|aux|nul|com[0-9]|lpt[0-9])(\..*)?$/i;
+	let name = raw
+		.replace(illegalRe, '_')
+		.replace(controlRe, '_')
+		.replace(reservedRe, '_')
+		.replace(windowsReservedRe, '_');
+	let end = name.length;
+	while (end > 0 && (name[end - 1] === '.' || name[end - 1] === ' ')) end--;
+	name = name.slice(0, end);
+	if (name.length > 255) name = name.slice(0, 255);
+	return name;
+}
+
+function joinDownloadPath(subdir, filename) {
+	const name = sanitizeFilename(filename);
+	if (subdir) return subdir + '/' + (name || 'image.png');
+	return name || null;
+}
 
 function getFilename(url, mimeType) {
 	let filename = null;

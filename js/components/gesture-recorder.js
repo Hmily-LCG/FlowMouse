@@ -472,8 +472,8 @@ class GestureRecorder extends LitElement {
 			e.preventDefault();
 			e.stopPropagation();
 			if (this._state === 'drawing') {
-				this.#visualizer?.hide();
-				this.#recognizer?.reset();
+				this.#visualizer.hide();
+				this.#recognizer.reset();
 				this._state = 'ready';
 			} else {
 				this.#cancel();
@@ -485,13 +485,11 @@ class GestureRecorder extends LitElement {
 		if (this._state !== 'ready') return;
 
 		if (e.button !== this.#button) {
-			const desc = this.shadowRoot?.querySelector('.instruction-desc');
-			if (desc) {
-				desc.classList.remove('highlight-pulse');
-				void desc.offsetWidth;
-				desc.classList.add('highlight-pulse');
-				desc.addEventListener('animationend', () => desc.classList.remove('highlight-pulse'), { once: true });
-			}
+			const desc = this.shadowRoot.querySelector('.instruction-desc');
+			desc.classList.remove('highlight-pulse');
+			void desc.offsetWidth;
+			desc.classList.add('highlight-pulse');
+			desc.addEventListener('animationend', () => desc.classList.remove('highlight-pulse'), { once: true });
 			return;
 		}
 
@@ -514,7 +512,7 @@ class GestureRecorder extends LitElement {
 
 		const result = this.#recognizer.move(e.clientX, e.clientY, e.timeStamp);
 
-		if (result.activated && result.preActivationTrail?.length) {
+		if (result.activated) {
 			this.#visualizer.addPoints(result.preActivationTrail);
 		}
 
@@ -540,10 +538,10 @@ class GestureRecorder extends LitElement {
 		if (pattern) {
 			if (this.#bannedPatterns.has(pattern)) {
 				this.#showToast(
-					(window.i18n.getMessage('gestureRecorderBanned') || 'Gesture %pattern% already exists')
+					window.i18n.getMessage('gestureRecorderBanned')
 						.replace('%pattern%', window.GestureConstants.arrowsToSvg(pattern))
 				);
-				this.#recognizer?.reset();
+				this.#recognizer.reset();
 				this._state = 'ready';
 			} else {
 				this._pattern = pattern;
@@ -559,25 +557,21 @@ class GestureRecorder extends LitElement {
 	#confirm() {
 		const pattern = this._pattern;
 		this.#close();
-		if (this.#resolvePromise) {
-			this.#resolvePromise({ pattern, cancelled: false });
-			this.#resolvePromise = null;
-		}
+		this.#resolvePromise({ pattern, cancelled: false });
+		this.#resolvePromise = null;
 	}
 
 	#redraw() {
 		this._state = 'ready';
 		this._pattern = '';
 		this._patternSvg = '';
-		this.#recognizer?.reset();
+		this.#recognizer.reset();
 	}
 
 	#cancel() {
 		this.#close();
-		if (this.#resolvePromise) {
-			this.#resolvePromise({ pattern: null, cancelled: true });
-			this.#resolvePromise = null;
-		}
+		this.#resolvePromise({ pattern: null, cancelled: true });
+		this.#resolvePromise = null;
 	}
 
 	#showToast(message, duration = 2500) {
@@ -591,7 +585,7 @@ class GestureRecorder extends LitElement {
 		this._toast = '';
 		clearTimeout(this.#toastTimer);
 		this.#removeListeners();
-		this.#visualizer?.hide();
+		this.#visualizer.hide();
 		this.#recognizer = null;
 		document.documentElement.style.overflow = '';
 	}

@@ -1631,6 +1631,10 @@
 		"message": "छवि सहेजना विफल: लोडिंग समय समाप्त",
 		"description": "Toast message when image loading times out"
 	},
+	"saveImageSubdirPlaceholder": {
+		"message": "उपनिर्देशिका (वैकल्पिक)",
+		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	},
 	"buttonOkay": {
 		"message": "ठीक",
 		"description": "Generic OK button"
@@ -1983,11 +1987,31 @@
 		"message": "बैच कार्यों में प्रत्येक खोलने के बीच की देरी (सेकंड)",
 		"description": "Description for the operation interval setting"
 	},
+	"areaSelectAutoAction": {
+		"message": "चयन के बाद स्वचालित रूप से चलाएं",
+		"description": "Label for automatically executing an action after area select"
+	},
+	"areaSelectAutoActionDesc": {
+		"message": "चयन पूरा होने पर चयनित लिंक स्वचालित रूप से खोलें या कॉपी करें",
+		"description": "Description for the auto-execute after area select setting"
+	},
+	"areaSelectUseGlobal": {
+		"message": "वैश्विक सेटिंग्स का उपयोग करें",
+		"description": "Gesture config option to inherit area select settings from global options"
+	},
+	"areaSelectOverrideGlobal": {
+		"message": "वैश्विक सेटिंग्स को ओवरराइड करें",
+		"description": "Gesture config option to override global area select settings"
+	},
 	"areaSelectHint": {
 		"message": "लिंक चुनने के लिए खींचें",
 		"description": "Hint text shown in the area select overlay"
 	},
 	"areaSelectOpen": {
+		"message": "लिंक खोलें",
+		"description": "Area select: opens all selected links"
+	},
+	"areaSelectOpenCount": {
 		"message": "%count% लिंक खोलें",
 		"description": "Button text in the area select toolbar to batch open selected links"
 	},
@@ -1997,7 +2021,15 @@
 	},
 	"areaSelectCopy": {
 		"message": "लिंक कॉपी करें",
-		"description": "Button text to copy all selected link URLs to clipboard"
+		"description": "Area select: copies all selected links to clipboard"
+	},
+	"areaSelectCopyCount": {
+		"message": "%count% लिंक कॉपी करें",
+		"description": "Status text in the area select toolbar when auto-copying multiple links"
+	},
+	"areaSelectCopyOne": {
+		"message": "%count% लिंक कॉपी करें",
+		"description": "Status text in the area select toolbar when auto-copying a single link"
 	},
 	"areaSelectCancel": {
 		"message": "रद्द करें",
