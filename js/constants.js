@@ -92,7 +92,7 @@
 	};
 
 	const ACTION_DEFAULTS = {
-		closeTab: { keepWindow: false, afterClose: 'default', skipPinned: false },
+		closeTab: { keepWindow: false, afterClose: 'default', skipPinned: false, preserveTab: false },
 		closeOtherTabs: { skipPinned: true, preserveTab: false },
 		closeLeftTabs: { skipPinned: true, preserveTab: false },
 		closeRightTabs: { skipPinned: true, preserveTab: false },
@@ -132,6 +132,7 @@
 		menuShowTabs: { sortOrder: 'default', maxItems: 0, scrollToBottom: false, timeDisplay: 'lastAccess' },
 		menuRecentlyClosed: { maxItems: 12, sortOrder: 'default', scrollToBottom: false, timeDisplay: 'closedTime' },
 		menuShowBookmarks: { folderId: { id: '1' }, position: 'right', active: true, incognito: false, sortOrder: 'default', maxItems: 30, scrollToBottom: false, timeDisplay: 'dateAdded' },
+		areaSelect: { overrideGlobal: false, textUrl: false, warnThreshold: 15, delay: 0.3, autoAction: 'none' },
 	};
 
 	const LOCAL_ACTIONS = new Set([
@@ -361,24 +362,16 @@
 			rightClickHoldingLeft: { action: 'forward' },
 		},
 		areaSelectModifierKey: 'Shift',
-		areaSelectTextUrl: false,
-		areaSelectAutoAction: 'none',
-		areaSelectWarnThreshold: 15,
-		areaSelectDelay: 0.3,
+		areaSelectTextUrl: ACTION_DEFAULTS.areaSelect.textUrl,
+		areaSelectAutoAction: ACTION_DEFAULTS.areaSelect.autoAction,
+		areaSelectWarnThreshold: ACTION_DEFAULTS.areaSelect.warnThreshold,
+		areaSelectDelay: ACTION_DEFAULTS.areaSelect.delay,
 		actionChains: {},
 		customMenus: {},
 		blacklist: [],
 		enableBlacklistContextMenu: false,
 		navCollapsed: false,
 		lastSyncTime: null,
-	};
-
-	ACTION_DEFAULTS.areaSelect = {
-		overrideGlobal: false,
-		textUrl: DEFAULT_SETTINGS.areaSelectTextUrl,
-		warnThreshold: DEFAULT_SETTINGS.areaSelectWarnThreshold,
-		delay: DEFAULT_SETTINGS.areaSelectDelay,
-		autoAction: DEFAULT_SETTINGS.areaSelectAutoAction,
 	};
 
 	const AREA_SELECT_AUTO_ACTIONS = {

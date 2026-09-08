@@ -1239,17 +1239,11 @@ class ActionSelect extends LitElement {
 		}
 		if (action === 'closeTab') {
 			const defaults = ACTION_DEFAULTS.closeTab;
+			const preserveTabChecked = this._pendingConfig.preserveTab ?? defaults.preserveTab;
 			const keepWindowChecked = this._pendingConfig.keepWindow ?? defaults.keepWindow;
 			const afterClose = this._pendingConfig.afterClose ?? defaults.afterClose;
 			const skipPinnedChecked = this._pendingConfig.skipPinned ?? defaults.skipPinned;
 			return html`
-				<label class="action-config-checkbox">
-					<input type="checkbox"
-						.checked=${keepWindowChecked}
-						@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, keepWindow: e.target.checked }; this.requestUpdate(); }}
-					>
-					<span>${window.i18n.getMessage('closeTabKeepWindow')}</span>
-				</label>
 				<label class="action-config-checkbox">
 					<input type="checkbox"
 						.checked=${skipPinnedChecked}
@@ -1257,6 +1251,22 @@ class ActionSelect extends LitElement {
 					>
 					<span>${window.i18n.getMessage('closeTabsSkipPinned')}</span>
 				</label>
+				<label class="action-config-checkbox">
+					<input type="checkbox"
+						.checked=${preserveTabChecked}
+						@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, preserveTab: e.target.checked }; this.requestUpdate(); }}
+					>
+					<span>${window.i18n.getMessage('closeTabsPreserveTab')}</span>
+				</label>
+				${preserveTabChecked ? '' : html`
+				<label class="action-config-checkbox">
+					<input type="checkbox"
+						.checked=${keepWindowChecked}
+						@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, keepWindow: e.target.checked }; this.requestUpdate(); }}
+					>
+					<span>${window.i18n.getMessage('closeTabKeepWindow')}</span>
+				</label>
+				`}
 				<div class="action-config-row">
 					<span class="action-config-label">${window.i18n.getMessage('closeTabAfterClose')}</span>
 					<select class="action-config-select"

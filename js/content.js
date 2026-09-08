@@ -1080,7 +1080,7 @@ window.ContentContextMenu = ContentContextMenu;
 		#startY = 0;
 		#isIframe = false;
 		#warnThreshold = 15;
-		#operationInterval = 0;
+		#delay = 0;
 		#highlighter = null;
 		#frameLinks = new Map();
 		#autoScrollRAF = null;
@@ -1111,7 +1111,7 @@ window.ContentContextMenu = ContentContextMenu;
 			if (document.contentType === 'image/svg+xml') return;
 			this.#isIframe = isIframe;
 			this.#warnThreshold = warnThreshold ?? 15;
-			this.#operationInterval = options?.operationInterval ?? 0;
+			this.#delay = options?.delay ?? 0;
 			this.#autoAction = options?.autoAction ?? 'none';
 			this.#autoDone = false;
 			this.#quickEntry = !!initialEvent;
@@ -1636,7 +1636,7 @@ window.ContentContextMenu = ContentContextMenu;
 				chrome.runtime.sendMessage({
 					action: 'areaSelectBatchOpen',
 					urls,
-					operationInterval: this.#operationInterval,
+					delay: this.#delay,
 				}).catch(() => {});
 			} catch { }
 			this.#broadcastExit();
@@ -2083,14 +2083,14 @@ window.ContentContextMenu = ContentContextMenu;
 				return {
 					warnThreshold: cfg.warnThreshold,
 					textUrl: cfg.textUrl,
-					operationInterval: cfg.delay,
+					delay: cfg.delay,
 					autoAction: cfg.autoAction,
 				};
 			}
 			return {
 				warnThreshold: SETTINGS.areaSelectWarnThreshold,
 				textUrl: SETTINGS.areaSelectTextUrl,
-				operationInterval: SETTINGS.areaSelectDelay,
+				delay: SETTINGS.areaSelectDelay,
 				autoAction: SETTINGS.areaSelectAutoAction,
 			};
 		}
@@ -3325,6 +3325,7 @@ window.ContentContextMenu = ContentContextMenu;
 					msg_obj.keepWindow = !!mergedConfig.keepWindow;
 					msg_obj.afterClose = mergedConfig.afterClose || 'default';
 					msg_obj.skipPinned = !!mergedConfig.skipPinned;
+					msg_obj.preserveTab = !!mergedConfig.preserveTab;
 				} else if (action === 'closeOtherTabs' || action === 'closeLeftTabs' || action === 'closeRightTabs') {
 					msg_obj.skipPinned = !!mergedConfig.skipPinned;
 					msg_obj.preserveTab = !!mergedConfig.preserveTab;
