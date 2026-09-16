@@ -343,10 +343,6 @@
 		"message": "Персонализирано",
 		"description": "Custom"
 	},
-	"customUrlPlaceholder": {
-		"message": "Персонализиран URL, използвайте %s за термин за търсене",
-		"description": "Custom URL placeholder"
-	},
 	"customUrlPlaceholderHint": {
 		"message": "Трябва да включва протокол (напр. https://). Налични контейнери: %placeholders%. Добавете :raw, за да пропуснете URL кодирането, напр. %example%",
 		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
@@ -407,10 +403,6 @@
 		"message": "Преглеждане и персонализиране на всяко действие на жест",
 		"description": "View and customize each gesture action"
 	},
-	"gestureAutoSaveHint": {
-		"message": "Съвет: Промените се запазват автоматично.",
-		"description": "Hint about auto-save"
-	},
 	"blacklist": {
 		"message": "Черен списък на сайтове",
 		"description": "Website blacklist"
@@ -467,10 +459,6 @@
 		"message": "Изтриване",
 		"description": "Generic delete button tooltip"
 	},
-	"autoSaved": {
-		"message": "Автоматично запазено",
-		"description": "Auto-saved message"
-	},
 	"saveFailure": {
 		"message": "Неуспешно запазване",
 		"description": "Save failure message"
@@ -522,18 +510,6 @@
 	"languageAuto": {
 		"message": "Следвай системата",
 		"description": "Follow system language"
-	},
-	"privacyFriendly": {
-		"message": "Приятелски към поверителност",
-		"description": "Privacy friendly"
-	},
-	"localOnly": {
-		"message": "Само локално",
-		"description": "Local only"
-	},
-	"autoSave": {
-		"message": "Автоматично запазване",
-		"description": "Auto save"
 	},
 	"gestureDesc_L": {
 		"message": "Наляво",
@@ -1054,18 +1030,6 @@
 	"popupSwitchRightTab": {
 		"message": "Десен раздел",
 		"description": "Switch Right Tab - short"
-	},
-	"dragSearchText": {
-		"message": "🔍 Търсене с плъзгане",
-		"description": "Drag search hint"
-	},
-	"dragOpenImage": {
-		"message": "🖼️ Отваряне на изображение",
-		"description": "Drag open image hint"
-	},
-	"dragOpenLink": {
-		"message": "🔗 Отваряне на връзка",
-		"description": "Drag open link hint"
 	},
 	"aboutTitle": {
 		"message": "За FlowMouse",
@@ -2058,10 +2022,6 @@
 	"actionMenuRecentlyClosed": {
 		"message": "Наскоро затворени раздели",
 		"description": "Show a context menu listing recently closed tabs for quick restore"
-	},
-	"recentlyClosedMaxItems": {
-		"message": "Макс. елементи",
-		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
 	},
 	"actionCategoryContextMenu": {
 		"message": "Изскачащо меню",

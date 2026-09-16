@@ -343,10 +343,6 @@
 		"message": "Пользовательская",
 		"description": "Custom"
 	},
-	"customUrlPlaceholder": {
-		"message": "Пользовательский URL, используйте %s для поискового запроса",
-		"description": "Custom URL placeholder"
-	},
 	"customUrlPlaceholderHint": {
 		"message": "Должен включать протокол (например, https://). Доступные заполнители: %placeholders%. Добавьте :raw, чтобы пропустить URL-кодирование, например: %example%",
 		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
@@ -407,10 +403,6 @@
 		"message": "Просмотр и настройка действий для каждого жеста",
 		"description": "View and customize each gesture action"
 	},
-	"gestureAutoSaveHint": {
-		"message": "Подсказка: Изменения сохраняются автоматически.",
-		"description": "Hint about auto-save"
-	},
 	"blacklist": {
 		"message": "Черный список сайтов",
 		"description": "Website blacklist"
@@ -467,10 +459,6 @@
 		"message": "Удалить",
 		"description": "Generic delete button tooltip"
 	},
-	"autoSaved": {
-		"message": "Автосохранение",
-		"description": "Auto-saved message"
-	},
 	"saveFailure": {
 		"message": "Ошибка сохранения",
 		"description": "Save failure message"
@@ -522,18 +510,6 @@
 	"languageAuto": {
 		"message": "Как в системе",
 		"description": "Follow system language"
-	},
-	"privacyFriendly": {
-		"message": "Конфиденциально",
-		"description": "Privacy friendly"
-	},
-	"localOnly": {
-		"message": "Локально",
-		"description": "Local only"
-	},
-	"autoSave": {
-		"message": "Автосохранение",
-		"description": "Auto save"
 	},
 	"gestureDesc_L": {
 		"message": "Влево",
@@ -1054,18 +1030,6 @@
 	"popupSwitchRightTab": {
 		"message": "Правая вкладка",
 		"description": "Switch Right Tab - short"
-	},
-	"dragSearchText": {
-		"message": "🔍 Поиск при перетаскивании",
-		"description": "Drag search hint"
-	},
-	"dragOpenImage": {
-		"message": "🖼️ Открыть изображение",
-		"description": "Drag open image hint"
-	},
-	"dragOpenLink": {
-		"message": "🔗 Открыть ссылку",
-		"description": "Drag open link hint"
 	},
 	"aboutTitle": {
 		"message": "О FlowMouse",
@@ -2058,10 +2022,6 @@
 	"actionMenuRecentlyClosed": {
 		"message": "Недавно закрытые вкладки",
 		"description": "Show a context menu listing recently closed tabs for quick restore"
-	},
-	"recentlyClosedMaxItems": {
-		"message": "Макс. элементов",
-		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
 	},
 	"actionCategoryContextMenu": {
 		"message": "Всплывающее меню",

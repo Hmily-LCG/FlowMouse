@@ -343,10 +343,6 @@
 		"message": "Niestandardowe",
 		"description": "Custom"
 	},
-	"customUrlPlaceholder": {
-		"message": "Niestandardowy URL, użyj %s dla wyszukiwanego hasła",
-		"description": "Custom URL placeholder"
-	},
 	"customUrlPlaceholderHint": {
 		"message": "Musi zawierać protokół (np. https://). Dostępne zmienne: %placeholders%. Dodaj :raw, aby pominąć kodowanie URL, np. %example%",
 		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
@@ -407,10 +403,6 @@
 		"message": "Zobacz i dostosuj akcję każdego gestu",
 		"description": "View and customize each gesture action"
 	},
-	"gestureAutoSaveHint": {
-		"message": "Wskazówka: Zmiany są zapisywane automatycznie.",
-		"description": "Hint about auto-save"
-	},
 	"blacklist": {
 		"message": "Czarna lista stron",
 		"description": "Website blacklist"
@@ -467,10 +459,6 @@
 		"message": "Usuń",
 		"description": "Generic delete button tooltip"
 	},
-	"autoSaved": {
-		"message": "Zapisano automatycznie",
-		"description": "Auto-saved message"
-	},
 	"saveFailure": {
 		"message": "Zapisywanie nie powiodło się",
 		"description": "Save failure message"
@@ -522,18 +510,6 @@
 	"languageAuto": {
 		"message": "Zgodnie z systemem",
 		"description": "Follow system language"
-	},
-	"privacyFriendly": {
-		"message": "Przyjazny dla prywatności",
-		"description": "Privacy friendly"
-	},
-	"localOnly": {
-		"message": "Działanie lokalne",
-		"description": "Local only"
-	},
-	"autoSave": {
-		"message": "Automatyczny zapis",
-		"description": "Auto save"
 	},
 	"gestureDesc_L": {
 		"message": "W lewo",
@@ -1054,18 +1030,6 @@
 	"popupSwitchRightTab": {
 		"message": "Prawa karta",
 		"description": "Switch Right Tab - short"
-	},
-	"dragSearchText": {
-		"message": "🔍 Przeciągnij, aby wyszukać",
-		"description": "Drag search hint"
-	},
-	"dragOpenImage": {
-		"message": "🖼️ Otwórz obraz",
-		"description": "Drag open image hint"
-	},
-	"dragOpenLink": {
-		"message": "🔗 Otwórz link",
-		"description": "Drag open link hint"
 	},
 	"aboutTitle": {
 		"message": "O FlowMouse",
@@ -2058,10 +2022,6 @@
 	"actionMenuRecentlyClosed": {
 		"message": "Ostatnio zamknięte karty",
 		"description": "Show a context menu listing recently closed tabs for quick restore"
-	},
-	"recentlyClosedMaxItems": {
-		"message": "Maks. elementów",
-		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
 	},
 	"actionCategoryContextMenu": {
 		"message": "Menu podręczne",

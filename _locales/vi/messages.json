@@ -343,10 +343,6 @@
 		"message": "Tùy chỉnh",
 		"description": "Custom"
 	},
-	"customUrlPlaceholder": {
-		"message": "URL tùy chỉnh, sử dụng %s thay thế cho từ khóa tìm kiếm",
-		"description": "Custom URL placeholder"
-	},
 	"customUrlPlaceholderHint": {
 		"message": "Phải bao gồm giao thức (vd: https://). Các biến có sẵn: %placeholders%. Thêm :raw để bỏ qua mã hóa URL, vd: %example%",
 		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
@@ -407,10 +403,6 @@
 		"message": "Xem và tùy chỉnh hành động của từng cử chỉ",
 		"description": "View and customize each gesture action"
 	},
-	"gestureAutoSaveHint": {
-		"message": "Mẹo: Các thay đổi được lưu tự động.",
-		"description": "Hint about auto-save"
-	},
 	"blacklist": {
 		"message": "Danh sách đen trang web",
 		"description": "Website blacklist"
@@ -467,10 +459,6 @@
 		"message": "Xóa",
 		"description": "Generic delete button tooltip"
 	},
-	"autoSaved": {
-		"message": "Đã tự động lưu",
-		"description": "Auto-saved message"
-	},
 	"saveFailure": {
 		"message": "Lưu thất bại",
 		"description": "Save failure message"
@@ -522,18 +510,6 @@
 	"languageAuto": {
 		"message": "Theo hệ thống",
 		"description": "Follow system language"
-	},
-	"privacyFriendly": {
-		"message": "Thân thiện với quyền riêng tư",
-		"description": "Privacy friendly"
-	},
-	"localOnly": {
-		"message": "Chạy cục bộ",
-		"description": "Local only"
-	},
-	"autoSave": {
-		"message": "Tự động lưu",
-		"description": "Auto save"
 	},
 	"gestureDesc_L": {
 		"message": "Trái",
@@ -1054,18 +1030,6 @@
 	"popupSwitchRightTab": {
 		"message": "Thẻ phải",
 		"description": "Switch Right Tab - short"
-	},
-	"dragSearchText": {
-		"message": "🔍 Kéo để tìm kiếm",
-		"description": "Drag search hint"
-	},
-	"dragOpenImage": {
-		"message": "🖼️ Mở hình ảnh",
-		"description": "Drag open image hint"
-	},
-	"dragOpenLink": {
-		"message": "🔗 Mở liên kết",
-		"description": "Drag open link hint"
 	},
 	"aboutTitle": {
 		"message": "Về FlowMouse",
@@ -2058,10 +2022,6 @@
 	"actionMenuRecentlyClosed": {
 		"message": "Các tab đã đóng gần đây",
 		"description": "Show a context menu listing recently closed tabs for quick restore"
-	},
-	"recentlyClosedMaxItems": {
-		"message": "Số lượng tối đa",
-		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
 	},
 	"actionCategoryContextMenu": {
 		"message": "Menu bật lên",

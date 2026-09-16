@@ -343,10 +343,6 @@
 		"message": "사용자 정의",
 		"description": "Custom"
 	},
-	"customUrlPlaceholder": {
-		"message": "사용자 정의 URL, 검색어를 %s로 대체",
-		"description": "Custom URL placeholder"
-	},
 	"customUrlPlaceholderHint": {
 		"message": "프로토콜(예: https://)을 포함해야 합니다. 사용 가능한 자리 표시자: %placeholders%. URL 인코딩을 건너뛰려면 :raw를 추가하세요. (예: %example%)",
 		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
@@ -407,10 +403,6 @@
 		"message": "각 제스처의 동작 확인 및 사용자 정의",
 		"description": "View and customize each gesture action"
 	},
-	"gestureAutoSaveHint": {
-		"message": "팁: 변경 사항은 자동으로 저장됩니다.",
-		"description": "Hint about auto-save"
-	},
 	"blacklist": {
 		"message": "웹사이트 블랙리스트",
 		"description": "Website blacklist"
@@ -467,10 +459,6 @@
 		"message": "삭제",
 		"description": "Generic delete button tooltip"
 	},
-	"autoSaved": {
-		"message": "자동 저장됨",
-		"description": "Auto-saved message"
-	},
 	"saveFailure": {
 		"message": "저장 실패",
 		"description": "Save failure message"
@@ -522,18 +510,6 @@
 	"languageAuto": {
 		"message": "시스템 설정 따름",
 		"description": "Follow system language"
-	},
-	"privacyFriendly": {
-		"message": "개인 정보 보호 친화적",
-		"description": "Privacy friendly"
-	},
-	"localOnly": {
-		"message": "로컬 실행",
-		"description": "Local only"
-	},
-	"autoSave": {
-		"message": "자동 저장",
-		"description": "Auto save"
 	},
 	"gestureDesc_L": {
 		"message": "왼쪽",
@@ -1054,18 +1030,6 @@
 	"popupSwitchRightTab": {
 		"message": "오른쪽 탭",
 		"description": "Switch Right Tab - short"
-	},
-	"dragSearchText": {
-		"message": "🔍 드래그 검색",
-		"description": "Drag search hint"
-	},
-	"dragOpenImage": {
-		"message": "🖼️ 이미지 열기",
-		"description": "Drag open image hint"
-	},
-	"dragOpenLink": {
-		"message": "🔗 링크 열기",
-		"description": "Drag open link hint"
 	},
 	"aboutTitle": {
 		"message": "FlowMouse 정보",
@@ -2058,10 +2022,6 @@
 	"actionMenuRecentlyClosed": {
 		"message": "최근에 닫은 탭",
 		"description": "Show a context menu listing recently closed tabs for quick restore"
-	},
-	"recentlyClosedMaxItems": {
-		"message": "최대 항목 수",
-		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
 	},
 	"actionCategoryContextMenu": {
 		"message": "팝업 메뉴",

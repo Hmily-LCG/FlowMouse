@@ -106,6 +106,9 @@ class ChainPanel extends LitElement {
 			.step-row.drag-indicator-after::after {
 				bottom: -4px;
 			}
+			.step-row.is-dragging > * {
+				opacity: 0.4;
+			}
 
 			.step-grip {
 				display: flex;
@@ -491,7 +494,7 @@ class ChainPanel extends LitElement {
 		e.dataTransfer.effectAllowed = 'move';
 		e.dataTransfer.setData('text/plain', '');
 		const row = e.currentTarget.closest('.step-row');
-		if (row) row.style.opacity = '0.4';
+		if (row) row.classList.add('is-dragging');
 	}
 
 	#onStepDragOver(e, chainId, idx) {
@@ -504,7 +507,8 @@ class ChainPanel extends LitElement {
 		const rect = row.getBoundingClientRect();
 		const position = (e.clientY - rect.top < rect.height / 2) ? 'before' : 'after';
 
-		if (idx === this._dragState.fromIdx || (idx === this._dragState.overIdx && position === this._dragState.position)) return;
+		if ((idx === this._dragState.fromIdx && this._dragState.overIdx < 0)
+			|| (idx === this._dragState.overIdx && position === this._dragState.position)) return;
 
 		this.#clearDropIndicators();
 		this._dragState.overIdx = idx;
@@ -532,7 +536,7 @@ class ChainPanel extends LitElement {
 		this._dragState = null;
 		this.#clearDropIndicators();
 		const rows = this.shadowRoot.querySelectorAll('.step-row');
-		rows.forEach(r => r.style.opacity = '');
+		rows.forEach(r => r.classList.remove('is-dragging'));
 	}
 
 	#reorderSteps(chainId, fromIdx, overIdx, position) {

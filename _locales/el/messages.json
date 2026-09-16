@@ -343,10 +343,6 @@
 		"message": "Προσαρμοσμένη",
 		"description": "Custom"
 	},
-	"customUrlPlaceholder": {
-		"message": "Προσαρμοσμένο URL, χρησιμοποιήστε %s για τον όρο αναζήτησης",
-		"description": "Custom URL placeholder"
-	},
 	"customUrlPlaceholderHint": {
 		"message": "Πρέπει να περιλαμβάνει πρωτόκολλο (π.χ. https://). Διαθέσιμα σύμβολα κράτησης θέσης: %placeholders%. Προσθέστε :raw για να παραλείψετε την κωδικοποίηση URL, π.χ. %example%",
 		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
@@ -407,10 +403,6 @@
 		"message": "Προβολή και προσαρμογή κάθε ενέργειας χειρονομίας",
 		"description": "View and customize each gesture action"
 	},
-	"gestureAutoSaveHint": {
-		"message": "Συμβουλή: Οι αλλαγές αποθηκεύονται αυτόματα.",
-		"description": "Hint about auto-save"
-	},
 	"blacklist": {
 		"message": "Μαύρη Λίστα Ιστοτόπων",
 		"description": "Website blacklist"
@@ -467,10 +459,6 @@
 		"message": "Διαγραφή",
 		"description": "Generic delete button tooltip"
 	},
-	"autoSaved": {
-		"message": "Αποθηκεύτηκε αυτόματα",
-		"description": "Auto-saved message"
-	},
 	"saveFailure": {
 		"message": "Η αποθήκευση απέτυχε",
 		"description": "Save failure message"
@@ -522,18 +510,6 @@
 	"languageAuto": {
 		"message": "Ακολούθησε το Σύστημα",
 		"description": "Follow system language"
-	},
-	"privacyFriendly": {
-		"message": "Φιλικό προς το Απόρρητο",
-		"description": "Privacy friendly"
-	},
-	"localOnly": {
-		"message": "Μόνο Τοπικά",
-		"description": "Local only"
-	},
-	"autoSave": {
-		"message": "Αυτόματη Αποθήκευση",
-		"description": "Auto save"
 	},
 	"gestureDesc_L": {
 		"message": "Αριστερά",
@@ -1054,18 +1030,6 @@
 	"popupSwitchRightTab": {
 		"message": "Δεξιά Καρτέλα",
 		"description": "Switch Right Tab - short"
-	},
-	"dragSearchText": {
-		"message": "🔍 Σύρετε για Αναζήτηση",
-		"description": "Drag search hint"
-	},
-	"dragOpenImage": {
-		"message": "🖼️ Άνοιγμα Εικόνας",
-		"description": "Drag open image hint"
-	},
-	"dragOpenLink": {
-		"message": "🔗 Άνοιγμα Συνδέσμου",
-		"description": "Drag open link hint"
 	},
 	"aboutTitle": {
 		"message": "Σχετικά με το FlowMouse",
@@ -2058,10 +2022,6 @@
 	"actionMenuRecentlyClosed": {
 		"message": "Πρόσφατα κλεισμένες καρτέλες",
 		"description": "Show a context menu listing recently closed tabs for quick restore"
-	},
-	"recentlyClosedMaxItems": {
-		"message": "Μέγιστα στοιχεία",
-		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
 	},
 	"actionCategoryContextMenu": {
 		"message": "Αναδυόμενο μενού",

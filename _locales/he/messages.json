@@ -343,10 +343,6 @@
 		"message": "מותאם אישית",
 		"description": "Custom"
 	},
-	"customUrlPlaceholder": {
-		"message": "כתובת מותאמת אישית, השתמש ב-%s עבור מונח החיפוש",
-		"description": "Custom URL placeholder"
-	},
 	"customUrlPlaceholderHint": {
 		"message": "חובה לכלול פרוטוקול (למשל https://). מצייני מיקום זמינים: %placeholders%. הוסף :raw כדי לדלג על קידוד URL, למשל %example%",
 		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
@@ -407,10 +403,6 @@
 		"message": "הצג והתאם אישית כל פעולת מחווה",
 		"description": "View and customize each gesture action"
 	},
-	"gestureAutoSaveHint": {
-		"message": "טיפ: שינויים נשמרים אוטומטית.",
-		"description": "Hint about auto-save"
-	},
 	"blacklist": {
 		"message": "רשימה שחורה של אתרים",
 		"description": "Website blacklist"
@@ -467,10 +459,6 @@
 		"message": "מחק",
 		"description": "Generic delete button tooltip"
 	},
-	"autoSaved": {
-		"message": "נשמר אוטומטית",
-		"description": "Auto-saved message"
-	},
 	"saveFailure": {
 		"message": "השמירה נכשלה",
 		"description": "Save failure message"
@@ -522,18 +510,6 @@
 	"languageAuto": {
 		"message": "לפי המערכת",
 		"description": "Follow system language"
-	},
-	"privacyFriendly": {
-		"message": "ידידותי לפרטיות",
-		"description": "Privacy friendly"
-	},
-	"localOnly": {
-		"message": "מקומי בלבד",
-		"description": "Local only"
-	},
-	"autoSave": {
-		"message": "שמירה אוטומטית",
-		"description": "Auto save"
 	},
 	"gestureDesc_L": {
 		"message": "שמאלה",
@@ -1054,18 +1030,6 @@
 	"popupSwitchRightTab": {
 		"message": "כרטיסייה ימנית",
 		"description": "Switch Right Tab - short"
-	},
-	"dragSearchText": {
-		"message": "🔍 גרירה לחיפוש",
-		"description": "Drag search hint"
-	},
-	"dragOpenImage": {
-		"message": "🖼️ פתח תמונה",
-		"description": "Drag open image hint"
-	},
-	"dragOpenLink": {
-		"message": "🔗 פתח קישור",
-		"description": "Drag open link hint"
 	},
 	"aboutTitle": {
 		"message": "אודות FlowMouse",
@@ -2058,10 +2022,6 @@
 	"actionMenuRecentlyClosed": {
 		"message": "כרטיסיות שנסגרו לאחרונה",
 		"description": "Show a context menu listing recently closed tabs for quick restore"
-	},
-	"recentlyClosedMaxItems": {
-		"message": "מספר פריטים מרבי",
-		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
 	},
 	"actionCategoryContextMenu": {
 		"message": "תפריט מוקפץ",
