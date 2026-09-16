@@ -1,5 +1,16 @@
 ## FlowMouse Changelog
 
+### v2.4.1 (2026-09-17)
+
+**Gesture Improvements:**
+- Support preserving the tab when closing a tab (unload page content)
+
+**Interface & General Improvements:**
+- Code cleanup to reduce extension size
+- Fixed an issue where gestures might not work on some tabs before refreshing after extension installation/update
+- Other minor improvements
+
+
 ### v2.4 (2026-09-07)
 
 **Drag & Drop Improvements:**
