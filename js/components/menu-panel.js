@@ -106,6 +106,9 @@ class MenuPanel extends LitElement {
 			.item-row.drag-indicator-after::after {
 				bottom: -4px;
 			}
+			.item-row.is-dragging > * {
+				opacity: 0.4;
+			}
 
 			.item-grip {
 				display: flex;
@@ -524,7 +527,7 @@ class MenuPanel extends LitElement {
 		e.dataTransfer.effectAllowed = 'move';
 		e.dataTransfer.setData('text/plain', '');
 		const row = e.currentTarget.closest('.item-row');
-		if (row) row.style.opacity = '0.4';
+		if (row) row.classList.add('is-dragging');
 	}
 
 	#onItemDragOver(e, menuId, idx) {
@@ -537,7 +540,8 @@ class MenuPanel extends LitElement {
 		const rect = row.getBoundingClientRect();
 		const position = (e.clientY - rect.top < rect.height / 2) ? 'before' : 'after';
 
-		if (idx === this._dragState.fromIdx || (idx === this._dragState.overIdx && position === this._dragState.position)) return;
+		if ((idx === this._dragState.fromIdx && this._dragState.overIdx < 0)
+			|| (idx === this._dragState.overIdx && position === this._dragState.position)) return;
 
 		this.#clearDropIndicators();
 		this._dragState.overIdx = idx;
@@ -565,7 +569,7 @@ class MenuPanel extends LitElement {
 		this._dragState = null;
 		this.#clearDropIndicators();
 		const rows = this.shadowRoot.querySelectorAll('.item-row');
-		rows.forEach(r => r.style.opacity = '');
+		rows.forEach(r => r.classList.remove('is-dragging'));
 	}
 
 	#reorderItems(menuId, fromIdx, overIdx, position) {

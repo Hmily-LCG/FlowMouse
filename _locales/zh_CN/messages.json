@@ -343,10 +343,6 @@
 		"message": "自定义",
 		"description": "Custom"
 	},
-	"customUrlPlaceholder": {
-		"message": "自定义 URL，用 %s 代替搜索词",
-		"description": "Custom URL placeholder"
-	},
 	"customUrlPlaceholderHint": {
 		"message": "需包含协议（如 https://）。可用占位符：%placeholders%。追加 :raw 可跳过 URL 编码，如：%example%",
 		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
@@ -407,10 +403,6 @@
 		"message": "查看并自定义每个手势的操作",
 		"description": "View and customize each gesture action"
 	},
-	"gestureAutoSaveHint": {
-		"message": "提示：修改后自动保存。",
-		"description": "Hint about auto-save"
-	},
 	"blacklist": {
 		"message": "网站黑名单",
 		"description": "Website blacklist"
@@ -467,10 +459,6 @@
 		"message": "删除",
 		"description": "Generic delete button tooltip"
 	},
-	"autoSaved": {
-		"message": "已自动保存",
-		"description": "Auto-saved message"
-	},
 	"saveFailure": {
 		"message": "保存失败",
 		"description": "Save failure message"
@@ -522,18 +510,6 @@
 	"languageAuto": {
 		"message": "跟随系统",
 		"description": "Follow system language"
-	},
-	"privacyFriendly": {
-		"message": "隐私友好",
-		"description": "Privacy friendly"
-	},
-	"localOnly": {
-		"message": "本地运行",
-		"description": "Local only"
-	},
-	"autoSave": {
-		"message": "自动保存",
-		"description": "Auto save"
 	},
 	"gestureDesc_L": {
 		"message": "向左",
@@ -1054,18 +1030,6 @@
 	"popupSwitchRightTab": {
 		"message": "右侧标签页",
 		"description": "Switch Right Tab - short"
-	},
-	"dragSearchText": {
-		"message": "🔍 拖拽搜索",
-		"description": "Drag search hint"
-	},
-	"dragOpenImage": {
-		"message": "🖼️ 打开图片",
-		"description": "Drag open image hint"
-	},
-	"dragOpenLink": {
-		"message": "🔗 打开链接",
-		"description": "Drag open link hint"
 	},
 	"aboutTitle": {
 		"message": "关于 FlowMouse",
@@ -2058,10 +2022,6 @@
 	"actionMenuRecentlyClosed": {
 		"message": "最近关闭的标签页",
 		"description": "Show a context menu listing recently closed tabs for quick restore"
-	},
-	"recentlyClosedMaxItems": {
-		"message": "最大数量",
-		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
 	},
 	"actionCategoryContextMenu": {
 		"message": "弹出菜单",

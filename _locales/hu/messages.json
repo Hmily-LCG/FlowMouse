@@ -343,10 +343,6 @@
 		"message": "Egyéni",
 		"description": "Custom"
 	},
-	"customUrlPlaceholder": {
-		"message": "Egyéni URL, használd a %s-t a keresési kifejezés helyett",
-		"description": "Custom URL placeholder"
-	},
 	"customUrlPlaceholderHint": {
 		"message": "Tartalmaznia kell a protokollt (pl. https://). Elérhető helyőrzők: %placeholders%. Csatolja a :raw kifejezést az URL-kódolás kihagyásához, pl. %example%",
 		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
@@ -407,10 +403,6 @@
 		"message": "Tekintsd meg és szabd testre az egyes gesztusok műveleteit",
 		"description": "View and customize each gesture action"
 	},
-	"gestureAutoSaveHint": {
-		"message": "Tipp: A módosítások automatikusan mentésre kerülnek.",
-		"description": "Hint about auto-save"
-	},
 	"blacklist": {
 		"message": "Weboldal feketelista",
 		"description": "Website blacklist"
@@ -467,10 +459,6 @@
 		"message": "Törlés",
 		"description": "Generic delete button tooltip"
 	},
-	"autoSaved": {
-		"message": "Automatikusan mentve",
-		"description": "Auto-saved message"
-	},
 	"saveFailure": {
 		"message": "Mentés sikertelen",
 		"description": "Save failure message"
@@ -522,18 +510,6 @@
 	"languageAuto": {
 		"message": "Rendszer követése",
 		"description": "Follow system language"
-	},
-	"privacyFriendly": {
-		"message": "Adatvédelmi barát",
-		"description": "Privacy friendly"
-	},
-	"localOnly": {
-		"message": "Csak helyi",
-		"description": "Local only"
-	},
-	"autoSave": {
-		"message": "Automatikus mentés",
-		"description": "Auto save"
 	},
 	"gestureDesc_L": {
 		"message": "Balra",
@@ -1054,18 +1030,6 @@
 	"popupSwitchRightTab": {
 		"message": "Jobb lap",
 		"description": "Switch Right Tab - short"
-	},
-	"dragSearchText": {
-		"message": "🔍 Keresés húzással",
-		"description": "Drag search hint"
-	},
-	"dragOpenImage": {
-		"message": "🖼️ Kép megnyitása",
-		"description": "Drag open image hint"
-	},
-	"dragOpenLink": {
-		"message": "🔗 Link megnyitása",
-		"description": "Drag open link hint"
 	},
 	"aboutTitle": {
 		"message": "A FlowMouse-ról",
@@ -2058,10 +2022,6 @@
 	"actionMenuRecentlyClosed": {
 		"message": "Nemrég bezárt lapok",
 		"description": "Show a context menu listing recently closed tabs for quick restore"
-	},
-	"recentlyClosedMaxItems": {
-		"message": "Max. elemek",
-		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
 	},
 	"actionCategoryContextMenu": {
 		"message": "Felugró menü",

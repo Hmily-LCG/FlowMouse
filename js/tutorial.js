@@ -9,14 +9,11 @@
 		gestureActive: false,
 		pattern: [],
 		stepTransitionCooldown: false,
-		step1Cooldown: false
 	};
 
 	const CONFIG = {
 		DISTANCE_THRESHOLD: 30,
-		PATH_LENGTH: 230,
 		REQUIRED_DRAG_DISTANCE: 150,
-		COOLDOWN_MS: 750
 	};
 
 	const isMacOrLinux = /Mac|Linux/i.test(navigator.platform);
@@ -34,7 +31,6 @@
 		step1Mouse: document.getElementById('step1Mouse'),
 		step1RightBtn: document.getElementById('step1RightBtn'),
 		step1Instruction: document.getElementById('step1Instruction'),
-		pathFill: document.getElementById('pathFill'),
 		progressRect: document.getElementById('progressRect'),
 		practiceArea: document.querySelector('.practice-area'),
 
@@ -53,9 +49,7 @@
 		step3Mouse: document.getElementById('step3Mouse'),
 		step3LeftBtn: document.getElementById('step3LeftBtn'),
 		textDragBox: document.getElementById('textDragBox'),
-		linkDragBox: document.getElementById('linkDragBox'),
 		selectableText: document.getElementById('selectableText'),
-		demoLink: document.getElementById('demoLink'),
 		step3DiscoveryWrapper: document.getElementById('step3DiscoveryWrapper'),
 		step3SwapContainer: document.querySelector('.step3-swap-container'),
 		step3ContinueBtn: document.getElementById('step3ContinueBtn'),
@@ -132,7 +126,7 @@
 		}
 
 		elements.steps.forEach((step, index) => {
-			step.classList.remove('active', 'exit-left', 'exit-right');
+			step.classList.remove('active');
 			if (index === stepIndex) {
 				step.classList.add('active');
 			}
@@ -162,10 +156,6 @@
 
 		if (stepIndex === 1) {
 			resetStep1();
-			TutorialState.step1Cooldown = true;
-			setTimeout(() => {
-				TutorialState.step1Cooldown = false;
-			}, CONFIG.COOLDOWN_MS);
 		}
 
 		if (stepIndex === 2) {
@@ -532,8 +522,10 @@
 			gestureKey = 'scroll';
 		} else if (pattern === '↓→') {
 			card = elements.cardClose;
-			animDirection = null;
+			animDirection = 'exit';
 			gestureKey = 'close';
+		} else if (pattern === '←↓') {
+			animDirection = 'exit';
 		} else if (pattern === '→↑') {
 			card = elements.itemNewTab;
 			animDirection = 'exit';
@@ -564,8 +556,6 @@
 			animatePageExit();
 		} else if (animDirection) {
 			animatePage(animDirection);
-		} else if (pattern === '↓→') {
-			animatePageExit();
 		}
 
 		if (TutorialState.currentStep === 2) {

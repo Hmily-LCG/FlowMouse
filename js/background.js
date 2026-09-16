@@ -1361,8 +1361,8 @@ chrome.runtime.onInstalled.addListener((details) => {
 		async function reinjectContentScripts(dispose) {
 			const contentScript = chrome.runtime.getManifest().content_scripts[0];
 			const tabs = await chrome.tabs.query({});
-			for (const tab of tabs) {
-				if (isRestrictedUrl(tab.url)) continue;
+			await Promise.all(tabs.map(async (tab) => {
+				if (isRestrictedUrl(tab.url)) return;
 				try {
 					if (dispose) {
 						await chrome.scripting.executeScript({
@@ -1374,9 +1374,10 @@ chrome.runtime.onInstalled.addListener((details) => {
 						target: { tabId: tab.id, allFrames: contentScript.all_frames },
 						files: contentScript.js,
 					});
-				} catch {
+				} catch (error) {
+					console.error('Failed to re-inject content scripts into tab:', error);
 				}
-			}
+			}));
 		}
 
 		if (details.reason === 'install' || (details.reason === 'update' && compareVersions(details.previousVersion, '1.50') > 0)) {

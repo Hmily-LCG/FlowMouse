@@ -343,10 +343,6 @@
 		"message": "কাস্টম",
 		"description": "Custom"
 	},
-	"customUrlPlaceholder": {
-		"message": "কাস্টম URL, সার্চ টার্মের জন্য %s ব্যবহার করুন",
-		"description": "Custom URL placeholder"
-	},
 	"customUrlPlaceholderHint": {
 		"message": "অবশ্যই প্রোটোকল অন্তর্ভুক্ত করতে হবে (যেমন https://)। উপলব্ধ স্থানধারক: %placeholders%। URL এনকোডিং এড়িয়ে যেতে :raw যোগ করুন, যেমন %example%",
 		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
@@ -407,10 +403,6 @@
 		"message": "প্রতিটি জেসচার অ্যাকশন দেখুন এবং কাস্টমাইজ করুন",
 		"description": "View and customize each gesture action"
 	},
-	"gestureAutoSaveHint": {
-		"message": "পরামর্শ: পরিবর্তনগুলি স্বয়ংক্রিয়ভাবে সংরক্ষিত হয়।",
-		"description": "Hint about auto-save"
-	},
 	"blacklist": {
 		"message": "ওয়েবসাইট ব্ল্যাকলিস্ট",
 		"description": "Website blacklist"
@@ -467,10 +459,6 @@
 		"message": "মুছুন",
 		"description": "Generic delete button tooltip"
 	},
-	"autoSaved": {
-		"message": "স্বয়ংক্রিয়ভাবে সংরক্ষিত",
-		"description": "Auto-saved message"
-	},
 	"saveFailure": {
 		"message": "সংরক্ষণ ব্যর্থ হয়েছে",
 		"description": "Save failure message"
@@ -522,18 +510,6 @@
 	"languageAuto": {
 		"message": "সিস্টেম অনুসরণ করুন",
 		"description": "Follow system language"
-	},
-	"privacyFriendly": {
-		"message": "গোপনীয়তা বান্ধব",
-		"description": "Privacy friendly"
-	},
-	"localOnly": {
-		"message": "শুধুমাত্র লোকাল",
-		"description": "Local only"
-	},
-	"autoSave": {
-		"message": "অটো সেভ",
-		"description": "Auto save"
 	},
 	"gestureDesc_L": {
 		"message": "বাম",
@@ -1054,18 +1030,6 @@
 	"popupSwitchRightTab": {
 		"message": "ডান ট্যাব",
 		"description": "Switch Right Tab - short"
-	},
-	"dragSearchText": {
-		"message": "🔍 ড্র্যাগ অনুসন্ধান",
-		"description": "Drag search hint"
-	},
-	"dragOpenImage": {
-		"message": "🖼️ ইমেজ খুলুন",
-		"description": "Drag open image hint"
-	},
-	"dragOpenLink": {
-		"message": "🔗 লিঙ্ক খুলুন",
-		"description": "Drag open link hint"
 	},
 	"aboutTitle": {
 		"message": "FlowMouse সম্পর্কে",
@@ -2058,10 +2022,6 @@
 	"actionMenuRecentlyClosed": {
 		"message": "সম্প্রতি বন্ধ করা ট্যাব",
 		"description": "Show a context menu listing recently closed tabs for quick restore"
-	},
-	"recentlyClosedMaxItems": {
-		"message": "সর্বাধিক আইটেম",
-		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
 	},
 	"actionCategoryContextMenu": {
 		"message": "পপ-আপ মেনু",

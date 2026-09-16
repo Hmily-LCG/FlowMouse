@@ -343,10 +343,6 @@
 		"message": "Özel",
 		"description": "Custom"
 	},
-	"customUrlPlaceholder": {
-		"message": "Özel URL, arama terimi için %s kullanın",
-		"description": "Custom URL placeholder"
-	},
 	"customUrlPlaceholderHint": {
 		"message": "Protokol içermelidir (örn. https://). Kullanılabilir yer tutucular: %placeholders%. URL kodlamasını atlamak için :raw ekleyin, örn. %example%",
 		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
@@ -407,10 +403,6 @@
 		"message": "Her hareket eylemini görüntüle ve özelleştir",
 		"description": "View and customize each gesture action"
 	},
-	"gestureAutoSaveHint": {
-		"message": "İpucu: Değişiklikler otomatik olarak kaydedilir.",
-		"description": "Hint about auto-save"
-	},
 	"blacklist": {
 		"message": "Web Sitesi Kara Listesi",
 		"description": "Website blacklist"
@@ -467,10 +459,6 @@
 		"message": "Sil",
 		"description": "Generic delete button tooltip"
 	},
-	"autoSaved": {
-		"message": "Otomatik kaydedildi",
-		"description": "Auto-saved message"
-	},
 	"saveFailure": {
 		"message": "Kaydetme başarısız",
 		"description": "Save failure message"
@@ -522,18 +510,6 @@
 	"languageAuto": {
 		"message": "Sistem varsayılanı",
 		"description": "Follow system language"
-	},
-	"privacyFriendly": {
-		"message": "Gizlilik Dostu",
-		"description": "Privacy friendly"
-	},
-	"localOnly": {
-		"message": "Yerel Çalışma",
-		"description": "Local only"
-	},
-	"autoSave": {
-		"message": "Otomatik Kayıt",
-		"description": "Auto save"
 	},
 	"gestureDesc_L": {
 		"message": "Sol",
@@ -1054,18 +1030,6 @@
 	"popupSwitchRightTab": {
 		"message": "Sağ Sekme",
 		"description": "Switch Right Tab - short"
-	},
-	"dragSearchText": {
-		"message": "🔍 Sürükle Ara",
-		"description": "Drag search hint"
-	},
-	"dragOpenImage": {
-		"message": "🖼️ Resmi Aç",
-		"description": "Drag open image hint"
-	},
-	"dragOpenLink": {
-		"message": "🔗 Bağlantıyı Aç",
-		"description": "Drag open link hint"
 	},
 	"aboutTitle": {
 		"message": "FlowMouse Hakkında",
@@ -2058,10 +2022,6 @@
 	"actionMenuRecentlyClosed": {
 		"message": "Son Kapatılan Sekmeler",
 		"description": "Show a context menu listing recently closed tabs for quick restore"
-	},
-	"recentlyClosedMaxItems": {
-		"message": "Maks. öge",
-		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
 	},
 	"actionCategoryContextMenu": {
 		"message": "Açılır Menü",

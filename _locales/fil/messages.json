@@ -343,10 +343,6 @@
 		"message": "Custom",
 		"description": "Custom"
 	},
-	"customUrlPlaceholder": {
-		"message": "Custom URL, gamitin ang %s para sa terminong hinahanap",
-		"description": "Custom URL placeholder"
-	},
 	"customUrlPlaceholderHint": {
 		"message": "Dapat may kasamang protocol (hal. https://). Mga available na placeholder: %placeholders%. Idagdag ang :raw para lagpasan ang pag-encode ng URL, hal. %example%",
 		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
@@ -407,10 +403,6 @@
 		"message": "Tingnan at i-customize ang bawat aksyon ng galaw",
 		"description": "View and customize each gesture action"
 	},
-	"gestureAutoSaveHint": {
-		"message": "Tip: Awtomatikong nai-save ang mga pagbabago.",
-		"description": "Hint about auto-save"
-	},
 	"blacklist": {
 		"message": "Blacklist ng Website",
 		"description": "Website blacklist"
@@ -467,10 +459,6 @@
 		"message": "Tanggalin",
 		"description": "Generic delete button tooltip"
 	},
-	"autoSaved": {
-		"message": "Awtomatikong nai-save",
-		"description": "Auto-saved message"
-	},
 	"saveFailure": {
 		"message": "Nabigong i-save",
 		"description": "Save failure message"
@@ -522,18 +510,6 @@
 	"languageAuto": {
 		"message": "Sundin ang Sistema",
 		"description": "Follow system language"
-	},
-	"privacyFriendly": {
-		"message": "Privacy Friendly",
-		"description": "Privacy friendly"
-	},
-	"localOnly": {
-		"message": "Lokal Lamang",
-		"description": "Local only"
-	},
-	"autoSave": {
-		"message": "Awtomatikong I-save",
-		"description": "Auto save"
 	},
 	"gestureDesc_L": {
 		"message": "Pakaliwa",
@@ -1054,18 +1030,6 @@
 	"popupSwitchRightTab": {
 		"message": "Kanang Tab",
 		"description": "Switch Right Tab - short"
-	},
-	"dragSearchText": {
-		"message": "🔍 Mag-drag para Maghanap",
-		"description": "Drag search hint"
-	},
-	"dragOpenImage": {
-		"message": "🖼️ Buksan ang Larawan",
-		"description": "Drag open image hint"
-	},
-	"dragOpenLink": {
-		"message": "🔗 Buksan ang Link",
-		"description": "Drag open link hint"
 	},
 	"aboutTitle": {
 		"message": "Tungkol sa FlowMouse",
@@ -2058,10 +2022,6 @@
 	"actionMenuRecentlyClosed": {
 		"message": "Mga Kamakailang Isinarang Tab",
 		"description": "Show a context menu listing recently closed tabs for quick restore"
-	},
-	"recentlyClosedMaxItems": {
-		"message": "Max items",
-		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
 	},
 	"actionCategoryContextMenu": {
 		"message": "Popup na Menu",

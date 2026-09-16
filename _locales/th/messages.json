@@ -343,10 +343,6 @@
 		"message": "กำหนดเอง",
 		"description": "Custom"
 	},
-	"customUrlPlaceholder": {
-		"message": "URL กำหนดเอง ใช้ %s แทนคำค้นหา",
-		"description": "Custom URL placeholder"
-	},
 	"customUrlPlaceholderHint": {
 		"message": "ต้องระบุโปรโตคอล (เช่น https://) ตัวยึดตำแหน่งที่ใช้ได้: %placeholders% ต่อท้ายด้วย :raw เพื่อข้ามการเข้ารหัส URL เช่น %example%",
 		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
@@ -407,10 +403,6 @@
 		"message": "ดูและปรับแต่งการกระทำของแต่ละท่าทาง",
 		"description": "View and customize each gesture action"
 	},
-	"gestureAutoSaveHint": {
-		"message": "คำแนะนำ: การเปลี่ยนแปลงจะถูกบันทึกอัตโนมัติ",
-		"description": "Hint about auto-save"
-	},
 	"blacklist": {
 		"message": "บัญชีดำเว็บไซต์",
 		"description": "Website blacklist"
@@ -467,10 +459,6 @@
 		"message": "ลบ",
 		"description": "Generic delete button tooltip"
 	},
-	"autoSaved": {
-		"message": "บันทึกอัตโนมัติแล้ว",
-		"description": "Auto-saved message"
-	},
 	"saveFailure": {
 		"message": "การบันทึกล้มเหลว",
 		"description": "Save failure message"
@@ -522,18 +510,6 @@
 	"languageAuto": {
 		"message": "ตามระบบ",
 		"description": "Follow system language"
-	},
-	"privacyFriendly": {
-		"message": "เป็นมิตรกับความเป็นส่วนตัว",
-		"description": "Privacy friendly"
-	},
-	"localOnly": {
-		"message": "ทำงานในเครื่องเท่านั้น",
-		"description": "Local only"
-	},
-	"autoSave": {
-		"message": "บันทึกอัตโนมัติ",
-		"description": "Auto save"
 	},
 	"gestureDesc_L": {
 		"message": "ซ้าย",
@@ -1054,18 +1030,6 @@
 	"popupSwitchRightTab": {
 		"message": "แท็บขวา",
 		"description": "Switch Right Tab - short"
-	},
-	"dragSearchText": {
-		"message": "🔍 ค้นหาด้วยการลาก",
-		"description": "Drag search hint"
-	},
-	"dragOpenImage": {
-		"message": "🖼️ เปิดรูปภาพ",
-		"description": "Drag open image hint"
-	},
-	"dragOpenLink": {
-		"message": "🔗 เปิดลิงก์",
-		"description": "Drag open link hint"
 	},
 	"aboutTitle": {
 		"message": "เกี่ยวกับ FlowMouse",
@@ -2058,10 +2022,6 @@
 	"actionMenuRecentlyClosed": {
 		"message": "แท็บที่เพิ่งปิด",
 		"description": "Show a context menu listing recently closed tabs for quick restore"
-	},
-	"recentlyClosedMaxItems": {
-		"message": "จำนวนสูงสุด",
-		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
 	},
 	"actionCategoryContextMenu": {
 		"message": "เมนูป๊อปอัป",

@@ -28,6 +28,9 @@ class GestureRecognizer {
 		if (config.longGestureMultiplier !== undefined) {
 			this.#longGestureMultiplier = config.longGestureMultiplier;
 		}
+		if (config.maxThreshold !== undefined) {
+			this.#maxThreshold = config.maxThreshold;
+		}
 	}
 
 	reset() {

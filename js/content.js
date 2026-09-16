@@ -1980,13 +1980,8 @@ window.ContentContextMenu = ContentContextMenu;
 		const { handleScroll, checkScrollFeasibility, copyText, tryParseAsUrl } = window.FlowMouseUtils;
 		const { msg } = window.ContentI18n;
 
-		const CONFIG = {
-			DISTANCE_THRESHOLD: DEFAULT_SETTINGS.distanceThreshold,
-			SCROLL_AMOUNT: window.innerHeight * 0.75
-		};
-
 		const recognizer = new window.GestureRecognizer({
-			distanceThreshold: CONFIG.DISTANCE_THRESHOLD
+			distanceThreshold: DEFAULT_SETTINGS.distanceThreshold
 		});
 
 		let isIframe = false;
@@ -2921,7 +2916,7 @@ window.ContentContextMenu = ContentContextMenu;
 				gestureState.dragElement = dragElement;
 				gestureState.dragType = dragType;
 				recognizer.start(e.clientX, e.clientY, e.timeStamp);
-				if (lastPointerType === 'touch' || lastPointerType === 'pen') {
+				if (lastPointerType === 'touch' || lastPointerType === 'pen' || isMacOrLinux) {
 					gestureState.skipFirstDragOver = true;
 				}
 			}

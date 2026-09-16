@@ -17,8 +17,40 @@ class GestureGrid extends LitElement {
 				display: block;
 			}
 
+			.gesture-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+				gap: 10px;
+				margin-top: 2px;
+				margin-bottom: 18px;
+			}
+
 			.gesture-item {
 				position: relative;
+				background: var(--bg-tertiary);
+				border-radius: 8px;
+				padding: 8px;
+				display: flex;
+				flex-direction: column;
+				gap: 8px;
+			}
+
+			.gesture-item .gesture-pattern {
+				font-size: 1.2em;
+				margin-block: 2px;
+				text-align: center;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				max-width: 100%;
+			}
+
+			.gesture-desc {
+				font-size: 0.8em;
+				vertical-align: 0.05em;
+				color: var(--text-secondary);
+				font-weight: normal;
+				margin-inline-start: 4px;
 			}
 
 			.gesture-item .reset-btn,
@@ -59,12 +91,17 @@ class GestureGrid extends LitElement {
 			}
 
 			.gesture-item.modified {
-				background: rgba(66, 133, 244, 0.05);
-				border-radius: 8px;
+			}
+
+			.gesture-item.none {
+				background: color-mix(in srgb, var(--bg-tertiary) 50%, transparent);
+			}
+
+			.gesture-item.none .gesture-pattern {
+				opacity: .4;
 			}
 
 			.gesture-item.custom {
-				background: rgba(52, 168, 83, 0.05);
 			}
 		`,
 	];
@@ -119,6 +156,7 @@ class GestureGrid extends LitElement {
 		const isCustom = !DEFAULT_GESTURES[pattern];
 		const entryConfig = this.mouseGestures[pattern] || {};
 		const hasCustomConfig = Object.keys(entryConfig).some(k => k !== 'action');
+		const isNone = currentAction === 'none';
 		const isModified = !isCustom && (currentAction !== defaultAction || hasCustomConfig);
 		const descKey = GestureGrid.GESTURE_DESC_KEYS[pattern];
 		const desc = descKey
@@ -127,7 +165,7 @@ class GestureGrid extends LitElement {
 		const patternSvg = window.GestureConstants.arrowsToSvg(pattern);
 
 		return html`
-			<div class="gesture-item ${isModified ? 'modified' : ''} ${isCustom ? 'custom' : ''}">
+			<div class="gesture-item ${isModified && !isNone ? 'modified' : ''} ${isCustom ? 'custom' : ''} ${isNone ? 'none' : ''}">
 				${isCustom ? html`
 					<button class="delete-gesture-btn" @click=${() => this.#handleDelete(pattern)}
 						.tooltip=${tooltip(window.i18n.getMessage('deleteGesture'))}

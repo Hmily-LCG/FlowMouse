@@ -343,10 +343,6 @@
 		"message": "カスタム",
 		"description": "Custom"
 	},
-	"customUrlPlaceholder": {
-		"message": "カスタムURL、検索語を %s で置き換えます",
-		"description": "Custom URL placeholder"
-	},
 	"customUrlPlaceholderHint": {
 		"message": "プロトコル（例: https://）を含める必要があります。使用可能なプレースホルダー: %placeholders%。URLエンコードをスキップするには :raw を追加します（例: %example%）。",
 		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
@@ -407,10 +403,6 @@
 		"message": "各ジェスチャーの操作を確認・カスタマイズできます",
 		"description": "View and customize each gesture action"
 	},
-	"gestureAutoSaveHint": {
-		"message": "ヒント：変更は自動的に保存されます。",
-		"description": "Hint about auto-save"
-	},
 	"blacklist": {
 		"message": "サイトブラックリスト",
 		"description": "Website blacklist"
@@ -467,10 +459,6 @@
 		"message": "削除",
 		"description": "Generic delete button tooltip"
 	},
-	"autoSaved": {
-		"message": "自動保存されました",
-		"description": "Auto-saved message"
-	},
 	"saveFailure": {
 		"message": "保存に失敗しました",
 		"description": "Save failure message"
@@ -522,18 +510,6 @@
 	"languageAuto": {
 		"message": "システムに従う",
 		"description": "Follow system language"
-	},
-	"privacyFriendly": {
-		"message": "プライバシー重視",
-		"description": "Privacy friendly"
-	},
-	"localOnly": {
-		"message": "ローカル動作",
-		"description": "Local only"
-	},
-	"autoSave": {
-		"message": "自動保存",
-		"description": "Auto save"
 	},
 	"gestureDesc_L": {
 		"message": "左へ",
@@ -1054,18 +1030,6 @@
 	"popupSwitchRightTab": {
 		"message": "右のタブ",
 		"description": "Switch Right Tab - short"
-	},
-	"dragSearchText": {
-		"message": "🔍 ドラッグして検索",
-		"description": "Drag search hint"
-	},
-	"dragOpenImage": {
-		"message": "🖼️ 画像を開く",
-		"description": "Drag open image hint"
-	},
-	"dragOpenLink": {
-		"message": "🔗 リンクを開く",
-		"description": "Drag open link hint"
 	},
 	"aboutTitle": {
 		"message": "FlowMouse について",
@@ -2058,10 +2022,6 @@
 	"actionMenuRecentlyClosed": {
 		"message": "最近閉じたタブ",
 		"description": "Show a context menu listing recently closed tabs for quick restore"
-	},
-	"recentlyClosedMaxItems": {
-		"message": "最大表示数",
-		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
 	},
 	"actionCategoryContextMenu": {
 		"message": "ポップアップメニュー",

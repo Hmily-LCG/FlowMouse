@@ -343,10 +343,6 @@
 		"message": "कस्टम",
 		"description": "Custom"
 	},
-	"customUrlPlaceholder": {
-		"message": "कस्टम URL, खोज शब्द के लिए %s का उपयोग करें",
-		"description": "Custom URL placeholder"
-	},
 	"customUrlPlaceholderHint": {
 		"message": "प्रोटोकॉल (जैसे https://) शामिल होना चाहिए। उपलब्ध प्लेसहोल्डर: %placeholders%। URL एन्कोडिंग छोड़ने के लिए :raw जोड़ें, जैसे %example%",
 		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
@@ -407,10 +403,6 @@
 		"message": "प्रत्येक जेस्चर एक्शन देखें और कस्टमाइज़ करें",
 		"description": "View and customize each gesture action"
 	},
-	"gestureAutoSaveHint": {
-		"message": "सुझाव: परिवर्तन स्वचालित रूप से सहेजे जाते हैं।",
-		"description": "Hint about auto-save"
-	},
 	"blacklist": {
 		"message": "वेबसाइट ब्लैकलिस्ट",
 		"description": "Website blacklist"
@@ -467,10 +459,6 @@
 		"message": "हटाएं",
 		"description": "Generic delete button tooltip"
 	},
-	"autoSaved": {
-		"message": "स्वतः सहेजा गया",
-		"description": "Auto-saved message"
-	},
 	"saveFailure": {
 		"message": "सहेजना विफल",
 		"description": "Save failure message"
@@ -522,18 +510,6 @@
 	"languageAuto": {
 		"message": "सिस्टम के अनुसार",
 		"description": "Follow system language"
-	},
-	"privacyFriendly": {
-		"message": "गोपनीयता के अनुकूल",
-		"description": "Privacy friendly"
-	},
-	"localOnly": {
-		"message": "केवल स्थानीय",
-		"description": "Local only"
-	},
-	"autoSave": {
-		"message": "स्वतः सहेजें",
-		"description": "Auto save"
 	},
 	"gestureDesc_L": {
 		"message": "बाएं",
@@ -1054,18 +1030,6 @@
 	"popupSwitchRightTab": {
 		"message": "दायाँ टैब",
 		"description": "Switch Right Tab - short"
-	},
-	"dragSearchText": {
-		"message": "🔍 ड्रैग खोज",
-		"description": "Drag search hint"
-	},
-	"dragOpenImage": {
-		"message": "🖼️ इमेज खोलें",
-		"description": "Drag open image hint"
-	},
-	"dragOpenLink": {
-		"message": "🔗 लिंक खोलें",
-		"description": "Drag open link hint"
 	},
 	"aboutTitle": {
 		"message": "FlowMouse के बारे में",
@@ -2058,10 +2022,6 @@
 	"actionMenuRecentlyClosed": {
 		"message": "हाल ही में बंद किए गए टैब",
 		"description": "Show a context menu listing recently closed tabs for quick restore"
-	},
-	"recentlyClosedMaxItems": {
-		"message": "अधिकतम आइटम",
-		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
 	},
 	"actionCategoryContextMenu": {
 		"message": "पॉपअप मेनू",

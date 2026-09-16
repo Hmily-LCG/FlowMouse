@@ -167,6 +167,9 @@ class ActionSelect extends LitElement {
 				flex: 1;
 				min-width: 0;
 			}
+			.trigger.none .trigger-label {
+				opacity: 0.5;
+			}
 			.trigger-chevron {
 				flex-shrink: 0;
 				display: flex;
@@ -536,7 +539,10 @@ class ActionSelect extends LitElement {
 			.action-config-field {
 				display: flex;
 				flex-direction: column;
-				gap: 6px;
+				gap: 9px;
+			}
+			.action-config-field .action-config-hint {
+				margin-top: -3px;
 			}
 			.action-config-field .action-config-label {
 				display: inline-flex;
@@ -781,7 +787,7 @@ class ActionSelect extends LitElement {
 	render() {
 		const hasConfigUI = this.#hasActionConfig(this.value);
 		return html`
-			<button class="trigger" @click=${this.open} type="button">
+			<button class="trigger ${this.value === 'none' ? 'none' : ''}" @click=${this.open} type="button">
 				<span class="trigger-label">${this.#getActionLabel(this.value)}</span>
 				<span class="trigger-chevron">${unsafeHTML(hasConfigUI ? icon('settings', { size: 15 }) : icon('chevronDown', { size: 16 }))}</span>
 			</button>

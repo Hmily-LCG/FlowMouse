@@ -343,10 +343,6 @@
 		"message": "Custom",
 		"description": "Custom"
 	},
-	"customUrlPlaceholder": {
-		"message": "Custom URL, use %s for search term",
-		"description": "Custom URL placeholder"
-	},
 	"customUrlPlaceholderHint": {
 		"message": "Must include protocol (e.g. https://). Available placeholders: %placeholders%. Append :raw to skip URL encoding, e.g. %example%",
 		"description": "Hint for open custom URL action, %placeholders% and %example% are replaced with code elements"
@@ -407,10 +403,6 @@
 		"message": "View and customize each gesture action",
 		"description": "View and customize each gesture action"
 	},
-	"gestureAutoSaveHint": {
-		"message": "Tip: Changes are saved automatically.",
-		"description": "Hint about auto-save"
-	},
 	"blacklist": {
 		"message": "Website Blacklist",
 		"description": "Website blacklist"
@@ -467,10 +459,6 @@
 		"message": "Delete",
 		"description": "Generic delete button tooltip"
 	},
-	"autoSaved": {
-		"message": "Auto-saved",
-		"description": "Auto-saved message"
-	},
 	"saveFailure": {
 		"message": "Save failure",
 		"description": "Save failure message"
@@ -522,18 +510,6 @@
 	"languageAuto": {
 		"message": "Follow System",
 		"description": "Follow system language"
-	},
-	"privacyFriendly": {
-		"message": "Privacy Friendly",
-		"description": "Privacy friendly"
-	},
-	"localOnly": {
-		"message": "Local Only",
-		"description": "Local only"
-	},
-	"autoSave": {
-		"message": "Auto Save",
-		"description": "Auto save"
 	},
 	"gestureDesc_L": {
 		"message": "Left",
@@ -1054,18 +1030,6 @@
 	"popupSwitchRightTab": {
 		"message": "Right Tab",
 		"description": "Switch Right Tab - short"
-	},
-	"dragSearchText": {
-		"message": "🔍 Drag Search",
-		"description": "Drag search hint"
-	},
-	"dragOpenImage": {
-		"message": "🖼️ Open Image",
-		"description": "Drag open image hint"
-	},
-	"dragOpenLink": {
-		"message": "🔗 Open Link",
-		"description": "Drag open link hint"
 	},
 	"aboutTitle": {
 		"message": "About FlowMouse",
@@ -2058,10 +2022,6 @@
 	"actionMenuRecentlyClosed": {
 		"message": "Recently Closed Tabs",
 		"description": "Show a context menu listing recently closed tabs for quick restore"
-	},
-	"recentlyClosedMaxItems": {
-		"message": "Max items",
-		"description": "Label for the maximum number of recently closed tabs to show in the context menu"
 	},
 	"actionCategoryContextMenu": {
 		"message": "Popup Menu",
