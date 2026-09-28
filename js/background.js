@@ -4,6 +4,31 @@ const GLOBAL_MUTE_KEY = 'flowmouse_global_mute_state';
 
 const ctxMenuSessions = new Map();
 
+// A single physical wheel movement can produce a burst of wheel events. Keep
+// a fixed cooldown between switches so repeated wheel ticks can still switch
+// tabs while one tick cannot activate multiple tabs.
+const WHEEL_SWITCH_COOLDOWN_MS = 300;
+const wheelSwitchStates = new Map();
+
+function acquireWheelSwitch(windowId) {
+	const now = Date.now();
+	const state = wheelSwitchStates.get(windowId);
+	if (state && (state.inFlight || now - state.lastSwitchAt < WHEEL_SWITCH_COOLDOWN_MS)) {
+		return false;
+	}
+	wheelSwitchStates.set(windowId, { lastSwitchAt: now, inFlight: true });
+	return true;
+}
+
+function releaseWheelSwitch(windowId) {
+	const state = wheelSwitchStates.get(windowId);
+	if (state) state.inFlight = false;
+}
+
+chrome.windows.onRemoved.addListener((windowId) => {
+	wheelSwitchStates.delete(windowId);
+});
+
 class Bookmarks {
 	static #ROOT_IDS = new Set(['0', 'root________']);
 
@@ -218,6 +243,34 @@ function replaceUrlPlaceholders(template, tab) {
 		const val = raw[key] || '';
 		return mod ? val : encodeURIComponent(val);
 	});
+}
+
+async function switchAdjacentTab(sender, request, direction) {
+	if (!sender.tab) return;
+
+	const windowId = sender.tab.windowId;
+	const isWheelGesture = request.wheelGesture === true;
+	if (isWheelGesture && !acquireWheelSwitch(windowId)) return;
+
+	try {
+		const tabs = await chrome.tabs.query({ windowId });
+		const currentPos = tabs.findIndex(t => t.id === sender.tab.id);
+		if (currentPos === -1) return;
+
+		const atBoundary = direction < 0
+			? currentPos === 0
+			: currentPos === tabs.length - 1;
+		if (request.noWrap && atBoundary) return;
+
+		const targetPos = (currentPos + direction + tabs.length) % tabs.length;
+		if (request.moveTab) {
+			await chrome.tabs.move(sender.tab.id, { index: tabs[targetPos].index });
+		} else {
+			await chrome.tabs.update(tabs[targetPos].id, { active: true });
+		}
+	} finally {
+		if (isWheelGesture) releaseWheelSwitch(windowId);
+	}
 }
 
 async function handleAction(request, sender) {
@@ -615,36 +668,20 @@ async function handleAction(request, sender) {
 		}
 
 		case 'switchLeftTab': {
-			if (sender.tab) {
-				const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
-				const currentPos = tabs.findIndex(t => t.id === sender.tab.id);
-				if (currentPos === -1) return { success: true };
-				if (request.noWrap && currentPos === 0) return { success: true };
-				const prevPos = currentPos > 0 ? currentPos - 1 : tabs.length - 1;
-				if (request.moveTab) {
-					await chrome.tabs.move(sender.tab.id, { index: tabs[prevPos].index });
-				} else {
-					await chrome.tabs.update(tabs[prevPos].id, { active: true });
-				}
-			}
+			await switchAdjacentTab(sender, request, -1);
 			return { success: true };
 		}
 
 		case 'switchRightTab': {
-			if (sender.tab) {
-				const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
-				const currentPos = tabs.findIndex(t => t.id === sender.tab.id);
-				if (currentPos === -1) return { success: true };
-				if (request.noWrap && currentPos === tabs.length - 1) return { success: true };
-				const nextPos = currentPos < tabs.length - 1 ? currentPos + 1 : 0;
-				if (request.moveTab) {
-					await chrome.tabs.move(sender.tab.id, { index: tabs[nextPos].index });
-				} else {
-					await chrome.tabs.update(tabs[nextPos].id, { active: true });
-				}
-			}
+			await switchAdjacentTab(sender, request, 1);
 			return { success: true };
 		}
+
+		case 'wheelGestureEnd':
+			if (sender.tab?.windowId != null) {
+				wheelSwitchStates.delete(sender.tab.windowId);
+			}
+			return { success: true };
 
 		case 'switchFirstTab': {
 			if (sender.tab) {

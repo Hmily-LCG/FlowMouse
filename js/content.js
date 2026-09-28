@@ -2450,6 +2450,8 @@ window.ContentContextMenu = ContentContextMenu;
 		let wheelGestureTriggered = false;
 		let rockerGestureTriggered = false;
 		let rightButtonSeenOnPage = false;
+		const WHEEL_GESTURE_THROTTLE_MS = 80;
+		let lastWheelGestureAt = -Infinity;
 
 		eventManager.add(null, window, 'pageshow', (e) => {
 			if (e.persisted) {
@@ -3063,13 +3065,22 @@ window.ContentContextMenu = ContentContextMenu;
 
 			e.preventDefault();
 			e.stopImmediatePropagation();
+			const now = performance.now();
+			if (now - lastWheelGestureAt < WHEEL_GESTURE_THROTTLE_MS) return;
+			lastWheelGestureAt = now;
 			gestureState.preventContextMenu = true;
 			gestureState.isRightButton = false;
 			recognizer.reset();
 			wheelGestureTriggered = true;
 
-			executeAction(action, scrollConfig, { startX: e.clientX, startY: e.clientY, endX: e.clientX, endY: e.clientY }, gestureState.startTarget);
+			executeAction(action, scrollConfig, { startX: e.clientX, startY: e.clientY, endX: e.clientX, endY: e.clientY }, gestureState.startTarget, { wheelGesture: true });
 		}
+
+		eventManager.add(isWheelGestureEnabled, window, 'mouseup', (e) => {
+			if (e.button !== 2) return;
+			lastWheelGestureAt = -Infinity;
+			safeSendMessage({ action: 'wheelGestureEnd' });
+		}, { capture: true });
 
 		eventManager.add(isWheelGestureEnabled, window, 'auxclick', (e) => {
 			if (e.button === 1 && wheelGestureTriggered) {
@@ -3136,7 +3147,7 @@ window.ContentContextMenu = ContentContextMenu;
 			}
 		});
 
-		async function executeAction(action, config = {}, cursor = {}, startTarget = null, useActiveTab = false) {
+		async function executeAction(action, config = {}, cursor = {}, startTarget = null, { useActiveTab = false, wheelGesture = false } = {}) {
 			if (!action || action === 'none') return false;
 			if (!isExtensionContextValid()) return false;
 
@@ -3395,6 +3406,7 @@ window.ContentContextMenu = ContentContextMenu;
 			} else {
 				const msg_obj = { action };
 				if (useActiveTab) msg_obj.useActiveTab = true;
+				if (wheelGesture) msg_obj.wheelGesture = true;
 				if (action === 'openCustomUrl') {
 					const rawUrl = mergedConfig.customUrl || '';
 					msg_obj.customUrl = rawUrl;
