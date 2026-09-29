@@ -1,5 +1,46 @@
 ## FlowMouse Changelog
 
+### v2.5 (2026-09-29)
+
+**New Features:**
+- **Refactored Super Drag, supporting Command Chain and Custom Popup Menu**
+- **Support adding "Fallback Gestures" to match drags in any direction**
+- New Drag Gestures:
+  - Invoke Another Extension
+  - Open Custom URL
+  - Link Drag: Add Link to Bookmarks
+  - Image Drag: Try Open Link
+- New Gesture Commands:
+  - View Frame Source
+  - Reload Frame
+  - Open FlowMouse Settings
+- Support "Abort the chain when a step succeeds" for Gesture Command Chain
+- Support using parameters related to the web element at the gesture starting position in the "Open Custom URL" command
+- Advanced Settings: Support setting Custom UI Scale
+
+**Wheel Gesture Improvements:**
+- **Support fast menu navigation using the scroll wheel when the popup menu is assigned to a wheel gesture**
+- Advanced Settings: Support setting Wheel Trigger Distance (Thanks @kriskongx)
+
+**Gesture Improvements:**
+- Fixed an issue where "Print Page" and "Save as MHTML" gestures might mistakenly include the extension HUD
+- Fixed an issue where the "Close Tab" gesture might incorrectly wrap around tabs after closing a tab
+
+**Drag & Drop Improvements:**
+- Fixed an issue where the "Suppress gesture over input fields" option also triggered when dragging onto checkboxes, buttons, etc.
+- Fixed an issue where some websites' own drag behaviors might still be triggered after a drag gesture executed successfully
+
+**Interface & General Improvements:**
+- Fixed an issue where the scroll distance of the next scroll might be incorrect after an invalid scroll at the page boundary
+- Fixed an issue where "Print Page" and "Copy Page Title & URL" gesture commands used inside an iframe did not operate on the top-level frame
+- Optimized Command Chain execution logic to retain gesture context when executing on the current page (prevents targeting errors for commands like "Popup Menu" or "Paste Custom Text")
+- Optimized the logic for opening an incognito tab from a normal window to reuse an already open incognito window
+- Optimized the display of long text in the settings page and extension popup
+- Optimized the opening speed of the popup menu
+- **Refactored code significantly to optimize performance and fix bugs**
+- Other minor improvements
+
+
 ### v2.4.1 (2026-09-17)
 
 **Gesture Improvements:**
