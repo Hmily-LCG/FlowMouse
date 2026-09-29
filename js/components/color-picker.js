@@ -1,6 +1,6 @@
 import { LitElement, html, css, unsafeHTML } from '../../js/lib/lit-all.min.js';
 import { icon } from '../icons.js';
-import { tooltip } from '../tooltip.js';
+import { tooltip } from '../directives/tooltip.js';
 
 class ColorPicker extends LitElement {
 	static properties = {

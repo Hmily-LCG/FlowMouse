@@ -1,5 +1,5 @@
-import './lib/lit-config.js';
-import { LitElement, html, css } from './lib/lit-all.min.js';
+import { LitElement, html, css } from './lib/lit-core.min.js';
+
 
 const CUSTOM_CSS_CACHE_KEY = 'fm:customCss';
 
@@ -54,6 +54,14 @@ class FmContextMenu extends LitElement {
 		.fm-ctx-item:hover,
 		.fm-ctx-item:focus-visible {
 			background: rgba(0, 0, 0, 0.08);
+		}
+
+		:host(.fm-ctx-menu--wheel) .fm-ctx-item:focus {
+			outline: none;
+		}
+
+		:host(.fm-ctx-menu--wheel) .fm-ctx-item:hover:not(:focus) {
+			background: rgba(0, 0, 0, 0);
 		}
 
 		.fm-ctx-icon {
@@ -111,6 +119,9 @@ class FmContextMenu extends LitElement {
 			.fm-ctx-item:focus-visible {
 				background: rgba(255, 255, 255, 0.1);
 			}
+			:host(.fm-ctx-menu--wheel) .fm-ctx-item:hover:not(:focus) {
+				background: rgba(255, 255, 255, 0);
+			}
 			.fm-ctx-sep {
 				background: rgba(255, 255, 255, 0.1);
 			}
@@ -121,6 +132,12 @@ class FmContextMenu extends LitElement {
 	#rtf = null;
 	#dimensionsSent = false;
 	#scrollToBottom = false;
+	#wheelDir = null;
+	#wheelMode = false;
+	#wheelThreshold = 0;
+	#tabZoom = 1;
+	#wheelAccum = 0;
+	#wheelLastDir = 0;
 
 	constructor() {
 		super();
@@ -135,6 +152,13 @@ class FmContextMenu extends LitElement {
 		const dir = params.get('dir') || 'ltr';
 		const lang = params.get('lang') || '';
 		this.#scrollToBottom = params.get('bottom') === '1';
+		const wheel = params.get('wheel');
+		if (wheel !== null) {
+			this.#wheelDir = Math.sign(Number(wheel)) || 0;
+			this.#wheelMode = true;
+			this.#wheelThreshold = Number(params.get('wt')) || 0;
+			this.#tabZoom = Number(params.get('zoom')) || 1;
+		}
 
 		if (!this.hasAttribute('preview')) {
 			document.documentElement.dir = dir;
@@ -156,6 +180,12 @@ class FmContextMenu extends LitElement {
 		}
 		window.addEventListener('contextmenu', this.#preventDefault, true);
 		window.addEventListener('keydown', this.#onKeyDown, true);
+		if (this.#wheelMode) {
+			this.classList.add('fm-ctx-menu--wheel');
+			window.addEventListener('message', this.#onWheelMessage);
+			window.addEventListener('wheel', this.#onWheel, { capture: true, passive: false });
+			window.addEventListener('mouseup', this.#onMouseUp, true);
+		}
 		this.#fetchItems();
 		this.#loadCustomCss();
 	}
@@ -199,9 +229,73 @@ class FmContextMenu extends LitElement {
 		if (this.preview) return;
 		window.removeEventListener('contextmenu', this.#preventDefault, true);
 		window.removeEventListener('keydown', this.#onKeyDown, true);
+		if (this.#wheelDir !== null) {
+			window.removeEventListener('message', this.#onWheelMessage);
+			window.removeEventListener('wheel', this.#onWheel, { capture: true, passive: false });
+			window.removeEventListener('mouseup', this.#onMouseUp, true);
+		}
 	}
 
 	#preventDefault = (e) => e.preventDefault();
+
+	#onWheelMessage = (e) => {
+		if (!this.#wheelMode) return;
+		const request = e.data;
+		if (request?.type !== 'fm-ctx-wheel' || request.menuId !== this.#menuId) return;
+		if (e.source !== window.parent) return;
+		if (request.delta) this.#moveFocus(request.delta);
+		if (request.activate) this.#activateFocused();
+	};
+
+	#onWheel = (e) => {
+		if (!this.#wheelMode || !(e.buttons & 2) || !e.deltaY) return;
+		e.preventDefault();
+		if (this.#accumulateWheel(e)) this.#moveFocus(Math.sign(e.deltaY));
+	};
+
+	#accumulateWheel(e) {
+		const dir = Math.sign(e.deltaY);
+		const isNewScroll = dir !== this.#wheelLastDir && this.#wheelLastDir !== 0;
+		this.#wheelLastDir = dir;
+		if (isNewScroll || e.deltaMode === 2) {
+			this.#wheelAccum = 0;
+			return true;
+		}
+		this.#wheelAccum += Math.abs(e.deltaMode === 1 ? e.deltaY * 16.67 : e.deltaY * (this.#tabZoom));
+		if (this.#wheelAccum < this.#wheelThreshold) return false;
+		this.#wheelAccum = 0;
+		return true;
+	}
+
+	#onMouseUp = (e) => {
+		if (!this.#wheelMode || e.button !== 2) return;
+		e.stopPropagation();
+		this.#activateFocused();
+	};
+
+	#focusWheelStart() {
+		const items = this.#getMenuItems();
+		if (!items.length) return;
+		const active = items.findIndex(li => li.classList.contains('fm-ctx-item--active'));
+		const index = active === -1 ? 0 : (active + this.#wheelDir + items.length) % items.length;
+		items[index].focus();
+		window.addEventListener('resize', () => this.renderRoot.activeElement?.scrollIntoView({ block: 'nearest' }), { once: true });
+	}
+
+	#moveFocus(delta) {
+		const items = this.#getMenuItems();
+		if (!items.length) return;
+		const len = items.length;
+		const cur = items.indexOf(this.renderRoot.activeElement);
+		const next = cur === -1 ? (delta > 0 ? 0 : len - 1) : (((cur + delta) % len) + len) % len;
+		items[next].focus();
+	}
+
+	#activateFocused() {
+		this.#wheelMode = false;
+		const index = this.renderRoot.activeElement?.dataset.index;
+		if (index != null) this.#selectItem(Number(index));
+	}
 
 	#fetchItems() {
 		chrome.runtime.sendMessage({ action: 'ctxMenuFetch', menuId: this.#menuId }, (response) => {
@@ -230,37 +324,22 @@ class FmContextMenu extends LitElement {
 		const list = this.renderRoot.querySelector('ul');
 		if (!list) return;
 
-		const sendDimensions = (width, height) => {
-			if (this.#dimensionsSent) return;
-			this.#dimensionsSent = true;
-			list.classList.add('loaded');
-			chrome.runtime.sendMessage({
-				action: 'ctxMenuDimensions',
-				menuId: this.#menuId,
-				width,
-				height,
-			});
-			if (this.#scrollToBottom) {
-				requestAnimationFrame(() => { document.documentElement.scrollTop = document.documentElement.scrollHeight; });
-			}
-			window.focus();
-			window.addEventListener('blur', this.#close);
-		};
-
-		const resizeObserver = new ResizeObserver((entries) => {
-			const entry = entries[entries.length - 1];
-			const size = Array.isArray(entry.borderBoxSize) ? entry.borderBoxSize[0] : entry.borderBoxSize;
-			resizeObserver.disconnect();
-			sendDimensions(Math.ceil(size.inlineSize) + 1, Math.ceil(size.blockSize));
-		});
-
-		resizeObserver.observe(list, { box: 'border-box' });
-
 		const rect = list.getBoundingClientRect();
-		if (!this.#dimensionsSent && rect.width > 0 && rect.height > 0) {
-			resizeObserver.disconnect();
-			sendDimensions(Math.ceil(rect.width) + 1, Math.ceil(rect.height));
+		if (!rect.width || !rect.height) return;
+		this.#dimensionsSent = true;
+		list.classList.add('loaded');
+		chrome.runtime.sendMessage({
+			action: 'ctxMenuDimensions',
+			menuId: this.#menuId,
+			width: Math.ceil(rect.width) + 1,
+			height: Math.ceil(rect.height),
+		});
+		if (this.#scrollToBottom && this.#wheelDir === null) {
+			requestAnimationFrame(() => { document.documentElement.scrollTop = document.documentElement.scrollHeight; });
 		}
+		window.focus();
+		if (this.#wheelDir !== null) this.#focusWheelStart();
+		window.addEventListener('blur', this.#close);
 	}
 
 	#getMenuItems() {
@@ -274,8 +353,7 @@ class FmContextMenu extends LitElement {
 			return;
 		}
 
-		const items = this.#getMenuItems();
-		if (!items.length) return;
+		if (!this.#getMenuItems().length) return;
 
 		let delta = 0;
 		if (e.key === 'ArrowDown' || (e.key === 'Tab' && !e.shiftKey)) delta = 1;
@@ -283,10 +361,7 @@ class FmContextMenu extends LitElement {
 
 		if (delta) {
 			e.preventDefault();
-			const active = this.renderRoot.activeElement;
-			const cur = items.indexOf(active);
-			const next = cur === -1 ? (delta > 0 ? 0 : items.length - 1) : (cur + delta + items.length) % items.length;
-			items[next].focus();
+			this.#moveFocus(delta);
 			return;
 		}
 

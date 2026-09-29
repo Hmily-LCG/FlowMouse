@@ -203,6 +203,18 @@
 		"message": "Подсказки за жестове",
 		"description": "Show suggested gestures at bottom of screen"
 	},
+	"userScale": {
+		"message": "Персонализиран мащаб на интерфейса",
+		"description": "UI scaling setting for FlowMouse's own interface"
+	},
+	"userScaleDesc": {
+		"message": "Мащабиране на елементите на интерфейса на FlowMouse, като подсказки за действие и HUD",
+		"description": "Description for the UI scaling setting"
+	},
+	"scale": {
+		"message": "Мащаб",
+		"description": "Label for the UI scale slider"
+	},
 	"customCss": {
 		"message": "Персонализиран CSS",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -311,11 +323,11 @@
 		"message": "Функции за плъзгане",
 		"description": "Drag features section"
 	},
-	"textDragSearch": {
+	"textDrag": {
 		"message": "Плъзгане на текст",
 		"description": "Text drag"
 	},
-	"textDragSearchDesc": {
+	"textDragDesc": {
 		"message": "Плъзнете избран текст за търсене",
 		"description": "Drag selected text to search"
 	},
@@ -575,6 +587,10 @@
 		"message": "Надясно после наляво",
 		"description": "Gesture description for →←"
 	},
+	"gestureDesc_Any": {
+		"message": "Всяко",
+		"description": "Description for the * fallback gesture that matches any unmatched pattern"
+	},
 	"actionNone": {
 		"message": "Без действие",
 		"description": "No action"
@@ -731,6 +747,10 @@
 		"message": "Опресняване на всички раздели",
 		"description": "Refresh all tabs"
 	},
+	"actionReloadFrame": {
+		"message": "Презареждане на рамката",
+		"description": "Reload only the frame (iframe) where the gesture was performed"
+	},
 	"actionStopLoading": {
 		"message": "Спри зареждането",
 		"description": "Stop loading"
@@ -790,6 +810,10 @@
 	"actionOpenExtensions": {
 		"message": "Отвори разширенията",
 		"description": "Open extensions page"
+	},
+	"actionOpenOptions": {
+		"message": "Отвори настройките на FlowMouse",
+		"description": "Open the FlowMouse settings page"
 	},
 	"actionSaveAsMhtml": {
 		"message": "Запазване като MHTML",
@@ -926,6 +950,14 @@
 	"gestureRecorderBanned": {
 		"message": "Жестът %pattern% вече съществува",
 		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"gestureRecorderAny": {
+		"message": "Добави жест за неразпознати шаблони",
+		"description": "Button in the gesture recorder to select the * fallback that matches any unmatched gesture"
+	},
+	"fallbackGestureTip": {
+		"message": "Задейства се, когато начертаната следа не съвпада с никой друг жест",
+		"description": "Tooltip explaining what the * fallback gesture does"
 	},
 	"rightButton": {
 		"message": "Десен бутон на мишката",
@@ -1192,60 +1224,56 @@
 		"description": "No action"
 	},
 	"dragActionSearch": {
-		"message": "🔍 Търсене",
+		"message": "Търсене",
 		"description": "Search action"
 	},
 	"dragActionCopy": {
-		"message": "📋 Копиране",
+		"message": "Копиране",
 		"description": "Copy action"
 	},
-	"dragActionOpenTab": {
-		"message": "📑 Отваряне в нов раздел",
-		"description": "Open in new tab"
-	},
 	"dragActionOpenTabLink": {
-		"message": "🔗 Отваряне на връзка",
+		"message": "Отваряне на връзка",
 		"description": "Open link in new tab"
 	},
 	"dragActionOpenTabImage": {
-		"message": "🖼️ Отваряне на изображение",
+		"message": "Отваряне на изображение",
 		"description": "Open image in new tab"
 	},
+	"dragActionTryOpenLink": {
+		"message": "Опит за отваряне на връзка",
+		"description": "Open the image's link in new tab, if any"
+	},
 	"dragActionCopyLink": {
-		"message": "📋 Копиране на връзка",
+		"message": "Копиране на връзка",
 		"description": "Copy link"
 	},
 	"dragActionCopyLinkText": {
-		"message": "📋 Копиране на текста на връзката",
+		"message": "Копиране на текста на връзката",
 		"description": "Copy link text"
 	},
 	"dragActionCopyLinkAndText": {
-		"message": "📋 Копиране на текст и връзка",
+		"message": "Копиране на текст и връзка",
 		"description": "Copy link text and URL"
 	},
+	"dragActionBookmarkLink": {
+		"message": "Добави връзката към отметките",
+		"description": "Add dragged link to bookmarks"
+	},
 	"dragActionSaveImage": {
-		"message": "💾 Запази изображението",
+		"message": "Запази изображението",
 		"description": "Save image"
 	},
 	"dragActionCopyImage": {
-		"message": "📋 Копирай изображението",
+		"message": "Копирай изображението",
 		"description": "Copy image"
 	},
 	"dragActionCopyImageUrl": {
-		"message": "📋 Копиране на URL на изображение",
+		"message": "Копиране на URL на изображение",
 		"description": "Copy image URL"
 	},
 	"dragActionImageSearch": {
-		"message": "🔍 Търсене на изображение",
+		"message": "Търсене на изображение",
 		"description": "Image search"
-	},
-	"dragActionCustomSearch": {
-		"message": "🔍 Персонализирано търсене",
-		"description": "Custom search"
-	},
-	"dragActionSendCustomEvent": {
-		"message": "Изпращане на персонализирано събитие",
-		"description": "Send custom DOM event on drag gesture"
 	},
 	"reducedMotionWarning": {
 		"message": "Системните анимации на %OS% не са активирани, анимацията на превъртане може да не се показва правилно. Можете да активирате анимациите в системните настройки на %OS%.",
@@ -1511,10 +1539,6 @@
 		"message": "Моля, използвайте <span class=\"text-highlight\">ляв бутон на мишката</span> за плъзгане",
 		"description": "Tutorial drag wrong button error"
 	},
-	"tutorialRefreshTip": {
-		"message": "Съвет: Раздели, отворени преди инсталирането на FlowMouse, трябва да бъдат <span class=\"text-highlight\">опреснени</span> преди да могат да използват жестове",
-		"description": "Tip about refreshing tabs"
-	},
 	"permissionBookmarksTitle": {
 		"message": "Управление на отметки",
 		"description": "Permission popup title for bookmarks"
@@ -1595,9 +1619,9 @@
 		"message": "Запазването на изображението е неуспешно: Времето за зареждане изтече",
 		"description": "Toast message when image loading times out"
 	},
-	"saveImageSubdirPlaceholder": {
-		"message": "Поддиректория (по избор)",
-		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	"saveImageSubdirLabel": {
+		"message": "Поддиректория",
+		"description": "Label for the optional subdirectory input in save image config"
 	},
 	"buttonOkay": {
 		"message": "Добре",
@@ -1635,6 +1659,18 @@
 		"message": "Инструменти",
 		"description": "Action category: utilities"
 	},
+	"actionCategoryText": {
+		"message": "Текст",
+		"description": "Action category: text"
+	},
+	"actionCategoryLink": {
+		"message": "Връзка",
+		"description": "Action category: link"
+	},
+	"actionCategoryImage": {
+		"message": "Изображение",
+		"description": "Action category: image"
+	},
 	"noResults": {
 		"message": "Няма резултати",
 		"description": "No search results found"
@@ -1650,6 +1686,14 @@
 	"enableWheelGesturesDesc": {
 		"message": "Извършвайте различни действия бързо с помощта на колелцето на мишката",
 		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelThreshold": {
+		"message": "Разстояние за задействане на колелцето",
+		"description": "Label for the wheel gesture scroll distance threshold"
+	},
+	"wheelThresholdDesc": {
+		"message": "Превъртането на колелцето на мишката трябва да достигне това разстояние, за да задейства многократно жестовете с колелцето",
+		"description": "Description for the wheel gesture scroll distance threshold"
 	},
 	"wheelGesture_scrollUpHoldingRight": {
 		"message": "Превъртане нагоре при задържане на десния бутон",
@@ -1758,6 +1802,10 @@
 	"emptyChainSteps": {
 		"message": "Няма добавени стъпки. Кликнете върху „Добавяне на стъпка“, за да започнете.",
 		"description": "Empty chain steps message in expanded body"
+	},
+	"chainStopOnSuccess": {
+		"message": "Прекъсване на веригата при успешна стъпка",
+		"description": "Checkbox: skip remaining command-chain steps after the first successful action"
 	},
 	"emptyChainStepsShort": {
 		"message": "Няма добавени стъпки",
@@ -1898,6 +1946,10 @@
 	"actionViewPageSource": {
 		"message": "Преглед на изходния код на страницата",
 		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionViewFrameSource": {
+		"message": "Преглед на изходния код на рамката",
+		"description": "Open the source code of the frame (iframe) where the gesture was performed in a new tab"
 	},
 	"actionPauseGesture": {
 		"message": "Пауза на жестовете до опресняване",
@@ -2118,6 +2170,14 @@
 	"ctxMenuScrollToBottom": {
 		"message": "Превъртане до долу",
 		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuWheelNav": {
+		"message": "Бърза навигация с колелцето",
+		"description": "Checkbox: navigate a wheel-gesture menu with the wheel while holding the right button"
+	},
+	"ctxMenuWheelNavTooltip": {
+		"message": "Докато задържате бутона на мишката, превъртете колелцето, за да изберете бързо елементи от менюто.",
+		"description": "Tooltip explaining quick wheel navigation for wheel-gesture menus"
 	},
 	"ctxMenuTimeDisplay": {
 		"message": "Показване на времето",

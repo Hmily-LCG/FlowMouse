@@ -1,7 +1,8 @@
 import { LitElement, html, css, unsafeHTML } from '../../js/lib/lit-all.min.js';
 import { commonStyles, optionStyles } from './shared-styles.js';
 import { icon } from '../icons.js';
-import { tooltip } from '../tooltip.js';
+import { tooltip } from '../directives/tooltip.js';
+import { fitText } from '../directives/fit-text.js';
 
 class GestureGrid extends LitElement {
 	static properties = {
@@ -22,7 +23,7 @@ class GestureGrid extends LitElement {
 				grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
 				gap: 10px;
 				margin-top: 2px;
-				margin-bottom: 18px;
+				margin-bottom: 16px;
 			}
 
 			.gesture-item {
@@ -36,7 +37,7 @@ class GestureGrid extends LitElement {
 			}
 
 			.gesture-item .gesture-pattern {
-				font-size: 1.2em;
+				font-size: 16.8px;
 				margin-block: 2px;
 				text-align: center;
 				overflow: hidden;
@@ -84,6 +85,13 @@ class GestureGrid extends LitElement {
 				background: transparent;
 				color: var(--text-muted);
 				font-size: 14px;
+				opacity: 0;
+				transition: color 0.2s, opacity 0.15s;
+			}
+
+			.gesture-item:hover .delete-gesture-btn,
+			.gesture-item .delete-gesture-btn:focus-visible {
+				opacity: 1;
 			}
 
 			.gesture-item .delete-gesture-btn:hover {
@@ -98,10 +106,25 @@ class GestureGrid extends LitElement {
 			}
 
 			.gesture-item.none .gesture-pattern {
-				opacity: .4;
+				opacity: .5;
 			}
 
 			.gesture-item.custom {
+			}
+
+			.add-gesture-btn {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 6px;
+				min-width: 0;
+				min-height: 80px;
+				border-radius: 8px;
+				font-size: 13px;
+			}
+
+			.add-gesture-btn svg {
+				flex-shrink: 0;
 			}
 		`,
 	];
@@ -122,7 +145,8 @@ class GestureGrid extends LitElement {
 		'↑↓': 'gestureDesc_UD',
 		'↓↑': 'gestureDesc_DU',
 		'←→': 'gestureDesc_LR',
-		'→←': 'gestureDesc_RL'
+		'→←': 'gestureDesc_RL',
+		'*': 'gestureDesc_Any',
 	};
 
 	constructor() {
@@ -145,8 +169,39 @@ class GestureGrid extends LitElement {
 		return html`
 			<div class="gesture-grid">
 				${patterns.map(pattern => this.#renderItem(pattern, gestures))}
+				<button type="button" class="btn btn-dashed add-gesture-btn" id="openGestureDrawer" @click=${this.#handleAdd}>
+					${unsafeHTML(icon('plus', { size: 16, strokeWidth: 2 }))}
+					<span ${fitText()}>${window.i18n.getMessage('addCustomGesture')}</span>
+				</button>
 			</div>
+			<gesture-recorder id="gestureRecorder" data-gesture-ignore></gesture-recorder>
 		`;
+	}
+
+	async #handleAdd() {
+		const recorder = this.shadowRoot.getElementById('gestureRecorder');
+		if (!recorder) return;
+
+		const { DEFAULT_GESTURES } = window.GestureConstants;
+		const bannedPatterns = Array.from(new Set([
+			...Object.keys(DEFAULT_GESTURES),
+			...Object.keys(this.mouseGestures),
+		]));
+		const result = await recorder.open({ button: 'right', bannedPatterns, allowAny: false });
+		if (result.cancelled || !result.pattern) return;
+
+		const pattern = result.pattern;
+		this.#dispatchChange({ ...this.mouseGestures, [pattern]: { action: 'none' } });
+		this.#openActionSelect(pattern);
+	}
+
+	#dispatchChange(mouseGestures) {
+		this.mouseGestures = mouseGestures;
+		this.dispatchEvent(new CustomEvent('gestures-change', {
+			detail: { mouseGestures },
+			bubbles: true,
+			composed: true,
+		}));
 	}
 
 	#renderItem(pattern, gestures) {
@@ -168,15 +223,13 @@ class GestureGrid extends LitElement {
 			<div class="gesture-item ${isModified && !isNone ? 'modified' : ''} ${isCustom ? 'custom' : ''} ${isNone ? 'none' : ''}">
 				${isCustom ? html`
 					<button class="delete-gesture-btn" @click=${() => this.#handleDelete(pattern)}
-						.tooltip=${tooltip(window.i18n.getMessage('deleteGesture'))}
-						style="display: inline-flex">${unsafeHTML(icon('x', { size: 14, strokeWidth: 2.5 }))}</button>
-				` : html`
+						.tooltip=${tooltip(window.i18n.getMessage('deleteGesture'))}>${unsafeHTML(icon('x', { size: 14, strokeWidth: 2.5 }))}</button>
+				` : isNone ? html`
 					<button class="reset-btn" @click=${() => this.#handleReset(pattern)}
-						.tooltip=${tooltip(window.i18n.getMessage('resetToDefault'))}
-						style="display: ${isModified ? 'inline-flex' : 'none'}">${unsafeHTML(icon('rotateCcw', { size: 13, strokeWidth: 2.5 }))}</button>
+						.tooltip=${tooltip(window.i18n.getMessage('resetToDefault'))}>${unsafeHTML(icon('rotateCcw', { size: 13, strokeWidth: 2.5 }))}</button>
+				` : html`
 					<button class="delete-gesture-btn" @click=${() => this.#handleClear(pattern)}
-						.tooltip=${tooltip(window.i18n.getMessage('deleteGesture'))}
-						style="display: ${(!isModified && currentAction !== 'none') ? 'inline-flex' : 'none'}">${unsafeHTML(icon('x', { size: 14, strokeWidth: 2.5 }))}</button>
+						.tooltip=${tooltip(window.i18n.getMessage('deleteGesture'))}>${unsafeHTML(icon('x', { size: 14, strokeWidth: 2.5 }))}</button>
 				`}
 				<div class="gesture-pattern" title="${pattern} ${desc}">
 					${unsafeHTML(patternSvg)} <span class="gesture-desc">${desc}</span>
@@ -203,51 +256,22 @@ class GestureGrid extends LitElement {
 			composed: true,
 		}));
 
-		const newMouseGestures = { ...this.mouseGestures };
-		newMouseGestures[pattern] = { action, ...config };
-
-		this.mouseGestures = newMouseGestures;
-
-		this.dispatchEvent(new CustomEvent('gestures-change', {
-			detail: { mouseGestures: newMouseGestures },
-			bubbles: true,
-			composed: true,
-		}));
+		this.#dispatchChange({ ...this.mouseGestures, [pattern]: { action, ...config } });
 	}
 
 	#handleReset(pattern) {
 		const { DEFAULT_GESTURES } = window.GestureConstants;
 		const defaultAction = DEFAULT_GESTURES[pattern] || 'none';
-
-		const newMouseGestures = { ...this.mouseGestures };
-		newMouseGestures[pattern] = { action: defaultAction };
-
-		this.mouseGestures = newMouseGestures;
-
-		this.dispatchEvent(new CustomEvent('gestures-change', {
-			detail: { mouseGestures: newMouseGestures },
-			bubbles: true,
-			composed: true,
-		}));
+		this.#dispatchChange({ ...this.mouseGestures, [pattern]: { action: defaultAction } });
 	}
 
 	#handleClear(pattern) {
-		const newMouseGestures = { ...this.mouseGestures };
-		newMouseGestures[pattern] = { action: 'none' };
-
-		this.mouseGestures = newMouseGestures;
-
-		this.dispatchEvent(new CustomEvent('gestures-change', {
-			detail: { mouseGestures: newMouseGestures },
-			bubbles: true,
-			composed: true,
-		}));
+		this.#dispatchChange({ ...this.mouseGestures, [pattern]: { action: 'none' } });
 	}
 
-	openActionSelect(pattern) {
+	#openActionSelect(pattern) {
 		this.updateComplete.then(() => {
-			const el = this.shadowRoot.querySelector(`action-select[data-pattern="${pattern}"]`);
-			if (el) el.open();
+			this.shadowRoot.querySelector(`action-select[data-pattern="${pattern}"]`)?.open();
 		});
 	}
 

@@ -296,7 +296,7 @@
 
 	function handleScroll(action, scrollConfig, forceTargetWindow = false, cursorX, cursorY) {
 		const meta = SCROLL_ACTIONS[action];
-		if (!meta) return;
+		if (!meta) return false;
 		const ax = AXES[meta.axis];
 		const target = getScrollTarget(action, forceTargetWindow, cursorX, cursorY);
 		const smoothness = resolveScrollSmoothness(scrollConfig.scrollSmoothness);
@@ -331,8 +331,10 @@
 		}
 
 		cancelEaseScroll();
+
+		if (Math.abs(cur - goal) <= 1) return false;
+
 		scrollGoals.set(target, { [meta.axis]: goal });
-		if (cur === goal) return;
 
 		if (smoothness === 'none') {
 			scrollGoals.delete(target);
@@ -349,6 +351,7 @@
 		} else {
 			easeScrollTo(target, meta.axis, goal, unclampedGoal, scrollConfig.scrollDuration ?? 500);
 		}
+		return true;
 	}
 
 
@@ -433,11 +436,13 @@ class ContentContextMenu {
 		lang: '',
 		isRtl: false,
 		customCss: '',
+		wheelThreshold: 0,
 	};
 
 	#activeMenuClose = null;
 	#activeMenuId = null;
 	#activeItems = null;
+	#wheel = null;
 
 	updateSettings(s) {
 		this.#settings = { ...this.#settings, ...s };
@@ -446,11 +451,18 @@ class ContentContextMenu {
 	generateStyles() {
 		return `
 			.fm-ctx-frame {
-				transition: opacity 0.15s cubic-bezier(.4,0,.2,1);
+				transform: scale(var(--fm-ui-scale));
+				transform-origin: top left;
+				transition: opacity 0.12s cubic-bezier(.4,0,.2,1);
 				box-shadow: 0 2px 12px rgba(0,0,0,0.12), 0 0 0 0.5px rgba(0,0,0,0.12);
 				border-radius: 8px;
 				backdrop-filter: blur(8px);
 				background: rgba(255, 255, 255, 0.92);
+			}
+
+			/* Opened by a wheel gesture: show faster */
+			.fm-ctx-frame--wheel {
+				transition: none;
 			}
 
 			@supports (corner-shape: superellipse(1.4)) {
@@ -522,18 +534,25 @@ class ContentContextMenu {
 			overflow: hidden;
 		`;
 
-		host.shadow.appendChild(iframe);
-
 		const url = new URL(chrome.runtime.getURL('pages/context-menu.html'));
 		url.searchParams.set('id', menuId);
 		url.searchParams.set('dir', this.#settings.isRtl ? 'rtl' : 'ltr');
 		if (this.#settings.lang) url.searchParams.set('lang', this.#settings.lang);
 		if (options?.scrollToBottom) url.searchParams.set('bottom', '1');
+		const wheelDir = options?.wheelDir;
+		if (wheelDir != null) {
+			url.searchParams.set('wheel', String(Math.sign(wheelDir)));
+			url.searchParams.set('wt', String(this.#settings.wheelThreshold));
+			url.searchParams.set('zoom', String(window.FlowMouseZoom.tabZoom));
+			iframe.classList.add('fm-ctx-frame--wheel');
+		}
 
-		try {
-			iframe.contentWindow.location = url.href;
-		} catch {
-			iframe.src = url.href;
+		iframe.src = url.href;
+
+		host.shadow.appendChild(iframe);
+		if (wheelDir != null) {
+			const origin = new URL(chrome.runtime.getURL('')).origin;
+			this.#wheel = { ready: false, delta: 0, activate: false, target: iframe.contentWindow, origin };
 		}
 
 		const onMessage = (request) => {
@@ -541,37 +560,44 @@ class ContentContextMenu {
 
 			if (request.action === 'ctxMenuDimensions') {
 				const { width, height } = request;
-				const vw = document.documentElement.clientWidth;
-				const vh = document.documentElement.clientHeight;
+				const uiScale = window.FlowMouseZoom.uiScale;
+				const anchorX = x / uiScale;
+				const anchorY = y / uiScale;
+				const vw = document.documentElement.clientWidth / uiScale;
+				const vh = document.documentElement.clientHeight / uiScale;
 				const pad = 6;
 
-				const maxW = vw - pad * 2;
-				const maxH = vh - pad * 2;
+				const maxW = Math.max(0, vw - pad * 2);
+				const maxH = Math.max(0, vh - pad * 2);
 				const clampedW = Math.min(width, maxW);
 				const clampedH = Math.min(height, maxH);
 
-				let left = x;
+				let left = anchorX;
 				if (left + clampedW + pad > vw) {
-					left = (x - clampedW >= pad) ? x - clampedW - 1 : vw - clampedW - pad;
+					left = (anchorX - clampedW >= pad) ? anchorX - clampedW - 1 : vw - clampedW - pad;
 				} else {
 					left += 1;
 				}
 				if (left + clampedW + pad > vw) left = vw - clampedW - pad;
 				if (left < pad) left = pad;
 
-				let top = y;
+				let top = anchorY;
 				if (top + clampedH + pad > vh) {
-					top = (y - clampedH >= pad) ? y - clampedH : vh - clampedH - pad;
+					top = (anchorY - clampedH >= pad) ? anchorY - clampedH : vh - clampedH - pad;
 				}
 				if (top + clampedH + pad > vh) top = vh - clampedH - pad;
 				if (top < pad) top = pad;
 
 				iframe.style.setProperty('width', Math.round(clampedW) + 'px', 'important');
 				iframe.style.setProperty('height', Math.round(clampedH) + 'px', 'important');
-				iframe.style.setProperty('left', Math.round(left) + 'px', 'important');
-				iframe.style.setProperty('top', Math.round(top) + 'px', 'important');
+				iframe.style.setProperty('left', Math.round(left * uiScale) + 'px', 'important');
+				iframe.style.setProperty('top', Math.round(top * uiScale) + 'px', 'important');
 				iframe.style.setProperty('opacity', '1', 'important');
 				iframe.style.setProperty('pointer-events', 'auto', 'important');
+				if (this.#wheel) {
+					this.#wheel.ready = true;
+					this.#flushWheel();
+				}
 			}
 
 			if (request.action === 'ctxMenuSelect') {
@@ -594,6 +620,7 @@ class ContentContextMenu {
 			this.#activeMenuClose = null;
 			this.#activeMenuId = null;
 			this.#activeItems = null;
+			this.#wheel = null;
 			try { chrome.runtime.onMessage.removeListener(onMessage); } catch {}
 			try { chrome.runtime.sendMessage({ action: 'ctxMenuCleanup', menuId }); } catch {}
 			host.cleanup();
@@ -605,6 +632,32 @@ class ContentContextMenu {
 
 	get isOpen() {
 		return this.#activeMenuClose !== null;
+	}
+
+	get isWheelNav() {
+		return this.#wheel !== null;
+	}
+
+	wheelNavigate(delta) {
+		if (!this.#wheel) return;
+		this.#wheel.delta += delta;
+		this.#flushWheel();
+	}
+
+	wheelActivate() {
+		if (!this.#wheel) return;
+		this.#wheel.activate = true;
+		this.#flushWheel();
+	}
+
+	#flushWheel() {
+		const w = this.#wheel;
+		if (!w?.ready || (!w.delta && !w.activate)) return;
+		try {
+			w.target.postMessage({ type: 'fm-ctx-wheel', menuId: this.#activeMenuId, delta: w.delta, activate: w.activate }, w.origin);
+		} catch {}
+		w.delta = 0;
+		if (w.activate) this.#wheel = null;
 	}
 
 	close() {
@@ -1297,7 +1350,8 @@ window.ContentContextMenu = ContentContextMenu;
 			const width = Math.abs(x - svx);
 			const height = Math.abs(y - svy);
 
-			if (width > CLICK_THRESHOLD || height > CLICK_THRESHOLD) {
+			const clickThreshold = CLICK_THRESHOLD / window.FlowMouseZoom.tabZoom;
+			if (width > clickThreshold || height > clickThreshold) {
 				if (this.#rectEl.style.display !== 'block') {
 					this.#rectEl.style.display = 'block';
 				}
@@ -1323,8 +1377,9 @@ window.ContentContextMenu = ContentContextMenu;
 
 			const svx = this.#startX - window.scrollX;
 			const svy = this.#startY - window.scrollY;
-			const isClick = Math.abs(e.clientX - svx) < CLICK_THRESHOLD
-						 && Math.abs(e.clientY - svy) < CLICK_THRESHOLD;
+			const clickThreshold = CLICK_THRESHOLD / window.FlowMouseZoom.tabZoom;
+			const isClick = Math.abs(e.clientX - svx) < clickThreshold
+						 && Math.abs(e.clientY - svy) < clickThreshold;
 
 			this.#highlighter.clearPreview();
 			const rect = isClick
@@ -1433,14 +1488,15 @@ window.ContentContextMenu = ContentContextMenu;
 
 		#handleAutoScroll(x, y) {
 			const vh = window.innerHeight;
+			const scrollZone = AUTO_SCROLL_ZONE / window.FlowMouseZoom.tabZoom;
 			let scrollDy = 0;
-			if (y < AUTO_SCROLL_ZONE) scrollDy = -AUTO_SCROLL_SPEED;
-			else if (y > vh - AUTO_SCROLL_ZONE) scrollDy = AUTO_SCROLL_SPEED;
+			if (y < scrollZone) scrollDy = -AUTO_SCROLL_SPEED;
+			else if (y > vh - scrollZone) scrollDy = AUTO_SCROLL_SPEED;
 
 			if (scrollDy !== 0) {
 				if (!this.#autoScrollRAF) {
 					const doScroll = () => {
-						window.scrollBy(0, scrollDy);
+						window.scrollBy(0, scrollDy / window.FlowMouseZoom.tabZoom);
 						this.#autoScrollRAF = requestAnimationFrame(doScroll);
 					};
 					this.#autoScrollRAF = requestAnimationFrame(doScroll);
@@ -1683,13 +1739,14 @@ window.ContentContextMenu = ContentContextMenu;
 				.fm-as-rect {
 					position: fixed;
 					display: none;
-					border: 2px dashed #4A90D9;
+					border: calc(2px * var(--fm-ui-scale)) dashed #4A90D9;
 					background: rgba(74, 144, 217, 0.15);
 					pointer-events: none;
 					z-index: 2147483647;
 					box-sizing: border-box;
 				}
 				.fm-as-toolbar {
+					zoom: var(--fm-ui-scale);
 					position: fixed;
 					bottom: 50px;
 					left: 0;
@@ -1835,6 +1892,7 @@ window.ContentContextMenu = ContentContextMenu;
 					cursor: default;
 				}
 				.fm-as-modal {
+					zoom: var(--fm-ui-scale);
 					background: rgba(255, 255, 255, 0.95);
 					backdrop-filter: blur(16px);
 					border-radius: 12px;
@@ -1944,6 +2002,7 @@ window.ContentContextMenu = ContentContextMenu;
 
 	let isBlacklisted = false;
 	let initGesturesCalled = false;
+	const eventManager = new window.EventManager();
 
 	chrome.storage.sync.get({ blacklist: [] }, (items) => {
 		if (chrome.runtime.lastError) {
@@ -1968,6 +2027,8 @@ window.ContentContextMenu = ContentContextMenu;
 					isBlacklisted = nowBlacklisted;
 					if (nowBlacklisted === false && !initGesturesCalled) {
 						initGestures();
+					} else {
+						eventManager.update();
 					}
 				}
 			}
@@ -1976,7 +2037,7 @@ window.ContentContextMenu = ContentContextMenu;
 
 	function initGestures() {
 		initGesturesCalled = true;
-		const { DEFAULT_GESTURES, DEFAULT_SETTINGS, ACTION_DEFAULTS, DRAG_ACTION_DEFAULTS, ACTION_KEYS, LOCAL_ACTIONS, TEXT_DRAG_ACTIONS, LINK_DRAG_ACTIONS, IMAGE_DRAG_ACTIONS } = window.GestureConstants;
+		const { DEFAULT_GESTURES, DEFAULT_SETTINGS, ACTION_DEFAULTS, ACTION_KEYS, actionLabelKey, LOCAL_ACTIONS, CLEAR_OVERLAY_ACTIONS } = window.GestureConstants;
 		const { handleScroll, checkScrollFeasibility, copyText, tryParseAsUrl } = window.FlowMouseUtils;
 		const { msg } = window.ContentI18n;
 
@@ -1994,52 +2055,79 @@ window.ContentContextMenu = ContentContextMenu;
 		const isIncognito = chrome.extension.inIncognitoContext;
 
 		async function safeSendMessage(message) {
+			lastWarmUp = Date.now();
 			try {
 				return await chrome.runtime.sendMessage(message);
 			} catch (e) {
 			}
 		}
 
-		function getActionHintText(action, type) {
-			const dragActionKeyMap = { text: TEXT_DRAG_ACTIONS, link: LINK_DRAG_ACTIONS, image: IMAGE_DRAG_ACTIONS };
-			const key = dragActionKeyMap[type]?.[action];
-			return key ? msg(key) : '';
+		let lastWarmUp = Date.now();
+		function warmUp() {
+			if (Date.now() - lastWarmUp < 25000) return;
+			safeSendMessage({ action: 'warmUp' });
 		}
 
-		function getDragHints(type, pattern, dragContent, parentLink) {
+		function mergeDuplicateLabels(labels) {
+			const counts = new Map();
+			for (const label of labels) counts.set(label, (counts.get(label) || 0) + 1);
+			const seen = new Set();
+			const merged = [];
+			for (const label of labels) {
+				if (seen.has(label)) continue;
+				seen.add(label);
+				const count = counts.get(label);
+				merged.push(count > 1 ? `${label} × ${count}` : label);
+			}
+			return merged;
+		}
+
+		function resolveActionLabel(cfg, dragType, contentValues) {
+			const action = cfg.action;
+			const merged = { ...(ACTION_DEFAULTS[action] || {}), ...cfg };
+
+			if (action === 'search' && dragType === 'text' && merged.autoDetectUrl && contentValues?.text && tryParseAsUrl(contentValues.text, false)) {
+				return merged.customNameAutoDetectUrl || msg(actionLabelKey('openTab', 'link'));
+			}
+			if ((action === 'openTab' || action === 'openImage') && dragType === 'image' && merged.preferLink && contentValues?.linkUrl) {
+				return merged.customNamePreferLink || msg(actionLabelKey('openTab', 'link'));
+			}
+			if (merged.customName) return merged.customName;
+			return msg(actionLabelKey(action, dragType));
+		}
+
+		function getUnnamedChainLabels(chain, dragType, contentValues) {
+			const hidden = new Set(['none', 'delay']);
+			const labels = [];
+			for (const step of chain.steps || []) {
+				if (!step.action || hidden.has(step.action)) continue;
+				labels.push(resolveActionLabel(step, dragType, contentValues));
+			}
+			return mergeDuplicateLabels(labels);
+		}
+
+		function getDragLabels(type, pattern, contentValues) {
 			const gestures = getGesturesForDragType(type);
 			if (!gestures) return [];
 
-			const configs = getDragGestureConfigs(gestures, pattern);
-			const rawHints = [];
-			for (const cfg of configs) {
-				let action = cfg.action || 'none';
-				if (action === 'none') continue;
-				if (action === 'search' && type === 'text' && cfg.autoDetectUrl === true && dragContent && tryParseAsUrl(dragContent, false)) {
-					rawHints.push(cfg.customNameAutoDetectUrl || msg('dragActionOpenTabLink'));
-				} else if (action === 'openTab' && type === 'image' && cfg.preferLink === true && parentLink) {
-					rawHints.push(cfg.customNamePreferLink || msg('dragActionOpenTabLink'));
-				} else if (cfg.customName) {
-					rawHints.push(cfg.customName);
-				} else {
-					const hint = getActionHintText(action, type);
-					if (hint) rawHints.push(hint);
-				}
+			const cfg = getDragGestureConfig(gestures, pattern);
+			if (!cfg || cfg.action === 'none') return [];
+
+			if (cfg.action === 'actionChain') {
+				if (cfg.customName) return [cfg.customName];
+				const chain = SETTINGS.actionChains?.[cfg.chainId];
+				if (chain?.name) return [chain.name];
+				if (!chain) return [`${msg(actionLabelKey(cfg.action))} ${msg('chainNotFound')}`];
+				const lines = getUnnamedChainLabels(chain, type, contentValues);
+				if (lines.length) return lines;
+			}
+			if (cfg.action === 'customMenu' && !cfg.customName) {
+				const menuDef = SETTINGS.customMenus?.[cfg.menuId];
+				if (menuDef?.name) return [menuDef.name];
+				if (!menuDef) return [`${msg(actionLabelKey(cfg.action))} ${msg('menuNotFound')}`];
 			}
 
-			const countMap = new Map();
-			for (const h of rawHints) {
-				countMap.set(h, (countMap.get(h) || 0) + 1);
-			}
-			const hints = [];
-			const seen = new Set();
-			for (const h of rawHints) {
-				if (seen.has(h)) continue;
-				seen.add(h);
-				const count = countMap.get(h);
-				hints.push(count > 1 ? `${h} × ${count}` : h);
-			}
-			return hints;
+			return [resolveActionLabel(cfg, type, contentValues)];
 		}
 
 		function getGesturesForDragType(dragType) {
@@ -2049,29 +2137,47 @@ window.ContentContextMenu = ContentContextMenu;
 			return null;
 		}
 
-		function getDragGestureConfigs(gestures, dir) {
-			if (!Array.isArray(gestures)) return [];
-			return gestures.filter(g => g.direction === dir).map(g => ({ ...DRAG_ACTION_DEFAULTS[g.action], ...g }));
+		function getDragGestureConfig(gestures, dir) {
+			const g = gestures.find(item => item.direction === dir);
+			if (!g || !g.action) return null;
+			return { ...(ACTION_DEFAULTS[g.action] || {}), ...g };
 		}
 
 		function isEditableTarget(e) {
 			const node = e.composedPath()[0];
 			const el = node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement;
+			if (!el) return false;
 			const tag = el.tagName;
-			return tag === 'INPUT' || tag === 'TEXTAREA' || el.isContentEditable;
+			if (tag === 'INPUT') {
+				return !['button', 'checkbox', 'color', 'radio', 'range', 'image', 'reset', 'submit'].includes(el.type);
+			}
+			return tag === 'TEXTAREA' || el.isContentEditable;
+		}
+
+		function getDragPatternWithFallback(dragType, pattern) {
+			if (!pattern) return pattern;
+			const gestures = getGesturesForDragType(dragType);
+			if (!gestures) return pattern;
+			if (getDragGestureConfig(gestures, pattern)) return pattern;
+			const fallback = getDragGestureConfig(gestures, '*');
+			if (fallback && fallback.action !== 'none') return '*';
+			return pattern;
 		}
 
 		function hasDragAction(dragType, pattern) {
+			pattern = getDragPatternWithFallback(dragType, pattern);
 			if (!pattern) return false;
 			const gestures = getGesturesForDragType(dragType);
 			if (!gestures) return false;
-			return getDragGestureConfigs(gestures, pattern).some(g => g.action && g.action !== 'none');
+			const cfg = getDragGestureConfig(gestures, pattern);
+			return cfg && cfg.action !== 'none';
 		}
 
 		let SETTINGS = {
 			...DEFAULT_SETTINGS,
 			enableDrag: DEFAULT_SETTINGS.enableTextDrag || DEFAULT_SETTINGS.enableImageDrag || DEFAULT_SETTINGS.enableLinkDrag
 		};
+		let chainContexts = new Map();
 
 		function resolveAreaSelectConfig(cfg) {
 			if (cfg?.overrideGlobal) {
@@ -2106,25 +2212,36 @@ window.ContentContextMenu = ContentContextMenu;
 			return config?.action;
 		}
 
-
-		function getActionName(pattern) {
+		function getPatternWithFallback(pattern) {
+			if (!SETTINGS.enableGestureCustomization) return pattern;
 			const action = getGestureAction(pattern);
-			if (!action || action === 'none') return '';
+			if (action && action !== 'none') return pattern;
+			const fallback = getGestureAction('*');
+			if (fallback && fallback !== 'none') return '*';
+			return pattern;
+		}
+
+
+		function getActionLabels(pattern) {
+			const action = getGestureAction(pattern);
+			if (!action || action === 'none') return [];
 			if (SETTINGS.enableGestureCustomization) {
 				const customName = SETTINGS.mouseGestures?.[pattern]?.customName;
-				if (customName) return customName;
+				if (customName) return [customName];
 			}
 			if (action === 'actionChain') {
 				const config = SETTINGS.mouseGestures?.[pattern];
 				const chain = SETTINGS.actionChains?.[config?.chainId];
-				if (chain?.name) return chain.name;
-				if (!chain) return `${msg(ACTION_KEYS[action])} ${msg('chainNotFound')}`;
+				if (chain?.name) return [chain.name];
+				if (!chain) return [`${msg(actionLabelKey(action))} ${msg('chainNotFound')}`];
+				const lines = getUnnamedChainLabels(chain);
+				if (lines.length) return lines;
 			}
 			if (action === 'customMenu') {
 				const config = SETTINGS.mouseGestures?.[pattern];
 				const menuDef = SETTINGS.customMenus?.[config?.menuId];
-				if (menuDef?.name) return menuDef.name;
-				if (!menuDef) return `${msg(ACTION_KEYS[action])} ${msg('menuNotFound')}`;
+				if (menuDef?.name) return [menuDef.name];
+				if (!menuDef) return [`${msg(actionLabelKey(action))} ${msg('menuNotFound')}`];
 			}
 			if (action === 'simulateKey') {
 				const config = SETTINGS.mouseGestures?.[pattern] || {};
@@ -2136,10 +2253,10 @@ window.ContentContextMenu = ContentContextMenu;
 				if (config.modAlt) mods.push('Alt');
 				if (config.modMeta) mods.push('Meta');
 				mods.push(keyValue);
-				return `${msg(ACTION_KEYS[action])} (${mods.join('+')})`;
+				return [`${msg(actionLabelKey(action))} (${mods.join('+')})`];
 			}
-			const i18nKey = ACTION_KEYS[action];
-			return i18nKey ? msg(i18nKey) : '';
+			const i18nKey = actionLabelKey(action);
+			return i18nKey ? [msg(i18nKey)] : [];
 		}
 
 		function getSuggestedGestures(currentPattern) {
@@ -2148,11 +2265,12 @@ window.ContentContextMenu = ContentContextMenu;
 				: DEFAULT_GESTURES;
 			const suggestions = [];
 			for (const pattern of Object.keys(source)) {
+				if (pattern === '*') continue;
 				if (!pattern.startsWith(currentPattern)) continue;
 				if (pattern.length !== currentPattern.length + 1) continue;
-				const actionName = getActionName(pattern);
-				if (!actionName) continue;
-				suggestions.push({ pattern, actionName });
+				const labels = getActionLabels(pattern);
+				if (!labels.length) continue;
+				suggestions.push({ pattern, actionName: labels.join(' · ') });
 			}
 
 			const lastDir = currentPattern.slice(-1);
@@ -2187,6 +2305,8 @@ window.ContentContextMenu = ContentContextMenu;
 					const { blacklist, ...otherSettings } = items;
 					SETTINGS = { ...structuredClone(DEFAULT_SETTINGS), ...otherSettings };
 				}
+
+				window.FlowMouseZoom.update({ userScale: SETTINGS.enableUserScale ? SETTINGS.userScale : null });
 
 				SETTINGS.wheelGestures = {
 					...structuredClone(DEFAULT_SETTINGS.wheelGestures),
@@ -2233,6 +2353,7 @@ window.ContentContextMenu = ContentContextMenu;
 					});
 					ctxMenu.updateSettings({ lang, isRtl, customCss: SETTINGS.customCss });
 				}
+				ctxMenu.updateSettings({ wheelThreshold: SETTINGS.wheelThreshold });
 
 				eventManager.update();
 			});
@@ -2240,8 +2361,8 @@ window.ContentContextMenu = ContentContextMenu;
 
 		chrome.storage.onChanged.addListener((changes, namespace) => {
 			if (namespace === 'sync') {
-				const keys = Object.keys(changes);
-				if (keys.length === 1 && keys[0] === 'blacklist') return;
+				const keys = Object.keys(changes).filter(k => k !== 'blacklist' && k !== 'lastSyncTime');
+				if (keys.length === 0) return;
 
 				loadSettings();
 			}
@@ -2249,7 +2370,25 @@ window.ContentContextMenu = ContentContextMenu;
 
 		loadSettings();
 
+		let zoomRevision = 0;
+
+		async function refreshTabZoom() {
+			const revision = ++zoomRevision;
+			try {
+				const response = await chrome.runtime.sendMessage({ action: 'getTabZoom' });
+				if (revision === zoomRevision) {
+					window.FlowMouseZoom.update({ tabZoom: response.tabZoom, defaultZoom: response.defaultZoom });
+				}
+			} catch {}
+		}
+
 		chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+			if (request.action === 'tabZoomChanged') {
+				zoomRevision++;
+				window.FlowMouseZoom.update({ tabZoom: request.tabZoom, defaultZoom: request.defaultZoom });
+				return;
+			}
+
 			if (request.action === 'ping') {
 				sendResponse({ pong: true });
 				return;
@@ -2259,13 +2398,14 @@ window.ContentContextMenu = ContentContextMenu;
 				isRemoteGestureActive = request.active;
 			}
 
-			if (request.action === 'executeLocalAction' && !isIframe) {
+			if (request.action === 'executeLocalAction') {
 				if (!LOCAL_ACTIONS.has(request.stepAction)) {
 					sendResponse({ success: false });
 					return;
 				}
-				executeAction(request.stepAction, request.stepConfig)
-					.then(() => sendResponse({ success: true }))
+				const ctx = chainContexts.get(request.contextId);
+				executeAction(request.stepAction, request.stepConfig, ctx?.cursor || {}, ctx?.contentValues || null, ctx?.startTarget || null, false, ctx?.dragContext || null)
+					.then((result) => sendResponse(result ?? { success: false }))
 					.catch(() => sendResponse({ success: false }));
 				return true;
 			}
@@ -2274,13 +2414,16 @@ window.ContentContextMenu = ContentContextMenu;
 				const d = request.data;
 				switch (d.type) {
 					case 'hide': visualizer.hide(); break;
-					case 'updateAction': visualizer.updateAction(d.arrows, d.texts); break;
-					case 'updateSuggestedGestures': visualizer.updateSuggestedGestures(d.suggestions, d.currentPattern); break;
+					case 'cleanup': visualizer.cleanup(); break;
+					case 'updateAction': visualizer.setMode(d.mode); visualizer.updateAction(d.arrows, d.texts); break;
+					case 'updateSuggestedGestures': visualizer.setMode(d.mode); visualizer.updateSuggestedGestures(d.suggestions, d.currentPattern); break;
 				}
 			}
 
 			if (request.action === 'gestureScrollUpdate' && !isIframe) {
-				handleScroll(request.data.action, request.data.scrollConfig, true);
+				const scrolled = handleScroll(request.data.action, request.data.scrollConfig, true);
+				sendResponse({ success: !!scrolled });
+				return;
 			}
 
 			if (request.action === 'showDownloadError' && !isIframe) {
@@ -2312,15 +2455,16 @@ window.ContentContextMenu = ContentContextMenu;
 			}
 		});
 
+		refreshTabZoom();
+
 		let gestureState = {
 			isRightButton: false,
 			gestureButton: null,
 			isDrag: false,
-			selectedText: '',
 			dragElement: null,
 			dragType: null,
-			parentLink: null,
 			startTarget: null,
+			contentValues: null,
 			preventContextMenu: false,
 			skipFirstDragOver: false,
 			dropOnInputSuppressed: false
@@ -2335,10 +2479,10 @@ window.ContentContextMenu = ContentContextMenu;
 			gestureState.isRightButton = false;
 			gestureState.gestureButton = null;
 			gestureState.isDrag = false;
-			gestureState.selectedText = '';
 			gestureState.dragElement = null;
 			gestureState.dragType = null;
 			gestureState.startTarget = null;
+			gestureState.contentValues = null;
 			gestureState.skipFirstDragOver = false;
 			gestureState.dropOnInputSuppressed = false;
 		}
@@ -2354,7 +2498,7 @@ window.ContentContextMenu = ContentContextMenu;
 		class RelayGestureOverlay extends window.GestureOverlay {
 			updateAction(arrows, texts) {
 				if (isIframe) {
-					safeSendMessage({ action: 'gestureHudUpdate', data: { type: 'updateAction', arrows, texts } });
+					safeSendMessage({ action: 'gestureHudUpdate', data: { type: 'updateAction', mode: this.mode, arrows, texts } });
 				} else {
 					super.updateAction(arrows, texts);
 				}
@@ -2362,7 +2506,7 @@ window.ContentContextMenu = ContentContextMenu;
 
 			updateSuggestedGestures(suggestions, currentPattern) {
 				if (isIframe) {
-					safeSendMessage({ action: 'gestureHudUpdate', data: { type: 'updateSuggestedGestures', suggestions, currentPattern } });
+					safeSendMessage({ action: 'gestureHudUpdate', data: { type: 'updateSuggestedGestures', mode: this.mode, suggestions, currentPattern } });
 				} else {
 					super.updateSuggestedGestures(suggestions, currentPattern);
 				}
@@ -2375,6 +2519,13 @@ window.ContentContextMenu = ContentContextMenu;
 					safeSendMessage({ action: 'gestureHudUpdate', data: { type: 'hide' } });
 				}
 			}
+
+			cleanup() {
+				super.cleanup();
+				if (isIframe) {
+					return safeSendMessage({ action: 'gestureHudUpdate', data: { type: 'cleanup' } });
+				}
+			}
 		}
 
 		const visualizer = new RelayGestureOverlay();
@@ -2385,7 +2536,6 @@ window.ContentContextMenu = ContentContextMenu;
 		const isWheelGestureEnabled = () => SETTINGS.enableWheelGestures && !isBlacklisted;
 		const isSpecialGestureEnabled = () => SETTINGS.enableSpecialGestures && !isBlacklisted;
 		const isDragEnabled = () => SETTINGS.enableDrag && !isBlacklisted;
-		const eventManager = new window.EventManager();
 
 		let _docEl = document.documentElement;
 		new MutationObserver(() => {
@@ -2557,6 +2707,12 @@ window.ContentContextMenu = ContentContextMenu;
 			if (e.button === 2) {
 				rightButtonSeenOnPage = true;
 			}
+			if (
+				(e.button === 2 && isWheelGestureEnabled()) ||
+				((e.button === 0 || e.button === 2) && isSpecialGestureEnabled())
+			) {
+				warmUp();
+			}
 		}, true);
 
 		const isAreaSelectModifierEnabled = () => SETTINGS.areaSelectModifierKey && SETTINGS.areaSelectModifierKey !== 'disabled';
@@ -2575,8 +2731,8 @@ window.ContentContextMenu = ContentContextMenu;
 
 		eventManager.add(isAreaSelectModifierEnabled, window, 'pointermove', (e) => {
 			if (!areaSelectPending || e.pointerId !== areaSelectPending.pointerId) return;
-			const dx = e.clientX - areaSelectPending.x;
-			const dy = e.clientY - areaSelectPending.y;
+			const dx = (e.clientX - areaSelectPending.x) * window.FlowMouseZoom.tabZoom;
+			const dy = (e.clientY - areaSelectPending.y) * window.FlowMouseZoom.tabZoom;
 			if (dx * dx + dy * dy < 9) return;
 			const pending = areaSelectPending;
 			areaSelectPending = null;
@@ -2613,6 +2769,17 @@ window.ContentContextMenu = ContentContextMenu;
 			}
 		}
 
+		function getGestureContentValues(path) {
+			const link = path.find(el => el.tagName === 'A' && el.href);
+			const image = path.find(el => el.tagName === 'IMG');
+			return {
+				text: null,
+				linkUrl: link?.href || null,
+				linkText: link ? (link.innerText || link.textContent || '').trim() || null : null,
+				imageUrl: image?.src || image?.currentSrc || null,
+			};
+		}
+
 		eventManager.add(isGestureEnabled, window, 'pointerdown', (e) => {
 			if (isTriggerButton(e.pointerType, e.button)) {
 				if (e.composedPath().some(el => el.hasAttribute && el.hasAttribute('data-gesture-ignore'))) return;
@@ -2622,7 +2789,9 @@ window.ContentContextMenu = ContentContextMenu;
 				gestureState.gestureButton = e.button;
 				gestureState.isDrag = false;
 				gestureState.preventContextMenu = false;
-				gestureState.startTarget = e.composedPath()[0];
+				const path = e.composedPath();
+				gestureState.startTarget = path[0];
+				gestureState.contentValues = getGestureContentValues(path);
 				if (preventContextMenuTimeoutId) {
 					clearTimeout(preventContextMenuTimeoutId);
 					preventContextMenuTimeoutId = null;
@@ -2669,6 +2838,7 @@ window.ContentContextMenu = ContentContextMenu;
 				if (!isExtensionContextValid()) return;
 				gestureState.preventContextMenu = true;
 				safeSendMessage({ action: 'gestureStateUpdate', active: true });
+				visualizer.setMode('gesture');
 				if (SETTINGS.enableTrail) {
 					visualizer.updateSettings({
 						minCutoff: 5.0,
@@ -2689,8 +2859,8 @@ window.ContentContextMenu = ContentContextMenu;
 			if (!recognizer.isActive()) return;
 
 			if (result.directionChanged && SETTINGS.enableHUD) {
-				const actionName = getActionName(result.pattern);
-				visualizer.updateAction(result.pattern, actionName ? [actionName] : []);
+				const pattern = getPatternWithFallback(result.pattern);
+				visualizer.updateAction(pattern, getActionLabels(pattern));
 				if (SETTINGS.enableSuggestedGestures) {
 					const suggestions = getSuggestedGestures(result.pattern);
 					visualizer.updateSuggestedGestures(suggestions, result.pattern);
@@ -2739,7 +2909,8 @@ window.ContentContextMenu = ContentContextMenu;
 				recognizer.reset();
 				rockerGestureTriggered = true;
 				rockerLeftExecuted = true;
-				executeAction(specialConfig.action, specialConfig, { startX: e.clientX, startY: e.clientY, endX: e.clientX, endY: e.clientY }, gestureState.startTarget);
+				const path = e.composedPath();
+				executeAction(specialConfig.action, specialConfig, { startX: e.clientX, startY: e.clientY, endX: e.clientX, endY: e.clientY }, getGestureContentValues(path), path[0]);
 				return;
 			}
 
@@ -2753,7 +2924,8 @@ window.ContentContextMenu = ContentContextMenu;
 				gestureState.isRightButton = false;
 				recognizer.reset();
 				rockerGestureTriggered = true;
-				executeAction(specialConfig.action, specialConfig, { startX: e.clientX, startY: e.clientY, endX: e.clientX, endY: e.clientY }, gestureState.startTarget);
+				const path = e.composedPath();
+				executeAction(specialConfig.action, specialConfig, { startX: e.clientX, startY: e.clientY, endX: e.clientX, endY: e.clientY }, getGestureContentValues(path), path[0]);
 				return;
 			}
 		}, { capture: true });
@@ -2821,8 +2993,13 @@ window.ContentContextMenu = ContentContextMenu;
 			});
 		}
 
+		let dropHandledAction = false;
+
 		eventManager.add(isDragEnabled, window, 'dragstart', (e) => {
 			if (!isExtensionContextValid()) return;
+			warmUp();
+
+			dropHandledAction = false;
 
 			const path = e.composedPath();
 
@@ -2835,9 +3012,9 @@ window.ContentContextMenu = ContentContextMenu;
 				}
 			}
 
-			let dragContent = null;
 			let dragElement = null;
 			let dragType = null;
+			let contentValues = null;
 
 			const dtItems = [...e.dataTransfer.items];
 			let isImage = dtItems.some(i => i.kind === 'file' && i.type.startsWith('image/'));
@@ -2849,20 +3026,23 @@ window.ContentContextMenu = ContentContextMenu;
 
 
 				if (targetImg) {
-					dragContent = targetImg.src || targetImg.currentSrc;
-					dragElement = targetImg;
-					dragType = 'image';
-					const parentLink = path.find(el => el.tagName === 'A' && el.href);
-					if (parentLink) {
-						gestureState.parentLink = parentLink.href;
-					} else {
-						gestureState.parentLink = null;
+					const imageUrl = targetImg.src || targetImg.currentSrc;
+					if (imageUrl) {
+						dragType = 'image';
+						dragElement = targetImg;
+						const parentLink = path.find(el => el.tagName === 'A' && el.href);
+						contentValues = {
+							text: null,
+							linkUrl: parentLink?.href || null,
+							linkText: null,
+							imageUrl,
+						};
+						window.getSelection().removeAllRanges();
 					}
-					window.getSelection().removeAllRanges();
 				}
 			}
 
-			if (!dragContent && SETTINGS.enableLinkDrag && isLink) {
+			if (!dragType && SETTINGS.enableLinkDrag && isLink) {
 				const targetLink = path.find(el => el.tagName === 'A' && el.href);
 				if (targetLink) {
 					let rawHref = targetLink.getAttribute('href');
@@ -2872,9 +3052,14 @@ window.ContentContextMenu = ContentContextMenu;
 							const absoluteUrl = new URL(rawHref, document.baseURI).href;
 
 							if (tryParseAsUrl(absoluteUrl, true)) {
-								dragContent = absoluteUrl;
 								dragType = 'link';
 								dragElement = targetLink;
+								contentValues = {
+									text: null,
+									linkUrl: absoluteUrl,
+									linkText: (targetLink.innerText || targetLink.textContent || '').trim() || null,
+									imageUrl: null,
+								};
 								window.getSelection().removeAllRanges();
 							}
 						} catch (err) {
@@ -2883,7 +3068,7 @@ window.ContentContextMenu = ContentContextMenu;
 				}
 			}
 
-			if (!dragContent && SETTINGS.enableTextDrag && isText) {
+			if (!dragType && SETTINGS.enableTextDrag && isText) {
 				let skipDrag = false;
 				if (SETTINGS.textDragIgnoreInput) {
 					skipDrag = isEditableTarget(e);
@@ -2903,18 +3088,18 @@ window.ContentContextMenu = ContentContextMenu;
 				if (!skipDrag) {
 					const text = e.dataTransfer.getData('text/plain')?.trim() || window.getSelection().toString().trim();
 					if (text) {
-						dragContent = text;
 						dragType = 'text';
+						contentValues = { text, linkUrl: null, linkText: null, imageUrl: null };
 					}
 				}
 			}
 
-			if (dragContent) {
+			if (dragType) {
 				gestureState.isDrag = true;
 				gestureState.isRightButton = false;
-				gestureState.selectedText = dragContent;
 				gestureState.dragElement = dragElement;
 				gestureState.dragType = dragType;
+				gestureState.contentValues = contentValues;
 				recognizer.start(e.clientX, e.clientY, e.timeStamp);
 				if (lastPointerType === 'touch' || lastPointerType === 'pen' || isMacOrLinux) {
 					gestureState.skipFirstDragOver = true;
@@ -2935,6 +3120,7 @@ window.ContentContextMenu = ContentContextMenu;
 			const currentPoint = { x: e.clientX, y: e.clientY, timestamp: e.timeStamp };
 
 			if (result.activated) {
+				visualizer.setMode('drag');
 				if (SETTINGS.enableTrail) {
 					visualizer.updateSettings({
 						minCutoff: 1.0,
@@ -2974,8 +3160,9 @@ window.ContentContextMenu = ContentContextMenu;
 			}
 
 			if (result.directionChanged && SETTINGS.enableHUD) {
-				const hints = getDragHints(gestureState.dragType, result.pattern, gestureState.selectedText, gestureState.parentLink);
-				visualizer.updateAction(hints.length > 0 ? result.pattern : '', hints);
+				const pattern = getDragPatternWithFallback(gestureState.dragType, result.pattern);
+				const hints = getDragLabels(gestureState.dragType, pattern, gestureState.contentValues);
+				visualizer.updateAction(hints.length > 0 ? pattern : '', hints);
 			}
 		}, { capture: true });
 
@@ -2995,15 +3182,6 @@ window.ContentContextMenu = ContentContextMenu;
 			}
 		}, { capture: true });
 
-		let dropHandledAction = false;
-		eventManager.add(isDragEnabled, window, 'dragend', (e) => {
-			if (dropHandledAction) {
-				dropHandledAction = false;
-				e.preventDefault();
-			}
-			resetState();
-		}, { capture: true });
-
 		eventManager.add(isDragEnabled, window, 'drop', (e) => {
 			try {
 				if (gestureState.isDrag && recognizer.isActive()) {
@@ -3012,12 +3190,22 @@ window.ContentContextMenu = ContentContextMenu;
 					if (hasDragAction(gestureState.dragType, pattern)) {
 						dropHandledAction = true;
 						e.preventDefault();
-						executeDragGesture({ ...gestureState, startX: recognizer.startX, startY: recognizer.startY }, pattern, e.dataTransfer);
+						e.stopImmediatePropagation();
+						executeDragGesture({ ...gestureState }, pattern, e.dataTransfer);
 					}
 				}
 			} finally {
 				resetState();
 			}
+		}, { capture: true });
+
+		eventManager.add(isDragEnabled, window, 'dragend', (e) => {
+			if (dropHandledAction) {
+				dropHandledAction = false;
+				e.preventDefault();
+				e.dataTransfer.dropEffect = 'none';
+			}
+			resetState();
 		}, { capture: true });
 
 		eventManager.add(null, window, 'keydown', (e) => {
@@ -3047,12 +3235,39 @@ window.ContentContextMenu = ContentContextMenu;
 				gestureState.isRightButton = false;
 				recognizer.reset();
 				wheelGestureTriggered = true;
-				executeAction(wheelConfig.action, wheelConfig, { startX: e.clientX, startY: e.clientY, endX: e.clientX, endY: e.clientY }, gestureState.startTarget);
+				const path = e.composedPath();
+				executeAction(wheelConfig.action, wheelConfig, { startX: e.clientX, startY: e.clientY, endX: e.clientX, endY: e.clientY, wheelDir: 0 }, getGestureContentValues(path), path[0]);
 			}
 		}, { capture: true });
 
+		let wheelAccum = 0;
+		let wheelLastTime = -Infinity;
+		let wheelLastDir = 0;
+		function accumulateWheel(e) {
+			const dir = Math.sign(e.deltaY);
+			const isNewScroll = e.timeStamp - wheelLastTime > 1000 || (wheelLastDir !== 0 && dir !== wheelLastDir);
+			wheelLastTime = e.timeStamp;
+			wheelLastDir = dir;
+			if (isNewScroll || e.deltaMode === 2) {
+				wheelAccum = 0;
+				return true;
+			}
+			wheelAccum += Math.abs(e.deltaMode === 1 ? e.deltaY * 16.67 : e.deltaY * (window.FlowMouseZoom.tabZoom));
+			if (wheelAccum < SETTINGS.wheelThreshold) return false;
+			wheelAccum = 0;
+			return true;
+		}
+
 		function handleWheelGesture(e) {
 			if (!(e.buttons & 2)) return;
+
+
+			if (ctxMenu.isWheelNav) {
+				e.preventDefault();
+				e.stopImmediatePropagation();
+				if (e.deltaY && accumulateWheel(e)) ctxMenu.wheelNavigate(Math.sign(e.deltaY));
+				return;
+			}
 			if (recognizer.isActive()) return;
 			if (e.deltaY === 0) return;
 
@@ -3063,13 +3278,27 @@ window.ContentContextMenu = ContentContextMenu;
 
 			e.preventDefault();
 			e.stopImmediatePropagation();
+			if (!accumulateWheel(e)) return;
 			gestureState.preventContextMenu = true;
 			gestureState.isRightButton = false;
 			recognizer.reset();
 			wheelGestureTriggered = true;
 
-			executeAction(action, scrollConfig, { startX: e.clientX, startY: e.clientY, endX: e.clientX, endY: e.clientY }, gestureState.startTarget);
+			const path = e.composedPath();
+			executeAction(action, scrollConfig, { startX: e.clientX, startY: e.clientY, endX: e.clientX, endY: e.clientY, wheelDir: e.deltaY < 0 ? -1 : 1 }, getGestureContentValues(path), path[0]);
 		}
+
+		eventManager.add(isWheelGestureEnabled, window, 'mouseup', (e) => {
+			if (e.button !== 2) return;
+			wheelLastTime = -Infinity;
+			if (ctxMenu.isWheelNav) ctxMenu.wheelActivate();
+		}, { capture: true });
+
+		eventManager.add(isWheelGestureEnabled, document, 'visibilitychange', (e) => {
+			wheelAccum = 0;
+			wheelLastTime = e.timeStamp;
+			wheelLastDir = 0;
+		});
 
 		eventManager.add(isWheelGestureEnabled, window, 'auxclick', (e) => {
 			if (e.button === 1 && wheelGestureTriggered) {
@@ -3136,14 +3365,42 @@ window.ContentContextMenu = ContentContextMenu;
 			}
 		});
 
-		async function executeAction(action, config = {}, cursor = {}, startTarget = null, useActiveTab = false) {
-			if (!action || action === 'none') return false;
-			if (!isExtensionContextValid()) return false;
+		async function openSearchedText(text, config, allowAutoDetect) {
+			const { SEARCH_ENGINES } = window.GestureConstants;
+			const engine = config.engine || 'system';
+			const customUrl = config.url || '';
+			const position = config.position || 'right';
+			const active = config.active !== false;
+			const incognito = !!config.incognito;
+			if (allowAutoDetect && config.autoDetectUrl) {
+				const detectedUrl = tryParseAsUrl(text, false);
+				if (detectedUrl) {
+					return await safeSendMessage({ action: 'openTabAtPosition', url: detectedUrl, position, active, incognito }) ?? { success: false };
+				}
+			}
+			if (engine === 'system') {
+				return await safeSendMessage({ action: 'systemSearch', query: text, position, active, incognito }) ?? { success: false };
+			}
+			if (engine === 'custom' && customUrl) {
+				return await safeSendMessage({ action: 'openTabAtPosition', url: customUrl.replace('%s', encodeURIComponent(text)), position, active, incognito }) ?? { success: false };
+			}
+			const searchUrl = (SEARCH_ENGINES[engine] || SEARCH_ENGINES['google']).url + encodeURIComponent(text);
+			return await safeSendMessage({ action: 'openTabAtPosition', url: searchUrl, position, active, incognito }) ?? { success: false };
+		}
 
-			if (!ACTION_KEYS[action]) return false;
+		async function executeAction(action, config = {}, cursor = {}, contentValues = null, startTarget = null, useActiveTab = false, dragContext = null) {
+			if (!action || action === 'none') return { success: false };
+			if (!isExtensionContextValid()) return { success: false };
+
+			if (!ACTION_KEYS[action]) return { success: false };
 
 			const defaults = ACTION_DEFAULTS[action] || {};
 			const mergedConfig = { ...defaults, ...config };
+
+			if (CLEAR_OVERLAY_ACTIONS.has(action) || (action === 'actionChain' && SETTINGS.actionChains?.[mergedConfig.chainId]?.steps?.some(step => CLEAR_OVERLAY_ACTIONS.has(step.action)))) {
+				await visualizer.cleanup();
+				recognizer.reset();
+			}
 
 			if (LOCAL_ACTIONS.has(action)) {
 				const scrollConfig = { scrollDistance: mergedConfig.scrollDistance, scrollSmoothness: mergedConfig.scrollSmoothness, scrollDuration: mergedConfig.scrollDuration, scrollAccel: mergedConfig.scrollAccel, scrollAccelWindow: mergedConfig.scrollAccelWindow };
@@ -3157,130 +3414,130 @@ window.ContentContextMenu = ContentContextMenu;
 					case 'scrollToLeftEdge':
 					case 'scrollToRightEdge':
 						if (isIframe && !checkScrollFeasibility(action, cursor.startX, cursor.startY)) {
-							safeSendMessage({ action: 'gestureScrollUpdate', data: { action, scrollConfig } });
-							break;
+							return await safeSendMessage({ action: 'gestureScrollUpdate', data: { action, scrollConfig } }) ?? { success: false };
 						}
-						handleScroll(action, scrollConfig, false, cursor.startX, cursor.startY);
-						break;
-					case 'stopLoading': window.stop(); break;
-					case 'copyUrl': copyText(location.href); break;
-					case 'copyTitle': copyText(document.title); break;
+						return { success: !!handleScroll(action, scrollConfig, false, cursor.startX, cursor.startY) };
+					case 'stopLoading':
+						window.stop();
+						return { success: true };
+					case 'reloadFrame':
+						location.reload();
+						return { success: true };
+					case 'copyUrl': {
+						const { url } = await safeSendMessage({ action: 'getTabInfo' });
+						copyText(url);
+						return { success: true };
+					}
+					case 'copyTitle': {
+						const { title } = await safeSendMessage({ action: 'getTabInfo' });
+						copyText(title);
+						return { success: true };
+					}
 					case 'copyTitleAndUrl': {
+						const { title, url } = await safeSendMessage({ action: 'getTabInfo' });
 						if (mergedConfig.asMarkdown) {
-							const t = document.title.replace(/([\[\]])/g, '\\$1');
-							const u = location.href.replace(/([()])/g, '\\$1');
+							const t = title.replace(/([\[\]])/g, '\\$1');
+							const u = url.replace(/([()])/g, '\\$1');
 							copyText(`[${t}](${u})`);
 						} else {
-							copyText(`${document.title}\n${location.href}`);
+							copyText(`${title}\n${url}`);
 						}
-						break;
+						return { success: true };
 					}
-					case 'printPage': window.print(); break;
 					case 'sendCustomEvent': {
 						const eventType = mergedConfig.eventType;
-						if (eventType) {
-							let detail = {};
-							try {
-								const detailStr = mergedConfig.eventDetail || '{}';
-								detail = JSON.parse(detailStr);
-							} catch { }
-							if (mergedConfig.gestureInfo) {
-								detail.gesture = {
-									startX: cursor.startX,
-									startY: cursor.startY,
-									endX: cursor.endX,
-									endY: cursor.endY,
-								};
+						if (!eventType) return { success: false };
+						let detail = {};
+						try {
+							const detailStr = mergedConfig.eventDetail || '{}';
+							detail = JSON.parse(detailStr);
+						} catch { }
+						if (mergedConfig.gestureInfo) {
+							detail.gesture = {
+								startX: cursor.startX,
+								startY: cursor.startY,
+								endX: cursor.endX,
+								endY: cursor.endY,
+								text: null,
+								linkUrl: null,
+								linkText: null,
+								imageUrl: null,
+								...contentValues,
+							};
+							if (dragContext) {
+								detail.gesture.dragType = dragContext.dragType;
 							}
-							window.dispatchEvent(new CustomEvent(eventType, { detail, bubbles: true, cancelable: true }));
 						}
-						break;
+						window.dispatchEvent(new CustomEvent(eventType, { detail, bubbles: true, cancelable: true }));
+						return { success: true };
 					}
 					case 'simulateKey': {
 						const keyValue = mergedConfig.keyValue;
-						if (keyValue) {
-							const KEY_CODE_MAP = {
-								Backspace: 8, Tab: 9, Enter: 13, Shift: 16, Control: 17, Alt: 18,
-								Escape: 27, ' ': 32, PageUp: 33, PageDown: 34,
-								End: 35, Home: 36, ArrowLeft: 37, ArrowUp: 38, ArrowRight: 39, ArrowDown: 40,
-								Delete: 46, Insert: 45,
-								F1: 112, F2: 113, F3: 114, F4: 115, F5: 116, F6: 117,
-								F7: 118, F8: 119, F9: 120, F10: 121, F11: 122, F12: 123,
-							};
-							let keyCode = KEY_CODE_MAP[keyValue];
-							if (keyCode == null && keyValue.length === 1) {
-								keyCode = keyValue.toUpperCase().charCodeAt(0);
-							}
-							keyCode = keyCode || 0;
-							let code = keyValue;
-							if (keyValue.length === 1) {
-								const ch = keyValue.toUpperCase();
-								if (ch >= 'A' && ch <= 'Z') code = 'Key' + ch;
-								else if (ch >= '0' && ch <= '9') code = 'Digit' + ch;
-							}
-							const opts = {
-								key: keyValue,
-								code,
-								keyCode,
-								which: keyCode,
-								bubbles: true,
-								cancelable: true,
-								ctrlKey: !!mergedConfig.modCtrl,
-								shiftKey: !!mergedConfig.modShift,
-								altKey: !!mergedConfig.modAlt,
-								metaKey: !!mergedConfig.modMeta,
-							};
-							const target = document.activeElement || document.body;
-							target.dispatchEvent(new KeyboardEvent('keydown', opts));
-							target.dispatchEvent(new KeyboardEvent('keyup', opts));
+						if (!keyValue) return { success: false };
+						const KEY_CODE_MAP = {
+							Backspace: 8, Tab: 9, Enter: 13, Shift: 16, Control: 17, Alt: 18,
+							Escape: 27, ' ': 32, PageUp: 33, PageDown: 34,
+							End: 35, Home: 36, ArrowLeft: 37, ArrowUp: 38, ArrowRight: 39, ArrowDown: 40,
+							Delete: 46, Insert: 45,
+							F1: 112, F2: 113, F3: 114, F4: 115, F5: 116, F6: 117,
+							F7: 118, F8: 119, F9: 120, F10: 121, F11: 122, F12: 123,
+						};
+						let keyCode = KEY_CODE_MAP[keyValue];
+						if (keyCode == null && keyValue.length === 1) {
+							keyCode = keyValue.toUpperCase().charCodeAt(0);
 						}
-						break;
+						keyCode = keyCode || 0;
+						let code = keyValue;
+						if (keyValue.length === 1) {
+							const ch = keyValue.toUpperCase();
+							if (ch >= 'A' && ch <= 'Z') code = 'Key' + ch;
+							else if (ch >= '0' && ch <= '9') code = 'Digit' + ch;
+						}
+						const opts = {
+							key: keyValue,
+							code,
+							keyCode,
+							which: keyCode,
+							bubbles: true,
+							cancelable: true,
+							ctrlKey: !!mergedConfig.modCtrl,
+							shiftKey: !!mergedConfig.modShift,
+							altKey: !!mergedConfig.modAlt,
+							metaKey: !!mergedConfig.modMeta,
+						};
+						const target = document.activeElement || document.body;
+						target.dispatchEvent(new KeyboardEvent('keydown', opts));
+						target.dispatchEvent(new KeyboardEvent('keyup', opts));
+						return { success: true };
 					}
 					case 'pasteClipboard': {
 						try {
 							const permResult = await safeSendMessage({ action: 'requestPermission', permissions: ['clipboardRead'] });
-							if (!permResult?.granted) break;
+							if (!permResult?.granted) return { success: false };
 							if (startTarget) startTarget.focus();
 							document.execCommand('paste');
-						} catch { }
-						break;
+							return { success: true };
+						} catch {
+							return { success: false };
+						}
 					}
 					case 'pasteContent': {
 						try {
 							const content = mergedConfig.content || '';
-							if (!content) break;
+							if (!content) return { success: false };
 							if (startTarget) startTarget.focus();
 							document.execCommand('insertText', false, content);
-						} catch { }
-						break;
+							return { success: true };
+						} catch {
+							return { success: false };
+						}
 					}
 					case 'searchClipboard': {
 						const permResult = await safeSendMessage({ action: 'requestPermission', permissions: ['clipboardRead'] });
-						if (!permResult?.granted) break;
+						if (!permResult?.granted) return { success: false };
 						const clipText = (await navigator.clipboard.readText() || '').trim();
-						if (!clipText) break;
-						const { SEARCH_ENGINES } = window.GestureConstants;
-						const engine = mergedConfig.engine || 'system';
-						const customUrl = mergedConfig.url || '';
-						const position = mergedConfig.position || 'right';
-						const active = mergedConfig.active !== false;
-						const incognito = !!mergedConfig.incognito;
-						if (mergedConfig.autoDetectUrl) {
-							const detectedUrl = tryParseAsUrl(clipText, false);
-							if (detectedUrl) {
-								await safeSendMessage({ action: 'openTabAtPosition', url: detectedUrl, position, active, incognito });
-								break;
-							}
-						}
-						if (engine === 'system') {
-							await safeSendMessage({ action: 'systemSearch', query: clipText, position, active, incognito });
-						} else if (engine === 'custom' && customUrl) {
-							await safeSendMessage({ action: 'openTabAtPosition', url: customUrl.replace('%s', encodeURIComponent(clipText)), position, active, incognito });
-						} else {
-							const searchUrl = (SEARCH_ENGINES[engine] || SEARCH_ENGINES['google']).url + encodeURIComponent(clipText);
-							await safeSendMessage({ action: 'openTabAtPosition', url: searchUrl, position, active, incognito });
-						}
-						break;
+						if (!clipText) return { success: false };
+						return await openSearchedText(clipText, mergedConfig, true);
 					}
 					case 'menuShowTabs': {
 						const fetchPromise = safeSendMessage({
@@ -3288,7 +3545,7 @@ window.ContentContextMenu = ContentContextMenu;
 							sortOrder: mergedConfig.sortOrder,
 							maxItems: mergedConfig.maxItems,
 						});
-						ctxMenu.prepare(cursor.endX, cursor.endY, { scrollToBottom: mergedConfig.scrollToBottom });
+						ctxMenu.prepare(cursor.endX, cursor.endY, { scrollToBottom: mergedConfig.scrollToBottom, wheelDir: mergedConfig.wheelNav ? cursor.wheelDir : undefined });
 						const result = await fetchPromise;
 						if (result?.success) {
 							const getIcon = (tab) => `/_favicon/?pageUrl=${encodeURIComponent(tab.url)}&size=32`;
@@ -3305,10 +3562,11 @@ window.ContentContextMenu = ContentContextMenu;
 								}
 							}));
 							ctxMenu.setItems(items);
+							return { success: true };
 						} else {
 							ctxMenu.close();
+							return { success: false };
 						}
-						break;
 					}
 					case 'menuRecentlyClosed': {
 						const fetchPromise = safeSendMessage({
@@ -3316,7 +3574,7 @@ window.ContentContextMenu = ContentContextMenu;
 							maxItems: mergedConfig.maxItems,
 							sortOrder: mergedConfig.sortOrder,
 						});
-						ctxMenu.prepare(cursor.endX, cursor.endY, { scrollToBottom: mergedConfig.scrollToBottom });
+						ctxMenu.prepare(cursor.endX, cursor.endY, { scrollToBottom: mergedConfig.scrollToBottom, wheelDir: mergedConfig.wheelNav ? cursor.wheelDir : undefined });
 						const result = await fetchPromise;
 						if (result?.success) {
 							const getIcon = (tab) => `/_favicon/?pageUrl=${encodeURIComponent(tab.url)}&size=32`;
@@ -3330,10 +3588,11 @@ window.ContentContextMenu = ContentContextMenu;
 								}
 							}));
 							ctxMenu.setItems(items);
+							return { success: true };
 						} else {
 							ctxMenu.close();
+							return { success: false };
 						}
-						break;
 					}
 					case 'menuShowBookmarks': {
 						const fetchPromise = safeSendMessage({
@@ -3342,7 +3601,7 @@ window.ContentContextMenu = ContentContextMenu;
 							sortOrder: mergedConfig.sortOrder,
 							maxItems: mergedConfig.maxItems,
 						});
-						ctxMenu.prepare(cursor.endX, cursor.endY, { scrollToBottom: mergedConfig.scrollToBottom });
+						ctxMenu.prepare(cursor.endX, cursor.endY, { scrollToBottom: mergedConfig.scrollToBottom, wheelDir: mergedConfig.wheelNav ? cursor.wheelDir : undefined });
 						const result = await fetchPromise;
 						if (result?.success) {
 							const getIcon = (bm) => `/_favicon/?pageUrl=${encodeURIComponent(bm.url)}&size=32`;
@@ -3359,17 +3618,18 @@ window.ContentContextMenu = ContentContextMenu;
 								}
 							}));
 							ctxMenu.setItems(items);
+							return { success: true };
 						} else {
 							ctxMenu.close();
+							return { success: false };
 						}
-						break;
 					}
 					case 'customMenu': {
 						const menuId = mergedConfig.menuId;
 						const menuDef = SETTINGS.customMenus?.[menuId];
 						const menuItems = menuDef?.items;
-						if (!menuItems) break;
-						ctxMenu.prepare(cursor.endX, cursor.endY);
+						if (!menuItems) return { success: false };
+						ctxMenu.prepare(cursor.endX, cursor.endY, { wheelDir: mergedConfig.wheelNav ? cursor.wheelDir : undefined });
 						const items = menuItems
 							.filter(it => it === 'separator' || (it.action && it.action !== 'none'))
 							.map(it => {
@@ -3377,237 +3637,146 @@ window.ContentContextMenu = ContentContextMenu;
 								let label = it.customName;
 								if (!label && it.action === 'actionChain') {
 									const chain = SETTINGS.actionChains?.[it.chainId];
-									label = chain?.name || msg(ACTION_KEYS[it.action]);
+									label = chain?.name || msg(actionLabelKey(it.action));
 								}
-								if (!label) label = msg(ACTION_KEYS[it.action]) || it.action;
+								if (!label) label = resolveActionLabel(it, dragContext?.dragType, contentValues) || it.action;
 								return {
 									label,
 									onClick: () => {
 										const itemConfig = { ...(ACTION_DEFAULTS[it.action] || {}), ...it };
-										executeAction(it.action, itemConfig, cursor, startTarget);
+										executeAction(it.action, itemConfig, { ...cursor, wheelDir: undefined }, contentValues, startTarget, false, dragContext);
 									}
 								};
 							});
 						ctxMenu.setItems(items);
-						break;
-					}
-				}
-			} else {
-				const msg_obj = { action };
-				if (useActiveTab) msg_obj.useActiveTab = true;
-				if (action === 'openCustomUrl') {
-					const rawUrl = mergedConfig.customUrl || '';
-					msg_obj.customUrl = rawUrl;
-					msg_obj.position = mergedConfig.position || 'last';
-					msg_obj.active = mergedConfig.active !== false;
-					msg_obj.incognito = !!mergedConfig.incognito;
-				} else if (action === 'closeTab') {
-					msg_obj.keepWindow = !!mergedConfig.keepWindow;
-					msg_obj.afterClose = mergedConfig.afterClose || 'default';
-					msg_obj.skipPinned = !!mergedConfig.skipPinned;
-					msg_obj.preserveTab = !!mergedConfig.preserveTab;
-				} else if (action === 'closeOtherTabs' || action === 'closeLeftTabs' || action === 'closeRightTabs') {
-					msg_obj.skipPinned = !!mergedConfig.skipPinned;
-					msg_obj.preserveTab = !!mergedConfig.preserveTab;
-				} else if (action === 'closeAllTabs') {
-					msg_obj.skipPinned = !!mergedConfig.skipPinned;
-				} else if (action === 'switchLeftTab' || action === 'switchRightTab') {
-					msg_obj.noWrap = !!mergedConfig.noWrap;
-					msg_obj.moveTab = !!mergedConfig.moveTab;
-				} else if (action === 'switchFirstTab' || action === 'switchLastTab') {
-					msg_obj.moveTab = !!mergedConfig.moveTab;
-				} else if (action === 'refresh' || action === 'refreshAllTabs') {
-					msg_obj.hardReload = !!mergedConfig.hardReload;
-				} else if (action === 'newTab') {
-					msg_obj.position = mergedConfig.position || 'last';
-					msg_obj.active = mergedConfig.active !== false;
-				} else if (action === 'newWindow') {
-					msg_obj.focused = mergedConfig.focused !== false;
-				} else if (action === 'viewPageSource') {
-					msg_obj.position = mergedConfig.position || 'right';
-					msg_obj.active = mergedConfig.active !== false;
-				} else if (action === 'zoomIn' || action === 'zoomOut') {
-					msg_obj.zoomMode = mergedConfig.zoomMode || 'browser';
-					msg_obj.zoomDelta = Number(mergedConfig.zoomDelta) || 10;
-				} else if (action === 'resetZoom') {
-					msg_obj.resetZoomLevel = Number(mergedConfig.resetZoomLevel) || 0;
-				} else if (action === 'addToBookmarks') {
-					msg_obj.folderId = mergedConfig.folderId || '';
-				} else if (action === 'actionChain') {
-					const chainId = mergedConfig.chainId;
-					const chain = SETTINGS.actionChains?.[chainId];
-					if (chain?.steps?.length) {
-						msg_obj.steps = chain.steps
-							.filter(s => s.action && s.action !== 'none' && s.action !== 'actionChain')
-							.map(s => ({ ...(ACTION_DEFAULTS[s.action] || {}), ...s }));
-					}
-				} else if (action === 'areaSelect') {
-					msg_obj.overrideGlobal = mergedConfig.overrideGlobal;
-					if (mergedConfig.overrideGlobal) {
-						msg_obj.textUrl = mergedConfig.textUrl;
-						msg_obj.warnThreshold = mergedConfig.warnThreshold;
-						msg_obj.delay = mergedConfig.delay;
-						msg_obj.autoAction = mergedConfig.autoAction;
-					}
-				} else if (action === 'sendExtensionMessage') {
-					msg_obj.extensionId = mergedConfig.extensionId || '';
-					msg_obj.message = mergedConfig.message || '{}';
-				}
-				return await safeSendMessage(msg_obj);
-			}
-			return true;
-		}
-
-		function executeGesture(pattern) {
-			const action = getGestureAction(pattern);
-			if (!action || action === 'none') return;
-
-			if (isEdgeDesktop && SETTINGS.edgeGestureConflict) {
-				SETTINGS.edgeGestureConflict = false;
-				edgeGestureBlurCount = 0;
-				try { chrome.storage.sync.set({ edgeGestureConflict: false }); } catch (e) { }
-			}
-
-			const config = SETTINGS.enableGestureCustomization
-				? (SETTINGS.mouseGestures?.[pattern] || {})
-				: {};
-			executeAction(action, config, { startX: recognizer.startX, startY: recognizer.startY, endX: recognizer.currentX, endY: recognizer.currentY }, gestureState.startTarget);
-		}
-
-		function resolveTabTarget(config, state) {
-			const { SEARCH_ENGINES, IMAGE_SEARCH_ENGINES } = window.GestureConstants;
-			const { selectedText: content, dragType, parentLink } = state;
-			const engine = config.engine;
-			const customUrl = config.url;
-
-			switch (config.action) {
-				case 'search': {
-					if (config.autoDetectUrl === true && dragType === 'text') {
-						const url = tryParseAsUrl(content, false);
-						if (url) return { url };
-					}
-					if (engine === 'system') return { query: content };
-					if (engine === 'custom' && customUrl) return { url: customUrl.replace('%s', encodeURIComponent(content)) };
-					return { url: (SEARCH_ENGINES[engine] || SEARCH_ENGINES['google']).url + encodeURIComponent(content) };
-				}
-				case 'openTab':
-					return { url: (dragType === 'image' && config.preferLink === true && parentLink) ? parentLink : content };
-				case 'imageSearch': {
-					if (engine === 'custom' && customUrl) return { url: customUrl.replace('%s', encodeURIComponent(content)) };
-					return { url: (IMAGE_SEARCH_ENGINES[engine] || IMAGE_SEARCH_ENGINES['google']).url + encodeURIComponent(content) };
-				}
-				default:
-					return null;
-			}
-		}
-
-		const COPY_ACTION_RESOLVERS = {
-			'copy':         (state) => state.selectedText,
-			'copyLink':     (state) => state.selectedText,
-			'copyLinkText': (state) => state.dragElement ? (state.dragElement.innerText || state.dragElement.textContent || '') : null,
-			'copyLinkAndText': (state, config) => {
-				const text = state.dragElement ? (state.dragElement.innerText || state.dragElement.textContent || '') : '';
-				const link = state.selectedText || '';
-				if (!text && !link) return null;
-				if (config.asMarkdown && link) {
-					const t = (text || link).replace(/([\[\]])/g, '\\$1');
-					const u = link.replace(/([()])/g, '\\$1');
-					return `[${t}](${u})`;
-				}
-				return [text, link].filter(Boolean).join('\n');
-			},
-			'copyImageUrl': (state) => state.selectedText,
-		};
-
-		async function executeDragGesture(state, pattern, dataTransfer) {
-			if (!pattern) return;
-			if (!isExtensionContextValid()) return;
-
-			const gestures = getGesturesForDragType(state.dragType);
-			if (!gestures) return;
-
-			let configs = getDragGestureConfigs(gestures, pattern);
-
-			const copyTexts = [];
-			configs = configs.filter(config => {
-				const resolver = COPY_ACTION_RESOLVERS[config.action || 'none'];
-				if (!resolver) return true;
-				const text = resolver(state, config);
-				if (text) copyTexts.push(text);
-				return false;
-			});
-			if (copyTexts.length > 0) {
-				copyText(copyTexts.join('\n'));
-			}
-
-			if (!isIncognito) {
-				const incognitoUrls = [];
-				const incognitoQueries = [];
-				configs = configs.filter(config => {
-					if (!config.incognito) return true;
-					const target = resolveTabTarget(config, state);
-					if (target?.url) incognitoUrls.push(target.url);
-					else if (target?.query) incognitoQueries.push(target.query);
-					return !target;
-				});
-				if (incognitoUrls.length > 0 || incognitoQueries.length > 0) {
-					await safeSendMessage({ action: 'openIncognitoTabs', urls: incognitoUrls, queries: incognitoQueries });
-				}
-			}
-
-			for (const config of configs) {
-				await executeSingleDragAction(config, state, dataTransfer);
-			}
-		}
-
-		async function executeSingleDragAction(config, state, dataTransfer) {
-			const { selectedText: content, dragType, parentLink, dragElement } = state;
-			const action = config.action || 'none';
-			if (action === 'none') return;
-
-			const { position, active, incognito } = config;
-
-			switch (action) {
-				case 'search':
-				case 'openTab': {
-					const target = resolveTabTarget(config, state);
-					if (target?.query) {
-						await safeSendMessage({ action: 'systemSearch', query: target.query, position, active, incognito });
-					} else if (target?.url) {
-						await safeSendMessage({ action: 'openTabAtPosition', url: target.url, position, active, incognito });
-					}
-					break;
-				}
-
-				case 'saveImage':
-					if (content.startsWith('data:')) {
-						safeSendMessage({ action: 'saveImage', url: content, subdir: config.subdir || '' });
-						break;
+						return { success: true };
 					}
 
-					if (dataTransfer && dataTransfer.files && dataTransfer.files.length > 0) {
-						const file = dataTransfer.files[0];
-						const reader = new FileReader();
-						reader.onload = () => {
-							safeSendMessage({
-								action: 'saveImage',
-								url: reader.result,
-								filename: file.name,
-								subdir: config.subdir || ''
-							});
-						};
-						reader.readAsDataURL(file);
-						break;
+					case 'copy': {
+						if (!dragContext || !contentValues?.text) return { success: false };
+						copyText(contentValues.text);
+						return { success: true };
 					}
-
-					{
+					case 'copyLink': {
+						if (!dragContext || !contentValues?.linkUrl) return { success: false };
+						copyText(contentValues.linkUrl);
+						return { success: true };
+					}
+					case 'copyImageUrl': {
+						if (!dragContext || !contentValues?.imageUrl) return { success: false };
+						copyText(contentValues.imageUrl);
+						return { success: true };
+					}
+					case 'copyLinkText': {
+						if (!dragContext) return { success: false };
+						const el = dragContext.element;
+						const text = el ? (el.innerText || el.textContent || '') : '';
+						if (!text) return { success: false };
+						copyText(text);
+						return { success: true };
+					}
+					case 'copyLinkAndText': {
+						if (!dragContext) return { success: false };
+						const el = dragContext.element;
+						const text = el ? (el.innerText || el.textContent || '') : '';
+						const link = contentValues?.linkUrl || '';
+						if (!text && !link) return { success: false };
+						if (mergedConfig.asMarkdown && link) {
+							const t = (text || link).replace(/([\[\]])/g, '\\$1');
+							const u = link.replace(/([()])/g, '\\$1');
+							copyText(`[${t}](${u})`);
+						} else {
+							copyText([text, link].filter(Boolean).join('\n'));
+						}
+						return { success: true };
+					}
+					case 'search': {
+						if (!dragContext || !contentValues) return { success: false };
+						let text;
+						switch (dragContext.dragType) {
+							case 'image': text = contentValues.imageUrl; break;
+							case 'link': text = contentValues.linkUrl; break;
+							case 'text': text = contentValues.text; break;
+							default: return { success: false };
+						}
+						if (!text) return { success: false };
+						return await openSearchedText(text, mergedConfig, dragContext.dragType === 'text');
+					}
+					case 'openTab':
+					case 'openLink':
+					case 'openImage': {
+						if (!dragContext || !contentValues) return { success: false };
+						let url;
+						switch (dragContext.dragType) {
+							case 'image':
+								if (action === 'openLink') {
+									url = contentValues.linkUrl;
+								} else {
+									url = mergedConfig.preferLink === true && contentValues.linkUrl
+										? contentValues.linkUrl : contentValues.imageUrl;
+								}
+								break;
+							case 'link': url = contentValues.linkUrl; break;
+							case 'text': return { success: false };
+							default: return { success: false };
+						}
+						if (!url) return { success: false };
+						const { position, active, incognito } = mergedConfig;
+						return await safeSendMessage({ action: 'openTabAtPosition', url, position, active, incognito }) ?? { success: false };
+					}
+					case 'bookmarkLink': {
+						if (!dragContext || !contentValues?.linkUrl) return { success: false };
+						const title = contentValues.linkText || contentValues.linkUrl;
+						return await safeSendMessage({
+							action: 'bookmarkLink',
+							url: contentValues.linkUrl,
+							title,
+							folderId: mergedConfig.folderId,
+						}) ?? { success: false };
+					}
+					case 'imageSearch': {
+						if (!dragContext || !contentValues?.imageUrl) return { success: false };
+						const { IMAGE_SEARCH_ENGINES } = window.GestureConstants;
+						const content = contentValues.imageUrl;
+						const engine = mergedConfig.engine;
+						const customUrl = mergedConfig.url;
+						const url = (engine === 'custom' && customUrl)
+							? customUrl.replace('%s', encodeURIComponent(content))
+							: (IMAGE_SEARCH_ENGINES[engine] || IMAGE_SEARCH_ENGINES['google']).url + encodeURIComponent(content);
+						if (!url) return { success: false };
+						const { position, active, incognito } = mergedConfig;
+						return await safeSendMessage({ action: 'openTabAtPosition', url, position, active, incognito }) ?? { success: false };
+					}
+					case 'saveImage': {
+						if (!dragContext || !contentValues) return { success: false };
+						const content = contentValues.imageUrl || '';
+						const dataTransfer = dragContext.dataTransfer;
+						const subdir = mergedConfig.subdir || '';
+						if (content.startsWith('data:')) {
+							safeSendMessage({ action: 'saveImage', url: content, subdir });
+							return { success: true };
+						}
+						if (dataTransfer && dataTransfer.files && dataTransfer.files.length > 0) {
+							const file = dataTransfer.files[0];
+							const reader = new FileReader();
+							reader.onload = () => {
+								safeSendMessage({
+									action: 'saveImage',
+									url: reader.result,
+									filename: file.name,
+									subdir,
+								});
+							};
+							reader.readAsDataURL(file);
+							return { success: true };
+						}
+						const dragElement = dragContext.element;
 						const waitForImageLoad = (img, timeout = 60000) => {
 							return new Promise((resolve, reject) => {
 								if (!img || img.tagName !== 'IMG' || img.complete) {
 									resolve();
 									return;
 								}
-
 								let settled = false;
 								const cleanup = () => {
 									img.removeEventListener('load', onLoad);
@@ -3625,10 +3794,8 @@ window.ContentContextMenu = ContentContextMenu;
 									cleanup();
 									reject(new Error('load'));
 								};
-
 								img.addEventListener('load', onLoad);
 								img.addEventListener('error', onError);
-
 								setTimeout(() => {
 									if (settled) return;
 									settled = true;
@@ -3637,14 +3804,13 @@ window.ContentContextMenu = ContentContextMenu;
 								}, timeout);
 							});
 						};
-
 						waitForImageLoad(dragElement)
 							.then(() => {
 								safeSendMessage({
 									action: 'saveImage',
 									url: content,
 									origin: window.location.origin,
-									subdir: config.subdir || ''
+									subdir,
 								});
 							})
 							.catch((err) => {
@@ -3653,37 +3819,78 @@ window.ContentContextMenu = ContentContextMenu;
 									: msg('saveImageLoadError');
 								toaster.showToast(toastMsg, { duration: 5000 });
 							});
+						return { success: true };
 					}
-					break;
-
-				case 'imageSearch': {
-					const target = resolveTabTarget(config, state);
-					if (target?.url) {
-						await safeSendMessage({ action: 'openTabAtPosition', url: target.url, position, active, incognito });
-					}
-					break;
+					default:
+						return { success: false };
 				}
-
-				case 'sendCustomEvent': {
-					const eventType = config.eventType;
-					if (eventType) {
-						let detail = {};
-						try {
-							detail = JSON.parse(config.eventDetail || '{}');
-						} catch { }
-						if (config.gestureInfo) {
-							detail.gesture = {
-								dragType,
-								data: content,
-								startX: state.startX,
-								startY: state.startY,
-							};
-						}
-						window.dispatchEvent(new CustomEvent(eventType, { detail, bubbles: true, cancelable: true }));
+			} else {
+				const msg_obj = { ...mergedConfig, action };
+				if (useActiveTab) msg_obj.useActiveTab = true;
+				if (contentValues) msg_obj.contentValues = contentValues;
+				if (dragContext) msg_obj.dragType = dragContext.dragType;
+				let contextId;
+				if (action === 'actionChain') {
+					const chain = SETTINGS.actionChains?.[mergedConfig.chainId];
+					if (chain?.steps?.length) {
+						msg_obj.steps = chain.steps
+							.filter(s => s.action && s.action !== 'none' && s.action !== 'actionChain')
+							.map(s => ({ ...(ACTION_DEFAULTS[s.action] || {}), ...s }));
+						if (chain.stopOnSuccess) msg_obj.stopOnSuccess = true;
+						contextId = crypto.randomUUID();
+						chainContexts.set(contextId, { cursor, startTarget, dragContext, contentValues });
+						msg_obj.contextId = contextId;
 					}
-					break;
+				}
+				try {
+					return await safeSendMessage(msg_obj) ?? { success: false };
+				} finally {
+					if (contextId) chainContexts.delete(contextId);
 				}
 			}
+		}
+
+		function executeGesture(pattern) {
+			pattern = getPatternWithFallback(pattern);
+			const action = getGestureAction(pattern);
+			if (!action || action === 'none') return;
+
+			if (isEdgeDesktop && SETTINGS.edgeGestureConflict) {
+				SETTINGS.edgeGestureConflict = false;
+				edgeGestureBlurCount = 0;
+				try { chrome.storage.sync.set({ edgeGestureConflict: false }); } catch (e) { }
+			}
+
+			const config = SETTINGS.enableGestureCustomization
+				? (SETTINGS.mouseGestures?.[pattern] || {})
+				: {};
+			executeAction(action, config, { startX: recognizer.startX, startY: recognizer.startY, endX: recognizer.currentX, endY: recognizer.currentY }, gestureState.contentValues, gestureState.startTarget);
+		}
+
+		async function executeDragGesture(state, pattern, dataTransfer) {
+			pattern = getDragPatternWithFallback(state.dragType, pattern);
+			if (!pattern) return;
+			if (!isExtensionContextValid()) return;
+
+			const gestures = getGesturesForDragType(state.dragType);
+			if (!gestures) return;
+
+			const config = getDragGestureConfig(gestures, pattern);
+			if (!config) return;
+
+			const cursor = {
+				startX: recognizer.startX,
+				startY: recognizer.startY,
+				endX: recognizer.currentX,
+				endY: recognizer.currentY,
+			};
+			const dragContext = {
+				dragType: state.dragType,
+				element: state.dragElement,
+				dataTransfer,
+			};
+
+			await executeAction(config.action, config, cursor, state.contentValues, state.dragElement, false, dragContext);
 		}
 	}
 })();

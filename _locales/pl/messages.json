@@ -203,6 +203,18 @@
 		"message": "Podpowiedzi gestów",
 		"description": "Show suggested gestures at bottom of screen"
 	},
+	"userScale": {
+		"message": "Niestandardowa skala interfejsu",
+		"description": "UI scaling setting for FlowMouse's own interface"
+	},
+	"userScaleDesc": {
+		"message": "Skaluj elementy interfejsu FlowMouse, takie jak podpowiedzi akcji i HUD",
+		"description": "Description for the UI scaling setting"
+	},
+	"scale": {
+		"message": "Skala",
+		"description": "Label for the UI scale slider"
+	},
 	"customCss": {
 		"message": "Niestandardowy CSS",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -311,11 +323,11 @@
 		"message": "Funkcje przeciągania",
 		"description": "Drag features section"
 	},
-	"textDragSearch": {
+	"textDrag": {
 		"message": "Przeciąganie tekstu",
 		"description": "Text drag"
 	},
-	"textDragSearchDesc": {
+	"textDragDesc": {
 		"message": "Przeciągnij zaznaczony tekst, aby wyszukać",
 		"description": "Drag selected text to search"
 	},
@@ -575,6 +587,10 @@
 		"message": "W prawo, potem w lewo",
 		"description": "Gesture description for →←"
 	},
+	"gestureDesc_Any": {
+		"message": "Dowolny",
+		"description": "Description for the * fallback gesture that matches any unmatched pattern"
+	},
 	"actionNone": {
 		"message": "Brak",
 		"description": "No action"
@@ -731,6 +747,10 @@
 		"message": "Odśwież wszystkie karty",
 		"description": "Refresh all tabs"
 	},
+	"actionReloadFrame": {
+		"message": "Ponownie załaduj ramkę",
+		"description": "Reload only the frame (iframe) where the gesture was performed"
+	},
 	"actionStopLoading": {
 		"message": "Zatrzymaj ładowanie",
 		"description": "Stop loading"
@@ -790,6 +810,10 @@
 	"actionOpenExtensions": {
 		"message": "Otwórz Rozszerzenia",
 		"description": "Open extensions page"
+	},
+	"actionOpenOptions": {
+		"message": "Otwórz ustawienia FlowMouse",
+		"description": "Open the FlowMouse settings page"
 	},
 	"actionSaveAsMhtml": {
 		"message": "Zapisz jako MHTML",
@@ -926,6 +950,14 @@
 	"gestureRecorderBanned": {
 		"message": "Gest %pattern% już istnieje",
 		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"gestureRecorderAny": {
+		"message": "Dodaj gest wieloznaczny",
+		"description": "Button in the gesture recorder to select the * fallback that matches any unmatched gesture"
+	},
+	"fallbackGestureTip": {
+		"message": "Uruchamia się, gdy narysowany ślad nie pasuje do żadnego innego gestu",
+		"description": "Tooltip explaining what the * fallback gesture does"
 	},
 	"rightButton": {
 		"message": "Prawy przycisk myszy",
@@ -1192,60 +1224,56 @@
 		"description": "No action"
 	},
 	"dragActionSearch": {
-		"message": "🔍 Wyszukiwarka",
+		"message": "Szukaj",
 		"description": "Search action"
 	},
 	"dragActionCopy": {
-		"message": "📋 Kopiuj",
+		"message": "Kopiuj",
 		"description": "Copy action"
 	},
-	"dragActionOpenTab": {
-		"message": "📑 Otwórz w nowej karcie",
-		"description": "Open in new tab"
-	},
 	"dragActionOpenTabLink": {
-		"message": "🔗 Otwórz link",
+		"message": "Otwórz link",
 		"description": "Open link in new tab"
 	},
 	"dragActionOpenTabImage": {
-		"message": "🖼️ Otwórz obraz",
+		"message": "Otwórz obraz",
 		"description": "Open image in new tab"
 	},
+	"dragActionTryOpenLink": {
+		"message": "Spróbuj otworzyć link",
+		"description": "Open the image's link in new tab, if any"
+	},
 	"dragActionCopyLink": {
-		"message": "📋 Kopiuj link",
+		"message": "Kopiuj link",
 		"description": "Copy link"
 	},
 	"dragActionCopyLinkText": {
-		"message": "📋 Kopiuj tekst linku",
+		"message": "Kopiuj tekst linku",
 		"description": "Copy link text"
 	},
 	"dragActionCopyLinkAndText": {
-		"message": "📋 Kopiuj tekst i link",
+		"message": "Kopiuj tekst i link",
 		"description": "Copy link text and URL"
 	},
+	"dragActionBookmarkLink": {
+		"message": "Dodaj link do zakładek",
+		"description": "Add dragged link to bookmarks"
+	},
 	"dragActionSaveImage": {
-		"message": "💾 Zapisz obraz",
+		"message": "Zapisz obraz",
 		"description": "Save image"
 	},
 	"dragActionCopyImage": {
-		"message": "🖼️ Kopiuj obraz",
+		"message": "Kopiuj obraz",
 		"description": "Copy image"
 	},
 	"dragActionCopyImageUrl": {
-		"message": "📋 Kopiuj URL obrazu",
+		"message": "Kopiuj URL obrazu",
 		"description": "Copy image URL"
 	},
 	"dragActionImageSearch": {
-		"message": "🔍 Wyszukiwanie obrazem",
+		"message": "Wyszukiwanie obrazem",
 		"description": "Image search"
-	},
-	"dragActionCustomSearch": {
-		"message": "🔍 Wyszukiwanie niestandardowe",
-		"description": "Custom search"
-	},
-	"dragActionSendCustomEvent": {
-		"message": "Wyślij zdarzenie niestandardowe",
-		"description": "Send custom DOM event on drag gesture"
 	},
 	"reducedMotionWarning": {
 		"message": "Animacje systemowe %OS% są wyłączone, animacje przewijania mogą nie działać poprawnie. Możesz włączyć animacje w ustawieniach systemu %OS%.",
@@ -1511,10 +1539,6 @@
 		"message": "Użyj <span class=\"text-highlight\">Lewego Przycisku Myszy</span>, aby przeciągnąć",
 		"description": "Tutorial drag wrong button error"
 	},
-	"tutorialRefreshTip": {
-		"message": "Wskazówka: Karty otwarte przed instalacją muszą zostać <span class=\"text-highlight\">odświeżone</span>, aby używać FlowMouse",
-		"description": "Tip about refreshing tabs"
-	},
 	"permissionBookmarksTitle": {
 		"message": "Zarządzaj zakładkami",
 		"description": "Permission popup title for bookmarks"
@@ -1595,9 +1619,9 @@
 		"message": "Zapisywanie obrazu nie powiodło się: Przekroczono limit czasu ładowania",
 		"description": "Toast message when image loading times out"
 	},
-	"saveImageSubdirPlaceholder": {
-		"message": "Podkatalog (opcjonalnie)",
-		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	"saveImageSubdirLabel": {
+		"message": "Podkatalog",
+		"description": "Label for the optional subdirectory input in save image config"
 	},
 	"buttonOkay": {
 		"message": "OK",
@@ -1635,6 +1659,18 @@
 		"message": "Narzędzia",
 		"description": "Action category: utilities"
 	},
+	"actionCategoryText": {
+		"message": "Tekst",
+		"description": "Action category: text"
+	},
+	"actionCategoryLink": {
+		"message": "Link",
+		"description": "Action category: link"
+	},
+	"actionCategoryImage": {
+		"message": "Obraz",
+		"description": "Action category: image"
+	},
 	"noResults": {
 		"message": "Brak wyników",
 		"description": "No search results found"
@@ -1650,6 +1686,14 @@
 	"enableWheelGesturesDesc": {
 		"message": "Szybko wykonuj różne czynności za pomocą kółka myszy",
 		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelThreshold": {
+		"message": "Dystans wyzwalania kółka",
+		"description": "Label for the wheel gesture scroll distance threshold"
+	},
+	"wheelThresholdDesc": {
+		"message": "Przewijanie kółkiem myszy musi osiągnąć ten dystans, aby wielokrotnie wyzwalać gesty kółkiem",
+		"description": "Description for the wheel gesture scroll distance threshold"
 	},
 	"wheelGesture_scrollUpHoldingRight": {
 		"message": "Przewiń w górę przytrzymując prawy przycisk",
@@ -1758,6 +1802,10 @@
 	"emptyChainSteps": {
 		"message": "Nie dodano żadnych kroków. Kliknij \"Dodaj krok\", aby rozpocząć.",
 		"description": "Empty chain steps message in expanded body"
+	},
+	"chainStopOnSuccess": {
+		"message": "Przerwij łańcuch po pomyślnym kroku",
+		"description": "Checkbox: skip remaining command-chain steps after the first successful action"
 	},
 	"emptyChainStepsShort": {
 		"message": "Brak dodanych kroków",
@@ -1898,6 +1946,10 @@
 	"actionViewPageSource": {
 		"message": "Wyświetl źródło strony",
 		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionViewFrameSource": {
+		"message": "Wyświetl źródło ramki",
+		"description": "Open the source code of the frame (iframe) where the gesture was performed in a new tab"
 	},
 	"actionPauseGesture": {
 		"message": "Wstrzymaj gesty do odświeżenia",
@@ -2118,6 +2170,14 @@
 	"ctxMenuScrollToBottom": {
 		"message": "Przewiń w dół",
 		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuWheelNav": {
+		"message": "Szybka nawigacja kółkiem",
+		"description": "Checkbox: navigate a wheel-gesture menu with the wheel while holding the right button"
+	},
+	"ctxMenuWheelNavTooltip": {
+		"message": "Przytrzymując przycisk myszy, przewiń kółkiem, aby szybko wybrać pozycje menu.",
+		"description": "Tooltip explaining quick wheel navigation for wheel-gesture menus"
 	},
 	"ctxMenuTimeDisplay": {
 		"message": "Pokaż czas",

@@ -1,7 +1,7 @@
 import { LitElement, html, css, unsafeHTML } from '../../js/lib/lit-all.min.js';
 import { commonStyles, optionStyles } from './shared-styles.js';
 import { icon } from '../icons.js';
-import { tooltip } from '../tooltip.js';
+import { tooltip } from '../directives/tooltip.js';
 
 class BlacklistManager extends LitElement {
 	static properties = {

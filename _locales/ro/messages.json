@@ -164,7 +164,7 @@
 		"description": "Show gesture trail"
 	},
 	"showTrailDesc": {
-		"message": "Afișează linia de urmărire când execuți gesturi",
+		"message": "Afișează urma când execuți gesturi",
 		"description": "Show trail line when performing gestures"
 	},
 	"showHint": {
@@ -202,6 +202,18 @@
 	"showSuggestedGestures": {
 		"message": "Indicații gesturi",
 		"description": "Show suggested gestures at bottom of screen"
+	},
+	"userScale": {
+		"message": "Scară personalizată a interfeței",
+		"description": "UI scaling setting for FlowMouse's own interface"
+	},
+	"userScaleDesc": {
+		"message": "Scalează elementele interfeței FlowMouse, cum ar fi indiciile de acțiune și HUD-ul",
+		"description": "Description for the UI scaling setting"
+	},
+	"scale": {
+		"message": "Scară",
+		"description": "Label for the UI scale slider"
 	},
 	"customCss": {
 		"message": "CSS personalizat",
@@ -311,11 +323,11 @@
 		"message": "Funcții Tragere (Drag)",
 		"description": "Drag features section"
 	},
-	"textDragSearch": {
+	"textDrag": {
 		"message": "Tragere Text",
 		"description": "Text drag"
 	},
-	"textDragSearchDesc": {
+	"textDragDesc": {
 		"message": "Trage textul selectat pentru a căuta",
 		"description": "Drag selected text to search"
 	},
@@ -575,6 +587,10 @@
 		"message": "Dreapta apoi Stânga",
 		"description": "Gesture description for →←"
 	},
+	"gestureDesc_Any": {
+		"message": "Orice",
+		"description": "Description for the * fallback gesture that matches any unmatched pattern"
+	},
 	"actionNone": {
 		"message": "Nimic",
 		"description": "No action"
@@ -684,7 +700,7 @@
 		"description": "Checkbox label for batch close tab actions to skip pinned tabs"
 	},
 	"closeTabsPreserveTab": {
-		"message": "Păstrează filele (descarcă conținutul paginii)",
+		"message": "Păstrează filele (suspendă conținutul paginii)",
 		"description": "Checkbox label for batch close tab actions to discard tabs instead of closing them"
 	},
 	"actionCloseOtherTabs": {
@@ -730,6 +746,10 @@
 	"actionRefreshAllTabs": {
 		"message": "Reîmprospătează Toate Tab-urile",
 		"description": "Refresh all tabs"
+	},
+	"actionReloadFrame": {
+		"message": "Reîncarcă cadrul",
+		"description": "Reload only the frame (iframe) where the gesture was performed"
 	},
 	"actionStopLoading": {
 		"message": "Oprește Încărcarea",
@@ -790,6 +810,10 @@
 	"actionOpenExtensions": {
 		"message": "Deschide Extensii",
 		"description": "Open extensions page"
+	},
+	"actionOpenOptions": {
+		"message": "Deschide setările FlowMouse",
+		"description": "Open the FlowMouse settings page"
 	},
 	"actionSaveAsMhtml": {
 		"message": "Salvează ca MHTML",
@@ -876,7 +900,7 @@
 		"description": "URL format error message"
 	},
 	"resetToDefault": {
-		"message": "Revin-o la implicit",
+		"message": "Revino la implicit",
 		"description": "Reset gesture to default action"
 	},
 	"resetToDefaultConfirm": {
@@ -926,6 +950,14 @@
 	"gestureRecorderBanned": {
 		"message": "Gestul %pattern% există deja",
 		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"gestureRecorderAny": {
+		"message": "Adaugă un gest pentru modele nerecunoscute",
+		"description": "Button in the gesture recorder to select the * fallback that matches any unmatched gesture"
+	},
+	"fallbackGestureTip": {
+		"message": "Se declanșează când urma desenată nu se potrivește cu niciun alt gest",
+		"description": "Tooltip explaining what the * fallback gesture does"
 	},
 	"rightButton": {
 		"message": "Butonul drept al mouse-ului",
@@ -1192,60 +1224,56 @@
 		"description": "No action"
 	},
 	"dragActionSearch": {
-		"message": "🔍 Motor Căutare",
+		"message": "Căutare",
 		"description": "Search action"
 	},
 	"dragActionCopy": {
-		"message": "📋 Copiază",
+		"message": "Copiază",
 		"description": "Copy action"
 	},
-	"dragActionOpenTab": {
-		"message": "📑 Deschide în Tab Nou",
-		"description": "Open in new tab"
-	},
 	"dragActionOpenTabLink": {
-		"message": "🔗 Deschide Link",
+		"message": "Deschide Link",
 		"description": "Open link in new tab"
 	},
 	"dragActionOpenTabImage": {
-		"message": "🖼️ Deschide Imagine",
+		"message": "Deschide Imagine",
 		"description": "Open image in new tab"
 	},
+	"dragActionTryOpenLink": {
+		"message": "Încearcă să deschizi linkul",
+		"description": "Open the image's link in new tab, if any"
+	},
 	"dragActionCopyLink": {
-		"message": "📋 Copiază Link",
+		"message": "Copiază Link",
 		"description": "Copy link"
 	},
 	"dragActionCopyLinkText": {
-		"message": "📋 Copiază Textul Linkului",
+		"message": "Copiază Textul Linkului",
 		"description": "Copy link text"
 	},
 	"dragActionCopyLinkAndText": {
-		"message": "📋 Copiați textul și linkul",
+		"message": "Copiați textul și linkul",
 		"description": "Copy link text and URL"
 	},
+	"dragActionBookmarkLink": {
+		"message": "Adaugă linkul la Marcaje",
+		"description": "Add dragged link to bookmarks"
+	},
 	"dragActionSaveImage": {
-		"message": "💾 Salvează Imagine",
+		"message": "Salvează Imagine",
 		"description": "Save image"
 	},
 	"dragActionCopyImage": {
-		"message": "🖼️ Copiază Imagine",
+		"message": "Copiază Imagine",
 		"description": "Copy image"
 	},
 	"dragActionCopyImageUrl": {
-		"message": "📋 Copiază URL Imagine",
+		"message": "Copiază URL Imagine",
 		"description": "Copy image URL"
 	},
 	"dragActionImageSearch": {
-		"message": "🔍 Căutare Imagine",
+		"message": "Căutare Imagine",
 		"description": "Image search"
-	},
-	"dragActionCustomSearch": {
-		"message": "🔍 Căutare Personalizată",
-		"description": "Custom search"
-	},
-	"dragActionSendCustomEvent": {
-		"message": "Trimite eveniment personalizat",
-		"description": "Send custom DOM event on drag gesture"
 	},
 	"reducedMotionWarning": {
 		"message": "Animația de sistem %OS% este dezactivată, derularea animată ar putea să nu funcționeze corect. Poți activa animația în setările de sistem %OS%.",
@@ -1511,10 +1539,6 @@
 		"message": "Folosește <span class=\"text-highlight\">Butonul Stânga Mouse</span> pentru a trage",
 		"description": "Tutorial drag wrong button error"
 	},
-	"tutorialRefreshTip": {
-		"message": "Sfat: Tab-urile deschise înainte de instalare trebuie <span class=\"text-highlight\">reîmprospătate</span> pentru a folosi FlowMouse",
-		"description": "Tip about refreshing tabs"
-	},
 	"permissionBookmarksTitle": {
 		"message": "Administrare Marcaje",
 		"description": "Permission popup title for bookmarks"
@@ -1595,9 +1619,9 @@
 		"message": "Salvarea imaginii a eșuat: Timpul de încărcare a expirat",
 		"description": "Toast message when image loading times out"
 	},
-	"saveImageSubdirPlaceholder": {
-		"message": "Subdirector (opțional)",
-		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	"saveImageSubdirLabel": {
+		"message": "Subdirector",
+		"description": "Label for the optional subdirectory input in save image config"
 	},
 	"buttonOkay": {
 		"message": "OK",
@@ -1635,6 +1659,18 @@
 		"message": "Instrumente",
 		"description": "Action category: utilities"
 	},
+	"actionCategoryText": {
+		"message": "Text",
+		"description": "Action category: text"
+	},
+	"actionCategoryLink": {
+		"message": "Link",
+		"description": "Action category: link"
+	},
+	"actionCategoryImage": {
+		"message": "Imagine",
+		"description": "Action category: image"
+	},
 	"noResults": {
 		"message": "Fără rezultate",
 		"description": "No search results found"
@@ -1650,6 +1686,14 @@
 	"enableWheelGesturesDesc": {
 		"message": "Efectuați rapid diverse acțiuni folosind rotița mouse-ului",
 		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelThreshold": {
+		"message": "Distanța de declanșare a rotiței",
+		"description": "Label for the wheel gesture scroll distance threshold"
+	},
+	"wheelThresholdDesc": {
+		"message": "Derularea rotiței mouse-ului trebuie să atingă această distanță pentru a declanșa repetat gesturile cu rotița",
+		"description": "Description for the wheel gesture scroll distance threshold"
 	},
 	"wheelGesture_scrollUpHoldingRight": {
 		"message": "Derulați în sus în timp ce țineți apăsat butonul drept",
@@ -1758,6 +1802,10 @@
 	"emptyChainSteps": {
 		"message": "Nu a fost adăugat niciun pas. Faceți clic pe \"Adăugați pas\" pentru a începe.",
 		"description": "Empty chain steps message in expanded body"
+	},
+	"chainStopOnSuccess": {
+		"message": "Oprește lanțul dacă un pas reușește",
+		"description": "Checkbox: skip remaining command-chain steps after the first successful action"
 	},
 	"emptyChainStepsShort": {
 		"message": "Niciun pas adăugat",
@@ -1898,6 +1946,10 @@
 	"actionViewPageSource": {
 		"message": "Afișează sursa paginii",
 		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionViewFrameSource": {
+		"message": "Vezi sursa cadrului",
+		"description": "Open the source code of the frame (iframe) where the gesture was performed in a new tab"
 	},
 	"actionPauseGesture": {
 		"message": "Pauză gesturi până la reîmprospătare",
@@ -2118,6 +2170,14 @@
 	"ctxMenuScrollToBottom": {
 		"message": "Derulează în jos",
 		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuWheelNav": {
+		"message": "Navigare rapidă cu rotița",
+		"description": "Checkbox: navigate a wheel-gesture menu with the wheel while holding the right button"
+	},
+	"ctxMenuWheelNavTooltip": {
+		"message": "În timp ce țineți apăsat butonul mouse-ului, derulați rotița pentru a selecta rapid elementele din meniu.",
+		"description": "Tooltip explaining quick wheel navigation for wheel-gesture menus"
 	},
 	"ctxMenuTimeDisplay": {
 		"message": "Afișează ora",

@@ -203,6 +203,18 @@
 		"message": "Bevegelsesprompter",
 		"description": "Show suggested gestures at bottom of screen"
 	},
+	"userScale": {
+		"message": "Tilpasset UI-skalering",
+		"description": "UI scaling setting for FlowMouse's own interface"
+	},
+	"userScaleDesc": {
+		"message": "Skaler FlowMouse-brugergrensesnittelementer som handlingshint og HUD",
+		"description": "Description for the UI scaling setting"
+	},
+	"scale": {
+		"message": "Skalering",
+		"description": "Label for the UI scale slider"
+	},
 	"customCss": {
 		"message": "Tilpasset CSS",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -311,11 +323,11 @@
 		"message": "Dra-funksjoner",
 		"description": "Drag features section"
 	},
-	"textDragSearch": {
+	"textDrag": {
 		"message": "Tekst-dra",
 		"description": "Text drag"
 	},
-	"textDragSearchDesc": {
+	"textDragDesc": {
 		"message": "Dra valgt tekst for å søke",
 		"description": "Drag selected text to search"
 	},
@@ -575,6 +587,10 @@
 		"message": "Høyre så venstre",
 		"description": "Gesture description for →←"
 	},
+	"gestureDesc_Any": {
+		"message": "Hvilken som helst",
+		"description": "Description for the * fallback gesture that matches any unmatched pattern"
+	},
 	"actionNone": {
 		"message": "Ingen",
 		"description": "No action"
@@ -731,6 +747,10 @@
 		"message": "Oppdater alle faner",
 		"description": "Refresh all tabs"
 	},
+	"actionReloadFrame": {
+		"message": "Last inn rammen på nytt",
+		"description": "Reload only the frame (iframe) where the gesture was performed"
+	},
 	"actionStopLoading": {
 		"message": "Stopp lasting",
 		"description": "Stop loading"
@@ -790,6 +810,10 @@
 	"actionOpenExtensions": {
 		"message": "Åpne utvidelser",
 		"description": "Open extensions page"
+	},
+	"actionOpenOptions": {
+		"message": "Åpne FlowMouse-innstillinger",
+		"description": "Open the FlowMouse settings page"
 	},
 	"actionSaveAsMhtml": {
 		"message": "Lagre som MHTML",
@@ -926,6 +950,14 @@
 	"gestureRecorderBanned": {
 		"message": "Bevegelsen %pattern% finnes allerede",
 		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"gestureRecorderAny": {
+		"message": "Legg til wildcard-bevegelse",
+		"description": "Button in the gesture recorder to select the * fallback that matches any unmatched gesture"
+	},
+	"fallbackGestureTip": {
+		"message": "Utløses når det tegnede sporet ikke samsvarer med noen annen bevegelse",
+		"description": "Tooltip explaining what the * fallback gesture does"
 	},
 	"rightButton": {
 		"message": "Høyre museknapp",
@@ -1192,60 +1224,56 @@
 		"description": "No action"
 	},
 	"dragActionSearch": {
-		"message": "🔍 Søkemotor",
+		"message": "Søk",
 		"description": "Search action"
 	},
 	"dragActionCopy": {
-		"message": "📋 Kopier",
+		"message": "Kopier",
 		"description": "Copy action"
 	},
-	"dragActionOpenTab": {
-		"message": "📑 Åpne i ny fane",
-		"description": "Open in new tab"
-	},
 	"dragActionOpenTabLink": {
-		"message": "🔗 Åpne lenke",
+		"message": "Åpne lenke",
 		"description": "Open link in new tab"
 	},
 	"dragActionOpenTabImage": {
-		"message": "🖼️ Åpne bilde",
+		"message": "Åpne bilde",
 		"description": "Open image in new tab"
 	},
+	"dragActionTryOpenLink": {
+		"message": "Prøv å åpne lenke",
+		"description": "Open the image's link in new tab, if any"
+	},
 	"dragActionCopyLink": {
-		"message": "📋 Kopier lenke",
+		"message": "Kopier lenke",
 		"description": "Copy link"
 	},
 	"dragActionCopyLinkText": {
-		"message": "📋 Kopier lenketekst",
+		"message": "Kopier lenketekst",
 		"description": "Copy link text"
 	},
 	"dragActionCopyLinkAndText": {
-		"message": "📋 Kopier tekst og lenke",
+		"message": "Kopier tekst og lenke",
 		"description": "Copy link text and URL"
 	},
+	"dragActionBookmarkLink": {
+		"message": "Legg til lenke i bokmerker",
+		"description": "Add dragged link to bookmarks"
+	},
 	"dragActionSaveImage": {
-		"message": "💾 Lagre bilde",
+		"message": "Lagre bilde",
 		"description": "Save image"
 	},
 	"dragActionCopyImage": {
-		"message": "🖼️ Kopier bilde",
+		"message": "Kopier bilde",
 		"description": "Copy image"
 	},
 	"dragActionCopyImageUrl": {
-		"message": "📋 Kopier bilde-URL",
+		"message": "Kopier bilde-URL",
 		"description": "Copy image URL"
 	},
 	"dragActionImageSearch": {
-		"message": "🔍 Bildesøk",
+		"message": "Bildesøk",
 		"description": "Image search"
-	},
-	"dragActionCustomSearch": {
-		"message": "🔍 Egendefinert søk",
-		"description": "Custom search"
-	},
-	"dragActionSendCustomEvent": {
-		"message": "Send egendefinert hendelse",
-		"description": "Send custom DOM event on drag gesture"
 	},
 	"reducedMotionWarning": {
 		"message": "%OS% systemanimasjon er deaktivert, rulleanimasjon virker kanskje ikke som den skal. Du kan aktivere animasjon i %OS% systeminnstillinger.",
@@ -1511,10 +1539,6 @@
 		"message": "Bruk <span class=\"text-highlight\">Venstre museknapp</span> for å dra",
 		"description": "Tutorial drag wrong button error"
 	},
-	"tutorialRefreshTip": {
-		"message": "Tips: Faner åpnet før installasjon må <span class=\"text-highlight\">oppdateres</span> for å bruke FlowMouse",
-		"description": "Tip about refreshing tabs"
-	},
 	"permissionBookmarksTitle": {
 		"message": "Administrer bokmerker",
 		"description": "Permission popup title for bookmarks"
@@ -1595,9 +1619,9 @@
 		"message": "Lagring av bilde mislyktes: Tidsavbrudd ved lasting",
 		"description": "Toast message when image loading times out"
 	},
-	"saveImageSubdirPlaceholder": {
-		"message": "Undermappe (valgfritt)",
-		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	"saveImageSubdirLabel": {
+		"message": "Undermappe",
+		"description": "Label for the optional subdirectory input in save image config"
 	},
 	"buttonOkay": {
 		"message": "OK",
@@ -1635,6 +1659,18 @@
 		"message": "Verktøy",
 		"description": "Action category: utilities"
 	},
+	"actionCategoryText": {
+		"message": "Tekst",
+		"description": "Action category: text"
+	},
+	"actionCategoryLink": {
+		"message": "Lenke",
+		"description": "Action category: link"
+	},
+	"actionCategoryImage": {
+		"message": "Bilde",
+		"description": "Action category: image"
+	},
 	"noResults": {
 		"message": "Ingen resultater",
 		"description": "No search results found"
@@ -1650,6 +1686,14 @@
 	"enableWheelGesturesDesc": {
 		"message": "Utfør ulike handlinger raskt med musehjulet",
 		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelThreshold": {
+		"message": "Utløseravstand for hjul",
+		"description": "Label for the wheel gesture scroll distance threshold"
+	},
+	"wheelThresholdDesc": {
+		"message": "Rullingen med musehjulet må nå denne avstanden for å utløse hjulbevegelser gjentatte ganger",
+		"description": "Description for the wheel gesture scroll distance threshold"
 	},
 	"wheelGesture_scrollUpHoldingRight": {
 		"message": "Rull opp mens du holder høyre knapp inne",
@@ -1758,6 +1802,10 @@
 	"emptyChainSteps": {
 		"message": "Ingen trinn lagt til. Klikk på \"Legg til trinn\" for å begynne.",
 		"description": "Empty chain steps message in expanded body"
+	},
+	"chainStopOnSuccess": {
+		"message": "Avbryt kjeden når et trinn lykkes",
+		"description": "Checkbox: skip remaining command-chain steps after the first successful action"
 	},
 	"emptyChainStepsShort": {
 		"message": "Ingen trinn lagt til",
@@ -1898,6 +1946,10 @@
 	"actionViewPageSource": {
 		"message": "Vis sidekilde",
 		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionViewFrameSource": {
+		"message": "Vis kildekode for rammen",
+		"description": "Open the source code of the frame (iframe) where the gesture was performed in a new tab"
 	},
 	"actionPauseGesture": {
 		"message": "Paus bevegelser til oppdatering",
@@ -2118,6 +2170,14 @@
 	"ctxMenuScrollToBottom": {
 		"message": "Rull til bunnen",
 		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuWheelNav": {
+		"message": "Rask musehjulnavigering",
+		"description": "Checkbox: navigate a wheel-gesture menu with the wheel while holding the right button"
+	},
+	"ctxMenuWheelNavTooltip": {
+		"message": "Hold nede museknappen og rull med hjulet for å raskt velge menyelementer.",
+		"description": "Tooltip explaining quick wheel navigation for wheel-gesture menus"
 	},
 	"ctxMenuTimeDisplay": {
 		"message": "Vis tid",

@@ -60,6 +60,7 @@ class GestureRecognizer {
 	}
 
 	move(x, y, timestamp = null) {
+		const tabZoom = window.FlowMouseZoom?.tabZoom ?? 1;
 		this.#currentX = x;
 		this.#currentY = y;
 		this.#points.push({ x, y, timestamp });
@@ -75,7 +76,7 @@ class GestureRecognizer {
 
 		const totalDeltaX = this.#currentX - this.#startX;
 		const totalDeltaY = this.#currentY - this.#startY;
-		const totalDistance = Math.sqrt(totalDeltaX * totalDeltaX + totalDeltaY * totalDeltaY);
+		const totalDistance = Math.sqrt(totalDeltaX * totalDeltaX + totalDeltaY * totalDeltaY) * tabZoom;
 		result.totalDistance = totalDistance;
 
 		if (!this.#active && totalDistance > this.#distanceThreshold) {
@@ -97,7 +98,7 @@ class GestureRecognizer {
 				for (const p of this.#points) {
 					const deltaX = p.x - this.#anchorX;
 					const deltaY = p.y - this.#anchorY;
-					const dist = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+					const dist = Math.sqrt(deltaX * deltaX + deltaY * deltaY) * tabZoom;
 
 					if (dist > replayThreshold) {
 						const direction = this.#getDirection(deltaX, deltaY);
@@ -136,7 +137,7 @@ class GestureRecognizer {
 
 		const deltaX = this.#currentX - this.#anchorX;
 		const deltaY = this.#currentY - this.#anchorY;
-		const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+		const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY) * tabZoom;
 
 		if (distance > this.#distanceThreshold) {
 			const direction = this.#getDirection(deltaX, deltaY);

@@ -203,6 +203,18 @@
 		"message": "জেসচার প্রম্পট",
 		"description": "Show suggested gestures at bottom of screen"
 	},
+	"userScale": {
+		"message": "কাস্টম ইউআই স্কেল",
+		"description": "UI scaling setting for FlowMouse's own interface"
+	},
+	"userScaleDesc": {
+		"message": "অ্যাকশন ইঙ্গিত এবং HUD এর মত FlowMouse UI উপাদানগুলোর স্কেল পরিবর্তন করুন",
+		"description": "Description for the UI scaling setting"
+	},
+	"scale": {
+		"message": "স্কেল",
+		"description": "Label for the UI scale slider"
+	},
 	"customCss": {
 		"message": "কাস্টম CSS",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -311,11 +323,11 @@
 		"message": "ড্র্যাগ বৈশিষ্ট্য",
 		"description": "Drag features section"
 	},
-	"textDragSearch": {
+	"textDrag": {
 		"message": "টেক্সট ড্র্যাগ",
 		"description": "Text drag"
 	},
-	"textDragSearchDesc": {
+	"textDragDesc": {
 		"message": "নির্বাচন করা টেক্সট ড্র্যাগ করে অনুসন্ধান করুন",
 		"description": "Drag selected text to search"
 	},
@@ -575,6 +587,10 @@
 		"message": "ডান তারপর বাম",
 		"description": "Gesture description for →←"
 	},
+	"gestureDesc_Any": {
+		"message": "যেকোনো",
+		"description": "Description for the * fallback gesture that matches any unmatched pattern"
+	},
 	"actionNone": {
 		"message": "কিছুই না",
 		"description": "No action"
@@ -731,6 +747,10 @@
 		"message": "সব ট্যাব রিফ্রেশ করুন",
 		"description": "Refresh all tabs"
 	},
+	"actionReloadFrame": {
+		"message": "ফ্রেমটি পুনরায় লোড করুন",
+		"description": "Reload only the frame (iframe) where the gesture was performed"
+	},
 	"actionStopLoading": {
 		"message": "লোডিং বন্ধ করুন",
 		"description": "Stop loading"
@@ -790,6 +810,10 @@
 	"actionOpenExtensions": {
 		"message": "এক্সটেনশনস খুলুন",
 		"description": "Open extensions page"
+	},
+	"actionOpenOptions": {
+		"message": "FlowMouse সেটিংস খুলুন",
+		"description": "Open the FlowMouse settings page"
 	},
 	"actionSaveAsMhtml": {
 		"message": "MHTML হিসেবে সংরক্ষণ করুন",
@@ -926,6 +950,14 @@
 	"gestureRecorderBanned": {
 		"message": "%pattern% জেসচারটি ইতিমধ্যে বিদ্যমান",
 		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"gestureRecorderAny": {
+		"message": "অমিল থাকা প্যাটার্নের জন্য জেসচার যোগ করুন",
+		"description": "Button in the gesture recorder to select the * fallback that matches any unmatched gesture"
+	},
+	"fallbackGestureTip": {
+		"message": "আঁকা ট্রেইল অন্য কোনও জেসচারের সাথে না মিললে ট্রিগার হয়",
+		"description": "Tooltip explaining what the * fallback gesture does"
 	},
 	"rightButton": {
 		"message": "মাউসের ডান বোতাম",
@@ -1192,60 +1224,56 @@
 		"description": "No action"
 	},
 	"dragActionSearch": {
-		"message": "🔍 সার্চ ইঞ্জিন",
+		"message": "অনুসন্ধান",
 		"description": "Search action"
 	},
 	"dragActionCopy": {
-		"message": "📋 কপি",
+		"message": "কপি",
 		"description": "Copy action"
 	},
-	"dragActionOpenTab": {
-		"message": "📑 নতুন ট্যাবে খুলুন",
-		"description": "Open in new tab"
-	},
 	"dragActionOpenTabLink": {
-		"message": "🔗 লিঙ্ক খুলুন",
+		"message": "লিঙ্ক খুলুন",
 		"description": "Open link in new tab"
 	},
 	"dragActionOpenTabImage": {
-		"message": "🖼️ ইমেজ খুলুন",
+		"message": "ইমেজ খুলুন",
 		"description": "Open image in new tab"
 	},
+	"dragActionTryOpenLink": {
+		"message": "লিঙ্ক খোলার চেষ্টা করুন",
+		"description": "Open the image's link in new tab, if any"
+	},
 	"dragActionCopyLink": {
-		"message": "📋 লিঙ্ক কপি করুন",
+		"message": "লিঙ্ক কপি করুন",
 		"description": "Copy link"
 	},
 	"dragActionCopyLinkText": {
-		"message": "📋 লিঙ্ক টেক্সট কপি করুন",
+		"message": "লিঙ্ক টেক্সট কপি করুন",
 		"description": "Copy link text"
 	},
 	"dragActionCopyLinkAndText": {
-		"message": "📋 পাঠ্য এবং লিঙ্ক অনুলিপি করুন",
+		"message": "পাঠ্য এবং লিঙ্ক অনুলিপি করুন",
 		"description": "Copy link text and URL"
 	},
+	"dragActionBookmarkLink": {
+		"message": "বুকমার্কে লিঙ্ক যোগ করুন",
+		"description": "Add dragged link to bookmarks"
+	},
 	"dragActionSaveImage": {
-		"message": "💾 ইমেজ সংরক্ষণ করুন",
+		"message": "ইমেজ সংরক্ষণ করুন",
 		"description": "Save image"
 	},
 	"dragActionCopyImage": {
-		"message": "🖼️ ইমেজ কপি করুন",
+		"message": "ইমেজ কপি করুন",
 		"description": "Copy image"
 	},
 	"dragActionCopyImageUrl": {
-		"message": "📋 ইমেজ URL কপি করুন",
+		"message": "ইমেজ URL কপি করুন",
 		"description": "Copy image URL"
 	},
 	"dragActionImageSearch": {
-		"message": "🔍 ইমেজ অনুসন্ধান",
+		"message": "ইমেজ অনুসন্ধান",
 		"description": "Image search"
-	},
-	"dragActionCustomSearch": {
-		"message": "🔍 কাস্টম অনুসন্ধান",
-		"description": "Custom search"
-	},
-	"dragActionSendCustomEvent": {
-		"message": "কাস্টম ইভেন্ট পাঠান",
-		"description": "Send custom DOM event on drag gesture"
 	},
 	"reducedMotionWarning": {
 		"message": "%OS% সিস্টেম অ্যানিমেশন নিষ্ক্রিয়, স্ক্রল অ্যানিমেশন সঠিকভাবে কাজ নাও করতে পারে। আপনি %OS% সিস্টেম সেটিংসে অ্যানিমেশন চালু করতে পারেন।",
@@ -1511,10 +1539,6 @@
 		"message": "ড্র্যাগ করতে <span class=\"text-highlight\">মাউসের বাম বোতাম</span> ব্যবহার করুন",
 		"description": "Tutorial drag wrong button error"
 	},
-	"tutorialRefreshTip": {
-		"message": "পরামর্শ: ইনস্টলেশনের আগে খোলা ট্যাবগুলি FlowMouse ব্যবহার করতে <span class=\"text-highlight\">রিফ্রেশ</span> করা প্রয়োজন",
-		"description": "Tip about refreshing tabs"
-	},
 	"permissionBookmarksTitle": {
 		"message": "বুকমার্কস পরিচালনা",
 		"description": "Permission popup title for bookmarks"
@@ -1595,9 +1619,9 @@
 		"message": "ছবি সংরক্ষণ ব্যর্থ হয়েছে: লোডিং সময়সীমা শেষ",
 		"description": "Toast message when image loading times out"
 	},
-	"saveImageSubdirPlaceholder": {
-		"message": "সাবডিরেক্টরি (ঐচ্ছিক)",
-		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	"saveImageSubdirLabel": {
+		"message": "সাবডিরেক্টরি",
+		"description": "Label for the optional subdirectory input in save image config"
 	},
 	"buttonOkay": {
 		"message": "ঠিক আছে",
@@ -1635,6 +1659,18 @@
 		"message": "ইউটিলিটি",
 		"description": "Action category: utilities"
 	},
+	"actionCategoryText": {
+		"message": "টেক্সট",
+		"description": "Action category: text"
+	},
+	"actionCategoryLink": {
+		"message": "লিঙ্ক",
+		"description": "Action category: link"
+	},
+	"actionCategoryImage": {
+		"message": "ইমেজ",
+		"description": "Action category: image"
+	},
 	"noResults": {
 		"message": "কোনো ফলাফল পাওয়া যায়নি",
 		"description": "No search results found"
@@ -1650,6 +1686,14 @@
 	"enableWheelGesturesDesc": {
 		"message": "মাউস হুইল ব্যবহার করে দ্রুত বিভিন্ন কাজ সম্পন্ন করুন",
 		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelThreshold": {
+		"message": "হুইল ট্রিগার দূরত্ব",
+		"description": "Label for the wheel gesture scroll distance threshold"
+	},
+	"wheelThresholdDesc": {
+		"message": "হুইল জেসচার বারবার ট্রিগার করতে মাউস হুইল স্ক্রোলিং অবশ্যই এই দূরত্বে পৌঁছাতে হবে",
+		"description": "Description for the wheel gesture scroll distance threshold"
 	},
 	"wheelGesture_scrollUpHoldingRight": {
 		"message": "ডান বোতাম চেপে ধরে উপরে স্ক্রোল করুন",
@@ -1758,6 +1802,10 @@
 	"emptyChainSteps": {
 		"message": "কোনো ধাপ যোগ করা হয়নি। শুরু করতে \"ধাপ যোগ করুন\" এ ক্লিক করুন।",
 		"description": "Empty chain steps message in expanded body"
+	},
+	"chainStopOnSuccess": {
+		"message": "যেকোনো একটি ধাপ সফল হলে চেইন বাতিল করুন",
+		"description": "Checkbox: skip remaining command-chain steps after the first successful action"
 	},
 	"emptyChainStepsShort": {
 		"message": "কোনো ধাপ যোগ করা হয়নি",
@@ -1898,6 +1946,10 @@
 	"actionViewPageSource": {
 		"message": "পৃষ্ঠার সোর্স দেখুন",
 		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionViewFrameSource": {
+		"message": "ফ্রেমের উৎস দেখুন",
+		"description": "Open the source code of the frame (iframe) where the gesture was performed in a new tab"
 	},
 	"actionPauseGesture": {
 		"message": "রিফ্রেশ না হওয়া পর্যন্ত জেসচার পজ",
@@ -2118,6 +2170,14 @@
 	"ctxMenuScrollToBottom": {
 		"message": "নিচে স্ক্রোল করুন",
 		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuWheelNav": {
+		"message": "দ্রুত হুইল নেভিগেশন",
+		"description": "Checkbox: navigate a wheel-gesture menu with the wheel while holding the right button"
+	},
+	"ctxMenuWheelNavTooltip": {
+		"message": "মাউসের বোতাম চেপে ধরে থাকা অবস্থায়, মেনু আইটেমগুলি দ্রুত নির্বাচন করতে হুইল স্ক্রোল করুন।",
+		"description": "Tooltip explaining quick wheel navigation for wheel-gesture menus"
 	},
 	"ctxMenuTimeDisplay": {
 		"message": "সময় দেখান",

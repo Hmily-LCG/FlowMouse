@@ -3,7 +3,8 @@ import { commonStyles, optionStyles } from './shared-styles.js';
 import { icons, icon } from '../icons.js';
 import { getChainLabel } from './chain-panel.js';
 import { getMenuLabel } from './menu-panel.js';
-import { tooltip } from '../tooltip.js';
+import { tooltip } from '../directives/tooltip.js';
+import { fitText } from '../directives/fit-text.js';
 import { settingsStore } from '../settings-store.js';
 
 let modalOpenCount = 0;
@@ -49,6 +50,7 @@ const ACTION_ICONS = {
 	'switchLastActiveTab': 'undo',
 	'refresh': 'refreshCw',
 	'refreshAllTabs': 'refreshCw',
+	'reloadFrame': 'refreshCw',
 	'stopLoading': 'ban',
 	'stopAllLoading': 'ban',
 	'newWindow': 'appWindow',
@@ -64,6 +66,7 @@ const ACTION_ICONS = {
 	'openDownloads': 'download',
 	'openHistory': 'history',
 	'openExtensions': 'puzzle',
+	'openOptions': 'settings',
 	'saveAsMhtml': 'fileDown',
 	'printPage': 'printer',
 	'duplicateTab': 'layers2',
@@ -83,12 +86,26 @@ const ACTION_ICONS = {
 	'zoomOut': 'zoomOut',
 	'resetZoom': 'searchX',
 	'viewPageSource': 'fileCode',
+	'viewFrameSource': 'squareCode',
 	'pauseGesture': 'circlePause',
 	'menuShowTabs': 'layoutList',
 	'menuRecentlyClosed': 'history',
 	'menuShowBookmarks': 'bookOpen',
 	'customMenu': 'layoutGrid',
 	'areaSelect': 'squareDashedMousePointer',
+
+	'search': 'search',
+	'copy': 'copy',
+	'openTab': 'externalLink',
+	'openLink': 'externalLink',
+	'openImage': 'externalLink',
+	'copyLink': 'copy',
+	'copyLinkText': 'copy',
+	'copyLinkAndText': 'copy',
+	'bookmarkLink': 'star',
+	'saveImage': 'download',
+	'copyImageUrl': 'copy',
+	'imageSearch': 'search',
 };
 
 const SCROLL_SMOOTHNESS = {
@@ -108,7 +125,28 @@ const ACTION_CATEGORIES = [
 	{ key: 'actionCategoryContextMenu', icon: 'menu', actions: ['menuShowTabs', 'menuRecentlyClosed', 'menuShowBookmarks', 'customMenu'] },
 	{ key: 'actionCategoryTabs', icon: 'panelTop', actions: ['newTab', 'closeTab', 'refresh', 'refreshAllTabs', 'switchLeftTab', 'switchRightTab', 'switchFirstTab', 'switchLastTab', 'closeOtherTabs', 'closeLeftTabs', 'closeRightTabs', 'closeAllTabs', 'switchLastActiveTab', 'restoreTab', 'duplicateTab', 'togglePinTab', 'moveTabToNewWindow'] },
 	{ key: 'actionCategoryWindow', icon: 'appWindow', actions: ['newWindow', 'newIncognito', 'toggleFullscreen', 'toggleMaximize', 'minimize', 'closeWindow', 'closeBrowser'] },
-	{ key: 'actionCategoryUtilities', icon: 'wrench', actions: ['addToBookmarks', 'copyUrl', 'copyTitle', 'copyTitleAndUrl', 'openCustomUrl', 'openDownloads', 'openHistory', 'openExtensions', 'zoomIn', 'zoomOut', 'resetZoom', 'toggleMuteTab', 'toggleMuteAllTabs', 'stopLoading', 'stopAllLoading', 'printPage', 'saveAsMhtml', 'viewPageSource', 'pasteClipboard', 'pasteContent', 'searchClipboard', 'pauseGesture', 'simulateKey', 'sendCustomEvent', 'sendExtensionMessage', 'areaSelect'] },
+	{ key: 'actionCategoryUtilities', icon: 'wrench', actions: ['openOptions', 'addToBookmarks', 'copyUrl', 'copyTitle', 'copyTitleAndUrl', 'openCustomUrl', 'openDownloads', 'openHistory', 'openExtensions', 'zoomIn', 'zoomOut', 'resetZoom', 'toggleMuteTab', 'toggleMuteAllTabs', 'stopLoading', 'stopAllLoading', 'printPage', 'saveAsMhtml', 'viewPageSource', 'viewFrameSource', 'reloadFrame', 'pasteClipboard', 'pasteContent', 'searchClipboard', 'pauseGesture', 'simulateKey', 'sendCustomEvent', 'sendExtensionMessage', 'areaSelect'] },
+];
+
+const TEXT_DRAG_CATEGORIES = [
+	{ key: '', actions: ['none', 'actionChain', 'delay'] },
+	{ key: 'actionCategoryText', icon: 'squareText', actions: ['search', 'copy'] },
+	{ key: 'actionCategoryContextMenu', icon: 'menu', actions: ['customMenu'] },
+	{ key: 'actionCategoryUtilities', icon: 'wrench', actions: ['openCustomUrl', 'sendCustomEvent', 'sendExtensionMessage'] },
+];
+
+const LINK_DRAG_CATEGORIES = [
+	{ key: '', actions: ['none', 'actionChain', 'delay'] },
+	{ key: 'actionCategoryLink', icon: 'link', actions: ['openTab', 'copyLink', 'copyLinkText', 'copyLinkAndText', 'bookmarkLink'] },
+	{ key: 'actionCategoryContextMenu', icon: 'menu', actions: ['customMenu'] },
+	{ key: 'actionCategoryUtilities', icon: 'wrench', actions: ['openCustomUrl', 'sendCustomEvent', 'sendExtensionMessage'] },
+];
+
+const IMAGE_DRAG_CATEGORIES = [
+	{ key: '', actions: ['none', 'actionChain', 'delay'] },
+	{ key: 'actionCategoryImage', icon: 'image', actions: ['openTab', 'openLink', 'saveImage', 'copyImageUrl', 'imageSearch'] },
+	{ key: 'actionCategoryContextMenu', icon: 'menu', actions: ['customMenu'] },
+	{ key: 'actionCategoryUtilities', icon: 'wrench', actions: ['openCustomUrl', 'sendCustomEvent', 'sendExtensionMessage'] },
 ];
 
 class ActionSelect extends LitElement {
@@ -118,6 +156,7 @@ class ActionSelect extends LitElement {
 		gestureLabel: { type: String, attribute: 'gesture-label' },
 		gestureArrows: { type: String, attribute: 'gesture-arrows' },
 		context: { type: String },
+		dragType: { type: String, attribute: 'drag-type' },
 		allowCustomName: { type: Boolean, attribute: 'allow-custom-name' },
 		compact: { type: Boolean },
 		_open: { state: true },
@@ -168,7 +207,7 @@ class ActionSelect extends LitElement {
 				min-width: 0;
 			}
 			.trigger.none .trigger-label {
-				opacity: 0.5;
+				opacity: 0.7;
 			}
 			.trigger-chevron {
 				flex-shrink: 0;
@@ -343,7 +382,7 @@ class ActionSelect extends LitElement {
 				cursor: pointer;
 				font-size: 13px;
 				color: var(--text-primary);
-				transition: all 0.15s ease;
+				transition: background-color 0.15s ease, border-color 0.15s ease;
 				user-select: none;
 				word-break: break-word;
 				position: relative;
@@ -360,6 +399,15 @@ class ActionSelect extends LitElement {
 			.action-icon svg {
 				width: 15px;
 				height: 15px;
+			}
+			.action-label {
+				display: inline-flex;
+				align-items: center;
+				min-width: 0;
+			}
+			.action-item .help-icon {
+				margin-inline-start: 5px;
+				flex-shrink: 0;
 			}
 			.action-item.selected .action-icon {
 				color: var(--accent-color);
@@ -620,10 +668,18 @@ class ActionSelect extends LitElement {
 				display: flex;
 				align-items: center;
 				justify-content: flex-end;
+				flex-wrap: wrap;
 				gap: 8px;
 				padding: 10px 16px;
 				border-top: 1px solid var(--border-color);
 				flex-shrink: 0;
+			}
+			.modal-footer-names {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				margin-inline-end: auto;
+				min-width: 0;
 			}
 			.modal-footer-label {
 				font-size: 12px;
@@ -635,7 +691,6 @@ class ActionSelect extends LitElement {
 			}
 			input.modal-footer-name {
 				width: 180px;
-				margin-inline-end: auto;
 			}
 			.modal-footer-btn {
 				min-width: 92px;
@@ -691,6 +746,7 @@ class ActionSelect extends LitElement {
 		this.gestureLabel = '';
 		this.gestureArrows = '';
 		this.context = 'gesture';
+		this.dragType = '';
 		this.compact = false;
 		this._open = false;
 		this._search = '';
@@ -715,10 +771,31 @@ class ActionSelect extends LitElement {
 		}
 	}
 
+	#isDragContext() {
+		return !!this.dragType;
+	}
+
+	#actionCategories() {
+		if (this.dragType === 'text') return TEXT_DRAG_CATEGORIES;
+		if (this.dragType === 'link') return LINK_DRAG_CATEGORIES;
+		if (this.dragType === 'image') return IMAGE_DRAG_CATEGORIES;
+		return ACTION_CATEGORIES;
+	}
+
+	#actionLabelKey(action, context) {
+		if (context === undefined) {
+			context = this.dragType;
+		}
+		return window.GestureConstants.actionLabelKey(action, context);
+	}
+
+	#actionDefaults(action = this._pendingValue) {
+		return window.GestureConstants.ACTION_DEFAULTS[action] || null;
+	}
+
 	#getActionLabel(val) {
 		if (this.config?.customName) return this.config.customName;
-		const ACTION_KEYS = window.GestureConstants.ACTION_KEYS;
-		const key = ACTION_KEYS[val];
+		const key = this.#actionLabelKey(val);
 		if (!key) return val;
 		if (val === 'openCustomUrl') {
 			const baseLabel = window.i18n.getMessage('actionOpenCustomUrl');
@@ -733,6 +810,17 @@ class ActionSelect extends LitElement {
 			return content
 				? `${baseLabel} (${content})`
 				: baseLabel;
+		}
+		if (val === 'search' || val === 'searchClipboard' || val === 'imageSearch') {
+			const baseLabel = window.i18n.getMessage(key);
+			const engine = this.config?.engine ?? this.#actionDefaults(val)?.engine;
+			if (engine === 'custom') return `${baseLabel} (${window.i18n.getMessage('custom')})`;
+			const engines = val === 'imageSearch'
+				? window.GestureConstants.IMAGE_SEARCH_ENGINES
+				: window.GestureConstants.SEARCH_ENGINES;
+			const eng = engines[engine];
+			const engineName = eng?.i18nKey ? window.i18n.getMessage(eng.i18nKey) : eng?.name;
+			return engineName ? `${baseLabel} (${engineName})` : baseLabel;
 		}
 		if (val === 'actionChain') {
 			return getChainLabel(this.config?.chainId);
@@ -759,19 +847,20 @@ class ActionSelect extends LitElement {
 	}
 
 	#getFilteredCategories() {
-		const ACTION_KEYS = window.GestureConstants.ACTION_KEYS;
 		const search = this._search.toLowerCase().trim();
+		const categories = this.#actionCategories();
+		const ctx = this.context;
 		const result = [];
 
-		const ctx = this.context;
-		for (const cat of ACTION_CATEGORIES) {
+		for (const cat of categories) {
 			const items = [];
 			for (const action of cat.actions) {
-				if (!ACTION_KEYS[action]) continue;
+				const labelKey = this.#actionLabelKey(action);
+				if (!labelKey) continue;
 				if (action === 'actionChain' && ctx === 'chain-step') continue;
 				if (action === 'customMenu' && (ctx === 'chain-step' || ctx === 'menu-item')) continue;
 				if (action === 'delay' && ctx !== 'chain-step') continue;
-				const label = window.i18n.getMessage(ACTION_KEYS[action]);
+				const label = window.i18n.getMessage(labelKey);
 				if (!search || label.toLowerCase().includes(search) || action.toLowerCase().includes(search)) {
 					items.push({ value: action, label });
 				}
@@ -796,15 +885,30 @@ class ActionSelect extends LitElement {
 	}
 
 	#renderGestureTitle() {
-		if (!this.gestureArrows && !this.gestureLabel) return '';
-		return html`<span class="modal-gesture">${this.gestureArrows ? unsafeHTML(window.GestureConstants.arrowsToSvg(this.gestureArrows)) : ''}${this.gestureArrows && this.gestureLabel ? ' ' : ''}${this.gestureLabel}</span>`;
+		const arrows = this.gestureArrows ? unsafeHTML(window.GestureConstants.arrowsToSvg(this.gestureArrows)) : '';
+		const dragTypeKey = {
+			'text': 'textDrag',
+			'link': 'linkDrag',
+			'image': 'imageDrag',
+		}[this.dragType];
+		const parts = [
+			dragTypeKey ? window.i18n.getMessage(dragTypeKey) : '',
+			arrows,
+			this.gestureLabel || '',
+		].filter(Boolean);
+		if (!parts.length) return '';
+		return html`<span class="modal-gesture">${parts.map((part, i) => html`${i ? ' ' : ''}${part}`)}</span>`;
 	}
 
 	#renderModal() {
 		const categories = this.#getFilteredCategories();
 		const hasResults = categories.some(c => c.items.length > 0);
 		const showActionConfig = this.#hasActionConfig(this._pendingValue);
-		const showHudName = this._pendingValue !== 'none' && (this.allowCustomName || this._pendingConfig?.customName);
+		const showHudName = this._pendingValue !== 'none' && (this.#isDragContext() || this.allowCustomName || this._pendingConfig?.customName);
+		const showPreferLinkName = showHudName && this.dragType === 'image' && this._pendingValue === 'openTab' && (this._pendingConfig.preferLink ?? this.#actionDefaults()?.preferLink);
+		const showAutoDetectName = showHudName && this.dragType === 'text' && this._pendingValue === 'search' && (this._pendingConfig.autoDetectUrl ?? this.#actionDefaults()?.autoDetectUrl);
+		const hudNamePlaceholder = window.i18n.getMessage(this.#actionLabelKey(this._pendingValue));
+		const openTabPlaceholder = window.i18n.getMessage(this.#actionLabelKey('openTab', 'link'));
 
 		return html`
 			<div class="modal-overlay" @mousedown=${this.#onOverlayClick}
@@ -838,7 +942,10 @@ class ActionSelect extends LitElement {
 											<div class="action-item ${this.#isItemSelected(item) ? 'selected' : ''}"
 												@click=${() => this.#selectAction(item.value)}>
 												<span class="action-icon">${unsafeHTML(icon(ACTION_ICONS[item.value]))}</span>
-												<span>${item.label}</span>
+												<span class="action-label"><span ${fitText()}>${item.label}</span>${item.value === 'actionChain' ? html`<span class="help-icon"
+													.tooltip=${tooltip(window.i18n.getMessage('actionChainsDesc'))}>
+													${unsafeHTML(icon('circleHelp', { size: 14 }))}
+												</span>` : ''}</span>
 											</div>
 										`)}
 									</div>
@@ -861,25 +968,43 @@ class ActionSelect extends LitElement {
 					</div>
 					<div class="modal-footer">
 						${showHudName ? html`
-							<span class="modal-footer-label">
-								${window.i18n.getMessage('customHudName')}
-								<span class="help-icon"
-									.tooltip=${tooltip(window.i18n.getMessage('customHudNameTooltip'))}>
-									${unsafeHTML(icon('circleHelp', { size: 14 }))}
+							<div class="modal-footer-names">
+								<span class="modal-footer-label">
+									${window.i18n.getMessage('customHudName')}
+									<span class="help-icon"
+										.tooltip=${tooltip(window.i18n.getMessage('customHudNameTooltip'))}>
+										${unsafeHTML(icon('circleHelp', { size: 14 }))}
+									</span>
 								</span>
-							</span>
-							<input class="modal-footer-name" type="text"
-								placeholder=${window.i18n.getMessage(window.GestureConstants.ACTION_KEYS[this._pendingValue])}
-								maxlength="80"
-								.value=${this._pendingConfig.customName || ''}
-								@input=${(e) => { this._pendingConfig = { ...this._pendingConfig, customName: e.target.value }; }}
-							>
+								<input class="modal-footer-name" type="text"
+									placeholder=${hudNamePlaceholder}
+									maxlength="80"
+									.value=${this._pendingConfig.customName || ''}
+									@input=${(e) => { this._pendingConfig = { ...this._pendingConfig, customName: e.target.value }; }}
+								>
+								${showPreferLinkName ? html`
+									<input class="modal-footer-name" type="text"
+										placeholder=${openTabPlaceholder}
+										maxlength="80"
+										.value=${this._pendingConfig.customNamePreferLink || ''}
+										@input=${(e) => { this._pendingConfig = { ...this._pendingConfig, customNamePreferLink: e.target.value }; }}
+									>
+								` : ''}
+								${showAutoDetectName ? html`
+									<input class="modal-footer-name" type="text"
+										placeholder=${openTabPlaceholder}
+										maxlength="80"
+										.value=${this._pendingConfig.customNameAutoDetectUrl || ''}
+										@input=${(e) => { this._pendingConfig = { ...this._pendingConfig, customNameAutoDetectUrl: e.target.value }; }}
+									>
+								` : ''}
+							</div>
 						` : ''}
-						<button type="button" class="btn btn-lg btn-secondary modal-footer-btn" @click=${this.#cancel}>
-							${window.i18n.getMessage('buttonCancel')}
-						</button>
 						<button type="button" class="btn btn-lg btn-primary modal-footer-btn" @click=${this.#confirm}>
 							${window.i18n.getMessage('buttonConfirm')}
+						</button>
+						<button type="button" class="btn btn-lg btn-secondary modal-footer-btn" @click=${this.#cancel}>
+							${window.i18n.getMessage('buttonCancel')}
 						</button>
 					</div>
 				</div>
@@ -889,10 +1014,7 @@ class ActionSelect extends LitElement {
 
 	#renderDetailHeader(showActionConfig) {
 		const val = this._pendingValue;
-		const ACTION_KEYS = window.GestureConstants.ACTION_KEYS;
-
-		const key = ACTION_KEYS[val];
-		const name = key ? window.i18n.getMessage(key) : val;
+		const name = window.i18n.getMessage(this.#actionLabelKey(val));
 
 		const canReset = showActionConfig && val !== 'actionChain' && val !== 'customMenu' && this.#isConfigModified();
 		return html`
@@ -912,15 +1034,20 @@ class ActionSelect extends LitElement {
 		`;
 	}
 
+	#noResetKeys = ['customName', 'customNamePreferLink', 'customNameAutoDetectUrl'];
+
 	#isConfigModified() {
-		const defaults = window.GestureConstants.ACTION_DEFAULTS[this._pendingValue];
+		const defaults = this.#actionDefaults();
 		if (!defaults) return false;
-		return Object.keys(this._pendingConfig).some(k => k !== 'customName' && k in defaults);
+		return Object.keys(this._pendingConfig).some(k => !this.#noResetKeys.includes(k) && k in defaults);
 	}
 
 	#resetConfig() {
-		const customName = this._pendingConfig.customName;
-		this._pendingConfig = customName ? { customName } : {};
+		const kept = {};
+		for (const key of this.#noResetKeys) {
+			if (this._pendingConfig[key]) kept[key] = this._pendingConfig[key];
+		}
+		this._pendingConfig = kept;
 		this.#stopKeyRecording();
 		this.requestUpdate();
 	}
@@ -956,15 +1083,17 @@ class ActionSelect extends LitElement {
 		this.#stopKeyRecording();
 		unlockBodyScroll();
 		if (changed) this.#dispatchChange();
-		this.updateComplete.then(() => {
-			this.shadowRoot.querySelector('.trigger').focus();
-		});
+		this.focusTrigger();
 	}
 
 	#cancel() {
 		this._open = false;
 		this.#stopKeyRecording();
 		unlockBodyScroll();
+		this.focusTrigger();
+	}
+
+	focusTrigger() {
 		this.updateComplete.then(() => {
 			this.shadowRoot.querySelector('.trigger').focus();
 		});
@@ -1040,7 +1169,7 @@ class ActionSelect extends LitElement {
 
 	#cleanConfig(pendingConfig) {
 		const action = this._pendingValue;
-		const defaults = window.GestureConstants.ACTION_DEFAULTS[action];
+		const defaults = this.#actionDefaults(action);
 
 		const result = {};
 		if (defaults) {
@@ -1067,7 +1196,7 @@ class ActionSelect extends LitElement {
 
 	#renderPositionSelect(showCurrent, showNewWindow, showIncognito) {
 		const action = this._pendingValue;
-		const defaults = window.GestureConstants.ACTION_DEFAULTS[action];
+		const defaults = this.#actionDefaults(action);
 		const position = this._pendingConfig.position ?? defaults.position;
 		const active = this._pendingConfig.active ?? defaults.active;
 		const showActive = position !== 'current';
@@ -1117,7 +1246,6 @@ class ActionSelect extends LitElement {
 		const maxItems = this._pendingConfig.maxItems ?? defaults.maxItems;
 		const scrollToBottom = this._pendingConfig.scrollToBottom ?? defaults.scrollToBottom;
 		const hardMax = action === 'menuRecentlyClosed' ? 100 : 999;
-		const isFirefox = !!window.i18n.isFirefox;
 
 		const sortOptions = [
 			{ value: 'default', key: 'ctxMenuSortDefault' },
@@ -1175,11 +1303,31 @@ class ActionSelect extends LitElement {
 		`;
 	}
 
+	#renderWheelNavToggle() {
+		if (this.context !== 'wheel') return '';
+		const defaults = window.GestureConstants.ACTION_DEFAULTS[this._pendingValue];
+		const wheelNav = this._pendingConfig.wheelNav ?? defaults.wheelNav;
+		return html`
+			<div class="action-config-row">
+				<label class="action-config-checkbox">
+					<input type="checkbox"
+						.checked=${wheelNav}
+						@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, wheelNav: e.target.checked }; this.requestUpdate(); }}
+					>
+					<span>${window.i18n.getMessage('ctxMenuWheelNav')}</span>
+					<span class="help-icon"
+						.tooltip=${tooltip(window.i18n.getMessage('ctxMenuWheelNavTooltip'))}>
+						${unsafeHTML(icon('circleHelp', { size: 14 }))}
+					</span>
+				</label>
+			</div>
+		`;
+	}
+
 	#renderTimeDisplay() {
 		const action = this._pendingValue;
 		const defaults = window.GestureConstants.ACTION_DEFAULTS[action];
 		const timeDisplay = this._pendingConfig.timeDisplay ?? defaults.timeDisplay;
-		const isFirefox = !!window.i18n.isFirefox;
 
 		const options = [{ value: 'none', key: 'ctxMenuTimeNone' }];
 		if (action === 'menuShowTabs') {
@@ -1201,6 +1349,43 @@ class ActionSelect extends LitElement {
 		`;
 	}
 
+	#renderSearchEngineRow(engines, orderMap, engine, urlPlaceholder) {
+		const lang = window.i18n.getCurrentLanguage();
+		const order = orderMap[lang] || orderMap['default'];
+		const displayKeys = [...order];
+		if (engine && engine !== 'custom' && !displayKeys.includes(engine) && engines[engine]) {
+			displayKeys.push(engine);
+		}
+		const url = this._pendingConfig.url ?? this.#actionDefaults()?.url ?? '';
+		return html`
+			<div class="action-config-row">
+				<span class="action-config-label">${window.i18n.getMessage('searchEngine')}</span>
+				<select .value=${engine}
+					@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, engine: e.target.value }; this.requestUpdate(); }}>
+					${displayKeys.map(key => {
+						const eng = engines[key];
+						if (!eng) return '';
+						const label = eng.i18nKey ? window.i18n.getMessage(eng.i18nKey) : eng.name;
+						return html`<option value=${key} ?selected=${engine === key}>${label}</option>`;
+					})}
+					<option value="custom" ?selected=${engine === 'custom'}>${window.i18n.getMessage('custom')}</option>
+				</select>
+			</div>
+			${engine === 'custom' ? html`
+				<div class="action-config-field">
+					<div class="input-icon">
+						${unsafeHTML(icon('link'))}
+						<input class="action-config-input" type="text"
+							placeholder=${window.i18n.getMessage(urlPlaceholder)}
+							.value=${url}
+							@input=${(e) => { this._pendingConfig = { ...this._pendingConfig, url: e.target.value }; }}
+						>
+					</div>
+				</div>
+			` : ''}
+		`;
+	}
+
 	#renderActionConfig() {
 		const action = this._pendingValue;
 		const { ACTION_DEFAULTS } = window.GestureConstants;
@@ -1208,6 +1393,7 @@ class ActionSelect extends LitElement {
 			return html`
 				<div class="action-config-info">${window.i18n.getMessage('actionChainsDesc')}</div>
 				<chain-panel
+					drag-type=${this.dragType}
 					.selectedChainId=${this._pendingConfig?.chainId || ''}
 					@chain-select=${this.#onChainSelect}
 				></chain-panel>
@@ -1217,12 +1403,30 @@ class ActionSelect extends LitElement {
 			return html`
 				<div class="action-config-info">${window.i18n.getMessage('customMenuDesc')}</div>
 				<menu-panel
+					drag-type=${this.dragType}
 					.selectedMenuId=${this._pendingConfig?.menuId || ''}
 					@menu-select=${this.#onMenuSelect}
 				></menu-panel>
+				${this.#renderWheelNavToggle()}
 			`;
 		}
 		if (action === 'openCustomUrl') {
+			const contentPlaceholders = {
+				'': ['linkUrl', 'linkDomain', 'linkText', 'imageUrl'],
+				'text': ['text'],
+				'link': ['linkUrl', 'linkDomain', 'linkText'],
+				'image': ['imageUrl', 'linkUrl', 'linkDomain'],
+			};
+			const examples = {
+				'': { placeholder: 'https://web.archive.org/web/{tabUrl:raw}', example: '{tabUrl:raw}' },
+				'text': { placeholder: 'https://www.google.com/search?q={text}', example: '{text:raw}' },
+				'link': { placeholder: 'https://web.archive.org/web/{linkUrl:raw}', example: '{linkUrl:raw}' },
+				'image': { placeholder: 'https://lens.google.com/uploadbyurl?url={imageUrl}', example: '{imageUrl:raw}' },
+			};
+			const dragKey = contentPlaceholders[this.dragType] ? this.dragType : '';
+			const placeholders = ['tabUrl', 'tabTitle', 'tabDomain', ...contentPlaceholders[dragKey]]
+				.map(p => `<code>{${p}}</code>`).join(' ');
+			const { placeholder, example } = examples[dragKey];
 			return html`
 				<div class="action-config-field">
 					<label class="action-config-label">
@@ -1232,13 +1436,13 @@ class ActionSelect extends LitElement {
 					<div class="input-icon">
 						${unsafeHTML(icon('link'))}
 						<input class="action-config-input" type="text"
-							placeholder="https://web.archive.org/web/{tabUrl:raw}"
+							placeholder=${placeholder}
 							maxlength="500"
 							.value=${this._pendingConfig.customUrl || ''}
 							@input=${(e) => { this._pendingConfig = { ...this._pendingConfig, customUrl: e.target.value }; }}
 						>
 					</div>
-					<div class="action-config-hint">${unsafeHTML(window.i18n.getMessage('customUrlPlaceholderHint').replace('%placeholders%', '<code>{tabUrl}</code> <code>{tabTitle}</code> <code>{tabDomain}</code>').replace('%example%', '<code>{tabUrl:raw}</code>'))}</div>
+					<div class="action-config-hint">${unsafeHTML(window.i18n.getMessage('customUrlPlaceholderHint').replace('%placeholders%', placeholders).replace('%example%', `<code>${example}</code>`))}</div>
 				</div>
 				${this.#renderPositionSelect(true, true, true)}
 			`;
@@ -1373,7 +1577,7 @@ class ActionSelect extends LitElement {
 				</label>
 			`;
 		}
-		if (action === 'viewPageSource') {
+		if (action === 'viewPageSource' || action === 'viewFrameSource') {
 			return this.#renderPositionSelect(true, true, false);
 		}
 		if (action === 'copyTitleAndUrl') {
@@ -1460,7 +1664,7 @@ class ActionSelect extends LitElement {
 			`;
 		}
 		if (action === 'sendCustomEvent') {
-			const defaults = ACTION_DEFAULTS.sendCustomEvent;
+			const defaults = this.#actionDefaults(action);
 			const eventType = this._pendingConfig.eventType ?? defaults.eventType;
 			const eventDetail = this._pendingConfig.eventDetail ?? defaults.eventDetail;
 			const includeGestureInfo = this._pendingConfig.gestureInfo ?? defaults.gestureInfo;
@@ -1474,7 +1678,7 @@ class ActionSelect extends LitElement {
 				<div class="action-config-row">
 					<span class="action-config-label"><code>type</code></span>
 					<input type="text" class="action-config-input"
-						placeholder="flowmouse:gesture"
+						placeholder=${defaults.eventType}
 						.value=${eventType}
 						maxlength="50"
 						@input=${(e) => { this._pendingConfig = { ...this._pendingConfig, eventType: e.target.value }; this.requestUpdate(); }}
@@ -1563,41 +1767,10 @@ class ActionSelect extends LitElement {
 		if (action === 'searchClipboard') {
 			const defaults = ACTION_DEFAULTS.searchClipboard;
 			const engine = this._pendingConfig.engine ?? defaults.engine;
-			const url = this._pendingConfig.url ?? defaults.url;
 			const autoDetectUrl = this._pendingConfig.autoDetectUrl ?? defaults.autoDetectUrl;
 			const { SEARCH_ENGINES, SEARCH_ENGINE_ORDER } = window.GestureConstants;
-			const lang = window.i18n.getCurrentLanguage();
-			const order = SEARCH_ENGINE_ORDER[lang] || SEARCH_ENGINE_ORDER['default'];
-			const displayKeys = [...order];
-			if (engine && engine !== 'custom' && !displayKeys.includes(engine) && SEARCH_ENGINES[engine]) {
-				displayKeys.push(engine);
-			}
 			return html`
-				<div class="action-config-row">
-					<span class="action-config-label">${window.i18n.getMessage('searchEngine')}</span>
-					<select .value=${engine}
-						@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, engine: e.target.value }; this.requestUpdate(); }}>
-						${displayKeys.map(key => {
-							const eng = SEARCH_ENGINES[key];
-							if (!eng) return '';
-							const label = eng.i18nKey ? window.i18n.getMessage(eng.i18nKey) : eng.name;
-							return html`<option value=${key} ?selected=${engine === key}>${label}</option>`;
-						})}
-						<option value="custom" ?selected=${engine === 'custom'}>${window.i18n.getMessage('custom')}</option>
-					</select>
-				</div>
-				${engine === 'custom' ? html`
-					<div class="action-config-field">
-						<div class="input-icon">
-							${unsafeHTML(icon('link'))}
-							<input class="action-config-input" type="text"
-								placeholder=${window.i18n.getMessage('urlPlaceholderText')}
-								.value=${url}
-								@input=${(e) => { this._pendingConfig = { ...this._pendingConfig, url: e.target.value }; }}
-							>
-						</div>
-					</div>
-				` : ''}
+				${this.#renderSearchEngineRow(SEARCH_ENGINES, SEARCH_ENGINE_ORDER, engine, 'urlPlaceholderText')}
 				<div class="action-config-row">
 					<label class="action-config-checkbox">
 						<input type="checkbox"
@@ -1676,12 +1849,14 @@ class ActionSelect extends LitElement {
 			return html`
 				${this.#renderMenuConfigRow()}
 				${this.#renderTimeDisplay()}
+				${this.#renderWheelNavToggle()}
 			`;
 		}
 		if (action === 'menuRecentlyClosed') {
 			return html`
 				${this.#renderMenuConfigRow()}
 				${this.#renderTimeDisplay()}
+				${this.#renderWheelNavToggle()}
 			`;
 		}
 		if (action === 'menuShowBookmarks') {
@@ -1690,9 +1865,10 @@ class ActionSelect extends LitElement {
 				${this.#renderMenuConfigRow()}
 				${this.#renderTimeDisplay()}
 				${this.#renderPositionSelect(true, true, true)}
+				${this.#renderWheelNavToggle()}
 			`;
 		}
-		if (action === 'addToBookmarks') {
+		if (action === 'addToBookmarks' || action === 'bookmarkLink') {
 			return this.#renderBookmarkFolderSelect({ allowDefault: true });
 		}
 		if (action === 'areaSelect') {
@@ -1853,6 +2029,88 @@ class ActionSelect extends LitElement {
 						${window.i18n.getMessage('reducedMotionWarning').replace(/%OS%/g, window.i18n.platformName)}
 					</div>
 				` : ''}
+			`;
+		}
+		if (action === 'search') {
+			const defaults = this.#actionDefaults(action);
+			const engine = this._pendingConfig.engine ?? defaults.engine;
+			const autoDetectUrl = this._pendingConfig.autoDetectUrl ?? defaults.autoDetectUrl;
+			const { SEARCH_ENGINES, SEARCH_ENGINE_ORDER } = window.GestureConstants;
+			return html`
+				${this.#renderSearchEngineRow(SEARCH_ENGINES, SEARCH_ENGINE_ORDER, engine, 'urlPlaceholderText')}
+				<div class="action-config-row">
+					<label class="action-config-checkbox">
+						<input type="checkbox"
+							.checked=${autoDetectUrl}
+							@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, autoDetectUrl: e.target.checked }; this.requestUpdate(); }}
+						>
+						<span>${window.i18n.getMessage('autoDetectUrl')}</span>
+						<span class="help-icon"
+							.tooltip=${tooltip(window.i18n.getMessage('autoDetectUrlTooltip'))}>
+							${unsafeHTML(icon('circleHelp', { size: 14 }))}
+						</span>
+					</label>
+				</div>
+				${this.#renderPositionSelect(true, true, true)}
+			`;
+		}
+		if (action === 'imageSearch') {
+			const defaults = this.#actionDefaults(action);
+			const engine = this._pendingConfig.engine ?? defaults.engine;
+			const { IMAGE_SEARCH_ENGINES, IMAGE_SEARCH_ENGINE_ORDER } = window.GestureConstants;
+			return html`
+				${this.#renderSearchEngineRow(IMAGE_SEARCH_ENGINES, IMAGE_SEARCH_ENGINE_ORDER, engine, 'urlPlaceholderImage')}
+				${this.#renderPositionSelect(true, true, true)}
+			`;
+		}
+		if (action === 'openTab') {
+			const defaults = this.#actionDefaults(action);
+			const preferLink = this._pendingConfig.preferLink ?? defaults.preferLink;
+			return html`
+				${this.dragType === 'image' ? html`
+					<label class="action-config-checkbox">
+						<input type="checkbox"
+							.checked=${preferLink}
+							@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, preferLink: e.target.checked }; this.requestUpdate(); }}
+						>
+						<span>${window.i18n.getMessage('preferLink')}</span>
+					</label>
+				` : ''}
+				${this.#renderPositionSelect(true, true, true)}
+			`;
+		}
+		if (action === 'openLink') {
+			return this.#renderPositionSelect(true, true, true);
+		}
+		if (action === 'copyLinkAndText') {
+			const defaults = this.#actionDefaults(action);
+			const checked = this._pendingConfig.asMarkdown ?? defaults.asMarkdown;
+			return html`
+				<label class="action-config-checkbox">
+					<input type="checkbox"
+						.checked=${checked}
+						@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, asMarkdown: e.target.checked }; this.requestUpdate(); }}
+					>
+					<span>${window.i18n.getMessage('copyAsMarkdown')}</span>
+				</label>
+			`;
+		}
+		if (action === 'saveImage') {
+			const defaults = this.#actionDefaults(action);
+			const subdir = this._pendingConfig.subdir ?? defaults.subdir;
+			return html`
+				<div class="action-config-field">
+					<label class="action-config-label">${window.i18n.getMessage('saveImageSubdirLabel')}</label>
+					<div class="input-icon">
+						${unsafeHTML(icon('folder'))}
+						<input class="action-config-input" type="text"
+							placeholder="images"
+							maxlength="100"
+							.value=${subdir}
+							@input=${(e) => { this._pendingConfig = { ...this._pendingConfig, subdir: e.target.value }; }}
+						>
+					</div>
+				</div>
 			`;
 		}
 		return '';

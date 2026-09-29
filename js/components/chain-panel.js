@@ -2,7 +2,7 @@ import { settingsStore } from '../settings-store.js';
 import { LitElement, html, css, unsafeHTML } from '../lib/lit-all.min.js';
 import { commonStyles, optionStyles } from './shared-styles.js';
 import { icon } from '../icons.js';
-import { tooltip } from '../tooltip.js';
+import { tooltip } from '../directives/tooltip.js';
 
 export function getChainLabel(chainId) {
 	const i18n = window.i18n;
@@ -21,6 +21,7 @@ class ChainPanel extends LitElement {
 
 	static properties = {
 		selectedChainId: { type: String },
+		dragType: { type: String, attribute: 'drag-type' },
 	};
 
 	static styles = [
@@ -192,12 +193,27 @@ class ChainPanel extends LitElement {
 			.add-step-btn {
 				align-self: flex-start;
 			}
+
+			.chain-option {
+				display: flex;
+				align-items: center;
+				gap: 6px;
+				font-size: 13px;
+				color: var(--text-primary);
+				cursor: pointer;
+				user-select: none;
+			}
+			.chain-option input[type="checkbox"] {
+				margin: 0px;
+				flex-shrink: 0;
+			}
 		`,
 	];
 
 	constructor() {
 		super();
 		this.selectedChainId = '';
+		this.dragType = '';
 		this._dragState = null;
 		this._bootstrapped = false;
 		this._onCatalogChanged = () => this.requestUpdate();
@@ -206,6 +222,18 @@ class ChainPanel extends LitElement {
 
 	get actionChains() {
 		return settingsStore.current.actionChains || {};
+	}
+
+	get currentTypeChains() {
+		const chains = this.actionChains;
+		const target = this.dragType;
+		const result = {};
+		for (const [id, chain] of Object.entries(chains)) {
+			if ((chain.type || '') === target) {
+				result[id] = chain;
+			}
+		}
+		return result;
 	}
 
 	connectedCallback() {
@@ -232,9 +260,9 @@ class ChainPanel extends LitElement {
 
 	render() {
 		const i18n = window.i18n;
-		const entries = Object.entries(this.actionChains);
+		const entries = Object.entries(this.currentTypeChains);
 		const activeId = this.#resolveActiveId();
-		const activeChain = activeId ? this.actionChains[activeId] : null;
+		const activeChain = activeId ? this.currentTypeChains[activeId] : null;
 
 		if (!entries.length || !activeChain) {
 			return html``;
@@ -244,6 +272,7 @@ class ChainPanel extends LitElement {
 			${this.#renderSelectorRow(entries, activeId)}
 			${this.#renderNameField(activeId, activeChain)}
 			${this.#renderStepsSection(activeId, activeChain)}
+			${this.#renderStopOnSuccess(activeId, activeChain)}
 		`;
 	}
 
@@ -312,10 +341,24 @@ class ChainPanel extends LitElement {
 					<div class="empty-steps">${i18n.getMessage('emptyChainSteps')}</div>
 				` : steps.map((step, idx) => this.#renderStep(activeId, step, idx))}
 			</div>
-			<button class="btn btn-ghost add-step-btn" @click=${() => this.#addStep(activeId)}>
+			<button class="btn btn-primary add-step-btn" @click=${() => this.#addStep(activeId)}>
 				${unsafeHTML(icon('plus', { size: 13, strokeWidth: 2.5 }))}
 				<span>${i18n.getMessage('addStep')}</span>
 			</button>
+		`;
+	}
+
+	#renderStopOnSuccess(activeId, chain) {
+		if (this.dragType && !chain.stopOnSuccess) return html``;
+		const i18n = window.i18n;
+		return html`
+			<label class="chain-option">
+				<input type="checkbox"
+					.checked=${!!chain.stopOnSuccess}
+					@change=${(e) => this.#updateChain(activeId, { stopOnSuccess: e.target.checked })}
+				>
+				<span>${i18n.getMessage('chainStopOnSuccess')}</span>
+			</label>
 		`;
 	}
 
@@ -335,6 +378,8 @@ class ChainPanel extends LitElement {
 					<action-select
 						compact
 						context="chain-step"
+						drag-type=${this.dragType}
+						allow-custom-name
 						.value=${step.action || 'none'}
 						.config=${step}
 						.gestureLabel=${label}
@@ -357,7 +402,7 @@ class ChainPanel extends LitElement {
 
 
 	#resolveActiveId() {
-		const chains = this.actionChains;
+		const chains = this.currentTypeChains;
 		const ids = Object.keys(chains);
 		if (!ids.length) return '';
 		if (this.selectedChainId && chains[this.selectedChainId]) {
@@ -367,7 +412,7 @@ class ChainPanel extends LitElement {
 	}
 
 	#ensureActiveChain() {
-		const chains = this.actionChains;
+		const chains = this.currentTypeChains;
 		if (this.selectedChainId && chains[this.selectedChainId]) return;
 
 		const ids = Object.keys(chains);
@@ -386,9 +431,9 @@ class ChainPanel extends LitElement {
 	#addChain() {
 		const id = this.#generateId();
 		const chains = { ...this.actionChains };
-		const existingCount = Object.keys(chains).length;
+		const existingCount = Object.keys(this.currentTypeChains).length;
 		const defaultName = `${window.i18n.getMessage('chainNamePlaceholder')} ${existingCount + 1}`;
-		chains[id] = { name: defaultName, steps: [] };
+		chains[id] = { name: defaultName, type: this.dragType, steps: [] };
 		this.#applyChains(chains, id);
 	}
 
@@ -416,11 +461,12 @@ class ChainPanel extends LitElement {
 		const chains = { ...this.actionChains };
 		delete chains[id];
 
-		let nextId = Object.keys(chains)[0] || '';
+		const remainingInType = Object.keys(this.currentTypeChains).filter(k => k !== id);
+		let nextId = remainingInType[0] || '';
 		if (!nextId) {
 			nextId = this.#generateIdFrom(chains);
 			const defaultName = `${i18n.getMessage('chainNamePlaceholder')} 1`;
-			chains[nextId] = { name: defaultName, steps: [] };
+			chains[nextId] = { name: defaultName, type: this.dragType, steps: [] };
 		}
 		this.#applyChains(chains, nextId);
 	}

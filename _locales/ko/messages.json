@@ -200,8 +200,20 @@
 		"description": "HUD shadow toggle"
 	},
 	"showSuggestedGestures": {
-		"message": "제스처 프롬프트",
+		"message": "제스처 힌트",
 		"description": "Show suggested gestures at bottom of screen"
+	},
+	"userScale": {
+		"message": "사용자 지정 UI 배율",
+		"description": "UI scaling setting for FlowMouse's own interface"
+	},
+	"userScaleDesc": {
+		"message": "조작 힌트 및 HUD 등 FlowMouse 자체 UI 요소의 크기를 조정합니다",
+		"description": "Description for the UI scaling setting"
+	},
+	"scale": {
+		"message": "배율",
+		"description": "Label for the UI scale slider"
 	},
 	"customCss": {
 		"message": "사용자 지정 CSS",
@@ -311,11 +323,11 @@
 		"message": "드래그 기능",
 		"description": "Drag features section"
 	},
-	"textDragSearch": {
+	"textDrag": {
 		"message": "텍스트 드래그",
 		"description": "Text drag"
 	},
-	"textDragSearchDesc": {
+	"textDragDesc": {
 		"message": "선택한 텍스트를 드래그하여 검색",
 		"description": "Drag selected text to search"
 	},
@@ -575,6 +587,10 @@
 		"message": "오른쪽 이동 후 왼쪽",
 		"description": "Gesture description for →←"
 	},
+	"gestureDesc_Any": {
+		"message": "임의",
+		"description": "Description for the * fallback gesture that matches any unmatched pattern"
+	},
 	"actionNone": {
 		"message": "동작 없음",
 		"description": "No action"
@@ -731,6 +747,10 @@
 		"message": "모든 탭 새로 고침",
 		"description": "Refresh all tabs"
 	},
+	"actionReloadFrame": {
+		"message": "프레임 새로고침",
+		"description": "Reload only the frame (iframe) where the gesture was performed"
+	},
 	"actionStopLoading": {
 		"message": "로딩 중지",
 		"description": "Stop loading"
@@ -790,6 +810,10 @@
 	"actionOpenExtensions": {
 		"message": "확장 프로그램 관리 열기",
 		"description": "Open extensions page"
+	},
+	"actionOpenOptions": {
+		"message": "FlowMouse 설정 열기",
+		"description": "Open the FlowMouse settings page"
 	},
 	"actionSaveAsMhtml": {
 		"message": "MHTML로 저장",
@@ -860,7 +884,7 @@
 		"description": "Section title for other/miscellaneous settings"
 	},
 	"styleSettings": {
-		"message": "모양",
+		"message": "모양 설정",
 		"description": "Section title for style/appearance settings (trail, HUD, etc.)"
 	},
 	"show": {
@@ -926,6 +950,14 @@
 	"gestureRecorderBanned": {
 		"message": "제스처 %pattern%이(가) 이미 존재합니다",
 		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"gestureRecorderAny": {
+		"message": "미등록 패턴을 위한 제스처 추가",
+		"description": "Button in the gesture recorder to select the * fallback that matches any unmatched gesture"
+	},
+	"fallbackGestureTip": {
+		"message": "그린 궤적이 다른 제스처와 일치하지 않을 때 트리거됩니다",
+		"description": "Tooltip explaining what the * fallback gesture does"
 	},
 	"rightButton": {
 		"message": "마우스 오른쪽 버튼",
@@ -1192,60 +1224,56 @@
 		"description": "No action"
 	},
 	"dragActionSearch": {
-		"message": "🔍 검색 엔진",
+		"message": "검색",
 		"description": "Search action"
 	},
 	"dragActionCopy": {
-		"message": "📋 복사",
+		"message": "복사",
 		"description": "Copy action"
 	},
-	"dragActionOpenTab": {
-		"message": "📑 새 탭에서 열기",
-		"description": "Open in new tab"
-	},
 	"dragActionOpenTabLink": {
-		"message": "🔗 링크 열기",
+		"message": "링크 열기",
 		"description": "Open link in new tab"
 	},
 	"dragActionOpenTabImage": {
-		"message": "🖼️ 이미지 열기",
+		"message": "이미지 열기",
 		"description": "Open image in new tab"
 	},
+	"dragActionTryOpenLink": {
+		"message": "링크 열기 시도",
+		"description": "Open the image's link in new tab, if any"
+	},
 	"dragActionCopyLink": {
-		"message": "📋 링크 복사",
+		"message": "링크 복사",
 		"description": "Copy link"
 	},
 	"dragActionCopyLinkText": {
-		"message": "📋 링크 텍스트 복사",
+		"message": "링크 텍스트 복사",
 		"description": "Copy link text"
 	},
 	"dragActionCopyLinkAndText": {
-		"message": "📋 텍스트 및 링크 복사",
+		"message": "텍스트 및 링크 복사",
 		"description": "Copy link text and URL"
 	},
+	"dragActionBookmarkLink": {
+		"message": "링크를 즐겨찾기에 추가",
+		"description": "Add dragged link to bookmarks"
+	},
 	"dragActionSaveImage": {
-		"message": "💾 이미지 저장",
+		"message": "이미지 저장",
 		"description": "Save image"
 	},
 	"dragActionCopyImage": {
-		"message": "🖼️ 이미지 복사",
+		"message": "이미지 복사",
 		"description": "Copy image"
 	},
 	"dragActionCopyImageUrl": {
-		"message": "📋 이미지 주소 복사",
+		"message": "이미지 주소 복사",
 		"description": "Copy image URL"
 	},
 	"dragActionImageSearch": {
-		"message": "🔍 이미지 검색",
+		"message": "이미지 검색",
 		"description": "Image search"
-	},
-	"dragActionCustomSearch": {
-		"message": "🔍 사용자 정의 검색",
-		"description": "Custom search"
-	},
-	"dragActionSendCustomEvent": {
-		"message": "사용자 지정 이벤트 보내기",
-		"description": "Send custom DOM event on drag gesture"
 	},
 	"reducedMotionWarning": {
 		"message": "%OS% 시스템 애니메이션이 활성화되지 않아 스크롤 애니메이션이 정상적으로 표시되지 않을 수 있습니다. %OS% 시스템 설정에서 애니메이션을 켤 수 있습니다.",
@@ -1511,10 +1539,6 @@
 		"message": "<span class=\"text-highlight\">마우스 왼쪽 버튼</span>을 사용하여 드래그하세요",
 		"description": "Tutorial drag wrong button error"
 	},
-	"tutorialRefreshTip": {
-		"message": "팁: FlowMouse 설치 전에 열린 탭은 <span class=\"text-highlight\">새로고침</span>해야 제스처를 사용할 수 있습니다",
-		"description": "Tip about refreshing tabs"
-	},
 	"permissionBookmarksTitle": {
 		"message": "북마크 관리",
 		"description": "Permission popup title for bookmarks"
@@ -1595,9 +1619,9 @@
 		"message": "이미지 저장 실패: 로드 시간 초과",
 		"description": "Toast message when image loading times out"
 	},
-	"saveImageSubdirPlaceholder": {
-		"message": "하위 디렉터리 (선택사항)",
-		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	"saveImageSubdirLabel": {
+		"message": "하위 디렉터리",
+		"description": "Label for the optional subdirectory input in save image config"
 	},
 	"buttonOkay": {
 		"message": "확인",
@@ -1635,6 +1659,18 @@
 		"message": "유틸리티",
 		"description": "Action category: utilities"
 	},
+	"actionCategoryText": {
+		"message": "텍스트",
+		"description": "Action category: text"
+	},
+	"actionCategoryLink": {
+		"message": "링크",
+		"description": "Action category: link"
+	},
+	"actionCategoryImage": {
+		"message": "이미지",
+		"description": "Action category: image"
+	},
 	"noResults": {
 		"message": "결과 없음",
 		"description": "No search results found"
@@ -1650,6 +1686,14 @@
 	"enableWheelGesturesDesc": {
 		"message": "마우스 휠을 사용하여 다양한 작업을 빠르게 수행하세요",
 		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelThreshold": {
+		"message": "휠 트리거 거리",
+		"description": "Label for the wheel gesture scroll distance threshold"
+	},
+	"wheelThresholdDesc": {
+		"message": "휠 제스처를 반복적으로 트리거하려면 마우스 휠 스크롤이 이 거리에 도달해야 합니다",
+		"description": "Description for the wheel gesture scroll distance threshold"
 	},
 	"wheelGesture_scrollUpHoldingRight": {
 		"message": "오른쪽 버튼을 누른 채 위로 스크롤",
@@ -1758,6 +1802,10 @@
 	"emptyChainSteps": {
 		"message": "추가된 단계가 없습니다. '단계 추가'를 클릭하여 시작하세요.",
 		"description": "Empty chain steps message in expanded body"
+	},
+	"chainStopOnSuccess": {
+		"message": "단계가 성공하면 체인 실행 중단",
+		"description": "Checkbox: skip remaining command-chain steps after the first successful action"
 	},
 	"emptyChainStepsShort": {
 		"message": "단계 없음",
@@ -1898,6 +1946,10 @@
 	"actionViewPageSource": {
 		"message": "페이지 소스 보기",
 		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionViewFrameSource": {
+		"message": "프레임 소스 보기",
+		"description": "Open the source code of the frame (iframe) where the gesture was performed in a new tab"
 	},
 	"actionPauseGesture": {
 		"message": "새로고침 시까지 제스처 일시정지",
@@ -2118,6 +2170,14 @@
 	"ctxMenuScrollToBottom": {
 		"message": "맨 아래로 스크롤",
 		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuWheelNav": {
+		"message": "휠 빠른 탐색",
+		"description": "Checkbox: navigate a wheel-gesture menu with the wheel while holding the right button"
+	},
+	"ctxMenuWheelNavTooltip": {
+		"message": "마우스 버튼을 누른 상태에서 휠을 스크롤하여 메뉴 항목을 빠르게 선택합니다.",
+		"description": "Tooltip explaining quick wheel navigation for wheel-gesture menus"
 	},
 	"ctxMenuTimeDisplay": {
 		"message": "시간 표시",

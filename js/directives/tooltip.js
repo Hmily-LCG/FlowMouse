@@ -1,4 +1,4 @@
-import { directive, AsyncDirective } from './lib/lit-all.min.js';
+import { directive, AsyncDirective } from '../lib/lit-all.min.js';
 
 const supportsPopover = typeof HTMLElement !== 'undefined' &&
 	typeof HTMLElement.prototype.showPopover === 'function';

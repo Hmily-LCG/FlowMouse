@@ -1,5 +1,6 @@
 import { LitElement, html, css, unsafeHTML } from '../../js/lib/lit-all.min.js';
 import { commonStyles } from './shared-styles.js';
+import { tooltip } from '../directives/tooltip.js';
 
 class GestureRecorder extends LitElement {
 	static properties = {
@@ -174,6 +175,41 @@ class GestureRecorder extends LitElement {
 				color: rgba(255, 255, 255, 0.38);
 			}
 
+			.btn-any {
+				display: inline-flex;
+				align-items: center;
+				gap: 8px;
+				margin-top: 22px;
+				background: transparent;
+				color: rgba(255, 255, 255, 0.5);
+				border: 1px solid rgba(255, 255, 255, 0.15);
+				padding: 8px 14px;
+				font-size: 13px;
+				font-family: inherit;
+				border-radius: 8px;
+				cursor: pointer;
+				pointer-events: auto;
+				transition: all 0.15s ease;
+			}
+
+			.btn-any:hover {
+				color: rgba(255, 255, 255, 0.9);
+				border-color: rgba(255, 255, 255, 0.3);
+				background: rgba(255, 255, 255, 0.06);
+			}
+
+			.btn-any .any-icon {
+				font-size: 16px;
+				line-height: 1;
+				color: rgba(255, 255, 255);
+				opacity: .5;
+				transition: opacity 0.15s ease;
+			}
+
+			.btn-any:hover .any-icon {
+				opacity: .9;
+			}
+
 			kbd {
 				display: inline-block;
 				padding: 1px 6px;
@@ -317,6 +353,7 @@ class GestureRecorder extends LitElement {
 	#resolvePromise = null;
 	#button = 2;
 	#bannedPatterns = new Set();
+	#allowAny = false;
 	#toastTimer = null;
 
 	constructor() {
@@ -333,9 +370,10 @@ class GestureRecorder extends LitElement {
 		this._onKeyDown = this.#onKeyDown.bind(this);
 	}
 
-	async open({ button = 'right', bannedPatterns = [] } = {}) {
+	async open({ button = 'right', bannedPatterns = [], allowAny = false } = {}) {
 		this.#button = button === 'left' ? 0 : 2;
 		this.#bannedPatterns = new Set(bannedPatterns);
+		this.#allowAny = allowAny;
 		this._state = 'ready';
 		this._pattern = '';
 		this._patternSvg = '';
@@ -406,6 +444,15 @@ class GestureRecorder extends LitElement {
 							<div class="direction-hints">
 								${unsafeHTML(window.GestureConstants.arrowsToSvg('↑↓←→'))}
 							</div>
+							${this.#allowAny ? html`
+								<button class="btn-any"
+									@mousedown=${e => e.stopPropagation()}
+									.tooltip=${tooltip(i18n.getMessage('fallbackGestureTip'))}
+									@click=${() => this.#selectAny()}>
+									<span class="any-icon">${unsafeHTML(window.GestureConstants.arrowsToSvg('*'))}</span>
+									${i18n.getMessage('gestureRecorderAny')}
+								</button>
+							` : ''}
 						</div>
 					` : ''}
 					${this._state === 'result' ? html`
@@ -484,6 +531,11 @@ class GestureRecorder extends LitElement {
 	#onMouseDown(e) {
 		if (this._state !== 'ready') return;
 
+		const path = e.composedPath();
+		for (const el of path) {
+			if (el instanceof HTMLButtonElement || el instanceof HTMLAnchorElement) return;
+		}
+
 		if (e.button !== this.#button) {
 			const desc = this.shadowRoot.querySelector('.instruction-desc');
 			desc.classList.remove('highlight-pulse');
@@ -491,11 +543,6 @@ class GestureRecorder extends LitElement {
 			desc.classList.add('highlight-pulse');
 			desc.addEventListener('animationend', () => desc.classList.remove('highlight-pulse'), { once: true });
 			return;
-		}
-
-		const path = e.composedPath();
-		for (const el of path) {
-			if (el instanceof HTMLButtonElement || el instanceof HTMLAnchorElement) return;
 		}
 
 		e.preventDefault();
@@ -553,6 +600,19 @@ class GestureRecorder extends LitElement {
 		}
 	}
 
+
+	#selectAny() {
+		if (this.#bannedPatterns.has('*')) {
+			this.#showToast(
+				window.i18n.getMessage('gestureRecorderBanned')
+					.replace('%pattern%', window.GestureConstants.arrowsToSvg('*'))
+			);
+			return;
+		}
+		this._pattern = '*';
+		this._patternSvg = window.GestureConstants.arrowsToSvg('*');
+		this._state = 'result';
+	}
 
 	#confirm() {
 		const pattern = this._pattern;

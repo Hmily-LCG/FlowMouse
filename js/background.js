@@ -166,26 +166,47 @@ function asyncMessageHandler(asyncHandler) {
 
 const CONTENT_ACTIONS = new Set([
 	'scrollUp', 'scrollDown', 'scrollLeft', 'scrollRight', 'scrollToTop', 'scrollToBottom', 'scrollToLeftEdge', 'scrollToRightEdge',
-	'stopLoading', 'copyUrl', 'copyTitle', 'copyTitleAndUrl', 'printPage', 'sendCustomEvent',
+	'stopLoading', 'reloadFrame', 'copyUrl', 'copyTitle', 'copyTitleAndUrl', 'sendCustomEvent',
 	'simulateKey', 'pasteClipboard', 'pasteContent', 'searchClipboard',
 	'menuShowTabs', 'menuRecentlyClosed', 'menuShowBookmarks',
 	'customMenu',
+
+	'copy', 'copyLink', 'copyImageUrl', 'copyLinkText', 'copyLinkAndText',
+	'search', 'openTab', 'openLink', 'openImage', 'imageSearch', 'saveImage', 'bookmarkLink',
 ]);
 
-async function createTabAtPosition(sender, position, extraOpts = {}) {
-	if (!sender.tab) {
+async function createTabAtPosition(tab, position, extraOpts = {}) {
+	if (!tab) {
 		return await chrome.tabs.create({ active: true, ...extraOpts });
 	}
-	const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
-	const createOpts = { active: true, windowId: sender.tab.windowId, ...extraOpts };
+	const tabs = await chrome.tabs.query({ windowId: tab.windowId });
+	const createOpts = { active: true, windowId: tab.windowId, ...extraOpts };
 	switch (position) {
-		case 'right': createOpts.index = sender.tab.index + 1; break;
-		case 'left': createOpts.index = sender.tab.index; break;
+		case 'right': createOpts.index = tab.index + 1; break;
+		case 'left': createOpts.index = tab.index; break;
 		case 'first': createOpts.index = 0; break;
 		case 'last':
 		default: createOpts.index = tabs.length; break;
 	}
 	return await chrome.tabs.create(createOpts);
+}
+
+async function createIncognitoTab(position, extraOpts = {}) {
+	if (position === 'current') position = 'last';
+	const windows = await chrome.windows.getAll({ populate: true, windowTypes: ['normal'] });
+	const incognitoWin = windows.find(w => w.incognito);
+	if (!incognitoWin?.tabs?.length) {
+		const createOpts = { incognito: true };
+		if (extraOpts.url) createOpts.url = extraOpts.url;
+		const win = await chrome.windows.create(createOpts);
+		return win?.tabs?.[0];
+	}
+	const refTab = incognitoWin.tabs.find(t => t.active) || incognitoWin.tabs[0];
+	const newTab = await createTabAtPosition(refTab, position, extraOpts);
+	if (extraOpts.active !== false) {
+		await chrome.windows.update(incognitoWin.id, { focused: true });
+	}
+	return newTab;
 }
 
 async function openInNewWindow(url, focused = true, incognito = false) {
@@ -202,111 +223,127 @@ async function getSenderWindow(sender) {
 	return await chrome.windows.getCurrent();
 }
 
-function replaceUrlPlaceholders(template, tab) {
+function replaceUrlPlaceholders(template, tab, contentValues) {
 	const rawUrl = tab?.url || '';
 	const raw = {
 		tabUrl: rawUrl,
 		tabTitle: tab?.title || '',
 		tabDomain: '',
+		text: contentValues?.text || '',
+		linkUrl: contentValues?.linkUrl || '',
+		linkDomain: '',
+		linkText: contentValues?.linkText || '',
+		imageUrl: contentValues?.imageUrl || '',
 	};
 	if (rawUrl) {
 		try {
 			raw.tabDomain = new URL(rawUrl).hostname;
 		} catch { }
 	}
-	return (template || '').replace(/\{(tabUrl|tabTitle|tabDomain)(?::(raw))?\}/g, (_, key, mod) => {
+	if (raw.linkUrl) {
+		try {
+			raw.linkDomain = new URL(raw.linkUrl).hostname;
+		} catch { }
+	}
+	return (template || '').replace(/\{(tabUrl|tabTitle|tabDomain|text|linkUrl|linkDomain|linkText|imageUrl)(?::(raw))?\}/g, (_, key, mod) => {
 		const val = raw[key] || '';
 		return mod ? val : encodeURIComponent(val);
 	});
 }
 
-async function handleAction(request, sender) {
+async function handleAction(request, sender, dragType, contentValues) {
 	switch (request.action) {
 		case 'back':
-			if (sender.tab?.id) {
-				await chrome.tabs.goBack(sender.tab.id).catch(() => { });
+			if (!sender.tab?.id) return { success: false };
+			try {
+				await chrome.tabs.goBack(sender.tab.id);
+			} catch (error) {
+				return { success: false };
 			}
 			return { success: true };
 
 		case 'forward':
-			if (sender.tab?.id) {
-				await chrome.tabs.goForward(sender.tab.id).catch(() => { });
+			if (!sender.tab?.id) return { success: false };
+			try {
+				await chrome.tabs.goForward(sender.tab.id);
+			} catch (error) {
+				return { success: false };
 			}
 			return { success: true };
 
-		case 'urlLevelUp':
-			if (sender.tab?.id && sender.tab.url) {
+		case 'urlLevelUp': {
+			if (!sender.tab?.id || !sender.tab.url) return { success: false };
+			try {
 				const u = new URL(sender.tab.url);
 				const newPath = u.pathname.replace(/\/([^/]+)\/?$/, '');
-				if (newPath !== u.pathname) {
-					await chrome.tabs.update(sender.tab.id, { url: u.origin + newPath });
-				}
+				if (newPath === u.pathname) return { success: false };
+				await chrome.tabs.update(sender.tab.id, { url: u.origin + newPath });
+				return { success: true };
+			} catch {
+				return { success: false };
 			}
-			return { success: true };
+		}
 
-		case 'urlToRoot':
-			if (sender.tab?.id && sender.tab.url) {
+		case 'urlToRoot': {
+			if (!sender.tab?.id || !sender.tab.url) return { success: false };
+			try {
 				const u = new URL(sender.tab.url);
-				if (u.pathname !== '/' || u.search || u.hash) {
-					await chrome.tabs.update(sender.tab.id, { url: u.origin });
-				}
+				if (u.pathname === '/' && !u.search && !u.hash) return { success: false };
+				await chrome.tabs.update(sender.tab.id, { url: u.origin });
+				return { success: true };
+			} catch {
+				return { success: false };
 			}
-			return { success: true };
+		}
 
 		case 'refresh':
-			if (sender.tab?.id) {
-				await chrome.tabs.reload(sender.tab.id, { bypassCache: !!request.hardReload });
-			}
+			if (!sender.tab?.id) return { success: false };
+			await chrome.tabs.reload(sender.tab.id, { bypassCache: !!request.hardReload });
 			return { success: true };
 
 		case 'closeTab': {
-			if (sender.tab?.id) {
-				if (request.skipPinned && sender.tab.pinned) {
-					return { success: true };
-				}
-				const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
-				const currentPos = tabs.findIndex(t => t.id === sender.tab.id);
-				let afterClose = request.afterClose || 'default';
+			if (!sender.tab?.id) return { success: false };
+			if (request.skipPinned && sender.tab.pinned) return { success: false };
 
-				if (request.preserveTab && afterClose === 'default') {
-					afterClose = currentPos === tabs.length - 1 ? 'left' : 'right';
-				}
+			const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
+			const currentPos = tabs.findIndex(t => t.id === sender.tab.id);
+			let afterClose = request.afterClose || 'default';
 
-				if (!request.preserveTab && request.keepWindow && tabs.length === 1) {
-					await chrome.tabs.create({ active: true, windowId: sender.tab.windowId });
-				}
+			if (request.preserveTab && afterClose === 'default') {
+				afterClose = currentPos === tabs.length - 1 ? 'left' : 'right';
+			}
 
-				if (afterClose !== 'default' && tabs.length > 1 && currentPos !== -1) {
-					let targetPos;
-					if (afterClose === 'left') {
-						targetPos = currentPos > 0 ? currentPos - 1 : tabs.length - 1;
-					} else if (afterClose === 'right') {
-						targetPos = currentPos < tabs.length - 1 ? currentPos + 1 : 0;
-					}
-					if (targetPos !== undefined) {
-						await chrome.tabs.update(tabs[targetPos].id, { active: true });
-					}
+			if (!request.preserveTab && request.keepWindow && tabs.length === 1) {
+				await chrome.tabs.create({ active: true, windowId: sender.tab.windowId });
+			} else if (afterClose !== 'default' && tabs.length > 1 && currentPos !== -1) {
+				let targetPos;
+				if (afterClose === 'left') {
+					targetPos = currentPos > 0 ? currentPos - 1 : currentPos + 1;
+				} else if (afterClose === 'right') {
+					targetPos = currentPos < tabs.length - 1 ? currentPos + 1 : currentPos - 1;
 				}
+				if (targetPos !== undefined) {
+					await chrome.tabs.update(tabs[targetPos].id, { active: true });
+				}
+			}
 
-				if (request.preserveTab) {
-					if (tabs.length > 1 && !sender.tab.discarded) {
-						await chrome.tabs.discard(sender.tab.id);
-					}
-				} else {
-					await chrome.tabs.remove(sender.tab.id);
-				}
+			if (request.preserveTab) {
+				if (tabs.length <= 1 || sender.tab.discarded) return { success: false };
+				await chrome.tabs.discard(sender.tab.id);
+			} else {
+				await chrome.tabs.remove(sender.tab.id);
 			}
 			return { success: true };
 		}
 
 		case 'closeWindow':
-			if (sender.tab?.windowId) {
-				await chrome.windows.remove(sender.tab.windowId);
-			}
+			if (!sender.tab?.windowId) return { success: false };
+			await chrome.windows.remove(sender.tab.windowId);
 			return { success: true };
 
 		case 'closeBrowser': {
 			const windows = await chrome.windows.getAll({});
+			if (windows.length === 0) return { success: false };
 			for (const win of windows) {
 				await chrome.windows.remove(win.id);
 			}
@@ -315,7 +352,11 @@ async function handleAction(request, sender) {
 
 		case 'restoreTab':
 			if (sender.tab?.incognito) return { success: false };
-			await chrome.sessions.restore(null).catch(() => { });
+			try {
+				await chrome.sessions.restore(null);
+			} catch (error) {
+				return { success: false };
+			}
 			return { success: true };
 
 		case 'newTab': {
@@ -324,29 +365,30 @@ async function handleAction(request, sender) {
 			if (position === 'newWindow') {
 				await openInNewWindow(undefined, active, sender.tab?.incognito);
 			} else {
-				await createTabAtPosition(sender, position, { active });
+				await createTabAtPosition(sender.tab, position, { active });
 			}
 			return { success: true };
 		}
 
 		case 'openTabAtPosition': {
-			if (sender.tab && request.incognito && !sender.tab.incognito) {
-				const granted = await requestPermission(['incognito'], sender.tab.windowId);
-				if (granted) {
-					await chrome.windows.create({ incognito: true, url: request.url });
-				}
-				return { success: true };
-			}
+			if (!request.url) return { success: false };
 
 			const position = request.position || 'right';
 			const active = request.active !== false;
+
+			if (sender.tab && request.incognito && !sender.tab.incognito) {
+				const granted = await requestPermission(['incognito'], sender.tab.windowId);
+				if (!granted) return { success: false };
+				await createIncognitoTab(position, { url: request.url, active });
+				return { success: true };
+			}
 
 			if (position === 'newWindow') {
 				await openInNewWindow(request.url, active, sender.tab?.incognito);
 			} else if (position === 'current' && sender.tab) {
 				await chrome.tabs.update(sender.tab.id, { url: request.url, active });
 			} else {
-				await createTabAtPosition(sender, position, {
+				await createTabAtPosition(sender.tab, position, {
 					url: request.url,
 					active,
 					openerTabId: sender.tab?.id,
@@ -355,228 +397,197 @@ async function handleAction(request, sender) {
 			return { success: true };
 		}
 
-		case 'openIncognitoTabs': {
-			const urls = request.urls || [];
-			const queries = request.queries || [];
-			if (!sender.tab || (urls.length === 0 && queries.length === 0)) return { success: true };
-			if (sender.tab.incognito) {
-				for (const url of urls) {
-					await chrome.tabs.create({ url, windowId: sender.tab.windowId });
-				}
-				for (const query of queries) {
-					const tab = await chrome.tabs.create({ windowId: sender.tab.windowId });
-					await chrome.search.query({ text: query, tabId: tab.id });
-				}
-			} else {
+		case 'systemSearch': {
+			if (!request.query || !sender.tab) return { success: false };
+
+			const position = request.position || 'right';
+			const active = request.active !== false;
+
+			if (request.incognito && !sender.tab.incognito) {
 				const granted = await requestPermission(['incognito'], sender.tab.windowId);
-				if (granted) {
-					const newWin = await chrome.windows.create({ incognito: true, url: urls.length > 0 ? urls : undefined });
-					if (newWin) {
-						for (const query of queries) {
-							const tab = await chrome.tabs.create({ windowId: newWin.id });
-							await chrome.search.query({ text: query, tabId: tab.id });
-						}
-					}
-				}
+				if (!granted) return { success: false };
+				const newTab = await createIncognitoTab(position, { url: 'about:blank', active });
+				if (!newTab) return { success: false };
+				await chrome.search.query({ text: request.query, tabId: newTab.id });
+				return { success: true };
+			}
+
+			if (position === 'newWindow') {
+				const newTab = await openInNewWindow(undefined, active, sender.tab.incognito);
+				await chrome.search.query({ text: request.query, tabId: newTab.id });
+			} else if (position === 'current') {
+				await chrome.search.query({ text: request.query, tabId: sender.tab.id });
+			} else {
+				const newTab = await createTabAtPosition(sender.tab, position, {
+					url: 'about:blank',
+					active,
+					openerTabId: sender.tab.id,
+				});
+				if (!newTab) return { success: false };
+				await chrome.search.query({ text: request.query, tabId: newTab.id });
 			}
 			return { success: true };
 		}
 
-		case 'systemSearch': {
-			if (sender.tab) {
-				if (request.incognito && !sender.tab.incognito) {
-					const granted = await requestPermission(['incognito'], sender.tab.windowId);
-					if (granted) {
-						const newWin = await chrome.windows.create({ incognito: true });
-						if (newWin && newWin.tabs && newWin.tabs.length > 0) {
-							await chrome.search.query({ text: request.query, tabId: newWin.tabs[0].id });
-						}
-					}
+		case 'saveImage': {
+			if (!request.url) return { success: false };
+			const granted = await requestPermission(['downloads', 'pageCapture'], sender.tab?.windowId ?? null);
+			if (!granted) return { success: false };
+
+			const subdir = sanitizeSubdir(request.subdir);
+
+			if (request.url.startsWith('data:')) {
+				{
+					const filename = request.filename || (subdir ? getFilename(null, request.url.match(/^data:([^;,]+)/)?.[1]) : null);
+					await chrome.downloads.download({
+						url: request.url,
+						filename: joinDownloadPath(subdir, filename),
+						saveAs: false
+					});
 					return { success: true };
 				}
+			}
 
-				const position = request.position || 'right';
-				const active = request.active !== false;
+			const imageUrl = request.url;
 
-				if (position === 'newWindow') {
-					const newTab = await openInNewWindow(undefined, active, sender.tab?.incognito);
-					await chrome.search.query({ text: request.query, tabId: newTab.id });
-				} else if (position === 'current') {
-					await chrome.search.query({ text: request.query, tabId: sender.tab.id });
-				} else {
-					const newTab = await createTabAtPosition(sender, position, {
-						url: 'about:blank',
-						active,
-						openerTabId: sender.tab.id,
-					});
-					if (newTab) {
-						await chrome.search.query({ text: request.query, tabId: newTab.id });
+			{
+				if (!sender.tab?.id) return { success: false };
+				const sourceTabId = sender.tab.id;
+
+				const MHTML_MAX_RETRIES = 2;
+				const MHTML_RETRY_DELAY = 500;
+				try {
+					let mhtmlBlob;
+					for (let i = 0; i <= MHTML_MAX_RETRIES; i++) {
+						try {
+							mhtmlBlob = await chrome.pageCapture.saveAsMHTML({ tabId: sourceTabId });
+							if (mhtmlBlob) break;
+						} catch (e) {
+							if (i >= MHTML_MAX_RETRIES) throw e;
+							await new Promise(r => setTimeout(r, MHTML_RETRY_DELAY));
+						}
 					}
+					const mhtmlText = await mhtmlBlob.text();
+
+					const resource = findResourceInMhtml(mhtmlText, imageUrl);
+
+					if (resource && resource.dataUrl) {
+						const filename = getFilename(imageUrl, resource.type);
+						await chrome.downloads.download({
+							url: resource.dataUrl,
+							filename: joinDownloadPath(subdir, filename),
+							saveAs: false
+						});
+						return { success: true };
+					}
+					notifyDownloadError(sourceTabId);
+					return { success: false };
+				} catch (e) {
+					console.error('MHTML capture failed:', e?.name, e?.message || e);
+					notifyDownloadError(sourceTabId);
+					return { success: false };
 				}
 			}
-			return { success: true };
 		}
 
-		case 'saveImage':
-			if (request.url) {
-				requestPermission(['downloads', 'pageCapture'], sender.tab?.windowId ?? null).then(async (granted) => {
-					if (!granted) return;
-
-					const subdir = sanitizeSubdir(request.subdir);
-
-					if (request.url.startsWith('data:')) {
-						{
-							const filename = request.filename || (subdir ? getFilename(null, request.url.match(/^data:([^;,]+)/)?.[1]) : null);
-							await chrome.downloads.download({
-								url: request.url,
-								filename: joinDownloadPath(subdir, filename),
-								saveAs: false
-							});
-						}
-						return;
-					}
-
-					const imageUrl = request.url;
-
-					{
-						const sourceTabId = sender.tab?.id ?? null;
-						if (!sourceTabId) {
-							return;
-						}
-
-						const MHTML_MAX_RETRIES = 2;
-						const MHTML_RETRY_DELAY = 500;
-						try {
-							let mhtmlBlob;
-							for (let i = 0; i <= MHTML_MAX_RETRIES; i++) {
-								try {
-									mhtmlBlob = await chrome.pageCapture.saveAsMHTML({ tabId: sourceTabId });
-									if (mhtmlBlob) break;
-								} catch (e) {
-									if (i >= MHTML_MAX_RETRIES) throw e;
-									await new Promise(r => setTimeout(r, MHTML_RETRY_DELAY));
-								}
-							}
-							const mhtmlText = await mhtmlBlob.text();
-
-							const resource = findResourceInMhtml(mhtmlText, imageUrl);
-
-							if (resource && resource.dataUrl) {
-								const filename = getFilename(imageUrl, resource.type);
-								await chrome.downloads.download({
-									url: resource.dataUrl,
-									filename: joinDownloadPath(subdir, filename),
-									saveAs: false
-								});
-							} else {
-								notifyDownloadError(sourceTabId);
-							}
-						} catch (e) {
-							console.error('MHTML capture failed:', e?.name, e?.message || e);
-							notifyDownloadError(sourceTabId);
-						}
-					}
-				});
-			}
-			return { success: true };
-
-		case 'saveAsMhtml':
+		case 'saveAsMhtml': {
 			if (sender.tab?.id) {
-				requestPermission(['downloads', 'pageCapture'], sender.tab.windowId).then(async (granted) => {
-					if (!granted) return;
+				const granted = await requestPermission(['downloads', 'pageCapture'], sender.tab.windowId);
+				if (!granted) return { success: false };
 
-					const MHTML_MAX_RETRIES = 2;
-					const MHTML_RETRY_DELAY = 500;
-					try {
-						let mhtmlBlob;
-						for (let i = 0; i <= MHTML_MAX_RETRIES; i++) {
-							try {
-								mhtmlBlob = await chrome.pageCapture.saveAsMHTML({ tabId: sender.tab.id });
-								if (mhtmlBlob) break;
-							} catch (e) {
-								if (i >= MHTML_MAX_RETRIES) throw e;
-								await new Promise(r => setTimeout(r, MHTML_RETRY_DELAY));
-							}
+				const MHTML_MAX_RETRIES = 2;
+				const MHTML_RETRY_DELAY = 500;
+				try {
+					let mhtmlBlob;
+					for (let i = 0; i <= MHTML_MAX_RETRIES; i++) {
+						try {
+							mhtmlBlob = await chrome.pageCapture.saveAsMHTML({ tabId: sender.tab.id });
+							if (mhtmlBlob) break;
+						} catch (e) {
+							if (i >= MHTML_MAX_RETRIES) throw e;
+							await new Promise(r => setTimeout(r, MHTML_RETRY_DELAY));
 						}
-
-						const reader = new FileReader();
-						const dataUrl = await new Promise((resolve, reject) => {
-							reader.onload = () => resolve(reader.result);
-							reader.onerror = () => reject(reader.error);
-							reader.readAsDataURL(mhtmlBlob);
-						});
-
-						const title = (sender.tab.title || 'page').replace(/[<>:"/\\|?*]+/g, '_').substring(0, 200);
-						const filename = title + '.mhtml';
-
-						await chrome.downloads.download({
-							url: dataUrl,
-							filename: filename,
-							saveAs: true
-						});
-					} catch (e) {
-						console.error('MHTML save failed:', e);
 					}
-				});
+
+					const reader = new FileReader();
+					const dataUrl = await new Promise((resolve, reject) => {
+						reader.onload = () => resolve(reader.result);
+						reader.onerror = () => reject(reader.error);
+						reader.readAsDataURL(mhtmlBlob);
+					});
+
+					const title = (sender.tab.title || 'page').replace(/[<>:"/\\|?*]+/g, '_').substring(0, 200);
+					const filename = title + '.mhtml';
+
+					await chrome.downloads.download({
+						url: dataUrl,
+						filename: filename,
+						saveAs: true
+					});
+					return { success: true };
+				} catch (e) {
+					console.error('MHTML save failed:', e);
+					return { success: false };
+				}
 			}
-			return { success: true };
+			return { success: false };
+		}
 
 		case 'closeOtherTabs': {
-			if (sender.tab) {
-				const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
-				const targetTabs = tabs
-					.filter(tab => tab.id !== sender.tab.id && !(request.skipPinned && tab.pinned));
+			if (!sender.tab) return { success: false };
+			const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
+			const targetTabs = tabs
+				.filter(tab => tab.id !== sender.tab.id && !(request.skipPinned && tab.pinned));
+			if (targetTabs.length === 0) return { success: false };
 
-				if (request.preserveTab) {
-					await Promise.all(targetTabs.filter(tab => !tab.discarded).map(tab => chrome.tabs.discard(tab.id)));
-				} else {
-					const tabsToRemove = targetTabs.map(tab => tab.id);
-					if (tabsToRemove.length > 0) {
-						await chrome.tabs.remove(tabsToRemove);
-					}
-				}
+			if (request.preserveTab) {
+				const toDiscard = targetTabs.filter(tab => !tab.discarded);
+				if (toDiscard.length === 0) return { success: false };
+				await Promise.all(toDiscard.map(tab => chrome.tabs.discard(tab.id)));
+			} else {
+				await chrome.tabs.remove(targetTabs.map(tab => tab.id));
 			}
 			return { success: true };
 		}
 
 		case 'closeRightTabs': {
-			if (sender.tab) {
-				const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
-				const targetTabs = tabs
-					.filter(tab => tab.index > sender.tab.index && !(request.skipPinned && tab.pinned));
+			if (!sender.tab) return { success: false };
+			const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
+			const targetTabs = tabs
+				.filter(tab => tab.index > sender.tab.index && !(request.skipPinned && tab.pinned));
+			if (targetTabs.length === 0) return { success: false };
 
-				if (request.preserveTab) {
-					await Promise.all(targetTabs.filter(tab => !tab.discarded).map(tab => chrome.tabs.discard(tab.id)));
-				} else {
-					const tabsToRemove = targetTabs.map(tab => tab.id);
-					if (tabsToRemove.length > 0) {
-						await chrome.tabs.remove(tabsToRemove);
-					}
-				}
+			if (request.preserveTab) {
+				const toDiscard = targetTabs.filter(tab => !tab.discarded);
+				if (toDiscard.length === 0) return { success: false };
+				await Promise.all(toDiscard.map(tab => chrome.tabs.discard(tab.id)));
+			} else {
+				await chrome.tabs.remove(targetTabs.map(tab => tab.id));
 			}
 			return { success: true };
 		}
 
 		case 'closeLeftTabs': {
-			if (sender.tab) {
-				const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
-				const targetTabs = tabs
-					.filter(tab => tab.index < sender.tab.index && !(request.skipPinned && tab.pinned));
+			if (!sender.tab) return { success: false };
+			const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
+			const targetTabs = tabs
+				.filter(tab => tab.index < sender.tab.index && !(request.skipPinned && tab.pinned));
+			if (targetTabs.length === 0) return { success: false };
 
-				if (request.preserveTab) {
-					await Promise.all(targetTabs.filter(tab => !tab.discarded).map(tab => chrome.tabs.discard(tab.id)));
-				} else {
-					const tabsToRemove = targetTabs.map(tab => tab.id);
-					if (tabsToRemove.length > 0) {
-						await chrome.tabs.remove(tabsToRemove);
-					}
-				}
+			if (request.preserveTab) {
+				const toDiscard = targetTabs.filter(tab => !tab.discarded);
+				if (toDiscard.length === 0) return { success: false };
+				await Promise.all(toDiscard.map(tab => chrome.tabs.discard(tab.id)));
+			} else {
+				await chrome.tabs.remove(targetTabs.map(tab => tab.id));
 			}
 			return { success: true };
 		}
 
 		case 'refreshAllTabs': {
+			if (!sender.tab) return { success: false };
 			const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
+			if (tabs.length === 0) return { success: false };
 			for (const tab of tabs) {
 				await chrome.tabs.reload(tab.id, { bypassCache: !!request.hardReload });
 			}
@@ -584,142 +595,152 @@ async function handleAction(request, sender) {
 		}
 
 		case 'stopAllLoading': {
-			{
-				const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
-				await Promise.all(tabs.map(tab => {
-					if (isRestrictedUrl(tab.url)) return;
-					return chrome.scripting.executeScript({
-						target: { tabId: tab.id, allFrames: true },
-						func: () => window.stop(),
-						injectImmediately: true,
-					}).catch(() => {
-					});
-				}));
-			}
+			if (!sender.tab) return { success: false };
+			const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
+			if (tabs.length === 0) return { success: false };
+			await Promise.all(tabs.map(tab => {
+				if (isRestrictedUrl(tab.url)) return;
+				return chrome.scripting.executeScript({
+					target: { tabId: tab.id, allFrames: true },
+					func: () => window.stop(),
+					injectImmediately: true,
+				}).catch(() => {
+				});
+			}));
 			return { success: true };
 		}
 
 		case 'closeAllTabs': {
+			if (!sender.tab) return { success: false };
 			const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
 			const tabsToRemove = tabs
 				.filter(tab => !(request.skipPinned && tab.pinned))
 				.map(tab => tab.id);
-			if (tabsToRemove.length > 0) {
-				const remainingTabs = tabs.length - tabsToRemove.length;
-				if (remainingTabs === 0) {
-					await chrome.tabs.create({ active: true, windowId: sender.tab.windowId });
-				}
-				await chrome.tabs.remove(tabsToRemove);
+			if (tabsToRemove.length === 0) return { success: false };
+			const remainingTabs = tabs.length - tabsToRemove.length;
+			if (remainingTabs === 0) {
+				await chrome.tabs.create({ active: true, windowId: sender.tab.windowId });
 			}
+			await chrome.tabs.remove(tabsToRemove);
 			return { success: true };
 		}
 
 		case 'switchLeftTab': {
-			if (sender.tab) {
-				const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
-				const currentPos = tabs.findIndex(t => t.id === sender.tab.id);
-				if (currentPos === -1) return { success: true };
-				if (request.noWrap && currentPos === 0) return { success: true };
-				const prevPos = currentPos > 0 ? currentPos - 1 : tabs.length - 1;
-				if (request.moveTab) {
-					await chrome.tabs.move(sender.tab.id, { index: tabs[prevPos].index });
-				} else {
-					await chrome.tabs.update(tabs[prevPos].id, { active: true });
-				}
+			if (!sender.tab) return { success: false };
+			const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
+			const currentPos = tabs.findIndex(t => t.id === sender.tab.id);
+			if (currentPos === -1 || tabs.length < 2) return { success: false };
+			if (request.noWrap && currentPos === 0) return { success: false };
+			const prevPos = currentPos > 0 ? currentPos - 1 : tabs.length - 1;
+			if (!request.moveTab && tabs[prevPos].active) return { success: false };
+			if (request.moveTab) {
+				await chrome.tabs.move(sender.tab.id, { index: tabs[prevPos].index });
+			} else {
+				await chrome.tabs.update(tabs[prevPos].id, { active: true });
 			}
 			return { success: true };
 		}
 
 		case 'switchRightTab': {
-			if (sender.tab) {
-				const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
-				const currentPos = tabs.findIndex(t => t.id === sender.tab.id);
-				if (currentPos === -1) return { success: true };
-				if (request.noWrap && currentPos === tabs.length - 1) return { success: true };
-				const nextPos = currentPos < tabs.length - 1 ? currentPos + 1 : 0;
-				if (request.moveTab) {
-					await chrome.tabs.move(sender.tab.id, { index: tabs[nextPos].index });
-				} else {
-					await chrome.tabs.update(tabs[nextPos].id, { active: true });
-				}
+			if (!sender.tab) return { success: false };
+			const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
+			const currentPos = tabs.findIndex(t => t.id === sender.tab.id);
+			if (currentPos === -1 || tabs.length < 2) return { success: false };
+			if (request.noWrap && currentPos === tabs.length - 1) return { success: false };
+			const nextPos = currentPos < tabs.length - 1 ? currentPos + 1 : 0;
+			if (!request.moveTab && tabs[nextPos].active) return { success: false };
+			if (request.moveTab) {
+				await chrome.tabs.move(sender.tab.id, { index: tabs[nextPos].index });
+			} else {
+				await chrome.tabs.update(tabs[nextPos].id, { active: true });
 			}
 			return { success: true };
 		}
 
 		case 'switchFirstTab': {
-			if (sender.tab) {
-				const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
-				if (tabs.length > 0) {
-					if (request.moveTab) {
-						await chrome.tabs.move(sender.tab.id, { index: 0 });
-					} else {
-						await chrome.tabs.update(tabs[0].id, { active: true });
-					}
-				}
+			if (!sender.tab) return { success: false };
+			const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
+			if (tabs.length === 0) return { success: false };
+			const first = tabs[0];
+			if (request.moveTab) {
+				if (first.id === sender.tab.id) return { success: false };
+				await chrome.tabs.move(sender.tab.id, { index: 0 });
+			} else {
+				if (first.id === sender.tab.id || first.active) return { success: false };
+				await chrome.tabs.update(first.id, { active: true });
 			}
 			return { success: true };
 		}
 
 		case 'switchLastTab': {
-			if (sender.tab) {
-				const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
-				if (tabs.length > 0) {
-					if (request.moveTab) {
-						await chrome.tabs.move(sender.tab.id, { index: -1 });
-					} else {
-						await chrome.tabs.update(tabs[tabs.length - 1].id, { active: true });
-					}
-				}
+			if (!sender.tab) return { success: false };
+			const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
+			if (tabs.length === 0) return { success: false };
+			const last = tabs[tabs.length - 1];
+			if (request.moveTab) {
+				if (last.id === sender.tab.id) return { success: false };
+				await chrome.tabs.move(sender.tab.id, { index: -1 });
+			} else {
+				if (last.id === sender.tab.id || last.active) return { success: false };
+				await chrome.tabs.update(last.id, { active: true });
 			}
 			return { success: true };
 		}
 
 		case 'switchLastActiveTab': {
-			if (sender.tab) {
-				const tabs = (await chrome.tabs.query({ windowId: sender.tab.windowId, active: false }))
-					.filter(t => !t.hidden);
-				if (tabs.length > 0) {
-					const lastActiveTab = tabs.reduce((acc, cur) => acc.lastAccessed > cur.lastAccessed ? acc : cur);
-					await chrome.tabs.update(lastActiveTab.id, { active: true });
-				}
-			}
+			if (!sender.tab) return { success: false };
+			const tabs = (await chrome.tabs.query({ windowId: sender.tab.windowId, active: false }))
+				.filter(t => !t.hidden);
+			if (tabs.length === 0) return { success: false };
+			const lastActiveTab = tabs.reduce((acc, cur) => acc.lastAccessed > cur.lastAccessed ? acc : cur);
+			await chrome.tabs.update(lastActiveTab.id, { active: true });
 			return { success: true };
 		}
 
 		case 'togglePinTab': {
-			if (sender.tab?.id) {
-				const tab = await chrome.tabs.get(sender.tab.id);
-				await chrome.tabs.update(tab.id, { pinned: !tab.pinned });
-			}
+			if (!sender.tab?.id) return { success: false };
+			const tab = await chrome.tabs.get(sender.tab.id);
+			await chrome.tabs.update(tab.id, { pinned: !tab.pinned });
 			return { success: true };
 		}
 
 		case 'moveTabToNewWindow':
-			if (sender.tab?.id) {
-				await chrome.windows.create({ tabId: sender.tab.id, incognito: sender.tab.incognito });
-			}
+			if (!sender.tab?.id) return { success: false };
+			await chrome.windows.create({ tabId: sender.tab.id, incognito: sender.tab.incognito });
 			return { success: true };
 
 		case 'newWindow':
 			await openInNewWindow(undefined, request.focused !== false);
 			return { success: true };
 
-		case 'newIncognito':
+		case 'newIncognito': {
 			await chrome.windows.create({ incognito: true });
 			return { success: true };
+		}
 
-		case 'addToBookmarks':
-			if (sender.tab) {
-				requestPermission(['bookmarks'], sender.tab.windowId).then(async (granted) => {
-					if (!granted) return;
-					await Bookmarks.addLink({
-						title: sender.tab.title,
-						url: sender.tab.url,
-						folderId: request.folderId,
-					});
-				});
-			}
-			return { success: true };
+		case 'addToBookmarks': {
+			if (!sender.tab?.url) return { success: false };
+			const granted = await requestPermission(['bookmarks'], sender.tab.windowId);
+			if (!granted) return { success: false };
+			const node = await Bookmarks.addLink({
+				title: sender.tab.title,
+				url: sender.tab.url,
+				folderId: request.folderId,
+			});
+			return { success: !!node };
+		}
+
+		case 'bookmarkLink': {
+			if (!request.url) return { success: false };
+			const granted = await requestPermission(['bookmarks'], sender.tab?.windowId);
+			if (!granted) return { success: false };
+			const node = await Bookmarks.addLink({
+				title: request.title,
+				url: request.url,
+				folderId: request.folderId,
+			});
+			return { success: !!node };
+		}
 
 		case 'toggleFullscreen': {
 			const win = await getSenderWindow(sender);
@@ -746,6 +767,7 @@ async function handleAction(request, sender) {
 
 		case 'minimize': {
 			const win = await getSenderWindow(sender);
+			if (win.state === 'minimized') return { success: false };
 			await chrome.windows.update(win.id, { state: 'minimized' });
 			return { success: true };
 		}
@@ -768,6 +790,7 @@ async function handleAction(request, sender) {
 				}
 			}
 			newZoom = Math.min(5, Math.max(0.25, newZoom));
+			if (Math.abs(newZoom - currentZoom) < 1e-9) return { success: false };
 			await chrome.tabs.setZoom(sender.tab.id, newZoom);
 			return { success: true };
 		}
@@ -775,100 +798,115 @@ async function handleAction(request, sender) {
 		case 'resetZoom': {
 			if (!sender.tab?.id) return { success: false };
 			const resetLevel = request.resetZoomLevel;
-			const zoomFactor = resetLevel > 0 ? resetLevel / 100 : 0;
-			await chrome.tabs.setZoom(sender.tab.id, zoomFactor);
+			const currentZoom = await chrome.tabs.getZoom(sender.tab.id);
+			let zoomFactor;
+			if (resetLevel > 0) {
+				zoomFactor = resetLevel / 100;
+			} else {
+				const settings = await chrome.tabs.getZoomSettings(sender.tab.id);
+				zoomFactor = settings.defaultZoomFactor;
+			}
+			if (Math.abs(currentZoom - zoomFactor) < 1e-9) return { success: false };
+			await chrome.tabs.setZoom(sender.tab.id, resetLevel > 0 ? zoomFactor : 0);
 			return { success: true };
 		}
 
 		case 'openCustomUrl': {
-			let url = replaceUrlPlaceholders(request.customUrl, sender.tab);
-			if (url) {
-				const protocolRegex = /^[a-zA-Z][a-zA-Z0-9+.-]*:/;
+			let url = replaceUrlPlaceholders(request.customUrl, sender.tab, contentValues);
+			if (!url) return { success: false };
+			const protocolRegex = /^[a-zA-Z][a-zA-Z0-9+.-]*:/;
 
-				url = url.trim();
+			url = url.trim();
 
-				if (!protocolRegex.test(url)) {
-					url = 'http://' + url;
-				}
+			if (!protocolRegex.test(url)) {
+				url = 'http://' + url;
+			}
 
-				if (sender.tab && request.incognito && !sender.tab.incognito) {
-					const granted = await requestPermission(['incognito'], sender.tab.windowId);
-					if (granted) {
-						await chrome.windows.create({ incognito: true, url });
-					}
-					return { success: true };
-				}
 
-				const pos = request.position || 'last';
-				const act = request.active !== false;
-				if (pos === 'newWindow') {
-					await openInNewWindow(url, act, sender.tab?.incognito);
-				} else if (pos === 'current' && sender.tab) {
-					await chrome.tabs.update(sender.tab.id, { url });
-				} else {
-					await createTabAtPosition(sender, pos, { url, active: act });
-				}
+			const pos = request.position || 'last';
+			const act = request.active !== false;
+
+			if (sender.tab && request.incognito && !sender.tab.incognito) {
+				const granted = await requestPermission(['incognito'], sender.tab.windowId);
+				if (!granted) return { success: false };
+				await createIncognitoTab(pos, { url, active: act });
+				return { success: true };
+			}
+			if (pos === 'newWindow') {
+				await openInNewWindow(url, act, sender.tab?.incognito);
+			} else if (pos === 'current' && sender.tab) {
+				await chrome.tabs.update(sender.tab.id, { url });
+			} else {
+				await createTabAtPosition(sender.tab, pos, { url, active: act });
 			}
 			return { success: true };
 		}
 
 		case 'sendExtensionMessage': {
 			const targetId = (request.extensionId || '').trim();
-			if (targetId) {
-				let message = {};
-				try {
-					message = JSON.parse(request.message || '{}');
-				} catch { }
-				await chrome.runtime.sendMessage(targetId, message);
-			}
+			if (!targetId) return { success: false };
+			let message = {};
+			try {
+				message = JSON.parse(request.message || '{}');
+			} catch { }
+			await chrome.runtime.sendMessage(targetId, message);
 			return { success: true };
 		}
 
 		case 'openDownloads':
-			{
+			if (sender.tab) {
 				await chrome.tabs.create({ url: 'chrome://downloads', active: true, windowId: sender.tab.windowId });
+				return { success: true };
 			}
-			return { success: true };
+			return { success: false };
 
 		case 'openHistory':
-			{
+			if (sender.tab) {
 				await chrome.tabs.create({ url: 'chrome://history', active: true, windowId: sender.tab.windowId });
+				return { success: true };
 			}
-			return { success: true };
+			return { success: false };
 
 		case 'openExtensions':
-			{
+			if (sender.tab) {
 				await chrome.tabs.create({ url: 'chrome://extensions', active: true, windowId: sender.tab.windowId });
+				return { success: true };
 			}
+			return { success: false };
+
+		case 'printPage':
+			await chrome.scripting.executeScript({
+				target: { tabId: sender.tab.id, frameIds: [0] },
+				func: () => { window.print(); },
+			});
 			return { success: true };
 
-		case 'viewPageSource': {
-			if (sender.tab?.url) {
-				const url = 'view-source:' + sender.tab.url;
-				const pos = request.position || 'right';
-				if (pos === 'newWindow') {
-					await openInNewWindow(url, request.active !== false, sender.tab?.incognito);
-				} else if (pos === 'current' && sender.tab) {
-					await chrome.tabs.update(sender.tab.id, { url });
-				} else {
-					const active = request.active !== false;
-					await createTabAtPosition(sender, pos, { url, active });
-				}
+		case 'viewPageSource':
+		case 'viewFrameSource': {
+			const srcUrl = request.action === 'viewFrameSource' ? (sender.url || sender.tab?.url) : sender.tab?.url;
+			if (!srcUrl) return { success: false };
+			const url = 'view-source:' + srcUrl;
+			const pos = request.position || 'right';
+			if (pos === 'newWindow') {
+				await openInNewWindow(url, request.active !== false, sender.tab.incognito);
+			} else if (pos === 'current') {
+				await chrome.tabs.update(sender.tab.id, { url });
+			} else {
+				const active = request.active !== false;
+				await createTabAtPosition(sender.tab, pos, { url, active });
 			}
 			return { success: true };
 		}
 
 		case 'duplicateTab':
-			if (sender.tab?.id) {
-				await chrome.tabs.duplicate(sender.tab.id);
-			}
+			if (!sender.tab?.id) return { success: false };
+			await chrome.tabs.duplicate(sender.tab.id);
 			return { success: true };
 
 		case 'toggleMuteTab': {
-			if (sender.tab?.id) {
-				const tab = await chrome.tabs.get(sender.tab.id);
-				await chrome.tabs.update(tab.id, { muted: !tab.mutedInfo.muted });
-			}
+			if (!sender.tab?.id) return { success: false };
+			const tab = await chrome.tabs.get(sender.tab.id);
+			await chrome.tabs.update(tab.id, { muted: !tab.mutedInfo.muted });
 			return { success: true };
 		}
 
@@ -885,14 +923,26 @@ async function handleAction(request, sender) {
 			return { success: true };
 		}
 
+		case 'openOptions': {
+			await chrome.runtime.openOptionsPage();
+			return { success: true };
+		}
+
 		case 'openOptionsPage': {
 			const optionsUrl = chrome.runtime.getURL('pages/options.html');
 			const targetUrl = optionsUrl + (request.hash || '');
 
-			chrome.tabs.create({ url: targetUrl });
+			await chrome.tabs.create({ url: targetUrl });
 
 			return { success: true };
 		}
+
+		case 'warmUp':
+			return { success: true };
+
+		case 'getTabZoom':
+			if (!sender.tab) return { success: false };
+			return { success: true, ...await getZoomInfo(sender.tab.id) };
 
 		case 'requestPermission':
 			const granted = await requestPermission(request.permissions, sender.tab?.windowId ?? null);
@@ -909,15 +959,19 @@ async function handleAction(request, sender) {
 			return { success: true };
 
 		case 'pauseGesture':
-			if (sender.tab?.id) {
+			if (!sender.tab?.id) return { success: false };
+			try {
 				await chrome.tabs.sendMessage(sender.tab.id, {
 					action: 'pauseGesture'
-				}).catch(() => {});
+				});
+			} catch {
+				return { success: false };
 			}
 			return { success: true };
 
 		case 'areaSelect':
-			if (sender.tab?.id) {
+			if (!sender.tab?.id) return { success: false };
+			try {
 				await chrome.tabs.sendMessage(sender.tab.id, {
 					action: 'areaSelectEnter',
 					overrideGlobal: request.overrideGlobal,
@@ -925,7 +979,9 @@ async function handleAction(request, sender) {
 					textUrl: request.textUrl,
 					delay: request.delay,
 					autoAction: request.autoAction,
-				}).catch(() => {});
+				});
+			} catch {
+				return { success: false };
 			}
 			return { success: true };
 
@@ -950,28 +1006,27 @@ async function handleAction(request, sender) {
 		case 'areaSelectBatchOpen': {
 			const urls = request.urls;
 			const interval = Math.max(0, Math.min(60000, (parseFloat(request.delay) || 0) * 1000));
-			if (urls?.length && sender.tab) {
-				let openerTabId = sender.tab.id;
-				const baseIndex = sender.tab.index + 1;
-				for (let i = 0; i < urls.length; i++) {
-					if (i > 0 && interval > 0) {
-						await new Promise(r => setTimeout(r, interval));
-					}
-					if (openerTabId != null) {
-						try {
-							await chrome.tabs.get(openerTabId);
-						} catch {
-							openerTabId = undefined;
-						}
-					}
-					await chrome.tabs.create({
-						url: urls[i],
-						active: false,
-						windowId: sender.tab.windowId,
-						index: baseIndex + i,
-						openerTabId,
-					});
+			if (!urls?.length || !sender.tab) return { success: false };
+			let openerTabId = sender.tab.id;
+			const baseIndex = sender.tab.index + 1;
+			for (let i = 0; i < urls.length; i++) {
+				if (i > 0 && interval > 0) {
+					await new Promise(r => setTimeout(r, interval));
 				}
+				if (openerTabId != null) {
+					try {
+						await chrome.tabs.get(openerTabId);
+					} catch {
+						openerTabId = undefined;
+					}
+				}
+				await chrome.tabs.create({
+					url: urls[i],
+					active: false,
+					windowId: sender.tab.windowId,
+					index: baseIndex + i,
+					openerTabId,
+				});
 			}
 			return { success: true };
 		}
@@ -986,43 +1041,51 @@ async function handleAction(request, sender) {
 			}
 			return { success: true };
 
-		case 'gestureScrollUpdate':
-			if (sender.tab?.id) {
-				await chrome.tabs.sendMessage(sender.tab.id, {
+		case 'gestureScrollUpdate': {
+			if (!sender.tab?.id) return { success: false };
+			try {
+				const result = await chrome.tabs.sendMessage(sender.tab.id, {
 					action: 'gestureScrollUpdate',
 					data: request.data
-				}).catch(() => {
-				});
+				}, { frameId: 0 });
+				return result ?? { success: false };
+			} catch {
+				return { success: false };
 			}
-			return { success: true };
+		}
+
+		case 'getTabInfo': {
+			if (!sender.tab) return { success: false };
+			return { success: true, title: sender.tab.title, url: sender.tab.url };
+		}
 
 		case 'getTabList': {
-			if (sender.tab) {
-				const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
-				let mapped = tabs.map(t => ({
-					id: t.id,
-					title: t.title,
-					url: t.url,
-					favIconUrl: t.favIconUrl,
-					active: t.active,
-					index: t.index,
-					lastAccess: t.lastAccessed,
-				}));
-				mapped = sortAndClamp(mapped, request.sortOrder, request.maxItems);
-				return { success: true, tabs: mapped };
-			}
-			return { success: false };
+			if (!sender.tab) return { success: false };
+			const tabs = await chrome.tabs.query({ windowId: sender.tab.windowId });
+			let mapped = tabs.map(t => ({
+				id: t.id,
+				title: t.title,
+				url: t.url,
+				favIconUrl: t.favIconUrl,
+				active: t.active,
+				index: t.index,
+				lastAccess: t.lastAccessed,
+			}));
+			mapped = sortAndClamp(mapped, request.sortOrder, request.maxItems);
+			return { success: true, tabs: mapped };
 		}
 
 		case 'switchToTab':
-			if (request.tabId) {
-				await chrome.tabs.update(request.tabId, { active: true });
-			}
+			if (!request.tabId) return { success: false };
+			await chrome.tabs.update(request.tabId, { active: true });
 			return { success: true };
 
 		case 'restoreSession':
-			if (request.sessionId) {
-				await chrome.sessions.restore(request.sessionId).catch(() => {});
+			if (!request.sessionId) return { success: false };
+			try {
+				await chrome.sessions.restore(request.sessionId);
+			} catch {
+				return { success: false };
 			}
 			return { success: true };
 
@@ -1107,7 +1170,7 @@ async function handleAction(request, sender) {
 
 		case 'ctxMenuFetch': {
 			const session = ctxMenuSessions.get(request.menuId);
-			if (!session) return { items: [] };
+			if (!session) return { items: null };
 			return await session.items;
 		}
 
@@ -1154,9 +1217,14 @@ async function handleAction(request, sender) {
 		}
 
 		case 'actionChain': {
+			if (!sender.tab) return { success: false };
 			const steps = request.steps;
-			if (!steps?.length) return { success: true };
-			let windowId = sender.tab?.windowId;
+			if (!steps?.length) return { success: false };
+			const stopOnSuccess = !!request.stopOnSuccess;
+			const originTabId = sender.tab.id;
+			const originDocumentId = sender.documentId;
+			const contextId = request.contextId;
+			let windowId = sender.tab.windowId;
 			let firstStep = true;
 
 			const sleep = (ms) => new Promise(r => setTimeout(r, ms));
@@ -1180,22 +1248,34 @@ async function handleAction(request, sender) {
 				const [activeTab] = await chrome.tabs.query({ active: true, windowId });
 				if (!activeTab) continue;
 
+				let result;
 				if (CONTENT_ACTIONS.has(step.action)) {
-					await chrome.tabs.sendMessage(activeTab.id, {
+					const targetTabId = dragType ? originTabId : activeTab.id;
+					const isOrigin = targetTabId === originTabId;
+					const payload = {
 						action: 'executeLocalAction',
 						stepAction: step.action,
-						stepConfig: step
-					}).catch(() => {});
-					if (steps.indexOf(step) < steps.length - 1) {
-						await sleep(100);
+						stepConfig: step,
+						contextId: isOrigin ? contextId : undefined,
+					};
+					result = await chrome.tabs.sendMessage(
+						targetTabId,
+						payload,
+						isOrigin ? { documentId: originDocumentId } : { frameId: 0 }
+					).catch(() => null);
+					if (!result && isOrigin) {
+						payload.contextId = undefined;
+						result = await chrome.tabs.sendMessage(targetTabId, payload, { frameId: 0 }).catch(() => ({ success: false }));
 					}
 				} else {
-					await handleAction(step, { tab: activeTab });
+					result = await handleAction(step, { tab: activeTab }, dragType, contentValues);
 				}
+				if (stopOnSuccess && result?.success) break;
 			}
 			return { success: true };
 		}
 	}
+	return { success: false, error: `Unknown action: ${request.action}` };
 }
 
 chrome.runtime.onMessage.addListener(asyncMessageHandler(async (request, sender) => {
@@ -1206,8 +1286,26 @@ chrome.runtime.onMessage.addListener(asyncMessageHandler(async (request, sender)
 		}
 	}
 
-	return await handleAction(request, sender);
+	const { dragType, contentValues, ...actionRequest } = request;
+	return await handleAction(actionRequest, sender, dragType, contentValues);
 }));
+
+async function getZoomInfo(tabId) {
+	const [tabZoom, zoomSettings] = await Promise.all([
+		chrome.tabs.getZoom(tabId),
+		chrome.tabs.getZoomSettings(tabId).catch(() => null),
+	]);
+	return { tabZoom, defaultZoom: zoomSettings?.defaultZoomFactor };
+}
+
+chrome.tabs.onZoomChange.addListener(async ({ tabId, newZoomFactor }) => {
+	const zoomSettings = await chrome.tabs.getZoomSettings(tabId).catch(() => null);
+	chrome.tabs.sendMessage(tabId, {
+		action: 'tabZoomChanged',
+		tabZoom: newZoomFactor,
+		defaultZoom: zoomSettings?.defaultZoomFactor,
+	}).catch(() => {});
+});
 
 chrome.runtime.onInstalled.addListener((details) => {
 	function compareVersions(a, b) {
@@ -1229,131 +1327,223 @@ chrome.runtime.onInstalled.addListener((details) => {
 	}
 
 	if (details.reason === 'update' && details.previousVersion) {
-		if (details.previousVersion.startsWith('1.1')) {
-			chrome.storage.sync.get(['imageDragGestures'], (items) => {
-				const gestures = items.imageDragGestures;
-				if (Array.isArray(gestures)) {
-					let changed = false;
-					const newGestures = gestures.map(g => {
-						if (g.action === 'customSearch') {
-							changed = true;
-							return {
-								...g,
-								action: 'imageSearch',
-								engine: 'custom',
+		(async () => {
+			if (details.previousVersion.startsWith('1.1')) {
+				try {
+					const items = await chrome.storage.sync.get(['imageDragGestures']);
+					const gestures = items.imageDragGestures;
+					if (Array.isArray(gestures)) {
+						let changed = false;
+						const newGestures = gestures.map(g => {
+							if (g.action === 'customSearch') {
+								changed = true;
+								return {
+									...g,
+									action: 'imageSearch',
+									engine: 'custom',
+								};
+							}
+							return g;
+						});
+
+						if (changed) {
+							await chrome.storage.sync.set({ imageDragGestures: newGestures });
+						}
+					}
+				} catch (e) {
+					console.error('Migration (1.1 -> 1.2 imageSearch) failed:', e);
+				}
+			}
+
+			try {
+				const items = await chrome.storage.sync.get(['gestures', 'customGestures', 'customGestureUrls', 'mouseGestures']);
+				const hasLegacyData = items.customGestures || items.customGestureUrls || items.gestures;
+				const alreadyMigrated = items.mouseGestures && Object.keys(items.mouseGestures).length > 0;
+
+				if (!alreadyMigrated && hasLegacyData) {
+					const LEGACY_DEFAULT_GESTURES = {
+						'←': 'back', '→': 'forward', '↑': 'scrollUp', '↓': 'scrollDown',
+						'↓→': 'closeTab', '←↑': 'restoreTab', '→↑': 'newTab', '→↓': 'refresh',
+						'↑←': 'switchLeftTab', '↑→': 'switchRightTab', '↓←': 'stopLoading',
+						'←↓': 'closeAllTabs', '↑↓': 'scrollToBottom', '↓↑': 'scrollToTop',
+						'←→': 'closeTab', '→←': 'restoreTab',
+					};
+					const baseGestures = items.gestures || LEGACY_DEFAULT_GESTURES;
+					const customGestures = items.customGestures || {};
+					const customGestureUrls = items.customGestureUrls || {};
+					const merged = { ...baseGestures, ...customGestures };
+
+					const mouseGestures = {};
+					for (const [pattern, action] of Object.entries(merged)) {
+						if (action === null) continue;
+						const entry = { action };
+						if (customGestureUrls[pattern]) entry.customUrl = customGestureUrls[pattern];
+						mouseGestures[pattern] = entry;
+					}
+
+					await chrome.storage.sync.set({ mouseGestures });
+					await chrome.storage.sync.remove(['gestures', 'customGestures', 'customGestureUrls']);
+				}
+			} catch (e) {
+				console.error('Migration (legacy gestures -> mouseGestures) failed:', e);
+			}
+
+			if (compareVersions(details.previousVersion, '2.1') < 0) {
+				try {
+					await chrome.storage.sync.remove(['enableAdvancedSettings', 'scrollAmount', 'scrollSmoothness']);
+				} catch (e) {
+					console.error('Migration (cleanup < 2.1) failed:', e);
+				}
+			}
+
+			if (compareVersions(details.previousVersion, '2.0.2') <= 0) {
+				try {
+					await chrome.storage.sync.set({ enableSuggestedGestures: false });
+				} catch (e) {
+					console.error('Migration (<= 2.0.2 enableSuggestedGestures) failed:', e);
+				}
+			}
+
+			try {
+				const items = await chrome.storage.sync.get([
+					'actionChains', 'textDragGestures', 'linkDragGestures', 'imageDragGestures',
+				]);
+				const updates = {};
+				let chains = structuredClone(items.actionChains || {});
+				let chainsChanged = false;
+
+				const generateChainId = () => {
+					const existing = new Set(Object.keys(chains));
+					let id;
+					do {
+						id = `chain_${crypto.randomUUID().replace(/-/g, '').slice(0, 10)}`;
+					} while (existing.has(id));
+					return id;
+				};
+
+				const migrateDragArray = (gestures, dragType) => {
+					if (!Array.isArray(gestures)) return gestures;
+					const order = [];
+					const groups = new Map();
+					for (const g of gestures) {
+						const dir = g.direction || '→';
+						if (!groups.has(dir)) {
+							order.push(dir);
+							groups.set(dir, []);
+						}
+						groups.get(dir).push(g);
+					}
+
+					let dragChanged = false;
+					const result = [];
+					for (const dir of order) {
+						const itemsForDir = groups.get(dir);
+						if (itemsForDir.length === 1) {
+							result.push(itemsForDir[0]);
+							continue;
+						}
+						dragChanged = true;
+						const steps = [];
+						for (const item of itemsForDir) {
+							const { direction, ...rest } = item;
+							if (!rest.action || rest.action === 'none' || rest.action === 'actionChain') continue;
+							steps.push(structuredClone(rest));
+						}
+						if (steps.length === 0) {
+							result.push({ direction: dir, action: 'none' });
+						} else if (steps.length === 1) {
+							result.push({ direction: dir, ...steps[0] });
+						} else {
+							const id = generateChainId();
+							chains[id] = {
+								name: '',
+								type: dragType,
+								stopOnSuccess: false,
+								steps,
 							};
-						}
-						return g;
-					});
-
-					if (changed) {
-						chrome.storage.sync.set({ imageDragGestures: newGestures });
-					}
-				}
-			});
-		}
-
-		chrome.storage.sync.get(['gestures', 'customGestures', 'customGestureUrls', 'mouseGestures'], (items) => {
-			if (items.mouseGestures && Object.keys(items.mouseGestures).length > 0) {
-				return;
-			}
-			if (!items.customGestures && !items.customGestureUrls && !items.gestures) {
-				return;
-			}
-
-			const LEGACY_DEFAULT_GESTURES = {
-				'←': 'back', '→': 'forward', '↑': 'scrollUp', '↓': 'scrollDown',
-				'↓→': 'closeTab', '←↑': 'restoreTab', '→↑': 'newTab', '→↓': 'refresh',
-				'↑←': 'switchLeftTab', '↑→': 'switchRightTab', '↓←': 'stopLoading',
-				'←↓': 'closeAllTabs', '↑↓': 'scrollToBottom', '↓↑': 'scrollToTop',
-				'←→': 'closeTab', '→←': 'restoreTab',
-			};
-			const baseGestures = items.gestures || LEGACY_DEFAULT_GESTURES;
-			const customGestures = items.customGestures || {};
-			const customGestureUrls = items.customGestureUrls || {};
-			const merged = { ...baseGestures, ...customGestures };
-
-			const mouseGestures = {};
-			for (const [pattern, action] of Object.entries(merged)) {
-				if (action === null) continue;
-				const entry = { action };
-				if (customGestureUrls[pattern]) entry.customUrl = customGestureUrls[pattern];
-				mouseGestures[pattern] = entry;
-			}
-
-			chrome.storage.sync.remove(['gestures', 'customGestures', 'customGestureUrls'], () => {
-				chrome.storage.sync.set({ mouseGestures });
-			});
-		});
-
-		if (compareVersions(details.previousVersion, '2.1') < 0) {
-			chrome.storage.sync.remove(['enableAdvancedSettings', 'scrollAmount', 'scrollSmoothness']);
-		}
-
-		if (compareVersions(details.previousVersion, '2.0.2') <= 0) {
-			chrome.storage.sync.set({ enableSuggestedGestures: false });
-		}
-
-		chrome.storage.sync.get(['mouseGestures', 'wheelGestures', 'specialGestures', 'actionChains'], (items) => {
-			const updates = {};
-			let changed = false;
-
-			if (items.mouseGestures) {
-				const mg = structuredClone(items.mouseGestures);
-				for (const [pattern, config] of Object.entries(mg)) {
-					if (config.action === 'copyUrl' && config.includeTitle) {
-						config.action = 'copyTitleAndUrl';
-						delete config.includeTitle;
-						changed = true;
-					}
-				}
-				if (changed) updates.mouseGestures = mg;
-			}
-
-			if (items.wheelGestures) {
-				const wg = structuredClone(items.wheelGestures);
-				let wgChanged = false;
-				for (const config of Object.values(wg)) {
-					if (config.action === 'copyUrl' && config.includeTitle) {
-						config.action = 'copyTitleAndUrl';
-						delete config.includeTitle;
-						wgChanged = true;
-					}
-				}
-				if (wgChanged) { updates.wheelGestures = wg; changed = true; }
-			}
-
-			if (items.specialGestures) {
-				const sg = structuredClone(items.specialGestures);
-				let sgChanged = false;
-				for (const config of Object.values(sg)) {
-					if (config.action === 'copyUrl' && config.includeTitle) {
-						config.action = 'copyTitleAndUrl';
-						delete config.includeTitle;
-						sgChanged = true;
-					}
-				}
-				if (sgChanged) { updates.specialGestures = sg; changed = true; }
-			}
-
-			if (items.actionChains) {
-				const ac = structuredClone(items.actionChains);
-				let acChanged = false;
-				for (const chain of Object.values(ac)) {
-					if (!chain.steps) continue;
-					for (const step of chain.steps) {
-						if (step.action === 'copyUrl' && step.includeTitle) {
-							step.action = 'copyTitleAndUrl';
-							delete step.includeTitle;
-							acChanged = true;
+							chainsChanged = true;
+							result.push({ direction: dir, action: 'actionChain', chainId: id });
 						}
 					}
+					return dragChanged ? result : gestures;
+				};
+
+				const text = migrateDragArray(items.textDragGestures, 'text');
+				const link = migrateDragArray(items.linkDragGestures, 'link');
+				const image = migrateDragArray(items.imageDragGestures, 'image');
+				if (text !== items.textDragGestures) updates.textDragGestures = text;
+				if (link !== items.linkDragGestures) updates.linkDragGestures = link;
+				if (image !== items.imageDragGestures) updates.imageDragGestures = image;
+				if (chainsChanged) updates.actionChains = chains;
+
+				if (Object.keys(updates).length) {
+					await chrome.storage.sync.set(updates);
 				}
-				if (acChanged) { updates.actionChains = ac; changed = true; }
+			} catch (e) {
+				console.error('Migration (drag chain) failed:', e);
 			}
 
-			if (changed) chrome.storage.sync.set(updates);
-		});
+			try {
+				const items = await chrome.storage.sync.get([
+					'mouseGestures', 'wheelGestures', 'specialGestures', 'actionChains',
+				]);
+				const updates = {};
+
+				const migrateCopyUrl = (config) => {
+					if (config.action === 'copyUrl' && config.includeTitle) {
+						config.action = 'copyTitleAndUrl';
+						delete config.includeTitle;
+						return true;
+					}
+					return false;
+				};
+
+				if (items.mouseGestures) {
+					const mg = structuredClone(items.mouseGestures);
+					let changed = false;
+					for (const config of Object.values(mg)) {
+						if (migrateCopyUrl(config)) changed = true;
+					}
+					if (changed) updates.mouseGestures = mg;
+				}
+
+				if (items.wheelGestures) {
+					const wg = structuredClone(items.wheelGestures);
+					let changed = false;
+					for (const config of Object.values(wg)) {
+						if (migrateCopyUrl(config)) changed = true;
+					}
+					if (changed) updates.wheelGestures = wg;
+				}
+
+				if (items.specialGestures) {
+					const sg = structuredClone(items.specialGestures);
+					let changed = false;
+					for (const config of Object.values(sg)) {
+						if (migrateCopyUrl(config)) changed = true;
+					}
+					if (changed) updates.specialGestures = sg;
+				}
+
+				if (items.actionChains) {
+					const chains = structuredClone(items.actionChains);
+					let changed = false;
+					for (const chain of Object.values(chains)) {
+						if (!chain.steps) continue;
+						for (const step of chain.steps) {
+							if (migrateCopyUrl(step)) changed = true;
+						}
+					}
+					if (changed) updates.actionChains = chains;
+				}
+
+				if (Object.keys(updates).length) {
+					await chrome.storage.sync.set(updates);
+				}
+			} catch (e) {
+				console.error('Migration (copyUrl → copyTitleAndUrl) failed:', e);
+			}
+		})();
 	}
 
 

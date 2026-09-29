@@ -123,13 +123,6 @@ header .version {
 	height: 1.18em;
 }
 
-#openGestureDrawer {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 6px;
-}
-
 .section h2 span {
 	opacity: .95;
 	font-weight: 600;
@@ -156,33 +149,29 @@ header .version {
 	border-top: none;
 }
 
-.add-gesture-btn {
-	margin-inline: auto;
-}
-
 .setting-label {
 	display: flex;
 	flex-direction: column;
 	margin-inline-end: 10px;
 }
 
-.setting-label span:first-child {
+.setting-label .setting-title {
 	font-weight: 600;
 	font-size: 15px;
 }
 
-.setting-label span:last-child {
+.setting-label .setting-desc {
 	font-size: 13px;
 	color: var(--text-secondary);
 	margin-top: 4px;
 }
 
-.setting-label span:last-child a {
+.setting-label .setting-desc a {
 	color: var(--accent-color);
 	text-decoration: none;
 }
 
-.setting-label span:last-child a:hover {
+.setting-label .setting-desc a:hover {
 	text-decoration: underline;
 }
 
@@ -317,6 +306,10 @@ input[type="color"]::-webkit-color-swatch {
 	border: none;
 }
 
+.drag-settings-section {
+	margin-bottom: 18px;
+}
+
 .sub-settings {
 	margin-bottom: 18px;
 	padding: 8px 8px;
@@ -375,6 +368,10 @@ color-picker {
 	text-align: right;
 	font-weight: 600;
 	color: var(--accent-color);
+}
+
+.inline-setting-item .slider-control {
+	gap: 6px;
 }
 
 .collapsible-details {

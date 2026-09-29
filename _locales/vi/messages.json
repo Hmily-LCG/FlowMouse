@@ -160,11 +160,11 @@
 		"description": "Notice for macOS users about text drag behavior"
 	},
 	"showTrail": {
-		"message": "Hiển thị đường dẫn cử chỉ",
+		"message": "Hiển thị vệt cử chỉ",
 		"description": "Show gesture trail"
 	},
 	"showTrailDesc": {
-		"message": "Hiển thị đường dẫn khi thực hiện cử chỉ",
+		"message": "Hiển thị vệt khi thực hiện cử chỉ",
 		"description": "Show trail line when performing gestures"
 	},
 	"showHint": {
@@ -202,6 +202,18 @@
 	"showSuggestedGestures": {
 		"message": "Lời nhắc cử chỉ",
 		"description": "Show suggested gestures at bottom of screen"
+	},
+	"userScale": {
+		"message": "Tỷ lệ giao diện tùy chỉnh",
+		"description": "UI scaling setting for FlowMouse's own interface"
+	},
+	"userScaleDesc": {
+		"message": "Thay đổi kích thước các phần tử giao diện FlowMouse như gợi ý hành động và HUD",
+		"description": "Description for the UI scaling setting"
+	},
+	"scale": {
+		"message": "Tỷ lệ",
+		"description": "Label for the UI scale slider"
 	},
 	"customCss": {
 		"message": "CSS tùy chỉnh",
@@ -311,11 +323,11 @@
 		"message": "Tính năng kéo thả",
 		"description": "Drag features section"
 	},
-	"textDragSearch": {
+	"textDrag": {
 		"message": "Kéo văn bản",
 		"description": "Text drag"
 	},
-	"textDragSearchDesc": {
+	"textDragDesc": {
 		"message": "Kéo văn bản đã chọn để tìm kiếm",
 		"description": "Drag selected text to search"
 	},
@@ -575,6 +587,10 @@
 		"message": "Phải rồi Trái",
 		"description": "Gesture description for →←"
 	},
+	"gestureDesc_Any": {
+		"message": "Bất kỳ",
+		"description": "Description for the * fallback gesture that matches any unmatched pattern"
+	},
 	"actionNone": {
 		"message": "Không có hành động",
 		"description": "No action"
@@ -731,6 +747,10 @@
 		"message": "Tải lại tất cả các tab",
 		"description": "Refresh all tabs"
 	},
+	"actionReloadFrame": {
+		"message": "Tải lại khung",
+		"description": "Reload only the frame (iframe) where the gesture was performed"
+	},
 	"actionStopLoading": {
 		"message": "Dừng tải",
 		"description": "Stop loading"
@@ -756,7 +776,7 @@
 		"description": "Toggle fullscreen"
 	},
 	"actionToggleMaximize": {
-		"message": "Phóng to/Thu nhỏ cửa sổ",
+		"message": "Phóng to/Khôi phục cửa sổ",
 		"description": "Toggle window maximize"
 	},
 	"actionMinimize": {
@@ -790,6 +810,10 @@
 	"actionOpenExtensions": {
 		"message": "Mở trang Tiện ích mở rộng",
 		"description": "Open extensions page"
+	},
+	"actionOpenOptions": {
+		"message": "Mở Cài đặt FlowMouse",
+		"description": "Open the FlowMouse settings page"
 	},
 	"actionSaveAsMhtml": {
 		"message": "Lưu dưới dạng MHTML",
@@ -926,6 +950,14 @@
 	"gestureRecorderBanned": {
 		"message": "Cử chỉ %pattern% đã tồn tại",
 		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"gestureRecorderAny": {
+		"message": "Thêm cử chỉ cho mẫu không khớp",
+		"description": "Button in the gesture recorder to select the * fallback that matches any unmatched gesture"
+	},
+	"fallbackGestureTip": {
+		"message": "Kích hoạt khi vệt được vẽ không khớp với bất kỳ cử chỉ nào khác",
+		"description": "Tooltip explaining what the * fallback gesture does"
 	},
 	"rightButton": {
 		"message": "Nút chuột phải",
@@ -1192,60 +1224,56 @@
 		"description": "No action"
 	},
 	"dragActionSearch": {
-		"message": "🔍 Công cụ tìm kiếm",
+		"message": "Tìm kiếm",
 		"description": "Search action"
 	},
 	"dragActionCopy": {
-		"message": "📋 Sao chép",
+		"message": "Sao chép",
 		"description": "Copy action"
 	},
-	"dragActionOpenTab": {
-		"message": "📑 Mở trong tab mới",
-		"description": "Open in new tab"
-	},
 	"dragActionOpenTabLink": {
-		"message": "🔗 Mở liên kết",
+		"message": "Mở liên kết",
 		"description": "Open link in new tab"
 	},
 	"dragActionOpenTabImage": {
-		"message": "🖼️ Mở hình ảnh",
+		"message": "Mở hình ảnh",
 		"description": "Open image in new tab"
 	},
+	"dragActionTryOpenLink": {
+		"message": "Thử mở liên kết",
+		"description": "Open the image's link in new tab, if any"
+	},
 	"dragActionCopyLink": {
-		"message": "📋 Sao chép liên kết",
+		"message": "Sao chép liên kết",
 		"description": "Copy link"
 	},
 	"dragActionCopyLinkText": {
-		"message": "📋 Sao chép văn bản liên kết",
+		"message": "Sao chép văn bản liên kết",
 		"description": "Copy link text"
 	},
 	"dragActionCopyLinkAndText": {
-		"message": "📋 Sao chép Văn bản & Liên kết",
+		"message": "Sao chép Văn bản & Liên kết",
 		"description": "Copy link text and URL"
 	},
+	"dragActionBookmarkLink": {
+		"message": "Thêm liên kết vào dấu trang",
+		"description": "Add dragged link to bookmarks"
+	},
 	"dragActionSaveImage": {
-		"message": "💾 Lưu hình ảnh",
+		"message": "Lưu hình ảnh",
 		"description": "Save image"
 	},
 	"dragActionCopyImage": {
-		"message": "🖼️ Sao chép hình ảnh",
+		"message": "Sao chép hình ảnh",
 		"description": "Copy image"
 	},
 	"dragActionCopyImageUrl": {
-		"message": "📋 Sao chép URL hình ảnh",
+		"message": "Sao chép URL hình ảnh",
 		"description": "Copy image URL"
 	},
 	"dragActionImageSearch": {
-		"message": "🔍 Tìm kiếm hình ảnh",
+		"message": "Tìm kiếm hình ảnh",
 		"description": "Image search"
-	},
-	"dragActionCustomSearch": {
-		"message": "🔍 Tìm kiếm tùy chỉnh",
-		"description": "Custom search"
-	},
-	"dragActionSendCustomEvent": {
-		"message": "Gửi sự kiện tùy chỉnh",
-		"description": "Send custom DOM event on drag gesture"
 	},
 	"reducedMotionWarning": {
 		"message": "Hoạt ảnh hệ thống %OS% đã bị tắt, hoạt ảnh cuộn có thể không hiển thị đúng. Bạn có thể bật hoạt ảnh trong cài đặt hệ thống %OS%.",
@@ -1511,10 +1539,6 @@
 		"message": "Sử dụng <span class=\"text-highlight\">Chuột trái</span> để kéo",
 		"description": "Tutorial drag wrong button error"
 	},
-	"tutorialRefreshTip": {
-		"message": "Mẹo: Các tab đã mở trước khi cài đặt cần được <span class=\"text-highlight\">làm mới</span> để sử dụng FlowMouse",
-		"description": "Tip about refreshing tabs"
-	},
 	"permissionBookmarksTitle": {
 		"message": "Quản lý dấu trang",
 		"description": "Permission popup title for bookmarks"
@@ -1595,9 +1619,9 @@
 		"message": "Lưu hình ảnh thất bại: Hết thời gian tải",
 		"description": "Toast message when image loading times out"
 	},
-	"saveImageSubdirPlaceholder": {
-		"message": "Thư mục con (tùy chọn)",
-		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	"saveImageSubdirLabel": {
+		"message": "Thư mục con",
+		"description": "Label for the optional subdirectory input in save image config"
 	},
 	"buttonOkay": {
 		"message": "OK",
@@ -1635,6 +1659,18 @@
 		"message": "Tiện ích",
 		"description": "Action category: utilities"
 	},
+	"actionCategoryText": {
+		"message": "Văn bản",
+		"description": "Action category: text"
+	},
+	"actionCategoryLink": {
+		"message": "Liên kết",
+		"description": "Action category: link"
+	},
+	"actionCategoryImage": {
+		"message": "Hình ảnh",
+		"description": "Action category: image"
+	},
 	"noResults": {
 		"message": "Không có kết quả",
 		"description": "No search results found"
@@ -1650,6 +1686,14 @@
 	"enableWheelGesturesDesc": {
 		"message": "Thực hiện các hành động khác nhau một cách nhanh chóng bằng cách sử dụng con lăn chuột",
 		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelThreshold": {
+		"message": "Khoảng cách kích hoạt con lăn",
+		"description": "Label for the wheel gesture scroll distance threshold"
+	},
+	"wheelThresholdDesc": {
+		"message": "Thao tác cuộn con lăn chuột phải đạt đến khoảng cách này để liên tục kích hoạt cử chỉ con lăn",
+		"description": "Description for the wheel gesture scroll distance threshold"
 	},
 	"wheelGesture_scrollUpHoldingRight": {
 		"message": "Cuộn lên trong khi giữ nút phải",
@@ -1758,6 +1802,10 @@
 	"emptyChainSteps": {
 		"message": "Chưa thêm bước nào. Nhấp vào \"Thêm bước\" để bắt đầu.",
 		"description": "Empty chain steps message in expanded body"
+	},
+	"chainStopOnSuccess": {
+		"message": "Hủy chuỗi khi một bước thành công",
+		"description": "Checkbox: skip remaining command-chain steps after the first successful action"
 	},
 	"emptyChainStepsShort": {
 		"message": "Chưa thêm bước nào",
@@ -1898,6 +1946,10 @@
 	"actionViewPageSource": {
 		"message": "Xem nguồn trang",
 		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionViewFrameSource": {
+		"message": "Xem nguồn khung",
+		"description": "Open the source code of the frame (iframe) where the gesture was performed in a new tab"
 	},
 	"actionPauseGesture": {
 		"message": "Tạm dừng cử chỉ đến khi tải lại",
@@ -2118,6 +2170,14 @@
 	"ctxMenuScrollToBottom": {
 		"message": "Cuộn xuống dưới cùng",
 		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuWheelNav": {
+		"message": "Điều hướng nhanh bằng con lăn",
+		"description": "Checkbox: navigate a wheel-gesture menu with the wheel while holding the right button"
+	},
+	"ctxMenuWheelNavTooltip": {
+		"message": "Trong khi giữ nút chuột, hãy cuộn con lăn để nhanh chóng chọn các mục menu.",
+		"description": "Tooltip explaining quick wheel navigation for wheel-gesture menus"
 	},
 	"ctxMenuTimeDisplay": {
 		"message": "Hiển thị thời gian",

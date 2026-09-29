@@ -1,7 +1,7 @@
 import { LitElement, html, css, unsafeHTML } from '../lib/lit-all.min.js';
 import { commonStyles, optionStyles } from './shared-styles.js';
 import { icons, icon } from '../icons.js';
-import { tooltip } from '../tooltip.js';
+import { tooltip } from '../directives/tooltip.js';
 
 const SPECIAL_GESTURE_KEYS = {
 	'leftClickHoldingRight': 'specialGesture_leftClickHoldingRight',

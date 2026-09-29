@@ -203,6 +203,18 @@
 		"message": "تلميحات الإيماءات",
 		"description": "Show suggested gestures at bottom of screen"
 	},
+	"userScale": {
+		"message": "مقياس واجهة المستخدم المخصص",
+		"description": "UI scaling setting for FlowMouse's own interface"
+	},
+	"userScaleDesc": {
+		"message": "تغيير حجم عناصر واجهة FlowMouse مثل تلميحات الإجراءات وشاشة العرض (HUD)",
+		"description": "Description for the UI scaling setting"
+	},
+	"scale": {
+		"message": "مقياس",
+		"description": "Label for the UI scale slider"
+	},
 	"customCss": {
 		"message": "CSS مخصص",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -311,11 +323,11 @@
 		"message": "ميزات السحب",
 		"description": "Drag features section"
 	},
-	"textDragSearch": {
+	"textDrag": {
 		"message": "سحب النص",
 		"description": "Text drag"
 	},
-	"textDragSearchDesc": {
+	"textDragDesc": {
 		"message": "سحب النص المحدد للبحث",
 		"description": "Drag selected text to search"
 	},
@@ -575,6 +587,10 @@
 		"message": "يمين ثم يسار",
 		"description": "Gesture description for →←"
 	},
+	"gestureDesc_Any": {
+		"message": "أي",
+		"description": "Description for the * fallback gesture that matches any unmatched pattern"
+	},
 	"actionNone": {
 		"message": "لا شيء",
 		"description": "No action"
@@ -731,6 +747,10 @@
 		"message": "تحديث جميع علامات التبويب",
 		"description": "Refresh all tabs"
 	},
+	"actionReloadFrame": {
+		"message": "إعادة تحميل الإطار",
+		"description": "Reload only the frame (iframe) where the gesture was performed"
+	},
 	"actionStopLoading": {
 		"message": "إيقاف التحميل",
 		"description": "Stop loading"
@@ -790,6 +810,10 @@
 	"actionOpenExtensions": {
 		"message": "فتح الإضافات",
 		"description": "Open extensions page"
+	},
+	"actionOpenOptions": {
+		"message": "فتح إعدادات FlowMouse",
+		"description": "Open the FlowMouse settings page"
 	},
 	"actionSaveAsMhtml": {
 		"message": "حفظ بتنسيق MHTML",
@@ -926,6 +950,14 @@
 	"gestureRecorderBanned": {
 		"message": "الإيماءة %pattern% موجودة بالفعل",
 		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"gestureRecorderAny": {
+		"message": "إضافة إيماءة للأنماط غير المطابقة",
+		"description": "Button in the gesture recorder to select the * fallback that matches any unmatched gesture"
+	},
+	"fallbackGestureTip": {
+		"message": "يتم التشغيل عندما لا يتطابق المسار المرسوم مع أي إيماءة أخرى",
+		"description": "Tooltip explaining what the * fallback gesture does"
 	},
 	"rightButton": {
 		"message": "زر الفأرة الأيمن",
@@ -1192,60 +1224,56 @@
 		"description": "No action"
 	},
 	"dragActionSearch": {
-		"message": "🔍 محرك البحث",
+		"message": "بحث",
 		"description": "Search action"
 	},
 	"dragActionCopy": {
-		"message": "📋 نسخ",
+		"message": "نسخ",
 		"description": "Copy action"
 	},
-	"dragActionOpenTab": {
-		"message": "📑 فتح في علامة تبويب جديدة",
-		"description": "Open in new tab"
-	},
 	"dragActionOpenTabLink": {
-		"message": "🔗 فتح الرابط",
+		"message": "فتح الرابط",
 		"description": "Open link in new tab"
 	},
 	"dragActionOpenTabImage": {
-		"message": "🖼️ فتح الصورة",
+		"message": "فتح الصورة",
 		"description": "Open image in new tab"
 	},
+	"dragActionTryOpenLink": {
+		"message": "محاولة فتح الرابط",
+		"description": "Open the image's link in new tab, if any"
+	},
 	"dragActionCopyLink": {
-		"message": "📋 نسخ الرابط",
+		"message": "نسخ الرابط",
 		"description": "Copy link"
 	},
 	"dragActionCopyLinkText": {
-		"message": "📋 نسخ نص الرابط",
+		"message": "نسخ نص الرابط",
 		"description": "Copy link text"
 	},
 	"dragActionCopyLinkAndText": {
-		"message": "📋 نسخ النص والرابط",
+		"message": "نسخ النص والرابط",
 		"description": "Copy link text and URL"
 	},
+	"dragActionBookmarkLink": {
+		"message": "إضافة الرابط إلى الإشارات المرجعية",
+		"description": "Add dragged link to bookmarks"
+	},
 	"dragActionSaveImage": {
-		"message": "💾 حفظ الصورة",
+		"message": "حفظ الصورة",
 		"description": "Save image"
 	},
 	"dragActionCopyImage": {
-		"message": "🖼️ نسخ الصورة",
+		"message": "نسخ الصورة",
 		"description": "Copy image"
 	},
 	"dragActionCopyImageUrl": {
-		"message": "📋 نسخ عنوان URL للصورة",
+		"message": "نسخ عنوان URL للصورة",
 		"description": "Copy image URL"
 	},
 	"dragActionImageSearch": {
-		"message": "🔍 بحث بالصورة",
+		"message": "بحث بالصورة",
 		"description": "Image search"
-	},
-	"dragActionCustomSearch": {
-		"message": "🔍 بحث مخصص",
-		"description": "Custom search"
-	},
-	"dragActionSendCustomEvent": {
-		"message": "إرسال حدث مخصص",
-		"description": "Send custom DOM event on drag gesture"
 	},
 	"reducedMotionWarning": {
 		"message": "تم تعطيل الرسوم المتحركة للنظام في %OS%، قد لا تعمل رسوم التمرير بشكل صحيح. يمكنك تمكين الرسوم المتحركة في إعدادات نظام %OS%.",
@@ -1511,10 +1539,6 @@
 		"message": "استخدم <span class=\"text-highlight\">زر الماوس الأيسر</span> للسحب",
 		"description": "Tutorial drag wrong button error"
 	},
-	"tutorialRefreshTip": {
-		"message": "تلميح: تحتاج علامات التبويب المفتوحة قبل التثبيت إلى <span class=\"text-highlight\">التحديث</span> لاستخدام FlowMouse",
-		"description": "Tip about refreshing tabs"
-	},
 	"permissionBookmarksTitle": {
 		"message": "إدارة الإشارات المرجعية",
 		"description": "Permission popup title for bookmarks"
@@ -1595,9 +1619,9 @@
 		"message": "فشل حفظ الصورة: انتهت مهلة التحميل",
 		"description": "Toast message when image loading times out"
 	},
-	"saveImageSubdirPlaceholder": {
-		"message": "دليل فرعي (اختياري)",
-		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	"saveImageSubdirLabel": {
+		"message": "دليل فرعي",
+		"description": "Label for the optional subdirectory input in save image config"
 	},
 	"buttonOkay": {
 		"message": "حسنا",
@@ -1635,6 +1659,18 @@
 		"message": "الأدوات",
 		"description": "Action category: utilities"
 	},
+	"actionCategoryText": {
+		"message": "النص",
+		"description": "Action category: text"
+	},
+	"actionCategoryLink": {
+		"message": "الرابط",
+		"description": "Action category: link"
+	},
+	"actionCategoryImage": {
+		"message": "الصورة",
+		"description": "Action category: image"
+	},
 	"noResults": {
 		"message": "لا توجد نتائج",
 		"description": "No search results found"
@@ -1650,6 +1686,14 @@
 	"enableWheelGesturesDesc": {
 		"message": "تنفيذ إجراءات مختلفة بسرعة باستخدام عجلة الماوس",
 		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelThreshold": {
+		"message": "مسافة تحفيز العجلة",
+		"description": "Label for the wheel gesture scroll distance threshold"
+	},
+	"wheelThresholdDesc": {
+		"message": "يجب تمرير عجلة الماوس لهذه المسافة لتشغيل إيماءات العجلة بشكل متكرر",
+		"description": "Description for the wheel gesture scroll distance threshold"
 	},
 	"wheelGesture_scrollUpHoldingRight": {
 		"message": "التمرير لأعلى مع الاستمرار على الزر الأيمن",
@@ -1758,6 +1802,10 @@
 	"emptyChainSteps": {
 		"message": "لم تتم إضافة أي خطوات. انقر على \"إضافة خطوة\" للبدء.",
 		"description": "Empty chain steps message in expanded body"
+	},
+	"chainStopOnSuccess": {
+		"message": "إيقاف السلسلة عند نجاح أي خطوة",
+		"description": "Checkbox: skip remaining command-chain steps after the first successful action"
 	},
 	"emptyChainStepsShort": {
 		"message": "لم تتم إضافة أي خطوات",
@@ -1898,6 +1946,10 @@
 	"actionViewPageSource": {
 		"message": "عرض مصدر الصفحة",
 		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionViewFrameSource": {
+		"message": "عرض مصدر الإطار",
+		"description": "Open the source code of the frame (iframe) where the gesture was performed in a new tab"
 	},
 	"actionPauseGesture": {
 		"message": "إيقاف الإيماءات حتى التحديث",
@@ -2118,6 +2170,14 @@
 	"ctxMenuScrollToBottom": {
 		"message": "التمرير إلى الأسفل",
 		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuWheelNav": {
+		"message": "التنقل السريع بعجلة الماوس",
+		"description": "Checkbox: navigate a wheel-gesture menu with the wheel while holding the right button"
+	},
+	"ctxMenuWheelNavTooltip": {
+		"message": "أثناء الضغط باستمرار على زر الماوس، قم بالتمرير بعجلة الماوس لتحديد عناصر القائمة بسرعة.",
+		"description": "Tooltip explaining quick wheel navigation for wheel-gesture menus"
 	},
 	"ctxMenuTimeDisplay": {
 		"message": "عرض الوقت",

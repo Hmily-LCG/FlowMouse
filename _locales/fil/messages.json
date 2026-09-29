@@ -203,6 +203,18 @@
 		"message": "Mga Prompt ng Galaw",
 		"description": "Show suggested gestures at bottom of screen"
 	},
+	"userScale": {
+		"message": "Custom na Scale ng UI",
+		"description": "UI scaling setting for FlowMouse's own interface"
+	},
+	"userScaleDesc": {
+		"message": "I-scale ang mga elemento ng UI ng FlowMouse tulad ng mga pahiwatig ng aksyon at HUD",
+		"description": "Description for the UI scaling setting"
+	},
+	"scale": {
+		"message": "Scale",
+		"description": "Label for the UI scale slider"
+	},
 	"customCss": {
 		"message": "Custom na CSS",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -311,11 +323,11 @@
 		"message": "Mga Tampok ng Pag-drag",
 		"description": "Drag features section"
 	},
-	"textDragSearch": {
+	"textDrag": {
 		"message": "Pag-drag ng Teksto",
 		"description": "Text drag"
 	},
-	"textDragSearchDesc": {
+	"textDragDesc": {
 		"message": "I-drag ang napiling teksto upang maghanap",
 		"description": "Drag selected text to search"
 	},
@@ -424,15 +436,15 @@
 		"description": "Setting title for blacklist context menu toggle"
 	},
 	"enableBlacklistContextMenuDesc": {
-		"message": "Magpakita ng opsyon upang i-disable/i-enable ang mga iswat sa pangkoneksyong menu",
+		"message": "Magpakita ng opsyon upang i-disable/i-enable ang mga gesture sa context menu",
 		"description": "Setting description for blacklist context menu toggle"
 	},
 	"menuAddToBlacklist": {
-		"message": "I-disable ang mga iswat sa site na ito",
+		"message": "I-disable ang mga gesture sa site na ito",
 		"description": "Context menu title for adding current site to blacklist"
 	},
 	"menuRemoveFromBlacklist": {
-		"message": "I-enable ang mga iswat sa site na ito",
+		"message": "I-enable ang mga gesture sa site na ito",
 		"description": "Context menu title for removing current site from blacklist"
 	},
 	"dataManagement": {
@@ -574,6 +586,10 @@
 	"gestureDesc_RL": {
 		"message": "Pakanan tapos Pakaliwa",
 		"description": "Gesture description for →←"
+	},
+	"gestureDesc_Any": {
+		"message": "Kahit ano",
+		"description": "Description for the * fallback gesture that matches any unmatched pattern"
 	},
 	"actionNone": {
 		"message": "Wala",
@@ -731,6 +747,10 @@
 		"message": "I-refresh ang Lahat ng Tab",
 		"description": "Refresh all tabs"
 	},
+	"actionReloadFrame": {
+		"message": "I-reload ang frame",
+		"description": "Reload only the frame (iframe) where the gesture was performed"
+	},
 	"actionStopLoading": {
 		"message": "Ihinto ang Pag-load",
 		"description": "Stop loading"
@@ -790,6 +810,10 @@
 	"actionOpenExtensions": {
 		"message": "Buksan ang Mga Extension",
 		"description": "Open extensions page"
+	},
+	"actionOpenOptions": {
+		"message": "Buksan ang Mga Setting ng FlowMouse",
+		"description": "Open the FlowMouse settings page"
 	},
 	"actionSaveAsMhtml": {
 		"message": "I-save bilang MHTML",
@@ -926,6 +950,14 @@
 	"gestureRecorderBanned": {
 		"message": "Umiiral na ang galaw na %pattern%",
 		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"gestureRecorderAny": {
+		"message": "Magdagdag ng wildcard na galaw",
+		"description": "Button in the gesture recorder to select the * fallback that matches any unmatched gesture"
+	},
+	"fallbackGestureTip": {
+		"message": "Nagsisimula kapag ang iginuhit na bakas ay hindi tumutugma sa anumang iba pang galaw",
+		"description": "Tooltip explaining what the * fallback gesture does"
 	},
 	"rightButton": {
 		"message": "Kanang button ng mouse",
@@ -1192,60 +1224,56 @@
 		"description": "No action"
 	},
 	"dragActionSearch": {
-		"message": "🔍 Search Engine",
+		"message": "Hanapin",
 		"description": "Search action"
 	},
 	"dragActionCopy": {
-		"message": "📋 Kopyahin",
+		"message": "Kopyahin",
 		"description": "Copy action"
 	},
-	"dragActionOpenTab": {
-		"message": "📑 Buksan sa Bagong Tab",
-		"description": "Open in new tab"
-	},
 	"dragActionOpenTabLink": {
-		"message": "🔗 Buksan ang Link",
+		"message": "Buksan ang Link",
 		"description": "Open link in new tab"
 	},
 	"dragActionOpenTabImage": {
-		"message": "🖼️ Buksan ang Larawan",
+		"message": "Buksan ang Larawan",
 		"description": "Open image in new tab"
 	},
+	"dragActionTryOpenLink": {
+		"message": "Subukang buksan ang link",
+		"description": "Open the image's link in new tab, if any"
+	},
 	"dragActionCopyLink": {
-		"message": "📋 Kopyahin ang Link",
+		"message": "Kopyahin ang Link",
 		"description": "Copy link"
 	},
 	"dragActionCopyLinkText": {
-		"message": "📋 Kopyahin ang Teksto ng Link",
+		"message": "Kopyahin ang Teksto ng Link",
 		"description": "Copy link text"
 	},
 	"dragActionCopyLinkAndText": {
-		"message": "📋 Kopyahin ang Teksto at Link",
+		"message": "Kopyahin ang Teksto at Link",
 		"description": "Copy link text and URL"
 	},
+	"dragActionBookmarkLink": {
+		"message": "Idagdag ang Link sa Mga Bookmark",
+		"description": "Add dragged link to bookmarks"
+	},
 	"dragActionSaveImage": {
-		"message": "💾 I-save ang Larawan",
+		"message": "I-save ang Larawan",
 		"description": "Save image"
 	},
 	"dragActionCopyImage": {
-		"message": "🖼️ Kopyahin ang Larawan",
+		"message": "Kopyahin ang Larawan",
 		"description": "Copy image"
 	},
 	"dragActionCopyImageUrl": {
-		"message": "📋 Kopyahin ang URL ng Larawan",
+		"message": "Kopyahin ang URL ng Larawan",
 		"description": "Copy image URL"
 	},
 	"dragActionImageSearch": {
-		"message": "🔍 Paghahanap ng Larawan",
+		"message": "Paghahanap ng Larawan",
 		"description": "Image search"
-	},
-	"dragActionCustomSearch": {
-		"message": "🔍 Custom na Paghahanap",
-		"description": "Custom search"
-	},
-	"dragActionSendCustomEvent": {
-		"message": "Magpadala ng Custom Event",
-		"description": "Send custom DOM event on drag gesture"
 	},
 	"reducedMotionWarning": {
 		"message": "Ang animation ng system ng %OS% ay naka-disable, maaaring hindi gumana nang maayos ang scroll animation. Maaari mong paganahin ang animation sa mga setting ng system ng %OS%.",
@@ -1511,10 +1539,6 @@
 		"message": "Gamitin ang <span class=\"text-highlight\">Kaliwang Pindutan ng Mouse</span> upang i-drag",
 		"description": "Tutorial drag wrong button error"
 	},
-	"tutorialRefreshTip": {
-		"message": "Tip: Ang mga tab na binuksan bago ang pag-install ay kailangang <span class=\"text-highlight\">i-refresh</span> upang magamit ang FlowMouse",
-		"description": "Tip about refreshing tabs"
-	},
 	"permissionBookmarksTitle": {
 		"message": "Pamahalaan ang Mga Bookmark",
 		"description": "Permission popup title for bookmarks"
@@ -1595,9 +1619,9 @@
 		"message": "Nabigo ang pag-save ng larawan: Nag-time out ang pag-load",
 		"description": "Toast message when image loading times out"
 	},
-	"saveImageSubdirPlaceholder": {
-		"message": "Subdirectory (opsyonal)",
-		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	"saveImageSubdirLabel": {
+		"message": "Subdirectory",
+		"description": "Label for the optional subdirectory input in save image config"
 	},
 	"buttonOkay": {
 		"message": "OK",
@@ -1635,6 +1659,18 @@
 		"message": "Mga Tool",
 		"description": "Action category: utilities"
 	},
+	"actionCategoryText": {
+		"message": "Teksto",
+		"description": "Action category: text"
+	},
+	"actionCategoryLink": {
+		"message": "Link",
+		"description": "Action category: link"
+	},
+	"actionCategoryImage": {
+		"message": "Larawan",
+		"description": "Action category: image"
+	},
 	"noResults": {
 		"message": "Walang resulta",
 		"description": "No search results found"
@@ -1650,6 +1686,14 @@
 	"enableWheelGesturesDesc": {
 		"message": "Mabilis na magsagawa ng iba't ibang aksyon gamit ang mouse wheel",
 		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelThreshold": {
+		"message": "Distansya ng Pag-trigger ng Wheel",
+		"description": "Label for the wheel gesture scroll distance threshold"
+	},
+	"wheelThresholdDesc": {
+		"message": "Ang pag-scroll ng mouse wheel ay dapat umabot sa distansyang ito upang paulit-ulit na ma-trigger ang mga wheel gesture",
+		"description": "Description for the wheel gesture scroll distance threshold"
 	},
 	"wheelGesture_scrollUpHoldingRight": {
 		"message": "Mag-scroll pataas habang pinipigilan ang kanang button",
@@ -1758,6 +1802,10 @@
 	"emptyChainSteps": {
 		"message": "Walang idinagdag na hakbang. I-click ang \"Magdagdag ng Hakbang\" para magsimula.",
 		"description": "Empty chain steps message in expanded body"
+	},
+	"chainStopOnSuccess": {
+		"message": "Ihinto ang chain kapag nagtagumpay ang isang hakbang",
+		"description": "Checkbox: skip remaining command-chain steps after the first successful action"
 	},
 	"emptyChainStepsShort": {
 		"message": "Walang idinagdag na hakbang",
@@ -1898,6 +1946,10 @@
 	"actionViewPageSource": {
 		"message": "Tingnan ang source ng page",
 		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionViewFrameSource": {
+		"message": "Tingnan ang source ng frame",
+		"description": "Open the source code of the frame (iframe) where the gesture was performed in a new tab"
 	},
 	"actionPauseGesture": {
 		"message": "I-pause ang Galaw Hanggang Refresh",
@@ -2118,6 +2170,14 @@
 	"ctxMenuScrollToBottom": {
 		"message": "Mag-scroll pababa",
 		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuWheelNav": {
+		"message": "Mabilis na nabigasyon ng wheel",
+		"description": "Checkbox: navigate a wheel-gesture menu with the wheel while holding the right button"
+	},
+	"ctxMenuWheelNavTooltip": {
+		"message": "Habang nakapindot ang mouse button, i-scroll ang wheel para mabilis na pumili ng mga item sa menu.",
+		"description": "Tooltip explaining quick wheel navigation for wheel-gesture menus"
 	},
 	"ctxMenuTimeDisplay": {
 		"message": "Ipakita ang oras",

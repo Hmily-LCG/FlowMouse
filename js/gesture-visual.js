@@ -1,3 +1,39 @@
+class ZoomManager {
+	#events = new EventTarget();
+	#tabZoom = 1;
+	#defaultZoom = 1;
+	#userScale = null;
+
+	addEventListener(...args) { this.#events.addEventListener(...args); }
+
+	removeEventListener(...args) { this.#events.removeEventListener(...args); }
+
+	get tabZoom() { return this.#tabZoom; }
+
+	get uiScale() { return (this.#userScale ?? this.#defaultZoom) / this.#tabZoom; }
+
+	update(values = {}) {
+		const isValid = v => Number.isFinite(v) && v > 0;
+		const clamp = v => Math.min(3, Math.max(0.5, v));
+		const previousTabZoom = this.tabZoom;
+		const previousUiScale = this.uiScale;
+		if (isValid(values.tabZoom)) this.#tabZoom = values.tabZoom;
+		if (isValid(values.defaultZoom)) this.#defaultZoom = clamp(values.defaultZoom);
+		if (values.userScale !== undefined) {
+			this.#userScale = isValid(values.userScale) ? clamp(values.userScale) : null;
+		}
+		if (this.tabZoom !== previousTabZoom) {
+			this.#events.dispatchEvent(new CustomEvent('tabzoomchange', { detail: this.tabZoom }));
+		}
+		if (this.uiScale !== previousUiScale) {
+			this.#events.dispatchEvent(new CustomEvent('uiscalechange', { detail: this.uiScale }));
+		}
+	}
+}
+
+window.FlowMouseZoom = new ZoomManager();
+
+
 class ShadowHost {
 	#useDialog;
 	#container = null;
@@ -5,6 +41,10 @@ class ShadowHost {
 	#dialog = null;
 	#foreignObject = null;
 	#baseStyle = null;
+	#zoomStyle = null;
+	#updateUiScale = () => {
+		this.#zoomStyle.textContent = `:host { --fm-ui-scale: ${window.FlowMouseZoom.uiScale}; }`;
+	};
 	#builtInCssStyle = null;
 	#builtInCss = '';
 	#customCssStyle = null;
@@ -72,6 +112,11 @@ class ShadowHost {
 		this.setLang(lang, isRtl);
 
 		this.#shadow = this.#container.attachShadow({ mode: 'closed' });
+
+		this.#zoomStyle = this.createElement('style');
+		this.#updateUiScale();
+		this.#shadow.appendChild(this.#zoomStyle);
+		window.FlowMouseZoom.addEventListener('uiscalechange', this.#updateUiScale);
 
 		if (this.#useDialog) {
 			this.#dialog = this.createElement('dialog');
@@ -165,6 +210,7 @@ class ShadowHost {
 	}
 
 	cleanup() {
+		window.FlowMouseZoom.removeEventListener('uiscalechange', this.#updateUiScale);
 		if (this.#dialog?.open) this.#dialog.close();
 		if (this.#container?.hidePopover && this.#container?.matches(':popover-open')) this.#container.hidePopover();
 		if (this.#foreignObject && this.#foreignObject.parentNode) {
@@ -177,6 +223,7 @@ class ShadowHost {
 		this.#dialog = null;
 		this.#foreignObject = null;
 		this.#baseStyle = null;
+		this.#zoomStyle = null;
 		this.#builtInCssStyle = null;
 		this.#customCssStyle = null;
 	}
@@ -380,6 +427,7 @@ class GestureOverlay {
 		this.trail = [];
 		this.hud = null;
 		this.suggestHud = null;
+		this.mode = '';
 
 		this.host = new ShadowHost();
 
@@ -423,6 +471,9 @@ class GestureOverlay {
 	}
 
 	init() {
+		if (this.host.container && !this.host.isConnected) {
+			this.#teardown();
+		}
 		if (!this.host.init(this.settings.lang, this.settings.isRtl, {
 			topLayer: 'popover',
 			customCss: this.settings.customCss,
@@ -433,15 +484,6 @@ class GestureOverlay {
 
 		this.canvas = this.host.createElement('canvas');
 		this.canvas.className = 'fm-gesture-trail';
-		this.canvas.style.cssText = `
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			pointer-events: none;
-			display: none;
-		`;
 
 		this.resizeHandler = () => {
 			if (!this.canvas) return;
@@ -459,6 +501,7 @@ class GestureOverlay {
 			if (this.host.foreignObject) {
 				this.host.updateForeignObjectTransform();
 			}
+			this.#scheduleDraw();
 		};
 
 		this.resizeHandler();
@@ -474,6 +517,8 @@ class GestureOverlay {
 		this.suggestHud.className = 'fm-gesture-suggest-hud';
 		shadow.appendChild(this.suggestHud);
 
+		this.#applyMode();
+
 		void this.hud.offsetHeight;
 
 		window.addEventListener('resize', this.resizeHandler);
@@ -483,6 +528,20 @@ class GestureOverlay {
 
 	updateHudStyle() {
 		this.host.setBuiltInCss(this.#generateStyles());
+	}
+
+	setMode(mode) {
+		if (this.mode === mode) return;
+		this.mode = mode;
+		this.#applyMode();
+	}
+
+	#applyMode() {
+		for (const el of [this.canvas, this.hud, this.suggestHud]) {
+			if (!el) continue;
+			el.classList.toggle('fm-mode-gesture', this.mode === 'gesture');
+			el.classList.toggle('fm-mode-drag', this.mode === 'drag');
+		}
 	}
 
 	#generateStyles() {
@@ -498,8 +557,22 @@ class GestureOverlay {
 				--fm-hud-blur: ${blur}px;
 				--fm-hud-shadow: ${shadow};
 			}
-			.fm-gesture-hud {
+			.fm-gesture-trail {
 				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				pointer-events: none;
+				display: none;
+			}
+			.fm-gesture-trail.visible {
+				display: block;
+			}
+			.fm-gesture-hud {
+				zoom: var(--fm-ui-scale);
+				position: absolute;
+				z-index: 1;
 				inset: 0;
 				margin: auto;
 				width: fit-content;
@@ -539,7 +612,7 @@ class GestureOverlay {
 				align-items: center;
 				gap: 12px;
 				text-align: start;
-				max-width: 80vw;
+				max-width: calc(80vw / var(--fm-ui-scale));
 			}
 			.fm-gesture-hud-arrows {
 				line-height: 32px;
@@ -558,6 +631,7 @@ class GestureOverlay {
 				overflow-wrap: anywhere;
 			}
 			.fm-gesture-suggest-hud {
+				zoom: var(--fm-ui-scale);
 				position: absolute;
 				inset: auto 0 25px 0;
 				margin-inline: auto;
@@ -643,9 +717,6 @@ class GestureOverlay {
 			clearTimeout(this._teardownTimer);
 			this._teardownTimer = null;
 		}
-		if (this.host.container && !this.host.isConnected) {
-			this.cleanup();
-		}
 		if (!this.init()) return;
 		this.trail = [];
 
@@ -656,7 +727,7 @@ class GestureOverlay {
 		this.filter.reset();
 		this.lastPointInput = null;
 		this.duplicatePointCount = 0;
-		this.canvas.style.display = 'block';
+		this.canvas.classList.add('visible');
 	}
 
 	hide() {
@@ -674,8 +745,11 @@ class GestureOverlay {
 			this._teardownTimer = null;
 		}
 		if (this.canvas) {
-			this.canvas.style.display = 'none';
+			this.canvas.classList.remove('visible');
+			this.ctx.save();
+			this.ctx.resetTransform();
 			this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+			this.ctx.restore();
 		}
 		if (this.hud) this.hud.classList.remove('visible');
 		if (this.suggestHud) this.suggestHud.classList.remove('visible');
@@ -720,6 +794,7 @@ class GestureOverlay {
 		}
 
 		if (this.settings.enableInputStabilization) {
+			this.filter.beta = this.settings.beta * window.FlowMouseZoom.tabZoom;
 			const filtered = this.filter.filter(x, y, timestamp);
 			this.trail.push({ x: filtered.x, y: filtered.y, rawX: x, rawY: y });
 			this.#scheduleDraw();
@@ -753,6 +828,7 @@ class GestureOverlay {
 		}
 
 		if (this.settings.enableInputStabilization) {
+			this.filter.beta = this.settings.beta * window.FlowMouseZoom.tabZoom;
 			for (const p of validPoints) {
 				const filtered = this.filter.filter(p.x, p.y, p.timestamp);
 				this.trail.push({ x: filtered.x, y: filtered.y, rawX: p.x, rawY: p.y });
@@ -774,7 +850,7 @@ class GestureOverlay {
 		const dx = last.rawX - last.x;
 		const dy = last.rawY - last.y;
 
-		const threshold = this.settings.stabilizationCatchUpThreshold;
+		const threshold = this.settings.stabilizationCatchUpThreshold / window.FlowMouseZoom.tabZoom;
 		if (dx * dx + dy * dy < threshold * threshold) return;
 
 		this.addPoint(last.rawX, last.rawY);
@@ -846,11 +922,15 @@ class GestureOverlay {
 		if (!this.ctx) return;
 
 		const ctx = this.ctx;
+		ctx.save();
+		ctx.resetTransform();
 		ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+		ctx.restore();
 
 		if (this.trail.length < 1) return;
 
-		const width = this.settings.trailWidth;
+		const trailScale = 1 / window.FlowMouseZoom.tabZoom;
+		const width = this.settings.trailWidth * trailScale;
 		const color = this.settings.trailColor;
 
 		ctx.save();
@@ -891,7 +971,7 @@ class GestureOverlay {
 		if (this.settings.showRawTrail && this.trail.length >= 2) {
 			ctx.beginPath();
 			ctx.strokeStyle = 'rgba(255, 0, 0, 0.5)';
-			ctx.lineWidth = 1;
+			ctx.lineWidth = 1 * trailScale;
 			ctx.lineCap = 'round';
 			ctx.lineJoin = 'round';
 
@@ -903,7 +983,7 @@ class GestureOverlay {
 		}
 
 		if (this.settings.showTrailOrigin) {
-			const originRadius = Math.max(width * 1.2, 4);
+			const originRadius = Math.max(this.settings.trailWidth * 1.2, 4) * trailScale;
 			const ox = this.trail[0].x, oy = this.trail[0].y;
 
 			if (colorHasAlpha(color)) {
@@ -994,6 +1074,7 @@ class ToastOverlay {
 				--fm-toast-blur: ${blur}px;
 			}
 			.fm-toast {
+				zoom: var(--fm-ui-scale);
 				position: fixed;
 				bottom: 18%;
 				left: 50%;
@@ -1004,7 +1085,7 @@ class ToastOverlay {
 				border-radius: 10px;
 				font-size: 13.5px;
 				line-height: 1.5;
-				max-width: min(420px, 80vw);
+				max-width: min(420px, calc(80vw / var(--fm-ui-scale)));
 				text-align: center;
 				white-space: pre-line;
 				word-break: break-word;

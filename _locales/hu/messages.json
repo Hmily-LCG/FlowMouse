@@ -203,6 +203,18 @@
 		"message": "Gesztus-tippek",
 		"description": "Show suggested gestures at bottom of screen"
 	},
+	"userScale": {
+		"message": "Egyéni UI méretezés",
+		"description": "UI scaling setting for FlowMouse's own interface"
+	},
+	"userScaleDesc": {
+		"message": "A FlowMouse felhasználói felület elemeinek, például a műveleti tippek és a HUD méretezése",
+		"description": "Description for the UI scaling setting"
+	},
+	"scale": {
+		"message": "Méretezés",
+		"description": "Label for the UI scale slider"
+	},
 	"customCss": {
 		"message": "Egyéni CSS",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -311,11 +323,11 @@
 		"message": "Húzási funkciók",
 		"description": "Drag features section"
 	},
-	"textDragSearch": {
+	"textDrag": {
 		"message": "Szöveg húzás",
 		"description": "Text drag"
 	},
-	"textDragSearchDesc": {
+	"textDragDesc": {
 		"message": "Kijelölt szöveg húzása kereséshez",
 		"description": "Drag selected text to search"
 	},
@@ -575,6 +587,10 @@
 		"message": "Jobbra majd Balra",
 		"description": "Gesture description for →←"
 	},
+	"gestureDesc_Any": {
+		"message": "Bármely",
+		"description": "Description for the * fallback gesture that matches any unmatched pattern"
+	},
 	"actionNone": {
 		"message": "Nincs művelet",
 		"description": "No action"
@@ -731,6 +747,10 @@
 		"message": "Minden lap frissítése",
 		"description": "Refresh all tabs"
 	},
+	"actionReloadFrame": {
+		"message": "Keret újratöltése",
+		"description": "Reload only the frame (iframe) where the gesture was performed"
+	},
 	"actionStopLoading": {
 		"message": "Betöltés leállítása",
 		"description": "Stop loading"
@@ -790,6 +810,10 @@
 	"actionOpenExtensions": {
 		"message": "Bővítmények megnyitása",
 		"description": "Open extensions page"
+	},
+	"actionOpenOptions": {
+		"message": "FlowMouse beállítások megnyitása",
+		"description": "Open the FlowMouse settings page"
 	},
 	"actionSaveAsMhtml": {
 		"message": "Mentés MHTML-ként",
@@ -926,6 +950,14 @@
 	"gestureRecorderBanned": {
 		"message": "A(z) %pattern% gesztus már létezik",
 		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"gestureRecorderAny": {
+		"message": "Helyettesítő gesztus hozzáadása",
+		"description": "Button in the gesture recorder to select the * fallback that matches any unmatched gesture"
+	},
+	"fallbackGestureTip": {
+		"message": "Akkor indul el, ha a rajzolt nyomvonal nem egyezik más gesztussal",
+		"description": "Tooltip explaining what the * fallback gesture does"
 	},
 	"rightButton": {
 		"message": "Egér jobb gombja",
@@ -1192,60 +1224,56 @@
 		"description": "No action"
 	},
 	"dragActionSearch": {
-		"message": "🔍 Keresőmotor",
+		"message": "Keresés",
 		"description": "Search action"
 	},
 	"dragActionCopy": {
-		"message": "📋 Másolás",
+		"message": "Másolás",
 		"description": "Copy action"
 	},
-	"dragActionOpenTab": {
-		"message": "📑 Megnyitás új lapon",
-		"description": "Open in new tab"
-	},
 	"dragActionOpenTabLink": {
-		"message": "🔗 Link megnyitása",
+		"message": "Link megnyitása",
 		"description": "Open link in new tab"
 	},
 	"dragActionOpenTabImage": {
-		"message": "🖼️ Kép megnyitása",
+		"message": "Kép megnyitása",
 		"description": "Open image in new tab"
 	},
+	"dragActionTryOpenLink": {
+		"message": "Próbálja meg megnyitni a linket",
+		"description": "Open the image's link in new tab, if any"
+	},
 	"dragActionCopyLink": {
-		"message": "📋 Link másolása",
+		"message": "Link másolása",
 		"description": "Copy link"
 	},
 	"dragActionCopyLinkText": {
-		"message": "📋 Link szövegének másolása",
+		"message": "Link szövegének másolása",
 		"description": "Copy link text"
 	},
 	"dragActionCopyLinkAndText": {
-		"message": "📋 Szöveg és link másolása",
+		"message": "Szöveg és link másolása",
 		"description": "Copy link text and URL"
 	},
+	"dragActionBookmarkLink": {
+		"message": "Link hozzáadása a könyvjelzőkhöz",
+		"description": "Add dragged link to bookmarks"
+	},
 	"dragActionSaveImage": {
-		"message": "💾 Kép mentése",
+		"message": "Kép mentése",
 		"description": "Save image"
 	},
 	"dragActionCopyImage": {
-		"message": "🖼️ Kép másolása",
+		"message": "Kép másolása",
 		"description": "Copy image"
 	},
 	"dragActionCopyImageUrl": {
-		"message": "📋 Kép URL másolása",
+		"message": "Kép URL másolása",
 		"description": "Copy image URL"
 	},
 	"dragActionImageSearch": {
-		"message": "🔍 Képkeresés",
+		"message": "Képkeresés",
 		"description": "Image search"
-	},
-	"dragActionCustomSearch": {
-		"message": "🔍 Egyéni keresés",
-		"description": "Custom search"
-	},
-	"dragActionSendCustomEvent": {
-		"message": "Egyéni esemény küldése",
-		"description": "Send custom DOM event on drag gesture"
 	},
 	"reducedMotionWarning": {
 		"message": "A %OS% rendszeranimáció le van tiltva, a görgetési animáció nem biztos, hogy megfelelően működik. Engedélyezheted az animációt a %OS% rendszerbeállításaiban.",
@@ -1511,10 +1539,6 @@
 		"message": "Használd a <span class=\"text-highlight\">Bal egérgombot</span> a húzáshoz",
 		"description": "Tutorial drag wrong button error"
 	},
-	"tutorialRefreshTip": {
-		"message": "Tipp: A telepítés előtt megnyitott lapokat <span class=\"text-highlight\">frissíteni</span> kell a FlowMouse használatához",
-		"description": "Tip about refreshing tabs"
-	},
 	"permissionBookmarksTitle": {
 		"message": "Könyvjelzők kezelése",
 		"description": "Permission popup title for bookmarks"
@@ -1595,9 +1619,9 @@
 		"message": "Kép mentése sikertelen: Betöltési időtúllépés",
 		"description": "Toast message when image loading times out"
 	},
-	"saveImageSubdirPlaceholder": {
-		"message": "Alkönyvtár (opcionális)",
-		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	"saveImageSubdirLabel": {
+		"message": "Alkönyvtár",
+		"description": "Label for the optional subdirectory input in save image config"
 	},
 	"buttonOkay": {
 		"message": "Rendben",
@@ -1635,6 +1659,18 @@
 		"message": "Eszközök",
 		"description": "Action category: utilities"
 	},
+	"actionCategoryText": {
+		"message": "Szöveg",
+		"description": "Action category: text"
+	},
+	"actionCategoryLink": {
+		"message": "Link",
+		"description": "Action category: link"
+	},
+	"actionCategoryImage": {
+		"message": "Kép",
+		"description": "Action category: image"
+	},
 	"noResults": {
 		"message": "Nincs találat",
 		"description": "No search results found"
@@ -1650,6 +1686,14 @@
 	"enableWheelGesturesDesc": {
 		"message": "Végezzen el gyorsan különböző műveleteket az egérgörgő segítségével",
 		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelThreshold": {
+		"message": "Görgő aktiválási távolsága",
+		"description": "Label for the wheel gesture scroll distance threshold"
+	},
+	"wheelThresholdDesc": {
+		"message": "Az egérgörgő görgetésének el kell érnie ezt a távolságot a görgő gesztusainak ismételt aktiválásához",
+		"description": "Description for the wheel gesture scroll distance threshold"
 	},
 	"wheelGesture_scrollUpHoldingRight": {
 		"message": "Görgessen felfelé a jobb gomb nyomva tartásával",
@@ -1758,6 +1802,10 @@
 	"emptyChainSteps": {
 		"message": "Nincsenek hozzáadva lépések. A kezdéshez kattintson a \"Lépés hozzáadása\" gombra.",
 		"description": "Empty chain steps message in expanded body"
+	},
+	"chainStopOnSuccess": {
+		"message": "Lánc megszakítása, ha egy lépés sikeres",
+		"description": "Checkbox: skip remaining command-chain steps after the first successful action"
 	},
 	"emptyChainStepsShort": {
 		"message": "Nincsenek hozzáadva lépések",
@@ -1898,6 +1946,10 @@
 	"actionViewPageSource": {
 		"message": "Oldal forrásának megtekintése",
 		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionViewFrameSource": {
+		"message": "Keret forráskódjának megtekintése",
+		"description": "Open the source code of the frame (iframe) where the gesture was performed in a new tab"
 	},
 	"actionPauseGesture": {
 		"message": "Gesztusok szüneteltetése frissítésig",
@@ -2118,6 +2170,14 @@
 	"ctxMenuScrollToBottom": {
 		"message": "Görgetés az aljára",
 		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuWheelNav": {
+		"message": "Gyors navigáció görgővel",
+		"description": "Checkbox: navigate a wheel-gesture menu with the wheel while holding the right button"
+	},
+	"ctxMenuWheelNavTooltip": {
+		"message": "Az egérgomb nyomva tartása közben görgessen a görgővel a menüpontok gyors kiválasztásához.",
+		"description": "Tooltip explaining quick wheel navigation for wheel-gesture menus"
 	},
 	"ctxMenuTimeDisplay": {
 		"message": "Idő mutatása",

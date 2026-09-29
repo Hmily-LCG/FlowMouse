@@ -2,7 +2,7 @@ import { settingsStore } from '../settings-store.js';
 import { LitElement, html, css, unsafeHTML, unsafeCSS, live } from '../../js/lib/lit-all.min.js';
 import { commonStyles, optionStyles } from './shared-styles.js';
 import { icons, icon, iconUrl } from '../icons.js';
-import { tooltip } from '../tooltip.js';
+import { tooltip } from '../directives/tooltip.js';
 
 class OptionsPage extends LitElement {
 	static properties = {
@@ -335,7 +335,7 @@ class OptionsPage extends LitElement {
 						<div class="setting-row first-row">
 							<div class="setting-label">
 								<span class="setting-title">${i18n.getMessage('showTrail')}${this.#renderInlineReset(['enableTrail', 'trailColor', 'trailWidth', 'showTrailOrigin', 'enableTrailSmooth'], { confirm: true })}</span>
-								<span>${i18n.getMessage('showTrailDesc')}</span>
+								<span class="setting-desc">${i18n.getMessage('showTrailDesc')}</span>
 							</div>
 							<label class="toggle">
 								<input type="checkbox" id="enableTrail" .checked=${this._settings.enableTrail} @change=${e => this.#updateSetting('enableTrail', e.target.checked)}>
@@ -370,7 +370,7 @@ class OptionsPage extends LitElement {
 						<div class="setting-row">
 							<div class="setting-label">
 								<span class="setting-title">${i18n.getMessage('showHint')}${this.#renderInlineReset(['enableHUD', 'hudBgColor', 'hudTextColor', 'hudBlurRadius', 'enableHudShadow', 'enableSuggestedGestures'], { confirm: true })}</span>
-								<span>${i18n.getMessage('showHintDesc')}</span>
+								<span class="setting-desc">${i18n.getMessage('showHintDesc')}</span>
 							</div>
 							<label class="toggle">
 								<input type="checkbox" id="enableHUD" .checked=${this._settings.enableHUD} @change=${e => this.#updateSetting('enableHUD', e.target.checked)}>
@@ -424,10 +424,35 @@ class OptionsPage extends LitElement {
 							</div>
 						</div>
 
+						<div class="setting-row advanced-setting">
+							<div class="setting-label">
+								<span class="setting-title">${i18n.getMessage('userScale')}${this.#renderInlineReset(['enableUserScale', 'userScale'])}</span>
+								<span class="setting-desc">${i18n.getMessage('userScaleDesc')}</span>
+							</div>
+							<label class="toggle">
+								<input type="checkbox" id="enableUserScale" .checked=${this._settings.enableUserScale} @change=${e => this.#updateSetting('enableUserScale', e.target.checked)}>
+								<span class="slider"></span>
+							</label>
+						</div>
+						<div class="sub-settings advanced-setting ${this._settings.enableUserScale ? 'show' : ''}" style="padding-block: 12px;">
+							<div class="inline-settings">
+								<div class="inline-setting-item">
+									<span>${i18n.getMessage('scale')}</span>
+									<div class="slider-control">
+										<input type="range" id="userScale" min="50" max="300" step="5"
+											.value=${String(Math.round(((this._settings.userScale ?? 1)) * 100))}
+											@change=${e => this.#updateSetting('userScale', Math.round(Number(e.target.value)) / 100)}
+											@input=${e => this.#debounceSetting('userScale', Math.round(Number(e.target.value)) / 100)}>
+										<span style="min-width: 35px;">${Math.round(((this._settings.userScale ?? 1)) * 100)}%</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
 						<div class="setting-row ${this._settings.customCss ? '' : 'advanced-setting'}">
 							<div class="setting-label">
 								<span class="setting-title">${i18n.getMessage('customCss')}${this.#renderInlineReset('customCss', { confirm: true })}</span>
-								<span>${i18n.getMessage('customCssDesc')}</span>
+								<span class="setting-desc">${i18n.getMessage('customCssDesc')}</span>
 							</div>
 							<a class="btn btn-ghost" id="customCssConfigBtn"
 								href="css-editor.html" target="_blank" rel="noopener">
@@ -443,8 +468,8 @@ class OptionsPage extends LitElement {
 					<div class="section-body">
 						<div class="setting-row first-row">
 							<div class="setting-label">
-								<span>${i18n.getMessage('enableGesture')}</span>
-								<span>${i18n.getMessage('enableGestureDesc')}</span>
+								<span class="setting-title">${i18n.getMessage('enableGesture')}</span>
+								<span class="setting-desc">${i18n.getMessage('enableGestureDesc')}</span>
 							</div>
 							<label class="toggle">
 								<input type="checkbox" id="enableGesture" .checked=${this._settings.enableGesture} @change=${e => this.#updateSetting('enableGesture', e.target.checked)}>
@@ -462,7 +487,7 @@ class OptionsPage extends LitElement {
 							<div class="setting-row advanced-setting">
 								<div class="setting-label">
 									<span class="setting-title">${i18n.getMessage('gestureTriggerButtons')}${this.#renderInlineReset('gestureTriggerButtons')}</span>
-									<span>${i18n.getMessage('gestureTriggerButtonsDesc')}</span>
+									<span class="setting-desc">${i18n.getMessage('gestureTriggerButtonsDesc')}</span>
 								</div>
 							</div>
 							<div class="sub-settings show advanced-setting" style="padding-block: 15px;">
@@ -510,7 +535,7 @@ class OptionsPage extends LitElement {
 							<div class="setting-row advanced-setting">
 								<div class="setting-label">
 									<span class="setting-title">${i18n.getMessage('distanceThreshold')}${this.#renderInlineReset('distanceThreshold')}</span>
-									<span>${i18n.getMessage('distanceThresholdDesc')}</span>
+									<span class="setting-desc">${i18n.getMessage('distanceThresholdDesc')}</span>
 								</div>
 								<div class="slider-control">
 									<input type="range" id="distanceThreshold" min="5" max="100" step="1" .value=${String(this._settings.distanceThreshold)} @change=${e => this.#updateSetting('distanceThreshold', e.target.value)} @input=${e => this.#debounceSetting('distanceThreshold', e.target.value)}>
@@ -524,7 +549,7 @@ class OptionsPage extends LitElement {
 							<div class="setting-row advanced-setting">
 								<div class="setting-label">
 									<span class="setting-title">${i18n.getMessage('gestureTurnTolerance')}${this.#renderInlineReset('gestureTurnTolerance')}</span>
-									<span>${i18n.getMessage('gestureTurnToleranceDesc')}</span>
+									<span class="setting-desc">${i18n.getMessage('gestureTurnToleranceDesc')}</span>
 								</div>
 								<div class="slider-control">
 									<input type="range" id="gestureTurnTolerance" min="0" max="50" step="1" .value=${String(Math.round((this._settings.gestureTurnTolerance) * 100))} @change=${e => this.#updateSetting('gestureTurnTolerance', e.target.value / 100)} @input=${e => this.#debounceSetting('gestureTurnTolerance', e.target.value / 100)}>
@@ -537,8 +562,8 @@ class OptionsPage extends LitElement {
 							<div id="gesture-customization-row">
 								<div class="setting-row">
 									<div class="setting-label">
-										<span>${i18n.getMessage('enableCustomGestures')}</span>
-										<span>${i18n.getMessage('enableCustomGesturesDesc')}</span>
+										<span class="setting-title">${i18n.getMessage('enableCustomGestures')}</span>
+										<span class="setting-desc">${i18n.getMessage('enableCustomGesturesDesc')}</span>
 									</div>
 									<label class="toggle">
 										<input type="checkbox" id="enableGestureCustomization" .checked=${this._settings.enableGestureCustomization} @change=${e => this.#updateSetting('enableGestureCustomization', e.target.checked)}>
@@ -553,12 +578,6 @@ class OptionsPage extends LitElement {
 										@gesture-delete=${this.#onGestureDelete}
 										@permission-check=${this.#onPermissionCheck}
 									></gesture-grid>
-
-									<div style="margin-bottom: 18px;">
-										<button class="btn btn-dashed btn-lg add-gesture-btn" id="openGestureDrawer" @click=${this.#openGestureModal}>
-										${unsafeHTML(icons.plus)} <span>${i18n.getMessage('addCustomGesture')}</span>
-									</button>
-									</div>
 								</div>
 							</div>
 						</div>
@@ -571,8 +590,8 @@ class OptionsPage extends LitElement {
 						<div class="setting-group">
 							<div class="setting-row first-row">
 								<div class="setting-label">
-									<span>${i18n.getMessage('textDragSearch')}</span>
-									<span>${i18n.getMessage('textDragSearchDesc')}</span>
+									<span class="setting-title">${i18n.getMessage('textDrag')}</span>
+									<span class="setting-desc">${i18n.getMessage('textDragDesc')}</span>
 								</div>
 								<label class="toggle">
 									<input type="checkbox" id="enableTextDrag" .checked=${this._settings.enableTextDrag} @change=${e => this.#updateSetting('enableTextDrag', e.target.checked)}>
@@ -602,46 +621,42 @@ class OptionsPage extends LitElement {
 								</div>
 							</div>
 							` : ''}
-							<div class="sub-settings ${this._settings.enableTextDrag ? 'show' : ''}">
-								<div class="drag-settings-section">
-									<drag-gesture-manager type="text" id="textDragManager"
-										.dragGestures=${this._settings.textDragGestures || []}
-										?advanced-mode=${(this._settings.sectionAdvanced?.drag)}
-										@drag-gestures-change=${e => this.#onDragGesturesChange('textDragGestures', e)}
-										@permission-check=${this.#onPermissionCheck}
-									></drag-gesture-manager>
-								</div>
+							<div class="drag-settings-section" style="display:${this._settings.enableTextDrag ? 'block' : 'none'}">
+								<drag-gesture-manager type="text" id="textDragManager"
+									.dragGestures=${this._settings.textDragGestures || []}
+									?advanced-mode=${(this._settings.sectionAdvanced?.drag)}
+									@drag-gestures-change=${e => this.#onDragGesturesChange('textDragGestures', e)}
+									@permission-check=${this.#onPermissionCheck}
+								></drag-gesture-manager>
 							</div>
 						</div>
 
 						<div class="setting-group">
 							<div class="setting-row">
 								<div class="setting-label">
-									<span>${i18n.getMessage('imageDrag')}</span>
-									<span>${i18n.getMessage('imageDragDesc')}</span>
+									<span class="setting-title">${i18n.getMessage('imageDrag')}</span>
+									<span class="setting-desc">${i18n.getMessage('imageDragDesc')}</span>
 								</div>
 								<label class="toggle">
 									<input type="checkbox" id="enableImageDrag" .checked=${this._settings.enableImageDrag} @change=${e => this.#updateSetting('enableImageDrag', e.target.checked)}>
 									<span class="slider"></span>
 								</label>
 							</div>
-							<div class="sub-settings ${this._settings.enableImageDrag ? 'show' : ''}">
-								<div class="drag-settings-section">
-									<drag-gesture-manager type="image" id="imageDragManager"
-										.dragGestures=${this._settings.imageDragGestures || []}
-										?advanced-mode=${(this._settings.sectionAdvanced?.drag)}
-										@drag-gestures-change=${e => this.#onDragGesturesChange('imageDragGestures', e)}
-										@permission-check=${this.#onPermissionCheck}
-									></drag-gesture-manager>
-								</div>
+							<div class="drag-settings-section" style="display:${this._settings.enableImageDrag ? 'block' : 'none'}">
+								<drag-gesture-manager type="image" id="imageDragManager"
+									.dragGestures=${this._settings.imageDragGestures || []}
+									?advanced-mode=${(this._settings.sectionAdvanced?.drag)}
+									@drag-gestures-change=${e => this.#onDragGesturesChange('imageDragGestures', e)}
+									@permission-check=${this.#onPermissionCheck}
+								></drag-gesture-manager>
 							</div>
 						</div>
 
 						<div class="setting-group">
 							<div class="setting-row">
 								<div class="setting-label">
-									<span>${i18n.getMessage('linkDrag')}</span>
-									<span>${i18n.getMessage('linkDragDesc')}</span>
+									<span class="setting-title">${i18n.getMessage('linkDrag')}</span>
+									<span class="setting-desc">${i18n.getMessage('linkDragDesc')}</span>
 								</div>
 								<label class="toggle">
 									<input type="checkbox" id="enableLinkDrag" .checked=${this._settings.enableLinkDrag} @change=${e => this.#updateSetting('enableLinkDrag', e.target.checked)}>
@@ -661,15 +676,13 @@ class OptionsPage extends LitElement {
 								</div>
 							</div>
 							` : ''}
-							<div class="sub-settings ${this._settings.enableLinkDrag ? 'show' : ''}">
-								<div class="drag-settings-section">
-									<drag-gesture-manager type="link" id="linkDragManager"
-										.dragGestures=${this._settings.linkDragGestures || []}
-										?advanced-mode=${(this._settings.sectionAdvanced?.drag)}
-										@drag-gestures-change=${e => this.#onDragGesturesChange('linkDragGestures', e)}
-										@permission-check=${this.#onPermissionCheck}
-									></drag-gesture-manager>
-								</div>
+							<div class="drag-settings-section" style="display:${this._settings.enableLinkDrag ? 'block' : 'none'}">
+								<drag-gesture-manager type="link" id="linkDragManager"
+									.dragGestures=${this._settings.linkDragGestures || []}
+									?advanced-mode=${(this._settings.sectionAdvanced?.drag)}
+									@drag-gestures-change=${e => this.#onDragGesturesChange('linkDragGestures', e)}
+									@permission-check=${this.#onPermissionCheck}
+								></drag-gesture-manager>
 							</div>
 						</div>
 					</div>
@@ -681,7 +694,7 @@ class OptionsPage extends LitElement {
 						<div class="setting-row first-row">
 							<div class="setting-label">
 								<span class="setting-title">${i18n.getMessage('areaSelectModifierKey')}${this.#renderInlineReset('areaSelectModifierKey')}</span>
-								<span>${i18n.getMessage('areaSelectModifierKeyDesc')}</span>
+								<span class="setting-desc">${i18n.getMessage('areaSelectModifierKeyDesc')}</span>
 							</div>
 							<div style="display:flex;align-items:center;gap:8px;">
 								<select class="input-lg"
@@ -706,7 +719,7 @@ class OptionsPage extends LitElement {
 						<div class="setting-row">
 							<div class="setting-label">
 								<span class="setting-title">${i18n.getMessage('areaSelectTextUrl')}${this.#renderInlineReset('areaSelectTextUrl')}</span>
-								<span>${i18n.getMessage('areaSelectTextUrlDesc')}</span>
+								<span class="setting-desc">${i18n.getMessage('areaSelectTextUrlDesc')}</span>
 							</div>
 							<label class="toggle">
 								<input type="checkbox" id="areaSelectTextUrl"
@@ -718,7 +731,7 @@ class OptionsPage extends LitElement {
 						<div class="setting-row">
 							<div class="setting-label">
 								<span class="setting-title">${i18n.getMessage('areaSelectAutoAction')}${this.#renderInlineReset('areaSelectAutoAction')}</span>
-								<span>${i18n.getMessage('areaSelectAutoActionDesc')}</span>
+								<span class="setting-desc">${i18n.getMessage('areaSelectAutoActionDesc')}</span>
 							</div>
 							<select class="input-lg"
 								.value=${this._settings.areaSelectAutoAction}
@@ -731,7 +744,7 @@ class OptionsPage extends LitElement {
 						<div class="setting-row advanced-setting">
 							<div class="setting-label">
 								<span class="setting-title">${i18n.getMessage('areaSelectWarnThreshold')}${this.#renderInlineReset('areaSelectWarnThreshold')}</span>
-								<span>${i18n.getMessage('areaSelectWarnThresholdDesc')}</span>
+								<span class="setting-desc">${i18n.getMessage('areaSelectWarnThresholdDesc')}</span>
 							</div>
 							<input type="number" class="input-lg" id="areaSelectWarnThreshold" min="0" max="999" step="1" style="width:70px;"
 								.value=${String(this._settings.areaSelectWarnThreshold)}
@@ -740,7 +753,7 @@ class OptionsPage extends LitElement {
 						<div class="setting-row advanced-setting">
 							<div class="setting-label">
 								<span class="setting-title">${i18n.getMessage('areaSelectDelay')}${this.#renderInlineReset('areaSelectDelay')}</span>
-								<span>${i18n.getMessage('areaSelectDelayDesc')}</span>
+								<span class="setting-desc">${i18n.getMessage('areaSelectDelayDesc')}</span>
 							</div>
 							<input type="number" class="input-lg" id="areaSelectDelay" min="0" max="60" step="0.1" style="width:70px;"
 								.value=${String(this._settings.areaSelectDelay)}
@@ -749,13 +762,13 @@ class OptionsPage extends LitElement {
 					</div>
 				</div>
 
-				<div class="section ${this._activeSection === 'wheel' ? 'active' : ''}" data-nav="wheel">
-					<h2><span class="section-icon">${unsafeHTML(icon('mouse', { strokeWidth: 2.3 }))}</span> <span>${i18n.getMessage('wheelGestures')}</span></h2>
+				<div class="section ${this._activeSection === 'wheel' ? 'active' : ''} ${(this._settings.sectionAdvanced?.wheel) ? 'advanced-expanded' : ''}" data-nav="wheel">
+					<h2><span class="section-icon">${unsafeHTML(icon('mouse', { strokeWidth: 2.3 }))}</span> <span>${i18n.getMessage('wheelGestures')}</span>${this.#renderAdvancedToggle('wheel')}</h2>
 					<div class="section-body">
 						<div class="setting-row first-row">
 							<div class="setting-label">
-								<span>${i18n.getMessage('enableWheelGestures')}</span>
-								<span>${i18n.getMessage('enableWheelGesturesDesc')}</span>
+								<span class="setting-title">${i18n.getMessage('enableWheelGestures')}</span>
+								<span class="setting-desc">${i18n.getMessage('enableWheelGesturesDesc')}</span>
 							</div>
 							<label class="toggle">
 								<input type="checkbox" id="enableWheelGestures" .checked=${this._settings.enableWheelGestures} @change=${e => this.#updateSetting('enableWheelGestures', e.target.checked)}>
@@ -770,6 +783,18 @@ class OptionsPage extends LitElement {
 								@permission-check=${this.#onPermissionCheck}
 							></wheel-gesture-manager>
 						</div>
+						<div class="setting-group" style="display:${this._settings.enableWheelGestures ? 'block' : 'none'}">
+							<div class="setting-row advanced-setting">
+								<div class="setting-label">
+									<span class="setting-title">${i18n.getMessage('wheelThreshold')}${this.#renderInlineReset('wheelThreshold')}</span>
+									<span class="setting-desc">${i18n.getMessage('wheelThresholdDesc')}</span>
+								</div>
+								<div class="slider-control">
+									<input type="range" id="wheelThreshold" min="0" max="300" step="5" .value=${String(this._settings.wheelThreshold)} @change=${e => this.#updateSetting('wheelThreshold', e.target.value)} @input=${e => this.#debounceSetting('wheelThreshold', e.target.value)}>
+									<span>${this._settings.wheelThreshold}</span>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 
@@ -778,8 +803,8 @@ class OptionsPage extends LitElement {
 					<div class="section-body">
 						<div class="setting-row first-row">
 							<div class="setting-label">
-								<span>${i18n.getMessage('enableSpecialGestures')}</span>
-								<span>${i18n.getMessage('enableSpecialGesturesDesc')}</span>
+								<span class="setting-title">${i18n.getMessage('enableSpecialGestures')}</span>
+								<span class="setting-desc">${i18n.getMessage('enableSpecialGesturesDesc')}</span>
 							</div>
 							<label class="toggle">
 								<input type="checkbox" id="enableSpecialGestures" .checked=${this._settings.enableSpecialGestures} @change=${e => this.#updateSetting('enableSpecialGestures', e.target.checked)}>
@@ -809,8 +834,8 @@ class OptionsPage extends LitElement {
 						</div>
 						<div class="setting-row">
 							<div class="setting-label">
-								<span>${i18n.getMessage('enableBlacklistContextMenu')}</span>
-								<span>${i18n.getMessage('enableBlacklistContextMenuDesc')}</span>
+								<span class="setting-title">${i18n.getMessage('enableBlacklistContextMenu')}</span>
+								<span class="setting-desc">${i18n.getMessage('enableBlacklistContextMenuDesc')}</span>
 							</div>
 							<label class="toggle">
 								<input type="checkbox" id="enableBlacklistContextMenu" .checked=${this._settings.enableBlacklistContextMenu} @change=${e => this.#updateSetting('enableBlacklistContextMenu', e.target.checked)}>
@@ -825,8 +850,8 @@ class OptionsPage extends LitElement {
 					<div class="section-body">
 						<div id="restricted-notice" class="setting-row first-row">
 							<div class="setting-label">
-								<span>${i18n.getMessage('showRestrictedNotice')}</span>
-								<span>${i18n.getMessage('showRestrictedNoticeDesc')}</span>
+								<span class="setting-title">${i18n.getMessage('showRestrictedNotice')}</span>
+								<span class="setting-desc">${i18n.getMessage('showRestrictedNoticeDesc')}</span>
 							</div>
 							<label class="toggle">
 								<input type="checkbox" id="showRestrictedNotice" .checked=${this._settings.showRestrictedNotice} @change=${e => this.#updateSetting('showRestrictedNotice', e.target.checked)}>
@@ -867,8 +892,8 @@ class OptionsPage extends LitElement {
 					<div class="section-body">
 						<div class="setting-row first-row">
 							<div class="setting-label">
-								<span>${i18n.getMessage('syncStatus')}</span>
-								<span>${i18n.getMessage('syncStatusDesc')}</span>
+								<span class="setting-title">${i18n.getMessage('syncStatus')}</span>
+								<span class="setting-desc">${i18n.getMessage('syncStatusDesc')}</span>
 							</div>
 							<div class="sync-status">
 								<span>${i18n.getMessage('saved')}</span>
@@ -893,8 +918,8 @@ class OptionsPage extends LitElement {
 									${unsafeHTML(icons.mdFeedback)}
 								</span>
 								<div class="setting-label">
-									<span>${i18n.getMessage('feedbackTitle')}</span>
-									<span>${unsafeHTML(i18n.getMessage(!i18n.isFirefox && !i18n.isEdge ? 'feedbackTextChrome' : 'feedbackText'))}</span>
+									<span class="setting-title">${i18n.getMessage('feedbackTitle')}</span>
+									<span class="setting-desc">${unsafeHTML(i18n.getMessage(!i18n.isFirefox && !i18n.isEdge ? 'feedbackTextChrome' : 'feedbackText'))}</span>
 								</div>
 							</div>
 						</div>
@@ -904,8 +929,8 @@ class OptionsPage extends LitElement {
 									${unsafeHTML(icons.mdHeart)}
 								</span>
 								<div class="setting-label">
-									<span>${i18n.getMessage('supportUsTitle')}</span>
-									<span>${unsafeHTML(this.#getSupportUsText())}</span>
+									<span class="setting-title">${i18n.getMessage('supportUsTitle')}</span>
+									<span class="setting-desc">${unsafeHTML(this.#getSupportUsText())}</span>
 								</div>
 							</div>
 						</div>
@@ -965,8 +990,6 @@ class OptionsPage extends LitElement {
 			<div class="status ${this._statusVisible ? 'show' : ''}" style="background:${this._statusType === 'error' ? '#ea4335' : '#34a853'}">${this._statusMessage}</div>
 
 			<input type="file" id="importFile" accept=".json" style="display:none" @change=${this.#importSettings}>
-
-			<gesture-recorder id="gestureRecorder" data-gesture-ignore></gesture-recorder>
 		`;
 	}
 
@@ -1189,7 +1212,6 @@ class OptionsPage extends LitElement {
 		const mouseGestures = { ...(this._settings.mouseGestures || {}) };
 		delete mouseGestures[e.detail.pattern];
 		await this.#savePatch({ mouseGestures });
-		this.#showStatus(window.i18n.getMessage('gestureDeleted'));
 	}
 
 	#onPermissionCheck(e) {
@@ -1206,31 +1228,6 @@ class OptionsPage extends LitElement {
 
 	async #onSpecialGesturesChange(e) {
 		await this.#savePatch({ specialGestures: e.detail.specialGestures });
-	}
-
-	async #openGestureModal() {
-		const recorder = this.shadowRoot.getElementById('gestureRecorder');
-		if (!recorder) return;
-
-		const { DEFAULT_GESTURES } = window.GestureConstants;
-		const mouseGestures = this._settings.mouseGestures || {};
-		const existingPatterns = Array.from(new Set([
-			...Object.keys(DEFAULT_GESTURES),
-			...Object.keys(mouseGestures),
-		]));
-		const result = await recorder.open({ button: 'right', bannedPatterns: existingPatterns });
-		if (result.cancelled || !result.pattern) return;
-
-		const pattern = result.pattern;
-
-		const newMouseGestures = { ...mouseGestures };
-		newMouseGestures[pattern] = { action: 'none' };
-
-		await this.#savePatch({ mouseGestures: newMouseGestures });
-		this.#showStatus(window.i18n.getMessage('gestureAdded'));
-
-		const gestureGrid = this.shadowRoot.getElementById('gestureGrid');
-		if (gestureGrid) gestureGrid.openActionSelect(pattern);
 	}
 
 
@@ -1392,7 +1389,7 @@ class OptionsPage extends LitElement {
 		if (!chrome.permissions) return;
 
 		let permissions = null;
-		if (action === 'addToBookmarks' || action === 'menuShowBookmarks') {
+		if (action === 'addToBookmarks' || action === 'bookmarkLink' || action === 'menuShowBookmarks') {
 			permissions = ['bookmarks'];
 		} else if (action === 'saveImage') {
 			permissions = ['downloads', 'pageCapture'];

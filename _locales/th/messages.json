@@ -160,7 +160,7 @@
 		"description": "Notice for macOS users about text drag behavior"
 	},
 	"showTrail": {
-		"message": "แสดงเส้นทางท่าทาง",
+		"message": "แสดงเส้นท่าทาง",
 		"description": "Show gesture trail"
 	},
 	"showTrailDesc": {
@@ -202,6 +202,18 @@
 	"showSuggestedGestures": {
 		"message": "คำแนะนำท่าทาง",
 		"description": "Show suggested gestures at bottom of screen"
+	},
+	"userScale": {
+		"message": "ขนาด UI แบบกำหนดเอง",
+		"description": "UI scaling setting for FlowMouse's own interface"
+	},
+	"userScaleDesc": {
+		"message": "ปรับขนาดองค์ประกอบ UI ของ FlowMouse เช่น คำแนะนำการใช้งานและ HUD",
+		"description": "Description for the UI scaling setting"
+	},
+	"scale": {
+		"message": "สเกล",
+		"description": "Label for the UI scale slider"
 	},
 	"customCss": {
 		"message": "CSS แบบกำหนดเอง",
@@ -311,11 +323,11 @@
 		"message": "ฟีเจอร์การลาก",
 		"description": "Drag features section"
 	},
-	"textDragSearch": {
+	"textDrag": {
 		"message": "ลากข้อความ",
 		"description": "Text drag"
 	},
-	"textDragSearchDesc": {
+	"textDragDesc": {
 		"message": "ลากข้อความที่เลือกเพื่อค้นหา",
 		"description": "Drag selected text to search"
 	},
@@ -575,6 +587,10 @@
 		"message": "ขวาแล้วซ้าย",
 		"description": "Gesture description for →←"
 	},
+	"gestureDesc_Any": {
+		"message": "ใดๆ",
+		"description": "Description for the * fallback gesture that matches any unmatched pattern"
+	},
 	"actionNone": {
 		"message": "ไม่มีการกระทำ",
 		"description": "No action"
@@ -731,6 +747,10 @@
 		"message": "รีเฟรชทุกแท็บ",
 		"description": "Refresh all tabs"
 	},
+	"actionReloadFrame": {
+		"message": "โหลดเฟรมซ้ำ",
+		"description": "Reload only the frame (iframe) where the gesture was performed"
+	},
 	"actionStopLoading": {
 		"message": "หยุดโหลด",
 		"description": "Stop loading"
@@ -790,6 +810,10 @@
 	"actionOpenExtensions": {
 		"message": "เปิดส่วนขยาย",
 		"description": "Open extensions page"
+	},
+	"actionOpenOptions": {
+		"message": "เปิดการตั้งค่า FlowMouse",
+		"description": "Open the FlowMouse settings page"
 	},
 	"actionSaveAsMhtml": {
 		"message": "บันทึกเป็น MHTML",
@@ -926,6 +950,14 @@
 	"gestureRecorderBanned": {
 		"message": "มีท่าทาง %pattern% อยู่แล้ว",
 		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"gestureRecorderAny": {
+		"message": "เพิ่มท่าทางสำหรับรูปแบบที่ไม่ตรงกัน",
+		"description": "Button in the gesture recorder to select the * fallback that matches any unmatched gesture"
+	},
+	"fallbackGestureTip": {
+		"message": "ทำงานเมื่อเส้นที่ลากไม่ตรงกับท่าทางอื่นใด",
+		"description": "Tooltip explaining what the * fallback gesture does"
 	},
 	"rightButton": {
 		"message": "ปุ่มขวาของเมาส์",
@@ -1192,60 +1224,56 @@
 		"description": "No action"
 	},
 	"dragActionSearch": {
-		"message": "🔍 เครื่องมือค้นหา",
+		"message": "ค้นหา",
 		"description": "Search action"
 	},
 	"dragActionCopy": {
-		"message": "📋 คัดลอก",
+		"message": "คัดลอก",
 		"description": "Copy action"
 	},
-	"dragActionOpenTab": {
-		"message": "📑 เปิดในแท็บใหม่",
-		"description": "Open in new tab"
-	},
 	"dragActionOpenTabLink": {
-		"message": "🔗 เปิดลิงก์",
+		"message": "เปิดลิงก์",
 		"description": "Open link in new tab"
 	},
 	"dragActionOpenTabImage": {
-		"message": "🖼️ เปิดรูปภาพ",
+		"message": "เปิดรูปภาพ",
 		"description": "Open image in new tab"
 	},
+	"dragActionTryOpenLink": {
+		"message": "ลองเปิดลิงก์",
+		"description": "Open the image's link in new tab, if any"
+	},
 	"dragActionCopyLink": {
-		"message": "📋 คัดลอกลิงก์",
+		"message": "คัดลอกลิงก์",
 		"description": "Copy link"
 	},
 	"dragActionCopyLinkText": {
-		"message": "📋 คัดลอกข้อความลิงก์",
+		"message": "คัดลอกข้อความลิงก์",
 		"description": "Copy link text"
 	},
 	"dragActionCopyLinkAndText": {
-		"message": "📋 คัดลอกข้อความและลิงก์",
+		"message": "คัดลอกข้อความและลิงก์",
 		"description": "Copy link text and URL"
 	},
+	"dragActionBookmarkLink": {
+		"message": "เพิ่มลิงก์ในบุ๊กมาร์ก",
+		"description": "Add dragged link to bookmarks"
+	},
 	"dragActionSaveImage": {
-		"message": "💾 บันทึกรูปภาพ",
+		"message": "บันทึกรูปภาพ",
 		"description": "Save image"
 	},
 	"dragActionCopyImage": {
-		"message": "🖼️ คัดลอกรูปภาพ",
+		"message": "คัดลอกรูปภาพ",
 		"description": "Copy image"
 	},
 	"dragActionCopyImageUrl": {
-		"message": "📋 คัดลอก URL รูปภาพ",
+		"message": "คัดลอก URL รูปภาพ",
 		"description": "Copy image URL"
 	},
 	"dragActionImageSearch": {
-		"message": "🔍 ค้นหารูปภาพ",
+		"message": "ค้นหารูปภาพ",
 		"description": "Image search"
-	},
-	"dragActionCustomSearch": {
-		"message": "🔍 ค้นหาแบบกำหนดเอง",
-		"description": "Custom search"
-	},
-	"dragActionSendCustomEvent": {
-		"message": "ส่งเหตุการณ์ที่กำหนดเอง",
-		"description": "Send custom DOM event on drag gesture"
 	},
 	"reducedMotionWarning": {
 		"message": "ภาพเคลื่อนไหวของระบบ %OS% ถูกปิดใช้งาน การเลื่อนแบบมีภาพเคลื่อนไหวอาจทำงานไม่ถูกต้อง คุณสามารถเปิดใช้งานภาพเคลื่อนไหวในการตั้งค่าระบบ %OS%",
@@ -1511,10 +1539,6 @@
 		"message": "ใช้ <span class=\"text-highlight\">ปุ่มเมาส์ซ้าย</span> เพื่อลาก",
 		"description": "Tutorial drag wrong button error"
 	},
-	"tutorialRefreshTip": {
-		"message": "เคล็ดลับ: แท็บที่เปิดก่อนติดตั้งจำเป็นต้อง <span class=\"text-highlight\">รีเฟรช</span> เพื่อใช้ FlowMouse",
-		"description": "Tip about refreshing tabs"
-	},
 	"permissionBookmarksTitle": {
 		"message": "จัดการบุ๊กมาร์ก",
 		"description": "Permission popup title for bookmarks"
@@ -1595,9 +1619,9 @@
 		"message": "บันทึกรูปภาพไม่สำเร็จ: หมดเวลาโหลด",
 		"description": "Toast message when image loading times out"
 	},
-	"saveImageSubdirPlaceholder": {
-		"message": "ไดเรกทอรีย่อย (ไม่บังคับ)",
-		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	"saveImageSubdirLabel": {
+		"message": "ไดเรกทอรีย่อย",
+		"description": "Label for the optional subdirectory input in save image config"
 	},
 	"buttonOkay": {
 		"message": "ตกลง",
@@ -1635,6 +1659,18 @@
 		"message": "เครื่องมือ",
 		"description": "Action category: utilities"
 	},
+	"actionCategoryText": {
+		"message": "ข้อความ",
+		"description": "Action category: text"
+	},
+	"actionCategoryLink": {
+		"message": "ลิงก์",
+		"description": "Action category: link"
+	},
+	"actionCategoryImage": {
+		"message": "รูปภาพ",
+		"description": "Action category: image"
+	},
 	"noResults": {
 		"message": "ไม่พบผลลัพธ์",
 		"description": "No search results found"
@@ -1650,6 +1686,14 @@
 	"enableWheelGesturesDesc": {
 		"message": "ดำเนินการต่างๆ อย่างรวดเร็วโดยใช้ลูกกลิ้งเมาส์",
 		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelThreshold": {
+		"message": "ระยะกระตุ้นลูกกลิ้ง",
+		"description": "Label for the wheel gesture scroll distance threshold"
+	},
+	"wheelThresholdDesc": {
+		"message": "การเลื่อนลูกกลิ้งเมาส์จะต้องไปถึงระยะนี้เพื่อทริกเกอร์ท่าทางลูกกลิ้งอย่างต่อเนื่อง",
+		"description": "Description for the wheel gesture scroll distance threshold"
 	},
 	"wheelGesture_scrollUpHoldingRight": {
 		"message": "เลื่อนขึ้นในขณะที่กดปุ่มขวาค้างไว้",
@@ -1758,6 +1802,10 @@
 	"emptyChainSteps": {
 		"message": "ยังไม่มีการเพิ่มขั้นตอน คลิก \"เพิ่มขั้นตอน\" เพื่อเริ่มต้น",
 		"description": "Empty chain steps message in expanded body"
+	},
+	"chainStopOnSuccess": {
+		"message": "หยุดห่วงโซ่เมื่อมีขั้นตอนที่สำเร็จ",
+		"description": "Checkbox: skip remaining command-chain steps after the first successful action"
 	},
 	"emptyChainStepsShort": {
 		"message": "ยังไม่มีการเพิ่มขั้นตอน",
@@ -1898,6 +1946,10 @@
 	"actionViewPageSource": {
 		"message": "ดูซอร์สโค้ดของหน้า",
 		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionViewFrameSource": {
+		"message": "ดูซอร์สโค้ดของเฟรม",
+		"description": "Open the source code of the frame (iframe) where the gesture was performed in a new tab"
 	},
 	"actionPauseGesture": {
 		"message": "หยุดท่าทางจนกว่าจะรีเฟรช",
@@ -2118,6 +2170,14 @@
 	"ctxMenuScrollToBottom": {
 		"message": "เลื่อนลงด้านล่าง",
 		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuWheelNav": {
+		"message": "การนำทางอย่างรวดเร็วด้วยลูกกลิ้งเมาส์",
+		"description": "Checkbox: navigate a wheel-gesture menu with the wheel while holding the right button"
+	},
+	"ctxMenuWheelNavTooltip": {
+		"message": "ขณะกดปุ่มเมาส์ค้างไว้ ให้เลื่อนลูกกลิ้งเพื่อเลือกรายการเมนูอย่างรวดเร็ว",
+		"description": "Tooltip explaining quick wheel navigation for wheel-gesture menus"
 	},
 	"ctxMenuTimeDisplay": {
 		"message": "แสดงเวลา",

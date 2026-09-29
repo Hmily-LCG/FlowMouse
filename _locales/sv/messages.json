@@ -156,7 +156,7 @@
 		"description": "Notice for Edge users about built-in gesture conflict"
 	},
 	"macTextDragNotice": {
-		"message": "På grund av macOS beteende, markera först texten, tryck sedan och håll ned vänster knapp inom det markerade området och vänta en kort stund innan du drar. Annars kanske dragfunktionen inte utlöses.",
+		"message": "På grund av beteendet i macOS, markera först texten, tryck sedan och håll ned vänster knapp inom det markerade området och vänta en kort stund innan du drar. Annars kanske dragfunktionen inte utlöses.",
 		"description": "Notice for macOS users about text drag behavior"
 	},
 	"showTrail": {
@@ -164,7 +164,7 @@
 		"description": "Show gesture trail"
 	},
 	"showTrailDesc": {
-		"message": "Visa spårlinje när gester utförs",
+		"message": "Visa ett spår när gester utförs",
 		"description": "Show trail line when performing gestures"
 	},
 	"showHint": {
@@ -202,6 +202,18 @@
 	"showSuggestedGestures": {
 		"message": "Gest-prompter",
 		"description": "Show suggested gestures at bottom of screen"
+	},
+	"userScale": {
+		"message": "Anpassad gränssnittsskala",
+		"description": "UI scaling setting for FlowMouse's own interface"
+	},
+	"userScaleDesc": {
+		"message": "Justera storleken på FlowMouse-gränssnittselement som åtgärdstips och HUD",
+		"description": "Description for the UI scaling setting"
+	},
+	"scale": {
+		"message": "Skala",
+		"description": "Label for the UI scale slider"
 	},
 	"customCss": {
 		"message": "Anpassad CSS",
@@ -311,11 +323,11 @@
 		"message": "Dragfunktioner",
 		"description": "Drag features section"
 	},
-	"textDragSearch": {
+	"textDrag": {
 		"message": "Textdrag",
 		"description": "Text drag"
 	},
-	"textDragSearchDesc": {
+	"textDragDesc": {
 		"message": "Dra markerad text för att söka",
 		"description": "Drag selected text to search"
 	},
@@ -575,6 +587,10 @@
 		"message": "Höger sedan Vänster",
 		"description": "Gesture description for →←"
 	},
+	"gestureDesc_Any": {
+		"message": "Vilken som helst",
+		"description": "Description for the * fallback gesture that matches any unmatched pattern"
+	},
 	"actionNone": {
 		"message": "Ingen",
 		"description": "No action"
@@ -731,6 +747,10 @@
 		"message": "Uppdatera alla flikar",
 		"description": "Refresh all tabs"
 	},
+	"actionReloadFrame": {
+		"message": "Ladda om ram",
+		"description": "Reload only the frame (iframe) where the gesture was performed"
+	},
 	"actionStopLoading": {
 		"message": "Avbryt laddning",
 		"description": "Stop loading"
@@ -790,6 +810,10 @@
 	"actionOpenExtensions": {
 		"message": "Öppna tillägg",
 		"description": "Open extensions page"
+	},
+	"actionOpenOptions": {
+		"message": "Öppna FlowMouse-inställningar",
+		"description": "Open the FlowMouse settings page"
 	},
 	"actionSaveAsMhtml": {
 		"message": "Spara som MHTML",
@@ -926,6 +950,14 @@
 	"gestureRecorderBanned": {
 		"message": "Gesten %pattern% finns redan",
 		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"gestureRecorderAny": {
+		"message": "Lägg till wildcard-gest",
+		"description": "Button in the gesture recorder to select the * fallback that matches any unmatched gesture"
+	},
+	"fallbackGestureTip": {
+		"message": "Utlöses när det ritade spåret inte matchar någon annan gest",
+		"description": "Tooltip explaining what the * fallback gesture does"
 	},
 	"rightButton": {
 		"message": "Höger musknapp",
@@ -1192,60 +1224,56 @@
 		"description": "No action"
 	},
 	"dragActionSearch": {
-		"message": "🔍 Sökmotor",
+		"message": "Sök",
 		"description": "Search action"
 	},
 	"dragActionCopy": {
-		"message": "📋 Kopiera",
+		"message": "Kopiera",
 		"description": "Copy action"
 	},
-	"dragActionOpenTab": {
-		"message": "📑 Öppna i ny flik",
-		"description": "Open in new tab"
-	},
 	"dragActionOpenTabLink": {
-		"message": "🔗 Öppna länk",
+		"message": "Öppna länk",
 		"description": "Open link in new tab"
 	},
 	"dragActionOpenTabImage": {
-		"message": "🖼️ Öppna bild",
+		"message": "Öppna bild",
 		"description": "Open image in new tab"
 	},
+	"dragActionTryOpenLink": {
+		"message": "Försök öppna länk",
+		"description": "Open the image's link in new tab, if any"
+	},
 	"dragActionCopyLink": {
-		"message": "📋 Kopiera länk",
+		"message": "Kopiera länk",
 		"description": "Copy link"
 	},
 	"dragActionCopyLinkText": {
-		"message": "📋 Kopiera länktext",
+		"message": "Kopiera länktext",
 		"description": "Copy link text"
 	},
 	"dragActionCopyLinkAndText": {
-		"message": "📋 Kopiera text och länk",
+		"message": "Kopiera text och länk",
 		"description": "Copy link text and URL"
 	},
+	"dragActionBookmarkLink": {
+		"message": "Lägg till länk i bokmärken",
+		"description": "Add dragged link to bookmarks"
+	},
 	"dragActionSaveImage": {
-		"message": "💾 Spara bild",
+		"message": "Spara bild",
 		"description": "Save image"
 	},
 	"dragActionCopyImage": {
-		"message": "🖼️ Kopiera bild",
+		"message": "Kopiera bild",
 		"description": "Copy image"
 	},
 	"dragActionCopyImageUrl": {
-		"message": "📋 Kopiera bildadress",
+		"message": "Kopiera bildadress",
 		"description": "Copy image URL"
 	},
 	"dragActionImageSearch": {
-		"message": "🔍 Bildsökning",
+		"message": "Bildsökning",
 		"description": "Image search"
-	},
-	"dragActionCustomSearch": {
-		"message": "🔍 Anpassad sökning",
-		"description": "Custom search"
-	},
-	"dragActionSendCustomEvent": {
-		"message": "Skicka anpassad händelse",
-		"description": "Send custom DOM event on drag gesture"
 	},
 	"reducedMotionWarning": {
 		"message": "%OS% systemanimering är inaktiverad, rullningsanimering kanske inte fungerar korrekt. Du kan aktivera animering i %OS% systeminställningar.",
@@ -1484,7 +1512,7 @@
 		"description": "Tutorial Step 4 title"
 	},
 	"tutorialStep4Subtitle": {
-		"message": "Sveipa med fingertopparna, gå in i flödet.",
+		"message": "Svep med fingertopparna, gå in i flödet.",
 		"description": "Tutorial Step 4 subtitle"
 	},
 	"tutorialStep4Instruction": {
@@ -1510,10 +1538,6 @@
 	"tutorialDragWrongButton": {
 		"message": "Använd <span class=\"text-highlight\">vänster musknapp</span> för att dra",
 		"description": "Tutorial drag wrong button error"
-	},
-	"tutorialRefreshTip": {
-		"message": "Tips: Flikar som öppnades innan installationen måste <span class=\"text-highlight\">uppdateras</span> för att använda FlowMouse",
-		"description": "Tip about refreshing tabs"
 	},
 	"permissionBookmarksTitle": {
 		"message": "Hantera bokmärken",
@@ -1595,9 +1619,9 @@
 		"message": "Det gick inte att spara bilden: Tidsgränsen för laddning har löpt ut",
 		"description": "Toast message when image loading times out"
 	},
-	"saveImageSubdirPlaceholder": {
-		"message": "Underkatalog (valfritt)",
-		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	"saveImageSubdirLabel": {
+		"message": "Underkatalog",
+		"description": "Label for the optional subdirectory input in save image config"
 	},
 	"buttonOkay": {
 		"message": "OK",
@@ -1635,6 +1659,18 @@
 		"message": "Verktyg",
 		"description": "Action category: utilities"
 	},
+	"actionCategoryText": {
+		"message": "Text",
+		"description": "Action category: text"
+	},
+	"actionCategoryLink": {
+		"message": "Länk",
+		"description": "Action category: link"
+	},
+	"actionCategoryImage": {
+		"message": "Bild",
+		"description": "Action category: image"
+	},
 	"noResults": {
 		"message": "Inga resultat",
 		"description": "No search results found"
@@ -1650,6 +1686,14 @@
 	"enableWheelGesturesDesc": {
 		"message": "Utför olika åtgärder snabbt med mushjulet",
 		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelThreshold": {
+		"message": "Utlösningsavstånd för mushjul",
+		"description": "Label for the wheel gesture scroll distance threshold"
+	},
+	"wheelThresholdDesc": {
+		"message": "Mushjulets rullning måste nå detta avstånd för att upprepade gånger utlösa hjulgester",
+		"description": "Description for the wheel gesture scroll distance threshold"
 	},
 	"wheelGesture_scrollUpHoldingRight": {
 		"message": "Rulla uppåt samtidigt som du håller ner höger knapp",
@@ -1758,6 +1802,10 @@
 	"emptyChainSteps": {
 		"message": "Inga steg har lagts till. Klicka på \"Lägg till steg\" för att börja.",
 		"description": "Empty chain steps message in expanded body"
+	},
+	"chainStopOnSuccess": {
+		"message": "Avbryt kedjan när ett steg lyckas",
+		"description": "Checkbox: skip remaining command-chain steps after the first successful action"
 	},
 	"emptyChainStepsShort": {
 		"message": "Inga steg tillagda",
@@ -1898,6 +1946,10 @@
 	"actionViewPageSource": {
 		"message": "Visa sidkälla",
 		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionViewFrameSource": {
+		"message": "Visa ramens källkod",
+		"description": "Open the source code of the frame (iframe) where the gesture was performed in a new tab"
 	},
 	"actionPauseGesture": {
 		"message": "Pausa gester till uppdatering",
@@ -2118,6 +2170,14 @@
 	"ctxMenuScrollToBottom": {
 		"message": "Rulla till botten",
 		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuWheelNav": {
+		"message": "Snabb hjulnavigering",
+		"description": "Checkbox: navigate a wheel-gesture menu with the wheel while holding the right button"
+	},
+	"ctxMenuWheelNavTooltip": {
+		"message": "Håll ner musknappen och rulla hjulet för att snabbt välja menyalternativ.",
+		"description": "Tooltip explaining quick wheel navigation for wheel-gesture menus"
 	},
 	"ctxMenuTimeDisplay": {
 		"message": "Visa tid",

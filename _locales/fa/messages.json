@@ -203,6 +203,18 @@
 		"message": "راهنمای ژست‌ها",
 		"description": "Show suggested gestures at bottom of screen"
 	},
+	"userScale": {
+		"message": "مقیاس سفارشی رابط کاربری",
+		"description": "UI scaling setting for FlowMouse's own interface"
+	},
+	"userScaleDesc": {
+		"message": "تغییر مقیاس عناصر رابط کاربری FlowMouse مانند راهنمای عملکرد و HUD",
+		"description": "Description for the UI scaling setting"
+	},
+	"scale": {
+		"message": "مقیاس",
+		"description": "Label for the UI scale slider"
+	},
 	"customCss": {
 		"message": "CSS سفارشی",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -311,11 +323,11 @@
 		"message": "ویژگی‌های کشیدن (Drag)",
 		"description": "Drag features section"
 	},
-	"textDragSearch": {
+	"textDrag": {
 		"message": "کشیدن متن",
 		"description": "Text drag"
 	},
-	"textDragSearchDesc": {
+	"textDragDesc": {
 		"message": "متن انتخاب شده را برای جستجو بکشید",
 		"description": "Drag selected text to search"
 	},
@@ -575,6 +587,10 @@
 		"message": "راست سپس چپ",
 		"description": "Gesture description for →←"
 	},
+	"gestureDesc_Any": {
+		"message": "هرکدام",
+		"description": "Description for the * fallback gesture that matches any unmatched pattern"
+	},
 	"actionNone": {
 		"message": "بدون عملکرد",
 		"description": "No action"
@@ -731,6 +747,10 @@
 		"message": "بازخوانی همه تب‌ها",
 		"description": "Refresh all tabs"
 	},
+	"actionReloadFrame": {
+		"message": "بارگیری مجدد قاب",
+		"description": "Reload only the frame (iframe) where the gesture was performed"
+	},
 	"actionStopLoading": {
 		"message": "توقف بارگذاری",
 		"description": "Stop loading"
@@ -790,6 +810,10 @@
 	"actionOpenExtensions": {
 		"message": "باز کردن افزونه‌ها",
 		"description": "Open extensions page"
+	},
+	"actionOpenOptions": {
+		"message": "باز کردن تنظیمات FlowMouse",
+		"description": "Open the FlowMouse settings page"
 	},
 	"actionSaveAsMhtml": {
 		"message": "ذخیره به عنوان MHTML",
@@ -926,6 +950,14 @@
 	"gestureRecorderBanned": {
 		"message": "ژست %pattern% قبلاً وجود دارد",
 		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"gestureRecorderAny": {
+		"message": "افزودن ژست برای الگوهای نامنطبق",
+		"description": "Button in the gesture recorder to select the * fallback that matches any unmatched gesture"
+	},
+	"fallbackGestureTip": {
+		"message": "زمانی که مسیر رسم شده با هیچ ژست دیگری مطابقت نداشته باشد، فعال می‌شود",
+		"description": "Tooltip explaining what the * fallback gesture does"
 	},
 	"rightButton": {
 		"message": "دکمه راست ماوس",
@@ -1192,60 +1224,56 @@
 		"description": "No action"
 	},
 	"dragActionSearch": {
-		"message": "🔍 موتور جستجو",
+		"message": "جستجو",
 		"description": "Search action"
 	},
 	"dragActionCopy": {
-		"message": "📋 کپی",
+		"message": "کپی",
 		"description": "Copy action"
 	},
-	"dragActionOpenTab": {
-		"message": "📑 باز کردن در تب جدید",
-		"description": "Open in new tab"
-	},
 	"dragActionOpenTabLink": {
-		"message": "🔗 باز کردن لینک",
+		"message": "باز کردن لینک",
 		"description": "Open link in new tab"
 	},
 	"dragActionOpenTabImage": {
-		"message": "🖼️ باز کردن تصویر",
+		"message": "باز کردن تصویر",
 		"description": "Open image in new tab"
 	},
+	"dragActionTryOpenLink": {
+		"message": "تلاش برای باز کردن لینک",
+		"description": "Open the image's link in new tab, if any"
+	},
 	"dragActionCopyLink": {
-		"message": "📋 کپی لینک",
+		"message": "کپی لینک",
 		"description": "Copy link"
 	},
 	"dragActionCopyLinkText": {
-		"message": "📋 کپی متن لینک",
+		"message": "کپی متن لینک",
 		"description": "Copy link text"
 	},
 	"dragActionCopyLinkAndText": {
-		"message": "📋 کپی متن و پیوند",
+		"message": "کپی متن و پیوند",
 		"description": "Copy link text and URL"
 	},
+	"dragActionBookmarkLink": {
+		"message": "افزودن پیوند به نشانک‌ها",
+		"description": "Add dragged link to bookmarks"
+	},
 	"dragActionSaveImage": {
-		"message": "💾 ذخیره تصویر",
+		"message": "ذخیره تصویر",
 		"description": "Save image"
 	},
 	"dragActionCopyImage": {
-		"message": "🖼️ کپی تصویر",
+		"message": "کپی تصویر",
 		"description": "Copy image"
 	},
 	"dragActionCopyImageUrl": {
-		"message": "📋 کپی آدرس تصویر",
+		"message": "کپی آدرس تصویر",
 		"description": "Copy image URL"
 	},
 	"dragActionImageSearch": {
-		"message": "🔍 جستجوی تصویر",
+		"message": "جستجوی تصویر",
 		"description": "Image search"
-	},
-	"dragActionCustomSearch": {
-		"message": "🔍 جستجوی سفارشی",
-		"description": "Custom search"
-	},
-	"dragActionSendCustomEvent": {
-		"message": "ارسال رویداد سفارشی",
-		"description": "Send custom DOM event on drag gesture"
 	},
 	"reducedMotionWarning": {
 		"message": "انیمیشن سیستم %OS% غیرفعال است، انیمیشن پیمایش ممکن است به درستی کار نکند. می‌توانید انیمیشن را در تنظیمات سیستم %OS% فعال کنید.",
@@ -1511,10 +1539,6 @@
 		"message": "از <span class=\"text-highlight\">دکمه چپ ماوس</span> برای کشیدن استفاده کنید",
 		"description": "Tutorial drag wrong button error"
 	},
-	"tutorialRefreshTip": {
-		"message": "نکته: تب‌هایی که قبل از نصب باز شده‌اند باید <span class=\"text-highlight\">بازخوانی</span> شوند تا از FlowMouse استفاده کنند",
-		"description": "Tip about refreshing tabs"
-	},
 	"permissionBookmarksTitle": {
 		"message": "مدیریت نشانک‌ها",
 		"description": "Permission popup title for bookmarks"
@@ -1595,9 +1619,9 @@
 		"message": "ذخیره تصویر ناموفق بود: زمان بارگیری تمام شد",
 		"description": "Toast message when image loading times out"
 	},
-	"saveImageSubdirPlaceholder": {
-		"message": "زیرپوشه (اختیاری)",
-		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	"saveImageSubdirLabel": {
+		"message": "زیرپوشه",
+		"description": "Label for the optional subdirectory input in save image config"
 	},
 	"buttonOkay": {
 		"message": "تأیید",
@@ -1635,6 +1659,18 @@
 		"message": "ابزارها",
 		"description": "Action category: utilities"
 	},
+	"actionCategoryText": {
+		"message": "متن",
+		"description": "Action category: text"
+	},
+	"actionCategoryLink": {
+		"message": "لینک",
+		"description": "Action category: link"
+	},
+	"actionCategoryImage": {
+		"message": "تصویر",
+		"description": "Action category: image"
+	},
 	"noResults": {
 		"message": "نتیجه‌ای یافت نشد",
 		"description": "No search results found"
@@ -1650,6 +1686,14 @@
 	"enableWheelGesturesDesc": {
 		"message": "انجام سریع اقدامات مختلف با استفاده از چرخ ماوس",
 		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelThreshold": {
+		"message": "فاصله راه‌اندازی چرخ",
+		"description": "Label for the wheel gesture scroll distance threshold"
+	},
+	"wheelThresholdDesc": {
+		"message": "پیمایش چرخ ماوس باید به این فاصله برسد تا حرکات چرخ به طور مکرر اجرا شوند",
+		"description": "Description for the wheel gesture scroll distance threshold"
 	},
 	"wheelGesture_scrollUpHoldingRight": {
 		"message": "در حالی که دکمه راست را نگه داشته‌اید، به بالا پیمایش کنید",
@@ -1758,6 +1802,10 @@
 	"emptyChainSteps": {
 		"message": "هیچ مرحله‌ای اضافه نشده است. برای شروع روی \"افزودن مرحله\" کلیک کنید.",
 		"description": "Empty chain steps message in expanded body"
+	},
+	"chainStopOnSuccess": {
+		"message": "در صورت موفقیت یک مرحله، زنجیره را متوقف کن",
+		"description": "Checkbox: skip remaining command-chain steps after the first successful action"
 	},
 	"emptyChainStepsShort": {
 		"message": "بدون مرحله",
@@ -1898,6 +1946,10 @@
 	"actionViewPageSource": {
 		"message": "مشاهده منبع صفحه",
 		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionViewFrameSource": {
+		"message": "مشاهده منبع قاب",
+		"description": "Open the source code of the frame (iframe) where the gesture was performed in a new tab"
 	},
 	"actionPauseGesture": {
 		"message": "توقف ژست‌ها تا تازه‌سازی",
@@ -2118,6 +2170,14 @@
 	"ctxMenuScrollToBottom": {
 		"message": "پیمایش به پایین",
 		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuWheelNav": {
+		"message": "ناوبری سریع با چرخ ماوس",
+		"description": "Checkbox: navigate a wheel-gesture menu with the wheel while holding the right button"
+	},
+	"ctxMenuWheelNavTooltip": {
+		"message": "در حالی که دکمه ماوس را نگه داشته‌اید، با چرخ ماوس پیمایش کنید تا به سرعت موارد منو را انتخاب کنید.",
+		"description": "Tooltip explaining quick wheel navigation for wheel-gesture menus"
 	},
 	"ctxMenuTimeDisplay": {
 		"message": "نمایش زمان",

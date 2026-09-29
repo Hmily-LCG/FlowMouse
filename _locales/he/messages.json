@@ -203,6 +203,18 @@
 		"message": "רמזים למחוות",
 		"description": "Show suggested gestures at bottom of screen"
 	},
+	"userScale": {
+		"message": "קנה מידה מותאם אישית של ממשק המשתמש",
+		"description": "UI scaling setting for FlowMouse's own interface"
+	},
+	"userScaleDesc": {
+		"message": "שינוי קנה המידה של רכיבי ממשק המשתמש של FlowMouse כגון רמזי פעולה ו-HUD",
+		"description": "Description for the UI scaling setting"
+	},
+	"scale": {
+		"message": "קנה מידה",
+		"description": "Label for the UI scale slider"
+	},
 	"customCss": {
 		"message": "CSS מותאם אישית",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -311,11 +323,11 @@
 		"message": "תכונות גרירה",
 		"description": "Drag features section"
 	},
-	"textDragSearch": {
+	"textDrag": {
 		"message": "גרירת טקסט",
 		"description": "Text drag"
 	},
-	"textDragSearchDesc": {
+	"textDragDesc": {
 		"message": "גרור טקסט מסומן לחיפוש",
 		"description": "Drag selected text to search"
 	},
@@ -575,6 +587,10 @@
 		"message": "ימינה ואז שמאלה",
 		"description": "Gesture description for →←"
 	},
+	"gestureDesc_Any": {
+		"message": "כלשהו",
+		"description": "Description for the * fallback gesture that matches any unmatched pattern"
+	},
 	"actionNone": {
 		"message": "ללא",
 		"description": "No action"
@@ -731,6 +747,10 @@
 		"message": "רענן את כל הכרטיסיות",
 		"description": "Refresh all tabs"
 	},
+	"actionReloadFrame": {
+		"message": "טען מסגרת מחדש",
+		"description": "Reload only the frame (iframe) where the gesture was performed"
+	},
 	"actionStopLoading": {
 		"message": "עצור טעינה",
 		"description": "Stop loading"
@@ -790,6 +810,10 @@
 	"actionOpenExtensions": {
 		"message": "פתח תוספים",
 		"description": "Open extensions page"
+	},
+	"actionOpenOptions": {
+		"message": "פתח את הגדרות FlowMouse",
+		"description": "Open the FlowMouse settings page"
 	},
 	"actionSaveAsMhtml": {
 		"message": "שמירה כ-MHTML",
@@ -926,6 +950,14 @@
 	"gestureRecorderBanned": {
 		"message": "המחווה %pattern% כבר קיימת",
 		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"gestureRecorderAny": {
+		"message": "הוסף מחוות תו כללי",
+		"description": "Button in the gesture recorder to select the * fallback that matches any unmatched gesture"
+	},
+	"fallbackGestureTip": {
+		"message": "מופעל כאשר השובל המצויר אינו תואם לאף מחווה אחרת",
+		"description": "Tooltip explaining what the * fallback gesture does"
 	},
 	"rightButton": {
 		"message": "לחצן עכבר ימני",
@@ -1192,60 +1224,56 @@
 		"description": "No action"
 	},
 	"dragActionSearch": {
-		"message": "🔍 מנוע חיפוש",
+		"message": "חיפוש",
 		"description": "Search action"
 	},
 	"dragActionCopy": {
-		"message": "📋 העתק",
+		"message": "העתק",
 		"description": "Copy action"
 	},
-	"dragActionOpenTab": {
-		"message": "📑 פתח בכרטיסייה חדשה",
-		"description": "Open in new tab"
-	},
 	"dragActionOpenTabLink": {
-		"message": "🔗 פתח קישור",
+		"message": "פתח קישור",
 		"description": "Open link in new tab"
 	},
 	"dragActionOpenTabImage": {
-		"message": "🖼️ פתח תמונה",
+		"message": "פתח תמונה",
 		"description": "Open image in new tab"
 	},
+	"dragActionTryOpenLink": {
+		"message": "נסה לפתוח קישור",
+		"description": "Open the image's link in new tab, if any"
+	},
 	"dragActionCopyLink": {
-		"message": "📋 העתק קישור",
+		"message": "העתק קישור",
 		"description": "Copy link"
 	},
 	"dragActionCopyLinkText": {
-		"message": "📋 העתק טקסט של קישור",
+		"message": "העתק טקסט של קישור",
 		"description": "Copy link text"
 	},
 	"dragActionCopyLinkAndText": {
-		"message": "📋 העתק טקסט וקישור",
+		"message": "העתק טקסט וקישור",
 		"description": "Copy link text and URL"
 	},
+	"dragActionBookmarkLink": {
+		"message": "הוסף קישור לסימניות",
+		"description": "Add dragged link to bookmarks"
+	},
 	"dragActionSaveImage": {
-		"message": "💾 שמור תמונה",
+		"message": "שמור תמונה",
 		"description": "Save image"
 	},
 	"dragActionCopyImage": {
-		"message": "🖼️ העתק תמונה",
+		"message": "העתק תמונה",
 		"description": "Copy image"
 	},
 	"dragActionCopyImageUrl": {
-		"message": "📋 העתק כתובת תמונה",
+		"message": "העתק כתובת תמונה",
 		"description": "Copy image URL"
 	},
 	"dragActionImageSearch": {
-		"message": "🔍 חיפוש תמונה",
+		"message": "חיפוש תמונה",
 		"description": "Image search"
-	},
-	"dragActionCustomSearch": {
-		"message": "🔍 חיפוש מותאם אישית",
-		"description": "Custom search"
-	},
-	"dragActionSendCustomEvent": {
-		"message": "שלח אירוע מותאם אישית",
-		"description": "Send custom DOM event on drag gesture"
 	},
 	"reducedMotionWarning": {
 		"message": "אנימציות מערכת %OS% מושבתות, אנימציית גלילה עלולה לא לפעול כראוי. ניתן להפעיל אנימציות בהגדרות מערכת %OS%.",
@@ -1511,10 +1539,6 @@
 		"message": "השתמש ב<span class=\"text-highlight\">לחצן שמאלי</span> לגרירה",
 		"description": "Tutorial drag wrong button error"
 	},
-	"tutorialRefreshTip": {
-		"message": "טיפ: כרטיסיות שנפתחו לפני ההתקנה דורשות <span class=\"text-highlight\">רענון</span> כדי להשתמש ב-FlowMouse",
-		"description": "Tip about refreshing tabs"
-	},
 	"permissionBookmarksTitle": {
 		"message": "ניהול סימניות",
 		"description": "Permission popup title for bookmarks"
@@ -1595,9 +1619,9 @@
 		"message": "שמירת תמונה נכשלה: תם הזמן הקצוב לטעינה",
 		"description": "Toast message when image loading times out"
 	},
-	"saveImageSubdirPlaceholder": {
-		"message": "תת-תיקייה (אופציונלי)",
-		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	"saveImageSubdirLabel": {
+		"message": "תת-תיקייה",
+		"description": "Label for the optional subdirectory input in save image config"
 	},
 	"buttonOkay": {
 		"message": "אישור",
@@ -1635,6 +1659,18 @@
 		"message": "כלים",
 		"description": "Action category: utilities"
 	},
+	"actionCategoryText": {
+		"message": "טקסט",
+		"description": "Action category: text"
+	},
+	"actionCategoryLink": {
+		"message": "קישור",
+		"description": "Action category: link"
+	},
+	"actionCategoryImage": {
+		"message": "תמונה",
+		"description": "Action category: image"
+	},
 	"noResults": {
 		"message": "אין תוצאות",
 		"description": "No search results found"
@@ -1650,6 +1686,14 @@
 	"enableWheelGesturesDesc": {
 		"message": "בצע פעולות שונות במהירות באמצעות גלגלת העכבר",
 		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelThreshold": {
+		"message": "מרחק הפעלת גלגלת",
+		"description": "Label for the wheel gesture scroll distance threshold"
+	},
+	"wheelThresholdDesc": {
+		"message": "גלילת גלגלת העכבר חייבת להגיע למרחק זה כדי להפעיל מחוות גלגלת שוב ושוב",
+		"description": "Description for the wheel gesture scroll distance threshold"
 	},
 	"wheelGesture_scrollUpHoldingRight": {
 		"message": "גלול מעלה תוך כדי לחיצה על הכפתור הימני",
@@ -1758,6 +1802,10 @@
 	"emptyChainSteps": {
 		"message": "לא נוספו שלבים. לחץ על \"הוספת שלב\" כדי להתחיל.",
 		"description": "Empty chain steps message in expanded body"
+	},
+	"chainStopOnSuccess": {
+		"message": "עצור את השרשרת כאשר שלב מצליח",
+		"description": "Checkbox: skip remaining command-chain steps after the first successful action"
 	},
 	"emptyChainStepsShort": {
 		"message": "לא נוספו שלבים",
@@ -1898,6 +1946,10 @@
 	"actionViewPageSource": {
 		"message": "הצגת מקור הדף",
 		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionViewFrameSource": {
+		"message": "הצג מקור מסגרת",
+		"description": "Open the source code of the frame (iframe) where the gesture was performed in a new tab"
 	},
 	"actionPauseGesture": {
 		"message": "השהה מחוות עד לרענון",
@@ -2118,6 +2170,14 @@
 	"ctxMenuScrollToBottom": {
 		"message": "לגלול למטה",
 		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuWheelNav": {
+		"message": "ניווט מהיר בגלגלת",
+		"description": "Checkbox: navigate a wheel-gesture menu with the wheel while holding the right button"
+	},
+	"ctxMenuWheelNavTooltip": {
+		"message": "תוך כדי לחיצה ממושכת על לחצן העכבר, גלול את הגלגלת כדי לבחור במהירות פריטי תפריט.",
+		"description": "Tooltip explaining quick wheel navigation for wheel-gesture menus"
 	},
 	"ctxMenuTimeDisplay": {
 		"message": "הצג זמן",

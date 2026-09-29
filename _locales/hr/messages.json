@@ -203,6 +203,18 @@
 		"message": "Upute za geste",
 		"description": "Show suggested gestures at bottom of screen"
 	},
+	"userScale": {
+		"message": "Prilagođeno skaliranje sučelja",
+		"description": "UI scaling setting for FlowMouse's own interface"
+	},
+	"userScaleDesc": {
+		"message": "Skaliranje elemenata sučelja FlowMouse-a poput savjeta za akciju i HUD-a",
+		"description": "Description for the UI scaling setting"
+	},
+	"scale": {
+		"message": "Mjerilo",
+		"description": "Label for the UI scale slider"
+	},
 	"customCss": {
 		"message": "Prilagođeni CSS",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -311,11 +323,11 @@
 		"message": "Funkcije povlačenja",
 		"description": "Drag features section"
 	},
-	"textDragSearch": {
+	"textDrag": {
 		"message": "Povlačenje teksta",
 		"description": "Text drag"
 	},
-	"textDragSearchDesc": {
+	"textDragDesc": {
 		"message": "Povucite odabrani tekst za pretraživanje",
 		"description": "Drag selected text to search"
 	},
@@ -575,6 +587,10 @@
 		"message": "Desno pa lijevo",
 		"description": "Gesture description for →←"
 	},
+	"gestureDesc_Any": {
+		"message": "Bilo koji",
+		"description": "Description for the * fallback gesture that matches any unmatched pattern"
+	},
 	"actionNone": {
 		"message": "Nema akcije",
 		"description": "No action"
@@ -731,6 +747,10 @@
 		"message": "Osvježi sve kartice",
 		"description": "Refresh all tabs"
 	},
+	"actionReloadFrame": {
+		"message": "Ponovno učitaj okvir",
+		"description": "Reload only the frame (iframe) where the gesture was performed"
+	},
 	"actionStopLoading": {
 		"message": "Zaustavi učitavanje",
 		"description": "Stop loading"
@@ -790,6 +810,10 @@
 	"actionOpenExtensions": {
 		"message": "Otvori proširenja",
 		"description": "Open extensions page"
+	},
+	"actionOpenOptions": {
+		"message": "Otvori postavke za FlowMouse",
+		"description": "Open the FlowMouse settings page"
 	},
 	"actionSaveAsMhtml": {
 		"message": "Spremi kao MHTML",
@@ -926,6 +950,14 @@
 	"gestureRecorderBanned": {
 		"message": "Gesta %pattern% već postoji",
 		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"gestureRecorderAny": {
+		"message": "Dodaj gestu za neprepoznate uzorke",
+		"description": "Button in the gesture recorder to select the * fallback that matches any unmatched gesture"
+	},
+	"fallbackGestureTip": {
+		"message": "Pokreće se kada nacrtani trag ne odgovara nijednoj drugoj gesti",
+		"description": "Tooltip explaining what the * fallback gesture does"
 	},
 	"rightButton": {
 		"message": "Desna tipka miša",
@@ -1192,60 +1224,56 @@
 		"description": "No action"
 	},
 	"dragActionSearch": {
-		"message": "🔍 Tražilica",
+		"message": "Pretraži",
 		"description": "Search action"
 	},
 	"dragActionCopy": {
-		"message": "📋 Kopiraj",
+		"message": "Kopiraj",
 		"description": "Copy action"
 	},
-	"dragActionOpenTab": {
-		"message": "📑 Otvori u novoj kartici",
-		"description": "Open in new tab"
-	},
 	"dragActionOpenTabLink": {
-		"message": "🔗 Otvori link",
+		"message": "Otvori link",
 		"description": "Open link in new tab"
 	},
 	"dragActionOpenTabImage": {
-		"message": "🖼️ Otvori sliku",
+		"message": "Otvori sliku",
 		"description": "Open image in new tab"
 	},
+	"dragActionTryOpenLink": {
+		"message": "Pokušaj otvoriti link",
+		"description": "Open the image's link in new tab, if any"
+	},
 	"dragActionCopyLink": {
-		"message": "📋 Kopiraj link",
+		"message": "Kopiraj link",
 		"description": "Copy link"
 	},
 	"dragActionCopyLinkText": {
-		"message": "📋 Kopiraj tekst linka",
+		"message": "Kopiraj tekst linka",
 		"description": "Copy link text"
 	},
 	"dragActionCopyLinkAndText": {
-		"message": "📋 Kopiraj tekst i vezu",
+		"message": "Kopiraj tekst i vezu",
 		"description": "Copy link text and URL"
 	},
+	"dragActionBookmarkLink": {
+		"message": "Dodaj poveznicu u oznake",
+		"description": "Add dragged link to bookmarks"
+	},
 	"dragActionSaveImage": {
-		"message": "💾 Spremi sliku",
+		"message": "Spremi sliku",
 		"description": "Save image"
 	},
 	"dragActionCopyImage": {
-		"message": "🖼️ Kopiraj sliku",
+		"message": "Kopiraj sliku",
 		"description": "Copy image"
 	},
 	"dragActionCopyImageUrl": {
-		"message": "📋 Kopiraj URL slike",
+		"message": "Kopiraj URL slike",
 		"description": "Copy image URL"
 	},
 	"dragActionImageSearch": {
-		"message": "🔍 Pretraga slika",
+		"message": "Pretraga slika",
 		"description": "Image search"
-	},
-	"dragActionCustomSearch": {
-		"message": "🔍 Prilagođena pretraga",
-		"description": "Custom search"
-	},
-	"dragActionSendCustomEvent": {
-		"message": "Pošalji prilagođeni događaj",
-		"description": "Send custom DOM event on drag gesture"
 	},
 	"reducedMotionWarning": {
 		"message": "%OS% sistemska animacija je onemogućena, animacija pomicanja možda neće raditi ispravno. Možete omogućiti animaciju u postavkama sustava %OS%.",
@@ -1511,10 +1539,6 @@
 		"message": "Koristite <span class=\"text-highlight\">Lijevu tipku miša</span> za povlačenje",
 		"description": "Tutorial drag wrong button error"
 	},
-	"tutorialRefreshTip": {
-		"message": "Savjet: Kartice otvorene prije instalacije potrebno je <span class=\"text-highlight\">osvježiti</span> da biste koristili FlowMouse",
-		"description": "Tip about refreshing tabs"
-	},
 	"permissionBookmarksTitle": {
 		"message": "Upravljanje oznakama",
 		"description": "Permission popup title for bookmarks"
@@ -1595,9 +1619,9 @@
 		"message": "Spremanje slike nije uspjelo: Vrijeme učitavanja je isteklo",
 		"description": "Toast message when image loading times out"
 	},
-	"saveImageSubdirPlaceholder": {
-		"message": "Podmapa (neobavezno)",
-		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	"saveImageSubdirLabel": {
+		"message": "Podmapa",
+		"description": "Label for the optional subdirectory input in save image config"
 	},
 	"buttonOkay": {
 		"message": "U redu",
@@ -1635,6 +1659,18 @@
 		"message": "Alati",
 		"description": "Action category: utilities"
 	},
+	"actionCategoryText": {
+		"message": "Tekst",
+		"description": "Action category: text"
+	},
+	"actionCategoryLink": {
+		"message": "Poveznica",
+		"description": "Action category: link"
+	},
+	"actionCategoryImage": {
+		"message": "Slika",
+		"description": "Action category: image"
+	},
 	"noResults": {
 		"message": "Nema rezultata",
 		"description": "No search results found"
@@ -1650,6 +1686,14 @@
 	"enableWheelGesturesDesc": {
 		"message": "Brzo izvršavajte razne radnje pomoću kotačića miša",
 		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelThreshold": {
+		"message": "Udaljenost okidanja kotačića",
+		"description": "Label for the wheel gesture scroll distance threshold"
+	},
+	"wheelThresholdDesc": {
+		"message": "Pomicanje kotačića miša mora dosegnuti ovu udaljenost da bi se više puta pokrenule geste kotačićem",
+		"description": "Description for the wheel gesture scroll distance threshold"
 	},
 	"wheelGesture_scrollUpHoldingRight": {
 		"message": "Pomaknite se gore dok držite desnu tipku",
@@ -1758,6 +1802,10 @@
 	"emptyChainSteps": {
 		"message": "Nisu dodani koraci. Kliknite \"Dodaj korak\" za početak.",
 		"description": "Empty chain steps message in expanded body"
+	},
+	"chainStopOnSuccess": {
+		"message": "Prekini lanac ako je korak uspješan",
+		"description": "Checkbox: skip remaining command-chain steps after the first successful action"
 	},
 	"emptyChainStepsShort": {
 		"message": "Nisu dodani koraci",
@@ -1898,6 +1946,10 @@
 	"actionViewPageSource": {
 		"message": "Prikaži izvor stranice",
 		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionViewFrameSource": {
+		"message": "Prikaži izvorni kod okvira",
+		"description": "Open the source code of the frame (iframe) where the gesture was performed in a new tab"
 	},
 	"actionPauseGesture": {
 		"message": "Pauza gesti do osvježavanja",
@@ -2118,6 +2170,14 @@
 	"ctxMenuScrollToBottom": {
 		"message": "Pomakni na dno",
 		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuWheelNav": {
+		"message": "Brza navigacija kotačićem",
+		"description": "Checkbox: navigate a wheel-gesture menu with the wheel while holding the right button"
+	},
+	"ctxMenuWheelNavTooltip": {
+		"message": "Dok držite tipku miša, pomičite kotačić za brzi odabir stavki izbornika.",
+		"description": "Tooltip explaining quick wheel navigation for wheel-gesture menus"
 	},
 	"ctxMenuTimeDisplay": {
 		"message": "Prikaži vrijeme",
