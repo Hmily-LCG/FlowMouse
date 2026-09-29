@@ -2,7 +2,7 @@ import { settingsStore } from '../settings-store.js';
 import { LitElement, html, css, unsafeHTML } from '../lib/lit-all.min.js';
 import { commonStyles, optionStyles } from './shared-styles.js';
 import { icon } from '../icons.js';
-import { tooltip } from '../tooltip.js';
+import { tooltip } from '../directives/tooltip.js';
 
 export function getMenuLabel(menuId) {
 	const i18n = window.i18n;
@@ -21,6 +21,7 @@ class MenuPanel extends LitElement {
 
 	static properties = {
 		selectedMenuId: { type: String },
+		dragType: { type: String, attribute: 'drag-type' },
 	};
 
 	static styles = [
@@ -198,6 +199,7 @@ class MenuPanel extends LitElement {
 	constructor() {
 		super();
 		this.selectedMenuId = '';
+		this.dragType = '';
 		this._dragState = null;
 		this._bootstrapped = false;
 		this._onCatalogChanged = () => this.requestUpdate();
@@ -206,6 +208,18 @@ class MenuPanel extends LitElement {
 
 	get customMenus() {
 		return settingsStore.current.customMenus || {};
+	}
+
+	get currentTypeMenus() {
+		const menus = this.customMenus;
+		const target = this.dragType;
+		const result = {};
+		for (const [id, menu] of Object.entries(menus)) {
+			if ((menu.type || '') === target) {
+				result[id] = menu;
+			}
+		}
+		return result;
 	}
 
 	connectedCallback() {
@@ -231,9 +245,9 @@ class MenuPanel extends LitElement {
 	}
 
 	render() {
-		const entries = Object.entries(this.customMenus);
+		const entries = Object.entries(this.currentTypeMenus);
 		const activeId = this.#resolveActiveId();
-		const activeMenu = activeId ? this.customMenus[activeId] : null;
+		const activeMenu = activeId ? this.currentTypeMenus[activeId] : null;
 
 		if (!entries.length || !activeMenu) {
 			return html``;
@@ -312,7 +326,7 @@ class MenuPanel extends LitElement {
 				` : items.map((item, idx) => this.#renderItem(activeId, item, idx))}
 			</div>
 			<div class="add-buttons">
-				<button class="btn btn-ghost" @click=${() => this.#addItem(activeId)}>
+				<button class="btn btn-primary" @click=${() => this.#addItem(activeId)}>
 					${unsafeHTML(icon('plus', { size: 13, strokeWidth: 2.5 }))}
 					<span>${i18n.getMessage('addMenuItem')}</span>
 				</button>
@@ -360,6 +374,7 @@ class MenuPanel extends LitElement {
 						compact
 						allow-custom-name
 						context="menu-item"
+						drag-type=${this.dragType}
 						.value=${item.action || 'none'}
 						.config=${item}
 						.gestureLabel=${label}
@@ -382,7 +397,7 @@ class MenuPanel extends LitElement {
 
 
 	#resolveActiveId() {
-		const menus = this.customMenus;
+		const menus = this.currentTypeMenus;
 		const ids = Object.keys(menus);
 		if (!ids.length) return '';
 		if (this.selectedMenuId && menus[this.selectedMenuId]) {
@@ -392,7 +407,7 @@ class MenuPanel extends LitElement {
 	}
 
 	#ensureActiveMenu() {
-		const menus = this.customMenus;
+		const menus = this.currentTypeMenus;
 		if (this.selectedMenuId && menus[this.selectedMenuId]) return;
 
 		const ids = Object.keys(menus);
@@ -411,9 +426,9 @@ class MenuPanel extends LitElement {
 	#addMenu() {
 		const id = this.#generateId();
 		const menus = { ...this.customMenus };
-		const existingCount = Object.keys(menus).length;
+		const existingCount = Object.keys(this.currentTypeMenus).length;
 		const defaultName = `${window.i18n.getMessage('menuNamePlaceholder')} ${existingCount + 1}`;
-		menus[id] = { name: defaultName, items: [] };
+		menus[id] = { name: defaultName, type: this.dragType, items: [] };
 		this.#applyMenus(menus, id);
 	}
 
@@ -441,11 +456,12 @@ class MenuPanel extends LitElement {
 		const menus = { ...this.customMenus };
 		delete menus[id];
 
-		let nextId = Object.keys(menus)[0] || '';
+		const remainingInType = Object.keys(this.currentTypeMenus).filter(k => k !== id);
+		let nextId = remainingInType[0] || '';
 		if (!nextId) {
 			nextId = this.#generateIdFrom(menus);
 			const defaultName = `${i18n.getMessage('menuNamePlaceholder')} 1`;
-			menus[nextId] = { name: defaultName, items: [] };
+			menus[nextId] = { name: defaultName, type: this.dragType, items: [] };
 		}
 		this.#applyMenus(menus, nextId);
 	}

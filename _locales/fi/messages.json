@@ -203,6 +203,18 @@
 		"message": "Elekehotteet",
 		"description": "Show suggested gestures at bottom of screen"
 	},
+	"userScale": {
+		"message": "Mukautettu käyttöliittymän skaalaus",
+		"description": "UI scaling setting for FlowMouse's own interface"
+	},
+	"userScaleDesc": {
+		"message": "Skaalaa FlowMouse-käyttöliittymäelementtejä, kuten toimintovihjeitä ja HUD:ia",
+		"description": "Description for the UI scaling setting"
+	},
+	"scale": {
+		"message": "Skaalaus",
+		"description": "Label for the UI scale slider"
+	},
 	"customCss": {
 		"message": "Mukautettu CSS",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -311,11 +323,11 @@
 		"message": "Raahaustoiminnot",
 		"description": "Drag features section"
 	},
-	"textDragSearch": {
+	"textDrag": {
 		"message": "Tekstin raahaus",
 		"description": "Text drag"
 	},
-	"textDragSearchDesc": {
+	"textDragDesc": {
 		"message": "Vedä valittua tekstiä hakeaksesi",
 		"description": "Drag selected text to search"
 	},
@@ -332,7 +344,7 @@
 		"description": "Option to suppress drag gesture when dropping onto an input field or editable area"
 	},
 	"dragDropOnInputDesc": {
-		"message": "Älä laukaise eletteä, kun pudotetaan syöttökenttiin tai muokattaville alueille",
+		"message": "Älä laukaise elettä, kun pudotetaan syöttökenttiin tai muokattaville alueille",
 		"description": "Description for drag drop on input option"
 	},
 	"searchEngine": {
@@ -575,6 +587,10 @@
 		"message": "Oikea sitten vasemmalle",
 		"description": "Gesture description for →←"
 	},
+	"gestureDesc_Any": {
+		"message": "Mikä tahansa",
+		"description": "Description for the * fallback gesture that matches any unmatched pattern"
+	},
 	"actionNone": {
 		"message": "Ei mitään",
 		"description": "No action"
@@ -731,6 +747,10 @@
 		"message": "Päivitä kaikki välilehdet",
 		"description": "Refresh all tabs"
 	},
+	"actionReloadFrame": {
+		"message": "Lataa kehys uudelleen",
+		"description": "Reload only the frame (iframe) where the gesture was performed"
+	},
 	"actionStopLoading": {
 		"message": "Pysäytä lataus",
 		"description": "Stop loading"
@@ -790,6 +810,10 @@
 	"actionOpenExtensions": {
 		"message": "Avaa laajennukset",
 		"description": "Open extensions page"
+	},
+	"actionOpenOptions": {
+		"message": "Avaa FlowMouse-asetukset",
+		"description": "Open the FlowMouse settings page"
 	},
 	"actionSaveAsMhtml": {
 		"message": "Tallenna MHTML-muodossa",
@@ -926,6 +950,14 @@
 	"gestureRecorderBanned": {
 		"message": "Ele %pattern% on jo olemassa",
 		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"gestureRecorderAny": {
+		"message": "Lisää jokeriele",
+		"description": "Button in the gesture recorder to select the * fallback that matches any unmatched gesture"
+	},
+	"fallbackGestureTip": {
+		"message": "Käynnistyy, kun piirretty jälki ei vastaa mitään muuta elettä",
+		"description": "Tooltip explaining what the * fallback gesture does"
 	},
 	"rightButton": {
 		"message": "Hiiren oikea painike",
@@ -1192,60 +1224,56 @@
 		"description": "No action"
 	},
 	"dragActionSearch": {
-		"message": "🔍 Hakukone",
+		"message": "Haku",
 		"description": "Search action"
 	},
 	"dragActionCopy": {
-		"message": "📋 Kopioi",
+		"message": "Kopioi",
 		"description": "Copy action"
 	},
-	"dragActionOpenTab": {
-		"message": "📑 Avaa uudessa välilehdessä",
-		"description": "Open in new tab"
-	},
 	"dragActionOpenTabLink": {
-		"message": "🔗 Avaa linkki",
+		"message": "Avaa linkki",
 		"description": "Open link in new tab"
 	},
 	"dragActionOpenTabImage": {
-		"message": "🖼️ Avaa kuva",
+		"message": "Avaa kuva",
 		"description": "Open image in new tab"
 	},
+	"dragActionTryOpenLink": {
+		"message": "Yritä avata linkki",
+		"description": "Open the image's link in new tab, if any"
+	},
 	"dragActionCopyLink": {
-		"message": "📋 Kopioi linkki",
+		"message": "Kopioi linkki",
 		"description": "Copy link"
 	},
 	"dragActionCopyLinkText": {
-		"message": "📋 Kopioi linkin teksti",
+		"message": "Kopioi linkin teksti",
 		"description": "Copy link text"
 	},
 	"dragActionCopyLinkAndText": {
-		"message": "📋 Kopioi teksti ja linkki",
+		"message": "Kopioi teksti ja linkki",
 		"description": "Copy link text and URL"
 	},
+	"dragActionBookmarkLink": {
+		"message": "Lisää linkki kirjanmerkkeihin",
+		"description": "Add dragged link to bookmarks"
+	},
 	"dragActionSaveImage": {
-		"message": "💾 Tallenna kuva",
+		"message": "Tallenna kuva",
 		"description": "Save image"
 	},
 	"dragActionCopyImage": {
-		"message": "🖼️ Kopioi kuva",
+		"message": "Kopioi kuva",
 		"description": "Copy image"
 	},
 	"dragActionCopyImageUrl": {
-		"message": "📋 Kopioi kuvan URL",
+		"message": "Kopioi kuvan URL",
 		"description": "Copy image URL"
 	},
 	"dragActionImageSearch": {
-		"message": "🔍 Kuvahaku",
+		"message": "Kuvahaku",
 		"description": "Image search"
-	},
-	"dragActionCustomSearch": {
-		"message": "🔍 Mukautettu haku",
-		"description": "Custom search"
-	},
-	"dragActionSendCustomEvent": {
-		"message": "Lähetä mukautettu tapahtuma",
-		"description": "Send custom DOM event on drag gesture"
 	},
 	"reducedMotionWarning": {
 		"message": "%OS%-järjestelmän animaatiot on poistettu käytöstä, vieritysanimaatio ei ehkä toimi oikein. Voit ottaa animaatiot käyttöön %OS%:n järjestelmäasetuksista.",
@@ -1511,10 +1539,6 @@
 		"message": "Käytä <span class=\"text-highlight\">hiiren vasenta painiketta</span> vetämiseen",
 		"description": "Tutorial drag wrong button error"
 	},
-	"tutorialRefreshTip": {
-		"message": "Vihje: Välilehdet, jotka on avattu ennen asennusta, on <span class=\"text-highlight\">päivitettävä</span> FlowMousen käyttämiseksi",
-		"description": "Tip about refreshing tabs"
-	},
 	"permissionBookmarksTitle": {
 		"message": "Hallitse kirjanmerkkejä",
 		"description": "Permission popup title for bookmarks"
@@ -1595,9 +1619,9 @@
 		"message": "Kuvan tallennus epäonnistui: Latauksen aikakatkaisu",
 		"description": "Toast message when image loading times out"
 	},
-	"saveImageSubdirPlaceholder": {
-		"message": "Alikansio (valinnainen)",
-		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	"saveImageSubdirLabel": {
+		"message": "Alikansio",
+		"description": "Label for the optional subdirectory input in save image config"
 	},
 	"buttonOkay": {
 		"message": "OK",
@@ -1635,6 +1659,18 @@
 		"message": "Työkalut",
 		"description": "Action category: utilities"
 	},
+	"actionCategoryText": {
+		"message": "Teksti",
+		"description": "Action category: text"
+	},
+	"actionCategoryLink": {
+		"message": "Linkki",
+		"description": "Action category: link"
+	},
+	"actionCategoryImage": {
+		"message": "Kuva",
+		"description": "Action category: image"
+	},
 	"noResults": {
 		"message": "Ei tuloksia",
 		"description": "No search results found"
@@ -1650,6 +1686,14 @@
 	"enableWheelGesturesDesc": {
 		"message": "Suorita eri toimintoja nopeasti hiiren rullalla",
 		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelThreshold": {
+		"message": "Rullan laukaisuetäisyys",
+		"description": "Label for the wheel gesture scroll distance threshold"
+	},
+	"wheelThresholdDesc": {
+		"message": "Hiiren rullan vierityksen on saavutettava tämä etäisyys laukaistakseen rullan eleitä toistuvasti",
+		"description": "Description for the wheel gesture scroll distance threshold"
 	},
 	"wheelGesture_scrollUpHoldingRight": {
 		"message": "Vieritä ylös pitämällä oikeata painiketta painettuna",
@@ -1758,6 +1802,10 @@
 	"emptyChainSteps": {
 		"message": "Vaiheita ei ole lisätty. Aloita napsauttamalla \"Lisää vaihe\".",
 		"description": "Empty chain steps message in expanded body"
+	},
+	"chainStopOnSuccess": {
+		"message": "Keskeytä ketju, kun vaihe onnistuu",
+		"description": "Checkbox: skip remaining command-chain steps after the first successful action"
 	},
 	"emptyChainStepsShort": {
 		"message": "Ei lisättyjä vaiheita",
@@ -1898,6 +1946,10 @@
 	"actionViewPageSource": {
 		"message": "Näytä sivun lähdekoodi",
 		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionViewFrameSource": {
+		"message": "Näytä kehyksen lähdekoodi",
+		"description": "Open the source code of the frame (iframe) where the gesture was performed in a new tab"
 	},
 	"actionPauseGesture": {
 		"message": "Tauota eleet päivitykseen asti",
@@ -2118,6 +2170,14 @@
 	"ctxMenuScrollToBottom": {
 		"message": "Vieritä alas",
 		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuWheelNav": {
+		"message": "Nopea rullanavigointi",
+		"description": "Checkbox: navigate a wheel-gesture menu with the wheel while holding the right button"
+	},
+	"ctxMenuWheelNavTooltip": {
+		"message": "Pidä hiiren painiketta painettuna ja vieritä rullaa valitaksesi valikon kohteita nopeasti.",
+		"description": "Tooltip explaining quick wheel navigation for wheel-gesture menus"
 	},
 	"ctxMenuTimeDisplay": {
 		"message": "Näytä aika",

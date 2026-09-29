@@ -203,6 +203,18 @@
 		"message": "Tipy pre gestá",
 		"description": "Show suggested gestures at bottom of screen"
 	},
+	"userScale": {
+		"message": "Vlastná mierka rozhrania",
+		"description": "UI scaling setting for FlowMouse's own interface"
+	},
+	"userScaleDesc": {
+		"message": "Zmena mierky prvkov rozhrania FlowMouse, ako sú nápovedy akcií a HUD",
+		"description": "Description for the UI scaling setting"
+	},
+	"scale": {
+		"message": "Mierka",
+		"description": "Label for the UI scale slider"
+	},
 	"customCss": {
 		"message": "Vlastné CSS",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -311,11 +323,11 @@
 		"message": "Funkcie ťahania",
 		"description": "Drag features section"
 	},
-	"textDragSearch": {
+	"textDrag": {
 		"message": "Ťahanie textu",
 		"description": "Text drag"
 	},
-	"textDragSearchDesc": {
+	"textDragDesc": {
 		"message": "Potiahnite vybraný text pre vyhľadávanie",
 		"description": "Drag selected text to search"
 	},
@@ -575,6 +587,10 @@
 		"message": "Vpravo potom Vľavo",
 		"description": "Gesture description for →←"
 	},
+	"gestureDesc_Any": {
+		"message": "Akékoľvek",
+		"description": "Description for the * fallback gesture that matches any unmatched pattern"
+	},
 	"actionNone": {
 		"message": "Žiadna",
 		"description": "No action"
@@ -731,6 +747,10 @@
 		"message": "Obnoviť všetky karty",
 		"description": "Refresh all tabs"
 	},
+	"actionReloadFrame": {
+		"message": "Znova načítať rámec",
+		"description": "Reload only the frame (iframe) where the gesture was performed"
+	},
 	"actionStopLoading": {
 		"message": "Zastaviť načítanie",
 		"description": "Stop loading"
@@ -790,6 +810,10 @@
 	"actionOpenExtensions": {
 		"message": "Otvoriť rozšírenia",
 		"description": "Open extensions page"
+	},
+	"actionOpenOptions": {
+		"message": "Otvoriť nastavenia FlowMouse",
+		"description": "Open the FlowMouse settings page"
 	},
 	"actionSaveAsMhtml": {
 		"message": "Uložiť ako MHTML",
@@ -926,6 +950,14 @@
 	"gestureRecorderBanned": {
 		"message": "Gesto %pattern% už existuje",
 		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"gestureRecorderAny": {
+		"message": "Pridať zástupné gesto",
+		"description": "Button in the gesture recorder to select the * fallback that matches any unmatched gesture"
+	},
+	"fallbackGestureTip": {
+		"message": "Spustí sa, keď sa nakreslená stopa nezhoduje so žiadnym iným gestom",
+		"description": "Tooltip explaining what the * fallback gesture does"
 	},
 	"rightButton": {
 		"message": "Pravé tlačidlo myši",
@@ -1192,60 +1224,56 @@
 		"description": "No action"
 	},
 	"dragActionSearch": {
-		"message": "🔍 Vyhľadávač",
+		"message": "Hľadať",
 		"description": "Search action"
 	},
 	"dragActionCopy": {
-		"message": "📋 Kopírovať",
+		"message": "Kopírovať",
 		"description": "Copy action"
 	},
-	"dragActionOpenTab": {
-		"message": "📑 Otvoriť na novej karte",
-		"description": "Open in new tab"
-	},
 	"dragActionOpenTabLink": {
-		"message": "🔗 Otvoriť odkaz",
+		"message": "Otvoriť odkaz",
 		"description": "Open link in new tab"
 	},
 	"dragActionOpenTabImage": {
-		"message": "🖼️ Otvoriť obrázok",
+		"message": "Otvoriť obrázok",
 		"description": "Open image in new tab"
 	},
+	"dragActionTryOpenLink": {
+		"message": "Skúsiť otvoriť odkaz",
+		"description": "Open the image's link in new tab, if any"
+	},
 	"dragActionCopyLink": {
-		"message": "📋 Kopírovať odkaz",
+		"message": "Kopírovať odkaz",
 		"description": "Copy link"
 	},
 	"dragActionCopyLinkText": {
-		"message": "📋 Kopírovať text odkazu",
+		"message": "Kopírovať text odkazu",
 		"description": "Copy link text"
 	},
 	"dragActionCopyLinkAndText": {
-		"message": "📋 Kopírovať text a odkaz",
+		"message": "Kopírovať text a odkaz",
 		"description": "Copy link text and URL"
 	},
+	"dragActionBookmarkLink": {
+		"message": "Pridať odkaz do záložiek",
+		"description": "Add dragged link to bookmarks"
+	},
 	"dragActionSaveImage": {
-		"message": "💾 Uložiť obrázok",
+		"message": "Uložiť obrázok",
 		"description": "Save image"
 	},
 	"dragActionCopyImage": {
-		"message": "🖼️ Kopírovať obrázok",
+		"message": "Kopírovať obrázok",
 		"description": "Copy image"
 	},
 	"dragActionCopyImageUrl": {
-		"message": "📋 Kopírovať URL obrázka",
+		"message": "Kopírovať URL obrázka",
 		"description": "Copy image URL"
 	},
 	"dragActionImageSearch": {
-		"message": "🔍 Vyhľadať obrázok",
+		"message": "Vyhľadať obrázok",
 		"description": "Image search"
-	},
-	"dragActionCustomSearch": {
-		"message": "🔍 Vlastné vyhľadávanie",
-		"description": "Custom search"
-	},
-	"dragActionSendCustomEvent": {
-		"message": "Odoslať vlastnú udalosť",
-		"description": "Send custom DOM event on drag gesture"
 	},
 	"reducedMotionWarning": {
 		"message": "%OS% systémová animácia je vypnutá, animácia posúvania nemusí fungovať správne. Môžete povoliť animáciu v nastaveniach systému %OS%.",
@@ -1511,10 +1539,6 @@
 		"message": "Použite <span class=\"text-highlight\">Ľavé tlačidlo myši</span> na ťahanie",
 		"description": "Tutorial drag wrong button error"
 	},
-	"tutorialRefreshTip": {
-		"message": "Tip: Karty otvorené pred inštaláciou je potrebné <span class=\"text-highlight\">obnoviť</span> pre použitie FlowMouse",
-		"description": "Tip about refreshing tabs"
-	},
 	"permissionBookmarksTitle": {
 		"message": "Spravovať záložky",
 		"description": "Permission popup title for bookmarks"
@@ -1595,9 +1619,9 @@
 		"message": "Uloženie obrázka zlyhalo: Časový limit načítania vypršal",
 		"description": "Toast message when image loading times out"
 	},
-	"saveImageSubdirPlaceholder": {
-		"message": "Podadresár (voliteľné)",
-		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	"saveImageSubdirLabel": {
+		"message": "Podadresár",
+		"description": "Label for the optional subdirectory input in save image config"
 	},
 	"buttonOkay": {
 		"message": "OK",
@@ -1635,6 +1659,18 @@
 		"message": "Nástroje",
 		"description": "Action category: utilities"
 	},
+	"actionCategoryText": {
+		"message": "Text",
+		"description": "Action category: text"
+	},
+	"actionCategoryLink": {
+		"message": "Odkaz",
+		"description": "Action category: link"
+	},
+	"actionCategoryImage": {
+		"message": "Obrázok",
+		"description": "Action category: image"
+	},
 	"noResults": {
 		"message": "Žiadne výsledky",
 		"description": "No search results found"
@@ -1650,6 +1686,14 @@
 	"enableWheelGesturesDesc": {
 		"message": "Vykonávajte rôzne akcie rýchlo pomocou kolieska myši",
 		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelThreshold": {
+		"message": "Vzdialenosť na spustenie kolieskom",
+		"description": "Label for the wheel gesture scroll distance threshold"
+	},
+	"wheelThresholdDesc": {
+		"message": "Posúvanie kolieskom myši musí dosiahnuť túto vzdialenosť, aby sa opakovane spúšťali gestá kolieskom",
+		"description": "Description for the wheel gesture scroll distance threshold"
 	},
 	"wheelGesture_scrollUpHoldingRight": {
 		"message": "Posunúť nahor pri podržaní pravého tlačidla",
@@ -1758,6 +1802,10 @@
 	"emptyChainSteps": {
 		"message": "Neboli pridané žiadne kroky. Začnite kliknutím na tlačidlo „Pridať krok“.",
 		"description": "Empty chain steps message in expanded body"
+	},
+	"chainStopOnSuccess": {
+		"message": "Prerušiť reťazec pri úspešnom kroku",
+		"description": "Checkbox: skip remaining command-chain steps after the first successful action"
 	},
 	"emptyChainStepsShort": {
 		"message": "Žiadne pridané kroky",
@@ -1898,6 +1946,10 @@
 	"actionViewPageSource": {
 		"message": "Zobraziť zdrojový kód stránky",
 		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionViewFrameSource": {
+		"message": "Zobraziť zdrojový kód rámca",
+		"description": "Open the source code of the frame (iframe) where the gesture was performed in a new tab"
 	},
 	"actionPauseGesture": {
 		"message": "Pozastaviť gestá do obnovenia",
@@ -2118,6 +2170,14 @@
 	"ctxMenuScrollToBottom": {
 		"message": "Posunúť nadol",
 		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuWheelNav": {
+		"message": "Rýchla navigácia kolieskom",
+		"description": "Checkbox: navigate a wheel-gesture menu with the wheel while holding the right button"
+	},
+	"ctxMenuWheelNavTooltip": {
+		"message": "Počas držania tlačidla myši posúvajte kolieskom, aby ste rýchlo vybrali položky ponuky.",
+		"description": "Tooltip explaining quick wheel navigation for wheel-gesture menus"
 	},
 	"ctxMenuTimeDisplay": {
 		"message": "Zobraziť čas",

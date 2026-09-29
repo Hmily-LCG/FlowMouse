@@ -203,6 +203,18 @@
 		"message": "Prompt Gestur",
 		"description": "Show suggested gestures at bottom of screen"
 	},
+	"userScale": {
+		"message": "Skala Antarmuka Kustom",
+		"description": "UI scaling setting for FlowMouse's own interface"
+	},
+	"userScaleDesc": {
+		"message": "Menyesuaikan skala elemen antarmuka FlowMouse seperti petunjuk operasi dan HUD",
+		"description": "Description for the UI scaling setting"
+	},
+	"scale": {
+		"message": "Skala",
+		"description": "Label for the UI scale slider"
+	},
 	"customCss": {
 		"message": "CSS Kustom",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -311,11 +323,11 @@
 		"message": "Fitur Seret",
 		"description": "Drag features section"
 	},
-	"textDragSearch": {
+	"textDrag": {
 		"message": "Seret Teks",
 		"description": "Text drag"
 	},
-	"textDragSearchDesc": {
+	"textDragDesc": {
 		"message": "Seret teks yang dipilih untuk mencari",
 		"description": "Drag selected text to search"
 	},
@@ -575,6 +587,10 @@
 		"message": "Kanan lalu Kiri",
 		"description": "Gesture description for →←"
 	},
+	"gestureDesc_Any": {
+		"message": "Apa pun",
+		"description": "Description for the * fallback gesture that matches any unmatched pattern"
+	},
 	"actionNone": {
 		"message": "Tidak ada",
 		"description": "No action"
@@ -731,6 +747,10 @@
 		"message": "Segarkan Semua Tab",
 		"description": "Refresh all tabs"
 	},
+	"actionReloadFrame": {
+		"message": "Muat ulang bingkai",
+		"description": "Reload only the frame (iframe) where the gesture was performed"
+	},
 	"actionStopLoading": {
 		"message": "Hentikan Pemuatan",
 		"description": "Stop loading"
@@ -790,6 +810,10 @@
 	"actionOpenExtensions": {
 		"message": "Buka Ekstensi",
 		"description": "Open extensions page"
+	},
+	"actionOpenOptions": {
+		"message": "Buka Pengaturan FlowMouse",
+		"description": "Open the FlowMouse settings page"
 	},
 	"actionSaveAsMhtml": {
 		"message": "Simpan sebagai MHTML",
@@ -926,6 +950,14 @@
 	"gestureRecorderBanned": {
 		"message": "Gerakan %pattern% sudah ada",
 		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"gestureRecorderAny": {
+		"message": "Tambahkan gestur untuk pola tak dikenali",
+		"description": "Button in the gesture recorder to select the * fallback that matches any unmatched gesture"
+	},
+	"fallbackGestureTip": {
+		"message": "Terpicu ketika jejak yang digambar tidak cocok dengan gestur lainnya",
+		"description": "Tooltip explaining what the * fallback gesture does"
 	},
 	"rightButton": {
 		"message": "Tombol kanan mouse",
@@ -1192,60 +1224,56 @@
 		"description": "No action"
 	},
 	"dragActionSearch": {
-		"message": "🔍 Mesin Pencari",
+		"message": "Cari",
 		"description": "Search action"
 	},
 	"dragActionCopy": {
-		"message": "📋 Salin",
+		"message": "Salin",
 		"description": "Copy action"
 	},
-	"dragActionOpenTab": {
-		"message": "📑 Buka di Tab Baru",
-		"description": "Open in new tab"
-	},
 	"dragActionOpenTabLink": {
-		"message": "🔗 Buka Tautan",
+		"message": "Buka Tautan",
 		"description": "Open link in new tab"
 	},
 	"dragActionOpenTabImage": {
-		"message": "🖼️ Buka Gambar",
+		"message": "Buka Gambar",
 		"description": "Open image in new tab"
 	},
+	"dragActionTryOpenLink": {
+		"message": "Coba Buka Tautan",
+		"description": "Open the image's link in new tab, if any"
+	},
 	"dragActionCopyLink": {
-		"message": "📋 Salin Tautan",
+		"message": "Salin Tautan",
 		"description": "Copy link"
 	},
 	"dragActionCopyLinkText": {
-		"message": "📋 Salin Teks Tautan",
+		"message": "Salin Teks Tautan",
 		"description": "Copy link text"
 	},
 	"dragActionCopyLinkAndText": {
-		"message": "📋 Salin Teks & Tautan",
+		"message": "Salin Teks & Tautan",
 		"description": "Copy link text and URL"
 	},
+	"dragActionBookmarkLink": {
+		"message": "Tambahkan tautan ke Bookmark",
+		"description": "Add dragged link to bookmarks"
+	},
 	"dragActionSaveImage": {
-		"message": "💾 Simpan Gambar",
+		"message": "Simpan Gambar",
 		"description": "Save image"
 	},
 	"dragActionCopyImage": {
-		"message": "🖼️ Salin Gambar",
+		"message": "Salin Gambar",
 		"description": "Copy image"
 	},
 	"dragActionCopyImageUrl": {
-		"message": "📋 Salin URL Gambar",
+		"message": "Salin URL Gambar",
 		"description": "Copy image URL"
 	},
 	"dragActionImageSearch": {
-		"message": "🔍 Pencarian Gambar",
+		"message": "Pencarian Gambar",
 		"description": "Image search"
-	},
-	"dragActionCustomSearch": {
-		"message": "🔍 Pencarian Kustom",
-		"description": "Custom search"
-	},
-	"dragActionSendCustomEvent": {
-		"message": "Kirim Peristiwa Kustom",
-		"description": "Send custom DOM event on drag gesture"
 	},
 	"reducedMotionWarning": {
 		"message": "Animasi sistem %OS% dinonaktifkan, animasi gulir mungkin tidak berfungsi dengan baik. Anda dapat mengaktifkan animasi di pengaturan sistem %OS%.",
@@ -1511,10 +1539,6 @@
 		"message": "Gunakan <span class=\"text-highlight\">Tombol Kiri Mouse</span> untuk menyeret",
 		"description": "Tutorial drag wrong button error"
 	},
-	"tutorialRefreshTip": {
-		"message": "Tips: Tab yang dibuka sebelum instalasi perlu <span class=\"text-highlight\">disegarkan</span> untuk menggunakan FlowMouse",
-		"description": "Tip about refreshing tabs"
-	},
 	"permissionBookmarksTitle": {
 		"message": "Kelola Bookmark",
 		"description": "Permission popup title for bookmarks"
@@ -1595,9 +1619,9 @@
 		"message": "Gagal menyimpan gambar: Waktu pemuatan habis",
 		"description": "Toast message when image loading times out"
 	},
-	"saveImageSubdirPlaceholder": {
-		"message": "Subdirektori (opsional)",
-		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	"saveImageSubdirLabel": {
+		"message": "Subdirektori",
+		"description": "Label for the optional subdirectory input in save image config"
 	},
 	"buttonOkay": {
 		"message": "Oke",
@@ -1635,6 +1659,18 @@
 		"message": "Alat",
 		"description": "Action category: utilities"
 	},
+	"actionCategoryText": {
+		"message": "Teks",
+		"description": "Action category: text"
+	},
+	"actionCategoryLink": {
+		"message": "Tautan",
+		"description": "Action category: link"
+	},
+	"actionCategoryImage": {
+		"message": "Gambar",
+		"description": "Action category: image"
+	},
 	"noResults": {
 		"message": "Tidak ada hasil",
 		"description": "No search results found"
@@ -1650,6 +1686,14 @@
 	"enableWheelGesturesDesc": {
 		"message": "Lakukan berbagai tindakan dengan cepat menggunakan roda mouse",
 		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelThreshold": {
+		"message": "Jarak Pemicu Roda",
+		"description": "Label for the wheel gesture scroll distance threshold"
+	},
+	"wheelThresholdDesc": {
+		"message": "Pengguliran roda mouse harus mencapai jarak ini untuk memicu gestur roda berulang kali",
+		"description": "Description for the wheel gesture scroll distance threshold"
 	},
 	"wheelGesture_scrollUpHoldingRight": {
 		"message": "Gulir ke atas sambil menahan tombol kanan",
@@ -1758,6 +1802,10 @@
 	"emptyChainSteps": {
 		"message": "Belum ada langkah yang ditambahkan. Klik \"Tambah Langkah\" untuk memulai.",
 		"description": "Empty chain steps message in expanded body"
+	},
+	"chainStopOnSuccess": {
+		"message": "Hentikan rantai jika salah satu langkah berhasil",
+		"description": "Checkbox: skip remaining command-chain steps after the first successful action"
 	},
 	"emptyChainStepsShort": {
 		"message": "Belum ada langkah",
@@ -1898,6 +1946,10 @@
 	"actionViewPageSource": {
 		"message": "Lihat sumber halaman",
 		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionViewFrameSource": {
+		"message": "Lihat sumber bingkai",
+		"description": "Open the source code of the frame (iframe) where the gesture was performed in a new tab"
 	},
 	"actionPauseGesture": {
 		"message": "Jeda Gestur Hingga Muat Ulang",
@@ -2118,6 +2170,14 @@
 	"ctxMenuScrollToBottom": {
 		"message": "Gulir ke bawah",
 		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuWheelNav": {
+		"message": "Navigasi cepat roda mouse",
+		"description": "Checkbox: navigate a wheel-gesture menu with the wheel while holding the right button"
+	},
+	"ctxMenuWheelNavTooltip": {
+		"message": "Sambil menahan tombol mouse, gulir roda untuk memilih item menu dengan cepat.",
+		"description": "Tooltip explaining quick wheel navigation for wheel-gesture menus"
 	},
 	"ctxMenuTimeDisplay": {
 		"message": "Tampilkan waktu",

@@ -203,6 +203,18 @@
 		"message": "जेस्चर प्रॉम्प्ट",
 		"description": "Show suggested gestures at bottom of screen"
 	},
+	"userScale": {
+		"message": "कस्टम UI स्केल",
+		"description": "UI scaling setting for FlowMouse's own interface"
+	},
+	"userScaleDesc": {
+		"message": "एक्शन संकेत और HUD जैसे FlowMouse UI तत्वों का स्केल बदलें",
+		"description": "Description for the UI scaling setting"
+	},
+	"scale": {
+		"message": "स्केल",
+		"description": "Label for the UI scale slider"
+	},
 	"customCss": {
 		"message": "कस्टम CSS",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -311,11 +323,11 @@
 		"message": "ड्रैग सुविधाएँ",
 		"description": "Drag features section"
 	},
-	"textDragSearch": {
+	"textDrag": {
 		"message": "टेक्स्ट ड्रैग",
 		"description": "Text drag"
 	},
-	"textDragSearchDesc": {
+	"textDragDesc": {
 		"message": "खोजने के लिए चयनित टेक्स्ट को ड्रैग करें",
 		"description": "Drag selected text to search"
 	},
@@ -575,6 +587,10 @@
 		"message": "दाएं फिर बाएं",
 		"description": "Gesture description for →←"
 	},
+	"gestureDesc_Any": {
+		"message": "कोई भी",
+		"description": "Description for the * fallback gesture that matches any unmatched pattern"
+	},
 	"actionNone": {
 		"message": "कोई नहीं",
 		"description": "No action"
@@ -731,6 +747,10 @@
 		"message": "सभी टैब रीफ्रेश करें",
 		"description": "Refresh all tabs"
 	},
+	"actionReloadFrame": {
+		"message": "फ़्रेम को फिर से लोड करें",
+		"description": "Reload only the frame (iframe) where the gesture was performed"
+	},
 	"actionStopLoading": {
 		"message": "लोड करना बंद करें",
 		"description": "Stop loading"
@@ -790,6 +810,10 @@
 	"actionOpenExtensions": {
 		"message": "एक्सटेंशन खोलें",
 		"description": "Open extensions page"
+	},
+	"actionOpenOptions": {
+		"message": "FlowMouse सेटिंग्स खोलें",
+		"description": "Open the FlowMouse settings page"
 	},
 	"actionSaveAsMhtml": {
 		"message": "MHTML के रूप में सहेजें",
@@ -926,6 +950,14 @@
 	"gestureRecorderBanned": {
 		"message": "जेस्चर %pattern% पहले से ही मौजूद है",
 		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"gestureRecorderAny": {
+		"message": "बेमेल पैटर्न के लिए जेस्चर जोड़ें",
+		"description": "Button in the gesture recorder to select the * fallback that matches any unmatched gesture"
+	},
+	"fallbackGestureTip": {
+		"message": "खींचा गया ट्रेल किसी अन्य जेस्चर से मेल न खाने पर ट्रिगर होता है",
+		"description": "Tooltip explaining what the * fallback gesture does"
 	},
 	"rightButton": {
 		"message": "माउस का दायां बटन",
@@ -1192,60 +1224,56 @@
 		"description": "No action"
 	},
 	"dragActionSearch": {
-		"message": "🔍 खोज इंजन",
+		"message": "खोजें",
 		"description": "Search action"
 	},
 	"dragActionCopy": {
-		"message": "📋 कॉपी करें",
+		"message": "कॉपी करें",
 		"description": "Copy action"
 	},
-	"dragActionOpenTab": {
-		"message": "📑 नए टैब में खोलें",
-		"description": "Open in new tab"
-	},
 	"dragActionOpenTabLink": {
-		"message": "🔗 लिंक खोलें",
+		"message": "लिंक खोलें",
 		"description": "Open link in new tab"
 	},
 	"dragActionOpenTabImage": {
-		"message": "🖼️ इमेज खोलें",
+		"message": "इमेज खोलें",
 		"description": "Open image in new tab"
 	},
+	"dragActionTryOpenLink": {
+		"message": "लिंक खोलने का प्रयास करें",
+		"description": "Open the image's link in new tab, if any"
+	},
 	"dragActionCopyLink": {
-		"message": "📋 लिंक कॉपी करें",
+		"message": "लिंक कॉपी करें",
 		"description": "Copy link"
 	},
 	"dragActionCopyLinkText": {
-		"message": "📋 लिंक टेक्स्ट कॉपी करें",
+		"message": "लिंक टेक्स्ट कॉपी करें",
 		"description": "Copy link text"
 	},
 	"dragActionCopyLinkAndText": {
-		"message": "📋 टेक्स्ट और लिंक कॉपी करें",
+		"message": "टेक्स्ट और लिंक कॉपी करें",
 		"description": "Copy link text and URL"
 	},
+	"dragActionBookmarkLink": {
+		"message": "लिंक को बुकमार्क में जोड़ें",
+		"description": "Add dragged link to bookmarks"
+	},
 	"dragActionSaveImage": {
-		"message": "💾 इमेज सहेजें",
+		"message": "इमेज सहेजें",
 		"description": "Save image"
 	},
 	"dragActionCopyImage": {
-		"message": "🖼️ इमेज कॉपी करें",
+		"message": "इमेज कॉपी करें",
 		"description": "Copy image"
 	},
 	"dragActionCopyImageUrl": {
-		"message": "📋 इमेज URL कॉपी करें",
+		"message": "इमेज URL कॉपी करें",
 		"description": "Copy image URL"
 	},
 	"dragActionImageSearch": {
-		"message": "🔍 इमेज खोज",
+		"message": "इमेज खोज",
 		"description": "Image search"
-	},
-	"dragActionCustomSearch": {
-		"message": "🔍 कस्टम खोज",
-		"description": "Custom search"
-	},
-	"dragActionSendCustomEvent": {
-		"message": "कस्टम इवेंट भेजें",
-		"description": "Send custom DOM event on drag gesture"
 	},
 	"reducedMotionWarning": {
 		"message": "%OS% सिस्टम एनीमेशन अक्षम है, स्क्रॉल एनीमेशन ठीक से काम नहीं कर सकता है। आप %OS% सिस्टम सेटिंग्स में एनीमेशन सक्षम कर सकते हैं।",
@@ -1511,10 +1539,6 @@
 		"message": "ड्रैग करने के लिए <span class=\"text-highlight\">बायां माउस बटन</span> का उपयोग करें",
 		"description": "Tutorial drag wrong button error"
 	},
-	"tutorialRefreshTip": {
-		"message": "सुझाव: इंस्टॉलेशन से पहले खोले गए टैब को FlowMouse का उपयोग करने के लिए <span class=\"text-highlight\">रीफ्रेश</span> करने की आवश्यकता है",
-		"description": "Tip about refreshing tabs"
-	},
 	"permissionBookmarksTitle": {
 		"message": "बुकमार्क प्रबंधित करें",
 		"description": "Permission popup title for bookmarks"
@@ -1595,9 +1619,9 @@
 		"message": "छवि सहेजना विफल: लोडिंग समय समाप्त",
 		"description": "Toast message when image loading times out"
 	},
-	"saveImageSubdirPlaceholder": {
-		"message": "उपनिर्देशिका (वैकल्पिक)",
-		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	"saveImageSubdirLabel": {
+		"message": "उपनिर्देशिका",
+		"description": "Label for the optional subdirectory input in save image config"
 	},
 	"buttonOkay": {
 		"message": "ठीक",
@@ -1635,6 +1659,18 @@
 		"message": "उपयोगिताएँ",
 		"description": "Action category: utilities"
 	},
+	"actionCategoryText": {
+		"message": "टेक्स्ट",
+		"description": "Action category: text"
+	},
+	"actionCategoryLink": {
+		"message": "लिंक",
+		"description": "Action category: link"
+	},
+	"actionCategoryImage": {
+		"message": "इमेज",
+		"description": "Action category: image"
+	},
 	"noResults": {
 		"message": "कोई परिणाम नहीं",
 		"description": "No search results found"
@@ -1650,6 +1686,14 @@
 	"enableWheelGesturesDesc": {
 		"message": "माउस व्हील का उपयोग करके विभिन्न क्रियाओं को तेज़ी से करें",
 		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelThreshold": {
+		"message": "व्हील ट्रिगर दूरी",
+		"description": "Label for the wheel gesture scroll distance threshold"
+	},
+	"wheelThresholdDesc": {
+		"message": "व्हील जेस्चर को बार-बार ट्रिगर करने के लिए माउस व्हील स्क्रॉलिंग को इस दूरी तक पहुंचना होगा",
+		"description": "Description for the wheel gesture scroll distance threshold"
 	},
 	"wheelGesture_scrollUpHoldingRight": {
 		"message": "दायां बटन दबाए रखते हुए ऊपर स्क्रॉल करें",
@@ -1758,6 +1802,10 @@
 	"emptyChainSteps": {
 		"message": "कोई चरण नहीं जोड़ा गया. शुरू करने के लिए \"चरण जोड़ें\" पर क्लिक करें.",
 		"description": "Empty chain steps message in expanded body"
+	},
+	"chainStopOnSuccess": {
+		"message": "जब कोई चरण सफल हो जाए तो चेन को रोक दें",
+		"description": "Checkbox: skip remaining command-chain steps after the first successful action"
 	},
 	"emptyChainStepsShort": {
 		"message": "कोई चरण नहीं जोड़ा गया",
@@ -1898,6 +1946,10 @@
 	"actionViewPageSource": {
 		"message": "पेज का स्रोत देखें",
 		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionViewFrameSource": {
+		"message": "फ़्रेम का स्रोत देखें",
+		"description": "Open the source code of the frame (iframe) where the gesture was performed in a new tab"
 	},
 	"actionPauseGesture": {
 		"message": "रिफ्रेश होने तक जेस्चर रोकें",
@@ -2118,6 +2170,14 @@
 	"ctxMenuScrollToBottom": {
 		"message": "नीचे स्क्रॉल करें",
 		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuWheelNav": {
+		"message": "त्वरित व्हील नेविगेशन",
+		"description": "Checkbox: navigate a wheel-gesture menu with the wheel while holding the right button"
+	},
+	"ctxMenuWheelNavTooltip": {
+		"message": "माउस बटन दबाए रखते हुए, मेनू आइटम को जल्दी से चुनने के लिए व्हील को स्क्रॉल करें।",
+		"description": "Tooltip explaining quick wheel navigation for wheel-gesture menus"
 	},
 	"ctxMenuTimeDisplay": {
 		"message": "समय दिखाएं",

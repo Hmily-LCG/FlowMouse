@@ -1,7 +1,7 @@
 import { LitElement, html, css, unsafeHTML } from '../lib/lit-all.min.js';
 import { commonStyles, optionStyles } from './shared-styles.js';
 import { icons, icon } from '../icons.js';
-import { tooltip } from '../tooltip.js';
+import { tooltip } from '../directives/tooltip.js';
 
 const WHEEL_GESTURE_KEYS = {
 	'scrollUpHoldingRight': 'wheelGesture_scrollUpHoldingRight',
@@ -128,6 +128,7 @@ class WheelGestureManager extends LitElement {
 					style="display: ${isModified ? 'inline-flex' : 'none'}">${unsafeHTML(icon('rotateCcw', { size: 13, strokeWidth: 2.5 }))}</button>
 				<div class="wheel-gesture-action">
 					<action-select
+						context="wheel"
 						.value=${config.action || 'none'}
 						.config=${config}
 						.gestureLabel=${label}

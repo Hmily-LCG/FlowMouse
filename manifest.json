@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "__MSG_extName__",
-    "version": "2.4.1",
+    "version": "2.5",
     "author": "Hmily[LCG] & Coxxs",
     "description": "__MSG_extDescription__",
     "default_locale": "en",
@@ -11,6 +11,7 @@
         "storage",
         "contextMenus",
         "search",
+        "scripting",
         "browserSettings"
     ],
     "optional_permissions": [

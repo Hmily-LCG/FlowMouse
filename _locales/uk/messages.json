@@ -203,6 +203,18 @@
 		"message": "Підказки жестів",
 		"description": "Show suggested gestures at bottom of screen"
 	},
+	"userScale": {
+		"message": "Користувацький масштаб інтерфейсу",
+		"description": "UI scaling setting for FlowMouse's own interface"
+	},
+	"userScaleDesc": {
+		"message": "Масштабування елементів інтерфейсу FlowMouse, таких як підказки дій та HUD",
+		"description": "Description for the UI scaling setting"
+	},
+	"scale": {
+		"message": "Масштаб",
+		"description": "Label for the UI scale slider"
+	},
 	"customCss": {
 		"message": "Спеціальний CSS",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -311,11 +323,11 @@
 		"message": "Функції перетягування",
 		"description": "Drag features section"
 	},
-	"textDragSearch": {
+	"textDrag": {
 		"message": "Перетягування тексту",
 		"description": "Text drag"
 	},
-	"textDragSearchDesc": {
+	"textDragDesc": {
 		"message": "Перетягніть виділений текст для пошуку",
 		"description": "Drag selected text to search"
 	},
@@ -575,6 +587,10 @@
 		"message": "Вправо і вліво",
 		"description": "Gesture description for →←"
 	},
+	"gestureDesc_Any": {
+		"message": "Будь-який",
+		"description": "Description for the * fallback gesture that matches any unmatched pattern"
+	},
 	"actionNone": {
 		"message": "Немає дії",
 		"description": "No action"
@@ -731,6 +747,10 @@
 		"message": "Оновити всі вкладки",
 		"description": "Refresh all tabs"
 	},
+	"actionReloadFrame": {
+		"message": "Перезавантажити фрейм",
+		"description": "Reload only the frame (iframe) where the gesture was performed"
+	},
 	"actionStopLoading": {
 		"message": "Зупинити завантаження",
 		"description": "Stop loading"
@@ -790,6 +810,10 @@
 	"actionOpenExtensions": {
 		"message": "Відкрити розширення",
 		"description": "Open extensions page"
+	},
+	"actionOpenOptions": {
+		"message": "Відкрити налаштування FlowMouse",
+		"description": "Open the FlowMouse settings page"
 	},
 	"actionSaveAsMhtml": {
 		"message": "Зберегти як MHTML",
@@ -926,6 +950,14 @@
 	"gestureRecorderBanned": {
 		"message": "Жест %pattern% вже існує",
 		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"gestureRecorderAny": {
+		"message": "Додати жест для нерозпізнаних шаблонів",
+		"description": "Button in the gesture recorder to select the * fallback that matches any unmatched gesture"
+	},
+	"fallbackGestureTip": {
+		"message": "Спрацьовує, коли намальований слід не збігається з жодним іншим жестом",
+		"description": "Tooltip explaining what the * fallback gesture does"
 	},
 	"rightButton": {
 		"message": "Права кнопка миші",
@@ -1192,60 +1224,56 @@
 		"description": "No action"
 	},
 	"dragActionSearch": {
-		"message": "🔍 Пошукова система",
+		"message": "Пошук",
 		"description": "Search action"
 	},
 	"dragActionCopy": {
-		"message": "📋 Копіювати",
+		"message": "Копіювати",
 		"description": "Copy action"
 	},
-	"dragActionOpenTab": {
-		"message": "📑 Відкрити в новій вкладці",
-		"description": "Open in new tab"
-	},
 	"dragActionOpenTabLink": {
-		"message": "🔗 Відкрити посилання",
+		"message": "Відкрити посилання",
 		"description": "Open link in new tab"
 	},
 	"dragActionOpenTabImage": {
-		"message": "🖼️ Відкрити зображення",
+		"message": "Відкрити зображення",
 		"description": "Open image in new tab"
 	},
+	"dragActionTryOpenLink": {
+		"message": "Спробувати відкрити посилання",
+		"description": "Open the image's link in new tab, if any"
+	},
 	"dragActionCopyLink": {
-		"message": "📋 Копіювати посилання",
+		"message": "Копіювати посилання",
 		"description": "Copy link"
 	},
 	"dragActionCopyLinkText": {
-		"message": "📋 Копіювати текст посилання",
+		"message": "Копіювати текст посилання",
 		"description": "Copy link text"
 	},
 	"dragActionCopyLinkAndText": {
-		"message": "📋 Копіювати текст і посилання",
+		"message": "Копіювати текст і посилання",
 		"description": "Copy link text and URL"
 	},
+	"dragActionBookmarkLink": {
+		"message": "Додати посилання до закладок",
+		"description": "Add dragged link to bookmarks"
+	},
 	"dragActionSaveImage": {
-		"message": "💾 Зберегти зображення",
+		"message": "Зберегти зображення",
 		"description": "Save image"
 	},
 	"dragActionCopyImage": {
-		"message": "🖼️ Копіювати зображення",
+		"message": "Копіювати зображення",
 		"description": "Copy image"
 	},
 	"dragActionCopyImageUrl": {
-		"message": "📋 Копіювати URL зображення",
+		"message": "Копіювати URL зображення",
 		"description": "Copy image URL"
 	},
 	"dragActionImageSearch": {
-		"message": "🔍 Пошук за зображенням",
+		"message": "Пошук за зображенням",
 		"description": "Image search"
-	},
-	"dragActionCustomSearch": {
-		"message": "🔍 Власний пошук",
-		"description": "Custom search"
-	},
-	"dragActionSendCustomEvent": {
-		"message": "Надіслати спеціальну подію",
-		"description": "Send custom DOM event on drag gesture"
 	},
 	"reducedMotionWarning": {
 		"message": "У системі %OS% вимкнено анімації. Анімація прокрутки може працювати некоректно. Ви можете увімкнути анімації в налаштуваннях системи %OS%.",
@@ -1511,10 +1539,6 @@
 		"message": "Використовуйте <span class=\"text-highlight\">ліву кнопку миші</span> для перетягування",
 		"description": "Tutorial drag wrong button error"
 	},
-	"tutorialRefreshTip": {
-		"message": "Підказка: Вкладки, відкриті до встановлення, потрібно <span class=\"text-highlight\">оновити</span>, щоб використовувати FlowMouse",
-		"description": "Tip about refreshing tabs"
-	},
 	"permissionBookmarksTitle": {
 		"message": "Керування закладками",
 		"description": "Permission popup title for bookmarks"
@@ -1595,9 +1619,9 @@
 		"message": "Не вдалося зберегти зображення: час завантаження вичерпано",
 		"description": "Toast message when image loading times out"
 	},
-	"saveImageSubdirPlaceholder": {
-		"message": "Підкаталог (необов'язково)",
-		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	"saveImageSubdirLabel": {
+		"message": "Підкаталог",
+		"description": "Label for the optional subdirectory input in save image config"
 	},
 	"buttonOkay": {
 		"message": "Гаразд",
@@ -1635,6 +1659,18 @@
 		"message": "Інструменти",
 		"description": "Action category: utilities"
 	},
+	"actionCategoryText": {
+		"message": "Текст",
+		"description": "Action category: text"
+	},
+	"actionCategoryLink": {
+		"message": "Посилання",
+		"description": "Action category: link"
+	},
+	"actionCategoryImage": {
+		"message": "Зображення",
+		"description": "Action category: image"
+	},
 	"noResults": {
 		"message": "Немає результатів",
 		"description": "No search results found"
@@ -1650,6 +1686,14 @@
 	"enableWheelGesturesDesc": {
 		"message": "Швидко виконуйте різноманітні дії за допомогою коліщатка миші",
 		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelThreshold": {
+		"message": "Дистанція спрацьовування коліщатка",
+		"description": "Label for the wheel gesture scroll distance threshold"
+	},
+	"wheelThresholdDesc": {
+		"message": "Прокручування коліщатком миші має досягти цієї дистанції для багаторазового спрацьовування жестів коліщатком",
+		"description": "Description for the wheel gesture scroll distance threshold"
 	},
 	"wheelGesture_scrollUpHoldingRight": {
 		"message": "Прокручування вгору, утримуючи праву кнопку",
@@ -1758,6 +1802,10 @@
 	"emptyChainSteps": {
 		"message": "Кроків не додано. Натисніть «Додати крок», щоб розпочати.",
 		"description": "Empty chain steps message in expanded body"
+	},
+	"chainStopOnSuccess": {
+		"message": "Перервати ланцюг при успішному виконанні кроку",
+		"description": "Checkbox: skip remaining command-chain steps after the first successful action"
 	},
 	"emptyChainStepsShort": {
 		"message": "Немає доданих кроків",
@@ -1898,6 +1946,10 @@
 	"actionViewPageSource": {
 		"message": "Переглянути код сторінки",
 		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionViewFrameSource": {
+		"message": "Переглянути код фрейму",
+		"description": "Open the source code of the frame (iframe) where the gesture was performed in a new tab"
 	},
 	"actionPauseGesture": {
 		"message": "Пауза жестів до оновлення",
@@ -2118,6 +2170,14 @@
 	"ctxMenuScrollToBottom": {
 		"message": "Прокрутити вниз",
 		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuWheelNav": {
+		"message": "Швидка навігація коліщатком",
+		"description": "Checkbox: navigate a wheel-gesture menu with the wheel while holding the right button"
+	},
+	"ctxMenuWheelNavTooltip": {
+		"message": "Утримуючи кнопку миші, прокрутіть коліщатко для швидкого вибору пунктів меню.",
+		"description": "Tooltip explaining quick wheel navigation for wheel-gesture menus"
 	},
 	"ctxMenuTimeDisplay": {
 		"message": "Показувати час",

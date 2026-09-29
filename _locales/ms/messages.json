@@ -203,6 +203,18 @@
 		"message": "Panduan Gerakan",
 		"description": "Show suggested gestures at bottom of screen"
 	},
+	"userScale": {
+		"message": "Skala UI Tersuai",
+		"description": "UI scaling setting for FlowMouse's own interface"
+	},
+	"userScaleDesc": {
+		"message": "Skala elemen UI FlowMouse seperti petunjuk tindakan dan HUD",
+		"description": "Description for the UI scaling setting"
+	},
+	"scale": {
+		"message": "Skala",
+		"description": "Label for the UI scale slider"
+	},
 	"customCss": {
 		"message": "CSS Tersuai",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -311,11 +323,11 @@
 		"message": "Ciri Seret",
 		"description": "Drag features section"
 	},
-	"textDragSearch": {
+	"textDrag": {
 		"message": "Seret Teks",
 		"description": "Text drag"
 	},
-	"textDragSearchDesc": {
+	"textDragDesc": {
 		"message": "Seret teks yang dipilih untuk mencari",
 		"description": "Drag selected text to search"
 	},
@@ -452,7 +464,7 @@
 		"description": "Reset to default"
 	},
 	"duplicate": {
-		"message": "Pendua",
+		"message": "Gandakan",
 		"description": "Generic duplicate button tooltip"
 	},
 	"delete": {
@@ -574,6 +586,10 @@
 	"gestureDesc_RL": {
 		"message": "Kanan kemudian Kiri",
 		"description": "Gesture description for →←"
+	},
+	"gestureDesc_Any": {
+		"message": "Mana-mana",
+		"description": "Description for the * fallback gesture that matches any unmatched pattern"
 	},
 	"actionNone": {
 		"message": "Tiada",
@@ -731,6 +747,10 @@
 		"message": "Muat Semula Semua Tab",
 		"description": "Refresh all tabs"
 	},
+	"actionReloadFrame": {
+		"message": "Muat semula bingkai",
+		"description": "Reload only the frame (iframe) where the gesture was performed"
+	},
 	"actionStopLoading": {
 		"message": "Berhenti Memuatkan",
 		"description": "Stop loading"
@@ -791,6 +811,10 @@
 		"message": "Buka Sambungan",
 		"description": "Open extensions page"
 	},
+	"actionOpenOptions": {
+		"message": "Buka Tetapan FlowMouse",
+		"description": "Open the FlowMouse settings page"
+	},
 	"actionSaveAsMhtml": {
 		"message": "Simpan sebagai MHTML",
 		"description": "Save current page as MHTML file"
@@ -800,7 +824,7 @@
 		"description": "Print page"
 	},
 	"actionDuplicateTab": {
-		"message": "Pendua Tab",
+		"message": "Gandakan Tab",
 		"description": "Duplicate current tab"
 	},
 	"actionToggleMuteTab": {
@@ -832,7 +856,7 @@
 		"description": "Enable trail smoothing for gesture visualization"
 	},
 	"distanceThreshold": {
-		"message": "Jarak Pengenalan Gerak Isyarat",
+		"message": "Jarak Pengecaman Gerak Isyarat",
 		"description": "Gesture recognition distance"
 	},
 	"distanceThresholdDesc": {
@@ -926,6 +950,14 @@
 	"gestureRecorderBanned": {
 		"message": "Gerak isyarat %pattern% sudah wujud",
 		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"gestureRecorderAny": {
+		"message": "Tambah gerak isyarat untuk corak tidak dikenali",
+		"description": "Button in the gesture recorder to select the * fallback that matches any unmatched gesture"
+	},
+	"fallbackGestureTip": {
+		"message": "Dicetuskan apabila jejak yang dilukis tidak sepadan dengan mana-mana gerak isyarat lain",
+		"description": "Tooltip explaining what the * fallback gesture does"
 	},
 	"rightButton": {
 		"message": "Butang kanan tetikus",
@@ -1192,60 +1224,56 @@
 		"description": "No action"
 	},
 	"dragActionSearch": {
-		"message": "🔍 Enjin Carian",
+		"message": "Cari",
 		"description": "Search action"
 	},
 	"dragActionCopy": {
-		"message": "📋 Salin",
+		"message": "Salin",
 		"description": "Copy action"
 	},
-	"dragActionOpenTab": {
-		"message": "📑 Buka dalam Tab Baharu",
-		"description": "Open in new tab"
-	},
 	"dragActionOpenTabLink": {
-		"message": "🔗 Buka Pautan",
+		"message": "Buka Pautan",
 		"description": "Open link in new tab"
 	},
 	"dragActionOpenTabImage": {
-		"message": "🖼️ Buka Imej",
+		"message": "Buka Imej",
 		"description": "Open image in new tab"
 	},
+	"dragActionTryOpenLink": {
+		"message": "Cuba Buka Pautan",
+		"description": "Open the image's link in new tab, if any"
+	},
 	"dragActionCopyLink": {
-		"message": "📋 Salin Pautan",
+		"message": "Salin Pautan",
 		"description": "Copy link"
 	},
 	"dragActionCopyLinkText": {
-		"message": "📋 Salin Teks Pautan",
+		"message": "Salin Teks Pautan",
 		"description": "Copy link text"
 	},
 	"dragActionCopyLinkAndText": {
-		"message": "📋 Salin Teks & Pautan",
+		"message": "Salin Teks & Pautan",
 		"description": "Copy link text and URL"
 	},
+	"dragActionBookmarkLink": {
+		"message": "Tambah pautan ke Penanda Halaman",
+		"description": "Add dragged link to bookmarks"
+	},
 	"dragActionSaveImage": {
-		"message": "💾 Simpan Imej",
+		"message": "Simpan Imej",
 		"description": "Save image"
 	},
 	"dragActionCopyImage": {
-		"message": "🖼️ Salin Imej",
+		"message": "Salin Imej",
 		"description": "Copy image"
 	},
 	"dragActionCopyImageUrl": {
-		"message": "📋 Salin URL Imej",
+		"message": "Salin URL Imej",
 		"description": "Copy image URL"
 	},
 	"dragActionImageSearch": {
-		"message": "🔍 Carian Imej",
+		"message": "Carian Imej",
 		"description": "Image search"
-	},
-	"dragActionCustomSearch": {
-		"message": "🔍 Carian Tersuai",
-		"description": "Custom search"
-	},
-	"dragActionSendCustomEvent": {
-		"message": "Hantar Acara Tersuai",
-		"description": "Send custom DOM event on drag gesture"
 	},
 	"reducedMotionWarning": {
 		"message": "Animasi sistem %OS% dilumpuhkan, animasi tatal mungkin tidak berfungsi dengan betul. Anda boleh dayakan animasi dalam tetapan sistem %OS%.",
@@ -1511,10 +1539,6 @@
 		"message": "Gunakan <span class=\"text-highlight\">Butang Tetikus Kiri</span> untuk seret",
 		"description": "Tutorial drag wrong button error"
 	},
-	"tutorialRefreshTip": {
-		"message": "Petua: Tab yang dibuka sebelum pemasangan perlu <span class=\"text-highlight\">dimuat semula</span> untuk menggunakan FlowMouse",
-		"description": "Tip about refreshing tabs"
-	},
 	"permissionBookmarksTitle": {
 		"message": "Urus Penanda Halaman",
 		"description": "Permission popup title for bookmarks"
@@ -1595,9 +1619,9 @@
 		"message": "Gagal menyimpan imej: Masa pemuatan tamat",
 		"description": "Toast message when image loading times out"
 	},
-	"saveImageSubdirPlaceholder": {
-		"message": "Subdirektori (pilihan)",
-		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	"saveImageSubdirLabel": {
+		"message": "Subdirektori",
+		"description": "Label for the optional subdirectory input in save image config"
 	},
 	"buttonOkay": {
 		"message": "OK",
@@ -1635,6 +1659,18 @@
 		"message": "Alatan",
 		"description": "Action category: utilities"
 	},
+	"actionCategoryText": {
+		"message": "Teks",
+		"description": "Action category: text"
+	},
+	"actionCategoryLink": {
+		"message": "Pautan",
+		"description": "Action category: link"
+	},
+	"actionCategoryImage": {
+		"message": "Imej",
+		"description": "Action category: image"
+	},
 	"noResults": {
 		"message": "Tiada hasil",
 		"description": "No search results found"
@@ -1650,6 +1686,14 @@
 	"enableWheelGesturesDesc": {
 		"message": "Lakukan pelbagai tindakan dengan cepat menggunakan roda tetikus",
 		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelThreshold": {
+		"message": "Jarak Pencetus Roda",
+		"description": "Label for the wheel gesture scroll distance threshold"
+	},
+	"wheelThresholdDesc": {
+		"message": "Penatalan roda tetikus mesti mencapai jarak ini untuk mencetuskan gerak isyarat roda secara berulang",
+		"description": "Description for the wheel gesture scroll distance threshold"
 	},
 	"wheelGesture_scrollUpHoldingRight": {
 		"message": "Tatal ke atas sambil menahan butang kanan",
@@ -1758,6 +1802,10 @@
 	"emptyChainSteps": {
 		"message": "Belum ada langkah yang ditambahkan. Klik \"Tambah Langkah\" untuk bermula.",
 		"description": "Empty chain steps message in expanded body"
+	},
+	"chainStopOnSuccess": {
+		"message": "Hentikan rantaian jika langkah berjaya",
+		"description": "Checkbox: skip remaining command-chain steps after the first successful action"
 	},
 	"emptyChainStepsShort": {
 		"message": "Tiada langkah ditambah",
@@ -1898,6 +1946,10 @@
 	"actionViewPageSource": {
 		"message": "Lihat sumber halaman",
 		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionViewFrameSource": {
+		"message": "Lihat sumber bingkai",
+		"description": "Open the source code of the frame (iframe) where the gesture was performed in a new tab"
 	},
 	"actionPauseGesture": {
 		"message": "Jeda Gerak Isyarat Hingga Muat Semula",
@@ -2118,6 +2170,14 @@
 	"ctxMenuScrollToBottom": {
 		"message": "Tatal ke bawah",
 		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuWheelNav": {
+		"message": "Navigasi pantas roda tetikus",
+		"description": "Checkbox: navigate a wheel-gesture menu with the wheel while holding the right button"
+	},
+	"ctxMenuWheelNavTooltip": {
+		"message": "Sambil menahan butang tetikus, tatal roda untuk memilih item menu dengan pantas.",
+		"description": "Tooltip explaining quick wheel navigation for wheel-gesture menus"
 	},
 	"ctxMenuTimeDisplay": {
 		"message": "Paparkan masa",

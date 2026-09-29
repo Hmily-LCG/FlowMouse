@@ -203,6 +203,18 @@
 		"message": "手势提示",
 		"description": "Show suggested gestures at bottom of screen"
 	},
+	"userScale": {
+		"message": "自定义界面缩放",
+		"description": "UI scaling setting for FlowMouse's own interface"
+	},
+	"userScaleDesc": {
+		"message": "缩放 FlowMouse 自身的操作提示、HUD 等界面元素",
+		"description": "Description for the UI scaling setting"
+	},
+	"scale": {
+		"message": "缩放比例",
+		"description": "Label for the UI scale slider"
+	},
 	"customCss": {
 		"message": "自定义 CSS",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -311,11 +323,11 @@
 		"message": "拖拽功能",
 		"description": "Drag features section"
 	},
-	"textDragSearch": {
+	"textDrag": {
 		"message": "文字拖拽",
 		"description": "Text drag"
 	},
-	"textDragSearchDesc": {
+	"textDragDesc": {
 		"message": "选中文字后拖拽进行搜索",
 		"description": "Drag selected text to search"
 	},
@@ -575,6 +587,10 @@
 		"message": "向右再向左",
 		"description": "Gesture description for →←"
 	},
+	"gestureDesc_Any": {
+		"message": "任意",
+		"description": "Description for the * fallback gesture that matches any unmatched pattern"
+	},
 	"actionNone": {
 		"message": "无操作",
 		"description": "No action"
@@ -731,6 +747,10 @@
 		"message": "刷新所有标签页",
 		"description": "Refresh all tabs"
 	},
+	"actionReloadFrame": {
+		"message": "重新加载框架",
+		"description": "Reload only the frame (iframe) where the gesture was performed"
+	},
 	"actionStopLoading": {
 		"message": "停止加载",
 		"description": "Stop loading"
@@ -790,6 +810,10 @@
 	"actionOpenExtensions": {
 		"message": "打开扩展管理",
 		"description": "Open extensions page"
+	},
+	"actionOpenOptions": {
+		"message": "打开 FlowMouse 设置",
+		"description": "Open the FlowMouse settings page"
 	},
 	"actionSaveAsMhtml": {
 		"message": "保存为 MHTML",
@@ -926,6 +950,14 @@
 	"gestureRecorderBanned": {
 		"message": "手势 %pattern% 已存在",
 		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"gestureRecorderAny": {
+		"message": "添加兜底手势",
+		"description": "Button in the gesture recorder to select the * fallback that matches any unmatched gesture"
+	},
+	"fallbackGestureTip": {
+		"message": "当绘制的轨迹未匹配到其他手势时触发",
+		"description": "Tooltip explaining what the * fallback gesture does"
 	},
 	"rightButton": {
 		"message": "鼠标右键",
@@ -1192,60 +1224,56 @@
 		"description": "No action"
 	},
 	"dragActionSearch": {
-		"message": "🔍 搜索引擎",
+		"message": "搜索",
 		"description": "Search action"
 	},
 	"dragActionCopy": {
-		"message": "📋 复制",
+		"message": "复制",
 		"description": "Copy action"
 	},
-	"dragActionOpenTab": {
-		"message": "📑 新标签页打开",
-		"description": "Open in new tab"
-	},
 	"dragActionOpenTabLink": {
-		"message": "🔗 打开链接",
+		"message": "打开链接",
 		"description": "Open link in new tab"
 	},
 	"dragActionOpenTabImage": {
-		"message": "🖼️ 打开图片",
+		"message": "打开图片",
 		"description": "Open image in new tab"
 	},
+	"dragActionTryOpenLink": {
+		"message": "尝试打开链接",
+		"description": "Open the image's link in new tab, if any"
+	},
 	"dragActionCopyLink": {
-		"message": "📋 复制链接",
+		"message": "复制链接",
 		"description": "Copy link"
 	},
 	"dragActionCopyLinkText": {
-		"message": "📋 复制链接文字",
+		"message": "复制链接文字",
 		"description": "Copy link text"
 	},
 	"dragActionCopyLinkAndText": {
-		"message": "📋 复制文字和链接",
+		"message": "复制文字和链接",
 		"description": "Copy link text and URL"
 	},
+	"dragActionBookmarkLink": {
+		"message": "添加链接到书签",
+		"description": "Add dragged link to bookmarks"
+	},
 	"dragActionSaveImage": {
-		"message": "💾 保存图片",
+		"message": "保存图片",
 		"description": "Save image"
 	},
 	"dragActionCopyImage": {
-		"message": "🖼️ 复制图片",
+		"message": "复制图片",
 		"description": "Copy image"
 	},
 	"dragActionCopyImageUrl": {
-		"message": "📋 复制图片地址",
+		"message": "复制图片地址",
 		"description": "Copy image URL"
 	},
 	"dragActionImageSearch": {
-		"message": "🔍 图片搜索",
+		"message": "图片搜索",
 		"description": "Image search"
-	},
-	"dragActionCustomSearch": {
-		"message": "🔍 自定义搜索",
-		"description": "Custom search"
-	},
-	"dragActionSendCustomEvent": {
-		"message": "发送自定义事件",
-		"description": "Send custom DOM event on drag gesture"
 	},
 	"reducedMotionWarning": {
 		"message": "%OS% 系统动画未启用，可能无法正常显示滚动动画。可在 %OS% 系统设置中开启动画。",
@@ -1511,10 +1539,6 @@
 		"message": "请使用<span class=\"text-highlight\">鼠标左键</span>拖拽",
 		"description": "Tutorial drag wrong button error"
 	},
-	"tutorialRefreshTip": {
-		"message": "提示：安装 FlowMouse 前已打开的标签页，需要<span class=\"text-highlight\">刷新</span>后才能使用手势",
-		"description": "Tip about refreshing tabs"
-	},
 	"permissionBookmarksTitle": {
 		"message": "管理书签",
 		"description": "Permission popup title for bookmarks"
@@ -1595,9 +1619,9 @@
 		"message": "保存图片失败：加载超时",
 		"description": "Toast message when image loading times out"
 	},
-	"saveImageSubdirPlaceholder": {
-		"message": "子目录（选填）",
-		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	"saveImageSubdirLabel": {
+		"message": "子目录",
+		"description": "Label for the optional subdirectory input in save image config"
 	},
 	"buttonOkay": {
 		"message": "确定",
@@ -1635,6 +1659,18 @@
 		"message": "工具",
 		"description": "Action category: utilities"
 	},
+	"actionCategoryText": {
+		"message": "文字",
+		"description": "Action category: text"
+	},
+	"actionCategoryLink": {
+		"message": "链接",
+		"description": "Action category: link"
+	},
+	"actionCategoryImage": {
+		"message": "图片",
+		"description": "Action category: image"
+	},
 	"noResults": {
 		"message": "无结果",
 		"description": "No search results found"
@@ -1650,6 +1686,14 @@
 	"enableWheelGesturesDesc": {
 		"message": "使用鼠标滚轮，快速执行各项操作",
 		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelThreshold": {
+		"message": "滚轮触发距离",
+		"description": "Label for the wheel gesture scroll distance threshold"
+	},
+	"wheelThresholdDesc": {
+		"message": "鼠标滚轮滚动达到此距离后才会连续触发滚轮手势",
+		"description": "Description for the wheel gesture scroll distance threshold"
 	},
 	"wheelGesture_scrollUpHoldingRight": {
 		"message": "按住右键并向上滚动滚轮",
@@ -1758,6 +1802,10 @@
 	"emptyChainSteps": {
 		"message": "暂无步骤，点击「添加步骤」开始。",
 		"description": "Empty chain steps message in expanded body"
+	},
+	"chainStopOnSuccess": {
+		"message": "任一步骤成功后，终止命令链执行",
+		"description": "Checkbox: skip remaining command-chain steps after the first successful action"
 	},
 	"emptyChainStepsShort": {
 		"message": "暂无步骤",
@@ -1898,6 +1946,10 @@
 	"actionViewPageSource": {
 		"message": "查看页面源代码",
 		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionViewFrameSource": {
+		"message": "查看框架源代码",
+		"description": "Open the source code of the frame (iframe) where the gesture was performed in a new tab"
 	},
 	"actionPauseGesture": {
 		"message": "暂停手势直到刷新",
@@ -2118,6 +2170,14 @@
 	"ctxMenuScrollToBottom": {
 		"message": "滚动到底部",
 		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuWheelNav": {
+		"message": "滚轮快速导航",
+		"description": "Checkbox: navigate a wheel-gesture menu with the wheel while holding the right button"
+	},
+	"ctxMenuWheelNavTooltip": {
+		"message": "按住鼠标按键时，滚动滚轮快速选择菜单中的项目。",
+		"description": "Tooltip explaining quick wheel navigation for wheel-gesture menus"
 	},
 	"ctxMenuTimeDisplay": {
 		"message": "显示时间",

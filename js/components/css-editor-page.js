@@ -315,6 +315,7 @@ class CssEditorPage extends LitElement {
 		const frameCss = new window.ContentContextMenu().generateStyles();
 		const builtInCss = frameCss + `
 			fm-context-menu[preview] {
+				transform-origin: center;
 				display: inline-block;
 				vertical-align: top;
 				overflow: hidden;

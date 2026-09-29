@@ -52,8 +52,9 @@
 		'switchLastActiveTab': 'actionSwitchLastActiveTab',
 		'refresh': 'actionRefresh',
 		'refreshAllTabs': 'actionRefreshAllTabs',
+		'reloadFrame': 'actionReloadFrame',
 		'stopLoading': 'actionStopLoading',
-		...({}),
+		'stopAllLoading': 'actionStopAllLoading',
 		'newWindow': 'actionNewWindow',
 		'newIncognito': 'actionNewIncognito',
 		'addToBookmarks': 'actionAddToBookmarks',
@@ -65,6 +66,7 @@
 		'copyTitle': 'actionCopyTitle',
 		'copyTitleAndUrl': 'actionCopyTitleAndUrl',
 		...({}),
+		'openOptions': 'actionOpenOptions',
 		'printPage': 'actionPrintPage',
 		'duplicateTab': 'actionDuplicateTab',
 		'toggleMuteTab': 'actionToggleMuteTab',
@@ -84,11 +86,25 @@
 		'resetZoom': 'actionResetZoom',
 		'searchClipboard': 'actionSearchClipboard',
 		'viewPageSource': 'actionViewPageSource',
+		'viewFrameSource': 'actionViewFrameSource',
 		'pauseGesture': 'actionPauseGesture',
 		'areaSelect': 'actionAreaSelect',
 		'menuShowTabs': 'actionMenuShowTabs',
 		'menuRecentlyClosed': 'actionMenuRecentlyClosed',
 		...({}),
+
+		'search': 'dragActionSearch',
+		'copy': 'dragActionCopy',
+		'openTab': { default: 'dragActionOpenTabLink', image: 'dragActionOpenTabImage' },
+		'openLink': { default: 'dragActionOpenTabLink', image: 'dragActionTryOpenLink' },
+		'openImage': 'dragActionOpenTabImage',
+		'copyLink': 'dragActionCopyLink',
+		'copyLinkText': 'dragActionCopyLinkText',
+		'copyLinkAndText': 'dragActionCopyLinkAndText',
+		'bookmarkLink': 'dragActionBookmarkLink',
+		'saveImage': 'dragActionSaveImage',
+		'copyImageUrl': 'dragActionCopyImageUrl',
+		'imageSearch': 'dragActionImageSearch',
 	};
 
 	const ACTION_DEFAULTS = {
@@ -117,7 +133,7 @@
 		switchFirstTab: { moveTab: false },
 		switchLastTab: { moveTab: false },
 		actionChain: { chainId: '' },
-		customMenu: { menuId: '' },
+		customMenu: { menuId: '', wheelNav: true },
 		delay: { delayMs: 500 },
 		sendCustomEvent: { eventType: 'flowmouse:gesture', eventDetail: '{}', gestureInfo: true },
 		sendExtensionMessage: { extensionId: '', message: '{}' },
@@ -129,20 +145,36 @@
 		zoomOut: { zoomMode: 'browser', zoomDelta: 10 },
 		resetZoom: { resetZoomLevel: 0 },
 		viewPageSource: { position: 'right', active: true },
-		menuShowTabs: { sortOrder: 'default', maxItems: 0, scrollToBottom: false, timeDisplay: 'lastAccess' },
-		menuRecentlyClosed: { maxItems: 12, sortOrder: 'default', scrollToBottom: false, timeDisplay: 'closedTime' },
-		menuShowBookmarks: { folderId: { id: '1' }, position: 'right', active: true, incognito: false, sortOrder: 'default', maxItems: 30, scrollToBottom: false, timeDisplay: 'dateAdded' },
+		viewFrameSource: { position: 'right', active: true },
+		menuShowTabs: { sortOrder: 'default', maxItems: 0, scrollToBottom: false, timeDisplay: 'lastAccess', wheelNav: true },
+		menuRecentlyClosed: { maxItems: 12, sortOrder: 'default', scrollToBottom: false, timeDisplay: 'closedTime', wheelNav: true },
+		menuShowBookmarks: { folderId: { id: '1' }, position: 'right', active: true, incognito: false, sortOrder: 'default', maxItems: 30, scrollToBottom: false, timeDisplay: 'dateAdded', wheelNav: true },
 		areaSelect: { overrideGlobal: false, textUrl: false, warnThreshold: 15, delay: 0.3, autoAction: 'none' },
+
+		search:          { engine: 'system', url: '', autoDetectUrl: true, position: 'right', active: true, incognito: false, customNameAutoDetectUrl: '' },
+		openTab:         { position: 'right', active: true, incognito: false, preferLink: false, customNamePreferLink: '' },
+		openLink:        { position: 'right', active: true, incognito: false },
+		openImage:       { position: 'right', active: true, incognito: false, preferLink: false, customNamePreferLink: '' },
+		imageSearch:     { engine: 'google', url: '', position: 'right', active: true, incognito: false },
+		copyLinkAndText: { asMarkdown: false },
+		bookmarkLink:    { folderId: { id: '' } },
+		saveImage:       { subdir: '' },
 	};
+
+	const CLEAR_OVERLAY_ACTIONS = new Set([
+		'printPage', 'saveAsMhtml',
+	]);
 
 	const LOCAL_ACTIONS = new Set([
 		'none', 'scrollUp', 'scrollDown', 'scrollLeft', 'scrollRight', 'scrollToTop', 'scrollToBottom', 'scrollToLeftEdge', 'scrollToRightEdge',
-		'stopLoading', 'copyUrl', 'copyTitle', 'copyTitleAndUrl', 'printPage', 'sendCustomEvent', 'simulateKey',
+		'stopLoading', 'reloadFrame', 'copyUrl', 'copyTitle', 'copyTitleAndUrl', 'sendCustomEvent', 'simulateKey',
 		'pasteClipboard', 'pasteContent', 'searchClipboard',
 		'menuShowTabs', 'menuRecentlyClosed', 'menuShowBookmarks',
 		'customMenu',
-	]);
 
+		'copy', 'copyLink', 'copyImageUrl', 'copyLinkText', 'copyLinkAndText',
+		'search', 'openTab', 'openLink', 'openImage', 'imageSearch', 'saveImage', 'bookmarkLink',
+	]);
 
 	const ACTION_SHORT_KEYS = {
 		'back': 'popupBack',
@@ -155,39 +187,13 @@
 		'switchRightTab': 'popupSwitchRightTab',
 	};
 
-	const TEXT_DRAG_ACTIONS = {
-		'none': 'dragActionNone',
-		'search': 'dragActionSearch',
-		'copy': 'dragActionCopy',
-		'sendCustomEvent': 'dragActionSendCustomEvent',
-	};
 
-	const LINK_DRAG_ACTIONS = {
-		'none': 'dragActionNone',
-		'openTab': 'dragActionOpenTabLink',
-		'copyLink': 'dragActionCopyLink',
-		'copyLinkText': 'dragActionCopyLinkText',
-		'copyLinkAndText': 'dragActionCopyLinkAndText',
-		'sendCustomEvent': 'dragActionSendCustomEvent',
-	};
-
-	const IMAGE_DRAG_ACTIONS = {
-		'none': 'dragActionNone',
-		'openTab': 'dragActionOpenTabImage',
-		'saveImage': 'dragActionSaveImage',
-		'copyImageUrl': 'dragActionCopyImageUrl',
-		'imageSearch': 'dragActionImageSearch',
-		'sendCustomEvent': 'dragActionSendCustomEvent',
-	};
-
-	const DRAG_ACTION_DEFAULTS = {
-		search:          { engine: 'system', url: '', autoDetectUrl: true, position: 'right', active: true, incognito: false },
-		openTab:         { position: 'right', active: true, incognito: false, preferLink: false },
-		imageSearch:     { engine: 'google', url: '', position: 'right', active: true, incognito: false },
-		copyLinkAndText: { asMarkdown: false },
-		sendCustomEvent: { eventType: 'flowmouse:drag', eventDetail: '{}', gestureInfo: true },
-		saveImage:       { subdir: '' },
-	};
+	function actionLabelKey(action, context) {
+		const entry = ACTION_KEYS[action];
+		if (!entry) return '';
+		if (typeof entry === 'string') return entry;
+		return (context && entry[context]) || entry.default || '';
+	}
 
 	const TAB_POSITIONS = {
 		'right': 'tabPositionRight',
@@ -344,6 +350,8 @@
 		enableHudShadow: false,
 		trailColor: '#4285f4',
 		trailWidth: 5,
+		enableUserScale: false,
+		userScale: 1,
 		customCss: '',
 		distanceThreshold: 20,
 		gestureTurnTolerance: 0.10,
@@ -356,6 +364,7 @@
 			scrollDownHoldingRight: { action: 'switchRightTab' },
 			wheelClickHoldingRight: { action: 'toggleFullscreen' },
 		},
+		wheelThreshold: 30,
 		enableSpecialGestures: false,
 		specialGestures: {
 			leftClickHoldingRight: { action: 'back' },
@@ -385,6 +394,7 @@
 		'↓': '<svg xmlns="http://www.w3.org/2000/svg" width="0.85em" height="0.85em" fill="currentColor" viewBox="5 3.5 6 9" style="vertical-align:-0.125em; margin:0.05em; display:inline"><path fill-rule="evenodd" d="M 8 4 a 0.5 0.5 0 0 1 0.5 0.5 v 5.793 L 10.646 8.146 a 0.5 0.5 0 0 1 0.708 0.708 l -3 3 a 0.5 0.5 0 0 1 -0.708 0 l -3 -3 a 0.5 0.5 0 0 1 0.708 -0.708 L 7.5 10.293 V 4.5 A 0.5 0.5 0 0 1 8 4"/></svg>',
 		'←': '<svg xmlns="http://www.w3.org/2000/svg" width="0.85em" height="0.85em" fill="currentColor" viewBox="3.5 5 9 6" style="vertical-align:-0.125em; margin:0.05em; display:inline"><path fill-rule="evenodd" d="M 12 8 a 0.5 0.5 0 0 0 -0.5 -0.5 H 5.707 L 7.854 5.354 a 0.5 0.5 0 1 0 -0.708 -0.708 l -3 3 a 0.5 0.5 0 0 0 0 0.708 l 3 3 a 0.5 0.5 0 0 0 0.708 -0.708 L 5.707 8.5 H 11.5 A 0.5 0.5 0 0 0 12 8"/></svg>',
 		'→': '<svg xmlns="http://www.w3.org/2000/svg" width="0.85em" height="0.85em" fill="currentColor" viewBox="3.5 5 9 6" style="vertical-align:-0.125em; margin:0.05em; display:inline"><path fill-rule="evenodd" d="M 4 8 a 0.5 0.5 0 0 1 0.5 -0.5 h 5.793 L 8.146 5.354 a 0.5 0.5 0 1 1 0.708 -0.708 l 3 3 a 0.5 0.5 0 0 1 0 0.708 l -3 3 a 0.5 0.5 0 0 1 -0.708 -0.708 L 10.293 8.5 H 4.5 A 0.5 0.5 0 0 1 4 8"/></svg>',
+		'*': '<svg xmlns="http://www.w3.org/2000/svg" width="1.0em" height="1.0em" viewBox="1 1 23 23" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.2em; margin:0 0.05em; display:inline"><path d="M12 5v14"/><path d="m18.065 8.496-12.125 7"/><path d="m5.94 8.504 12.125 7"/></svg>',
 	};
 
 	const CORNER_SVG = {
@@ -400,23 +410,21 @@
 
 	function arrowsToSvg(text) {
 		if (typeof text !== 'string' || !text) return '';
-		const arrows = text.replace(/[^↑↓←→]/g, '');
+		const arrows = text.replace(/[^↑↓←→*]/g, '');
 		if (!arrows) return '';
 		if (CORNER_SVG[arrows]) return CORNER_SVG[arrows];
-		return arrows.replace(/[↑↓←→]/g, match => ARROW_SVG[match]);
+		return arrows.replace(/[↑↓←→*]/g, match => ARROW_SVG[match]);
 	}
 
 	window.GestureConstants = {
 		DEFAULT_GESTURES,
 		ACTION_KEYS,
+		actionLabelKey,
 		LOCAL_ACTIONS,
+		CLEAR_OVERLAY_ACTIONS,
 		ACTION_SHORT_KEYS,
 		ACTION_DEFAULTS,
 
-		TEXT_DRAG_ACTIONS,
-		LINK_DRAG_ACTIONS,
-		IMAGE_DRAG_ACTIONS,
-		DRAG_ACTION_DEFAULTS,
 		TAB_POSITIONS,
 
 		SEARCH_ENGINES,

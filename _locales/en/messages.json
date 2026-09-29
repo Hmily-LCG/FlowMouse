@@ -203,6 +203,18 @@
 		"message": "Gesture Prompts",
 		"description": "Show suggested gestures at bottom of screen"
 	},
+	"userScale": {
+		"message": "Custom UI Scale",
+		"description": "UI scaling setting for FlowMouse's own interface"
+	},
+	"userScaleDesc": {
+		"message": "Scale FlowMouse UI elements like action hints and the HUD",
+		"description": "Description for the UI scaling setting"
+	},
+	"scale": {
+		"message": "Scale",
+		"description": "Label for the UI scale slider"
+	},
 	"customCss": {
 		"message": "Custom CSS",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -311,11 +323,11 @@
 		"message": "Drag Features",
 		"description": "Drag features section"
 	},
-	"textDragSearch": {
+	"textDrag": {
 		"message": "Text Drag",
 		"description": "Text drag"
 	},
-	"textDragSearchDesc": {
+	"textDragDesc": {
 		"message": "Drag selected text to search",
 		"description": "Drag selected text to search"
 	},
@@ -575,6 +587,10 @@
 		"message": "Right then Left",
 		"description": "Gesture description for →←"
 	},
+	"gestureDesc_Any": {
+		"message": "Any",
+		"description": "Description for the * fallback gesture that matches any unmatched pattern"
+	},
 	"actionNone": {
 		"message": "None",
 		"description": "No action"
@@ -731,6 +747,10 @@
 		"message": "Refresh All Tabs",
 		"description": "Refresh all tabs"
 	},
+	"actionReloadFrame": {
+		"message": "Reload Frame",
+		"description": "Reload only the frame (iframe) where the gesture was performed"
+	},
 	"actionStopLoading": {
 		"message": "Stop Loading",
 		"description": "Stop loading"
@@ -790,6 +810,10 @@
 	"actionOpenExtensions": {
 		"message": "Open Extensions",
 		"description": "Open extensions page"
+	},
+	"actionOpenOptions": {
+		"message": "Open FlowMouse Settings",
+		"description": "Open the FlowMouse settings page"
 	},
 	"actionSaveAsMhtml": {
 		"message": "Save as MHTML",
@@ -926,6 +950,14 @@
 	"gestureRecorderBanned": {
 		"message": "Gesture %pattern% already exists",
 		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"gestureRecorderAny": {
+		"message": "Add Fallback Gesture",
+		"description": "Button in the gesture recorder to select the * fallback that matches any unmatched gesture"
+	},
+	"fallbackGestureTip": {
+		"message": "Triggers when the drawn trail doesn't match any other gesture",
+		"description": "Tooltip explaining what the * fallback gesture does"
 	},
 	"rightButton": {
 		"message": "Right Mouse Button",
@@ -1192,60 +1224,56 @@
 		"description": "No action"
 	},
 	"dragActionSearch": {
-		"message": "🔍 Search Engine",
+		"message": "Search",
 		"description": "Search action"
 	},
 	"dragActionCopy": {
-		"message": "📋 Copy",
+		"message": "Copy",
 		"description": "Copy action"
 	},
-	"dragActionOpenTab": {
-		"message": "📑 Open in New Tab",
-		"description": "Open in new tab"
-	},
 	"dragActionOpenTabLink": {
-		"message": "🔗 Open Link",
+		"message": "Open Link",
 		"description": "Open link in new tab"
 	},
 	"dragActionOpenTabImage": {
-		"message": "🖼️ Open Image",
+		"message": "Open Image",
 		"description": "Open image in new tab"
 	},
+	"dragActionTryOpenLink": {
+		"message": "Try Open Link",
+		"description": "Open the image's link in new tab, if any"
+	},
 	"dragActionCopyLink": {
-		"message": "📋 Copy Link",
+		"message": "Copy Link",
 		"description": "Copy link"
 	},
 	"dragActionCopyLinkText": {
-		"message": "📋 Copy Link Text",
+		"message": "Copy Link Text",
 		"description": "Copy link text"
 	},
 	"dragActionCopyLinkAndText": {
-		"message": "📋 Copy Text & Link",
+		"message": "Copy Text & Link",
 		"description": "Copy link text and URL"
 	},
+	"dragActionBookmarkLink": {
+		"message": "Add Link to Bookmarks",
+		"description": "Add dragged link to bookmarks"
+	},
 	"dragActionSaveImage": {
-		"message": "💾 Save Image",
+		"message": "Save Image",
 		"description": "Save image"
 	},
 	"dragActionCopyImage": {
-		"message": "🖼️ Copy Image",
+		"message": "Copy Image",
 		"description": "Copy image"
 	},
 	"dragActionCopyImageUrl": {
-		"message": "📋 Copy Image URL",
+		"message": "Copy Image URL",
 		"description": "Copy image URL"
 	},
 	"dragActionImageSearch": {
-		"message": "🔍 Image Search",
+		"message": "Image Search",
 		"description": "Image search"
-	},
-	"dragActionCustomSearch": {
-		"message": "🔍 Custom Search",
-		"description": "Custom search"
-	},
-	"dragActionSendCustomEvent": {
-		"message": "Send Custom Event",
-		"description": "Send custom DOM event on drag gesture"
 	},
 	"reducedMotionWarning": {
 		"message": "%OS% system animation is disabled, scroll animation may not work properly. You can enable animation in %OS% system settings.",
@@ -1511,10 +1539,6 @@
 		"message": "Use <span class=\"text-highlight\">Left Mouse Button</span> to drag",
 		"description": "Tutorial drag wrong button error"
 	},
-	"tutorialRefreshTip": {
-		"message": "Tip: Tabs opened before installation need to be <span class=\"text-highlight\">refreshed</span> to use FlowMouse",
-		"description": "Tip about refreshing tabs"
-	},
 	"permissionBookmarksTitle": {
 		"message": "Manage Bookmarks",
 		"description": "Permission popup title for bookmarks"
@@ -1595,9 +1619,9 @@
 		"message": "Save image failed: Loading timed out",
 		"description": "Toast message when image loading times out"
 	},
-	"saveImageSubdirPlaceholder": {
-		"message": "Subdirectory (optional)",
-		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	"saveImageSubdirLabel": {
+		"message": "Subdirectory",
+		"description": "Label for the optional subdirectory input in save image config"
 	},
 	"buttonOkay": {
 		"message": "OK",
@@ -1635,6 +1659,18 @@
 		"message": "Utilities",
 		"description": "Action category: utilities"
 	},
+	"actionCategoryText": {
+		"message": "Text",
+		"description": "Action category: text"
+	},
+	"actionCategoryLink": {
+		"message": "Link",
+		"description": "Action category: link"
+	},
+	"actionCategoryImage": {
+		"message": "Image",
+		"description": "Action category: image"
+	},
 	"noResults": {
 		"message": "No results",
 		"description": "No search results found"
@@ -1650,6 +1686,14 @@
 	"enableWheelGesturesDesc": {
 		"message": "Perform various actions quickly using the mouse wheel",
 		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelThreshold": {
+		"message": "Wheel Trigger Distance",
+		"description": "Label for the wheel gesture scroll distance threshold"
+	},
+	"wheelThresholdDesc": {
+		"message": "Mouse wheel scrolling must reach this distance to repeatedly trigger wheel gestures",
+		"description": "Description for the wheel gesture scroll distance threshold"
 	},
 	"wheelGesture_scrollUpHoldingRight": {
 		"message": "Scroll up while holding the right button",
@@ -1758,6 +1802,10 @@
 	"emptyChainSteps": {
 		"message": "No steps added. Click \"Add Step\" to begin.",
 		"description": "Empty chain steps message in expanded body"
+	},
+	"chainStopOnSuccess": {
+		"message": "Abort the chain when a step succeeds",
+		"description": "Checkbox: skip remaining command-chain steps after the first successful action"
 	},
 	"emptyChainStepsShort": {
 		"message": "No steps added",
@@ -1898,6 +1946,10 @@
 	"actionViewPageSource": {
 		"message": "View Page Source",
 		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionViewFrameSource": {
+		"message": "View Frame Source",
+		"description": "Open the source code of the frame (iframe) where the gesture was performed in a new tab"
 	},
 	"actionPauseGesture": {
 		"message": "Pause Gestures Until Refresh",
@@ -2118,6 +2170,14 @@
 	"ctxMenuScrollToBottom": {
 		"message": "Scroll to bottom",
 		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuWheelNav": {
+		"message": "Quick wheel navigation",
+		"description": "Checkbox: navigate a wheel-gesture menu with the wheel while holding the right button"
+	},
+	"ctxMenuWheelNavTooltip": {
+		"message": "While holding the mouse button, scroll the wheel to quickly select menu items.",
+		"description": "Tooltip explaining quick wheel navigation for wheel-gesture menus"
 	},
 	"ctxMenuTimeDisplay": {
 		"message": "Show time",

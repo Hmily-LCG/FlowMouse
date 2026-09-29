@@ -203,6 +203,18 @@
 		"message": "ジェスチャープロンプト",
 		"description": "Show suggested gestures at bottom of screen"
 	},
+	"userScale": {
+		"message": "カスタム UI スケール",
+		"description": "UI scaling setting for FlowMouse's own interface"
+	},
+	"userScaleDesc": {
+		"message": "操作ヒントや HUD など、FlowMouse 自身の UI 要素を拡大・縮小します",
+		"description": "Description for the UI scaling setting"
+	},
+	"scale": {
+		"message": "スケール",
+		"description": "Label for the UI scale slider"
+	},
 	"customCss": {
 		"message": "カスタム CSS",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -311,11 +323,11 @@
 		"message": "ドラッグ機能",
 		"description": "Drag features section"
 	},
-	"textDragSearch": {
+	"textDrag": {
 		"message": "テキストドラッグ",
 		"description": "Text drag"
 	},
-	"textDragSearchDesc": {
+	"textDragDesc": {
 		"message": "選択したテキストをドラッグして検索します",
 		"description": "Drag selected text to search"
 	},
@@ -575,6 +587,10 @@
 		"message": "右、左",
 		"description": "Gesture description for →←"
 	},
+	"gestureDesc_Any": {
+		"message": "任意",
+		"description": "Description for the * fallback gesture that matches any unmatched pattern"
+	},
 	"actionNone": {
 		"message": "なし",
 		"description": "No action"
@@ -731,6 +747,10 @@
 		"message": "すべてのタブを更新",
 		"description": "Refresh all tabs"
 	},
+	"actionReloadFrame": {
+		"message": "フレームを再読み込み",
+		"description": "Reload only the frame (iframe) where the gesture was performed"
+	},
 	"actionStopLoading": {
 		"message": "読み込み中止",
 		"description": "Stop loading"
@@ -790,6 +810,10 @@
 	"actionOpenExtensions": {
 		"message": "拡張機能を開く",
 		"description": "Open extensions page"
+	},
+	"actionOpenOptions": {
+		"message": "FlowMouseの設定を開く",
+		"description": "Open the FlowMouse settings page"
 	},
 	"actionSaveAsMhtml": {
 		"message": "MHTMLとして保存",
@@ -926,6 +950,14 @@
 	"gestureRecorderBanned": {
 		"message": "ジェスチャー %pattern% は既に存在します",
 		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"gestureRecorderAny": {
+		"message": "フォールバックジェスチャーを追加",
+		"description": "Button in the gesture recorder to select the * fallback that matches any unmatched gesture"
+	},
+	"fallbackGestureTip": {
+		"message": "描かれた軌跡が他のどのジェスチャーにも一致しない場合にトリガーされます",
+		"description": "Tooltip explaining what the * fallback gesture does"
 	},
 	"rightButton": {
 		"message": "マウスの右ボタン",
@@ -1192,60 +1224,56 @@
 		"description": "No action"
 	},
 	"dragActionSearch": {
-		"message": "🔍 検索エンジン",
+		"message": "検索",
 		"description": "Search action"
 	},
 	"dragActionCopy": {
-		"message": "📋 コピー",
+		"message": "コピー",
 		"description": "Copy action"
 	},
-	"dragActionOpenTab": {
-		"message": "📑 新しいタブで開く",
-		"description": "Open in new tab"
-	},
 	"dragActionOpenTabLink": {
-		"message": "🔗 リンクを開く",
+		"message": "リンクを開く",
 		"description": "Open link in new tab"
 	},
 	"dragActionOpenTabImage": {
-		"message": "🖼️ 画像を開く",
+		"message": "画像を開く",
 		"description": "Open image in new tab"
 	},
+	"dragActionTryOpenLink": {
+		"message": "リンクを開いてみる",
+		"description": "Open the image's link in new tab, if any"
+	},
 	"dragActionCopyLink": {
-		"message": "📋 リンクをコピー",
+		"message": "リンクをコピー",
 		"description": "Copy link"
 	},
 	"dragActionCopyLinkText": {
-		"message": "📋 リンクテキストをコピー",
+		"message": "リンクテキストをコピー",
 		"description": "Copy link text"
 	},
 	"dragActionCopyLinkAndText": {
-		"message": "📋 テキストとリンクをコピー",
+		"message": "テキストとリンクをコピー",
 		"description": "Copy link text and URL"
 	},
+	"dragActionBookmarkLink": {
+		"message": "リンクをブックマークに追加",
+		"description": "Add dragged link to bookmarks"
+	},
 	"dragActionSaveImage": {
-		"message": "💾 画像を保存",
+		"message": "画像を保存",
 		"description": "Save image"
 	},
 	"dragActionCopyImage": {
-		"message": "🖼️ 画像をコピー",
+		"message": "画像をコピー",
 		"description": "Copy image"
 	},
 	"dragActionCopyImageUrl": {
-		"message": "📋 画像アドレスをコピー",
+		"message": "画像アドレスをコピー",
 		"description": "Copy image URL"
 	},
 	"dragActionImageSearch": {
-		"message": "🔍 画像検索",
+		"message": "画像検索",
 		"description": "Image search"
-	},
-	"dragActionCustomSearch": {
-		"message": "🔍 カスタム検索",
-		"description": "Custom search"
-	},
-	"dragActionSendCustomEvent": {
-		"message": "カスタムイベントを送信",
-		"description": "Send custom DOM event on drag gesture"
 	},
 	"reducedMotionWarning": {
 		"message": "%OS% システムのアニメーションが無効になっているため、スクロールアニメーションが正常に表示されない場合があります。%OS% のシステム設定でアニメーションを有効にできます。",
@@ -1511,10 +1539,6 @@
 		"message": "<span class=\"text-highlight\">マウスの左ボタン</span>を使用してドラッグしてください",
 		"description": "Tutorial drag wrong button error"
 	},
-	"tutorialRefreshTip": {
-		"message": "ヒント：FlowMouseのインストール前に開いていたタブは、ジェスチャーを使用するために<span class=\"text-highlight\">更新</span>が必要です",
-		"description": "Tip about refreshing tabs"
-	},
 	"permissionBookmarksTitle": {
 		"message": "ブックマークの管理",
 		"description": "Permission popup title for bookmarks"
@@ -1595,9 +1619,9 @@
 		"message": "画像の保存に失敗しました：読み込みがタイムアウトしました",
 		"description": "Toast message when image loading times out"
 	},
-	"saveImageSubdirPlaceholder": {
-		"message": "サブディレクトリ（省略可）",
-		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	"saveImageSubdirLabel": {
+		"message": "サブディレクトリ",
+		"description": "Label for the optional subdirectory input in save image config"
 	},
 	"buttonOkay": {
 		"message": "OK",
@@ -1635,6 +1659,18 @@
 		"message": "ユーティリティ",
 		"description": "Action category: utilities"
 	},
+	"actionCategoryText": {
+		"message": "テキスト",
+		"description": "Action category: text"
+	},
+	"actionCategoryLink": {
+		"message": "リンク",
+		"description": "Action category: link"
+	},
+	"actionCategoryImage": {
+		"message": "画像",
+		"description": "Action category: image"
+	},
 	"noResults": {
 		"message": "結果なし",
 		"description": "No search results found"
@@ -1650,6 +1686,14 @@
 	"enableWheelGesturesDesc": {
 		"message": "マウスホイールを使用して様々な操作を素早く実行します",
 		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelThreshold": {
+		"message": "ホイールトリガー距離",
+		"description": "Label for the wheel gesture scroll distance threshold"
+	},
+	"wheelThresholdDesc": {
+		"message": "ホイールジェスチャーを繰り返しトリガーするには、マウスホイールのスクロールがこの距離に達する必要があります",
+		"description": "Description for the wheel gesture scroll distance threshold"
 	},
 	"wheelGesture_scrollUpHoldingRight": {
 		"message": "右ボタンを押しながら上にスクロール",
@@ -1758,6 +1802,10 @@
 	"emptyChainSteps": {
 		"message": "ステップがありません。「ステップを追加」をクリックして開始します。",
 		"description": "Empty chain steps message in expanded body"
+	},
+	"chainStopOnSuccess": {
+		"message": "いずれかのステップが成功したらチェーンを中止する",
+		"description": "Checkbox: skip remaining command-chain steps after the first successful action"
 	},
 	"emptyChainStepsShort": {
 		"message": "ステップなし",
@@ -1898,6 +1946,10 @@
 	"actionViewPageSource": {
 		"message": "ページのソースを表示",
 		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionViewFrameSource": {
+		"message": "フレームのソースを表示",
+		"description": "Open the source code of the frame (iframe) where the gesture was performed in a new tab"
 	},
 	"actionPauseGesture": {
 		"message": "更新までジェスチャーを一時停止",
@@ -2118,6 +2170,14 @@
 	"ctxMenuScrollToBottom": {
 		"message": "一番下までスクロール",
 		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuWheelNav": {
+		"message": "ホイールのクイックナビゲーション",
+		"description": "Checkbox: navigate a wheel-gesture menu with the wheel while holding the right button"
+	},
+	"ctxMenuWheelNavTooltip": {
+		"message": "マウスボタンを押したままホイールをスクロールすると、メニュー項目をすばやく選択できます。",
+		"description": "Tooltip explaining quick wheel navigation for wheel-gesture menus"
 	},
 	"ctxMenuTimeDisplay": {
 		"message": "時間を表示",

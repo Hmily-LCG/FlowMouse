@@ -1,6 +1,7 @@
 import { settingsStore } from '../settings-store.js';
 import { LitElement, html, css, unsafeHTML } from '../../js/lib/lit-all.min.js';
 import { commonStyles } from './shared-styles.js';
+import { fitText } from '../directives/fit-text.js';
 import { icons } from '../icons.js';
 
 let fileSchemeAllowed = false;
@@ -224,7 +225,7 @@ class PopupPage extends LitElement {
 				align-items: center;
 				justify-content: center;
 				gap: 5px;
-				padding: 10px 3px;
+				padding: 10px 9px;
 				background: var(--bg-secondary);
 				border-radius: 10px;
 				font-size: 12px;
@@ -241,9 +242,6 @@ class PopupPage extends LitElement {
 
 			.gesture-pill .action {
 				color: var(--text-secondary);
-				overflow: hidden;
-				text-overflow: ellipsis;
-				white-space: nowrap;
 			}
 
 			.notice-box {
@@ -432,7 +430,7 @@ class PopupPage extends LitElement {
 					${this.#getActiveGestures().map(([pattern, actionName]) => html`
 						<span class="gesture-pill" title=${actionName}>
 							<span class="pattern">${unsafeHTML(this.#arrowSvg(pattern))}</span>
-							<span class="action">${actionName}</span>
+							<span class="action" ${fitText()}>${actionName}</span>
 						</span>
 					`)}
 				</div>
@@ -463,7 +461,7 @@ class PopupPage extends LitElement {
 
 	#getActiveGestures() {
 		const i18n = window.i18n;
-		const { DEFAULT_GESTURES, ACTION_KEYS, ACTION_SHORT_KEYS } = window.GestureConstants;
+		const { DEFAULT_GESTURES, actionLabelKey, ACTION_SHORT_KEYS } = window.GestureConstants;
 		const settings = this._store.current;
 
 		let actionMap;
@@ -488,7 +486,7 @@ class PopupPage extends LitElement {
 				if (chain?.name) label = chain.name;
 			}
 			if (!label) {
-				const i18nKey = ACTION_SHORT_KEYS[action] || ACTION_KEYS[action];
+				const i18nKey = ACTION_SHORT_KEYS[action] || actionLabelKey(action);
 				if (!i18nKey) continue;
 				label = i18n.getMessage(i18nKey);
 			}

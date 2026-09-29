@@ -203,6 +203,18 @@
 		"message": "Gestus-prompter",
 		"description": "Show suggested gestures at bottom of screen"
 	},
+	"userScale": {
+		"message": "Brugerdefineret UI-skala",
+		"description": "UI scaling setting for FlowMouse's own interface"
+	},
+	"userScaleDesc": {
+		"message": "Skaler FlowMouse-brugergrænsefladeelementer som handlingshint og HUD",
+		"description": "Description for the UI scaling setting"
+	},
+	"scale": {
+		"message": "Skala",
+		"description": "Label for the UI scale slider"
+	},
 	"customCss": {
 		"message": "Brugerdefineret CSS",
 		"description": "Advanced setting: user-provided CSS injected into extension-created Shadow DOMs"
@@ -224,7 +236,7 @@
 		"description": "Title of the dedicated custom CSS editor page"
 	},
 	"customCssEditorHint": {
-		"message": "Typografier injiceres i hver Shadow DOM, som FlowMouse opretter. Tryk på Ctrl+S for at gemme.",
+		"message": "CSS injiceres i hver Shadow DOM, som FlowMouse opretter. Tryk på Ctrl+S for at gemme.",
 		"description": "Hint shown above the editor textarea."
 	},
 	"customCssEditorPlaceholder": {
@@ -311,11 +323,11 @@
 		"message": "Træk-funktioner",
 		"description": "Drag features section"
 	},
-	"textDragSearch": {
+	"textDrag": {
 		"message": "Teksttræk",
 		"description": "Text drag"
 	},
-	"textDragSearchDesc": {
+	"textDragDesc": {
 		"message": "Træk markeret tekst for at søge",
 		"description": "Drag selected text to search"
 	},
@@ -575,6 +587,10 @@
 		"message": "Højre så Venstre",
 		"description": "Gesture description for →←"
 	},
+	"gestureDesc_Any": {
+		"message": "Enhver",
+		"description": "Description for the * fallback gesture that matches any unmatched pattern"
+	},
 	"actionNone": {
 		"message": "Ingen",
 		"description": "No action"
@@ -731,6 +747,10 @@
 		"message": "Opdater alle faner",
 		"description": "Refresh all tabs"
 	},
+	"actionReloadFrame": {
+		"message": "Genindlæs ramme",
+		"description": "Reload only the frame (iframe) where the gesture was performed"
+	},
 	"actionStopLoading": {
 		"message": "Stop indlæsning",
 		"description": "Stop loading"
@@ -791,6 +811,10 @@
 		"message": "Åbn udvidelser",
 		"description": "Open extensions page"
 	},
+	"actionOpenOptions": {
+		"message": "Åbn FlowMouse-indstillinger",
+		"description": "Open the FlowMouse settings page"
+	},
 	"actionSaveAsMhtml": {
 		"message": "Gem som MHTML",
 		"description": "Save current page as MHTML file"
@@ -816,7 +840,7 @@
 		"description": "Toggle pin current tab"
 	},
 	"actionMoveTabToNewWindow": {
-		"message": "Flyt faneblad til nyt vindue",
+		"message": "Flyt fane til nyt vindue",
 		"description": "Move current tab to a new window"
 	},
 	"actionSearchClipboard": {
@@ -926,6 +950,14 @@
 	"gestureRecorderBanned": {
 		"message": "Bevægelsen %pattern% findes allerede",
 		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"gestureRecorderAny": {
+		"message": "Tilføj wildcard-bevægelse",
+		"description": "Button in the gesture recorder to select the * fallback that matches any unmatched gesture"
+	},
+	"fallbackGestureTip": {
+		"message": "Udløses, når det tegnede spor ikke matcher nogen anden bevægelse",
+		"description": "Tooltip explaining what the * fallback gesture does"
 	},
 	"rightButton": {
 		"message": "Højre museknap",
@@ -1192,60 +1224,56 @@
 		"description": "No action"
 	},
 	"dragActionSearch": {
-		"message": "🔍 Søgemaskine",
+		"message": "Søg",
 		"description": "Search action"
 	},
 	"dragActionCopy": {
-		"message": "📋 Kopier",
+		"message": "Kopier",
 		"description": "Copy action"
 	},
-	"dragActionOpenTab": {
-		"message": "📑 Åbn i ny fane",
-		"description": "Open in new tab"
-	},
 	"dragActionOpenTabLink": {
-		"message": "🔗 Åbn link",
+		"message": "Åbn link",
 		"description": "Open link in new tab"
 	},
 	"dragActionOpenTabImage": {
-		"message": "🖼️ Åbn billede",
+		"message": "Åbn billede",
 		"description": "Open image in new tab"
 	},
+	"dragActionTryOpenLink": {
+		"message": "Prøv at åbne link",
+		"description": "Open the image's link in new tab, if any"
+	},
 	"dragActionCopyLink": {
-		"message": "📋 Kopier link",
+		"message": "Kopier link",
 		"description": "Copy link"
 	},
 	"dragActionCopyLinkText": {
-		"message": "📋 Kopier linktekst",
+		"message": "Kopier linktekst",
 		"description": "Copy link text"
 	},
 	"dragActionCopyLinkAndText": {
-		"message": "📋 Kopier tekst og link",
+		"message": "Kopier tekst og link",
 		"description": "Copy link text and URL"
 	},
+	"dragActionBookmarkLink": {
+		"message": "Tilføj link til bogmærker",
+		"description": "Add dragged link to bookmarks"
+	},
 	"dragActionSaveImage": {
-		"message": "💾 Gem billede",
+		"message": "Gem billede",
 		"description": "Save image"
 	},
 	"dragActionCopyImage": {
-		"message": "🖼️ Kopier billede",
+		"message": "Kopier billede",
 		"description": "Copy image"
 	},
 	"dragActionCopyImageUrl": {
-		"message": "📋 Kopier billedadresse",
+		"message": "Kopier billedadresse",
 		"description": "Copy image URL"
 	},
 	"dragActionImageSearch": {
-		"message": "🔍 Billedsøgning",
+		"message": "Billedsøgning",
 		"description": "Image search"
-	},
-	"dragActionCustomSearch": {
-		"message": "🔍 Tilpasset søgning",
-		"description": "Custom search"
-	},
-	"dragActionSendCustomEvent": {
-		"message": "Send tilpasset hændelse",
-		"description": "Send custom DOM event on drag gesture"
 	},
 	"reducedMotionWarning": {
 		"message": "%OS%-systemanimation er deaktiveret, rulleanimation fungerer muligvis ikke korrekt. Du kan aktivere animation i %OS%-systemindstillinger.",
@@ -1511,10 +1539,6 @@
 		"message": "Brug <span class=\"text-highlight\">venstre museknap</span> til at trække",
 		"description": "Tutorial drag wrong button error"
 	},
-	"tutorialRefreshTip": {
-		"message": "Tip: Faner åbnet før installation skal <span class=\"text-highlight\">opdateres</span> for at bruge FlowMouse",
-		"description": "Tip about refreshing tabs"
-	},
 	"permissionBookmarksTitle": {
 		"message": "Administrer bogmærker",
 		"description": "Permission popup title for bookmarks"
@@ -1595,9 +1619,9 @@
 		"message": "Gem billede mislykkedes: Indlæsning fik timeout",
 		"description": "Toast message when image loading times out"
 	},
-	"saveImageSubdirPlaceholder": {
-		"message": "Undermappe (valgfrit)",
-		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	"saveImageSubdirLabel": {
+		"message": "Undermappe",
+		"description": "Label for the optional subdirectory input in save image config"
 	},
 	"buttonOkay": {
 		"message": "OK",
@@ -1635,6 +1659,18 @@
 		"message": "Værktøjer",
 		"description": "Action category: utilities"
 	},
+	"actionCategoryText": {
+		"message": "Tekst",
+		"description": "Action category: text"
+	},
+	"actionCategoryLink": {
+		"message": "Link",
+		"description": "Action category: link"
+	},
+	"actionCategoryImage": {
+		"message": "Billede",
+		"description": "Action category: image"
+	},
 	"noResults": {
 		"message": "Ingen resultater",
 		"description": "No search results found"
@@ -1650,6 +1686,14 @@
 	"enableWheelGesturesDesc": {
 		"message": "Udfør nemt forskellige handlinger ved hjælp af musehjulet",
 		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelThreshold": {
+		"message": "Hjuludløserafstand",
+		"description": "Label for the wheel gesture scroll distance threshold"
+	},
+	"wheelThresholdDesc": {
+		"message": "Rulning med musehjulet skal nå denne afstand for gentagne gange at udløse hjulbevægelser",
+		"description": "Description for the wheel gesture scroll distance threshold"
 	},
 	"wheelGesture_scrollUpHoldingRight": {
 		"message": "Rul op, mens du holder højre knap nede",
@@ -1758,6 +1802,10 @@
 	"emptyChainSteps": {
 		"message": "Ingen trin tilføjet. Klik på \"Tilføj trin\" for at begynde.",
 		"description": "Empty chain steps message in expanded body"
+	},
+	"chainStopOnSuccess": {
+		"message": "Afbryd kæden, når et trin lykkes",
+		"description": "Checkbox: skip remaining command-chain steps after the first successful action"
 	},
 	"emptyChainStepsShort": {
 		"message": "Ingen trin tilføjet",
@@ -1898,6 +1946,10 @@
 	"actionViewPageSource": {
 		"message": "Vis sidekilde",
 		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionViewFrameSource": {
+		"message": "Vis kildekode for ramme",
+		"description": "Open the source code of the frame (iframe) where the gesture was performed in a new tab"
 	},
 	"actionPauseGesture": {
 		"message": "Pausér bevægelser indtil opdatering",
@@ -2118,6 +2170,14 @@
 	"ctxMenuScrollToBottom": {
 		"message": "Rul til bunden",
 		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuWheelNav": {
+		"message": "Hurtig hjulnavigation",
+		"description": "Checkbox: navigate a wheel-gesture menu with the wheel while holding the right button"
+	},
+	"ctxMenuWheelNavTooltip": {
+		"message": "Hold museknappen nede og rul på hjulet for hurtigt at vælge menupunkter.",
+		"description": "Tooltip explaining quick wheel navigation for wheel-gesture menus"
 	},
 	"ctxMenuTimeDisplay": {
 		"message": "Vis tid",

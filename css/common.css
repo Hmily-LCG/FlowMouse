@@ -69,7 +69,7 @@
 }
 
 button, input, optgroup, select, textarea {
-    font-family: inherit;
+	font-family: inherit;
 }
 
 body {
@@ -82,8 +82,8 @@ body {
 }
 
 @font-face {
-    font-family: 'Yu Gothic Medium';
-    src: local(Yu Gothic Medium);
+	font-family: 'Yu Gothic Medium';
+	src: local(Yu Gothic Medium);
 }
 
 html[lang="ja"] body {
@@ -165,8 +165,8 @@ input[type="checkbox"] {
 	border-radius: 4px;
 	background-color: transparent;
 	background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+	background-position: center;
+	background-size: contain;
 	cursor: pointer;
 	position: relative;
 	vertical-align: middle;
@@ -618,8 +618,8 @@ textarea.input-mono {
 	vertical-align: middle;
 	border-radius: 10px;
 	padding: 5px;
-    background: linear-gradient(145deg, #ffffff, #f1f9ff);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+	background: linear-gradient(145deg, #ffffff, #f1f9ff);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
 }
 
 .separator {

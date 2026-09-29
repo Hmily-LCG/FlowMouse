@@ -76,31 +76,19 @@
 		return window.i18n.getMessage(key);
 	}
 
-	function getActionName(actionKey) {
-		if (!actionKey) return '';
-		const i18nKey = window.GestureConstants.ACTION_KEYS[actionKey];
-		if (i18nKey) {
-			return msg(i18nKey);
-		}
-		return actionKey;
-	}
-
 	function getHudText(pattern) {
 		const actionKey = window.GestureConstants.DEFAULT_GESTURES[pattern];
 		if (actionKey) {
-			const actionName = getActionName(actionKey);
-			return actionName || actionKey;
+			return msg(window.GestureConstants.actionLabelKey(actionKey));
 		}
 		return '';
 	}
 
 	function getSuperDragHudText(dragType) {
 		if (dragType === 'text') {
-			const i18nKey = window.GestureConstants.TEXT_DRAG_ACTIONS['search'];
-			return i18nKey ? msg(i18nKey) : 'Search';
+			return msg(window.GestureConstants.actionLabelKey('search', 'text'));
 		} else if (dragType === 'settings') {
-			const actionName = msg('dragActionOpenTabLink');
-			return actionName === 'dragActionOpenTabLink' ? 'Open Link' : actionName;
+			return msg(window.GestureConstants.actionLabelKey('openTab', 'link'));
 		}
 		return '';
 	}

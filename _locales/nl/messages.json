@@ -164,7 +164,7 @@
 		"description": "Show gesture trail"
 	},
 	"showTrailDesc": {
-		"message": "Toon spoorlijn bij het uitvoeren van gebaren",
+		"message": "Toon het spoor bij het uitvoeren van gebaren",
 		"description": "Show trail line when performing gestures"
 	},
 	"showHint": {
@@ -202,6 +202,18 @@
 	"showSuggestedGestures": {
 		"message": "Gebaarprompts",
 		"description": "Show suggested gestures at bottom of screen"
+	},
+	"userScale": {
+		"message": "Aangepaste UI-schaal",
+		"description": "UI scaling setting for FlowMouse's own interface"
+	},
+	"userScaleDesc": {
+		"message": "Schaal FlowMouse UI-elementen zoals actiehints en de HUD",
+		"description": "Description for the UI scaling setting"
+	},
+	"scale": {
+		"message": "Schaal",
+		"description": "Label for the UI scale slider"
 	},
 	"customCss": {
 		"message": "Aangepaste CSS",
@@ -311,11 +323,11 @@
 		"message": "Sleepfuncties",
 		"description": "Drag features section"
 	},
-	"textDragSearch": {
+	"textDrag": {
 		"message": "Tekst Slepen",
 		"description": "Text drag"
 	},
-	"textDragSearchDesc": {
+	"textDragDesc": {
 		"message": "Sleep geselecteerde tekst om te zoeken",
 		"description": "Drag selected text to search"
 	},
@@ -575,6 +587,10 @@
 		"message": "Rechts dan Links",
 		"description": "Gesture description for →←"
 	},
+	"gestureDesc_Any": {
+		"message": "Willekeurig",
+		"description": "Description for the * fallback gesture that matches any unmatched pattern"
+	},
 	"actionNone": {
 		"message": "Geen",
 		"description": "No action"
@@ -731,6 +747,10 @@
 		"message": "Alle Tabbladen Vernieuwen",
 		"description": "Refresh all tabs"
 	},
+	"actionReloadFrame": {
+		"message": "Frame opnieuw laden",
+		"description": "Reload only the frame (iframe) where the gesture was performed"
+	},
 	"actionStopLoading": {
 		"message": "Laden Stoppen",
 		"description": "Stop loading"
@@ -790,6 +810,10 @@
 	"actionOpenExtensions": {
 		"message": "Extensies Openen",
 		"description": "Open extensions page"
+	},
+	"actionOpenOptions": {
+		"message": "FlowMouse-instellingen openen",
+		"description": "Open the FlowMouse settings page"
 	},
 	"actionSaveAsMhtml": {
 		"message": "Opslaan als MHTML",
@@ -926,6 +950,14 @@
 	"gestureRecorderBanned": {
 		"message": "Gebaar %pattern% bestaat al",
 		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"gestureRecorderAny": {
+		"message": "Fallback-gebaar toevoegen",
+		"description": "Button in the gesture recorder to select the * fallback that matches any unmatched gesture"
+	},
+	"fallbackGestureTip": {
+		"message": "Wordt geactiveerd wanneer het getekende spoor niet overeenkomt met een ander gebaar",
+		"description": "Tooltip explaining what the * fallback gesture does"
 	},
 	"rightButton": {
 		"message": "Rechtermuisknop",
@@ -1192,60 +1224,56 @@
 		"description": "No action"
 	},
 	"dragActionSearch": {
-		"message": "🔍 Zoekmachine",
+		"message": "Zoeken",
 		"description": "Search action"
 	},
 	"dragActionCopy": {
-		"message": "📋 Kopiëren",
+		"message": "Kopiëren",
 		"description": "Copy action"
 	},
-	"dragActionOpenTab": {
-		"message": "📑 Open in Nieuw Tabblad",
-		"description": "Open in new tab"
-	},
 	"dragActionOpenTabLink": {
-		"message": "🔗 Open Link",
+		"message": "Open Link",
 		"description": "Open link in new tab"
 	},
 	"dragActionOpenTabImage": {
-		"message": "🖼️ Open Afbeelding",
+		"message": "Open Afbeelding",
 		"description": "Open image in new tab"
 	},
+	"dragActionTryOpenLink": {
+		"message": "Probeer link te openen",
+		"description": "Open the image's link in new tab, if any"
+	},
 	"dragActionCopyLink": {
-		"message": "📋 Link Kopiëren",
+		"message": "Link Kopiëren",
 		"description": "Copy link"
 	},
 	"dragActionCopyLinkText": {
-		"message": "📋 Linktekst Kopiëren",
+		"message": "Linktekst Kopiëren",
 		"description": "Copy link text"
 	},
 	"dragActionCopyLinkAndText": {
-		"message": "📋 Tekst en link kopiëren",
+		"message": "Tekst en link kopiëren",
 		"description": "Copy link text and URL"
 	},
+	"dragActionBookmarkLink": {
+		"message": "Link aan Bladwijzers Toevoegen",
+		"description": "Add dragged link to bookmarks"
+	},
 	"dragActionSaveImage": {
-		"message": "💾 Afbeelding Opslaan",
+		"message": "Afbeelding Opslaan",
 		"description": "Save image"
 	},
 	"dragActionCopyImage": {
-		"message": "🖼️ Afbeelding Kopiëren",
+		"message": "Afbeelding Kopiëren",
 		"description": "Copy image"
 	},
 	"dragActionCopyImageUrl": {
-		"message": "📋 Afbeelding-URL Kopiëren",
+		"message": "Afbeelding-URL Kopiëren",
 		"description": "Copy image URL"
 	},
 	"dragActionImageSearch": {
-		"message": "🔍 Afbeelding Zoeken",
+		"message": "Afbeelding Zoeken",
 		"description": "Image search"
-	},
-	"dragActionCustomSearch": {
-		"message": "🔍 Aangepast Zoeken",
-		"description": "Custom search"
-	},
-	"dragActionSendCustomEvent": {
-		"message": "Aangepaste gebeurtenis verzenden",
-		"description": "Send custom DOM event on drag gesture"
 	},
 	"reducedMotionWarning": {
 		"message": "%OS% systeem animatie is uitgeschakeld, scroll-animatie werkt mogelijk niet goed. U kunt animatie inschakelen in %OS% systeeminstellingen.",
@@ -1511,10 +1539,6 @@
 		"message": "Gebruik de <span class=\"text-highlight\">Linkermuisknop</span> om te slepen",
 		"description": "Tutorial drag wrong button error"
 	},
-	"tutorialRefreshTip": {
-		"message": "Tip: Tabbladen geopend vóór installatie moeten worden <span class=\"text-highlight\">vernieuwd</span> om FlowMouse te gebruiken",
-		"description": "Tip about refreshing tabs"
-	},
 	"permissionBookmarksTitle": {
 		"message": "Bladwijzers Beheren",
 		"description": "Permission popup title for bookmarks"
@@ -1595,9 +1619,9 @@
 		"message": "Afbeelding opslaan mislukt: Time-out bij laden",
 		"description": "Toast message when image loading times out"
 	},
-	"saveImageSubdirPlaceholder": {
-		"message": "Submap (optioneel)",
-		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	"saveImageSubdirLabel": {
+		"message": "Submap",
+		"description": "Label for the optional subdirectory input in save image config"
 	},
 	"buttonOkay": {
 		"message": "OK",
@@ -1635,6 +1659,18 @@
 		"message": "Hulpprogramma's",
 		"description": "Action category: utilities"
 	},
+	"actionCategoryText": {
+		"message": "Tekst",
+		"description": "Action category: text"
+	},
+	"actionCategoryLink": {
+		"message": "Link",
+		"description": "Action category: link"
+	},
+	"actionCategoryImage": {
+		"message": "Afbeelding",
+		"description": "Action category: image"
+	},
 	"noResults": {
 		"message": "Geen resultaten",
 		"description": "No search results found"
@@ -1650,6 +1686,14 @@
 	"enableWheelGesturesDesc": {
 		"message": "Voer snel verschillende acties uit met het muiswiel",
 		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelThreshold": {
+		"message": "Activeringsafstand muiswiel",
+		"description": "Label for the wheel gesture scroll distance threshold"
+	},
+	"wheelThresholdDesc": {
+		"message": "Het scrollen met het muiswiel moet deze afstand bereiken om wielgebaren herhaaldelijk te activeren",
+		"description": "Description for the wheel gesture scroll distance threshold"
 	},
 	"wheelGesture_scrollUpHoldingRight": {
 		"message": "Scroll omhoog terwijl u de rechtermuisknop ingedrukt houdt",
@@ -1758,6 +1802,10 @@
 	"emptyChainSteps": {
 		"message": "Geen stappen toegevoegd. Klik op 'Stap toevoegen' om te beginnen.",
 		"description": "Empty chain steps message in expanded body"
+	},
+	"chainStopOnSuccess": {
+		"message": "Reeks afbreken wanneer een stap slaagt",
+		"description": "Checkbox: skip remaining command-chain steps after the first successful action"
 	},
 	"emptyChainStepsShort": {
 		"message": "Geen stappen toegevoegd",
@@ -1898,6 +1946,10 @@
 	"actionViewPageSource": {
 		"message": "Paginabron weergeven",
 		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionViewFrameSource": {
+		"message": "Paginabron van frame weergeven",
+		"description": "Open the source code of the frame (iframe) where the gesture was performed in a new tab"
 	},
 	"actionPauseGesture": {
 		"message": "Gebaren pauzeren tot herladen",
@@ -2118,6 +2170,14 @@
 	"ctxMenuScrollToBottom": {
 		"message": "Naar beneden scrollen",
 		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuWheelNav": {
+		"message": "Snelle muiswielnavigatie",
+		"description": "Checkbox: navigate a wheel-gesture menu with the wheel while holding the right button"
+	},
+	"ctxMenuWheelNavTooltip": {
+		"message": "Terwijl u de muisknop ingedrukt houdt, scrolt u met het wieltje om snel menu-items te selecteren.",
+		"description": "Tooltip explaining quick wheel navigation for wheel-gesture menus"
 	},
 	"ctxMenuTimeDisplay": {
 		"message": "Tijd weergeven",

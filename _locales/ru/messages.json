@@ -164,7 +164,7 @@
 		"description": "Show gesture trail"
 	},
 	"showTrailDesc": {
-		"message": "Отображать линию следа при выполнении жестов",
+		"message": "Отображать след при выполнении жестов",
 		"description": "Show trail line when performing gestures"
 	},
 	"showHint": {
@@ -202,6 +202,18 @@
 	"showSuggestedGestures": {
 		"message": "Подсказки жестов",
 		"description": "Show suggested gestures at bottom of screen"
+	},
+	"userScale": {
+		"message": "Пользовательский масштаб интерфейса",
+		"description": "UI scaling setting for FlowMouse's own interface"
+	},
+	"userScaleDesc": {
+		"message": "Изменение масштаба элементов интерфейса FlowMouse (подсказок действий, HUD и т.д.)",
+		"description": "Description for the UI scaling setting"
+	},
+	"scale": {
+		"message": "Масштаб",
+		"description": "Label for the UI scale slider"
 	},
 	"customCss": {
 		"message": "Пользовательский CSS",
@@ -311,11 +323,11 @@
 		"message": "Функции перетаскивания",
 		"description": "Drag features section"
 	},
-	"textDragSearch": {
+	"textDrag": {
 		"message": "Перетаскивание текста",
 		"description": "Text drag"
 	},
-	"textDragSearchDesc": {
+	"textDragDesc": {
 		"message": "Перетащите выделенный текст для поиска",
 		"description": "Drag selected text to search"
 	},
@@ -575,6 +587,10 @@
 		"message": "Вправо, затем Влево",
 		"description": "Gesture description for →←"
 	},
+	"gestureDesc_Any": {
+		"message": "Любой",
+		"description": "Description for the * fallback gesture that matches any unmatched pattern"
+	},
 	"actionNone": {
 		"message": "Нет действия",
 		"description": "No action"
@@ -731,6 +747,10 @@
 		"message": "Обновить все вкладки",
 		"description": "Refresh all tabs"
 	},
+	"actionReloadFrame": {
+		"message": "Перезагрузить фрейм",
+		"description": "Reload only the frame (iframe) where the gesture was performed"
+	},
 	"actionStopLoading": {
 		"message": "Остановить загрузку",
 		"description": "Stop loading"
@@ -790,6 +810,10 @@
 	"actionOpenExtensions": {
 		"message": "Открыть расширения",
 		"description": "Open extensions page"
+	},
+	"actionOpenOptions": {
+		"message": "Открыть настройки FlowMouse",
+		"description": "Open the FlowMouse settings page"
 	},
 	"actionSaveAsMhtml": {
 		"message": "Сохранить как MHTML",
@@ -926,6 +950,14 @@
 	"gestureRecorderBanned": {
 		"message": "Жест %pattern% уже существует",
 		"description": "Gesture recorder message when user draws a banned/existing gesture pattern"
+	},
+	"gestureRecorderAny": {
+		"message": "Добавить жест для несовпадающих шаблонов",
+		"description": "Button in the gesture recorder to select the * fallback that matches any unmatched gesture"
+	},
+	"fallbackGestureTip": {
+		"message": "Срабатывает, когда нарисованный след не совпадает ни с одним другим жестом",
+		"description": "Tooltip explaining what the * fallback gesture does"
 	},
 	"rightButton": {
 		"message": "Правая кнопка мыши",
@@ -1192,60 +1224,56 @@
 		"description": "No action"
 	},
 	"dragActionSearch": {
-		"message": "🔍 Поисковая система",
+		"message": "Поиск",
 		"description": "Search action"
 	},
 	"dragActionCopy": {
-		"message": "📋 Копировать",
+		"message": "Копировать",
 		"description": "Copy action"
 	},
-	"dragActionOpenTab": {
-		"message": "📑 Открыть в новой вкладке",
-		"description": "Open in new tab"
-	},
 	"dragActionOpenTabLink": {
-		"message": "🔗 Открыть ссылку",
+		"message": "Открыть ссылку",
 		"description": "Open link in new tab"
 	},
 	"dragActionOpenTabImage": {
-		"message": "🖼️ Открыть изображение",
+		"message": "Открыть изображение",
 		"description": "Open image in new tab"
 	},
+	"dragActionTryOpenLink": {
+		"message": "Попытаться открыть ссылку",
+		"description": "Open the image's link in new tab, if any"
+	},
 	"dragActionCopyLink": {
-		"message": "📋 Копировать ссылку",
+		"message": "Копировать ссылку",
 		"description": "Copy link"
 	},
 	"dragActionCopyLinkText": {
-		"message": "📋 Копировать текст ссылки",
+		"message": "Копировать текст ссылки",
 		"description": "Copy link text"
 	},
 	"dragActionCopyLinkAndText": {
-		"message": "📋 Копировать текст и ссылку",
+		"message": "Копировать текст и ссылку",
 		"description": "Copy link text and URL"
 	},
+	"dragActionBookmarkLink": {
+		"message": "Добавить ссылку в закладки",
+		"description": "Add dragged link to bookmarks"
+	},
 	"dragActionSaveImage": {
-		"message": "💾 Сохранить изображение",
+		"message": "Сохранить изображение",
 		"description": "Save image"
 	},
 	"dragActionCopyImage": {
-		"message": "🖼️ Копировать изображение",
+		"message": "Копировать изображение",
 		"description": "Copy image"
 	},
 	"dragActionCopyImageUrl": {
-		"message": "📋 Копировать URL изображения",
+		"message": "Копировать URL изображения",
 		"description": "Copy image URL"
 	},
 	"dragActionImageSearch": {
-		"message": "🔍 Поиск по изображению",
+		"message": "Поиск по изображению",
 		"description": "Image search"
-	},
-	"dragActionCustomSearch": {
-		"message": "🔍 Пользовательский поиск",
-		"description": "Custom search"
-	},
-	"dragActionSendCustomEvent": {
-		"message": "Отправить пользовательское событие",
-		"description": "Send custom DOM event on drag gesture"
 	},
 	"reducedMotionWarning": {
 		"message": "В системе %OS% отключена анимация, плавная прокрутка может работать некорректно. Вы можете включить анимацию в настройках системы %OS%.",
@@ -1511,10 +1539,6 @@
 		"message": "Используйте <span class=\"text-highlight\">левую кнопку мыши</span> для перетаскивания",
 		"description": "Tutorial drag wrong button error"
 	},
-	"tutorialRefreshTip": {
-		"message": "Подсказка: Вкладки, открытые до установки FlowMouse, нужно <span class=\"text-highlight\">обновить</span> для использования жестов",
-		"description": "Tip about refreshing tabs"
-	},
 	"permissionBookmarksTitle": {
 		"message": "Управление закладками",
 		"description": "Permission popup title for bookmarks"
@@ -1595,9 +1619,9 @@
 		"message": "Не удалось сохранить изображение: время загрузки истекло",
 		"description": "Toast message when image loading times out"
 	},
-	"saveImageSubdirPlaceholder": {
-		"message": "Подкаталог (необязательно)",
-		"description": "Placeholder text for the optional subdirectory input in save image drag gesture config"
+	"saveImageSubdirLabel": {
+		"message": "Подкаталог",
+		"description": "Label for the optional subdirectory input in save image config"
 	},
 	"buttonOkay": {
 		"message": "ОК",
@@ -1635,6 +1659,18 @@
 		"message": "Утилиты",
 		"description": "Action category: utilities"
 	},
+	"actionCategoryText": {
+		"message": "Текст",
+		"description": "Action category: text"
+	},
+	"actionCategoryLink": {
+		"message": "Ссылка",
+		"description": "Action category: link"
+	},
+	"actionCategoryImage": {
+		"message": "Изображение",
+		"description": "Action category: image"
+	},
 	"noResults": {
 		"message": "Нет результатов",
 		"description": "No search results found"
@@ -1650,6 +1686,14 @@
 	"enableWheelGesturesDesc": {
 		"message": "Быстро выполняйте различные действия с помощью колесика мыши",
 		"description": "Enable mouse wheel gestures description"
+	},
+	"wheelThreshold": {
+		"message": "Дистанция срабатывания колесика",
+		"description": "Label for the wheel gesture scroll distance threshold"
+	},
+	"wheelThresholdDesc": {
+		"message": "Прокрутка колесиком мыши должна достичь этой дистанции для многократного срабатывания жестов колесиком",
+		"description": "Description for the wheel gesture scroll distance threshold"
 	},
 	"wheelGesture_scrollUpHoldingRight": {
 		"message": "Прокрутка вверх при удерживании правой кнопки",
@@ -1759,6 +1803,10 @@
 		"message": "Шаги не добавлены. Нажмите «Добавить шаг», чтобы начать.",
 		"description": "Empty chain steps message in expanded body"
 	},
+	"chainStopOnSuccess": {
+		"message": "Прервать цепочку при успешном выполнении шага",
+		"description": "Checkbox: skip remaining command-chain steps after the first successful action"
+	},
 	"emptyChainStepsShort": {
 		"message": "Нет шагов",
 		"description": "Short empty chain steps message for summary"
@@ -1848,7 +1896,7 @@
 		"description": "Label for current key display in simulate key config"
 	},
 	"simulateKeyHint": {
-		"message": "Эта функция отправляет события клавиатуры только на текущую страницу, обычно используется для навигации по странице (← назад / → вперед). Она НЕ вызывает ярлыки браузера (например, Ctrl+R не будет обновлять страницу). Кроме того, из-за ограничений структуры веб-сайта смоделированные события могут перехватываться не всеми пользовательскими компонентами или полями ввода.",
+		"message": "Эта функция отправляет события клавиатуры только на текущую страницу, обычно используется для навигации по странице (← назад / → вперед). Она НЕ вызывает сочетания клавиш браузера (например, Ctrl+R не будет обновлять страницу). Кроме того, из-за ограничений структуры веб-сайта смоделированные события могут перехватываться не всеми пользовательскими компонентами или полями ввода.",
 		"description": "Hint text for simulate key feature"
 	},
 	"customEventInvalidJson": {
@@ -1898,6 +1946,10 @@
 	"actionViewPageSource": {
 		"message": "Просмотр кода страницы",
 		"description": "Open the source code of the current page in a new tab"
+	},
+	"actionViewFrameSource": {
+		"message": "Просмотр кода фрейма",
+		"description": "Open the source code of the frame (iframe) where the gesture was performed in a new tab"
 	},
 	"actionPauseGesture": {
 		"message": "Пауза жестов до обновления",
@@ -2118,6 +2170,14 @@
 	"ctxMenuScrollToBottom": {
 		"message": "Прокрутить вниз",
 		"description": "Checkbox: auto-scroll context menu to the last item when opened"
+	},
+	"ctxMenuWheelNav": {
+		"message": "Быстрая навигация колесиком",
+		"description": "Checkbox: navigate a wheel-gesture menu with the wheel while holding the right button"
+	},
+	"ctxMenuWheelNavTooltip": {
+		"message": "Удерживая кнопку мыши, прокручивайте колесико для быстрого выбора пунктов меню.",
+		"description": "Tooltip explaining quick wheel navigation for wheel-gesture menus"
 	},
 	"ctxMenuTimeDisplay": {
 		"message": "Показывать время",
