@@ -58,10 +58,8 @@
 	} else {
 		grantBtn.addEventListener('click', async () => {
 			if (isCustomAction && permissionsParam === 'incognito') {
-				{
-					await chrome.tabs.create({ url: 'chrome://extensions/?id=' + chrome.runtime.id });
-					window.close();
-				}
+				await chrome.tabs.create({ url: 'chrome://extensions/?id=' + chrome.runtime.id });
+				window.close();
 				return;
 			}
 

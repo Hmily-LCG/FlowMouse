@@ -171,8 +171,10 @@ const CONTENT_ACTIONS = new Set([
 	'menuShowTabs', 'menuRecentlyClosed', 'menuShowBookmarks',
 	'customMenu',
 
-	'copy', 'copyLink', 'copyImageUrl', 'copyLinkText', 'copyLinkAndText',
-	'search', 'openTab', 'openLink', 'openImage', 'imageSearch', 'saveImage', 'bookmarkLink',
+	'openLink', 'copyLink', 'copyLinkText', 'copyLinkAndText', 'bookmarkLink',
+	'openImage', 'saveImage', 'copyImageUrl', 'imageSearch',
+
+	'copy', 'search',
 ]);
 
 async function createTabAtPosition(tab, position, extraOpts = {}) {
@@ -999,7 +1001,7 @@ async function handleAction(request, sender, dragType, contentValues) {
 					action: 'areaSelectUpdate',
 					frameId: sender.frameId ?? 0,
 					links: request.links,
-				}).catch(() => {});
+				}, { frameId: 0 }).catch(() => {});
 			}
 			return { success: true };
 
@@ -1036,7 +1038,7 @@ async function handleAction(request, sender, dragType, contentValues) {
 				await chrome.tabs.sendMessage(sender.tab.id, {
 					action: 'gestureHudUpdate',
 					data: request.data
-				}).catch(() => {
+				}, { frameId: 0 }).catch(() => {
 				});
 			}
 			return { success: true };
@@ -1485,6 +1487,53 @@ chrome.runtime.onInstalled.addListener((details) => {
 
 			try {
 				const items = await chrome.storage.sync.get([
+					'linkDragGestures', 'imageDragGestures', 'actionChains',
+				]);
+				const updates = {};
+
+				const migrateOpenTab = (config, dragType) => {
+					if (config?.action !== 'openTab') return false;
+					if (dragType === 'image') {
+						config.action = 'openImage';
+					} else {
+						config.action = 'openLink';
+						delete config.preferLink;
+						delete config.customNamePreferLink;
+					}
+					return true;
+				};
+
+				for (const [key, dragType] of [['linkDragGestures', 'link'], ['imageDragGestures', 'image']]) {
+					if (!Array.isArray(items[key])) continue;
+					const gestures = structuredClone(items[key]);
+					let changed = false;
+					for (const g of gestures) {
+						if (migrateOpenTab(g, dragType)) changed = true;
+					}
+					if (changed) updates[key] = gestures;
+				}
+
+				if (items.actionChains) {
+					const chains = structuredClone(items.actionChains);
+					let changed = false;
+					for (const chain of Object.values(chains)) {
+						if (!chain.steps) continue;
+						for (const step of chain.steps) {
+							if (migrateOpenTab(step, chain.type)) changed = true;
+						}
+					}
+					if (changed) updates.actionChains = chains;
+				}
+
+				if (Object.keys(updates).length) {
+					await chrome.storage.sync.set(updates);
+				}
+			} catch (e) {
+				console.error('Migration (openTab → openLink/openImage) failed:', e);
+			}
+
+			try {
+				const items = await chrome.storage.sync.get([
 					'mouseGestures', 'wheelGestures', 'specialGestures', 'actionChains',
 				]);
 				const updates = {};
@@ -1543,36 +1592,9 @@ chrome.runtime.onInstalled.addListener((details) => {
 			} catch (e) {
 				console.error('Migration (copyUrl → copyTitleAndUrl) failed:', e);
 			}
+
+			await chrome.storage.sync.set({ lastSyncVersion: chrome.runtime.getManifest().version }).catch(() => { });
 		})();
-	}
-
-
-	{
-		async function reinjectContentScripts(dispose) {
-			const contentScript = chrome.runtime.getManifest().content_scripts[0];
-			const tabs = await chrome.tabs.query({});
-			await Promise.all(tabs.map(async (tab) => {
-				if (isRestrictedUrl(tab.url)) return;
-				try {
-					if (dispose) {
-						await chrome.scripting.executeScript({
-							target: { tabId: tab.id, allFrames: contentScript.all_frames },
-							func: () => window.dispatchEvent(new CustomEvent('flowmouse:dispose', { detail: { extensionId: chrome.runtime.id } })),
-						});
-					}
-					await chrome.scripting.executeScript({
-						target: { tabId: tab.id, allFrames: contentScript.all_frames },
-						files: contentScript.js,
-					});
-				} catch (error) {
-					console.error('Failed to re-inject content scripts into tab:', error);
-				}
-			}));
-		}
-
-		if (details.reason === 'install' || (details.reason === 'update' && compareVersions(details.previousVersion, '1.50') > 0)) {
-			reinjectContentScripts(details.reason === 'update');
-		}
 	}
 
 	if (details.reason === 'install' || details.reason === 'update') {
@@ -1584,6 +1606,52 @@ chrome.runtime.onInstalled.addListener((details) => {
 	}
 });
 
+
+{
+	async function reinjectContentScripts(dispose) {
+		const contentScript = chrome.runtime.getManifest().content_scripts[0];
+		const tabs = await chrome.tabs.query({});
+		await Promise.all(tabs.map(async (tab) => {
+			if (isRestrictedUrl(tab.url)) return;
+			try {
+				if (dispose) {
+					await chrome.scripting.executeScript({
+						target: { tabId: tab.id, allFrames: contentScript.all_frames },
+						func: () => window.dispatchEvent(new CustomEvent('flowmouse:dispose', { detail: { extensionId: chrome.runtime.id } })),
+					});
+				}
+				await chrome.scripting.executeScript({
+					target: { tabId: tab.id, allFrames: contentScript.all_frames },
+					files: contentScript.js,
+				});
+			} catch (error) {
+				console.error('Failed to re-inject content scripts into tab:', error);
+			}
+		}));
+	}
+
+	if (chrome.runtime.onExtensionLoaded) {
+		chrome.runtime.onExtensionLoaded.addListener((details) => {
+			if (['install', 'update', 'enable', 'reload'].includes(details.reason)) {
+				reinjectContentScripts(details.reason !== 'install');
+			}
+		});
+	} else {
+		let inited = false;
+		chrome.runtime.onInstalled.addListener((details) => {
+			if (inited) return;
+			inited = true;
+			if (['install', 'update'].includes(details.reason)) {
+				reinjectContentScripts(details.reason !== 'install');
+			}
+		});
+		self.addEventListener('activate', () => {
+			if (inited) return;
+			inited = true;
+			reinjectContentScripts(true);
+		});
+	}
+}
 
 
 const MENU_ID_REFRESH = 'flowmouse-need-refresh';
@@ -1609,12 +1677,10 @@ function isRestrictedUrl(url) {
 		if (url.startsWith(protocol)) return true;
 	}
 
-	{
-		if (url.startsWith('https://chrome.google.com/webstore') ||
-			url.startsWith('https://chromewebstore.google.com') ||
-			(isEdge && url.startsWith('https://microsoftedge.microsoft.com/addons'))) {
-			return true;
-		}
+	if (url.startsWith('https://chrome.google.com/webstore') ||
+		url.startsWith('https://chromewebstore.google.com') ||
+		(isEdge && url.startsWith('https://microsoftedge.microsoft.com/addons'))) {
+		return true;
 	}
 
 	return false;

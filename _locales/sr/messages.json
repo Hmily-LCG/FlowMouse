@@ -151,6 +151,10 @@
 		"message": "Да бисте отворили контекстни мени, двапут кликните десним тастером миша. (Сазнајте више)",
 		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
 	},
+	"edgeGestureConflictHint": {
+		"message": "Откривен је сукоб између уграђених покрета прегледача Edge и покрета проширења FlowMouse. (Сазнајте више)",
+		"description": "Clickable toast shown on Edge when its built-in mouse gestures repeatedly interrupt FlowMouse gestures; opens the settings notice"
+	},
 	"edgeGestureConflictNotice": {
 		"message": "%browserName% има уграђене функције покрета. Да бисте користили покрете FlowMouse-а, <a href=\"#\" class=\"edge-gesture-link\">онемогућите уграђене покрете</a> у подешавањима %browserName%-а.",
 		"description": "Notice for Edge users about built-in gesture conflict"
@@ -975,6 +979,18 @@
 		"message": "Обриши гест",
 		"description": "Delete gesture button tooltip"
 	},
+	"redrawGesture": {
+		"message": "Поново нацртај гест",
+		"description": "Gesture card menu item: re-record the gesture pattern"
+	},
+	"editAction": {
+		"message": "Уреди команду",
+		"description": "Gesture card menu item: change the action bound to the gesture"
+	},
+	"moreOptions": {
+		"message": "Више опција",
+		"description": "Tooltip for the 3-dot menu button"
+	},
 	"deleteGestureConfirm": {
 		"message": "Обриши гест %pattern%?",
 		"description": "Delete gesture confirmation"
@@ -1231,11 +1247,11 @@
 		"message": "Копирај",
 		"description": "Copy action"
 	},
-	"dragActionOpenTabLink": {
+	"dragActionOpenLink": {
 		"message": "Отвори линк",
 		"description": "Open link in new tab"
 	},
-	"dragActionOpenTabImage": {
+	"dragActionOpenImage": {
 		"message": "Отвори слику",
 		"description": "Open image in new tab"
 	},
@@ -1431,6 +1447,10 @@
 		"message": "Притисните и <strong>држите</strong> <span class=\"text-highlight\">десни тастер миша</span>",
 		"description": "Tutorial Step 1 instruction idle"
 	},
+	"tutorialStep1InstructionStart": {
+		"message": "Притисните и <strong>држите</strong> <span class=\"text-highlight\">десни тастер миша</span> да бисте почели",
+		"description": "Tutorial first page instruction, before the first press"
+	},
 	"tutorialStep1InstructionPressing": {
 		"message": "<strong>Одлично!</strong> Сада превуците <strong>%arrow% десно</strong>",
 		"description": "Tutorial Step 1 instruction pressing"
@@ -1452,7 +1472,7 @@
 		"description": "Tutorial Step 2 subtitle"
 	},
 	"tutorialStep2Footer": {
-		"message": "<strong>Више гестова</strong> и <strong>потпуна прилагођавања</strong> доступни у подешавањима.",
+		"message": "<strong>Више гестова</strong> и <strong>потпуна прилагођавања</strong> доступни у подешавањима",
 		"description": "Footer note for step 2 discovery banner"
 	},
 	"tutorialStep2DiscoveryHeader": {
@@ -1476,7 +1496,7 @@
 		"description": "Image drag open discovery item"
 	},
 	"tutorialStep3Footer": {
-		"message": "<strong>Више акција превлачења</strong> и <strong>потпуна прилагођавања</strong> доступни у режиму напредних подешавања",
+		"message": "<strong>Више акција превлачења</strong> и <strong>потпуна прилагођавања</strong> доступни у подешавањима",
 		"description": "Footer for step 3 discovery banner"
 	},
 	"tutorialContinue": {
@@ -1670,6 +1690,14 @@
 	"actionCategoryImage": {
 		"message": "Слика",
 		"description": "Action category: image"
+	},
+	"actionCategoryLinkImage": {
+		"message": "Линк и слика",
+		"description": "Action category: link and image"
+	},
+	"elementActionStartHint": {
+		"message": "Извршиће се на елементу на <b>почетној позицији геста</b>.",
+		"description": "Notice shown in action config for link/image"
 	},
 	"noResults": {
 		"message": "Нема резултата",

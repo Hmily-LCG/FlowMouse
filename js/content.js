@@ -421,13 +421,203 @@
 		return null;
 	}
 
+	function randomId() {
+		const [a, b] = crypto.getRandomValues(new BigUint64Array(2));
+		return a.toString(36) + b.toString(36);
+	}
+
 	window.FlowMouseUtils = {
 		handleScroll,
 		checkScrollFeasibility,
 		copyText,
 		isNavigableUrl,
 		tryParseAsUrl,
+		randomId,
 	};
+})();
+
+
+(function () {
+	'use strict';
+
+	const { DEFAULT_GESTURES, ACTION_DEFAULTS, actionLabelKey } = window.GestureConstants;
+
+
+	const DRAG_SOURCES = { text: 'textDragGestures', link: 'linkDragGestures', image: 'imageDragGestures' };
+
+	const hasAction = (cfg) => !!cfg?.action && cfg.action !== 'none';
+
+	function mergeDuplicateLabels(labels) {
+		const counts = new Map();
+		for (const label of labels) counts.set(label, (counts.get(label) || 0) + 1);
+		const seen = new Set();
+		const merged = [];
+		for (const label of labels) {
+			if (seen.has(label)) continue;
+			seen.add(label);
+			const count = counts.get(label);
+			merged.push(count > 1 ? `${label} × ${count}` : label);
+		}
+		return merged;
+	}
+
+	class ActionBindings {
+		#getSettings;
+
+		constructor(getSettings) {
+			this.#getSettings = getSettings;
+		}
+
+		resolve(source, key) {
+			const settings = this.#getSettings();
+			let pattern = key;
+			let stored = this.#lookup(settings, source, key);
+			if (this.#canFallback(settings, source, key, stored)) {
+				const fallback = this.#lookup(settings, source, '*');
+				if (hasAction(fallback)) {
+					pattern = '*';
+					stored = fallback;
+				}
+			}
+			if (!hasAction(stored)) return null;
+			const { action } = stored;
+			return { source, pattern, config: { ...(ACTION_DEFAULTS[action] || {}), ...stored, action } };
+		}
+
+		labels(binding, contentValues) {
+			if (!binding) return [];
+			const cfg = binding.config;
+			const dragType = DRAG_SOURCES[binding.source] ? binding.source : null;
+			const { msg } = window.ContentI18n;
+
+			if (cfg.action === 'actionChain' && !cfg.customName) {
+				const chain = this.#getSettings().actionChains?.[cfg.chainId];
+				if (chain?.name) return [chain.name];
+				if (!chain) return [`${msg(actionLabelKey(cfg.action))} ${msg('chainNotFound')}`];
+				const lines = this.#chainStepLabels(chain, dragType, contentValues);
+				if (lines.length) return lines;
+			}
+			if (cfg.action === 'customMenu' && !cfg.customName) {
+				const menuDef = this.#getSettings().customMenus?.[cfg.menuId];
+				if (menuDef?.name) return [menuDef.name];
+				if (!menuDef) return [`${msg(actionLabelKey(cfg.action))} ${msg('menuNotFound')}`];
+			}
+
+			const label = this.#actionLabel(cfg, dragType, contentValues);
+			return label ? [label] : [];
+		}
+
+		label(cfg, dragType, contentValues) {
+			if (!cfg.customName) {
+				const settings = this.#getSettings();
+				if (cfg.action === 'actionChain') {
+					const name = settings.actionChains?.[cfg.chainId]?.name;
+					if (name) return name;
+				} else if (cfg.action === 'customMenu') {
+					const name = settings.customMenus?.[cfg.menuId]?.name;
+					if (name) return name;
+				}
+			}
+			return this.#actionLabel(cfg, dragType, contentValues);
+		}
+
+		suggestions(currentPattern, contentValues) {
+			const settings = this.#getSettings();
+			const source = settings.enableGestureCustomization
+				? (settings.mouseGestures || {})
+				: DEFAULT_GESTURES;
+			const suggestions = [];
+			for (const pattern of Object.keys(source)) {
+				if (pattern === '*') continue;
+				if (!pattern.startsWith(currentPattern)) continue;
+				if (pattern.length !== currentPattern.length + 1) continue;
+				const binding = this.resolve('gesture', pattern);
+				if (binding?.pattern !== pattern) continue;
+				const labels = this.labels(binding, contentValues);
+				if (!labels.length) continue;
+				suggestions.push({ pattern, actionName: labels.join(' · ') });
+			}
+
+			const lastDir = currentPattern.slice(-1);
+			const isHorizontal = lastDir === '←' || lastDir === '→';
+			const isVertical = lastDir === '↑' || lastDir === '↓';
+
+			const getSortKey = (pattern) => {
+				const D = pattern[currentPattern.length];
+				if (isHorizontal) {
+					if (D === '↑') return 0;
+					if (D === '←' || D === '→') return 1;
+					if (D === '↓') return 2;
+				} else if (isVertical) {
+					if (D === '←') return 0;
+					if (D === '↑' || D === '↓') return 1;
+					if (D === '→') return 2;
+				}
+				return 3;
+			};
+
+			suggestions.sort((a, b) => getSortKey(a.pattern) - getSortKey(b.pattern));
+			return suggestions;
+		}
+
+		#lookup(settings, source, key) {
+			if (source === 'gesture') {
+				if (!settings.enableGestureCustomization) {
+					const action = DEFAULT_GESTURES[key];
+					return action ? { action } : null;
+				}
+				return settings.mouseGestures?.[key] || null;
+			}
+			if (DRAG_SOURCES[source]) return settings[DRAG_SOURCES[source]]?.find(item => item.direction === key) || null;
+			if (source === 'special') return settings.specialGestures?.[key] || null;
+			if (source === 'wheel') return settings.wheelGestures?.[key] || null;
+			return null;
+		}
+
+		#canFallback(settings, source, key, stored) {
+			if (source === 'gesture') return !!settings.enableGestureCustomization && !hasAction(stored);
+			if (DRAG_SOURCES[source]) return !!key && !stored?.action;
+			return false;
+		}
+
+		#chainStepLabels(chain, dragType, contentValues) {
+			const hidden = new Set(['none', 'delay']);
+			const labels = [];
+			for (const step of chain.steps || []) {
+				if (!step.action || hidden.has(step.action)) continue;
+				const label = this.label(step, dragType, contentValues);
+				if (label) labels.push(label);
+			}
+			return mergeDuplicateLabels(labels);
+		}
+
+		#actionLabel(cfg, dragType, contentValues) {
+			const { msg } = window.ContentI18n;
+			const action = cfg.action;
+			const merged = { ...(ACTION_DEFAULTS[action] || {}), ...cfg };
+
+			if (action === 'search' && dragType === 'text' && merged.autoDetectUrl && contentValues?.text && window.FlowMouseUtils.tryParseAsUrl(contentValues.text, false)) {
+				return merged.customNameAutoDetectUrl || msg(actionLabelKey('openLink', 'link'));
+			}
+			if (action === 'openImage' && merged.preferLink && contentValues?.imageUrl && contentValues?.linkUrl) {
+				return merged.customNamePreferLink || msg(actionLabelKey('openLink', 'link'));
+			}
+			if (merged.customName) return merged.customName;
+			if (action === 'simulateKey') {
+				const mods = [];
+				if (merged.modCtrl) mods.push('Ctrl');
+				if (merged.modShift) mods.push('Shift');
+				if (merged.modAlt) mods.push('Alt');
+				if (merged.modMeta) mods.push('Meta');
+				mods.push(merged.keyValue || 'ArrowLeft');
+				return `${msg(actionLabelKey(action))} (${mods.join('+')})`;
+			}
+			const i18nKey = actionLabelKey(action, dragType);
+			return i18nKey ? msg(i18nKey) : '';
+		}
+	}
+
+	window.ActionBindings = ActionBindings;
 })();
 
 
@@ -460,7 +650,6 @@ class ContentContextMenu {
 				background: rgba(255, 255, 255, 0.92);
 			}
 
-			/* Opened by a wheel gesture: show faster */
 			.fm-ctx-frame--wheel {
 				transition: none;
 			}
@@ -483,7 +672,7 @@ class ContentContextMenu {
 	prepare(x, y, options) {
 		this.close();
 
-		const menuId = Math.random().toString(36).slice(2) + Date.now().toString(36);
+		const menuId = window.FlowMouseUtils.randomId();
 		this.#activeMenuId = menuId;
 		this.#activeItems = null;
 
@@ -672,8 +861,6 @@ window.ContentContextMenu = ContentContextMenu;
 
 (function () {
 	'use strict';
-
-	const isFirefox = false;
 
 	const STATES = { INACTIVE: 0, WAITING: 1, SELECTING: 2 };
 	const CLICK_THRESHOLD = 2;
@@ -1984,7 +2171,6 @@ window.ContentContextMenu = ContentContextMenu;
 (function () {
 	'use strict';
 
-	const isFirefox = false;
 	const isEdgeDesktop = navigator.userAgent.includes('Edg/');
 
 	const currentDomain = location.hostname;
@@ -2037,8 +2223,8 @@ window.ContentContextMenu = ContentContextMenu;
 
 	function initGestures() {
 		initGesturesCalled = true;
-		const { DEFAULT_GESTURES, DEFAULT_SETTINGS, ACTION_DEFAULTS, ACTION_KEYS, actionLabelKey, LOCAL_ACTIONS, CLEAR_OVERLAY_ACTIONS } = window.GestureConstants;
-		const { handleScroll, checkScrollFeasibility, copyText, tryParseAsUrl } = window.FlowMouseUtils;
+		const { DEFAULT_SETTINGS, ACTION_DEFAULTS, ACTION_KEYS, LOCAL_ACTIONS, CLEAR_OVERLAY_ACTIONS } = window.GestureConstants;
+		const { handleScroll, checkScrollFeasibility, copyText, tryParseAsUrl, randomId } = window.FlowMouseUtils;
 		const { msg } = window.ContentI18n;
 
 		const recognizer = new window.GestureRecognizer({
@@ -2068,81 +2254,6 @@ window.ContentContextMenu = ContentContextMenu;
 			safeSendMessage({ action: 'warmUp' });
 		}
 
-		function mergeDuplicateLabels(labels) {
-			const counts = new Map();
-			for (const label of labels) counts.set(label, (counts.get(label) || 0) + 1);
-			const seen = new Set();
-			const merged = [];
-			for (const label of labels) {
-				if (seen.has(label)) continue;
-				seen.add(label);
-				const count = counts.get(label);
-				merged.push(count > 1 ? `${label} × ${count}` : label);
-			}
-			return merged;
-		}
-
-		function resolveActionLabel(cfg, dragType, contentValues) {
-			const action = cfg.action;
-			const merged = { ...(ACTION_DEFAULTS[action] || {}), ...cfg };
-
-			if (action === 'search' && dragType === 'text' && merged.autoDetectUrl && contentValues?.text && tryParseAsUrl(contentValues.text, false)) {
-				return merged.customNameAutoDetectUrl || msg(actionLabelKey('openTab', 'link'));
-			}
-			if ((action === 'openTab' || action === 'openImage') && dragType === 'image' && merged.preferLink && contentValues?.linkUrl) {
-				return merged.customNamePreferLink || msg(actionLabelKey('openTab', 'link'));
-			}
-			if (merged.customName) return merged.customName;
-			return msg(actionLabelKey(action, dragType));
-		}
-
-		function getUnnamedChainLabels(chain, dragType, contentValues) {
-			const hidden = new Set(['none', 'delay']);
-			const labels = [];
-			for (const step of chain.steps || []) {
-				if (!step.action || hidden.has(step.action)) continue;
-				labels.push(resolveActionLabel(step, dragType, contentValues));
-			}
-			return mergeDuplicateLabels(labels);
-		}
-
-		function getDragLabels(type, pattern, contentValues) {
-			const gestures = getGesturesForDragType(type);
-			if (!gestures) return [];
-
-			const cfg = getDragGestureConfig(gestures, pattern);
-			if (!cfg || cfg.action === 'none') return [];
-
-			if (cfg.action === 'actionChain') {
-				if (cfg.customName) return [cfg.customName];
-				const chain = SETTINGS.actionChains?.[cfg.chainId];
-				if (chain?.name) return [chain.name];
-				if (!chain) return [`${msg(actionLabelKey(cfg.action))} ${msg('chainNotFound')}`];
-				const lines = getUnnamedChainLabels(chain, type, contentValues);
-				if (lines.length) return lines;
-			}
-			if (cfg.action === 'customMenu' && !cfg.customName) {
-				const menuDef = SETTINGS.customMenus?.[cfg.menuId];
-				if (menuDef?.name) return [menuDef.name];
-				if (!menuDef) return [`${msg(actionLabelKey(cfg.action))} ${msg('menuNotFound')}`];
-			}
-
-			return [resolveActionLabel(cfg, type, contentValues)];
-		}
-
-		function getGesturesForDragType(dragType) {
-			if (dragType === 'text') return SETTINGS.textDragGestures;
-			if (dragType === 'link') return SETTINGS.linkDragGestures;
-			if (dragType === 'image') return SETTINGS.imageDragGestures;
-			return null;
-		}
-
-		function getDragGestureConfig(gestures, dir) {
-			const g = gestures.find(item => item.direction === dir);
-			if (!g || !g.action) return null;
-			return { ...(ACTION_DEFAULTS[g.action] || {}), ...g };
-		}
-
 		function isEditableTarget(e) {
 			const node = e.composedPath()[0];
 			const el = node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement;
@@ -2154,29 +2265,11 @@ window.ContentContextMenu = ContentContextMenu;
 			return tag === 'TEXTAREA' || el.isContentEditable;
 		}
 
-		function getDragPatternWithFallback(dragType, pattern) {
-			if (!pattern) return pattern;
-			const gestures = getGesturesForDragType(dragType);
-			if (!gestures) return pattern;
-			if (getDragGestureConfig(gestures, pattern)) return pattern;
-			const fallback = getDragGestureConfig(gestures, '*');
-			if (fallback && fallback.action !== 'none') return '*';
-			return pattern;
-		}
-
-		function hasDragAction(dragType, pattern) {
-			pattern = getDragPatternWithFallback(dragType, pattern);
-			if (!pattern) return false;
-			const gestures = getGesturesForDragType(dragType);
-			if (!gestures) return false;
-			const cfg = getDragGestureConfig(gestures, pattern);
-			return cfg && cfg.action !== 'none';
-		}
-
 		let SETTINGS = {
 			...DEFAULT_SETTINGS,
 			enableDrag: DEFAULT_SETTINGS.enableTextDrag || DEFAULT_SETTINGS.enableImageDrag || DEFAULT_SETTINGS.enableLinkDrag
 		};
+		const bindings = new window.ActionBindings(() => SETTINGS);
 		let chainContexts = new Map();
 
 		function resolveAreaSelectConfig(cfg) {
@@ -2201,98 +2294,6 @@ window.ContentContextMenu = ContentContextMenu;
 			const isRtl = window.ContentI18n.getDir() === 'rtl';
 			const opts = { ...resolveAreaSelectConfig(cfg), customCss: SETTINGS.customCss };
 			window.FlowMouseAreaSelect.enter(isIframe, opts.warnThreshold, lang, isRtl, initialEvent, opts);
-		}
-
-		function getGestureAction(pattern) {
-			if (!SETTINGS.enableGestureCustomization) {
-				return DEFAULT_GESTURES[pattern];
-			}
-
-			const config = SETTINGS.mouseGestures?.[pattern];
-			return config?.action;
-		}
-
-		function getPatternWithFallback(pattern) {
-			if (!SETTINGS.enableGestureCustomization) return pattern;
-			const action = getGestureAction(pattern);
-			if (action && action !== 'none') return pattern;
-			const fallback = getGestureAction('*');
-			if (fallback && fallback !== 'none') return '*';
-			return pattern;
-		}
-
-
-		function getActionLabels(pattern) {
-			const action = getGestureAction(pattern);
-			if (!action || action === 'none') return [];
-			if (SETTINGS.enableGestureCustomization) {
-				const customName = SETTINGS.mouseGestures?.[pattern]?.customName;
-				if (customName) return [customName];
-			}
-			if (action === 'actionChain') {
-				const config = SETTINGS.mouseGestures?.[pattern];
-				const chain = SETTINGS.actionChains?.[config?.chainId];
-				if (chain?.name) return [chain.name];
-				if (!chain) return [`${msg(actionLabelKey(action))} ${msg('chainNotFound')}`];
-				const lines = getUnnamedChainLabels(chain);
-				if (lines.length) return lines;
-			}
-			if (action === 'customMenu') {
-				const config = SETTINGS.mouseGestures?.[pattern];
-				const menuDef = SETTINGS.customMenus?.[config?.menuId];
-				if (menuDef?.name) return [menuDef.name];
-				if (!menuDef) return [`${msg(actionLabelKey(action))} ${msg('menuNotFound')}`];
-			}
-			if (action === 'simulateKey') {
-				const config = SETTINGS.mouseGestures?.[pattern] || {};
-				const defaults = ACTION_DEFAULTS.simulateKey || {};
-				const keyValue = config.keyValue || defaults.keyValue || 'ArrowLeft';
-				const mods = [];
-				if (config.modCtrl) mods.push('Ctrl');
-				if (config.modShift) mods.push('Shift');
-				if (config.modAlt) mods.push('Alt');
-				if (config.modMeta) mods.push('Meta');
-				mods.push(keyValue);
-				return [`${msg(actionLabelKey(action))} (${mods.join('+')})`];
-			}
-			const i18nKey = actionLabelKey(action);
-			return i18nKey ? [msg(i18nKey)] : [];
-		}
-
-		function getSuggestedGestures(currentPattern) {
-			const source = SETTINGS.enableGestureCustomization
-				? (SETTINGS.mouseGestures || {})
-				: DEFAULT_GESTURES;
-			const suggestions = [];
-			for (const pattern of Object.keys(source)) {
-				if (pattern === '*') continue;
-				if (!pattern.startsWith(currentPattern)) continue;
-				if (pattern.length !== currentPattern.length + 1) continue;
-				const labels = getActionLabels(pattern);
-				if (!labels.length) continue;
-				suggestions.push({ pattern, actionName: labels.join(' · ') });
-			}
-
-			const lastDir = currentPattern.slice(-1);
-			const isHorizontal = lastDir === '←' || lastDir === '→';
-			const isVertical = lastDir === '↑' || lastDir === '↓';
-
-			const getSortKey = (pattern) => {
-				const D = pattern[currentPattern.length];
-				if (isHorizontal) {
-					if (D === '↑') return 0;
-					if (D === '←' || D === '→') return 1;
-					if (D === '↓') return 2;
-				} else if (isVertical) {
-					if (D === '←') return 0;
-					if (D === '↑' || D === '↓') return 1;
-					if (D === '→') return 2;
-				}
-				return 3;
-			};
-
-			suggestions.sort((a, b) => getSortKey(a.pattern) - getSortKey(b.pattern));
-			return suggestions;
 		}
 
 		function loadSettings() {
@@ -2361,7 +2362,7 @@ window.ContentContextMenu = ContentContextMenu;
 
 		chrome.storage.onChanged.addListener((changes, namespace) => {
 			if (namespace === 'sync') {
-				const keys = Object.keys(changes).filter(k => k !== 'blacklist' && k !== 'lastSyncTime');
+				const keys = Object.keys(changes).filter(k => k !== 'blacklist' && k !== 'lastSyncTime' && k !== 'lastSyncVersion');
 				if (keys.length === 0) return;
 
 				loadSettings();
@@ -2489,7 +2490,7 @@ window.ContentContextMenu = ContentContextMenu;
 
 		let isRemoteGestureActive = false;
 
-		let edgeGestureBlurCount = 0;
+		let edgeGestureConflictCount = 0;
 
 		let preventContextMenuTimeoutId = null;
 
@@ -2563,16 +2564,14 @@ window.ContentContextMenu = ContentContextMenu;
 		}
 
 		function isExtensionContextValid() {
-			{
-				if (!chrome.runtime?.id) {
-					isBlacklisted = true;
-					eventManager.dispose();
-					visualizer.cleanup();
-					toaster.cleanup();
-					ctxMenu.close();
-					window.FlowMouseAreaSelect.exit();
-					return false;
-				}
+			if (!chrome.runtime?.id) {
+				isBlacklisted = true;
+				eventManager.dispose();
+				visualizer.cleanup();
+				toaster.cleanup();
+				ctxMenu.close();
+				window.FlowMouseAreaSelect.exit();
+				return false;
 			}
 			return true;
 		}
@@ -2595,6 +2594,19 @@ window.ContentContextMenu = ContentContextMenu;
 					safeSendMessage({ action: 'openOptionsPage', hash: '#mac-linux-notice' });
 				},
 			});
+		}
+
+		function countEdgeGestureConflict() {
+			edgeGestureConflictCount++;
+			if (edgeGestureConflictCount >= 2 && !SETTINGS.edgeGestureConflict) {
+				SETTINGS.edgeGestureConflict = true;
+				try { chrome.storage.sync.set({ edgeGestureConflict: true }); } catch (e) { }
+			}
+			if (edgeGestureConflictCount === 5 && !isIframe) {
+				toaster.showToast(msg('edgeGestureConflictHint'), {
+					onClick: () => safeSendMessage({ action: 'openOptionsPage', hash: '#edge-gesture-notice' }),
+				});
+			}
 		}
 
 		let wheelGestureTriggered = false;
@@ -2648,7 +2660,7 @@ window.ContentContextMenu = ContentContextMenu;
 				return;
 			}
 
-			if ((isFirefox || !isMacOrLinux) && ctxMenu.isOpen) {
+			if (!isMacOrLinux && ctxMenu.isOpen) {
 				e.preventDefault();
 				e.stopImmediatePropagation();
 				return;
@@ -2715,7 +2727,7 @@ window.ContentContextMenu = ContentContextMenu;
 			}
 		}, true);
 
-		const isAreaSelectModifierEnabled = () => SETTINGS.areaSelectModifierKey && SETTINGS.areaSelectModifierKey !== 'disabled';
+		const isAreaSelectModifierEnabled = () => !isBlacklisted && SETTINGS.areaSelectModifierKey && SETTINGS.areaSelectModifierKey !== 'disabled';
 
 		let areaSelectPending = null;
 		eventManager.add(isAreaSelectModifierEnabled, window, 'pointerdown', (e) => {
@@ -2808,7 +2820,18 @@ window.ContentContextMenu = ContentContextMenu;
 		eventManager.add(isGestureEnabled, window, 'pointermove', (e) => {
 			if (!gestureState.isRightButton) return;
 
-			const result = recognizer.move(e.clientX, e.clientY, e.timeStamp);
+			if (isEdgeDesktop && e.pointerType === 'mouse' && gestureState.gestureButton === 2 && e.buttons === 0) {
+				countEdgeGestureConflict();
+				if (recognizer.isActive()) safeSendMessage({ action: 'gestureStateUpdate', active: false });
+				gestureState.preventContextMenu = false;
+				resetState();
+				return;
+			}
+
+			const coalesced = e.getCoalescedEvents?.() ?? [];
+			const currentPoints = (coalesced.length ? coalesced : [e])
+				.map(evt => ({ x: evt.clientX, y: evt.clientY, timestamp: evt.timeStamp }));
+			const result = recognizer.moveBatch(currentPoints);
 
 			if (result.totalDistance > 3 || result.activated) {
 				try {
@@ -2818,19 +2841,6 @@ window.ContentContextMenu = ContentContextMenu;
 					}
 				} catch (err) {
 					console.warn('FlowMouse: setPointerCapture failed', err);
-				}
-			}
-
-			let currentPoints = [];
-			if (SETTINGS.enableTrail) {
-				if (e.getCoalescedEvents) {
-					const events = e.getCoalescedEvents();
-					if (events.length > 0) {
-						currentPoints = events.map(evt => ({ x: evt.clientX, y: evt.clientY, timestamp: evt.timeStamp }));
-					}
-				}
-				if (currentPoints.length === 0) {
-					currentPoints = [{ x: e.clientX, y: e.clientY, timestamp: e.timeStamp }];
 				}
 			}
 
@@ -2847,10 +2857,7 @@ window.ContentContextMenu = ContentContextMenu;
 					});
 					visualizer.show();
 
-					const preTrail = result.preActivationTrail || [{ x: recognizer.startX, y: recognizer.startY, timestamp: recognizer.startTimestamp }];
-					const merged = [...preTrail, ...currentPoints];
-					merged.sort((a, b) => a.timestamp - b.timestamp);
-					visualizer.addPoints(merged);
+					visualizer.addPoints(result.preActivationTrail);
 				}
 			} else if (recognizer.isActive() && SETTINGS.enableTrail) {
 				visualizer.addPoints(currentPoints);
@@ -2859,10 +2866,10 @@ window.ContentContextMenu = ContentContextMenu;
 			if (!recognizer.isActive()) return;
 
 			if (result.directionChanged && SETTINGS.enableHUD) {
-				const pattern = getPatternWithFallback(result.pattern);
-				visualizer.updateAction(pattern, getActionLabels(pattern));
+				const binding = bindings.resolve('gesture', result.pattern);
+				visualizer.updateAction(binding?.pattern ?? result.pattern, bindings.labels(binding, gestureState.contentValues));
 				if (SETTINGS.enableSuggestedGestures) {
-					const suggestions = getSuggestedGestures(result.pattern);
+					const suggestions = bindings.suggestions(result.pattern, gestureState.contentValues);
 					visualizer.updateSuggestedGestures(suggestions, result.pattern);
 				}
 			}
@@ -2900,8 +2907,8 @@ window.ContentContextMenu = ContentContextMenu;
 		eventManager.add(isSpecialGestureEnabled, window, 'mousedown', (e) => {
 			if (e.button === 0 && (e.buttons & 2)) {
 				if (recognizer.isActive()) return;
-				const specialConfig = (SETTINGS.specialGestures || {}).leftClickHoldingRight;
-				if (!specialConfig?.action || specialConfig.action === 'none') return;
+				const specialConfig = bindings.resolve('special', 'leftClickHoldingRight')?.config;
+				if (!specialConfig) return;
 				e.preventDefault();
 				e.stopImmediatePropagation();
 				gestureState.preventContextMenu = true;
@@ -2916,8 +2923,8 @@ window.ContentContextMenu = ContentContextMenu;
 
 			if (e.button === 2 && (e.buttons & 1)) {
 				if (recognizer.isActive()) return;
-				const specialConfig = (SETTINGS.specialGestures || {}).rightClickHoldingLeft;
-				if (!specialConfig?.action || specialConfig.action === 'none') return;
+				const specialConfig = bindings.resolve('special', 'rightClickHoldingLeft')?.config;
+				if (!specialConfig) return;
 				e.preventDefault();
 				e.stopImmediatePropagation();
 				gestureState.preventContextMenu = true;
@@ -3023,7 +3030,6 @@ window.ContentContextMenu = ContentContextMenu;
 
 			if (SETTINGS.enableImageDrag && isImage) {
 				let targetImg = path.find(el => el.tagName === 'IMG');
-
 
 				if (targetImg) {
 					const imageUrl = targetImg.src || targetImg.currentSrc;
@@ -3154,15 +3160,15 @@ window.ContentContextMenu = ContentContextMenu;
 				result.directionChanged = true;
 			}
 
-			if (hasDragAction(gestureState.dragType, recognizer.getPattern())) {
+			if (bindings.resolve(gestureState.dragType, recognizer.getPattern())) {
 				e.preventDefault();
 				e.stopImmediatePropagation();
 			}
 
 			if (result.directionChanged && SETTINGS.enableHUD) {
-				const pattern = getDragPatternWithFallback(gestureState.dragType, result.pattern);
-				const hints = getDragLabels(gestureState.dragType, pattern, gestureState.contentValues);
-				visualizer.updateAction(hints.length > 0 ? pattern : '', hints);
+				const binding = bindings.resolve(gestureState.dragType, result.pattern);
+				const hints = bindings.labels(binding, gestureState.contentValues);
+				visualizer.updateAction(hints.length > 0 ? binding.pattern : '', hints);
 			}
 		}, { capture: true });
 
@@ -3170,7 +3176,7 @@ window.ContentContextMenu = ContentContextMenu;
 			if (!gestureState.isDrag) return;
 			if (!recognizer.isActive()) return;
 			if (gestureState.dropOnInputSuppressed) return;
-			if (hasDragAction(gestureState.dragType, recognizer.getPattern())) {
+			if (bindings.resolve(gestureState.dragType, recognizer.getPattern())) {
 				e.preventDefault();
 				e.stopImmediatePropagation();
 			}
@@ -3186,12 +3192,12 @@ window.ContentContextMenu = ContentContextMenu;
 			try {
 				if (gestureState.isDrag && recognizer.isActive()) {
 					if (gestureState.dropOnInputSuppressed) return;
-					const pattern = recognizer.getPattern();
-					if (hasDragAction(gestureState.dragType, pattern)) {
+					const binding = bindings.resolve(gestureState.dragType, recognizer.getPattern());
+					if (binding) {
 						dropHandledAction = true;
 						e.preventDefault();
 						e.stopImmediatePropagation();
-						executeDragGesture({ ...gestureState }, pattern, e.dataTransfer);
+						executeDragGesture({ ...gestureState }, binding, e.dataTransfer);
 					}
 				}
 			} finally {
@@ -3227,8 +3233,8 @@ window.ContentContextMenu = ContentContextMenu;
 		eventManager.add(isWheelGestureEnabled, window, 'mousedown', (e) => {
 			if (e.button === 1 && (e.buttons & 2)) {
 				if (recognizer.isActive()) return;
-				const wheelConfig = (SETTINGS.wheelGestures || {}).wheelClickHoldingRight;
-				if (!wheelConfig?.action || wheelConfig.action === 'none') return;
+				const wheelConfig = bindings.resolve('wheel', 'wheelClickHoldingRight')?.config;
+				if (!wheelConfig) return;
 				e.preventDefault();
 				e.stopImmediatePropagation();
 				gestureState.preventContextMenu = true;
@@ -3272,9 +3278,8 @@ window.ContentContextMenu = ContentContextMenu;
 			if (e.deltaY === 0) return;
 
 			const gestureKey = e.deltaY < 0 ? 'scrollUpHoldingRight' : 'scrollDownHoldingRight';
-			const scrollConfig = (SETTINGS.wheelGestures || {})[gestureKey];
-			const action = scrollConfig?.action;
-			if (!action || action === 'none') return;
+			const scrollConfig = bindings.resolve('wheel', gestureKey)?.config;
+			if (!scrollConfig) return;
 
 			e.preventDefault();
 			e.stopImmediatePropagation();
@@ -3285,7 +3290,7 @@ window.ContentContextMenu = ContentContextMenu;
 			wheelGestureTriggered = true;
 
 			const path = e.composedPath();
-			executeAction(action, scrollConfig, { startX: e.clientX, startY: e.clientY, endX: e.clientX, endY: e.clientY, wheelDir: e.deltaY < 0 ? -1 : 1 }, getGestureContentValues(path), path[0]);
+			executeAction(scrollConfig.action, scrollConfig, { startX: e.clientX, startY: e.clientY, endX: e.clientX, endY: e.clientY, wheelDir: e.deltaY < 0 ? -1 : 1 }, getGestureContentValues(path), path[0]);
 		}
 
 		eventManager.add(isWheelGestureEnabled, window, 'mouseup', (e) => {
@@ -3307,43 +3312,32 @@ window.ContentContextMenu = ContentContextMenu;
 			}
 		}, { capture: true });
 
-		{
-			let wheelListenerActive = false;
-			const wheelOptions = { capture: true, passive: false };
+		
+		const wheelOptions = { capture: true, passive: false };
 
-			function addWheelListener() {
-				if (wheelListenerActive || !isWheelGestureEnabled()) return;
-				window.addEventListener('wheel', onChromeWheel, wheelOptions);
-				wheelListenerActive = true;
-			}
-
-			function removeWheelListener() {
-				if (!wheelListenerActive) return;
-				window.removeEventListener('wheel', onChromeWheel, wheelOptions);
-				wheelListenerActive = false;
-			}
-
-			function onChromeWheel(e) {
-				if (!e.isTrusted) return;
-				if (!isWheelGestureEnabled() || !(e.buttons & 2)) {
-					removeWheelListener();
-					return;
-				}
-				handleWheelGesture(e);
-			}
-
-			eventManager.add(isWheelGestureEnabled, window, 'mousedown', (e) => {
-				if (e.button === 2) addWheelListener();
-			}, { capture: true });
-
-			eventManager.add(isWheelGestureEnabled, document, 'visibilitychange', () => {
-				addWheelListener();
-			});
-
-			eventManager.onUpdate(() => addWheelListener());
-
-			eventManager.onReattach(() => { wheelListenerActive = false; });
+		function addWheelListener() {
+			if (isWheelGestureEnabled()) window.addEventListener('wheel', onChromeWheel, wheelOptions);
 		}
+
+		function removeWheelListener() {
+			window.removeEventListener('wheel', onChromeWheel, wheelOptions);
+		}
+
+		function onChromeWheel(e) {
+			if (!e.isTrusted) return;
+			if (!isWheelGestureEnabled() || !(e.buttons & 2)) {
+				removeWheelListener();
+				return;
+			}
+			handleWheelGesture(e);
+		}
+
+		const onRightDown = (e) => { if (e.button === 2) addWheelListener(); };
+		eventManager.add(isWheelGestureEnabled, window, 'pointerdown', onRightDown, { capture: true });
+		eventManager.add(isWheelGestureEnabled, window, 'mousedown', onRightDown, { capture: true });
+		eventManager.add(isWheelGestureEnabled, document, 'visibilitychange', () => { if (document.hidden) addWheelListener() });
+		eventManager.onUpdate(() => addWheelListener());
+		eventManager.onReattach(() => addWheelListener());
 
 
 		eventManager.add(null, window, 'blur', () => {
@@ -3352,13 +3346,7 @@ window.ContentContextMenu = ContentContextMenu;
 					safeSendMessage({ action: 'gestureStateUpdate', active: false });
 				}
 
-				if (isEdgeDesktop && !isIframe) {
-					edgeGestureBlurCount++;
-					if (edgeGestureBlurCount >= 2 && !SETTINGS.edgeGestureConflict) {
-						SETTINGS.edgeGestureConflict = true;
-						try { chrome.storage.sync.set({ edgeGestureConflict: true }); } catch (e) { }
-					}
-				}
+				if (isEdgeDesktop && !isIframe) countEdgeGestureConflict();
 
 				gestureState.preventContextMenu = false;
 				resetState();
@@ -3535,7 +3523,13 @@ window.ContentContextMenu = ContentContextMenu;
 					case 'searchClipboard': {
 						const permResult = await safeSendMessage({ action: 'requestPermission', permissions: ['clipboardRead'] });
 						if (!permResult?.granted) return { success: false };
-						const clipText = (await navigator.clipboard.readText() || '').trim();
+						if (!document.hasFocus()) window.focus();
+						let clipText;
+						try {
+							clipText = (await navigator.clipboard.readText() || '').trim();
+						} catch {
+							return { success: false };
+						}
 						if (!clipText) return { success: false };
 						return await openSearchedText(clipText, mergedConfig, true);
 					}
@@ -3634,12 +3628,7 @@ window.ContentContextMenu = ContentContextMenu;
 							.filter(it => it === 'separator' || (it.action && it.action !== 'none'))
 							.map(it => {
 								if (it === 'separator') return 'separator';
-								let label = it.customName;
-								if (!label && it.action === 'actionChain') {
-									const chain = SETTINGS.actionChains?.[it.chainId];
-									label = chain?.name || msg(actionLabelKey(it.action));
-								}
-								if (!label) label = resolveActionLabel(it, dragContext?.dragType, contentValues) || it.action;
+								const label = bindings.label(it, dragContext?.dragType, contentValues) || it.action;
 								return {
 									label,
 									onClick: () => {
@@ -3658,27 +3647,23 @@ window.ContentContextMenu = ContentContextMenu;
 						return { success: true };
 					}
 					case 'copyLink': {
-						if (!dragContext || !contentValues?.linkUrl) return { success: false };
+						if (!contentValues?.linkUrl) return { success: false };
 						copyText(contentValues.linkUrl);
 						return { success: true };
 					}
 					case 'copyImageUrl': {
-						if (!dragContext || !contentValues?.imageUrl) return { success: false };
+						if (!contentValues?.imageUrl) return { success: false };
 						copyText(contentValues.imageUrl);
 						return { success: true };
 					}
 					case 'copyLinkText': {
-						if (!dragContext) return { success: false };
-						const el = dragContext.element;
-						const text = el ? (el.innerText || el.textContent || '') : '';
+						const text = contentValues?.linkText || '';
 						if (!text) return { success: false };
 						copyText(text);
 						return { success: true };
 					}
 					case 'copyLinkAndText': {
-						if (!dragContext) return { success: false };
-						const el = dragContext.element;
-						const text = el ? (el.innerText || el.textContent || '') : '';
+						const text = contentValues?.linkText || '';
 						const link = contentValues?.linkUrl || '';
 						if (!text && !link) return { success: false };
 						if (mergedConfig.asMarkdown && link) {
@@ -3702,30 +3687,24 @@ window.ContentContextMenu = ContentContextMenu;
 						if (!text) return { success: false };
 						return await openSearchedText(text, mergedConfig, dragContext.dragType === 'text');
 					}
-					case 'openTab':
 					case 'openLink':
 					case 'openImage': {
-						if (!dragContext || !contentValues) return { success: false };
+						if (!contentValues) return { success: false };
+						const dragType = dragContext?.dragType;
 						let url;
-						switch (dragContext.dragType) {
-							case 'image':
-								if (action === 'openLink') {
-									url = contentValues.linkUrl;
-								} else {
-									url = mergedConfig.preferLink === true && contentValues.linkUrl
-										? contentValues.linkUrl : contentValues.imageUrl;
-								}
-								break;
-							case 'link': url = contentValues.linkUrl; break;
-							case 'text': return { success: false };
-							default: return { success: false };
+						if (action === 'openLink') {
+							if (dragType && dragType !== 'link' && dragType !== 'image') return { success: false };
+							url = contentValues.linkUrl;
+						} else {
+							if (dragType && dragType !== 'image') return { success: false };
+							url = mergedConfig.preferLink === true && contentValues.imageUrl && contentValues.linkUrl ? contentValues.linkUrl : contentValues.imageUrl;
 						}
 						if (!url) return { success: false };
 						const { position, active, incognito } = mergedConfig;
 						return await safeSendMessage({ action: 'openTabAtPosition', url, position, active, incognito }) ?? { success: false };
 					}
 					case 'bookmarkLink': {
-						if (!dragContext || !contentValues?.linkUrl) return { success: false };
+						if (!contentValues?.linkUrl) return { success: false };
 						const title = contentValues.linkText || contentValues.linkUrl;
 						return await safeSendMessage({
 							action: 'bookmarkLink',
@@ -3735,7 +3714,7 @@ window.ContentContextMenu = ContentContextMenu;
 						}) ?? { success: false };
 					}
 					case 'imageSearch': {
-						if (!dragContext || !contentValues?.imageUrl) return { success: false };
+						if (!contentValues?.imageUrl) return { success: false };
 						const { IMAGE_SEARCH_ENGINES } = window.GestureConstants;
 						const content = contentValues.imageUrl;
 						const engine = mergedConfig.engine;
@@ -3748,9 +3727,9 @@ window.ContentContextMenu = ContentContextMenu;
 						return await safeSendMessage({ action: 'openTabAtPosition', url, position, active, incognito }) ?? { success: false };
 					}
 					case 'saveImage': {
-						if (!dragContext || !contentValues) return { success: false };
-						const content = contentValues.imageUrl || '';
-						const dataTransfer = dragContext.dataTransfer;
+						if (!contentValues?.imageUrl) return { success: false };
+						const content = contentValues.imageUrl;
+						const dataTransfer = dragContext?.dataTransfer;
 						const subdir = mergedConfig.subdir || '';
 						if (content.startsWith('data:')) {
 							safeSendMessage({ action: 'saveImage', url: content, subdir });
@@ -3770,7 +3749,7 @@ window.ContentContextMenu = ContentContextMenu;
 							reader.readAsDataURL(file);
 							return { success: true };
 						}
-						const dragElement = dragContext.element;
+						const dragElement = dragContext?.element ?? startTarget;
 						const waitForImageLoad = (img, timeout = 60000) => {
 							return new Promise((resolve, reject) => {
 								if (!img || img.tagName !== 'IMG' || img.complete) {
@@ -3837,7 +3816,7 @@ window.ContentContextMenu = ContentContextMenu;
 							.filter(s => s.action && s.action !== 'none' && s.action !== 'actionChain')
 							.map(s => ({ ...(ACTION_DEFAULTS[s.action] || {}), ...s }));
 						if (chain.stopOnSuccess) msg_obj.stopOnSuccess = true;
-						contextId = crypto.randomUUID();
+						contextId = randomId();
 						chainContexts.set(contextId, { cursor, startTarget, dragContext, contentValues });
 						msg_obj.contextId = contextId;
 					}
@@ -3851,32 +3830,21 @@ window.ContentContextMenu = ContentContextMenu;
 		}
 
 		function executeGesture(pattern) {
-			pattern = getPatternWithFallback(pattern);
-			const action = getGestureAction(pattern);
-			if (!action || action === 'none') return;
+			const config = bindings.resolve('gesture', pattern)?.config;
+			if (!config) return;
 
+			edgeGestureConflictCount = 0;
 			if (isEdgeDesktop && SETTINGS.edgeGestureConflict) {
 				SETTINGS.edgeGestureConflict = false;
-				edgeGestureBlurCount = 0;
 				try { chrome.storage.sync.set({ edgeGestureConflict: false }); } catch (e) { }
 			}
 
-			const config = SETTINGS.enableGestureCustomization
-				? (SETTINGS.mouseGestures?.[pattern] || {})
-				: {};
-			executeAction(action, config, { startX: recognizer.startX, startY: recognizer.startY, endX: recognizer.currentX, endY: recognizer.currentY }, gestureState.contentValues, gestureState.startTarget);
+			executeAction(config.action, config, { startX: recognizer.startX, startY: recognizer.startY, endX: recognizer.currentX, endY: recognizer.currentY }, gestureState.contentValues, gestureState.startTarget);
 		}
 
-		async function executeDragGesture(state, pattern, dataTransfer) {
-			pattern = getDragPatternWithFallback(state.dragType, pattern);
-			if (!pattern) return;
+		async function executeDragGesture(state, binding, dataTransfer) {
 			if (!isExtensionContextValid()) return;
-
-			const gestures = getGesturesForDragType(state.dragType);
-			if (!gestures) return;
-
-			const config = getDragGestureConfig(gestures, pattern);
-			if (!config) return;
+			const { config } = binding;
 
 			const cursor = {
 				startX: recognizer.startX,

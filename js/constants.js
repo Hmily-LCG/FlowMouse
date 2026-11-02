@@ -2,7 +2,6 @@
 	'use strict';
 
 
-
 	const DEFAULT_GESTURES = {
 		'←': 'back',
 		'→': 'forward',
@@ -100,18 +99,18 @@
 			'menuShowBookmarks': 'actionMenuShowBookmarks',
 		}),
 
-		'search': 'dragActionSearch',
-		'copy': 'dragActionCopy',
-		'openTab': { default: 'dragActionOpenTabLink', image: 'dragActionOpenTabImage' },
-		'openLink': { default: 'dragActionOpenTabLink', image: 'dragActionTryOpenLink' },
-		'openImage': 'dragActionOpenTabImage',
+		'openLink': { default: 'dragActionOpenLink', image: 'dragActionTryOpenLink' },
 		'copyLink': 'dragActionCopyLink',
 		'copyLinkText': 'dragActionCopyLinkText',
 		'copyLinkAndText': 'dragActionCopyLinkAndText',
 		'bookmarkLink': 'dragActionBookmarkLink',
+		'openImage': 'dragActionOpenImage',
 		'saveImage': 'dragActionSaveImage',
 		'copyImageUrl': 'dragActionCopyImageUrl',
 		'imageSearch': 'dragActionImageSearch',
+
+		'search': 'dragActionSearch',
+		'copy': 'dragActionCopy',
 	};
 
 	const ACTION_DEFAULTS = {
@@ -158,14 +157,14 @@
 		menuShowBookmarks: { folderId: { id: '1' }, position: 'right', active: true, incognito: false, sortOrder: 'default', maxItems: 30, scrollToBottom: false, timeDisplay: 'dateAdded', wheelNav: true },
 		areaSelect: { overrideGlobal: false, textUrl: false, warnThreshold: 15, delay: 0.3, autoAction: 'none' },
 
-		search:          { engine: 'system', url: '', autoDetectUrl: true, position: 'right', active: true, incognito: false, customNameAutoDetectUrl: '' },
-		openTab:         { position: 'right', active: true, incognito: false, preferLink: false, customNamePreferLink: '' },
 		openLink:        { position: 'right', active: true, incognito: false },
 		openImage:       { position: 'right', active: true, incognito: false, preferLink: false, customNamePreferLink: '' },
 		imageSearch:     { engine: 'google', url: '', position: 'right', active: true, incognito: false },
-		copyLinkAndText: { asMarkdown: false },
 		bookmarkLink:    { folderId: { id: '' } },
+		copyLinkAndText: { asMarkdown: false },
 		saveImage:       { subdir: '' },
+
+		search:          { engine: 'system', url: '', autoDetectUrl: true, position: 'right', active: true, incognito: false, customNameAutoDetectUrl: '' },
 	};
 
 	const CLEAR_OVERLAY_ACTIONS = new Set([
@@ -179,8 +178,10 @@
 		'menuShowTabs', 'menuRecentlyClosed', 'menuShowBookmarks',
 		'customMenu',
 
-		'copy', 'copyLink', 'copyImageUrl', 'copyLinkText', 'copyLinkAndText',
-		'search', 'openTab', 'openLink', 'openImage', 'imageSearch', 'saveImage', 'bookmarkLink',
+		'openLink', 'copyLink', 'copyLinkText', 'copyLinkAndText', 'bookmarkLink',
+		'openImage', 'saveImage', 'copyImageUrl', 'imageSearch',
+
+		'copy', 'search',
 	]);
 
 	const ACTION_SHORT_KEYS = {
@@ -346,10 +347,10 @@
 			{ direction: '→', action: 'search' }
 		],
 		linkDragGestures: [
-			{ direction: '→', action: 'openTab' }
+			{ direction: '→', action: 'openLink' }
 		],
 		imageDragGestures: [
-			{ direction: '→', action: 'openTab' }
+			{ direction: '→', action: 'openImage' }
 		],
 		hudBgColor: '#000000b3',
 		hudTextColor: '#ffffff',

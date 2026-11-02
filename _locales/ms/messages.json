@@ -151,6 +151,10 @@
 		"message": "Untuk membuka menu konteks, dwiklik kanan. (Ketahui lebih lanjut)",
 		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
 	},
+	"edgeGestureConflictHint": {
+		"message": "Konflik dikesan antara gerak isyarat terbina dalam Edge dan gerak isyarat FlowMouse. (Ketahui lebih lanjut)",
+		"description": "Clickable toast shown on Edge when its built-in mouse gestures repeatedly interrupt FlowMouse gestures; opens the settings notice"
+	},
 	"edgeGestureConflictNotice": {
 		"message": "%browserName% mempunyai ciri isyarat terbina dalam. Untuk menggunakan isyarat FlowMouse, sila <a href=\"#\" class=\"edge-gesture-link\">lumpuhkan isyarat terbina dalam</a> dalam tetapan %browserName%.",
 		"description": "Notice for Edge users about built-in gesture conflict"
@@ -975,6 +979,18 @@
 		"message": "Padam Gerak Isyarat",
 		"description": "Delete gesture button tooltip"
 	},
+	"redrawGesture": {
+		"message": "Lukis semula Gerak Isyarat",
+		"description": "Gesture card menu item: re-record the gesture pattern"
+	},
+	"editAction": {
+		"message": "Edit Perintah",
+		"description": "Gesture card menu item: change the action bound to the gesture"
+	},
+	"moreOptions": {
+		"message": "Pilihan lain",
+		"description": "Tooltip for the 3-dot menu button"
+	},
 	"deleteGestureConfirm": {
 		"message": "Padam gerak isyarat %pattern%?",
 		"description": "Delete gesture confirmation"
@@ -1231,11 +1247,11 @@
 		"message": "Salin",
 		"description": "Copy action"
 	},
-	"dragActionOpenTabLink": {
+	"dragActionOpenLink": {
 		"message": "Buka Pautan",
 		"description": "Open link in new tab"
 	},
-	"dragActionOpenTabImage": {
+	"dragActionOpenImage": {
 		"message": "Buka Imej",
 		"description": "Open image in new tab"
 	},
@@ -1431,6 +1447,10 @@
 		"message": "Tekan dan <strong>Tahan</strong> <span class=\"text-highlight\">Butang Tetikus Kanan</span>",
 		"description": "Tutorial Step 1 instruction idle"
 	},
+	"tutorialStep1InstructionStart": {
+		"message": "Tekan dan <strong>Tahan</strong> <span class=\"text-highlight\">Butang Tetikus Kanan</span> untuk mula",
+		"description": "Tutorial first page instruction, before the first press"
+	},
 	"tutorialStep1InstructionPressing": {
 		"message": "<strong>Bagus!</strong> Sekarang seret <strong>%arrow% Kanan</strong>",
 		"description": "Tutorial Step 1 instruction pressing"
@@ -1452,7 +1472,7 @@
 		"description": "Tutorial Step 2 subtitle"
 	},
 	"tutorialStep2Footer": {
-		"message": "<strong>Lebih banyak gerak isyarat</strong> dan <strong>penyesuaian penuh</strong> tersedia dalam tetapan.",
+		"message": "<strong>Lebih banyak gerak isyarat</strong> dan <strong>penyesuaian penuh</strong> tersedia dalam tetapan",
 		"description": "Footer note for step 2 discovery banner"
 	},
 	"tutorialStep2DiscoveryHeader": {
@@ -1476,7 +1496,7 @@
 		"description": "Image drag open discovery item"
 	},
 	"tutorialStep3Footer": {
-		"message": "<strong>Lebih banyak tindakan seret</strong> dan <strong>penyesuaian penuh</strong> tersedia dalam mod tetapan lanjutan",
+		"message": "<strong>Lebih banyak tindakan seret</strong> dan <strong>penyesuaian penuh</strong> tersedia dalam tetapan",
 		"description": "Footer for step 3 discovery banner"
 	},
 	"tutorialContinue": {
@@ -1670,6 +1690,14 @@
 	"actionCategoryImage": {
 		"message": "Imej",
 		"description": "Action category: image"
+	},
+	"actionCategoryLinkImage": {
+		"message": "Pautan dan Imej",
+		"description": "Action category: link and image"
+	},
+	"elementActionStartHint": {
+		"message": "Akan dilaksanakan pada elemen di <b>kedudukan mula gerak isyarat</b>.",
+		"description": "Notice shown in action config for link/image"
 	},
 	"noResults": {
 		"message": "Tiada hasil",

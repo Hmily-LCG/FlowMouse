@@ -151,6 +151,10 @@
 		"message": "컨텍스트 메뉴를 열려면 마우스 오른쪽 버튼을 두 번 클릭하세요. (자세히 알아보기)",
 		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
 	},
+	"edgeGestureConflictHint": {
+		"message": "Edge의 내장 제스처와 FlowMouse의 제스처 기능 간에 충돌이 감지되었습니다. (자세히 알아보기)",
+		"description": "Clickable toast shown on Edge when its built-in mouse gestures repeatedly interrupt FlowMouse gestures; opens the settings notice"
+	},
 	"edgeGestureConflictNotice": {
 		"message": "%browserName%에는 내장 제스처 기능이 있습니다. FlowMouse의 제스처를 사용하려면 %browserName% 설정에서 <a href=\"#\" class=\"edge-gesture-link\">내장 제스처를 비활성화하십시오</a>.",
 		"description": "Notice for Edge users about built-in gesture conflict"
@@ -975,6 +979,18 @@
 		"message": "제스처 삭제",
 		"description": "Delete gesture button tooltip"
 	},
+	"redrawGesture": {
+		"message": "제스처 다시 그리기",
+		"description": "Gesture card menu item: re-record the gesture pattern"
+	},
+	"editAction": {
+		"message": "명령 편집",
+		"description": "Gesture card menu item: change the action bound to the gesture"
+	},
+	"moreOptions": {
+		"message": "추가 옵션",
+		"description": "Tooltip for the 3-dot menu button"
+	},
 	"deleteGestureConfirm": {
 		"message": "제스처 %pattern%을(를) 삭제하시겠습니까?",
 		"description": "Delete gesture confirmation"
@@ -1231,11 +1247,11 @@
 		"message": "복사",
 		"description": "Copy action"
 	},
-	"dragActionOpenTabLink": {
+	"dragActionOpenLink": {
 		"message": "링크 열기",
 		"description": "Open link in new tab"
 	},
-	"dragActionOpenTabImage": {
+	"dragActionOpenImage": {
 		"message": "이미지 열기",
 		"description": "Open image in new tab"
 	},
@@ -1431,6 +1447,10 @@
 		"message": "<span class=\"text-highlight\">마우스 오른쪽 버튼</span>을 누르고 계세요",
 		"description": "Tutorial Step 1 instruction idle"
 	},
+	"tutorialStep1InstructionStart": {
+		"message": "시작하려면 <span class=\"text-highlight\">마우스 오른쪽 버튼</span>을 누르고 계세요",
+		"description": "Tutorial first page instruction, before the first press"
+	},
 	"tutorialStep1InstructionPressing": {
 		"message": "<strong>좋습니다!</strong> 누른 채로 <strong>%arrow% 오른쪽</strong>으로 드래그하세요",
 		"description": "Tutorial Step 1 instruction pressing"
@@ -1452,7 +1472,7 @@
 		"description": "Tutorial Step 2 subtitle"
 	},
 	"tutorialStep2Footer": {
-		"message": "<strong>더 많은 제스처</strong> 및 <strong>제스처 사용자 정의</strong>는 설정에서 탐색할 수 있습니다.",
+		"message": "<strong>더 많은 제스처</strong> 및 <strong>제스처 사용자 정의</strong>는 설정에서 탐색할 수 있습니다",
 		"description": "Footer note for step 2 discovery banner"
 	},
 	"tutorialStep2DiscoveryHeader": {
@@ -1476,7 +1496,7 @@
 		"description": "Image drag open discovery item"
 	},
 	"tutorialStep3Footer": {
-		"message": "<strong>더 많은 드래그 기능</strong> 및 <strong>드래그 사용자 정의</strong>는 고급 설정 모드에서 탐색할 수 있습니다.",
+		"message": "<strong>더 많은 드래그 기능</strong> 및 <strong>드래그 사용자 정의</strong>는 설정에서 탐색할 수 있습니다",
 		"description": "Footer for step 3 discovery banner"
 	},
 	"tutorialContinue": {
@@ -1670,6 +1690,14 @@
 	"actionCategoryImage": {
 		"message": "이미지",
 		"description": "Action category: image"
+	},
+	"actionCategoryLinkImage": {
+		"message": "링크 및 이미지",
+		"description": "Action category: link and image"
+	},
+	"elementActionStartHint": {
+		"message": "<b>제스처 시작 위치</b>에 있는 요소에서 실행됩니다.",
+		"description": "Notice shown in action config for link/image"
 	},
 	"noResults": {
 		"message": "결과 없음",

@@ -151,6 +151,10 @@
 		"message": "Για να ανοίξετε το μενού περιβάλλοντος, κάντε διπλό δεξί κλικ. (Μάθετε περισσότερα)",
 		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
 	},
+	"edgeGestureConflictHint": {
+		"message": "Εντοπίστηκε διένεξη μεταξύ των ενσωματωμένων χειρονομιών του Edge και των χειρονομιών του FlowMouse. (Μάθετε περισσότερα)",
+		"description": "Clickable toast shown on Edge when its built-in mouse gestures repeatedly interrupt FlowMouse gestures; opens the settings notice"
+	},
 	"edgeGestureConflictNotice": {
 		"message": "Το %browserName% διαθέτει ενσωματωμένες λειτουργίες χειρονομιών. Για να χρησιμοποιήσετε τις χειρονομίες του FlowMouse, <a href=\"#\" class=\"edge-gesture-link\">απενεργοποιήστε τις ενσωματωμένες χειρονομίες</a> στις ρυθμίσεις του %browserName%.",
 		"description": "Notice for Edge users about built-in gesture conflict"
@@ -975,6 +979,18 @@
 		"message": "Διαγραφή Χειρονομίας",
 		"description": "Delete gesture button tooltip"
 	},
+	"redrawGesture": {
+		"message": "Επανασχεδιασμός Χειρονομίας",
+		"description": "Gesture card menu item: re-record the gesture pattern"
+	},
+	"editAction": {
+		"message": "Επεξεργασία εντολής",
+		"description": "Gesture card menu item: change the action bound to the gesture"
+	},
+	"moreOptions": {
+		"message": "Περισσότερες επιλογές",
+		"description": "Tooltip for the 3-dot menu button"
+	},
 	"deleteGestureConfirm": {
 		"message": "Διαγραφή χειρονομίας %pattern%;",
 		"description": "Delete gesture confirmation"
@@ -1231,11 +1247,11 @@
 		"message": "Αντιγραφή",
 		"description": "Copy action"
 	},
-	"dragActionOpenTabLink": {
+	"dragActionOpenLink": {
 		"message": "Άνοιγμα συνδέσμου",
 		"description": "Open link in new tab"
 	},
-	"dragActionOpenTabImage": {
+	"dragActionOpenImage": {
 		"message": "Άνοιγμα εικόνας",
 		"description": "Open image in new tab"
 	},
@@ -1431,6 +1447,10 @@
 		"message": "Παρακαλώ κρατήστε πατημένο το <span class=\"text-highlight\">Δεξί Κλικ</span>",
 		"description": "Tutorial Step 1 instruction idle"
 	},
+	"tutorialStep1InstructionStart": {
+		"message": "Παρακαλώ κρατήστε πατημένο το <span class=\"text-highlight\">Δεξί Κλικ</span> για να ξεκινήσετε",
+		"description": "Tutorial first page instruction, before the first press"
+	},
 	"tutorialStep1InstructionPressing": {
 		"message": "<strong>Εξαιρετικά!</strong> Κρατήστε πατημένο και σύρετε προς τα <strong>%arrow% Δεξιά</strong>",
 		"description": "Tutorial Step 1 instruction pressing"
@@ -1476,7 +1496,7 @@
 		"description": "Image drag open discovery item"
 	},
 	"tutorialStep3Footer": {
-		"message": "<strong>Περισσότερες λειτουργίες μεταφοράς</strong> και <strong>προσαρμογή μεταφοράς</strong> μπορούν να εξερευνηθούν στη λειτουργία ρυθμίσεων για προχωρημένους",
+		"message": "<strong>Περισσότερες λειτουργίες μεταφοράς</strong> και <strong>προσαρμογή μεταφοράς</strong> μπορούν να εξερευνηθούν στις ρυθμίσεις",
 		"description": "Footer for step 3 discovery banner"
 	},
 	"tutorialContinue": {
@@ -1670,6 +1690,14 @@
 	"actionCategoryImage": {
 		"message": "Εικόνα",
 		"description": "Action category: image"
+	},
+	"actionCategoryLinkImage": {
+		"message": "Σύνδεσμος και εικόνα",
+		"description": "Action category: link and image"
+	},
+	"elementActionStartHint": {
+		"message": "Θα εκτελεστεί στο στοιχείο στην <b>αρχική θέση της χειρονομίας</b>.",
+		"description": "Notice shown in action config for link/image"
 	},
 	"noResults": {
 		"message": "Δεν βρέθηκαν αποτελέσματα",

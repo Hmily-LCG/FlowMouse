@@ -151,6 +151,10 @@
 		"message": "برای باز کردن منوی زمینه، دو بار کلیک راست کنید. (اطلاعات بیشتر)",
 		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
 	},
+	"edgeGestureConflictHint": {
+		"message": "تداخلی بین ژست‌های حرکتی داخلی Edge و ژست‌های حرکتی FlowMouse تشخیص داده شد. (اطلاعات بیشتر)",
+		"description": "Clickable toast shown on Edge when its built-in mouse gestures repeatedly interrupt FlowMouse gestures; opens the settings notice"
+	},
 	"edgeGestureConflictNotice": {
 		"message": "%browserName% دارای ویژگی‌های حرکتی داخلی است. برای استفاده از حرکات FlowMouse، لطفاً <a href=\"#\" class=\"edge-gesture-link\">حرکات داخلی را در تنظیمات %browserName% غیرفعال کنید</a>.",
 		"description": "Notice for Edge users about built-in gesture conflict"
@@ -975,6 +979,18 @@
 		"message": "حذف ژست",
 		"description": "Delete gesture button tooltip"
 	},
+	"redrawGesture": {
+		"message": "دوباره رسم کردن ژست",
+		"description": "Gesture card menu item: re-record the gesture pattern"
+	},
+	"editAction": {
+		"message": "ویرایش فرمان",
+		"description": "Gesture card menu item: change the action bound to the gesture"
+	},
+	"moreOptions": {
+		"message": "گزینه‌های بیشتر",
+		"description": "Tooltip for the 3-dot menu button"
+	},
 	"deleteGestureConfirm": {
 		"message": "آیا ژست %pattern% حذف شود؟",
 		"description": "Delete gesture confirmation"
@@ -1231,11 +1247,11 @@
 		"message": "کپی",
 		"description": "Copy action"
 	},
-	"dragActionOpenTabLink": {
+	"dragActionOpenLink": {
 		"message": "باز کردن لینک",
 		"description": "Open link in new tab"
 	},
-	"dragActionOpenTabImage": {
+	"dragActionOpenImage": {
 		"message": "باز کردن تصویر",
 		"description": "Open image in new tab"
 	},
@@ -1431,6 +1447,10 @@
 		"message": "<span class=\"text-highlight\">دکمه راست ماوس</span> را فشار داده و <strong>نگه دارید</strong>",
 		"description": "Tutorial Step 1 instruction idle"
 	},
+	"tutorialStep1InstructionStart": {
+		"message": "برای شروع <span class=\"text-highlight\">دکمه راست ماوس</span> را فشار داده و <strong>نگه دارید</strong>",
+		"description": "Tutorial first page instruction, before the first press"
+	},
 	"tutorialStep1InstructionPressing": {
 		"message": "<strong>بسیار خوب!</strong> همچنان دکمه را نگه دارید و به <strong>%arrow% سمت راست</strong> بکشید",
 		"description": "Tutorial Step 1 instruction pressing"
@@ -1452,7 +1472,7 @@
 		"description": "Tutorial Step 2 subtitle"
 	},
 	"tutorialStep2Footer": {
-		"message": "<strong>ژست‌های بیشتر</strong> و <strong>شخصی‌سازی کامل</strong> در تنظیمات موجود است.",
+		"message": "<strong>ژست‌های بیشتر</strong> و <strong>شخصی‌سازی کامل</strong> در تنظیمات موجود است",
 		"description": "Footer note for step 2 discovery banner"
 	},
 	"tutorialStep2DiscoveryHeader": {
@@ -1476,7 +1496,7 @@
 		"description": "Image drag open discovery item"
 	},
 	"tutorialStep3Footer": {
-		"message": "<strong>اقدامات کشیدن بیشتر</strong> و <strong>شخصی‌سازی کامل</strong> در حالت تنظیمات پیشرفته موجود است",
+		"message": "<strong>اقدامات کشیدن بیشتر</strong> و <strong>شخصی‌سازی کامل</strong> در تنظیمات موجود است",
 		"description": "Footer for step 3 discovery banner"
 	},
 	"tutorialContinue": {
@@ -1670,6 +1690,14 @@
 	"actionCategoryImage": {
 		"message": "تصویر",
 		"description": "Action category: image"
+	},
+	"actionCategoryLinkImage": {
+		"message": "لینک و تصویر",
+		"description": "Action category: link and image"
+	},
+	"elementActionStartHint": {
+		"message": "روی عنصر در <b>موقعیت شروع اشاره</b> اجرا می‌شود.",
+		"description": "Notice shown in action config for link/image"
 	},
 	"noResults": {
 		"message": "نتیجه‌ای یافت نشد",

@@ -193,14 +193,12 @@
 	let browserType;
 	function getBrowserType() {
 		if (browserType) return browserType;
-		{
-			if (isEdge) {
-				browserType = 'edge';
-			} else {
-				browserType = 'chrome';
-			}
-			return browserType;
+		if (isEdge) {
+			browserType = 'edge';
+		} else {
+			browserType = 'chrome';
 		}
+		return browserType;
 	}
 
 	const browsers = {

@@ -151,6 +151,10 @@
 		"message": "Dubbelklik met de rechtermuisknop om het contextmenu te openen. (Meer informatie)",
 		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
 	},
+	"edgeGestureConflictHint": {
+		"message": "Er is een conflict gedetecteerd tussen de ingebouwde gebaren van Edge en de FlowMouse-gebaren. (Meer informatie)",
+		"description": "Clickable toast shown on Edge when its built-in mouse gestures repeatedly interrupt FlowMouse gestures; opens the settings notice"
+	},
 	"edgeGestureConflictNotice": {
 		"message": "%browserName% heeft ingebouwde gebarenfuncties. Om de gebaren van FlowMouse te gebruiken, <a href=\"#\" class=\"edge-gesture-link\">schakelt u de ingebouwde gebaren uit</a> in de instellingen van %browserName%.",
 		"description": "Notice for Edge users about built-in gesture conflict"
@@ -975,6 +979,18 @@
 		"message": "Gebaar Verwijderen",
 		"description": "Delete gesture button tooltip"
 	},
+	"redrawGesture": {
+		"message": "Gebaar Opnieuw Tekenen",
+		"description": "Gesture card menu item: re-record the gesture pattern"
+	},
+	"editAction": {
+		"message": "Opdracht bewerken",
+		"description": "Gesture card menu item: change the action bound to the gesture"
+	},
+	"moreOptions": {
+		"message": "Meer opties",
+		"description": "Tooltip for the 3-dot menu button"
+	},
 	"deleteGestureConfirm": {
 		"message": "Gebaar %pattern% verwijderen?",
 		"description": "Delete gesture confirmation"
@@ -1231,11 +1247,11 @@
 		"message": "Kopiëren",
 		"description": "Copy action"
 	},
-	"dragActionOpenTabLink": {
+	"dragActionOpenLink": {
 		"message": "Open Link",
 		"description": "Open link in new tab"
 	},
-	"dragActionOpenTabImage": {
+	"dragActionOpenImage": {
 		"message": "Open Afbeelding",
 		"description": "Open image in new tab"
 	},
@@ -1431,6 +1447,10 @@
 		"message": "Houd de <span class=\"text-highlight\">Rechtermuisknop</span> <strong>ingedrukt</strong>",
 		"description": "Tutorial Step 1 instruction idle"
 	},
+	"tutorialStep1InstructionStart": {
+		"message": "Houd de <span class=\"text-highlight\">Rechtermuisknop</span> <strong>ingedrukt</strong> om te beginnen",
+		"description": "Tutorial first page instruction, before the first press"
+	},
 	"tutorialStep1InstructionPressing": {
 		"message": "<strong>Uitstekend!</strong> Sleep nu <strong>%arrow% naar Rechts</strong>",
 		"description": "Tutorial Step 1 instruction pressing"
@@ -1452,7 +1472,7 @@
 		"description": "Tutorial Step 2 subtitle"
 	},
 	"tutorialStep2Footer": {
-		"message": "<strong>Meer gebaren</strong> en <strong>volledige aanpassing</strong> beschikbaar in instellingen.",
+		"message": "<strong>Meer gebaren</strong> en <strong>volledige aanpassing</strong> beschikbaar in instellingen",
 		"description": "Footer note for step 2 discovery banner"
 	},
 	"tutorialStep2DiscoveryHeader": {
@@ -1476,7 +1496,7 @@
 		"description": "Image drag open discovery item"
 	},
 	"tutorialStep3Footer": {
-		"message": "<strong>Meer sleepacties</strong> en <strong>volledige aanpassing</strong> beschikbaar in geavanceerde instellingenmodus",
+		"message": "<strong>Meer sleepacties</strong> en <strong>volledige aanpassing</strong> beschikbaar in instellingen",
 		"description": "Footer for step 3 discovery banner"
 	},
 	"tutorialContinue": {
@@ -1670,6 +1690,14 @@
 	"actionCategoryImage": {
 		"message": "Afbeelding",
 		"description": "Action category: image"
+	},
+	"actionCategoryLinkImage": {
+		"message": "Link en afbeelding",
+		"description": "Action category: link and image"
+	},
+	"elementActionStartHint": {
+		"message": "Wordt uitgevoerd op het element op de <b>startpositie van de beweging</b>.",
+		"description": "Notice shown in action config for link/image"
 	},
 	"noResults": {
 		"message": "Geen resultaten",

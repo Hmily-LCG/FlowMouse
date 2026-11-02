@@ -151,6 +151,10 @@
 		"message": "A helyi menü megnyitásához kattintson duplán a jobb gombbal. (További információ)",
 		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
 	},
+	"edgeGestureConflictHint": {
+		"message": "Ütközést észleltünk az Edge beépített egérgesztusai és a FlowMouse gesztusai között. (További információ)",
+		"description": "Clickable toast shown on Edge when its built-in mouse gestures repeatedly interrupt FlowMouse gestures; opens the settings notice"
+	},
 	"edgeGestureConflictNotice": {
 		"message": "A(z) %browserName% beépített gesztusfunkciókkal rendelkezik. A FlowMouse gesztusainak használatához kérjük, <a href=\"#\" class=\"edge-gesture-link\">tiltse le a beépített gesztusokat</a> a(z) %browserName% beállításaiban.",
 		"description": "Notice for Edge users about built-in gesture conflict"
@@ -975,6 +979,18 @@
 		"message": "Gesztus törlése",
 		"description": "Delete gesture button tooltip"
 	},
+	"redrawGesture": {
+		"message": "Gesztus újrarajzolása",
+		"description": "Gesture card menu item: re-record the gesture pattern"
+	},
+	"editAction": {
+		"message": "Parancs szerkesztése",
+		"description": "Gesture card menu item: change the action bound to the gesture"
+	},
+	"moreOptions": {
+		"message": "További lehetőségek",
+		"description": "Tooltip for the 3-dot menu button"
+	},
 	"deleteGestureConfirm": {
 		"message": "Törlöd a(z) %pattern% gesztust?",
 		"description": "Delete gesture confirmation"
@@ -1231,11 +1247,11 @@
 		"message": "Másolás",
 		"description": "Copy action"
 	},
-	"dragActionOpenTabLink": {
+	"dragActionOpenLink": {
 		"message": "Link megnyitása",
 		"description": "Open link in new tab"
 	},
-	"dragActionOpenTabImage": {
+	"dragActionOpenImage": {
 		"message": "Kép megnyitása",
 		"description": "Open image in new tab"
 	},
@@ -1431,6 +1447,10 @@
 		"message": "Nyomd le és <strong>Tartsd lenyomva</strong> a <span class=\"text-highlight\">Jobb egérgombot</span>",
 		"description": "Tutorial Step 1 instruction idle"
 	},
+	"tutorialStep1InstructionStart": {
+		"message": "A kezdéshez nyomd le és <strong>Tartsd lenyomva</strong> a <span class=\"text-highlight\">Jobb egérgombot</span>",
+		"description": "Tutorial first page instruction, before the first press"
+	},
 	"tutorialStep1InstructionPressing": {
 		"message": "<strong>Kiváló!</strong> Most húzd <strong>%arrow% Jobbra</strong>",
 		"description": "Tutorial Step 1 instruction pressing"
@@ -1452,7 +1472,7 @@
 		"description": "Tutorial Step 2 subtitle"
 	},
 	"tutorialStep2Footer": {
-		"message": "<strong>Több gesztus</strong> és <strong>teljes testreszabhatóság</strong> elérhető a beállításokban.",
+		"message": "<strong>Több gesztus</strong> és <strong>teljes testreszabhatóság</strong> elérhető a beállításokban",
 		"description": "Footer note for step 2 discovery banner"
 	},
 	"tutorialStep2DiscoveryHeader": {
@@ -1476,7 +1496,7 @@
 		"description": "Image drag open discovery item"
 	},
 	"tutorialStep3Footer": {
-		"message": "<strong>Több húzási művelet</strong> és <strong>teljes testreszabhatóság</strong> elérhető a speciális beállítások módban",
+		"message": "<strong>Több húzási művelet</strong> és <strong>teljes testreszabhatóság</strong> elérhető a beállításokban",
 		"description": "Footer for step 3 discovery banner"
 	},
 	"tutorialContinue": {
@@ -1670,6 +1690,14 @@
 	"actionCategoryImage": {
 		"message": "Kép",
 		"description": "Action category: image"
+	},
+	"actionCategoryLinkImage": {
+		"message": "Link és kép",
+		"description": "Action category: link and image"
+	},
+	"elementActionStartHint": {
+		"message": "A <b>gesztus kezdőpozíciójánál</b> lévő elemen hajtódik végre.",
+		"description": "Notice shown in action config for link/image"
 	},
 	"noResults": {
 		"message": "Nincs találat",

@@ -97,7 +97,7 @@ class SettingsStore {
 	async save(patch = {}) {
 		this.#assertLoaded();
 		const now = new Date().toISOString();
-		Object.assign(this.#current, patch, { lastSyncTime: now });
+		Object.assign(this.#current, patch, { lastSyncTime: now, lastSyncVersion: chrome.runtime.getManifest().version });
 
 		try {
 			await chrome.storage.sync.set(this.#current);

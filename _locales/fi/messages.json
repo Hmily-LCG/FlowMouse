@@ -151,6 +151,10 @@
 		"message": "Avaa kontekstivalikko kaksoisnapsauttamalla hiiren kakkospainikkeella. (Lue lisää)",
 		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
 	},
+	"edgeGestureConflictHint": {
+		"message": "Edgen sisäänrakennettujen eleiden ja FlowMouse-eleiden välillä havaittiin ristiriita. (Lue lisää)",
+		"description": "Clickable toast shown on Edge when its built-in mouse gestures repeatedly interrupt FlowMouse gestures; opens the settings notice"
+	},
 	"edgeGestureConflictNotice": {
 		"message": "%browserName%:ssa on sisäänrakennettuja eletoimintoja. Jos haluat käyttää FlowMouse-eleitä, <a href=\"#\" class=\"edge-gesture-link\">poista sisäänrakennetut eleet käytöstä</a> %browserName%-asetuksissa.",
 		"description": "Notice for Edge users about built-in gesture conflict"
@@ -975,6 +979,18 @@
 		"message": "Poista ele",
 		"description": "Delete gesture button tooltip"
 	},
+	"redrawGesture": {
+		"message": "Piirrä ele uudelleen",
+		"description": "Gesture card menu item: re-record the gesture pattern"
+	},
+	"editAction": {
+		"message": "Muokkaa komentoa",
+		"description": "Gesture card menu item: change the action bound to the gesture"
+	},
+	"moreOptions": {
+		"message": "Lisää vaihtoehtoja",
+		"description": "Tooltip for the 3-dot menu button"
+	},
 	"deleteGestureConfirm": {
 		"message": "Poistetaanko ele %pattern%?",
 		"description": "Delete gesture confirmation"
@@ -1231,11 +1247,11 @@
 		"message": "Kopioi",
 		"description": "Copy action"
 	},
-	"dragActionOpenTabLink": {
+	"dragActionOpenLink": {
 		"message": "Avaa linkki",
 		"description": "Open link in new tab"
 	},
-	"dragActionOpenTabImage": {
+	"dragActionOpenImage": {
 		"message": "Avaa kuva",
 		"description": "Open image in new tab"
 	},
@@ -1431,6 +1447,10 @@
 		"message": "Paina ja <strong>pidä</strong> <span class=\"text-highlight\">hiiren oikeaa painiketta</span>",
 		"description": "Tutorial Step 1 instruction idle"
 	},
+	"tutorialStep1InstructionStart": {
+		"message": "Paina ja <strong>pidä</strong> <span class=\"text-highlight\">hiiren oikeaa painiketta</span> aloittaaksesi",
+		"description": "Tutorial first page instruction, before the first press"
+	},
 	"tutorialStep1InstructionPressing": {
 		"message": "<strong>Erinomaista!</strong> Vedä nyt <strong>%arrow% oikealle</strong>",
 		"description": "Tutorial Step 1 instruction pressing"
@@ -1452,7 +1472,7 @@
 		"description": "Tutorial Step 2 subtitle"
 	},
 	"tutorialStep2Footer": {
-		"message": "<strong>Lisää eleitä</strong> ja <strong>täydellinen mukautus</strong> saatavilla asetuksissa.",
+		"message": "<strong>Lisää eleitä</strong> ja <strong>täydellinen mukautus</strong> saatavilla asetuksissa",
 		"description": "Footer note for step 2 discovery banner"
 	},
 	"tutorialStep2DiscoveryHeader": {
@@ -1476,7 +1496,7 @@
 		"description": "Image drag open discovery item"
 	},
 	"tutorialStep3Footer": {
-		"message": "<strong>Lisää raahaustoimintoja</strong> ja <strong>täydellinen mukautus</strong> saatavilla lisäasetustilassa",
+		"message": "<strong>Lisää raahaustoimintoja</strong> ja <strong>täydellinen mukautus</strong> saatavilla asetuksissa",
 		"description": "Footer for step 3 discovery banner"
 	},
 	"tutorialContinue": {
@@ -1670,6 +1690,14 @@
 	"actionCategoryImage": {
 		"message": "Kuva",
 		"description": "Action category: image"
+	},
+	"actionCategoryLinkImage": {
+		"message": "Linkki ja kuva",
+		"description": "Action category: link and image"
+	},
+	"elementActionStartHint": {
+		"message": "Suoritetaan <b>eleen aloituskohdassa</b> olevalle elementille.",
+		"description": "Notice shown in action config for link/image"
 	},
 	"noResults": {
 		"message": "Ei tuloksia",

@@ -516,12 +516,10 @@ class PopupPage extends LitElement {
 			if (url.startsWith(protocol)) return true;
 		}
 
-		{
-			if (url.startsWith('https://chrome.google.com/webstore') ||
-				url.startsWith('https://chromewebstore.google.com') ||
-				(window.i18n.isEdge && url.startsWith('https://microsoftedge.microsoft.com/addons'))) {
-				return true;
-			}
+		if (url.startsWith('https://chrome.google.com/webstore') ||
+			url.startsWith('https://chromewebstore.google.com') ||
+			(window.i18n.isEdge && url.startsWith('https://microsoftedge.microsoft.com/addons'))) {
+			return true;
 		}
 
 		return false;

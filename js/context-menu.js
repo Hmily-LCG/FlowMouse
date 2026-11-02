@@ -1,6 +1,5 @@
 import { LitElement, html, css } from './lib/lit-core.min.js';
 
-
 const CUSTOM_CSS_CACHE_KEY = 'fm:customCss';
 
 class FmContextMenu extends LitElement {

@@ -151,6 +151,10 @@
 		"message": "संदर्भ मेनू खोलने के लिए, दो बार राइट-क्लिक करें। (और जानें)",
 		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
 	},
+	"edgeGestureConflictHint": {
+		"message": "Edge के बिल्ट-इन जेस्चर और FlowMouse जेस्चर के बीच टकराव का पता चला है। (और जानें)",
+		"description": "Clickable toast shown on Edge when its built-in mouse gestures repeatedly interrupt FlowMouse gestures; opens the settings notice"
+	},
 	"edgeGestureConflictNotice": {
 		"message": "%browserName% में अंतर्निहित जेस्चर सुविधाएँ हैं। FlowMouse के जेस्चर का उपयोग करने के लिए, कृपया %browserName% सेटिंग में <a href=\"#\" class=\"edge-gesture-link\">अंतर्निहित जेस्चर को अक्षम करें</a>।",
 		"description": "Notice for Edge users about built-in gesture conflict"
@@ -975,6 +979,18 @@
 		"message": "जेस्चर हटाएं",
 		"description": "Delete gesture button tooltip"
 	},
+	"redrawGesture": {
+		"message": "जेस्चर फिर से खींचें",
+		"description": "Gesture card menu item: re-record the gesture pattern"
+	},
+	"editAction": {
+		"message": "कमांड संपादित करें",
+		"description": "Gesture card menu item: change the action bound to the gesture"
+	},
+	"moreOptions": {
+		"message": "अधिक विकल्प",
+		"description": "Tooltip for the 3-dot menu button"
+	},
 	"deleteGestureConfirm": {
 		"message": "क्या जेस्चर %pattern% हटाएं?",
 		"description": "Delete gesture confirmation"
@@ -1231,11 +1247,11 @@
 		"message": "कॉपी करें",
 		"description": "Copy action"
 	},
-	"dragActionOpenTabLink": {
+	"dragActionOpenLink": {
 		"message": "लिंक खोलें",
 		"description": "Open link in new tab"
 	},
-	"dragActionOpenTabImage": {
+	"dragActionOpenImage": {
 		"message": "इमेज खोलें",
 		"description": "Open image in new tab"
 	},
@@ -1431,6 +1447,10 @@
 		"message": "<span class=\"text-highlight\">दायां माउस बटन</span> दबाएं और <strong>पकड़ें</strong>",
 		"description": "Tutorial Step 1 instruction idle"
 	},
+	"tutorialStep1InstructionStart": {
+		"message": "शुरू करने के लिए <span class=\"text-highlight\">दायां माउस बटन</span> दबाएं और <strong>पकड़ें</strong>",
+		"description": "Tutorial first page instruction, before the first press"
+	},
 	"tutorialStep1InstructionPressing": {
 		"message": "<strong>उत्कृष्ट!</strong> अब <strong>%arrow% दाएं</strong> ड्रैग करें",
 		"description": "Tutorial Step 1 instruction pressing"
@@ -1452,7 +1472,7 @@
 		"description": "Tutorial Step 2 subtitle"
 	},
 	"tutorialStep2Footer": {
-		"message": "<strong>अधिक जेस्चर</strong> और <strong>पूर्ण अनुकूलन</strong> सेटिंग्स में उपलब्ध हैं।",
+		"message": "<strong>अधिक जेस्चर</strong> और <strong>पूर्ण अनुकूलन</strong> सेटिंग्स में उपलब्ध हैं",
 		"description": "Footer note for step 2 discovery banner"
 	},
 	"tutorialStep2DiscoveryHeader": {
@@ -1476,7 +1496,7 @@
 		"description": "Image drag open discovery item"
 	},
 	"tutorialStep3Footer": {
-		"message": "<strong>अधिक ड्रैग एक्शन</strong> और <strong>पूर्ण अनुकूलन</strong> उन्नत सेटिंग्स मोड में उपलब्ध हैं",
+		"message": "<strong>अधिक ड्रैग एक्शन</strong> और <strong>पूर्ण अनुकूलन</strong> सेटिंग्स में उपलब्ध हैं",
 		"description": "Footer for step 3 discovery banner"
 	},
 	"tutorialContinue": {
@@ -1670,6 +1690,14 @@
 	"actionCategoryImage": {
 		"message": "इमेज",
 		"description": "Action category: image"
+	},
+	"actionCategoryLinkImage": {
+		"message": "लिंक और इमेज",
+		"description": "Action category: link and image"
+	},
+	"elementActionStartHint": {
+		"message": "<b>जेस्चर की शुरुआती स्थिति</b> वाले तत्व पर निष्पादित किया जाएगा।",
+		"description": "Notice shown in action config for link/image"
 	},
 	"noResults": {
 		"message": "कोई परिणाम नहीं",

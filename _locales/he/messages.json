@@ -151,6 +151,10 @@
 		"message": "כדי לפתוח את תפריט ההקשר, לחץ פעמיים על לחצן העכבר הימני. (מידע נוסף)",
 		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
 	},
+	"edgeGestureConflictHint": {
+		"message": "זוהתה התנגשות בין המחוות המובנות של Edge למחוות של FlowMouse. (מידע נוסף)",
+		"description": "Clickable toast shown on Edge when its built-in mouse gestures repeatedly interrupt FlowMouse gestures; opens the settings notice"
+	},
 	"edgeGestureConflictNotice": {
 		"message": "לـ %browserName% יש תכונות מחוות מובנות. כדי להשתמש במחוות של FlowMouse, נא <a href=\"#\" class=\"edge-gesture-link\">להשבית את המחוות המובנות</a> בהגדרות %browserName%.",
 		"description": "Notice for Edge users about built-in gesture conflict"
@@ -975,6 +979,18 @@
 		"message": "מחק מחווה",
 		"description": "Delete gesture button tooltip"
 	},
+	"redrawGesture": {
+		"message": "צייר מחדש מחווה",
+		"description": "Gesture card menu item: re-record the gesture pattern"
+	},
+	"editAction": {
+		"message": "ערוך פקודה",
+		"description": "Gesture card menu item: change the action bound to the gesture"
+	},
+	"moreOptions": {
+		"message": "אפשרויות נוספות",
+		"description": "Tooltip for the 3-dot menu button"
+	},
 	"deleteGestureConfirm": {
 		"message": "למחוק את המחווה %pattern%?",
 		"description": "Delete gesture confirmation"
@@ -1231,11 +1247,11 @@
 		"message": "העתק",
 		"description": "Copy action"
 	},
-	"dragActionOpenTabLink": {
+	"dragActionOpenLink": {
 		"message": "פתח קישור",
 		"description": "Open link in new tab"
 	},
-	"dragActionOpenTabImage": {
+	"dragActionOpenImage": {
 		"message": "פתח תמונה",
 		"description": "Open image in new tab"
 	},
@@ -1431,6 +1447,10 @@
 		"message": "לחץ ו<strong>החזק</strong> <span class=\"text-highlight\">לחצן ימני</span>",
 		"description": "Tutorial Step 1 instruction idle"
 	},
+	"tutorialStep1InstructionStart": {
+		"message": "לחץ ו<strong>החזק</strong> <span class=\"text-highlight\">לחצן ימני</span> כדי להתחיל",
+		"description": "Tutorial first page instruction, before the first press"
+	},
 	"tutorialStep1InstructionPressing": {
 		"message": "<strong>מצוין!</strong> כעת גרור <strong>%arrow% ימינה</strong>",
 		"description": "Tutorial Step 1 instruction pressing"
@@ -1452,7 +1472,7 @@
 		"description": "Tutorial Step 2 subtitle"
 	},
 	"tutorialStep2Footer": {
-		"message": "<strong>מחוות נוספות</strong> ו<strong>התאמה אישית מלאה</strong> זמינות בהגדרות.",
+		"message": "<strong>מחוות נוספות</strong> ו<strong>התאמה אישית מלאה</strong> זמינות בהגדרות",
 		"description": "Footer note for step 2 discovery banner"
 	},
 	"tutorialStep2DiscoveryHeader": {
@@ -1476,7 +1496,7 @@
 		"description": "Image drag open discovery item"
 	},
 	"tutorialStep3Footer": {
-		"message": "<strong>פעולות גרירה נוספות</strong> ו<strong>התאמה אישית מלאה</strong> זמינות במצב הגדרות מתקדמות",
+		"message": "<strong>פעולות גרירה נוספות</strong> ו<strong>התאמה אישית מלאה</strong> זמינות בהגדרות",
 		"description": "Footer for step 3 discovery banner"
 	},
 	"tutorialContinue": {
@@ -1670,6 +1690,14 @@
 	"actionCategoryImage": {
 		"message": "תמונה",
 		"description": "Action category: image"
+	},
+	"actionCategoryLinkImage": {
+		"message": "קישור ותמונה",
+		"description": "Action category: link and image"
+	},
+	"elementActionStartHint": {
+		"message": "יבוצע על האלמנט ב<b>מיקום התחלת המחווה</b>.",
+		"description": "Notice shown in action config for link/image"
 	},
 	"noResults": {
 		"message": "אין תוצאות",

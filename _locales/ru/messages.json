@@ -151,6 +151,10 @@
 		"message": "Чтобы открыть контекстное меню, дважды щелкните правой кнопкой мыши. (Подробнее)",
 		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
 	},
+	"edgeGestureConflictHint": {
+		"message": "Обнаружен конфликт между встроенными жестами Edge и жестами FlowMouse. (Подробнее)",
+		"description": "Clickable toast shown on Edge when its built-in mouse gestures repeatedly interrupt FlowMouse gestures; opens the settings notice"
+	},
 	"edgeGestureConflictNotice": {
 		"message": "В %browserName% есть встроенные функции жестов. Чтобы использовать жесты FlowMouse, <a href=\"#\" class=\"edge-gesture-link\">отключите встроенные жесты</a> в настройках %browserName%.",
 		"description": "Notice for Edge users about built-in gesture conflict"
@@ -975,6 +979,18 @@
 		"message": "Удалить жест",
 		"description": "Delete gesture button tooltip"
 	},
+	"redrawGesture": {
+		"message": "Перерисовать жест",
+		"description": "Gesture card menu item: re-record the gesture pattern"
+	},
+	"editAction": {
+		"message": "Изменить команду",
+		"description": "Gesture card menu item: change the action bound to the gesture"
+	},
+	"moreOptions": {
+		"message": "Дополнительные параметры",
+		"description": "Tooltip for the 3-dot menu button"
+	},
 	"deleteGestureConfirm": {
 		"message": "Удалить жест %pattern%?",
 		"description": "Delete gesture confirmation"
@@ -1231,11 +1247,11 @@
 		"message": "Копировать",
 		"description": "Copy action"
 	},
-	"dragActionOpenTabLink": {
+	"dragActionOpenLink": {
 		"message": "Открыть ссылку",
 		"description": "Open link in new tab"
 	},
-	"dragActionOpenTabImage": {
+	"dragActionOpenImage": {
 		"message": "Открыть изображение",
 		"description": "Open image in new tab"
 	},
@@ -1431,6 +1447,10 @@
 		"message": "Зажмите <span class=\"text-highlight\">правую кнопку мыши</span>",
 		"description": "Tutorial Step 1 instruction idle"
 	},
+	"tutorialStep1InstructionStart": {
+		"message": "Зажмите <span class=\"text-highlight\">правую кнопку мыши</span>, чтобы начать",
+		"description": "Tutorial first page instruction, before the first press"
+	},
 	"tutorialStep1InstructionPressing": {
 		"message": "<strong>Отлично!</strong> Удерживая кнопку, тяните <strong>%arrow% вправо</strong>",
 		"description": "Tutorial Step 1 instruction pressing"
@@ -1452,7 +1472,7 @@
 		"description": "Tutorial Step 2 subtitle"
 	},
 	"tutorialStep2Footer": {
-		"message": "<strong>Больше жестов</strong> и <strong>полная настройка</strong> доступны в настройках.",
+		"message": "<strong>Больше жестов</strong> и <strong>полная настройка</strong> доступны в настройках",
 		"description": "Footer note for step 2 discovery banner"
 	},
 	"tutorialStep2DiscoveryHeader": {
@@ -1476,7 +1496,7 @@
 		"description": "Image drag open discovery item"
 	},
 	"tutorialStep3Footer": {
-		"message": "<strong>Больше действий перетаскивания</strong> доступны в расширенных настройках",
+		"message": "<strong>Больше действий перетаскивания</strong> доступны в настройках",
 		"description": "Footer for step 3 discovery banner"
 	},
 	"tutorialContinue": {
@@ -1670,6 +1690,14 @@
 	"actionCategoryImage": {
 		"message": "Изображение",
 		"description": "Action category: image"
+	},
+	"actionCategoryLinkImage": {
+		"message": "Ссылка и изображение",
+		"description": "Action category: link and image"
+	},
+	"elementActionStartHint": {
+		"message": "Будет выполнено для элемента в <b>начальной позиции жеста</b>.",
+		"description": "Notice shown in action config for link/image"
 	},
 	"noResults": {
 		"message": "Нет результатов",

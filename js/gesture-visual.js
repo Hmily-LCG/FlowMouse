@@ -87,7 +87,6 @@ class ShadowHost {
 			}
 		}
 
-
 		if (options?.builtInCss !== undefined) this.setBuiltInCss(options.builtInCss);
 		if (options?.customCss !== undefined) this.setCustomCss(options.customCss);
 

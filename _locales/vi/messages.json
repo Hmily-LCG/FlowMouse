@@ -151,6 +151,10 @@
 		"message": "Để mở menu ngữ cảnh, hãy nhấp đúp chuột phải. (Tìm hiểu thêm)",
 		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
 	},
+	"edgeGestureConflictHint": {
+		"message": "Phát hiện xung đột giữa các cử chỉ tích hợp sẵn của Edge và cử chỉ FlowMouse. (Tìm hiểu thêm)",
+		"description": "Clickable toast shown on Edge when its built-in mouse gestures repeatedly interrupt FlowMouse gestures; opens the settings notice"
+	},
 	"edgeGestureConflictNotice": {
 		"message": "%browserName% có tính năng cử chỉ tích hợp. Để sử dụng cử chỉ của FlowMouse, vui lòng <a href=\"#\" class=\"edge-gesture-link\">tắt cử chỉ tích hợp</a> trong cài đặt %browserName%.",
 		"description": "Notice for Edge users about built-in gesture conflict"
@@ -975,6 +979,18 @@
 		"message": "Xóa cử chỉ",
 		"description": "Delete gesture button tooltip"
 	},
+	"redrawGesture": {
+		"message": "Vẽ lại cử chỉ",
+		"description": "Gesture card menu item: re-record the gesture pattern"
+	},
+	"editAction": {
+		"message": "Chỉnh sửa lệnh",
+		"description": "Gesture card menu item: change the action bound to the gesture"
+	},
+	"moreOptions": {
+		"message": "Thêm tùy chọn",
+		"description": "Tooltip for the 3-dot menu button"
+	},
 	"deleteGestureConfirm": {
 		"message": "Xóa cử chỉ %pattern%?",
 		"description": "Delete gesture confirmation"
@@ -1231,11 +1247,11 @@
 		"message": "Sao chép",
 		"description": "Copy action"
 	},
-	"dragActionOpenTabLink": {
+	"dragActionOpenLink": {
 		"message": "Mở liên kết",
 		"description": "Open link in new tab"
 	},
-	"dragActionOpenTabImage": {
+	"dragActionOpenImage": {
 		"message": "Mở hình ảnh",
 		"description": "Open image in new tab"
 	},
@@ -1431,6 +1447,10 @@
 		"message": "Nhấn và <span class=\"text-highlight\">Giữ chuột phải</span>",
 		"description": "Tutorial Step 1 instruction idle"
 	},
+	"tutorialStep1InstructionStart": {
+		"message": "Nhấn và <span class=\"text-highlight\">Giữ chuột phải</span> để bắt đầu",
+		"description": "Tutorial first page instruction, before the first press"
+	},
 	"tutorialStep1InstructionPressing": {
 		"message": "<strong>Tuyệt vời!</strong> Giữ và kéo sang <strong>%arrow% Phải</strong>",
 		"description": "Tutorial Step 1 instruction pressing"
@@ -1452,7 +1472,7 @@
 		"description": "Tutorial Step 2 subtitle"
 	},
 	"tutorialStep2Footer": {
-		"message": "<strong>Nhiều cử chỉ hơn</strong> và <strong>tùy chỉnh đầy đủ</strong> có sẵn trong cài đặt.",
+		"message": "<strong>Nhiều cử chỉ hơn</strong> và <strong>tùy chỉnh đầy đủ</strong> có sẵn trong cài đặt",
 		"description": "Footer note for step 2 discovery banner"
 	},
 	"tutorialStep2DiscoveryHeader": {
@@ -1476,7 +1496,7 @@
 		"description": "Image drag open discovery item"
 	},
 	"tutorialStep3Footer": {
-		"message": "<strong>Nhiều hành động kéo hơn</strong> và <strong>tùy chỉnh</strong> có sẵn trong chế độ cài đặt nâng cao",
+		"message": "<strong>Nhiều hành động kéo hơn</strong> và <strong>tùy chỉnh</strong> có sẵn trong cài đặt",
 		"description": "Footer for step 3 discovery banner"
 	},
 	"tutorialContinue": {
@@ -1670,6 +1690,14 @@
 	"actionCategoryImage": {
 		"message": "Hình ảnh",
 		"description": "Action category: image"
+	},
+	"actionCategoryLinkImage": {
+		"message": "Liên kết và hình ảnh",
+		"description": "Action category: link and image"
+	},
+	"elementActionStartHint": {
+		"message": "Sẽ thực thi trên phần tử tại <b>vị trí bắt đầu cử chỉ</b>.",
+		"description": "Notice shown in action config for link/image"
 	},
 	"noResults": {
 		"message": "Không có kết quả",

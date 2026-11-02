@@ -151,6 +151,10 @@
 		"message": "لفتح قائمة السياق، انقر نقرًا مزدوجًا بزر الماوس الأيمن. (مزيد من المعلومات)",
 		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
 	},
+	"edgeGestureConflictHint": {
+		"message": "تم اكتشاف تعارض بين إيماءات Edge المدمجة وإيماءات FlowMouse. (معرفة المزيد)",
+		"description": "Clickable toast shown on Edge when its built-in mouse gestures repeatedly interrupt FlowMouse gestures; opens the settings notice"
+	},
 	"edgeGestureConflictNotice": {
 		"message": "يحتوي %browserName% على ميزات إيماءات مدمجة. لاستخدام إيماءات FlowMouse، يرجى <a href=\"#\" class=\"edge-gesture-link\">تعطيل الإيماءات المدمجة</a> في إعدادات %browserName%.",
 		"description": "Notice for Edge users about built-in gesture conflict"
@@ -975,6 +979,18 @@
 		"message": "حذف الإيماءة",
 		"description": "Delete gesture button tooltip"
 	},
+	"redrawGesture": {
+		"message": "إعادة رسم الإيماءة",
+		"description": "Gesture card menu item: re-record the gesture pattern"
+	},
+	"editAction": {
+		"message": "تعديل الأمر",
+		"description": "Gesture card menu item: change the action bound to the gesture"
+	},
+	"moreOptions": {
+		"message": "خيارات إضافية",
+		"description": "Tooltip for the 3-dot menu button"
+	},
 	"deleteGestureConfirm": {
 		"message": "هل تريد حذف الإيماءة %pattern%؟",
 		"description": "Delete gesture confirmation"
@@ -1231,11 +1247,11 @@
 		"message": "نسخ",
 		"description": "Copy action"
 	},
-	"dragActionOpenTabLink": {
+	"dragActionOpenLink": {
 		"message": "فتح الرابط",
 		"description": "Open link in new tab"
 	},
-	"dragActionOpenTabImage": {
+	"dragActionOpenImage": {
 		"message": "فتح الصورة",
 		"description": "Open image in new tab"
 	},
@@ -1431,6 +1447,10 @@
 		"message": "اضغط مع <strong>الاستمرار</strong> على <span class=\"text-highlight\">زر الماوس الأيمن</span>",
 		"description": "Tutorial Step 1 instruction idle"
 	},
+	"tutorialStep1InstructionStart": {
+		"message": "اضغط مع <strong>الاستمرار</strong> على <span class=\"text-highlight\">زر الماوس الأيمن</span> للبدء",
+		"description": "Tutorial first page instruction, before the first press"
+	},
 	"tutorialStep1InstructionPressing": {
 		"message": "<strong>ممتاز!</strong> الآن اسحب <strong>%arrow% يمينًا</strong>",
 		"description": "Tutorial Step 1 instruction pressing"
@@ -1452,7 +1472,7 @@
 		"description": "Tutorial Step 2 subtitle"
 	},
 	"tutorialStep2Footer": {
-		"message": "<strong>المزيد من الإيماءات</strong> و <strong>التخصيص الكامل</strong> متوفر في الإعدادات.",
+		"message": "<strong>المزيد من الإيماءات</strong> و <strong>التخصيص الكامل</strong> متوفر في الإعدادات",
 		"description": "Footer note for step 2 discovery banner"
 	},
 	"tutorialStep2DiscoveryHeader": {
@@ -1476,7 +1496,7 @@
 		"description": "Image drag open discovery item"
 	},
 	"tutorialStep3Footer": {
-		"message": "<strong>المزيد من إجراءات السحب</strong> و <strong>التخصيص الكامل</strong> متوفر في وضع الإعدادات المتقدمة",
+		"message": "<strong>المزيد من إجراءات السحب</strong> و <strong>التخصيص الكامل</strong> متوفر في الإعدادات",
 		"description": "Footer for step 3 discovery banner"
 	},
 	"tutorialContinue": {
@@ -1670,6 +1690,14 @@
 	"actionCategoryImage": {
 		"message": "الصورة",
 		"description": "Action category: image"
+	},
+	"actionCategoryLinkImage": {
+		"message": "الرابط والصورة",
+		"description": "Action category: link and image"
+	},
+	"elementActionStartHint": {
+		"message": "سيتم التنفيذ على العنصر عند <b>موضع بدء الإيماءة</b>.",
+		"description": "Notice shown in action config for link/image"
 	},
 	"noResults": {
 		"message": "لا توجد نتائج",
