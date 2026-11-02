@@ -1,5 +1,27 @@
 ## FlowMouse Changelog
 
+### v2.6 (2026-11-02)
+
+**New Features:**
+- **Support executing some drag actions via mouse gestures:**
+  - Open Link
+  - Open Image
+  - Save Image
+  - Copy Image URL
+  - Image Search
+
+**Interface & General Improvements:**
+- **Redesigned interactive tutorial with improved animations and light theme support**
+- Redesigned gesture and drag settings interface
+- After re-enabling the disabled extension, gestures can now be used immediately without refreshing the page
+- Adjusted wheel gesture event listening logic on Firefox to improve scrolling performance
+- Fixed an issue where recognized gesture results might differ from the drawn trail during page stutter/lag
+- Fixed an issue where invoking the "Paste Clipboard" command from the popup menu could fail
+- Fixed an issue where Area Select could still be triggered via shortcut keys before refreshing after adding a website to the blacklist
+- Fixed an issue where Command Chain could not be used on HTTP pages
+- Cleaned up code and refactored gesture and drag execution logic
+- Other minor improvements
+
 ### v2.5 (2026-09-29)
 
 **New Features:**
@@ -40,7 +62,6 @@
 - **Refactored code significantly to optimize performance and fix bugs**
 - Other minor improvements
 
-
 ### v2.4.1 (2026-09-17)
 
 **Gesture Improvements:**
@@ -50,7 +71,6 @@
 - Code cleanup to reduce extension size
 - Fixed an issue where gestures might not work on some tabs before refreshing after extension installation/update
 - Other minor improvements
-
 
 ### v2.4 (2026-09-07)
 
@@ -67,7 +87,6 @@
 - Refined settings interface details, adding icons to some input fields
 - Other minor improvements
 
-
 ### v2.3.1 (2026-08-28)
 
 - Optimized the loading speed of settings and other pages
@@ -80,7 +99,6 @@
 - Optimized HUD display logic to prevent false positives from third-party ad blocker extensions
 - Fixed an issue where the HUD still showed custom action names after disabling custom gestures
 - Other minor improvements
-
 
 ### v2.3 (2026-08-03)
 
@@ -98,7 +116,6 @@
 - Minor improvements to settings interface
 - Other minor improvements
 
-
 ### v2.2 (2026-06-29)
 
 **New Features:**
@@ -113,7 +130,6 @@
 **Interface & General Improvements:**
 - Optimize performance when drawing gestures using custom CSS
 - Other minor improvements
-
 
 ### v2.1 (2026-06-01)
 
@@ -130,7 +146,6 @@
 - Fixed an issue where gesture trails might disappear when drawing gestures after refreshing certain pages
 - Other minor improvements
 
-
 ### v2.0.3 (2026-05-07)
 
 **New Features:**
@@ -140,13 +155,11 @@
 - Renamed advanced settings for clarity
 - Other minor improvements
 
-
 ### v2.0.2 (2026-04-23)
 
 - Fixed incorrect time display in the recently closed tabs popup menu on Firefox
 - Fixed compatibility with Firefox 151+ beta versions
 - Other minor improvements
-
 
 ### v2.0.1 (2026-04-22)
 
@@ -155,7 +168,6 @@
 - Fixed an issue where the "Delay" command would disappear in command chain settings
 - Fixed an issue that might affect using combinations like Control + Left Click to open the context menu on systems like macOS
 - Improved area selection details and optimized compatibility within iframes
-
 
 ### v2.0 (2026-04-21)
 
@@ -210,12 +222,10 @@
 - Support using gestures immediately after install/update without page refresh
 - Other minor improvements
 
-
 ### v1.4.2 (2026-03-31)
 
 - Relaxed the minimum version requirement for Firefox
 - Optimized HUD display logic to improve compatibility with rich text editors like KindEditor
-
 
 ### v1.4 (2026-03-22)
 
@@ -237,7 +247,6 @@
 - Fixed a settings sidebar bug for RTL languages
 - Fixed an issue where gesture trail rendering stuttered on certain pages
 - Other minor improvements
-
 
 ### v1.3 (2026-03-17)
 
@@ -283,7 +292,6 @@
 - Improved support for some third-party Android browsers
 - Other minor improvements
 
-
 ### v1.2 (2026-02-10)
 
 **New Features:**
@@ -315,7 +323,7 @@
 - Advanced Settings: Support opening dragged targets in the current tab
 - Fixed drag-and-drop issues on websites like Bilibili
 - Fixed dragging of relative URL paths
-- Fixed issue where drag-to-copy gestures failed on HTTP protocol pages
+- Fixed issue where drag-to-copy gestures failed on HTTP pages
 - Adapted for press-and-drag on touch screens and stylus pens
 
 **Interface & More Improvements:**
@@ -328,7 +336,6 @@
 - Improved support for RTL languages
 - Refactored code significantly to optimize performance and fix bugs
 - Other minor improvements
-
 
 ### v1.1 (2025-12-24)
 
