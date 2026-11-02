@@ -151,6 +151,10 @@
 		"message": "Pentru a deschide meniul contextual, faceți dublu clic dreapta. (Aflați mai multe)",
 		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
 	},
+	"edgeGestureConflictHint": {
+		"message": "A fost detectat un conflict între gesturile încorporate în Edge și gesturile FlowMouse. (Află mai multe)",
+		"description": "Clickable toast shown on Edge when its built-in mouse gestures repeatedly interrupt FlowMouse gestures; opens the settings notice"
+	},
 	"edgeGestureConflictNotice": {
 		"message": "%browserName% are funcții de gesturi încorporate. Pentru a utiliza gesturile FlowMouse, vă rugăm să <a href=\"#\" class=\"edge-gesture-link\">dezactivați gesturile încorporate</a> în setările %browserName%.",
 		"description": "Notice for Edge users about built-in gesture conflict"
@@ -975,6 +979,18 @@
 		"message": "Șterge Gest",
 		"description": "Delete gesture button tooltip"
 	},
+	"redrawGesture": {
+		"message": "Redesenează Gestul",
+		"description": "Gesture card menu item: re-record the gesture pattern"
+	},
+	"editAction": {
+		"message": "Editare comandă",
+		"description": "Gesture card menu item: change the action bound to the gesture"
+	},
+	"moreOptions": {
+		"message": "Mai multe opțiuni",
+		"description": "Tooltip for the 3-dot menu button"
+	},
 	"deleteGestureConfirm": {
 		"message": "Ștergi gestul %pattern%?",
 		"description": "Delete gesture confirmation"
@@ -1231,11 +1247,11 @@
 		"message": "Copiază",
 		"description": "Copy action"
 	},
-	"dragActionOpenTabLink": {
+	"dragActionOpenLink": {
 		"message": "Deschide Link",
 		"description": "Open link in new tab"
 	},
-	"dragActionOpenTabImage": {
+	"dragActionOpenImage": {
 		"message": "Deschide Imagine",
 		"description": "Open image in new tab"
 	},
@@ -1431,6 +1447,10 @@
 		"message": "Apasă și <strong>Ține</strong> <span class=\"text-highlight\">Butonul Dreapta Mouse</span>",
 		"description": "Tutorial Step 1 instruction idle"
 	},
+	"tutorialStep1InstructionStart": {
+		"message": "Apasă și <strong>Ține</strong> <span class=\"text-highlight\">Butonul Dreapta Mouse</span> pentru a începe",
+		"description": "Tutorial first page instruction, before the first press"
+	},
 	"tutorialStep1InstructionPressing": {
 		"message": "<strong>Excelent!</strong> Acum trage <strong>%arrow% Dreapta</strong>",
 		"description": "Tutorial Step 1 instruction pressing"
@@ -1452,7 +1472,7 @@
 		"description": "Tutorial Step 2 subtitle"
 	},
 	"tutorialStep2Footer": {
-		"message": "<strong>Mai multe gesturi</strong> și <strong>customizare totală</strong> disponibile în setări.",
+		"message": "<strong>Mai multe gesturi</strong> și <strong>customizare totală</strong> disponibile în setări",
 		"description": "Footer note for step 2 discovery banner"
 	},
 	"tutorialStep2DiscoveryHeader": {
@@ -1476,7 +1496,7 @@
 		"description": "Image drag open discovery item"
 	},
 	"tutorialStep3Footer": {
-		"message": "<strong>Mai multe acțiuni drag</strong> și <strong>customizare totală</strong> disponibile în modul avansat",
+		"message": "<strong>Mai multe acțiuni drag</strong> și <strong>customizare totală</strong> disponibile în setări",
 		"description": "Footer for step 3 discovery banner"
 	},
 	"tutorialContinue": {
@@ -1670,6 +1690,14 @@
 	"actionCategoryImage": {
 		"message": "Imagine",
 		"description": "Action category: image"
+	},
+	"actionCategoryLinkImage": {
+		"message": "Link și imagine",
+		"description": "Action category: link and image"
+	},
+	"elementActionStartHint": {
+		"message": "Se va executa pe elementul de la <b>poziția de început a gestului</b>.",
+		"description": "Notice shown in action config for link/image"
 	},
 	"noResults": {
 		"message": "Fără rezultate",

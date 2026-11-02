@@ -151,6 +151,10 @@
 		"message": "หากต้องการเปิดเมนูบริบท ให้ดับเบิลคลิกขวา (เรียนรู้เพิ่มเติม)",
 		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
 	},
+	"edgeGestureConflictHint": {
+		"message": "ตรวจพบข้อขัดแย้งระหว่างการแสดงท่าทางในตัวของ Edge และท่าทางของ FlowMouse (เรียนรู้เพิ่มเติม)",
+		"description": "Clickable toast shown on Edge when its built-in mouse gestures repeatedly interrupt FlowMouse gestures; opens the settings notice"
+	},
 	"edgeGestureConflictNotice": {
 		"message": "%browserName% มีคุณสมบัติท่าทางในตัว หากต้องการใช้ท่าทางของ FlowMouse โปรด<a href=\"#\" class=\"edge-gesture-link\">ปิดการใช้งานท่าทางในตัว</a>ในการตั้งค่า %browserName%",
 		"description": "Notice for Edge users about built-in gesture conflict"
@@ -975,6 +979,18 @@
 		"message": "ลบท่าทาง",
 		"description": "Delete gesture button tooltip"
 	},
+	"redrawGesture": {
+		"message": "วาดท่าทางใหม่",
+		"description": "Gesture card menu item: re-record the gesture pattern"
+	},
+	"editAction": {
+		"message": "แก้ไขคำสั่ง",
+		"description": "Gesture card menu item: change the action bound to the gesture"
+	},
+	"moreOptions": {
+		"message": "ตัวเลือกเพิ่มเติม",
+		"description": "Tooltip for the 3-dot menu button"
+	},
 	"deleteGestureConfirm": {
 		"message": "ต้องการลบท่าทาง %pattern% หรือไม่?",
 		"description": "Delete gesture confirmation"
@@ -1231,11 +1247,11 @@
 		"message": "คัดลอก",
 		"description": "Copy action"
 	},
-	"dragActionOpenTabLink": {
+	"dragActionOpenLink": {
 		"message": "เปิดลิงก์",
 		"description": "Open link in new tab"
 	},
-	"dragActionOpenTabImage": {
+	"dragActionOpenImage": {
 		"message": "เปิดรูปภาพ",
 		"description": "Open image in new tab"
 	},
@@ -1431,6 +1447,10 @@
 		"message": "กด <span class=\"text-highlight\">ปุ่มเมาส์ขวา</span> ค้างไว้",
 		"description": "Tutorial Step 1 instruction idle"
 	},
+	"tutorialStep1InstructionStart": {
+		"message": "กด <span class=\"text-highlight\">ปุ่มเมาส์ขวา</span> ค้างไว้เพื่อเริ่มต้น",
+		"description": "Tutorial first page instruction, before the first press"
+	},
 	"tutorialStep1InstructionPressing": {
 		"message": "<strong>ยอดเยี่ยม!</strong> ตอนนี้ลากไปทาง <strong>%arrow% ขวา</strong>",
 		"description": "Tutorial Step 1 instruction pressing"
@@ -1476,7 +1496,7 @@
 		"description": "Image drag open discovery item"
 	},
 	"tutorialStep3Footer": {
-		"message": "<strong>การลากเพิ่มเติม</strong> และ <strong>การปรับแต่งเต็มรูปแบบ</strong> มีให้ในโหมดการตั้งค่าขั้นสูง",
+		"message": "<strong>การลากเพิ่มเติม</strong> และ <strong>การปรับแต่งเต็มรูปแบบ</strong> มีให้ในการตั้งค่า",
 		"description": "Footer for step 3 discovery banner"
 	},
 	"tutorialContinue": {
@@ -1670,6 +1690,14 @@
 	"actionCategoryImage": {
 		"message": "รูปภาพ",
 		"description": "Action category: image"
+	},
+	"actionCategoryLinkImage": {
+		"message": "ลิงก์และรูปภาพ",
+		"description": "Action category: link and image"
+	},
+	"elementActionStartHint": {
+		"message": "จะดำเนินการกับองค์ประกอบที่<b>ตำแหน่งเริ่มต้นของท่าทางสัมผัส</b>",
+		"description": "Notice shown in action config for link/image"
 	},
 	"noResults": {
 		"message": "ไม่พบผลลัพธ์",

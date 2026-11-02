@@ -19,123 +19,6 @@ class DragGestureManager extends LitElement {
 			:host {
 				display: block;
 			}
-
-			.gesture-grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-				gap: 10px;
-				margin-top: 2px;
-				margin-bottom: 16px;
-			}
-
-			.gesture-item {
-				position: relative;
-				background: var(--bg-tertiary);
-				border-radius: 8px;
-				padding: 8px;
-				display: flex;
-				flex-direction: column;
-				gap: 8px;
-			}
-
-			.gesture-item.none {
-				background: color-mix(in srgb, var(--bg-tertiary) 50%, transparent);
-			}
-
-			.gesture-item.none .direction-btn {
-				opacity: .4;
-			}
-
-			.gesture-item .direction-btn {
-				box-shadow: 0 0 0 0.75px transparent;
-			}
-
-			.gesture-item:hover .direction-btn:not(:hover) {
-				box-shadow: 0 0 0 0.75px var(--border-color);
-			}
-
-			.direction-btn {
-				color: var(--text-primary);
-				align-self: center;
-				min-width: 50px;
-				max-width: calc(100% - 52px);
-				overflow: hidden;
-				text-overflow: ellipsis;
-				padding-block: 3px;
-			}
-
-			.gesture-icon-wrap {
-				font-size: 16.8px;
-				display: flex;
-				align-items: center;
-				min-height: 1lh;
-			}
-
-			.item-tools {
-				position: absolute;
-				top: 6px;
-				inset-inline-end: 6px;
-				display: flex;
-				align-items: center;
-				gap: 2px;
-				z-index: 1;
-			}
-
-			.drag-delete-btn {
-				width: 18px;
-				height: 18px;
-				border: none;
-				border-radius: 50%;
-				background: transparent;
-				color: var(--text-muted);
-				cursor: pointer;
-				display: inline-flex;
-				align-items: center;
-				justify-content: center;
-				padding: 0;
-				opacity: 0;
-				transition: color 0.2s, opacity 0.15s;
-			}
-
-			.gesture-item:hover .drag-delete-btn,
-			.drag-delete-btn:focus-visible {
-				opacity: 1;
-			}
-
-			.drag-delete-btn:hover {
-				color: var(--danger-color);
-			}
-
-			.drag-add-group {
-				display: flex;
-				flex-direction: column;
-				gap: 6px;
-				min-height: 80px;
-			}
-
-			.drag-add-btn {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				gap: 6px;
-				min-width: 0;
-				border-radius: 8px;
-				font-size: 13px;
-			}
-
-			.drag-add-btn.main {
-				flex: 1;
-			}
-
-			.drag-add-btn svg,
-			.drag-add-btn .gesture-icon-wrap {
-				flex-shrink: 0;
-			}
-
-			.drag-add-btn .gesture-icon-wrap {
-				font-size: 16px;
-				min-height: 0;
-			}
 		`,
 	];
 
@@ -153,13 +36,13 @@ class DragGestureManager extends LitElement {
 		return html`
 			<div class="gesture-grid">
 				${dragGestures.map((cfg, index) => this.#renderItem(cfg, index))}
-				<div class="drag-add-group">
-					<button type="button" class="btn btn-dashed drag-add-btn main" @click=${this.#addRow}>
+				<div class="gesture-add-group">
+					<button type="button" class="btn btn-dashed gesture-add-btn" @click=${this.#addRow}>
 						${unsafeHTML(icon('plus', { size: 16, strokeWidth: 2 }))}
 						<span ${fitText()}>${window.i18n.getMessage('add')}</span>
 					</button>
 					${hasFallback || !this.advancedMode ? '' : html`
-						<button type="button" class="btn btn-dashed drag-add-btn" @click=${this.#addFallback}
+						<button type="button" class="btn btn-dashed gesture-add-btn secondary" @click=${this.#addFallback}
 							.tooltip=${tooltip(window.i18n.getMessage('fallbackGestureTip'))}>
 							<span class="gesture-icon-wrap">${unsafeHTML(window.GestureConstants.arrowsToSvg('*'))}</span>
 							<span ${fitText()}>${window.i18n.getMessage('gestureRecorderAny')}</span>
@@ -179,18 +62,19 @@ class DragGestureManager extends LitElement {
 
 		return html`
 			<div class="gesture-item ${isNone ? 'none' : ''}">
-				<div class="item-tools">
-					${this.dragGestures.length > 1 || !isNone ? html`
-						<button type="button" class="drag-delete-btn"
-							@click=${() => this.#deleteRow(index)}
-							.tooltip=${tooltip(window.i18n.getMessage('delete'))}>${unsafeHTML(icon('x', { size: 14, strokeWidth: 2.5 }))}</button>
-					` : ''}
+				<div class="gesture-item-header">
+					<button type="button" class="gesture-pattern"
+						.tooltip=${tooltip(window.i18n.getMessage(isFallback ? 'fallbackGestureTip' : 'redrawGesture'))}
+						@click=${() => this.#changeDirection(index)}>
+						<span class="gesture-pattern-arrows">${unsafeHTML(window.GestureConstants.arrowsToSvg(direction))}</span>
+						<span class="gesture-pattern-edit">${unsafeHTML(icon('pencil', { size: 11, strokeWidth: 2.2 }))}</span>
+					</button>
+					<dropdown-menu
+						label=${window.i18n.getMessage('moreOptions')}
+						.items=${this.#getMenuItems(isNone)}
+						@menu-select=${(e) => this.#onMenuSelect(index, e)}
+					></dropdown-menu>
 				</div>
-				<button type="button" class="btn btn-ghost direction-btn" title=${isFallback ? '' : direction}
-					.tooltip=${tooltip(isFallback ? window.i18n.getMessage('fallbackGestureTip') : '')}
-					@click=${() => this.#changeDirection(index)}>
-					<span class="gesture-icon-wrap">${unsafeHTML(window.GestureConstants.arrowsToSvg(direction))}</span>
-				</button>
 				<action-select
 					drag-type=${this.type}
 					.value=${action}
@@ -201,6 +85,24 @@ class DragGestureManager extends LitElement {
 				></action-select>
 			</div>
 		`;
+	}
+
+	#getMenuItems(isNone) {
+		const t = key => window.i18n.getMessage(key);
+		return [
+			{ id: 'redrawGesture', label: t('redrawGesture'), icon: 'pencil' },
+			{ id: 'editAction', label: t('editAction'), icon: 'settings' },
+			{ type: 'separator' },
+			{ id: 'delete', label: t('delete'), icon: 'trash2', danger: true, disabled: this.dragGestures.length <= 1 && isNone },
+		];
+	}
+
+	#onMenuSelect(index, e) {
+		switch (e.detail.id) {
+			case 'redrawGesture': return this.#changeDirection(index);
+			case 'editAction': return this.#openActionSelect(index);
+			case 'delete': return this.#deleteRow(index);
+		}
 	}
 
 	#occupiedDirections(excludeIndex = -1) {
@@ -275,10 +177,6 @@ class DragGestureManager extends LitElement {
 	}
 
 	#deleteRow(index) {
-		const pattern = this.dragGestures[index]?.direction || '→';
-		if (!confirm(window.i18n.getMessage('deleteGestureConfirm').replace('%pattern%', pattern))) {
-			return;
-		}
 
 		const dragGestures = structuredClone(this.dragGestures);
 		if (dragGestures.length <= 1) {

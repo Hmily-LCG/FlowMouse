@@ -151,6 +151,10 @@
 		"message": "Chcete-li otevřít kontextovou nabídku, dvakrát klikněte pravým tlačítkem. (Zjistit více)",
 		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
 	},
+	"edgeGestureConflictHint": {
+		"message": "Byl zjištěn konflikt mezi vestavěnými gesty prohlížeče Edge a gesty rozšíření FlowMouse. (Zjistit více)",
+		"description": "Clickable toast shown on Edge when its built-in mouse gestures repeatedly interrupt FlowMouse gestures; opens the settings notice"
+	},
 	"edgeGestureConflictNotice": {
 		"message": "%browserName% má vestavěné funkce gest. Chcete-li používat gesta FlowMouse, <a href=\"#\" class=\"edge-gesture-link\">vypněte prosím vestavěná gesta</a> v nastavení %browserName%.",
 		"description": "Notice for Edge users about built-in gesture conflict"
@@ -975,6 +979,18 @@
 		"message": "Smazat gesto",
 		"description": "Delete gesture button tooltip"
 	},
+	"redrawGesture": {
+		"message": "Překreslit gesto",
+		"description": "Gesture card menu item: re-record the gesture pattern"
+	},
+	"editAction": {
+		"message": "Upravit příkaz",
+		"description": "Gesture card menu item: change the action bound to the gesture"
+	},
+	"moreOptions": {
+		"message": "Další možnosti",
+		"description": "Tooltip for the 3-dot menu button"
+	},
 	"deleteGestureConfirm": {
 		"message": "Smazat gesto %pattern%?",
 		"description": "Delete gesture confirmation"
@@ -1231,11 +1247,11 @@
 		"message": "Kopírovat",
 		"description": "Copy action"
 	},
-	"dragActionOpenTabLink": {
+	"dragActionOpenLink": {
 		"message": "Otevřít odkaz",
 		"description": "Open link in new tab"
 	},
-	"dragActionOpenTabImage": {
+	"dragActionOpenImage": {
 		"message": "Otevřít obrázek",
 		"description": "Open image in new tab"
 	},
@@ -1431,6 +1447,10 @@
 		"message": "Stiskněte a <strong>držte</strong> <span class=\"text-highlight\">pravé tlačítko</span>",
 		"description": "Tutorial Step 1 instruction idle"
 	},
+	"tutorialStep1InstructionStart": {
+		"message": "Stiskněte a <strong>držte</strong> <span class=\"text-highlight\">pravé tlačítko</span> pro začátek",
+		"description": "Tutorial first page instruction, before the first press"
+	},
 	"tutorialStep1InstructionPressing": {
 		"message": "<strong>Výborně!</strong> Nyní táhněte <strong>%arrow% Vpravo</strong>",
 		"description": "Tutorial Step 1 instruction pressing"
@@ -1452,7 +1472,7 @@
 		"description": "Tutorial Step 2 subtitle"
 	},
 	"tutorialStep2Footer": {
-		"message": "<strong>Více gest</strong> a <strong>plné přizpůsobení</strong> v nastavení.",
+		"message": "<strong>Více gest</strong> a <strong>plné přizpůsobení</strong> v nastavení",
 		"description": "Footer note for step 2 discovery banner"
 	},
 	"tutorialStep2DiscoveryHeader": {
@@ -1476,7 +1496,7 @@
 		"description": "Image drag open discovery item"
 	},
 	"tutorialStep3Footer": {
-		"message": "<strong>Více akcí přetahování</strong> a <strong>plné přizpůsobení</strong> v pokročilém nastavení",
+		"message": "<strong>Více akcí přetahování</strong> a <strong>plné přizpůsobení</strong> v nastavení",
 		"description": "Footer for step 3 discovery banner"
 	},
 	"tutorialContinue": {
@@ -1670,6 +1690,14 @@
 	"actionCategoryImage": {
 		"message": "Obrázek",
 		"description": "Action category: image"
+	},
+	"actionCategoryLinkImage": {
+		"message": "Odkaz a obrázek",
+		"description": "Action category: link and image"
+	},
+	"elementActionStartHint": {
+		"message": "Provede se na prvku na <b>výchozí pozici gesta</b>.",
+		"description": "Notice shown in action config for link/image"
 	},
 	"noResults": {
 		"message": "Žádné výsledky",

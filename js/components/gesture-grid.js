@@ -8,6 +8,7 @@ class GestureGrid extends LitElement {
 	static properties = {
 		mouseGestures: { type: Object },
 		advancedMode: { type: Boolean, attribute: 'advanced-mode' },
+		allowFallback: { type: Boolean, attribute: 'allow-fallback' },
 	};
 
 	static styles = [
@@ -16,115 +17,6 @@ class GestureGrid extends LitElement {
 		css`
 			:host {
 				display: block;
-			}
-
-			.gesture-grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-				gap: 10px;
-				margin-top: 2px;
-				margin-bottom: 16px;
-			}
-
-			.gesture-item {
-				position: relative;
-				background: var(--bg-tertiary);
-				border-radius: 8px;
-				padding: 8px;
-				display: flex;
-				flex-direction: column;
-				gap: 8px;
-			}
-
-			.gesture-item .gesture-pattern {
-				font-size: 16.8px;
-				margin-block: 2px;
-				text-align: center;
-				overflow: hidden;
-				text-overflow: ellipsis;
-				white-space: nowrap;
-				max-width: 100%;
-			}
-
-			.gesture-desc {
-				font-size: 0.8em;
-				vertical-align: 0.05em;
-				color: var(--text-secondary);
-				font-weight: normal;
-				margin-inline-start: 4px;
-			}
-
-			.gesture-item .reset-btn,
-			.gesture-item .delete-gesture-btn {
-				position: absolute;
-				top: 6px;
-				inset-inline-end: 6px;
-				width: 18px;
-				height: 18px;
-				border: none;
-				border-radius: 50%;
-				cursor: pointer;
-				font-size: 12px;
-				display: inline-flex;
-				align-items: center;
-				justify-content: center;
-				transition: color 0.2s;
-				z-index: 1;
-			}
-
-			.gesture-item .reset-btn {
-				background: transparent;
-				color: var(--text-muted);
-			}
-
-			.gesture-item .reset-btn:hover {
-				color: var(--accent-color);
-			}
-
-			.gesture-item .delete-gesture-btn {
-				background: transparent;
-				color: var(--text-muted);
-				font-size: 14px;
-				opacity: 0;
-				transition: color 0.2s, opacity 0.15s;
-			}
-
-			.gesture-item:hover .delete-gesture-btn,
-			.gesture-item .delete-gesture-btn:focus-visible {
-				opacity: 1;
-			}
-
-			.gesture-item .delete-gesture-btn:hover {
-				color: var(--danger-color);
-			}
-
-			.gesture-item.modified {
-			}
-
-			.gesture-item.none {
-				background: color-mix(in srgb, var(--bg-tertiary) 50%, transparent);
-			}
-
-			.gesture-item.none .gesture-pattern {
-				opacity: .5;
-			}
-
-			.gesture-item.custom {
-			}
-
-			.add-gesture-btn {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				gap: 6px;
-				min-width: 0;
-				min-height: 80px;
-				border-radius: 8px;
-				font-size: 13px;
-			}
-
-			.add-gesture-btn svg {
-				flex-shrink: 0;
 			}
 		`,
 	];
@@ -152,6 +44,8 @@ class GestureGrid extends LitElement {
 	constructor() {
 		super();
 		this.mouseGestures = {};
+		this.advancedMode = false;
+		this.allowFallback = false;
 	}
 
 	#getFullGestures() {
@@ -169,30 +63,81 @@ class GestureGrid extends LitElement {
 		return html`
 			<div class="gesture-grid">
 				${patterns.map(pattern => this.#renderItem(pattern, gestures))}
-				<button type="button" class="btn btn-dashed add-gesture-btn" id="openGestureDrawer" @click=${this.#handleAdd}>
-					${unsafeHTML(icon('plus', { size: 16, strokeWidth: 2 }))}
-					<span ${fitText()}>${window.i18n.getMessage('addCustomGesture')}</span>
-				</button>
+				<div class="gesture-add-group">
+					<button type="button" class="btn btn-dashed gesture-add-btn" @click=${this.#handleAdd}>
+						${unsafeHTML(icon('plus', { size: 16, strokeWidth: 2 }))}
+						<span ${fitText()}>${window.i18n.getMessage('addCustomGesture')}</span>
+					</button>
+					${this.#canUseFallback() && !patterns.includes('*') ? html`
+						<button type="button" class="btn btn-dashed gesture-add-btn secondary" @click=${this.#handleAddFallback}
+							.tooltip=${tooltip(window.i18n.getMessage('fallbackGestureTip'))}>
+							<span class="gesture-icon-wrap">${unsafeHTML(window.GestureConstants.arrowsToSvg('*'))}</span>
+							<span ${fitText()}>${window.i18n.getMessage('gestureRecorderAny')}</span>
+						</button>
+					` : ''}
+				</div>
 			</div>
 			<gesture-recorder id="gestureRecorder" data-gesture-ignore></gesture-recorder>
 		`;
 	}
 
-	async #handleAdd() {
+	async #recordPattern(excludePattern) {
 		const recorder = this.shadowRoot.getElementById('gestureRecorder');
-		if (!recorder) return;
+		if (!recorder) return null;
 
 		const { DEFAULT_GESTURES } = window.GestureConstants;
 		const bannedPatterns = Array.from(new Set([
 			...Object.keys(DEFAULT_GESTURES),
 			...Object.keys(this.mouseGestures),
-		]));
-		const result = await recorder.open({ button: 'right', bannedPatterns, allowAny: false });
-		if (result.cancelled || !result.pattern) return;
+		])).filter(p => p !== excludePattern);
+		const result = await recorder.open({ button: 'right', bannedPatterns, allowAny: this.#canUseFallback() });
+		return result.cancelled ? null : result.pattern || null;
+	}
 
-		const pattern = result.pattern;
+	#canUseFallback() {
+		return this.allowFallback && this.advancedMode;
+	}
+
+	async #handleAdd() {
+		this.#pushGesture(await this.#recordPattern());
+	}
+
+	#handleAddFallback() {
+		if (!('*' in this.mouseGestures)) this.#pushGesture('*');
+	}
+
+	#pushGesture(pattern) {
+		if (!pattern) return;
 		this.#dispatchChange({ ...this.mouseGestures, [pattern]: { action: 'none' } });
 		this.#openActionSelect(pattern);
+	}
+
+	async #handleEditPattern(pattern) {
+		const newPattern = await this.#recordPattern(pattern);
+		if (!newPattern || newPattern === pattern) return;
+		this.#dispatchChange(Object.fromEntries(
+			Object.entries(this.mouseGestures).map(([p, cfg]) => [p === pattern ? newPattern : p, cfg])
+		));
+	}
+
+	#getMenuItems({ isCustom, isModified, isNone }) {
+		const t = key => window.i18n.getMessage(key);
+		return [
+			{ id: 'redrawGesture', label: t('redrawGesture'), icon: 'pencil', hidden: !isCustom },
+			{ id: 'editAction', label: t('editAction'), icon: 'settings' },
+			{ type: 'separator' },
+			{ id: 'resetToDefault', label: t('resetToDefault'), icon: 'rotateCcw', danger: true, hidden: isCustom, disabled: !isModified },
+			{ id: 'delete', label: t('delete'), icon: 'trash2', danger: true, disabled: !isCustom && isNone },
+		];
+	}
+
+	#handleMenuSelect(pattern, isCustom, e) {
+		switch (e.detail.id) {
+			case 'redrawGesture': return this.#handleEditPattern(pattern);
+			case 'editAction': return this.#openActionSelect(pattern);
+			case 'resetToDefault': return this.#handleReset(pattern);
+			case 'delete': return isCustom ? this.#handleDelete(pattern) : this.#handleClear(pattern);
+		}
 	}
 
 	#dispatchChange(mouseGestures) {
@@ -221,18 +166,18 @@ class GestureGrid extends LitElement {
 
 		return html`
 			<div class="gesture-item ${isModified && !isNone ? 'modified' : ''} ${isCustom ? 'custom' : ''} ${isNone ? 'none' : ''}">
-				${isCustom ? html`
-					<button class="delete-gesture-btn" @click=${() => this.#handleDelete(pattern)}
-						.tooltip=${tooltip(window.i18n.getMessage('deleteGesture'))}>${unsafeHTML(icon('x', { size: 14, strokeWidth: 2.5 }))}</button>
-				` : isNone ? html`
-					<button class="reset-btn" @click=${() => this.#handleReset(pattern)}
-						.tooltip=${tooltip(window.i18n.getMessage('resetToDefault'))}>${unsafeHTML(icon('rotateCcw', { size: 13, strokeWidth: 2.5 }))}</button>
-				` : html`
-					<button class="delete-gesture-btn" @click=${() => this.#handleClear(pattern)}
-						.tooltip=${tooltip(window.i18n.getMessage('deleteGesture'))}>${unsafeHTML(icon('x', { size: 14, strokeWidth: 2.5 }))}</button>
-				`}
-				<div class="gesture-pattern" title="${pattern} ${desc}">
-					${unsafeHTML(patternSvg)} <span class="gesture-desc">${desc}</span>
+				<div class="gesture-item-header">
+					<button type="button" class="gesture-pattern" aria-disabled=${isCustom ? 'false' : 'true'}
+						.tooltip=${tooltip(pattern === '*' ? window.i18n.getMessage('fallbackGestureTip') : isCustom ? window.i18n.getMessage('redrawGesture') : desc)}
+						@click=${() => isCustom && this.#handleEditPattern(pattern)}>
+						<span class="gesture-pattern-arrows">${unsafeHTML(patternSvg)}</span>
+						${isCustom ? html`<span class="gesture-pattern-edit">${unsafeHTML(icon('pencil', { size: 11, strokeWidth: 2.2 }))}</span>` : ''}
+					</button>
+					<dropdown-menu
+						label=${window.i18n.getMessage('moreOptions')}
+						.items=${this.#getMenuItems({ isCustom, isModified, isNone })}
+						@menu-select=${(e) => this.#handleMenuSelect(pattern, isCustom, e)}
+					></dropdown-menu>
 				</div>
 				<action-select
 					.value=${currentAction}
@@ -276,9 +221,6 @@ class GestureGrid extends LitElement {
 	}
 
 	#handleDelete(pattern) {
-		if (!confirm(window.i18n.getMessage('deleteGestureConfirm').replace('%pattern%', pattern))) {
-			return;
-		}
 
 		this.dispatchEvent(new CustomEvent('gesture-delete', {
 			detail: { pattern },

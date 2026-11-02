@@ -151,6 +151,10 @@
 		"message": "Bağlam menüsünü açmak için sağ çift tıklayın. (Daha fazla bilgi)",
 		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
 	},
+	"edgeGestureConflictHint": {
+		"message": "Edge'in yerleşik hareketleri ile FlowMouse hareketleri arasında çakışma algılandı. (Daha fazla bilgi)",
+		"description": "Clickable toast shown on Edge when its built-in mouse gestures repeatedly interrupt FlowMouse gestures; opens the settings notice"
+	},
 	"edgeGestureConflictNotice": {
 		"message": "%browserName% yerleşik el hareketi özelliklerine sahiptir. FlowMouse'un el hareketlerini kullanmak için lütfen %browserName% ayarlarında <a href=\"#\" class=\"edge-gesture-link\">yerleşik el hareketlerini devre dışı bırakın</a>.",
 		"description": "Notice for Edge users about built-in gesture conflict"
@@ -975,6 +979,18 @@
 		"message": "Hareketi Sil",
 		"description": "Delete gesture button tooltip"
 	},
+	"redrawGesture": {
+		"message": "Hareketi Yeniden Çiz",
+		"description": "Gesture card menu item: re-record the gesture pattern"
+	},
+	"editAction": {
+		"message": "Komutu düzenle",
+		"description": "Gesture card menu item: change the action bound to the gesture"
+	},
+	"moreOptions": {
+		"message": "Diğer seçenekler",
+		"description": "Tooltip for the 3-dot menu button"
+	},
 	"deleteGestureConfirm": {
 		"message": "%pattern% hareketi silinsin mi?",
 		"description": "Delete gesture confirmation"
@@ -1231,11 +1247,11 @@
 		"message": "Kopyala",
 		"description": "Copy action"
 	},
-	"dragActionOpenTabLink": {
+	"dragActionOpenLink": {
 		"message": "Bağlantıyı Aç",
 		"description": "Open link in new tab"
 	},
-	"dragActionOpenTabImage": {
+	"dragActionOpenImage": {
 		"message": "Resmi Aç",
 		"description": "Open image in new tab"
 	},
@@ -1431,6 +1447,10 @@
 		"message": "Lütfen <span class=\"text-highlight\">Sağ Fare Tuşuna</span> basılı tutun",
 		"description": "Tutorial Step 1 instruction idle"
 	},
+	"tutorialStep1InstructionStart": {
+		"message": "Başlamak için lütfen <span class=\"text-highlight\">Sağ Fare Tuşuna</span> basılı tutun",
+		"description": "Tutorial first page instruction, before the first press"
+	},
 	"tutorialStep1InstructionPressing": {
 		"message": "<strong>Harika!</strong> Basılı tutmaya devam edin, <strong>%arrow% Sağa</strong> doğru sürükleyin",
 		"description": "Tutorial Step 1 instruction pressing"
@@ -1476,7 +1496,7 @@
 		"description": "Image drag open discovery item"
 	},
 	"tutorialStep3Footer": {
-		"message": "<strong>Daha fazla sürükleme özelliği</strong> ve <strong>özelleştirme</strong> gelişmiş ayarlarda",
+		"message": "<strong>Daha fazla sürükleme özelliği</strong> ve <strong>özelleştirme</strong> ayarlarda",
 		"description": "Footer for step 3 discovery banner"
 	},
 	"tutorialContinue": {
@@ -1670,6 +1690,14 @@
 	"actionCategoryImage": {
 		"message": "Resim",
 		"description": "Action category: image"
+	},
+	"actionCategoryLinkImage": {
+		"message": "Bağlantı ve Resim",
+		"description": "Action category: link and image"
+	},
+	"elementActionStartHint": {
+		"message": "<b>Hareket başlangıç konumundaki</b> öğe üzerinde çalıştırılacaktır.",
+		"description": "Notice shown in action config for link/image"
 	},
 	"noResults": {
 		"message": "Sonuç yok",

@@ -5,24 +5,99 @@
 	<meta charset="UTF-8">
 	<link rel="icon" href="../icons/icon48.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="modulepreload" href="../js/lib/lit-all.min.js">
 	<title>FlowMouse</title>
 	<style>
 		:root {
-			--bg-gradient: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
-			--bg-dark: #0f0f1a;
-			--bg-card: rgba(255, 255, 255, 0.03);
-			--bg-glass: rgba(255, 255, 255, 0.05);
-			--bg-glass-hover: rgba(255, 255, 255, 0.08);
-			--text-primary: #ffffff;
-			--text-secondary: rgba(255, 255, 255, 0.7);
-			--text-muted: rgba(255, 255, 255, 0.4);
-			--accent-primary: #4285f4;
-			--accent-glow: rgba(66, 133, 244, 0.4);
-			--accent-success: #34a853;
-			--accent-success-glow: rgba(52, 168, 83, 0.3);
-			--border-glass: rgba(255, 255, 255, 0.15);
-			--transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+			--bg: #0b0c11;
+			--surface: rgba(255, 255, 255, 0.035);
+			--surface-strong: rgba(255, 255, 255, 0.06);
+			--line: rgba(255, 255, 255, 0.09);
+			--line-strong: rgba(255, 255, 255, 0.16);
+			--text-primary: #f3f4f8;
+			--text-secondary: rgba(226, 230, 240, 0.7);
+			--text-muted: rgba(226, 230, 240, 0.42);
+			--accent-primary: #4285f4; 
+			--accent-text: #6ea6ff;
+			--accent-glow: rgba(66, 133, 244, 0.45);
+			--accent-success: #3fb768;
+			--accent-success-text: #6fd894;
+			--accent-success-glow: rgba(63, 183, 104, 0.4);
+			--accent-hover: #3b78e0;
+			--link-hover: #8fbaff;
+			--page-glow: rgba(66, 133, 244, 0.16);
+			--title-gradient: linear-gradient(180deg, #ffffff 30%, #b6c9ef 100%);
+			--mouse-body: linear-gradient(180deg, #252733 0%, #14151c 100%);
+			--mouse-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 20px 40px -16px rgba(0, 0, 0, 0.8);
+			--mouse-button: rgba(255, 255, 255, 0.04);
+			--mouse-wheel: #2a2c38;
+			--accent-surface: rgba(66, 133, 244, 0.1);
+			--accent-border: rgba(66, 133, 244, 0.55);
+			--success-surface: rgba(63, 183, 104, 0.08);
+			--success-border: rgba(63, 183, 104, 0.55);
+			--warning-bg: rgba(230, 161, 23, 0.08);
+			--warning-border: rgba(230, 161, 23, 0.3);
+			--warning-text: rgba(255, 240, 214, 0.92);
+			--popover-bg: rgba(24, 26, 34, 0.94);
+			--popover-shadow: 0 8px 20px -10px rgba(0, 0, 0, 0.6);
+			--arrow-shadow: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+			color-scheme: dark;
+
+			--ease-out: cubic-bezier(0.33, 1, 0.68, 1); 
+			--ease-in: cubic-bezier(0.32, 0, 0.67, 0); 
+			--ease-in-out: cubic-bezier(0.65, 0, 0.35, 1); 
+			--ease-loop: cubic-bezier(0.37, 0, 0.63, 1); 
+			--ease-spring: cubic-bezier(0.34, 1.3, 0.64, 1); 
+			--ease-burst: cubic-bezier(0.16, 1, 0.3, 1); 
+			--dur-press: 90ms;
+			--dur-fast: 200ms;
+			--dur-medium: 350ms;
+			--dur-slow: 550ms;
+			--dur-slower: 700ms;
+			--stagger: 70ms;
 			--font-family: 'Segoe UI', sans-serif;
+		}
+
+		body[data-theme="light"] {
+			--bg: #f0f2f5;
+			--surface: #ffffff;
+			--surface-strong: #ffffff;
+			--line: rgba(0, 0, 0, 0.08);
+			--line-strong: rgba(0, 0, 0, 0.14);
+			--text-primary: #1d2025;
+			--text-secondary: #5c6370;
+			--text-muted: #8d939c;
+			--accent-text: #2f6fe0;
+			--accent-glow: rgba(66, 133, 244, 0.35);
+			--accent-success: #2fa45a;
+			--accent-success-text: #23894a;
+			--accent-success-glow: rgba(47, 164, 90, 0.3);
+			--accent-hover: #3367d6;
+			--link-hover: #1a56c7;
+			--page-glow: rgba(66, 133, 244, 0.1);
+			--title-gradient: linear-gradient(180deg, #1b1e24 30%, #41557f 100%);
+			--mouse-body: linear-gradient(180deg, #ffffff 0%, #eceef3 100%);
+			--mouse-shadow: inset 0 1px 0 #ffffff, 0 20px 40px -18px rgba(30, 40, 70, 0.28);
+			--mouse-button: rgba(0, 0, 0, 0.02);
+			--mouse-wheel: #d9dce3;
+			--accent-surface: rgba(66, 133, 244, 0.1);
+			--accent-border: rgba(66, 133, 244, 0.5);
+			--success-surface: rgba(47, 164, 90, 0.08);
+			--success-border: rgba(47, 164, 90, 0.5);
+			--warning-bg: #fff6e0;
+			--warning-border: rgba(214, 150, 10, 0.35);
+			--warning-text: #6b4e0a;
+			--popover-bg: rgba(255, 255, 255, 0.97);
+			--popover-shadow: 0 8px 20px -10px rgba(30, 40, 70, 0.25);
+			--arrow-shadow: drop-shadow(0 4px 8px rgba(30, 40, 70, 0.2));
+			color-scheme: light;
+		}
+
+		@media (prefers-color-scheme: light) {
+			body:not([data-theme]) {
+				--bg: #f0f2f5;
+				--page-glow: rgba(66, 133, 244, 0.1);
+			}
 		}
 
 		* {
@@ -36,9 +111,13 @@
 			overflow: hidden;
 		}
 
+		html {
+			background: var(--bg);
+		}
+
 		body {
 			font-family: var(--font-family);
-			background: var(--bg-gradient);
+			background: radial-gradient(ellipse 80% 60% at 50% -15%, var(--page-glow), transparent 70%), var(--bg);
 			color: var(--text-primary);
 			display: flex;
 			align-items: center;
@@ -54,6 +133,10 @@
 
 		body.tutorial-active {
 			cursor: default;
+		}
+
+		tutorial-page {
+			display: contents;
 		}
 
 		.tutorial-container {
@@ -78,13 +161,9 @@
 			padding: 40px;
 			opacity: 0;
 			visibility: hidden;
-			transform: translateY(30px);
-			transition: opacity 0.6s var(--transition-smooth),
-						transform 0.6s var(--transition-smooth),
-						visibility 0.6s;
 			overflow-y: auto;
 			scrollbar-width: thin;
-			scrollbar-color: var(--border-glass) transparent;
+			scrollbar-color: var(--line-strong) transparent;
 			justify-content: safe center;
 			scrollbar-gutter: stable;
 		}
@@ -92,18 +171,76 @@
 		.step-section.active {
 			opacity: 1;
 			visibility: visible;
-			transform: translateY(0);
+		}
+
+		.step-section.leave-forward,
+		.step-section.leave-back,
+		.step-section.leave-swipe {
+			visibility: visible;
+			pointer-events: none;
+		}
+
+		.step-section.active.enter-forward,
+		.step-section.active.enter-back,
+		.step-section.active.enter-intro { animation: fm-fade-in var(--dur-medium) var(--ease-out) both; }
+		.step-section.leave-forward,
+		.step-section.leave-back { animation: fm-fade-out var(--dur-fast) var(--ease-in) both; }
+
+		.step-section.active.enter-swipe { animation: fm-swipe-in var(--dur-slow) var(--ease-out) 100ms both; }
+		.step-section.leave-swipe { animation: fm-swipe-out 250ms var(--ease-in) both; }
+
+		@keyframes fm-swipe-in {
+			from { opacity: 0; transform: translateX(56px); }
+		}
+
+		@keyframes fm-swipe-out {
+			from { opacity: 1; transform: none; }
+			to { opacity: 0; transform: translateX(-56px); }
+		}
+
+		@keyframes fm-fade-in {
+			from { opacity: 0; }
+		}
+
+		@keyframes fm-fade-out {
+			from { opacity: 1; }
+			to { opacity: 0; }
+		}
+
+		:where(.step-section.enter-forward, .step-section.enter-back, .step-section.enter-intro) > * {
+			animation: fm-rise var(--dur-slow) var(--ease-out) backwards;
+			animation-delay: calc(var(--i, 0) * var(--stagger) + 80ms);
+		}
+
+		:where(.step-section) > :nth-child(2) { --i: 1; }
+		:where(.step-section) > :nth-child(3) { --i: 2; }
+		:where(.step-section) > :nth-child(4) { --i: 3; }
+		:where(.step-section) > :nth-child(5) { --i: 4; }
+		:where(.step-section) > :nth-child(6) { --i: 5; }
+		:where(.step-section) > :nth-child(7) { --i: 6; }
+
+		@keyframes fm-rise {
+			from { opacity: 0; transform: translateY(12px); }
 		}
 
 		.step-title {
+			--glyph-room: 0.15em;
 			font-size: clamp(2rem, 5vw, 3.5rem);
 			font-weight: 700;
+			line-height: 1.2;
 			text-align: center;
-			margin-bottom: 16px;
-			background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.8) 100%);
+			padding-block: var(--glyph-room);
+			margin-top: calc(-1 * var(--glyph-room));
+			margin-bottom: calc(16px - var(--glyph-room));
+			background: var(--title-gradient);
 			-webkit-background-clip: text;
 			-webkit-text-fill-color: transparent;
 			background-clip: text;
+		}
+
+		tutorial-gestures .step-title,
+		tutorial-super-drag .step-title {
+			margin-top: calc(40px - var(--glyph-room));
 		}
 
 		.step-subtitle {
@@ -123,12 +260,27 @@
 		}
 
 		.step-instruction strong {
-			color: var(--accent-primary);
+			color: var(--accent-text);
 			font-weight: 600;
 		}
 
+		.step-instruction[data-hint="pressing"] svg {
+			animation: fm-hint-nudge 1.4s var(--ease-loop) 400ms infinite;
+		}
+
+		@keyframes fm-hint-nudge {
+			0% { transform: none; animation-timing-function: var(--ease-out); }
+			22% { transform: translateX(0.22em); animation-timing-function: var(--ease-in-out); }
+			55%, 100% { transform: none; }
+		}
+
+		tutorial-super-drag .text-highlight,
+		.settings-instruction .text-highlight {
+			color: var(--accent-success-text);
+		}
+
 		.text-highlight {
-			color: var(--accent-primary);
+			color: var(--accent-text);
 			font-weight: 600;
 		}
 
@@ -140,10 +292,11 @@
 		.virtual-mouse {
 			width: 80px;
 			height: 130px;
-			background: #1a1a2e; 
-			border-radius: 45px 45px 50px 50px;
 			position: relative;
-			border: 1px solid var(--border-glass);
+			border-radius: 40px 40px 44px 44px / 46px 46px 50px 50px;
+			background: var(--mouse-body);
+			border: 1px solid var(--line-strong);
+			box-shadow: var(--mouse-shadow);
 		}
 
 		.mouse-button {
@@ -151,19 +304,77 @@
 			width: 35px;
 			height: 55px;
 			top: 4px;
-			background: rgba(255, 255, 255, 0.05);
-			border: 1px solid var(--border-glass);
-			transition: all 0.3s var(--transition-smooth);
+			background: var(--mouse-button);
+			border: 1px solid var(--line);
 		}
 
 		.mouse-left {
 			left: 4px;
-			border-radius: 32px 0 0 6px;
+			border-radius: 32px 3px 3px 8px / 38px 3px 3px 8px;
+			--btn-color: var(--accent-success);
+			--btn-glow: var(--accent-success-glow);
 		}
 
 		.mouse-right {
 			right: 4px;
-			border-radius: 0 32px 6px 0;
+			border-radius: 3px 32px 8px 3px / 3px 38px 8px 3px;
+			--btn-color: var(--accent-primary);
+			--btn-glow: var(--accent-glow);
+		}
+
+		.mouse-button::before {
+			content: '';
+			position: absolute;
+			inset: -1px;
+			border-radius: inherit;
+			background: var(--btn-color);
+			box-shadow: 0 0 18px var(--btn-glow);
+			opacity: 0;
+			transition: opacity var(--dur-fast) var(--ease-out);
+		}
+
+		.mouse-button::after {
+			content: '';
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			width: 34px;
+			height: 34px;
+			margin: -17px 0 0 -17px;
+			border-radius: 50%;
+			border: 2px solid var(--btn-color);
+			opacity: 0;
+			pointer-events: none;
+		}
+
+		.step-section.active .mouse-button.pulsing::before {
+			animation: fm-btn-press 1.8s var(--ease-loop) infinite;
+		}
+
+		.step-section.active .mouse-button.pulsing::after {
+			animation: fm-btn-ripple 1.8s var(--ease-burst) infinite;
+		}
+
+		.step-section.active .mouse-button.pressed::before {
+			animation: none;
+			opacity: 1;
+			transition-duration: var(--dur-press);
+		}
+
+		.step-section.active .mouse-button.pressed::after {
+			animation: none;
+		}
+
+		@keyframes fm-btn-press {
+			0%, 18% { opacity: 0.08; }
+			26% { opacity: 1; }
+			62%, 100% { opacity: 0.08; }
+		}
+
+		@keyframes fm-btn-ripple {
+			0%, 22% { opacity: 0; transform: scale(0.5); }
+			28% { opacity: 0.9; }
+			85%, 100% { opacity: 0; transform: scale(2.6); }
 		}
 
 		.mouse-wheel {
@@ -173,111 +384,165 @@
 			left: 50%;
 			top: 15px;
 			transform: translateX(-50%);
-			background: rgba(255, 255, 255, 0.1);
+			background: var(--mouse-wheel);
 			border-radius: 5px;
-			border: 1px solid var(--border-glass);
+			border: 1px solid var(--line-strong);
 		}
 
-		@keyframes pulse-right-click {
-			0%, 100% {
-				background: rgba(255, 255, 255, 0.05);
-			}
-			50% {
-				background: var(--accent-primary);
-			}
-		}
-
-		.mouse-right.pulsing {
-			animation: pulse-right-click 1.5s ease-in-out infinite;
-		}
-
-		@keyframes pulse-left-click {
-			0%, 100% {
-				background: rgba(255, 255, 255, 0.05);
-			}
-			50% {
-				background: var(--accent-success);
-			}
-		}
-
-		.mouse-left.pulsing {
-			animation: pulse-left-click 1.5s ease-in-out infinite;
-		}
-
-		.mouse-button.pressed {
-			background: var(--accent-primary);
-			animation: none;
-		}
-
-		.mouse-left.pressed {
-			background: var(--accent-success);
-		}
-
-		.practice-area {
-			position: relative;
-			width: 300px;
-			height: 100px;
-			margin: 20px 0;
+		.gesture-guide {
+			--distance: 150px; 
+			--progress: 0;
+			position: fixed;
+			left: 0;
+			top: 0;
+			z-index: 900;
+			width: 0;
+			height: 0;
+			color: var(--accent-primary); 
+			pointer-events: none;
 			opacity: 0;
-			transform: translateY(10px);
-			transition: all 0.3s var(--transition-smooth);
+			transition: opacity var(--dur-fast) var(--ease-in), color var(--dur-fast);
+		}
+
+		.gesture-guide.visible:not(.ready) {
+			opacity: 1;
+			transition: color 0.2s;
+		}
+
+		.gesture-guide.ready {
+			opacity: 0;
+		}
+
+		.guide-track {
+			--consumed: max(0px, calc(var(--progress) * var(--distance) - 7px));
+			position: absolute;
+			left: 7px;
+			top: -2px;
+			width: calc(var(--distance) - 17px);
+			height: 4px;
+			overflow: hidden;
+			-webkit-mask-image: linear-gradient(90deg, transparent var(--consumed), #000 calc(var(--consumed) + 6px), #000 calc(100% - 6px), transparent);
+			mask-image: linear-gradient(90deg, transparent var(--consumed), #000 calc(var(--consumed) + 6px), #000 calc(100% - 6px), transparent);
+			opacity: 0.9;
+			transition: opacity 0.2s;
+		}
+
+		.guide-reveal {
+			position: absolute;
+			inset: 0;
+		}
+
+		.guide-dots {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: -10px;
+			right: 0;
+			background: radial-gradient(circle, currentColor 1.6px, transparent 2.1px) 0 50% / 10px 100% repeat-x;
+		}
+
+		.guide-head {
+			position: absolute;
+			left: calc(var(--distance) - 20px);
+			top: -10px;
+			width: 20px;
+			height: 20px;
+			overflow: visible;
+			fill: none;
+			stroke: currentColor;
+			stroke-width: 3;
+			stroke-linecap: round;
+			stroke-linejoin: round;
+			transition: opacity 0.2s;
+		}
+
+		.guide-head .guide-halo {
+			stroke: var(--bg);
+			stroke-width: 7;
+		}
+
+		.guide-origin {
+			position: absolute;
+			left: -6px;
+			top: -6px;
+			width: 12px;
+			height: 12px;
+			border-radius: 50%;
+			background: currentColor;
+			box-shadow: 0 0 0 2px var(--bg);
+		}
+
+		.gesture-guide.visible .guide-origin {
+			animation: fm-pop-in 0.35s var(--ease-spring);
+		}
+
+		.gesture-guide.visible .guide-reveal {
+			animation: fm-guide-draw 0.4s cubic-bezier(0.25, 0.6, 0.3, 1) both;
+		}
+
+		.gesture-guide.visible .guide-head {
+			animation: fm-guide-head 0.4s cubic-bezier(0.25, 0.6, 0.3, 1) both;
+		}
+
+		.gesture-guide.visible .guide-dots {
+			animation: fm-guide-flow 0.8s linear infinite;
+		}
+
+		@keyframes fm-pop-in {
+			from { transform: scale(0); }
+		}
+
+		@keyframes fm-guide-draw {
+			from { clip-path: inset(0 100% 0 0); }
+			to { clip-path: inset(0 0 0 0); }
+		}
+
+		@keyframes fm-guide-head {
+			from { opacity: 0; transform: translateX(calc(16px - var(--distance))); }
+			12% { opacity: 1; }
+		}
+
+		@keyframes fm-guide-flow {
+			to { transform: translateX(10px); }
+		}
+
+		.stroke-sparks {
+			position: fixed;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 900;
 			pointer-events: none;
 		}
 
-		.practice-area.visible {
-			opacity: 1;
-			transform: translateY(0);
+		.gesture-guide.off {
+			color: var(--text-muted);
 		}
 
-		.path-container {
-			position: absolute;
-			width: 100%;
-			height: 100%;
-		}
-
-		.path-bg {
-			fill: none;
-			stroke: rgba(255, 255, 255, 0.1);
-			stroke-width: 8;
-			stroke-linecap: round;
-			stroke-linejoin: round;
-		}
-
-		.path-fg {
-			fill: none;
-			stroke: var(--accent-primary);
-			stroke-width: 8;
-			stroke-linecap: round;
-			stroke-linejoin: round;
-			filter: url(#glow-filter);
+		.gesture-guide.off .guide-track,
+		.gesture-guide.off .guide-head {
+			opacity: 0.45;
 		}
 
 		.cards-grid {
 			display: grid;
 			grid-template-columns: repeat(5, 1fr);
-			gap: 16px;
+			gap: 14px;
 			max-width: 1000px;
 			margin: 30px 0;
 		}
 
 		.glass-card {
-			background: var(--bg-glass);
-			border: 1px solid var(--border-glass);
-			border-radius: 12px;
-			padding: 24px 20px;
-			text-align: center;
 			position: relative;
-			overflow: hidden;
-			min-width: 115px;
-		}
-
-		.glass-card.completed {
-			border-color: var(--accent-success);
-			background: rgba(52, 168, 83, 0.1);
-		}
-
-		.glass-card.completed .card-status {
-			color: var(--accent-success);
+			background: var(--surface);
+			border: 1px solid var(--line);
+			border-radius: 18px;
+			padding: 22px 18px 18px;
+			text-align: center;
+			min-width: 120px;
+			transition: border-color var(--dur-medium) var(--ease-out), background-color var(--dur-medium) var(--ease-out);
+			--ring-scale: 1.14;
+			--ring-color: var(--accent-primary); 
 		}
 
 		.card-icon {
@@ -287,11 +552,22 @@
 			justify-content: center;
 			align-items: center;
 			width: 100%;
+			transition: color var(--dur-medium) var(--ease-out);
+		}
+
+		.glass-card.completed .card-icon {
+			color: var(--accent-text);
+		}
+
+		.glass-card.completed {
+			border-color: var(--accent-border);
+			background: var(--accent-surface);
 		}
 
 		.card-name {
-			font-size: 0.9rem;
-			color: var(--text-secondary);
+			font-size: 0.92rem;
+			color: var(--text-primary);
+			opacity: 0.88;
 			margin-bottom: 8px;
 		}
 
@@ -301,43 +577,96 @@
 			transition: color 0.3s;
 		}
 
+		.glass-card.completed .card-status {
+			color: var(--accent-text);
+		}
+
+		.glass-card.completed .card-status::before {
+			content: '';
+			display: inline-block;
+			width: 0.95em;
+			height: 0.95em;
+			margin-inline-end: 4px;
+			vertical-align: -0.12em;
+			background-color: currentColor;
+			-webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>') center / contain no-repeat;
+			mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>') center / contain no-repeat;
+		}
+
+		.glass-card::after,
+		.draggable-content-box::after,
+		.settings-drag-container::after {
+			content: '';
+			position: absolute;
+			inset: -1px;
+			border-radius: inherit;
+			border: 2px solid var(--ring-color, var(--accent-success));
+			opacity: 0;
+			pointer-events: none;
+		}
+
+		.success-pulse {
+			animation: fm-pop var(--dur-slow) both;
+		}
+
+		.success-pulse::after {
+			animation: fm-ring var(--dur-slower) var(--ease-burst);
+		}
+
+		@keyframes fm-pop {
+			from { animation-timing-function: var(--ease-out); }
+			35% { transform: scale(1.04); animation-timing-function: var(--ease-in-out); }
+			to { transform: none; }
+		}
+
+		@keyframes fm-ring {
+			from { opacity: 0.8; }
+			to { opacity: 0; transform: scale(var(--ring-scale, 1.06)); }
+		}
+
 		.super-drag-instruction {
 			display: flex;
 			align-items: center;
-			gap: 20px;
+			gap: 24px;
 			margin-bottom: 20px;
-			padding: 20px 30px;
-			background: var(--bg-glass);
-			border-radius: 16px;
-			border: 1px solid var(--border-glass);
+			padding: 20px 32px;
+			background: var(--surface);
+			border-radius: 22px;
+			border: 1px solid var(--line);
+		}
+
+		.super-drag-instruction .virtual-mouse-container {
+			margin: 0;
 		}
 
 		.drag-arrow-indicator {
-			display: flex;
-			align-items: center;
+			position: relative;
+			flex: none;
+			width: 120px;
+			height: 40px;
+			color: var(--accent-success);
 		}
 
-		.drag-arrow-indicator svg {
-			filter: drop-shadow(0 0 8px var(--accent-success-glow));
+		.drag-arrow-origin {
+			--distance: 104px;
+			--progress: 0;
+			position: absolute;
+			left: 8px;
+			top: 50%;
 		}
 
-		@keyframes arrow-dash {
-			0% { stroke-dashoffset: 0; }
-			100% { stroke-dashoffset: -24; }
-		}
-
-		.drag-arrow-path {
-			animation: arrow-dash 0.8s linear infinite;
+		.step-section.active .super-drag-instruction:not(.done) .guide-dots {
+			animation: fm-guide-flow 0.8s linear infinite;
 		}
 
 		.drag-hint-box {
-			text-align: left;
+			text-align: start;
 		}
 
 		.hint-title {
 			font-size: 1.1rem;
 			font-weight: 600;
-			color: var(--accent-success);
+			color: var(--accent-success-text);
 			margin-bottom: 4px;
 		}
 
@@ -346,249 +675,117 @@
 			color: var(--text-secondary);
 		}
 
-		.drag-demo-container {
-			display: flex;
-			gap: 30px;
-			margin: 30px 0;
-			flex-wrap: wrap;
-			justify-content: center;
-		}
-
 		.draggable-content-box {
+			position: relative;
 			width: 400px;
-			padding: 40px;
+			padding: 36px 40px;
 			margin-top: clamp(0px, 15vh - 105px, 30px);
-			background: rgba(255, 255, 255, 0.03);
-			border: 1px solid var(--border-glass);
-			border-radius: 20px;
+			background: var(--surface);
+			border: 1px solid var(--line);
+			border-radius: 22px;
 			text-align: center;
 		}
 
-		.draggable-content-box.completed {
-			border-color: var(--accent-success);
-			background: rgba(52, 168, 83, 0.1);
+		.draggable-content-box.completed,
+		.settings-drag-container.completed {
+			border-color: var(--success-border);
+			background: var(--success-surface);
 		}
 
 		.draggable-content-box.completed .box-label {
-			color: var(--accent-success);
+			color: var(--accent-success-text);
 		}
 
 		.box-label {
-			font-size: 0.9rem;
+			font-size: 1.2rem;
 			color: var(--text-muted);
 			margin-bottom: 15px;
+			transition: color 0.3s;
 		}
 
 		.selectable-text {
 			font-size: 1.2rem;
-			color: var(--accent-primary);
+			font-weight: 600;
+			color: var(--accent-text);
 			user-select: text;
 			-webkit-user-select: text;
 			cursor: text;
 			padding: 10px;
-			background: rgba(66, 133, 244, 0.1);
-			border-radius: 8px;
+			background: var(--accent-surface);
+			border-radius: 10px;
 		}
 
-		.demo-link {
-			display: inline-block;
-			font-size: 1.1rem;
-			color: var(--accent-primary);
-			text-decoration: underline;
-			padding: 10px 20px;
-			background: rgba(66, 133, 244, 0.1);
-			border-radius: 8px;
-			transition: background-color 0.3s;
-		}
-
-		.demo-link:hover {
-			background: rgba(66, 133, 244, 0.2);
-		}
-
-		.drag-hint {
+		.continue-row {
+			height: 60px;
 			display: flex;
 			align-items: center;
-			gap: 10px;
-			font-size: 1rem;
-			color: var(--text-secondary);
-			margin-top: 15px;
-		}
-
-		.drag-hint .hint-icon {
-			font-size: 1.2rem;
+			justify-content: center;
+			margin-top: 20px;
 		}
 
 		.btn {
-			padding: 13px 32px;
+			font: inherit;
 			font-size: 1rem;
 			font-weight: 600;
-			border: 1px solid transparent;
-			border-radius: 12px;
+			border: 0;
 			cursor: pointer;
-			transition: all 0.3s var(--transition-smooth);
 			display: inline-flex;
 			align-items: center;
 			gap: 8px;
 		}
 
 		.btn-primary {
-			background: var(--accent-primary);
+			padding: 12px 32px;
+			margin-bottom: 10px;
+			border-radius: 10px;
 			color: #fff;
+			background: var(--accent-primary);
+			transition: background-color 0.2s;
 		}
 
 		.btn-primary:hover {
-			opacity: 0.9; 
+			background: var(--accent-hover);
 		}
 
-		.btn-primary:disabled {
-			opacity: 0.5;
-			cursor: not-allowed;
-			transform: none;
+		.btn-primary:focus-visible {
+			outline: 2px solid var(--accent-text);
+			outline-offset: 3px;
 		}
 
-		.btn-secondary {
-			background: var(--bg-glass);
-			color: var(--text-primary);
-			border: 1px solid var(--border-glass);
+		.continue-btn {
+			visibility: hidden;
+			opacity: 0;
+			transition: opacity var(--dur-medium) var(--ease-out), visibility 0s var(--dur-medium), background-color var(--dur-fast);
 		}
 
-
-
-		.progress-dots {
-			position: fixed;
-			bottom: 40px;
-			left: 50%;
-			transform: translateX(-50%);
-			display: none;
-			gap: 12px;
-			z-index: 100;
-		}
-
-		.progress-dot {
-			width: 10px;
-			height: 10px;
-			border-radius: 50%;
-			background: var(--border-glass);
-			transition: all 0.3s var(--transition-smooth);
-		}
-
-		.progress-dot.active {
-			background: var(--accent-primary);
-			transform: scale(1.2);
-		}
-
-		.progress-dot.completed {
-			background: var(--accent-success);
-		}
-
-		@keyframes page-slide-left {
-			0% { transform: translateX(0); }
-			30% { transform: translateX(-15px); }
-			100% { transform: translateX(0); }
-		}
-
-		@keyframes page-slide-right {
-			0% { transform: translateX(0); }
-			30% { transform: translateX(15px); }
-			100% { transform: translateX(0); }
-		}
-
-		@keyframes page-slide-up {
-			0% { transform: translateY(0); }
-			30% { transform: translateY(-15px); }
-			100% { transform: translateY(0); }
-		}
-
-		@keyframes page-slide-down {
-			0% { transform: translateY(0); }
-			30% { transform: translateY(15px); }
-			100% { transform: translateY(0); }
-		}
-
-		@keyframes page-exit {
-			0% { transform: scale(1); opacity: 1; }
-			50% { transform: scale(0.95); opacity: 0.5; }
-			100% { transform: scale(1); opacity: 1; }
-		}
-
-		@keyframes page-enter {
-			0% { transform: scale(0.98); opacity: 0.8; }
-			100% { transform: scale(1); opacity: 1; }
-		}
-
-		body.animate-left {
-			animation: page-slide-left 0.4s ease-out;
-		}
-
-		body.animate-right {
-			animation: page-slide-right 0.4s ease-out;
-		}
-
-		body.animate-up {
-			animation: page-slide-up 0.4s ease-out;
-		}
-
-		body.animate-down {
-			animation: page-slide-down 0.4s ease-out;
-		}
-
-		body.animate-exit {
-			animation: page-exit 0.5s ease-out;
-		}
-
-		body.animate-enter {
-			animation: page-enter 0.3s ease-out;
-		}
-
-		@keyframes page-slide-up-big {
-			0% { transform: translateY(0); }
-			30% { transform: translateY(-40px); }
-			100% { transform: translateY(0); }
-		}
-
-		@keyframes page-slide-down-big {
-			0% { transform: translateY(0); }
-			30% { transform: translateY(40px); }
-			100% { transform: translateY(0); }
-		}
-
-		body.animate-up-big {
-			animation: page-slide-up-big 0.5s ease-out;
-		}
-
-		body.animate-down-big {
-			animation: page-slide-down-big 0.5s ease-out;
-		}
-
-		@keyframes success-pulse {
-			0% { transform: scale(1); }
-			50% { transform: scale(1.05); }
-			100% { transform: scale(1); }
-		}
-
-		.success-pulse {
-			animation: success-pulse 0.5s var(--transition-smooth);
+		.continue-btn.is-visible {
+			visibility: visible;
+			opacity: 1;
+			transition-delay: 0s;
 		}
 
 		.try-again-message {
 			position: fixed;
 			top: 20px;
 			left: 50%;
-			transform: translateX(-50%) translateY(-100px);
-			background: rgba(234, 67, 53, 0.9);
+			transform: translate(-50%, -24px) scale(0.96);
+			background: rgba(229, 72, 77, 0.96);
 			color: white;
-			padding: 12px 24px;
-			border-radius: 12px;
+			padding: 11px 24px;
+			border-radius: 999px;
 			font-size: 1rem;
 			font-weight: 600;
+			box-shadow: 0 12px 30px -12px rgba(229, 72, 77, 0.9);
 			opacity: 0;
-			transition: all 0.3s var(--transition-smooth);
+			pointer-events: none;
+			transition: opacity var(--dur-fast) var(--ease-in), transform var(--dur-fast) var(--ease-in);
 			z-index: 1000;
 		}
 
 		.try-again-message.show {
-			transform: translateX(-50%) translateY(0);
+			transform: translate(-50%, 0);
 			opacity: 1;
+			transition: opacity var(--dur-fast) var(--ease-out), transform var(--dur-medium) var(--ease-spring);
 		}
 
 		.try-again-message .text-highlight {
@@ -596,44 +793,36 @@
 			text-decoration: underline;
 		}
 
-		@keyframes highlight-pulse {
-			0%, 100% { transform: scale(1); opacity: 1; }
-			50% { transform: scale(1.05); opacity: 1; }
-		}
-
-		.highlight-pulse {
-			animation: highlight-pulse 0.4s ease-in-out;
-		}
-
-
-
 		.completion-icon {
 			font-size: 5rem;
 			margin-bottom: 20px;
-			animation: success-pulse 1s var(--transition-smooth) infinite;
+		}
+
+		.completion-icon > span {
+			display: inline-block;
+			animation: completion-bounce 1.6s var(--ease-loop) infinite;
+		}
+
+		@keyframes completion-bounce {
+			50% { transform: scale(1.06); }
 		}
 
 		.settings-drag-container {
+			position: relative;
 			margin-top: 30px;
-			padding: 40px;
-			background: rgba(255, 255, 255, 0.03);
-			border: 1px solid var(--border-glass);
-			border-radius: 20px;
+			padding: 36px 40px;
+			background: var(--surface);
+			border: 1px solid var(--line);
+			border-radius: 22px;
 			text-align: center;
 		}
-
-		.settings-drag-container.completed {
-			border-color: var(--accent-success);
-			background: rgba(52, 168, 83, 0.1);
-		}
-
-
 
 		.settings-link {
 			display: inline-block;
 			font-size: 1.5rem;
-			color: var(--accent-primary);
+			color: var(--accent-text);
 			text-decoration: underline;
+			text-underline-offset: 0.18em;
 			padding: 10px 10px 16px 10px;
 			font-weight: 600;
 			cursor: pointer;
@@ -644,25 +833,26 @@
 		}
 
 		.settings-link:hover {
-			color: #1a73e8;
-			background: transparent;
-			box-shadow: none;
-			transform: none;
+			color: var(--link-hover);
 		}
 
-
+		.settings-instruction {
+			margin-bottom: 20px;
+			color: var(--text-secondary);
+			font-size: 1.1rem;
+			transition: color 0.3s;
+		}
 
 		.settings-hint {
 			margin-top: 15px;
-			font-size: 0.9rem;
+			font-size: 1.1rem;
 			color: var(--text-secondary);
 		}
-
 
 		.discovery-expand-wrapper {
 			display: grid;
 			grid-template-rows: 0fr;
-			transition: grid-template-rows 0.8s cubic-bezier(0.4, 0, 0.2, 1), margin-top 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+			transition: grid-template-rows var(--dur-slower) var(--ease-burst), margin-top var(--dur-slower) var(--ease-burst);
 			width: 100%;
 			max-width: 850px;
 			margin: 0 auto;
@@ -671,13 +861,13 @@
 		.discovery-expand-wrapper.visible {
 			grid-template-rows: 1fr;
 			margin-top: 30px;
+			transition-delay: 450ms;
 		}
 
 		.discovery-banner {
-			background: rgba(255, 255, 255, 0.02);
-			border: 1px dashed var(--border-glass);
-			border-radius: 16px;
-			padding: 24px;
+			border: 1px dashed var(--line-strong);
+			border-radius: 18px;
+			padding: 22px 24px;
 			width: 100%;
 			display: flex;
 			flex-direction: column;
@@ -685,15 +875,16 @@
 			gap: 15px;
 			overflow: hidden;
 			opacity: 0;
-			transition: opacity 0.6s ease 0.2s; 
+			transition: opacity 0.5s ease 0.15s;
 		}
 
 		.discovery-expand-wrapper.visible .discovery-banner {
 			opacity: 1;
+			transition-delay: 600ms;
 		}
 
 		.discovery-header {
-			font-size: 0.85rem;
+			font-size: 0.8rem;
 			text-transform: uppercase;
 			letter-spacing: 0.1em;
 			color: var(--text-muted);
@@ -711,35 +902,37 @@
 			display: flex;
 			align-items: center;
 			gap: 8px;
-			background: rgba(255, 255, 255, 0.04);
-			border: 1px solid var(--border-glass);
-			border-radius: 8px;
-			padding: 6px 12px;
-			transition: all 0.3s ease;
+			background: var(--surface);
+			border: 1px solid var(--line);
+			border-radius: 9px;
+			padding: 6px 14px;
+			transition: border-color 0.3s, background-color 0.3s;
 		}
 
 		.discovery-item.completed {
-			border-color: var(--accent-success);
-			background: rgba(52, 168, 83, 0.1);
+			border-color: var(--accent-border);
+			background: var(--accent-surface);
 		}
 
-		.discovery-item.completed .discovery-name {
-			color: var(--accent-success);
-		}
-
+		.discovery-item.completed .discovery-name,
 		.discovery-item.completed .discovery-icon {
-			color: var(--accent-success);
+			color: var(--accent-text);
 		}
 
 		.discovery-icon {
 			font-size: 1rem;
-			color: var(--accent-primary);
+			color: var(--accent-text);
 			display: flex;
 			align-items: center;
 		}
 
+		.discovery-icon > .chip-icon {
+			width: 1em;
+			height: 1em;
+		}
+
 		.discovery-name {
-			font-size: 0.8rem;
+			font-size: 0.82rem;
 			color: var(--text-secondary);
 		}
 
@@ -749,18 +942,18 @@
 		}
 
 		.discovery-footer strong {
-			color: var(--accent-primary);
+			color: var(--accent-text);
 		}
 
 		.setting-warning {
-			background: rgba(255, 193, 7, 0.1);
-			border: 1px solid rgba(255, 193, 7, 0.3);
-			border-radius: 12px;
+			background: var(--warning-bg);
+			border: 1px solid var(--warning-border);
+			border-radius: 14px;
 			padding: 12px 20px;
 			margin: 20px auto;
 			max-width: 800px;
 			font-size: 0.95rem;
-			color: rgba(255, 255, 255, 0.9);
+			color: var(--warning-text);
 			text-align: center;
 			line-height: 1.5;
 		}
@@ -778,13 +971,13 @@
 
 		.step3-swap-item {
 			grid-area: stack;
-			transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+			transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out);
 		}
 
 		.step3-swap-container #step3DiscoveryWrapper {
 			opacity: 0;
 			pointer-events: none;
-			transform: scale(0.95);
+			transform: scale(0.96);
 			z-index: 1;
 		}
 
@@ -799,13 +992,16 @@
 			pointer-events: auto;
 			transform: scale(1);
 			z-index: 2;
+			transition-delay: 150ms;
 		}
 
 		.step3-swap-container.show-discovery .draggable-content-box {
 			opacity: 0;
 			pointer-events: none;
-			transform: scale(1.05); 
+			transform: scale(1.03);
 			z-index: 1;
+			transition-duration: 250ms;
+			transition-timing-function: var(--ease-in);
 		}
 
 		#step3DiscoveryWrapper .discovery-banner {
@@ -837,11 +1033,6 @@
 				justify-content: center;
 			}
 
-			.drag-demo-container {
-				flex-direction: column;
-				align-items: center;
-			}
-
 			.draggable-content-box {
 				width: 100%;
 				max-width: 300px;
@@ -850,10 +1041,36 @@
 			.step-section {
 				padding: 20px;
 			}
+		}
 
-			.super-drag-header {
-				flex-direction: column;
-				gap: 15px;
+		@media (max-height: 760px) {
+			.step-section {
+				padding-block: 24px;
+			}
+
+			.step-title {
+				font-size: clamp(2rem, min(5vw, 7vh), 3.5rem);
+			}
+
+			.step-subtitle {
+				margin-bottom: 24px;
+			}
+
+			tutorial-gestures .step-title,
+			tutorial-super-drag .step-title {
+				margin-top: calc(-1 * var(--glyph-room));
+			}
+
+			.cards-grid {
+				margin: 20px 0;
+			}
+
+			.discovery-expand-wrapper.visible {
+				margin-top: 20px;
+			}
+
+			.continue-row {
+				margin-top: 12px;
 			}
 		}
 
@@ -867,14 +1084,13 @@
 			align-items: center;
 			pointer-events: none;
 			opacity: 0;
-			transform: translateY(-20px);
-			transition: opacity 0.5s ease, transform 0.5s ease;
-			animation: bounce-point 2s infinite ease-in-out;
+			transform: translateY(-16px);
+			transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out);
 		}
 
-		body[data-active-step="4"] .pin-hint-wrapper {
+		body[data-active-step="done"] .pin-hint-wrapper {
 			opacity: 1;
-			transform: translateY(0);
+			transform: none;
 			pointer-events: auto;
 			transition-delay: 1s; 
 		}
@@ -884,17 +1100,21 @@
 			height: 32px;
 			margin-bottom: 5px;
 			color: var(--text-secondary);
-			filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+			filter: var(--arrow-shadow);
+		}
+
+		body[data-active-step="done"] .pin-hint-arrow {
+			animation: bounce-point 1.6s var(--ease-loop) 1.4s 3;
 		}
 
 		@keyframes bounce-point {
-			0%, 100% { transform: translateY(0); }
 			50% { transform: translateY(-8px); }
 		}
 
 		.pin-hint-content {
-			background: #ffffff0f;
-			border: 1px solid var(--border-glass);
+			background: var(--popover-bg);
+			border: 1px solid var(--line-strong);
+			box-shadow: var(--popover-shadow);
 			color: var(--text-primary);
 			padding: 16px 24px;
 			border-radius: 16px;
@@ -907,7 +1127,7 @@
 		}
 
 		.pin-hint-content b {
-			color: var(--accent-primary);
+			color: var(--accent-text);
 		}
 
 		.icon-ext, .icon-pin {
@@ -915,11 +1135,10 @@
 			width: 20px;
 			height: 20px;
 			vertical-align: -5px;
-			background-color: var(--accent-primary);
+			background-color: var(--accent-text);
 			mask-repeat: no-repeat;
 			mask-position: center;
 			mask-size: contain;
-			transition: background-color 0.3s;
 			margin-inline-start: 4px;
 			margin-inline-end: 4px;
 		}
@@ -935,261 +1154,31 @@
 			margin-inline-end: 2px;
 		}
 
-	</style>
-	<style id="i18n-load-style">
-		[data-i18n], [data-i18n-placeholder], [data-i18n-title], select {
-			visibility: hidden;
+		@media (max-width: 860px) {
+			.pin-hint-wrapper {
+				right: 16px;
+			}
+
+			.pin-hint-content {
+				max-width: 240px;
+				padding: 12px 16px;
+				font-size: 0.85rem;
+			}
 		}
+
+
 	</style>
 </head>
 
 <body class="tutorial-active">
-	<div class="tutorial-container">
-		<section class="step-section active" id="step0">
-			<h1 class="step-title" data-i18n="tutorialWelcomeTitle">Welcome to FlowMouse</h1>
-			<p class="step-subtitle" data-i18n="tutorialWelcomeSubtitle">Master mouse gestures in one minute</p>
-
-			<div class="virtual-mouse-container">
-				<div class="virtual-mouse">
-					<div class="mouse-button mouse-left"></div>
-					<div class="mouse-button mouse-right pulsing"></div>
-					<div class="mouse-wheel"></div>
-				</div>
-			</div>
-
-			<p class="step-instruction" data-i18n="tutorialClickToStart">
-				Click the <span class="text-highlight">Right Mouse Button</span> to Start
-			</p>
-		</section>
-
-		<section class="step-section" id="step1">
-			<h1 class="step-title" id="step1Title" data-i18n="tutorialStep1Title" style="margin-top: 140px">The Basics</h1>
-			<p class="step-subtitle" id="step1Subtitle" data-i18n="tutorialStep1Subtitle">Learn the core gesture mechanic</p>
-
-			<div class="virtual-mouse-container">
-				<div class="virtual-mouse" id="step1Mouse">
-					<div class="mouse-button mouse-left"></div>
-					<div class="mouse-button mouse-right" id="step1RightBtn"></div>
-					<div class="mouse-wheel"></div>
-				</div>
-			</div>
-
-			<p class="step-instruction" id="step1Instruction">
-				Press and <strong>Hold</strong> <span class="text-highlight">Right Mouse Button</span>
-			</p>
-
-			<div class="practice-area">
-				<svg class="path-container" viewBox="0 0 270 80" style="overflow: visible;">
-					<defs>
-						<path id="arrow-path" d="M 20 40 L 250 40 M 236 22 L 260 40 L 236 58" />
-
-						<filter id="glow-filter" x="-50%" y="-50%" width="200%" height="200%">
-							<feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="#4285f4" flood-opacity="0.6" />
-						</filter>
-
-						<mask id="fill-mask" x="-50%" y="-50%" width="200%" height="200%">
-							<rect id="progressRect" x="0" y="-50" width="0" height="200" fill="white" />
-						</mask>
-					</defs>
-
-					<use href="#arrow-path" class="path-bg" />
-
-					<use href="#arrow-path" class="path-fg" mask="url(#fill-mask)" />
-				</svg>
-			</div>
-		</section>
-
-		<section class="step-section" id="step2">
-			<h1 class="step-title" data-i18n="tutorialStep2Title" style="margin-top: 40px">FlowMouse Gestures</h1>
-			<p class="step-subtitle" data-i18n="tutorialStep2Subtitle">Hold <span class="text-highlight">Right Mouse Button</span> to perform gestures</p>
-
-			<div class="cards-grid">
-				<div class="glass-card" id="cardForward">
-					<div class="card-icon">→</div>
-					<div class="card-name" data-i18n="actionForward">Forward</div>
-					<div class="card-status" data-i18n="tutorialPending">Pending</div>
-				</div>
-
-				<div class="glass-card" id="cardBack">
-					<div class="card-icon">←</div>
-					<div class="card-name" data-i18n="actionBack">Back</div>
-					<div class="card-status" data-i18n="tutorialPending">Pending</div>
-				</div>
-
-				<div class="glass-card" id="cardUp">
-					<div class="card-icon">↑</div>
-					<div class="card-name" data-i18n="actionScrollUp">Scroll Up</div>
-					<div class="card-status" data-i18n="tutorialPending">Pending</div>
-				</div>
-
-				<div class="glass-card" id="cardScroll">
-					<div class="card-icon">↓</div>
-					<div class="card-name" data-i18n="actionScrollDown">Scroll Down</div>
-					<div class="card-status" data-i18n="tutorialPending">Pending</div>
-				</div>
-
-				<div class="glass-card" id="cardClose">
-					<div class="card-icon">↓→</div>
-					<div class="card-name" data-i18n="actionCloseTab">Close Tab</div>
-					<div class="card-status" data-i18n="tutorialPending">Pending</div>
-				</div>
-			</div>
-
-			<div class="discovery-expand-wrapper" id="discoveryBannerWrapper">
-				<div class="discovery-banner">
-					<div class="discovery-header" data-i18n="tutorialStep2DiscoveryHeader">More Gestures</div>
-					<div class="discovery-grid">
-						<div class="discovery-item" id="itemScrollTop">
-							<div class="discovery-icon svg-arrow">↓↑</div>
-							<div class="discovery-name" data-i18n="actionScrollToTop">Scroll to Top</div>
-						</div>
-						<div class="discovery-item" id="itemScrollBottom">
-							<div class="discovery-icon svg-arrow">↑↓</div>
-							<div class="discovery-name" data-i18n="actionScrollToBottom">Scroll to Bottom</div>
-						</div>
-						<div class="discovery-item" id="itemSwitchLeft">
-							<div class="discovery-icon svg-arrow">↑←</div>
-							<div class="discovery-name" data-i18n="actionSwitchLeftTab">Switch Left Tab</div>
-						</div>
-						<div class="discovery-item" id="itemSwitchRight">
-							<div class="discovery-icon svg-arrow">↑→</div>
-							<div class="discovery-name" data-i18n="actionSwitchRightTab">Switch Right Tab</div>
-						</div>
-					</div>
-					<div class="discovery-footer" data-i18n="tutorialStep2Footer">
-						<strong>More gestures</strong> and <strong>full customization</strong> available in settings
-					</div>
-				</div>
-			</div>
-
-			<div class="setting-warning" id="macLinuxNotice" style="display: none;">
-				<span data-i18n="macLinuxContextMenuNotice"></span>
-			</div>
-
-			<div style="height: 60px; display: flex; align-items: center; justify-content: center; margin-top: 20px;">
-				<button class="btn btn-primary" id="step2ContinueBtn" style="visibility: hidden; opacity: 0; transition: opacity 0.3s; margin-bottom: 10px;">
-					<span data-i18n="tutorialContinue">Continue</span>
-				</button>
-			</div>
-		</section>
-
-		<section class="step-section" id="step3">
-			<h1 class="step-title" data-i18n="tutorialStep3Title" style="margin-top: 40px">Super Drag</h1>
-			<p class="step-subtitle" data-i18n="tutorialStep3Subtitle">Select text and drag it to search instantly</p>
-
-			<div class="super-drag-instruction">
-				<div class="virtual-mouse-container" style="margin: 0;">
-					<div class="virtual-mouse" id="step3Mouse">
-						<div class="mouse-button mouse-left" id="step3LeftBtn"></div>
-						<div class="mouse-button mouse-right"></div>
-						<div class="mouse-wheel"></div>
-					</div>
-				</div>
-				<div class="drag-arrow-indicator">
-					<svg width="120" height="40" viewBox="0 0 120 40">
-						<path class="drag-arrow-path" d="M 10 20 L 90 20" stroke="var(--accent-success)" stroke-width="4" fill="none" stroke-linecap="round" stroke-dasharray="8 4"/>
-						<polygon class="drag-arrow-head" points="100,20 80,10 80,30" fill="var(--accent-success)"/>
-					</svg>
-				</div>
-				<div class="drag-hint-box">
-					<div class="hint-title" data-i18n="tutorialStep3HintTitle">Text Selection Search</div>
-					<div class="hint-desc" data-i18n="tutorialStep3HintDesc">Select text, then use <span class="text-highlight">Left Mouse Button</span> to drag <span class="svg-arrow">→</span> to search</div>
-				</div>
-			</div>
-
-			<div class="step3-swap-container">
-				<div class="draggable-content-box step3-swap-item" id="textDragBox">
-					<div class="box-label" style="font-size: 1.2rem; margin-bottom: 15px;" data-i18n="tutorialStep3TextBoxLabel">
-						Try it with the text below!
-					</div>
-					<div class="selectable-text" id="selectableText" data-i18n="tutorialStep3SelectableText">FlowMouse Super Drag</div>
-				</div>
-
-				<div class="discovery-expand-wrapper step3-swap-item" id="step3DiscoveryWrapper">
-					<div class="discovery-banner">
-						<div class="discovery-header" data-i18n="tutorialStep3DiscoveryHeader">More Super Drag Features</div>
-						<div class="discovery-grid">
-							<div class="discovery-item">
-								<div class="discovery-icon">📑</div>
-								<div class="discovery-name" data-i18n="tutorialStep3TextSearch">Text <span class="svg-arrow">→</span> Search</div>
-							</div>
-							<div class="discovery-item">
-								<div class="discovery-icon">🔗</div>
-								<div class="discovery-name" data-i18n="tutorialStep3LinkOpen">Link <span class="svg-arrow">→</span> Open In New Tab</div>
-							</div>
-							<div class="discovery-item">
-								<div class="discovery-icon">🖼️</div>
-								<div class="discovery-name" data-i18n="tutorialStep3ImageOpen">Image <span class="svg-arrow">→</span> Open In New Tab</div>
-							</div>
-						</div>
-						<div class="discovery-footer" data-i18n="tutorialStep3Footer">
-							<strong>More drag actions</strong> and <strong>full customization</strong> available in advanced settings mode
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="setting-warning" id="macTextDragNotice" style="display: none;">
-				<span data-i18n="macTextDragNotice"></span>
-			</div>
-
-			<div style="height: 60px; display: flex; align-items: center; justify-content: center; margin-top: 20px;">
-				<button class="btn btn-primary" id="step3ContinueBtn" style="visibility: hidden; opacity: 0; transition: opacity 0.3s; margin-bottom: 10px;">
-					<span data-i18n="tutorialContinue">Continue</span>
-				</button>
-			</div>
-		</section>
-
-		<section class="step-section" id="step4">
-			<div class="completion-icon">🎉</div>
-			<h1 class="step-title" data-i18n="tutorialStep4Title">Congratulations!</h1>
-			<p class="step-subtitle" data-i18n="tutorialStep4Subtitle">You move with the flow now.</p>
-
-			<div class="settings-drag-container">
-				<div id="step4Instruction" style="margin-bottom: 20px; color: var(--text-secondary); font-size: 1.1rem; transition: color 0.3s;" data-i18n="tutorialStep4Instruction">
-					Use <span class="text-highlight">Super Drag <span class="svg-arrow">→</span></span> on this link to open in a <span class="text-highlight">New Tab</span>
-				</div>
-
-				<a class="settings-link" id="settingsLink" href="#" data-i18n="tutorialSettingsLink">
-					FlowMouse Settings
-				</a>
-
-				<div class="settings-hint" data-i18n="tutorialSettingsHint" style="font-size: 1.1rem;">
-					Lots of powerful features waiting for you to explore!
-				</div>
-			</div>
-		</section>
-	</div>
-
-	<div class="pin-hint-wrapper">
-		<svg class="pin-hint-arrow" viewBox="0 -960 960 960" fill="currentColor">
-			<path d="M480-525 291-336l-51-51 240-240 240 240-51 51-189-189Z"/>
-		</svg>
-		<div class="pin-hint-content">
-			<div data-i18n="tutorialPinHint">
-				Click<span class='icon-ext'></span>Extensions, and<span class='icon-pin'></span>Pin FlowMouse for easy access!
-			</div>
-		</div>
-	</div>
-
-	<div class="progress-dots">
-		<div class="progress-dot active" data-step="0"></div>
-		<div class="progress-dot" data-step="1"></div>
-		<div class="progress-dot" data-step="2"></div>
-		<div class="progress-dot" data-step="3"></div>
-		<div class="progress-dot" data-step="4"></div>
-	</div>
-
-	<div class="try-again-message" id="tryAgainMessage">
-		Released too early! Try again.
-	</div>
+	<tutorial-page></tutorial-page>
 
 	<script src="../js/i18n.js"></script>
 	<script src="../js/constants.js"></script>
 	<script src="../js/gesture-visual.js"></script>
 	<script src="../js/gesture-recognizer.js"></script>
 	<script src="../js/confetti.js"></script>
-	<script src="../js/tutorial.js"></script>
+	<script type="module" src="../js/tutorial.js"></script>
 </body>
 
 </html>

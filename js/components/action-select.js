@@ -96,7 +96,6 @@ const ACTION_ICONS = {
 
 	'search': 'search',
 	'copy': 'copy',
-	'openTab': 'externalLink',
 	'openLink': 'externalLink',
 	'openImage': 'externalLink',
 	'copyLink': 'copy',
@@ -125,8 +124,11 @@ const ACTION_CATEGORIES = [
 	{ key: 'actionCategoryContextMenu', icon: 'menu', actions: ['menuShowTabs', 'menuRecentlyClosed', 'menuShowBookmarks', 'customMenu'] },
 	{ key: 'actionCategoryTabs', icon: 'panelTop', actions: ['newTab', 'closeTab', 'refresh', 'refreshAllTabs', 'switchLeftTab', 'switchRightTab', 'switchFirstTab', 'switchLastTab', 'closeOtherTabs', 'closeLeftTabs', 'closeRightTabs', 'closeAllTabs', 'switchLastActiveTab', 'restoreTab', 'duplicateTab', 'togglePinTab', 'moveTabToNewWindow'] },
 	{ key: 'actionCategoryWindow', icon: 'appWindow', actions: ['newWindow', 'newIncognito', 'toggleFullscreen', 'toggleMaximize', 'minimize', 'closeWindow', 'closeBrowser'] },
+	{ key: 'actionCategoryLinkImage', icon: 'link', actions: ['openLink', 'openImage', 'saveImage', 'copyImageUrl', 'imageSearch'] },
 	{ key: 'actionCategoryUtilities', icon: 'wrench', actions: ['openOptions', 'addToBookmarks', 'copyUrl', 'copyTitle', 'copyTitleAndUrl', 'openCustomUrl', 'openDownloads', 'openHistory', 'openExtensions', 'zoomIn', 'zoomOut', 'resetZoom', 'toggleMuteTab', 'toggleMuteAllTabs', 'stopLoading', 'stopAllLoading', 'printPage', 'saveAsMhtml', 'viewPageSource', 'viewFrameSource', 'reloadFrame', 'pasteClipboard', 'pasteContent', 'searchClipboard', 'pauseGesture', 'simulateKey', 'sendCustomEvent', 'sendExtensionMessage', 'areaSelect'] },
 ];
+
+const ELEMENT_TARGET_ACTIONS = new Set(['openLink', 'copyLink', 'copyLinkText', 'copyLinkAndText', 'bookmarkLink', 'openImage', 'saveImage', 'copyImageUrl', 'imageSearch']);
 
 const TEXT_DRAG_CATEGORIES = [
 	{ key: '', actions: ['none', 'actionChain', 'delay'] },
@@ -137,14 +139,14 @@ const TEXT_DRAG_CATEGORIES = [
 
 const LINK_DRAG_CATEGORIES = [
 	{ key: '', actions: ['none', 'actionChain', 'delay'] },
-	{ key: 'actionCategoryLink', icon: 'link', actions: ['openTab', 'copyLink', 'copyLinkText', 'copyLinkAndText', 'bookmarkLink'] },
+	{ key: 'actionCategoryLink', icon: 'link', actions: ['openLink', 'copyLink', 'copyLinkText', 'copyLinkAndText', 'bookmarkLink'] },
 	{ key: 'actionCategoryContextMenu', icon: 'menu', actions: ['customMenu'] },
 	{ key: 'actionCategoryUtilities', icon: 'wrench', actions: ['openCustomUrl', 'sendCustomEvent', 'sendExtensionMessage'] },
 ];
 
 const IMAGE_DRAG_CATEGORIES = [
 	{ key: '', actions: ['none', 'actionChain', 'delay'] },
-	{ key: 'actionCategoryImage', icon: 'image', actions: ['openTab', 'openLink', 'saveImage', 'copyImageUrl', 'imageSearch'] },
+	{ key: 'actionCategoryImage', icon: 'image', actions: ['openImage', 'openLink', 'saveImage', 'copyImageUrl', 'imageSearch'] },
 	{ key: 'actionCategoryContextMenu', icon: 'menu', actions: ['customMenu'] },
 	{ key: 'actionCategoryUtilities', icon: 'wrench', actions: ['openCustomUrl', 'sendCustomEvent', 'sendExtensionMessage'] },
 ];
@@ -469,8 +471,8 @@ class ActionSelect extends LitElement {
 				display: inline-flex;
 				align-items: center;
 				justify-content: center;
-				width: 28px;
-				height: 28px;
+				width: 27px;
+				height: 27px;
 				padding: 0;
 				border: 0;
 				border-radius: 6px;
@@ -876,7 +878,7 @@ class ActionSelect extends LitElement {
 	render() {
 		const hasConfigUI = this.#hasActionConfig(this.value);
 		return html`
-			<button class="trigger ${this.value === 'none' ? 'none' : ''}" @click=${this.open} type="button">
+			<button class="trigger ${this.value === 'none' ? 'none' : ''}" part="trigger" @click=${this.open} type="button">
 				<span class="trigger-label">${this.#getActionLabel(this.value)}</span>
 				<span class="trigger-chevron">${unsafeHTML(hasConfigUI ? icon('settings', { size: 15 }) : icon('chevronDown', { size: 16 }))}</span>
 			</button>
@@ -905,10 +907,10 @@ class ActionSelect extends LitElement {
 		const hasResults = categories.some(c => c.items.length > 0);
 		const showActionConfig = this.#hasActionConfig(this._pendingValue);
 		const showHudName = this._pendingValue !== 'none' && (this.#isDragContext() || this.allowCustomName || this._pendingConfig?.customName);
-		const showPreferLinkName = showHudName && this.dragType === 'image' && this._pendingValue === 'openTab' && (this._pendingConfig.preferLink ?? this.#actionDefaults()?.preferLink);
+		const showPreferLinkName = showHudName && this._pendingValue === 'openImage' && (this._pendingConfig.preferLink ?? this.#actionDefaults()?.preferLink);
 		const showAutoDetectName = showHudName && this.dragType === 'text' && this._pendingValue === 'search' && (this._pendingConfig.autoDetectUrl ?? this.#actionDefaults()?.autoDetectUrl);
 		const hudNamePlaceholder = window.i18n.getMessage(this.#actionLabelKey(this._pendingValue));
-		const openTabPlaceholder = window.i18n.getMessage(this.#actionLabelKey('openTab', 'link'));
+		const openLinkPlaceholder = window.i18n.getMessage(this.#actionLabelKey('openLink', 'link'));
 
 		return html`
 			<div class="modal-overlay" @mousedown=${this.#onOverlayClick}
@@ -955,6 +957,9 @@ class ActionSelect extends LitElement {
 						<div class="modal-right">
 							${this.#renderDetailHeader(showActionConfig)}
 							<div class="detail-body">
+								${!this.#isDragContext() && ELEMENT_TARGET_ACTIONS.has(this._pendingValue)
+									? html`<div class="action-config-info">${unsafeHTML(window.i18n.getMessage('elementActionStartHint'))}</div>`
+									: ''}
 								${showActionConfig
 									? this.#renderActionConfig()
 									: html`
@@ -984,7 +989,7 @@ class ActionSelect extends LitElement {
 								>
 								${showPreferLinkName ? html`
 									<input class="modal-footer-name" type="text"
-										placeholder=${openTabPlaceholder}
+										placeholder=${openLinkPlaceholder}
 										maxlength="80"
 										.value=${this._pendingConfig.customNamePreferLink || ''}
 										@input=${(e) => { this._pendingConfig = { ...this._pendingConfig, customNamePreferLink: e.target.value }; }}
@@ -992,7 +997,7 @@ class ActionSelect extends LitElement {
 								` : ''}
 								${showAutoDetectName ? html`
 									<input class="modal-footer-name" type="text"
-										placeholder=${openTabPlaceholder}
+										placeholder=${openLinkPlaceholder}
 										maxlength="80"
 										.value=${this._pendingConfig.customNameAutoDetectUrl || ''}
 										@input=${(e) => { this._pendingConfig = { ...this._pendingConfig, customNameAutoDetectUrl: e.target.value }; }}
@@ -2063,19 +2068,17 @@ class ActionSelect extends LitElement {
 				${this.#renderPositionSelect(true, true, true)}
 			`;
 		}
-		if (action === 'openTab') {
+		if (action === 'openImage') {
 			const defaults = this.#actionDefaults(action);
 			const preferLink = this._pendingConfig.preferLink ?? defaults.preferLink;
 			return html`
-				${this.dragType === 'image' ? html`
-					<label class="action-config-checkbox">
-						<input type="checkbox"
-							.checked=${preferLink}
-							@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, preferLink: e.target.checked }; this.requestUpdate(); }}
-						>
-						<span>${window.i18n.getMessage('preferLink')}</span>
-					</label>
-				` : ''}
+				<label class="action-config-checkbox">
+					<input type="checkbox"
+						.checked=${preferLink}
+						@change=${(e) => { this._pendingConfig = { ...this._pendingConfig, preferLink: e.target.checked }; this.requestUpdate(); }}
+					>
+					<span>${window.i18n.getMessage('preferLink')}</span>
+				</label>
 				${this.#renderPositionSelect(true, true, true)}
 			`;
 		}
@@ -2202,9 +2205,7 @@ class ActionSelect extends LitElement {
 		const { id, path } = typeof rawFolderId === 'object' ? rawFolderId : { id: rawFolderId };
 		const byId = folders.find(f => f.id === id);
 
-		{
-			return byId || null;
-		}
+		return byId || null;
 	}
 
 	async #loadBookmarkFolders() {

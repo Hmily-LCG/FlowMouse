@@ -169,6 +169,26 @@ class GestureRecognizer {
 		return result;
 	}
 
+	moveBatch(points) {
+		let activated = false;
+		let directionChanged = false;
+		let totalDistance = 0;
+		for (const p of points) {
+			const r = this.move(p.x, p.y, p.timestamp);
+			activated ||= r.activated;
+			directionChanged ||= r.directionChanged;
+			totalDistance = r.totalDistance;
+		}
+		return {
+			activated,
+			directionChanged,
+			direction: directionChanged ? this.#pattern.at(-1) : null,
+			pattern: this.getPattern(),
+			preActivationTrail: activated ? [...this.#points] : [],
+			totalDistance,
+		};
+	}
+
 	getPattern() {
 		return this.#pattern.join('');
 	}

@@ -516,10 +516,8 @@ class PopupPage extends LitElement {
 			if (url.startsWith(protocol)) return true;
 		}
 
-		{
-			if (url.startsWith('https://addons.mozilla.org')) {
-				return true;
-			}
+		if (url.startsWith('https://addons.mozilla.org')) {
+			return true;
 		}
 
 		return false;

@@ -151,6 +151,10 @@
 		"message": "Aby otworzyć menu kontekstowe, kliknij dwukrotnie prawym przyciskiem myszy. (Dowiedz się więcej)",
 		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
 	},
+	"edgeGestureConflictHint": {
+		"message": "Wykryto konflikt między wbudowanymi gestami przeglądarki Edge a gestami FlowMouse. (Dowiedz się więcej)",
+		"description": "Clickable toast shown on Edge when its built-in mouse gestures repeatedly interrupt FlowMouse gestures; opens the settings notice"
+	},
 	"edgeGestureConflictNotice": {
 		"message": "%browserName% ma wbudowane funkcje gestów. Aby używać gestów FlowMouse, <a href=\"#\" class=\"edge-gesture-link\">wyłącz wbudowane gesty</a> w ustawieniach %browserName%.",
 		"description": "Notice for Edge users about built-in gesture conflict"
@@ -975,6 +979,18 @@
 		"message": "Usuń gest",
 		"description": "Delete gesture button tooltip"
 	},
+	"redrawGesture": {
+		"message": "Narysuj gest ponownie",
+		"description": "Gesture card menu item: re-record the gesture pattern"
+	},
+	"editAction": {
+		"message": "Edytuj polecenie",
+		"description": "Gesture card menu item: change the action bound to the gesture"
+	},
+	"moreOptions": {
+		"message": "Więcej opcji",
+		"description": "Tooltip for the 3-dot menu button"
+	},
 	"deleteGestureConfirm": {
 		"message": "Usunąć gest %pattern%?",
 		"description": "Delete gesture confirmation"
@@ -1231,11 +1247,11 @@
 		"message": "Kopiuj",
 		"description": "Copy action"
 	},
-	"dragActionOpenTabLink": {
+	"dragActionOpenLink": {
 		"message": "Otwórz link",
 		"description": "Open link in new tab"
 	},
-	"dragActionOpenTabImage": {
+	"dragActionOpenImage": {
 		"message": "Otwórz obraz",
 		"description": "Open image in new tab"
 	},
@@ -1431,6 +1447,10 @@
 		"message": "Naciśnij i <strong>Przytrzymaj</strong> <span class=\"text-highlight\">Prawy Przycisk Myszy</span>",
 		"description": "Tutorial Step 1 instruction idle"
 	},
+	"tutorialStep1InstructionStart": {
+		"message": "Naciśnij i <strong>Przytrzymaj</strong> <span class=\"text-highlight\">Prawy Przycisk Myszy</span>, aby rozpocząć",
+		"description": "Tutorial first page instruction, before the first press"
+	},
 	"tutorialStep1InstructionPressing": {
 		"message": "<strong>Doskonale!</strong> Teraz przeciągnij <strong>%arrow% w Prawo</strong>",
 		"description": "Tutorial Step 1 instruction pressing"
@@ -1452,7 +1472,7 @@
 		"description": "Tutorial Step 2 subtitle"
 	},
 	"tutorialStep2Footer": {
-		"message": "<strong>Więcej gestów</strong> i <strong>pełna personalizacja</strong> dostępne w ustawieniach.",
+		"message": "<strong>Więcej gestów</strong> i <strong>pełna personalizacja</strong> dostępne w ustawieniach",
 		"description": "Footer note for step 2 discovery banner"
 	},
 	"tutorialStep2DiscoveryHeader": {
@@ -1476,7 +1496,7 @@
 		"description": "Image drag open discovery item"
 	},
 	"tutorialStep3Footer": {
-		"message": "<strong>Więcej akcji przeciągania</strong> i <strong>pełna personalizacja</strong> dostępne w trybie zaawansowanym",
+		"message": "<strong>Więcej akcji przeciągania</strong> i <strong>pełna personalizacja</strong> dostępne w ustawieniach",
 		"description": "Footer for step 3 discovery banner"
 	},
 	"tutorialContinue": {
@@ -1670,6 +1690,14 @@
 	"actionCategoryImage": {
 		"message": "Obraz",
 		"description": "Action category: image"
+	},
+	"actionCategoryLinkImage": {
+		"message": "Link i obraz",
+		"description": "Action category: link and image"
+	},
+	"elementActionStartHint": {
+		"message": "Zostanie wykonane na elemencie w <b>pozycji początkowej gestu</b>.",
+		"description": "Notice shown in action config for link/image"
 	},
 	"noResults": {
 		"message": "Brak wyników",

@@ -59,9 +59,7 @@
 	} else {
 		grantBtn.addEventListener('click', async () => {
 			if (isCustomAction && permissionsParam === 'incognito') {
-				{
-					window.close();
-				}
+				window.close();
 				return;
 			}
 

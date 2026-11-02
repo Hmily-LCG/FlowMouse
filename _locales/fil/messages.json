@@ -151,6 +151,10 @@
 		"message": "Upang buksan ang context menu, i-double-click ang kanan. (Matuto pa)",
 		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
 	},
+	"edgeGestureConflictHint": {
+		"message": "May na-detect na salungatan sa pagitan ng mga built-in na gesture ng Edge at mga gesture ng FlowMouse. (Matuto pa)",
+		"description": "Clickable toast shown on Edge when its built-in mouse gestures repeatedly interrupt FlowMouse gestures; opens the settings notice"
+	},
 	"edgeGestureConflictNotice": {
 		"message": "Ang %browserName% ay may built-in na mga tampok na gesture. Upang magamit ang mga gesture ng FlowMouse, mangyaring <a href=\"#\" class=\"edge-gesture-link\">huwag paganahin ang mga built-in na gesture</a> sa mga setting ng %browserName%.",
 		"description": "Notice for Edge users about built-in gesture conflict"
@@ -975,6 +979,18 @@
 		"message": "Tanggalin ang Galaw",
 		"description": "Delete gesture button tooltip"
 	},
+	"redrawGesture": {
+		"message": "I-redraw ang Galaw",
+		"description": "Gesture card menu item: re-record the gesture pattern"
+	},
+	"editAction": {
+		"message": "I-edit ang command",
+		"description": "Gesture card menu item: change the action bound to the gesture"
+	},
+	"moreOptions": {
+		"message": "Higit pang mga opsyon",
+		"description": "Tooltip for the 3-dot menu button"
+	},
 	"deleteGestureConfirm": {
 		"message": "Tanggalin ang galaw na %pattern%?",
 		"description": "Delete gesture confirmation"
@@ -1231,11 +1247,11 @@
 		"message": "Kopyahin",
 		"description": "Copy action"
 	},
-	"dragActionOpenTabLink": {
+	"dragActionOpenLink": {
 		"message": "Buksan ang Link",
 		"description": "Open link in new tab"
 	},
-	"dragActionOpenTabImage": {
+	"dragActionOpenImage": {
 		"message": "Buksan ang Larawan",
 		"description": "Open image in new tab"
 	},
@@ -1431,6 +1447,10 @@
 		"message": "Pindutin at <strong>Hawakan</strong> ang <span class=\"text-highlight\">Kanang Pindutan ng Mouse</span>",
 		"description": "Tutorial Step 1 instruction idle"
 	},
+	"tutorialStep1InstructionStart": {
+		"message": "Pindutin at <strong>Hawakan</strong> ang <span class=\"text-highlight\">Kanang Pindutan ng Mouse</span> para magsimula",
+		"description": "Tutorial first page instruction, before the first press"
+	},
 	"tutorialStep1InstructionPressing": {
 		"message": "<strong>Mahusay!</strong> Ngayon i-drag pakanan <strong>%arrow%</strong>",
 		"description": "Tutorial Step 1 instruction pressing"
@@ -1452,7 +1472,7 @@
 		"description": "Tutorial Step 2 subtitle"
 	},
 	"tutorialStep2Footer": {
-		"message": "<strong>Higit pang mga galaw</strong> at <strong>buong pag-customize</strong> ay available sa mga setting.",
+		"message": "<strong>Higit pang mga galaw</strong> at <strong>buong pag-customize</strong> ay available sa mga setting",
 		"description": "Footer note for step 2 discovery banner"
 	},
 	"tutorialStep2DiscoveryHeader": {
@@ -1476,7 +1496,7 @@
 		"description": "Image drag open discovery item"
 	},
 	"tutorialStep3Footer": {
-		"message": "<strong>Higit pang mga aksyon sa pag-drag</strong> at <strong>buong pag-customize</strong> ay available sa advanced settings mode",
+		"message": "<strong>Higit pang mga aksyon sa pag-drag</strong> at <strong>buong pag-customize</strong> ay available sa mga setting",
 		"description": "Footer for step 3 discovery banner"
 	},
 	"tutorialContinue": {
@@ -1670,6 +1690,14 @@
 	"actionCategoryImage": {
 		"message": "Larawan",
 		"description": "Action category: image"
+	},
+	"actionCategoryLinkImage": {
+		"message": "Link at Larawan",
+		"description": "Action category: link and image"
+	},
+	"elementActionStartHint": {
+		"message": "Isasagawa sa elemento sa <b>panimulang posisyon ng kumpas</b>.",
+		"description": "Notice shown in action config for link/image"
 	},
 	"noResults": {
 		"message": "Walang resulta",

@@ -1,5 +1,3 @@
-const isEdge = navigator.userAgent.includes('Edg/') || navigator.userAgent.includes('EdgA/');
-
 const GLOBAL_MUTE_KEY = 'flowmouse_global_mute_state';
 
 const ctxMenuSessions = new Map();
@@ -81,9 +79,7 @@ class Bookmarks {
 		const hasPath = Array.isArray(path) && path.length > 0;
 		if (!id && !hasPath) return null;
 
-		{
-			return id && await Bookmarks.#isFolder(id) ? id : null;
-		}
+		return id && await Bookmarks.#isFolder(id) ? id : null;
 	}
 
 	static async addLink({ title, url, folderId }) {
@@ -156,8 +152,10 @@ const CONTENT_ACTIONS = new Set([
 	'menuShowTabs', 'menuRecentlyClosed', 'menuShowBookmarks',
 	'customMenu',
 
-	'copy', 'copyLink', 'copyImageUrl', 'copyLinkText', 'copyLinkAndText',
-	'search', 'openTab', 'openLink', 'openImage', 'imageSearch', 'saveImage', 'bookmarkLink',
+	'openLink', 'copyLink', 'copyLinkText', 'copyLinkAndText', 'bookmarkLink',
+	'openImage', 'saveImage', 'copyImageUrl', 'imageSearch',
+
+	'copy', 'search',
 ]);
 
 async function createTabAtPosition(tab, position, extraOpts = {}) {
@@ -422,32 +420,30 @@ async function handleAction(request, sender, dragType, contentValues) {
 			const subdir = sanitizeSubdir(request.subdir);
 
 			if (request.url.startsWith('data:')) {
-				{
-					try {
-						const response = await fetch(request.url);
-						const blob = await response.blob();
-						const downloadUrl = URL.createObjectURL(blob);
+				try {
+					const response = await fetch(request.url);
+					const blob = await response.blob();
+					const downloadUrl = URL.createObjectURL(blob);
 
-						const filename = request.filename || getFilename(null, blob.type);
+					const filename = request.filename || getFilename(null, blob.type);
 
-						const downloadId = await chrome.downloads.download({
-							url: downloadUrl,
-							filename: joinDownloadPath(subdir, filename),
-							saveAs: false
-						});
+					const downloadId = await chrome.downloads.download({
+						url: downloadUrl,
+						filename: joinDownloadPath(subdir, filename),
+						saveAs: false
+					});
 
-						const revokeOnComplete = (delta) => {
-							if (delta.id === downloadId && delta.state?.current === 'complete') {
-								URL.revokeObjectURL(downloadUrl);
-								chrome.downloads.onChanged.removeListener(revokeOnComplete);
-							}
-						};
-						chrome.downloads.onChanged.addListener(revokeOnComplete);
-						return { success: true };
-					} catch (e) {
-						console.error('Failed to download data URL:', e);
-						return { success: false };
-					}
+					const revokeOnComplete = (delta) => {
+						if (delta.id === downloadId && delta.state?.current === 'complete') {
+							URL.revokeObjectURL(downloadUrl);
+							chrome.downloads.onChanged.removeListener(revokeOnComplete);
+						}
+					};
+					chrome.downloads.onChanged.addListener(revokeOnComplete);
+					return { success: true };
+				} catch (e) {
+					console.error('Failed to download data URL:', e);
+					return { success: false };
 				}
 			}
 
@@ -930,7 +926,7 @@ async function handleAction(request, sender, dragType, contentValues) {
 					action: 'areaSelectUpdate',
 					frameId: sender.frameId ?? 0,
 					links: request.links,
-				}).catch(() => {});
+				}, { frameId: 0 }).catch(() => {});
 			}
 			return { success: true };
 
@@ -967,7 +963,7 @@ async function handleAction(request, sender, dragType, contentValues) {
 				await chrome.tabs.sendMessage(sender.tab.id, {
 					action: 'gestureHudUpdate',
 					data: request.data
-				}).catch(() => {
+				}, { frameId: 0 }).catch(() => {
 				});
 			}
 			return { success: true };
@@ -1416,6 +1412,53 @@ chrome.runtime.onInstalled.addListener((details) => {
 
 			try {
 				const items = await chrome.storage.sync.get([
+					'linkDragGestures', 'imageDragGestures', 'actionChains',
+				]);
+				const updates = {};
+
+				const migrateOpenTab = (config, dragType) => {
+					if (config?.action !== 'openTab') return false;
+					if (dragType === 'image') {
+						config.action = 'openImage';
+					} else {
+						config.action = 'openLink';
+						delete config.preferLink;
+						delete config.customNamePreferLink;
+					}
+					return true;
+				};
+
+				for (const [key, dragType] of [['linkDragGestures', 'link'], ['imageDragGestures', 'image']]) {
+					if (!Array.isArray(items[key])) continue;
+					const gestures = structuredClone(items[key]);
+					let changed = false;
+					for (const g of gestures) {
+						if (migrateOpenTab(g, dragType)) changed = true;
+					}
+					if (changed) updates[key] = gestures;
+				}
+
+				if (items.actionChains) {
+					const chains = structuredClone(items.actionChains);
+					let changed = false;
+					for (const chain of Object.values(chains)) {
+						if (!chain.steps) continue;
+						for (const step of chain.steps) {
+							if (migrateOpenTab(step, chain.type)) changed = true;
+						}
+					}
+					if (changed) updates.actionChains = chains;
+				}
+
+				if (Object.keys(updates).length) {
+					await chrome.storage.sync.set(updates);
+				}
+			} catch (e) {
+				console.error('Migration (openTab → openLink/openImage) failed:', e);
+			}
+
+			try {
+				const items = await chrome.storage.sync.get([
 					'mouseGestures', 'wheelGestures', 'specialGestures', 'actionChains',
 				]);
 				const updates = {};
@@ -1474,6 +1517,8 @@ chrome.runtime.onInstalled.addListener((details) => {
 			} catch (e) {
 				console.error('Migration (copyUrl → copyTitleAndUrl) failed:', e);
 			}
+
+			await chrome.storage.sync.set({ lastSyncVersion: chrome.runtime.getManifest().version }).catch(() => { });
 		})();
 	}
 
@@ -1483,7 +1528,6 @@ chrome.runtime.onInstalled.addListener((details) => {
 			chrome.browserSettings.contextMenuShowEvent.set({ value: "mouseup" }).catch((e) => { });
 		}
 	}
-
 
 	if (details.reason === 'install' || details.reason === 'update') {
 		chrome.storage.local.get(['installDate'], (items) => {
@@ -1519,10 +1563,8 @@ function isRestrictedUrl(url) {
 		if (url.startsWith(protocol)) return true;
 	}
 
-	{
-		if (url.startsWith('https://addons.mozilla.org')) {
-			return true;
-		}
+	if (url.startsWith('https://addons.mozilla.org')) {
+		return true;
 	}
 
 	return false;

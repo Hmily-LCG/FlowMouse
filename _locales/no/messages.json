@@ -151,6 +151,10 @@
 		"message": "For å åpne kontekstmenyen, dobbeltklikk med høyre museknapp. (Finn ut mer)",
 		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
 	},
+	"edgeGestureConflictHint": {
+		"message": "Det er oppdaget en konflikt mellom Edges innebygde bevegelser og FlowMouse-bevegelser. (Finn ut mer)",
+		"description": "Clickable toast shown on Edge when its built-in mouse gestures repeatedly interrupt FlowMouse gestures; opens the settings notice"
+	},
 	"edgeGestureConflictNotice": {
 		"message": "%browserName% har innebygde gestfunksjoner. For å bruke FlowMouse sine gester, vennligst <a href=\"#\" class=\"edge-gesture-link\">deaktiver de innebygde gestene</a> i %browserName%-innstillingene.",
 		"description": "Notice for Edge users about built-in gesture conflict"
@@ -975,6 +979,18 @@
 		"message": "Slett bevegelse",
 		"description": "Delete gesture button tooltip"
 	},
+	"redrawGesture": {
+		"message": "Tegn bevegelse på nytt",
+		"description": "Gesture card menu item: re-record the gesture pattern"
+	},
+	"editAction": {
+		"message": "Rediger kommando",
+		"description": "Gesture card menu item: change the action bound to the gesture"
+	},
+	"moreOptions": {
+		"message": "Flere alternativer",
+		"description": "Tooltip for the 3-dot menu button"
+	},
 	"deleteGestureConfirm": {
 		"message": "Slett bevegelse %pattern%?",
 		"description": "Delete gesture confirmation"
@@ -1231,11 +1247,11 @@
 		"message": "Kopier",
 		"description": "Copy action"
 	},
-	"dragActionOpenTabLink": {
+	"dragActionOpenLink": {
 		"message": "Åpne lenke",
 		"description": "Open link in new tab"
 	},
-	"dragActionOpenTabImage": {
+	"dragActionOpenImage": {
 		"message": "Åpne bilde",
 		"description": "Open image in new tab"
 	},
@@ -1431,6 +1447,10 @@
 		"message": "Trykk og <strong>hold</strong> <span class=\"text-highlight\">Høyre museknapp</span>",
 		"description": "Tutorial Step 1 instruction idle"
 	},
+	"tutorialStep1InstructionStart": {
+		"message": "Trykk og <strong>hold</strong> <span class=\"text-highlight\">Høyre museknapp</span> for å starte",
+		"description": "Tutorial first page instruction, before the first press"
+	},
 	"tutorialStep1InstructionPressing": {
 		"message": "<strong>Utmerket!</strong> Dra nå <strong>%arrow% til høyre</strong>",
 		"description": "Tutorial Step 1 instruction pressing"
@@ -1452,7 +1472,7 @@
 		"description": "Tutorial Step 2 subtitle"
 	},
 	"tutorialStep2Footer": {
-		"message": "<strong>Flere bevegelser</strong> og <strong>full tilpasning</strong> tilgjengelig i innstillinger.",
+		"message": "<strong>Flere bevegelser</strong> og <strong>full tilpasning</strong> tilgjengelig i innstillinger",
 		"description": "Footer note for step 2 discovery banner"
 	},
 	"tutorialStep2DiscoveryHeader": {
@@ -1476,7 +1496,7 @@
 		"description": "Image drag open discovery item"
 	},
 	"tutorialStep3Footer": {
-		"message": "<strong>Flere dra-handlinger</strong> og <strong>full tilpasning</strong> tilgjengelig i avansert innstillingsmodus",
+		"message": "<strong>Flere dra-handlinger</strong> og <strong>full tilpasning</strong> tilgjengelig i innstillinger",
 		"description": "Footer for step 3 discovery banner"
 	},
 	"tutorialContinue": {
@@ -1670,6 +1690,14 @@
 	"actionCategoryImage": {
 		"message": "Bilde",
 		"description": "Action category: image"
+	},
+	"actionCategoryLinkImage": {
+		"message": "Lenke og bilde",
+		"description": "Action category: link and image"
+	},
+	"elementActionStartHint": {
+		"message": "Utføres på elementet ved <b>startposisjonen for gesten</b>.",
+		"description": "Notice shown in action config for link/image"
 	},
 	"noResults": {
 		"message": "Ingen resultater",

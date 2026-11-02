@@ -151,6 +151,10 @@
 		"message": "Щоб відкрити контекстне меню, двічі клацніть правою кнопкою миші. (Докладніше)",
 		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
 	},
+	"edgeGestureConflictHint": {
+		"message": "Виявлено конфлікт між вбудованими жестами Edge та жестами FlowMouse. (Докладніше)",
+		"description": "Clickable toast shown on Edge when its built-in mouse gestures repeatedly interrupt FlowMouse gestures; opens the settings notice"
+	},
 	"edgeGestureConflictNotice": {
 		"message": "%browserName% має вбудовані функції жестів. Щоб використовувати жести FlowMouse, <a href=\"#\" class=\"edge-gesture-link\">вимкніть вбудовані жести</a> в налаштуваннях %browserName%.",
 		"description": "Notice for Edge users about built-in gesture conflict"
@@ -975,6 +979,18 @@
 		"message": "Видалити жест",
 		"description": "Delete gesture button tooltip"
 	},
+	"redrawGesture": {
+		"message": "Перемалювати жест",
+		"description": "Gesture card menu item: re-record the gesture pattern"
+	},
+	"editAction": {
+		"message": "Редагувати команду",
+		"description": "Gesture card menu item: change the action bound to the gesture"
+	},
+	"moreOptions": {
+		"message": "Додаткові параметри",
+		"description": "Tooltip for the 3-dot menu button"
+	},
 	"deleteGestureConfirm": {
 		"message": "Видалити жест %pattern%?",
 		"description": "Delete gesture confirmation"
@@ -1231,11 +1247,11 @@
 		"message": "Копіювати",
 		"description": "Copy action"
 	},
-	"dragActionOpenTabLink": {
+	"dragActionOpenLink": {
 		"message": "Відкрити посилання",
 		"description": "Open link in new tab"
 	},
-	"dragActionOpenTabImage": {
+	"dragActionOpenImage": {
 		"message": "Відкрити зображення",
 		"description": "Open image in new tab"
 	},
@@ -1431,6 +1447,10 @@
 		"message": "<strong>Утримуйте</strong> <span class=\"text-highlight\">праву кнопку миші</span>",
 		"description": "Tutorial Step 1 instruction idle"
 	},
+	"tutorialStep1InstructionStart": {
+		"message": "<strong>Утримуйте</strong> <span class=\"text-highlight\">праву кнопку миші</span>, щоб почати",
+		"description": "Tutorial first page instruction, before the first press"
+	},
 	"tutorialStep1InstructionPressing": {
 		"message": "<strong>Чудово!</strong> Тепер проведіть <strong>%arrow% Вправо</strong>",
 		"description": "Tutorial Step 1 instruction pressing"
@@ -1452,7 +1472,7 @@
 		"description": "Tutorial Step 2 subtitle"
 	},
 	"tutorialStep2Footer": {
-		"message": "<strong>Більше жестів</strong> та <strong>повна кастомізація</strong> доступні в налаштуваннях.",
+		"message": "<strong>Більше жестів</strong> та <strong>повна кастомізація</strong> доступні в налаштуваннях",
 		"description": "Footer note for step 2 discovery banner"
 	},
 	"tutorialStep2DiscoveryHeader": {
@@ -1476,7 +1496,7 @@
 		"description": "Image drag open discovery item"
 	},
 	"tutorialStep3Footer": {
-		"message": "<strong>Більше дій перетягування</strong> та <strong>повна кастомізація</strong> доступні в режимі розширених налаштувань",
+		"message": "<strong>Більше дій перетягування</strong> та <strong>повна кастомізація</strong> доступні в налаштуваннях",
 		"description": "Footer for step 3 discovery banner"
 	},
 	"tutorialContinue": {
@@ -1670,6 +1690,14 @@
 	"actionCategoryImage": {
 		"message": "Зображення",
 		"description": "Action category: image"
+	},
+	"actionCategoryLinkImage": {
+		"message": "Посилання та зображення",
+		"description": "Action category: link and image"
+	},
+	"elementActionStartHint": {
+		"message": "Буде виконано на елементі в <b>початковій позиції жесту</b>.",
+		"description": "Notice shown in action config for link/image"
 	},
 	"noResults": {
 		"message": "Немає результатів",

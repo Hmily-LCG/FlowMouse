@@ -151,6 +151,10 @@
 		"message": "কনটেক্সট মেনু খুলতে, দুবার রাইট-ক্লিক করুন। (আরও জানুন)",
 		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
 	},
+	"edgeGestureConflictHint": {
+		"message": "Edge-এর বিল্ট-ইন জেসচার এবং FlowMouse-এর জেসচারের মধ্যে দ্বন্দ্ব শনাক্ত করা হয়েছে। (আরও জানুন)",
+		"description": "Clickable toast shown on Edge when its built-in mouse gestures repeatedly interrupt FlowMouse gestures; opens the settings notice"
+	},
 	"edgeGestureConflictNotice": {
 		"message": "%browserName%-এ বিল্ট-ইন জেশ্চার বৈশিষ্ট্য রয়েছে। FlowMouse-এর জেশ্চার ব্যবহার করতে, অনুগ্রহ করে %browserName% সেটিংসে <a href=\"#\" class=\"edge-gesture-link\">বিল্ট-ইন জেশ্চারগুলি নিষ্ক্রিয় করুন</a>।",
 		"description": "Notice for Edge users about built-in gesture conflict"
@@ -975,6 +979,18 @@
 		"message": "জেসচার মুছুন",
 		"description": "Delete gesture button tooltip"
 	},
+	"redrawGesture": {
+		"message": "জেসচার পুনরায় আঁকুন",
+		"description": "Gesture card menu item: re-record the gesture pattern"
+	},
+	"editAction": {
+		"message": "কমান্ড সম্পাদনা করুন",
+		"description": "Gesture card menu item: change the action bound to the gesture"
+	},
+	"moreOptions": {
+		"message": "আরও বিকল্প",
+		"description": "Tooltip for the 3-dot menu button"
+	},
 	"deleteGestureConfirm": {
 		"message": "আপনি কি জেসচার %pattern% মুছতে নিশ্চিত?",
 		"description": "Delete gesture confirmation"
@@ -1231,11 +1247,11 @@
 		"message": "কপি",
 		"description": "Copy action"
 	},
-	"dragActionOpenTabLink": {
+	"dragActionOpenLink": {
 		"message": "লিঙ্ক খুলুন",
 		"description": "Open link in new tab"
 	},
-	"dragActionOpenTabImage": {
+	"dragActionOpenImage": {
 		"message": "ইমেজ খুলুন",
 		"description": "Open image in new tab"
 	},
@@ -1431,6 +1447,10 @@
 		"message": "দয়া করে <span class=\"text-highlight\">মাউসের ডান বোতাম</span> টিপে ধরুন",
 		"description": "Tutorial Step 1 instruction idle"
 	},
+	"tutorialStep1InstructionStart": {
+		"message": "শুরু করতে দয়া করে <span class=\"text-highlight\">মাউসের ডান বোতাম</span> টিপে ধরুন",
+		"description": "Tutorial first page instruction, before the first press"
+	},
 	"tutorialStep1InstructionPressing": {
 		"message": "<strong>চমৎকার!</strong> এবার <strong>%arrow% ডানদিকে</strong> ড্র্যাগ করুন",
 		"description": "Tutorial Step 1 instruction pressing"
@@ -1452,7 +1472,7 @@
 		"description": "Tutorial Step 2 subtitle"
 	},
 	"tutorialStep2Footer": {
-		"message": "<strong>আরও জেসচার</strong> এবং <strong>ফুল কাস্টমাইজেশন</strong> সেটিংসে উপলব্ধ।",
+		"message": "<strong>আরও জেসচার</strong> এবং <strong>ফুল কাস্টমাইজেশন</strong> সেটিংসে উপলব্ধ",
 		"description": "Footer note for step 2 discovery banner"
 	},
 	"tutorialStep2DiscoveryHeader": {
@@ -1476,7 +1496,7 @@
 		"description": "Image drag open discovery item"
 	},
 	"tutorialStep3Footer": {
-		"message": "<strong>আরও ড্র্যাগ অ্যাকশন</strong> এবং <strong>ফুল কাস্টমাইজেশন</strong> উন্নত সেটিংসে উপলব্ধ",
+		"message": "<strong>আরও ড্র্যাগ অ্যাকশন</strong> এবং <strong>ফুল কাস্টমাইজেশন</strong> সেটিংসে উপলব্ধ",
 		"description": "Footer for step 3 discovery banner"
 	},
 	"tutorialContinue": {
@@ -1670,6 +1690,14 @@
 	"actionCategoryImage": {
 		"message": "ইমেজ",
 		"description": "Action category: image"
+	},
+	"actionCategoryLinkImage": {
+		"message": "লিঙ্ক ও ইমেজ",
+		"description": "Action category: link and image"
+	},
+	"elementActionStartHint": {
+		"message": "<b>ভঙ্গির শুরুর স্থানে</b> থাকা উপাদানের ওপর কার্যকর হবে।",
+		"description": "Notice shown in action config for link/image"
 	},
 	"noResults": {
 		"message": "কোনো ফলাফল পাওয়া যায়নি",

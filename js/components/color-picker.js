@@ -366,7 +366,7 @@ class ColorPicker extends LitElement {
 			this._h = hsv.h;
 			this._s = hsv.s;
 			this._v = hsv.v;
-			if (parsed.a != null) this._a = parsed.a;
+			this._a = parsed.a ?? 100;
 		}
 		if (changed.has('blurRadius') && this.blurRadius != null) {
 			this._blur = this.blurRadius;
@@ -483,8 +483,7 @@ class ColorPicker extends LitElement {
 			this._h = hsv.h;
 			this._s = hsv.s;
 			this._v = hsv.v;
-			if (parsed.a != null) this._a = parsed.a;
-			else this._a = 100;
+			this._a = parsed.a ?? 100;
 		}
 		if (this.defaultBlurRadius != null) this._blur = this.defaultBlurRadius;
 		this.#emitChange();

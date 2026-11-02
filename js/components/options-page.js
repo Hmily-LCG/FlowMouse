@@ -289,9 +289,27 @@ class OptionsPage extends LitElement {
 		});
 
 		this.updateComplete.then(() => {
-			this.#handleHashNavigation();
+			if (window.location.hash === '#from-tutorial') {
+				this.#playTutorialArrival();
+			} else {
+				this.#handleHashNavigation();
+			}
 			window.addEventListener('hashchange', () => this.#handleHashNavigation());
 		});
+	}
+
+	#playTutorialArrival() {
+		history.replaceState(null, '', location.pathname + location.search);
+		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+		const easing = 'cubic-bezier(0.33, 1, 0.68, 1)';
+		this.shadowRoot.querySelectorAll('.container > *').forEach((el, i) => el.animate(
+			[{ opacity: 0, transform: 'translateY(12px)' }, { opacity: 1, transform: 'none' }],
+			{ duration: 550, delay: 60 + i * 40, easing, fill: 'backwards' }
+		));
+		this.shadowRoot.querySelector('.section-nav')?.animate(
+			[{ opacity: 0 }, { opacity: 1 }],
+			{ duration: 350, delay: 60, easing, fill: 'backwards' }
+		);
 	}
 
 
@@ -301,8 +319,8 @@ class OptionsPage extends LitElement {
 
 		const triggerBtns = this._settings.gestureTriggerButtons || {};
 		const gestureUsesRightClick = this._settings.enableGesture && (triggerBtns.right !== false || triggerBtns.penRight === true);
-		const showMacLinuxNotice = !window.i18n.isFirefox && ['mac', 'linux', 'cros', 'android'].includes(window.i18n.platform) && (gestureUsesRightClick || this._settings.enableWheelGestures || this._settings.enableSpecialGestures);
-		const showEdgeGestureNotice = window.i18n.isEdgeDesktop && this._settings.edgeGestureConflict && this._settings.enableGesture;
+		const showMacLinuxNotice = false;
+		const showEdgeGestureNotice = false;
 		const showMacTextDragNotice = window.i18n.platform === 'mac';
 
 		const gestureEnabled = this._settings.enableGesture;
@@ -480,7 +498,7 @@ class OptionsPage extends LitElement {
 							<div class="setting-warning" id="mac-linux-notice"><span>${i18n.getMessage('macLinuxContextMenuNotice')}</span></div>
 						` : ''}
 						${showEdgeGestureNotice ? html`
-							<div class="setting-warning" @click=${this.#handleEdgeGestureLink}><span>${unsafeHTML(i18n.getMessage('edgeGestureConflictNotice'))}</span></div>
+							<div class="setting-warning" id="edge-gesture-notice" @click=${this.#handleEdgeGestureLink}><span>${unsafeHTML(i18n.getMessage('edgeGestureConflictNotice'))}</span></div>
 						` : ''}
 
 						<div class="setting-group" style="display:${gestureEnabled ? 'block' : 'none'}">
@@ -557,7 +575,7 @@ class OptionsPage extends LitElement {
 										<span class="slider"></span>
 									</label>
 								</div>
-								<div style="display:${this._settings.enableGestureCustomization ? 'block' : 'none'}">
+								<div class="sub-settings ${this._settings.enableGestureCustomization ? 'show' : ''}">
 									<gesture-grid id="gestureGrid"
 										.mouseGestures=${{ ...(this._settings.mouseGestures || {}) }}
 										?advanced-mode=${this._settings.sectionAdvanced?.basic}
@@ -608,7 +626,7 @@ class OptionsPage extends LitElement {
 								</div>
 							</div>
 							` : ''}
-							<div class="drag-settings-section" style="display:${this._settings.enableTextDrag ? 'block' : 'none'}">
+							<div class="sub-settings ${this._settings.enableTextDrag ? 'show' : ''}">
 								<drag-gesture-manager type="text" id="textDragManager"
 									.dragGestures=${this._settings.textDragGestures || []}
 									?advanced-mode=${(this._settings.sectionAdvanced?.drag)}
@@ -629,7 +647,7 @@ class OptionsPage extends LitElement {
 									<span class="slider"></span>
 								</label>
 							</div>
-							<div class="drag-settings-section" style="display:${this._settings.enableImageDrag ? 'block' : 'none'}">
+							<div class="sub-settings ${this._settings.enableImageDrag ? 'show' : ''}">
 								<drag-gesture-manager type="image" id="imageDragManager"
 									.dragGestures=${this._settings.imageDragGestures || []}
 									?advanced-mode=${(this._settings.sectionAdvanced?.drag)}
@@ -663,7 +681,7 @@ class OptionsPage extends LitElement {
 								</div>
 							</div>
 							` : ''}
-							<div class="drag-settings-section" style="display:${this._settings.enableLinkDrag ? 'block' : 'none'}">
+							<div class="sub-settings ${this._settings.enableLinkDrag ? 'show' : ''}">
 								<drag-gesture-manager type="link" id="linkDragManager"
 									.dragGestures=${this._settings.linkDragGestures || []}
 									?advanced-mode=${(this._settings.sectionAdvanced?.drag)}
@@ -906,7 +924,7 @@ class OptionsPage extends LitElement {
 								</span>
 								<div class="setting-label">
 									<span class="setting-title">${i18n.getMessage('feedbackTitle')}</span>
-									<span class="setting-desc">${unsafeHTML(i18n.getMessage(!i18n.isFirefox && !i18n.isEdge ? 'feedbackTextChrome' : 'feedbackText'))}</span>
+									<span class="setting-desc">${unsafeHTML(i18n.getMessage('feedbackText'))}</span>
 								</div>
 							</div>
 						</div>
@@ -1133,10 +1151,8 @@ class OptionsPage extends LitElement {
 	async #updateTriggerButton(buttonKey, checked) {
 		const current = { ...this._settings.gestureTriggerButtons };
 		current[buttonKey] = checked;
-		{
-			current.side1 = false;
-			current.side2 = false;
-		}
+		current.side1 = false;
+		current.side2 = false;
 		if (!current.right && !current.middle && !current.side1 && !current.side2 && !current.penRight) {
 			current.right = true;
 		}
@@ -1362,7 +1378,7 @@ class OptionsPage extends LitElement {
 			}
 		};
 
-		if ((action === 'newIncognito' && window.i18n.isFirefox) || action === 'openInIncognito') {
+		if (action === 'newIncognito' || action === 'openInIncognito') {
 			const isAllowed = await chrome.extension.isAllowedIncognitoAccess();
 			if (!isAllowed) {
 				await openPopup('incognito');

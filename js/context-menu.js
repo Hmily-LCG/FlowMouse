@@ -1,6 +1,5 @@
 import { LitElement, html, css } from './lib/lit-core.min.js';
 
-
 const CUSTOM_CSS_CACHE_KEY = 'fm:customCss';
 
 class FmContextMenu extends LitElement {
@@ -248,9 +247,7 @@ class FmContextMenu extends LitElement {
 	};
 
 	#onWheel = (e) => {
-		{
-			void e.deltaY;
-		}
+		void e.deltaY;
 		if (!this.#wheelMode || !(e.buttons & 2) || !e.deltaY) return;
 		e.preventDefault();
 		if (this.#accumulateWheel(e)) this.#moveFocus(Math.sign(e.deltaY));
@@ -264,7 +261,7 @@ class FmContextMenu extends LitElement {
 			this.#wheelAccum = 0;
 			return true;
 		}
-		this.#wheelAccum += Math.abs(e.deltaMode === 1 ? e.deltaY * 16.67 : e.deltaY * (1));
+		this.#wheelAccum += Math.abs(e.deltaMode === 1 ? e.deltaY * 16.67 : e.deltaY * 1);
 		if (this.#wheelAccum < this.#wheelThreshold) return false;
 		this.#wheelAccum = 0;
 		return true;

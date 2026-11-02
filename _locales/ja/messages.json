@@ -151,6 +151,10 @@
 		"message": "コンテキストメニューを開くには、右ボタンをダブルクリックしてください。（詳細）",
 		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
 	},
+	"edgeGestureConflictHint": {
+		"message": "Edge 組み込みのマウスジェスチャーと FlowMouse のジェスチャー機能の競合が検出されました。（詳細を見る）",
+		"description": "Clickable toast shown on Edge when its built-in mouse gestures repeatedly interrupt FlowMouse gestures; opens the settings notice"
+	},
 	"edgeGestureConflictNotice": {
 		"message": "%browserName% にはジェスチャ機能が組み込まれています。FlowMouse のジェスチャを使用するには、%browserName% の設定で<a href=\"#\" class=\"edge-gesture-link\">組み込みジェスチャを無効にしてください</a>。",
 		"description": "Notice for Edge users about built-in gesture conflict"
@@ -975,6 +979,18 @@
 		"message": "ジェスチャーを削除",
 		"description": "Delete gesture button tooltip"
 	},
+	"redrawGesture": {
+		"message": "ジェスチャーを描き直す",
+		"description": "Gesture card menu item: re-record the gesture pattern"
+	},
+	"editAction": {
+		"message": "コマンドを編集",
+		"description": "Gesture card menu item: change the action bound to the gesture"
+	},
+	"moreOptions": {
+		"message": "その他のオプション",
+		"description": "Tooltip for the 3-dot menu button"
+	},
 	"deleteGestureConfirm": {
 		"message": "ジェスチャー %pattern% を削除しますか？",
 		"description": "Delete gesture confirmation"
@@ -1231,11 +1247,11 @@
 		"message": "コピー",
 		"description": "Copy action"
 	},
-	"dragActionOpenTabLink": {
+	"dragActionOpenLink": {
 		"message": "リンクを開く",
 		"description": "Open link in new tab"
 	},
-	"dragActionOpenTabImage": {
+	"dragActionOpenImage": {
 		"message": "画像を開く",
 		"description": "Open image in new tab"
 	},
@@ -1431,6 +1447,10 @@
 		"message": "<span class=\"text-highlight\">マウスの右ボタン</span>を押し続けてください",
 		"description": "Tutorial Step 1 instruction idle"
 	},
+	"tutorialStep1InstructionStart": {
+		"message": "開始するには<span class=\"text-highlight\">マウスの右ボタン</span>を押し続けてください",
+		"description": "Tutorial first page instruction, before the first press"
+	},
 	"tutorialStep1InstructionPressing": {
 		"message": "<strong>素晴らしい！</strong> 押したまま、<strong>%arrow% 右</strong>へドラッグしてください",
 		"description": "Tutorial Step 1 instruction pressing"
@@ -1476,7 +1496,7 @@
 		"description": "Image drag open discovery item"
 	},
 	"tutorialStep3Footer": {
-		"message": "<strong>その他のドラッグ機能</strong>や<strong>ドラッグのカスタマイズ</strong>は詳細設定モードで確認できます",
+		"message": "<strong>その他のドラッグ機能</strong>や<strong>ドラッグのカスタマイズ</strong>は設定で確認できます",
 		"description": "Footer for step 3 discovery banner"
 	},
 	"tutorialContinue": {
@@ -1670,6 +1690,14 @@
 	"actionCategoryImage": {
 		"message": "画像",
 		"description": "Action category: image"
+	},
+	"actionCategoryLinkImage": {
+		"message": "リンクと画像",
+		"description": "Action category: link and image"
+	},
+	"elementActionStartHint": {
+		"message": "<b>ジェスチャーの開始位置</b>にある要素に対して実行されます。",
+		"description": "Notice shown in action config for link/image"
 	},
 	"noResults": {
 		"message": "結果なし",

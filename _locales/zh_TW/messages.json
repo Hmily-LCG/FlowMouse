@@ -151,6 +151,10 @@
 		"message": "要開啟原生選單，請連按兩下右鍵。（了解詳情）",
 		"description": "Short toast hint shown on first right-click on macOS/Linux explaining double-click requirement"
 	},
+	"edgeGestureConflictHint": {
+		"message": "偵測到 Edge 內建的手勢功能與 FlowMouse 的手勢功能衝突。（了解詳情）",
+		"description": "Clickable toast shown on Edge when its built-in mouse gestures repeatedly interrupt FlowMouse gestures; opens the settings notice"
+	},
 	"edgeGestureConflictNotice": {
 		"message": "%browserName% 具有內建手勢功能。如需使用 FlowMouse 的手勢，請前往 %browserName% 設定中<a href=\"#\" class=\"edge-gesture-link\">停用其內建手勢</a>。",
 		"description": "Notice for Edge users about built-in gesture conflict"
@@ -975,6 +979,18 @@
 		"message": "刪除手勢",
 		"description": "Delete gesture button tooltip"
 	},
+	"redrawGesture": {
+		"message": "重繪手勢",
+		"description": "Gesture card menu item: re-record the gesture pattern"
+	},
+	"editAction": {
+		"message": "編輯命令",
+		"description": "Gesture card menu item: change the action bound to the gesture"
+	},
+	"moreOptions": {
+		"message": "更多選項",
+		"description": "Tooltip for the 3-dot menu button"
+	},
 	"deleteGestureConfirm": {
 		"message": "確定刪除手勢 %pattern% 嗎？",
 		"description": "Delete gesture confirmation"
@@ -1231,11 +1247,11 @@
 		"message": "複製",
 		"description": "Copy action"
 	},
-	"dragActionOpenTabLink": {
+	"dragActionOpenLink": {
 		"message": "開啟連結",
 		"description": "Open link in new tab"
 	},
-	"dragActionOpenTabImage": {
+	"dragActionOpenImage": {
 		"message": "開啟圖片",
 		"description": "Open image in new tab"
 	},
@@ -1431,6 +1447,10 @@
 		"message": "請按住<span class=\"text-highlight\">滑鼠右鍵</span>",
 		"description": "Tutorial Step 1 instruction idle"
 	},
+	"tutorialStep1InstructionStart": {
+		"message": "請按住<span class=\"text-highlight\">滑鼠右鍵</span>開始",
+		"description": "Tutorial first page instruction, before the first press"
+	},
 	"tutorialStep1InstructionPressing": {
 		"message": "<strong>很好！</strong>保持按住，向 <strong>%arrow% 右</strong> 拖曳",
 		"description": "Tutorial Step 1 instruction pressing"
@@ -1476,7 +1496,7 @@
 		"description": "Image drag open discovery item"
 	},
 	"tutorialStep3Footer": {
-		"message": "<strong>更多拖曳功能</strong> 及 <strong>拖曳自訂</strong> 可在進階設定模式中探索",
+		"message": "<strong>更多拖曳功能</strong> 及 <strong>拖曳自訂</strong> 可在設定中探索",
 		"description": "Footer for step 3 discovery banner"
 	},
 	"tutorialContinue": {
@@ -1670,6 +1690,14 @@
 	"actionCategoryImage": {
 		"message": "圖片",
 		"description": "Action category: image"
+	},
+	"actionCategoryLinkImage": {
+		"message": "連結與圖片",
+		"description": "Action category: link and image"
+	},
+	"elementActionStartHint": {
+		"message": "將在<b>手勢起始位置</b>的元素上執行。",
+		"description": "Notice shown in action config for link/image"
 	},
 	"noResults": {
 		"message": "無結果",

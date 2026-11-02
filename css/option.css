@@ -4,7 +4,7 @@ body {
 }
 
 .container {
-	max-width: 900px;
+	max-width: 920px;
 	margin: 0 auto;
 }
 
@@ -306,8 +306,138 @@ input[type="color"]::-webkit-color-swatch {
 	border: none;
 }
 
-.drag-settings-section {
-	margin-bottom: 18px;
+.gesture-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+	gap: 8px;
+}
+
+.gesture-item {
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	background: var(--bg-secondary);
+	border: 1px solid var(--border-color);
+	border-radius: 10px;
+}
+
+.gesture-item-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 6px;
+	min-height: 42px;
+	padding-block: 4px;
+	margin-inline: 10px;
+	padding-inline: 4px 0;
+	border-bottom: 1px solid color-mix(var(--border-color) 75%, transparent)
+}
+
+.gesture-item-header dropdown-menu {
+	margin-inline-end: -5px;
+}
+
+.gesture-pattern {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	min-width: 0;
+	margin-inline-start: -6px;
+	padding: 3px 6px;
+	border: 0;
+	border-radius: 6px;
+	background: transparent;
+	color: var(--text-primary);
+	font-family: inherit;
+	font-size: 16.8px;
+	white-space: nowrap;
+	cursor: pointer;
+	transition: background-color 0.15s ease;
+}
+
+.gesture-pattern[aria-disabled="true"] {
+	cursor: default;
+}
+
+.gesture-pattern:not([aria-disabled="true"]):hover,
+.gesture-pattern:focus-visible {
+	background: var(--bg-tertiary);
+	outline: none;
+}
+
+.gesture-pattern-arrows {
+	display: flex;
+	align-items: center;
+	min-width: 0;
+	overflow: hidden;
+}
+
+.gesture-item.none .gesture-pattern-arrows {
+	opacity: .45;
+}
+
+.gesture-pattern-edit {
+	display: flex;
+	flex-shrink: 0;
+	color: var(--text-muted);
+	margin-block: 5px;
+	margin-inline: 1px 2px;
+	opacity: 0;
+	transition: opacity 0.15s ease;
+}
+
+.gesture-pattern:hover .gesture-pattern-edit,
+.gesture-pattern:focus-visible .gesture-pattern-edit {
+	opacity: 1;
+}
+
+.gesture-item action-select::part(trigger) {
+	padding-block: 11px;
+	padding-inline: 14px 10px;
+	font-size: 13.5px;
+	border-radius: 9px 9px 9px 9px;
+	box-shadow: 0 0 0 0px var(--input-focus-border-color);
+	background: transparent;
+	transition: box-shadow 0.15s ease;
+}
+
+.gesture-item action-select::part(trigger):hover,
+.gesture-item action-select::part(trigger):focus {
+	box-shadow: 0 0 0 2px var(--input-focus-border-color);
+}
+
+.gesture-add-group {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	min-height: 80px;
+}
+
+.gesture-add-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+	min-width: 0;
+	min-height: 80px;
+	border-radius: 10px;
+	font-size: 14px;
+}
+
+.gesture-add-group .gesture-add-btn {
+	flex: 1;
+	min-height: 0;
+}
+
+.gesture-add-group .gesture-add-btn.secondary {
+	flex: 0 0 auto;
+	font-size: 13px;
+}
+
+.gesture-add-btn svg,
+.gesture-add-btn .gesture-icon-wrap {
+	display: flex;
+	flex-shrink: 0;
 }
 
 .sub-settings {

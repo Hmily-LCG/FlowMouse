@@ -2,8 +2,8 @@
 	'use strict';
 
 	const isFirefox = true;
-	const isEdgeDesktop = navigator.userAgent.includes('Edg/');
-	const isEdge = navigator.userAgent.includes('Edg/') || navigator.userAgent.includes('EdgA/');
+	const isEdgeDesktop = false;
+	const isEdge = false;
 
 	let translations = {};
 	let currentLang = 'en';
@@ -193,10 +193,8 @@
 	let browserType;
 	function getBrowserType() {
 		if (browserType) return browserType;
-		{
-			browserType = 'firefox';
-			return 'firefox';
-		}
+		browserType = 'firefox';
+		return 'firefox';
 	}
 
 	const browsers = {
