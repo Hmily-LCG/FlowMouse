@@ -318,14 +318,23 @@ async function handleAction(request, sender, dragType, contentValues) {
 			if (!request.preserveTab && request.keepWindow && tabs.length === 1) {
 				await chrome.tabs.create({ active: true, windowId: sender.tab.windowId });
 			} else if (afterClose !== 'default' && tabs.length > 1 && currentPos !== -1) {
-				let targetPos;
-				if (afterClose === 'left') {
-					targetPos = currentPos > 0 ? currentPos - 1 : currentPos + 1;
-				} else if (afterClose === 'right') {
-					targetPos = currentPos < tabs.length - 1 ? currentPos + 1 : currentPos - 1;
-				}
-				if (targetPos !== undefined) {
-					await chrome.tabs.update(tabs[targetPos].id, { active: true });
+				if (afterClose === 'previous') {
+					const previous = tabs
+						.filter(t => t.id !== sender.tab.id && !t.hidden)
+						.reduce((acc, cur) => !acc || cur.lastAccessed > acc.lastAccessed ? cur : acc, null);
+					if (previous) {
+						await chrome.tabs.update(previous.id, { active: true });
+					}
+				} else {
+					let targetPos;
+					if (afterClose === 'left') {
+						targetPos = currentPos > 0 ? currentPos - 1 : currentPos + 1;
+					} else if (afterClose === 'right') {
+						targetPos = currentPos < tabs.length - 1 ? currentPos + 1 : currentPos - 1;
+					}
+					if (targetPos !== undefined) {
+						await chrome.tabs.update(tabs[targetPos].id, { active: true });
+					}
 				}
 			}
 

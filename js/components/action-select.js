@@ -1491,6 +1491,7 @@ class ActionSelect extends LitElement {
 						<option value="default">${window.i18n.getMessage('closeTabAfterCloseDefault')}</option>
 						<option value="left">${window.i18n.getMessage('closeTabAfterCloseLeft')}</option>
 						<option value="right">${window.i18n.getMessage('closeTabAfterCloseRight')}</option>
+						<option value="previous">${window.i18n.getMessage('actionSwitchLastActiveTab')}</option>
 					</select>
 				</div>
 			`;
